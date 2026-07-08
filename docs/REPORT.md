@@ -14,8 +14,13 @@ Current evidence:
 - `experiments/iter03_codeclash_smoke/RESULT.md` validates the CodeClash no-LLM smoke receipt.
 - `experiments/iter04_agent_behavior_slice/RESULT.md` selects the deterministic agent-behavior
   slice.
-- `experiments/iter05_agent_behavior_smoke/HYPOTHESIS.md` freezes the next deterministic
-  agent-behavior smoke.
+- `experiments/iter05_agent_behavior_smoke/RESULT.md` validates deterministic Mini-SWE-Agent
+  trajectory and stats capture.
+- `experiments/iter06_deterministic_edit_slice/RESULT.md` selects the deterministic edit slice.
+- `experiments/iter07_deterministic_edit_smoke/RESULT.md` validates deterministic non-empty diff
+  capture through the CodeClash Mini-SWE-Agent path.
+- `experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md` freezes the next provider-model
+  pilot selection gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

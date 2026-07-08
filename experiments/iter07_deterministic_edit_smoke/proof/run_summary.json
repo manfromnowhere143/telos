@@ -1,0 +1,150 @@
+{
+  "agent_edit": {
+    "agent": "p1",
+    "agent_stats_round": 1,
+    "agent_type": "mini",
+    "exit_status": "Submitted",
+    "expected_modified_file": "telos_marker.py",
+    "model_class": "minisweagent.models.test_models.DeterministicModel",
+    "model_invocations": 2,
+    "model_name": "telos_edit_workspace_marker",
+    "modified_files": [
+      "telos_marker.py"
+    ],
+    "non_empty_diff": true,
+    "provider_backed": false,
+    "provider_cost": 0.0,
+    "trajectory_format": "mini-swe-agent-1.1",
+    "trajectory_path": "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p1/p1_r1.traj.json"
+  },
+  "artifact_hashes": {
+    "raw/telos-codeclash-commit.txt": "c67a8ba2ee4a66ccc5ba548c26b85115ff65f2e4463c6ac40949032cfa1ba7d4",
+    "raw/telos-codeclash-deterministic-edit-run.log": "d490804299ae628baf96dc4e28ba61dec6fe957afb2a7b2169dfa1a7e1639129",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/everything.log": "8c85dca8664bcbeee2671bf6479b01a8e27eb23cdd769741a4fdcb8b27337559",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/game.log": "0aebc90c5ffadfe342b2e0a899277f00221e827fef802aac649b891116a2c99b",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/metadata.json": "d18faee1911b13901f24751f08e5c2cee89b8b5d9af4a474526468729ddd0c55",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p1/changes_r1.json": "9189837ed37b0827d691ee35cc561468475a49db8f7a8e6b5702f0c5d8670b5d",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p1/p1_r1.traj.json": "0d4b3692ba43d15632c1b6e5d717264dc306c0a6c7856f3bb3bed34a05f6cfb0",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p1/player.log": "411a30de63db0d42b45e90615a71f2a1b521cfb84a7ef0b553ab786fcf363eb9",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p2/changes_r1.json": "2fdd239fb86938bb82ad95f6cb916653b780decb94646f337e62e43ee123530f",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p2/player.log": "235c7c108b189e5630c9e90f2ed9a1f989b768dc2cca56bb152ad2e93273b7b1",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/rounds/round_0.tar.gz": "faea355bef5192877c3a12c5207389a742263cd8b830a032d1901eb551eedc5f",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/rounds/round_1.tar.gz": "e440d33cbb8fed565c322993cdaeca125d42d4e0259723b2a2f48cc9dcdd81e3",
+    "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/tournament.log": "cdf96b0f631d9d2cb722b3b2909cff30a9a87c69beff10356c6f4b54cadc8568",
+    "raw/telos-codeclash-deterministic-edit-summary.json": "bf41090389ebfe098c311b86d8db2cf6ee3bf68ced50f7dbceea8c8e4f64e891"
+  },
+  "codeclash": {
+    "commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "config": "configs/test/telos_battlesnake_edit_test.yaml",
+    "overlay_model_config": "configs/mini/telos_edit_battlesnake_marker.yaml"
+  },
+  "diff_scope": {
+    "all_change_records_empty": false,
+    "change_records": [
+      {
+        "empty_diff": false,
+        "full_diff_sha256": "ab23cf66d28bbbbb551d00b0740b075e952b6257e520dc4a2e89734298877f56",
+        "modified_file_count": 1,
+        "modified_files": [
+          "telos_marker.py"
+        ],
+        "path": "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p1/changes_r1.json",
+        "player": "p1",
+        "round": 1
+      },
+      {
+        "empty_diff": true,
+        "full_diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "modified_file_count": 0,
+        "modified_files": [],
+        "path": "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p2/changes_r1.json",
+        "player": "p2",
+        "round": 1
+      }
+    ],
+    "expected_modified_file_present": true,
+    "p1_change_record": "raw/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p1/changes_r1.json",
+    "p1_modified_file_count": 1,
+    "p1_modified_files": [
+      "telos_marker.py"
+    ],
+    "p1_non_empty_diff": true
+  },
+  "github_run": {
+    "completed_at": "2026-07-08T11:11:29Z",
+    "conclusion": "success",
+    "created_at": "2026-07-08T11:09:51Z",
+    "event": "workflow_dispatch",
+    "head_branch": "master",
+    "head_sha": "a2a9c12f3445bb6d744d91a5c4a50e6615c1f254",
+    "job_id": 85853313905,
+    "job_url": "https://github.com/manfromnowhere143/telos/actions/runs/28938078039/job/85853313905",
+    "run_id": 28938078039,
+    "url": "https://github.com/manfromnowhere143/telos/actions/runs/28938078039",
+    "workflow": "codeclash-deterministic-edit"
+  },
+  "raw_artifact_file_count": 14,
+  "schema_version": "telos.deterministic_edit_smoke.result.v1",
+  "tournament": {
+    "config_rounds": 1,
+    "config_sims_per_round": 1,
+    "game": "BattleSnake",
+    "round_stats_entry_count": 2,
+    "rounds": [
+      {
+        "all_submissions_valid": true,
+        "round": 0,
+        "scores": {
+          "p1": 1,
+          "p2": 0.0
+        },
+        "winner": "p1"
+      },
+      {
+        "all_submissions_valid": true,
+        "round": 1,
+        "scores": {
+          "p1": 1,
+          "p2": 0.0
+        },
+        "winner": "p1"
+      }
+    ],
+    "tournament_id": "PvpTournament.BattleSnake.260708111008"
+  },
+  "workflow_summary": {
+    "agent_names": [
+      "p2",
+      "p1"
+    ],
+    "codeclash_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "config": "configs/test/telos_battlesnake_edit_test.yaml",
+    "game": "BattleSnake",
+    "metadata_path": "/tmp/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/metadata.json",
+    "output_root": "/tmp/telos-codeclash-deterministic-edit-smoke",
+    "overlay_model_config": "configs/mini/telos_edit_battlesnake_marker.yaml",
+    "p1_agent_stats": {
+      "1": {
+        "api_calls": 2,
+        "cost": 0.0,
+        "exit_status": "Submitted"
+      }
+    },
+    "p1_change_paths": [
+      "/tmp/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p1/changes_r1.json"
+    ],
+    "p1_model_invocations": 2,
+    "p1_modified_files": [
+      "telos_marker.py"
+    ],
+    "p1_non_empty_diff": true,
+    "p1_provider_cost_zero": true,
+    "p1_trajectory_paths": [
+      "/tmp/telos-codeclash-deterministic-edit-smoke/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708111008/players/p1/p1_r1.traj.json"
+    ],
+    "p2_change_file_count": 1,
+    "round_count": 2,
+    "schema_version": "telos.deterministic_edit_smoke.summary.v1",
+    "tournament_id": "PvpTournament.BattleSnake.260708111008"
+  }
+}

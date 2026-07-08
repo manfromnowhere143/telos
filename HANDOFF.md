@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-08T11:07:51Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-08T11:19:37Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -23,11 +23,12 @@ clean
 - experiments/iter04_agent_behavior_slice: RESULT PUBLISHED
 - experiments/iter05_agent_behavior_smoke: RESULT PUBLISHED
 - experiments/iter06_deterministic_edit_slice: RESULT PUBLISHED
-- experiments/iter07_deterministic_edit_smoke: PRE-REGISTERED, result pending
+- experiments/iter07_deterministic_edit_smoke: RESULT PUBLISHED
+- experiments/iter08_provider_model_pilot_slice: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter07_deterministic_edit_smoke/HYPOTHESIS.md`.
+- Active gate: `experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -50,6 +51,8 @@ python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py
 python3 scripts/validate_receipts.py experiments/iter05_agent_behavior_smoke/proof
 python3 scripts/audit_agent_behavior_smoke.py
+python3 scripts/validate_receipts.py experiments/iter07_deterministic_edit_smoke/proof
+python3 scripts/audit_deterministic_edit_smoke.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

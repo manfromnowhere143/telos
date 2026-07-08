@@ -70,6 +70,12 @@ jobs:
       - name: Agent behavior smoke audit
         run: python3 scripts/audit_agent_behavior_smoke.py
 
+      - name: Deterministic edit smoke receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter07_deterministic_edit_smoke/proof
+
+      - name: Deterministic edit smoke audit
+        run: python3 scripts/audit_deterministic_edit_smoke.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

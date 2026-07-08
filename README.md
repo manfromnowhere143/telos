@@ -31,8 +31,10 @@ and an adversarial review pass.
   [`experiments/iter05_agent_behavior_smoke`](experiments/iter05_agent_behavior_smoke/RESULT.md).
 - Deterministic edit slice: selected in
   [`experiments/iter06_deterministic_edit_slice`](experiments/iter06_deterministic_edit_slice/RESULT.md).
-- Current gate: deterministic edit smoke, pre-registered in
-  [`experiments/iter07_deterministic_edit_smoke`](experiments/iter07_deterministic_edit_smoke/HYPOTHESIS.md).
+- Deterministic edit smoke: passed in
+  [`experiments/iter07_deterministic_edit_smoke`](experiments/iter07_deterministic_edit_smoke/RESULT.md).
+- Current gate: provider-model pilot slice, pre-registered in
+  [`experiments/iter08_provider_model_pilot_slice`](experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -67,7 +69,8 @@ CodeClash smoke: [`experiments/iter03_codeclash_smoke/RESULT.md`](experiments/it
 Agent-behavior slice: [`experiments/iter04_agent_behavior_slice/RESULT.md`](experiments/iter04_agent_behavior_slice/RESULT.md).
 Agent-behavior smoke: [`experiments/iter05_agent_behavior_smoke/RESULT.md`](experiments/iter05_agent_behavior_smoke/RESULT.md).
 Deterministic edit slice: [`experiments/iter06_deterministic_edit_slice/RESULT.md`](experiments/iter06_deterministic_edit_slice/RESULT.md).
-Deterministic edit smoke: [`experiments/iter07_deterministic_edit_smoke/HYPOTHESIS.md`](experiments/iter07_deterministic_edit_smoke/HYPOTHESIS.md).
+Deterministic edit smoke: [`experiments/iter07_deterministic_edit_smoke/RESULT.md`](experiments/iter07_deterministic_edit_smoke/RESULT.md).
+Provider-model pilot slice: [`experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md`](experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -139,6 +142,8 @@ python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py
 python3 scripts/validate_receipts.py experiments/iter05_agent_behavior_smoke/proof
 python3 scripts/audit_agent_behavior_smoke.py
+python3 scripts/validate_receipts.py experiments/iter07_deterministic_edit_smoke/proof
+python3 scripts/audit_deterministic_edit_smoke.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
