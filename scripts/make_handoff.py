@@ -68,8 +68,8 @@ Working tree:
 
 - Active gate: `{gate}`.
 - No benchmark result is claimed yet.
-- Next action: run the no-LLM CodeClash smoke exactly as pre-registered, then publish
-  `RESULT.md` with logs and a receipt under `experiments/iter03_codeclash_smoke/proof/`.
+- Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
+  proof artifacts before advancing scope.
 
 ## Verification Before Action
 
@@ -82,6 +82,8 @@ python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
+python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
+python3 scripts/audit_codeclash_smoke.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

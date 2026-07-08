@@ -23,8 +23,10 @@ and an adversarial review pass.
 - First gate: target survey published as `HYBRID_OVERLAY_SELECTED`.
 - Public slice: selected in
   [`experiments/iter02_public_task_slice`](experiments/iter02_public_task_slice/RESULT.md).
-- Current gate: CodeClash no-LLM smoke receipt, pre-registered in
-  [`experiments/iter03_codeclash_smoke`](experiments/iter03_codeclash_smoke/HYPOTHESIS.md).
+- CodeClash smoke: passed in
+  [`experiments/iter03_codeclash_smoke`](experiments/iter03_codeclash_smoke/RESULT.md).
+- Current gate: first real agent-behavior slice, pre-registered in
+  [`experiments/iter04_agent_behavior_slice`](experiments/iter04_agent_behavior_slice/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -55,6 +57,7 @@ The survey chose one of three actions:
 Survey result: [`experiments/iter00_target_survey/RESULT.md`](experiments/iter00_target_survey/RESULT.md).
 Receipt dry run: [`experiments/iter01_receipt_dry_run/RESULT.md`](experiments/iter01_receipt_dry_run/RESULT.md).
 Public slice: [`experiments/iter02_public_task_slice/RESULT.md`](experiments/iter02_public_task_slice/RESULT.md).
+CodeClash smoke: [`experiments/iter03_codeclash_smoke/RESULT.md`](experiments/iter03_codeclash_smoke/RESULT.md).
 
 ## Candidate Target Families
 
@@ -117,6 +120,8 @@ python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
+python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
+python3 scripts/audit_codeclash_smoke.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

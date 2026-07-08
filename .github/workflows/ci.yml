@@ -49,6 +49,12 @@ jobs:
       - name: Receipt guard
         run: python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 
+      - name: CodeClash smoke receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
+
+      - name: CodeClash smoke audit
+        run: python3 scripts/audit_codeclash_smoke.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

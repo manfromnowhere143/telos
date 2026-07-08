@@ -1,0 +1,57 @@
+{
+  "acceptance_criteria": [
+    "GitHub Actions run 28935161907 completes successfully.",
+    "CodeClash is checked out at commit 381cdfa05a35e8acd35853b9fc7e13005121b127.",
+    "CodeClash dummy-arena unit smoke passes.",
+    "The no-LLM dummy tournament produces metadata and logs.",
+    "Metadata contains four round-stat entries for rounds 0 through 3.",
+    "All player submissions are valid in every parsed round.",
+    "Diff-scope records are present and empty, as expected for dummy agents."
+  ],
+  "agent_id": "codeclash-dummy-p1-vs-p2",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "evidence": [
+    {
+      "artifact": "experiments/iter03_codeclash_smoke/proof/raw",
+      "kind": "artifact",
+      "notes": "Raw GitHub Actions artifact bundle is committed, including metadata, logs, player change files, and round archives.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter03_codeclash_smoke/proof/run_summary.json",
+      "kind": "test",
+      "notes": "CodeClash dummy unit smoke passed and tournament metadata parsed four valid rounds.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter03_codeclash_smoke/proof/run_summary.json",
+      "kind": "diff_scope",
+      "notes": "Per-player change files exist for rounds 1 through 3 and contain empty diffs, expected for dummy agents.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter03_codeclash_smoke/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review limits the claim to infrastructure and receipt validity; no model or leaderboard result is claimed.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "Receipt fails if the workflow did not complete successfully.",
+    "Receipt fails if CodeClash was not checked out at the frozen commit.",
+    "Receipt fails if metadata lacks parseable round statistics.",
+    "Receipt fails if any player submission is invalid in the parsed rounds.",
+    "Receipt fails if diff-scope evidence is absent.",
+    "Receipt fails if the result claims model capability or leaderboard performance."
+  ],
+  "receipt_id": "iter03-codeclash-smoke-gh-28935161907",
+  "sha256": "50d46ee9b0076fe4fd34b806f99617429b425d31608735a386e4b98481072cf8",
+  "stated_goal": "Run the no-LLM CodeClash dummy tournament and verify that Telos can capture artifact, test, diff-scope, and review evidence from a public agent-workflow run.",
+  "status": "pass",
+  "task_id": "codeclash:configs/test/dummy.yaml@381cdfa05a35e8acd35853b9fc7e13005121b127"
+}

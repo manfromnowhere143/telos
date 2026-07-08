@@ -1,0 +1,96 @@
+2026-07-08 10:17:43 [Dummy] DEBUG Checking if container codeclash/dummy exists
+2026-07-08 10:17:43 [Dummy] INFO Building Docker image codeclash/dummy. This may take 1-5 minutes and only work on Linux for some games.
+2026-07-08 10:18:02 [Dummy] INFO ✅ Built Docker image codeclash/dummy
+2026-07-08 10:18:02 [Dummy] DEBUG Starting container with command: docker run -d --name minisweagent-c0f72ced -w /workspace --rm codeclash/dummy sleep 10h
+2026-07-08 10:18:03 [Dummy] INFO Started container minisweagent-c0f72ced with ID 34f21f8e7fe85e72f314af323cea23673bc90dd8800ff615c92541c18b6d90ef
+2026-07-08 10:18:03 [Dummy] DEBUG Checking if container codeclash/dummy exists
+2026-07-08 10:18:03 [Dummy] DEBUG Container codeclash/dummy exists
+2026-07-08 10:18:03 [Dummy] DEBUG Starting container with command: docker run -d --name minisweagent-e42159b4 -w /workspace --rm codeclash/dummy sleep 10h
+2026-07-08 10:18:03 [Dummy] INFO Started container minisweagent-e42159b4 with ID 6c3bd7ce49fcdce64130f111d58d0ce5a439fc4cec8b5e8eb927ebd611a78cb1
+2026-07-08 10:18:03 [p1] INFO Switching to branch PvpTournament.Dummy.260708101743.p1 for pushing changes
+2026-07-08 10:18:04 [Dummy] DEBUG Checking if container codeclash/dummy exists
+2026-07-08 10:18:04 [Dummy] DEBUG Container codeclash/dummy exists
+2026-07-08 10:18:04 [Dummy] DEBUG Starting container with command: docker run -d --name minisweagent-407f83c2 -w /workspace --rm codeclash/dummy sleep 10h
+2026-07-08 10:18:04 [Dummy] INFO Started container minisweagent-407f83c2 with ID a53b4b2d0ac4b788d30a9b718a9d84e29084d295ad6c18c4c1e2a37e5c46c4e6
+2026-07-08 10:18:04 [p2] INFO Switching to branch PvpTournament.Dummy.260708101743.p2 for pushing changes
+2026-07-08 10:18:04 [Dummy] INFO Agent p1 passed submission validation
+2026-07-08 10:18:04 [Dummy] INFO Agent p2 passed submission validation
+2026-07-08 10:18:04 [Dummy] DEBUG Copying p1's codebase
+2026-07-08 10:18:04 [Dummy] DEBUG Copying p2's codebase
+2026-07-08 10:18:05 [Dummy] INFO Running game: python engine.py /p1/main.py /p2/main.py -r 1000 > /logs/result.log;
+2026-07-08 10:18:05 [PvpTournament] INFO In round 0, the winner is p1.
+
+Summary of player performance:
+- p1: submission compiled successfully, score=513
+- p2: submission compiled successfully, score=487
+2026-07-08 10:18:05 [PvpTournament] DEBUG Metadata saved to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/metadata.json
+2026-07-08 10:18:05 [PvpTournament] INFO Copying round 0 log(s) to p1's container...
+2026-07-08 10:18:05 [PvpTournament] INFO Copying round 0 log(s) to p2's container...
+2026-07-08 10:18:05 [PvpTournament] INFO Compressing round 0 logs, this might take a while... (tar -zcf /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds/round_0.tar.gz -C /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds 0)
+2026-07-08 10:18:05 [PvpTournament] DEBUG Removing /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds/0
+2026-07-08 10:18:05 [PvpTournament] INFO Round 0 logs compressed successfully
+2026-07-08 10:18:05 [p2] INFO Committed changes for p2 for round 1
+2026-07-08 10:18:05 [p1] INFO Committed changes for p1 for round 1
+2026-07-08 10:18:05 [p2] DEBUG Wrote changes for round 1 to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/players/p2/changes_r1.json
+2026-07-08 10:18:05 [p1] DEBUG Wrote changes for round 1 to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/players/p1/changes_r1.json
+2026-07-08 10:18:05 [PvpTournament] DEBUG Metadata saved to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/metadata.json
+2026-07-08 10:18:05 [PvpTournament] INFO Round completed.
+2026-07-08 10:18:05 [Dummy] INFO Agent p1 passed submission validation
+2026-07-08 10:18:05 [Dummy] INFO Agent p2 passed submission validation
+2026-07-08 10:18:05 [Dummy] DEBUG Copying p1's codebase
+2026-07-08 10:18:05 [Dummy] DEBUG Copying p2's codebase
+2026-07-08 10:18:06 [Dummy] INFO Running game: python engine.py /p1/main.py /p2/main.py -r 1000 > /logs/result.log;
+2026-07-08 10:18:06 [PvpTournament] INFO In round 1, the winner is p1.
+
+Summary of player performance:
+- p1: submission compiled successfully, score=519
+- p2: submission compiled successfully, score=481
+2026-07-08 10:18:06 [PvpTournament] DEBUG Metadata saved to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/metadata.json
+2026-07-08 10:18:06 [PvpTournament] INFO Copying round 1 log(s) to p1's container...
+2026-07-08 10:18:06 [PvpTournament] INFO Copying round 1 log(s) to p2's container...
+2026-07-08 10:18:06 [PvpTournament] INFO Compressing round 1 logs, this might take a while... (tar -zcf /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds/round_1.tar.gz -C /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds 1)
+2026-07-08 10:18:06 [PvpTournament] DEBUG Removing /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds/1
+2026-07-08 10:18:06 [PvpTournament] INFO Round 1 logs compressed successfully
+2026-07-08 10:18:06 [p1] INFO Committed changes for p1 for round 2
+2026-07-08 10:18:06 [p2] INFO Committed changes for p2 for round 2
+2026-07-08 10:18:06 [p1] DEBUG Wrote changes for round 2 to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/players/p1/changes_r2.json
+2026-07-08 10:18:06 [p2] DEBUG Wrote changes for round 2 to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/players/p2/changes_r2.json
+2026-07-08 10:18:06 [PvpTournament] DEBUG Metadata saved to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/metadata.json
+2026-07-08 10:18:06 [PvpTournament] INFO Round completed.
+2026-07-08 10:18:06 [Dummy] INFO Agent p2 passed submission validation
+2026-07-08 10:18:06 [Dummy] INFO Agent p1 passed submission validation
+2026-07-08 10:18:06 [Dummy] DEBUG Copying p2's codebase
+2026-07-08 10:18:06 [Dummy] DEBUG Copying p1's codebase
+2026-07-08 10:18:07 [Dummy] INFO Running game: python engine.py /p2/main.py /p1/main.py -r 1000 > /logs/result.log;
+2026-07-08 10:18:07 [PvpTournament] INFO In round 2, the winner is p1.
+
+Summary of player performance:
+- p2: submission compiled successfully, score=496
+- p1: submission compiled successfully, score=504
+2026-07-08 10:18:07 [PvpTournament] DEBUG Metadata saved to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/metadata.json
+2026-07-08 10:18:07 [PvpTournament] INFO Copying round 2 log(s) to p2's container...
+2026-07-08 10:18:07 [PvpTournament] INFO Copying round 2 log(s) to p1's container...
+2026-07-08 10:18:07 [PvpTournament] INFO Compressing round 2 logs, this might take a while... (tar -zcf /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds/round_2.tar.gz -C /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds 2)
+2026-07-08 10:18:07 [PvpTournament] DEBUG Removing /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds/2
+2026-07-08 10:18:07 [PvpTournament] INFO Round 2 logs compressed successfully
+2026-07-08 10:18:07 [p1] INFO Committed changes for p1 for round 3
+2026-07-08 10:18:07 [p2] INFO Committed changes for p2 for round 3
+2026-07-08 10:18:07 [p1] DEBUG Wrote changes for round 3 to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/players/p1/changes_r3.json
+2026-07-08 10:18:07 [p2] DEBUG Wrote changes for round 3 to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/players/p2/changes_r3.json
+2026-07-08 10:18:07 [PvpTournament] DEBUG Metadata saved to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/metadata.json
+2026-07-08 10:18:07 [PvpTournament] INFO Round completed.
+2026-07-08 10:18:07 [Dummy] INFO Agent p1 passed submission validation
+2026-07-08 10:18:07 [Dummy] INFO Agent p2 passed submission validation
+2026-07-08 10:18:07 [Dummy] DEBUG Copying p1's codebase
+2026-07-08 10:18:07 [Dummy] DEBUG Copying p2's codebase
+2026-07-08 10:18:08 [Dummy] INFO Running game: python engine.py /p1/main.py /p2/main.py -r 1000 > /logs/result.log;
+2026-07-08 10:18:08 [PvpTournament] INFO In round 3, the winner is p1.
+
+Summary of player performance:
+- p1: submission compiled successfully, score=503
+- p2: submission compiled successfully, score=497
+2026-07-08 10:18:08 [PvpTournament] DEBUG Metadata saved to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/metadata.json
+2026-07-08 10:18:08 [PvpTournament] INFO Compressing round 3 logs, this might take a while... (tar -zcf /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds/round_3.tar.gz -C /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds 3)
+2026-07-08 10:18:08 [PvpTournament] DEBUG Removing /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/rounds/3
+2026-07-08 10:18:08 [PvpTournament] INFO Round 3 logs compressed successfully
+2026-07-08 10:18:08 [PvpTournament] DEBUG Metadata saved to /tmp/telos-codeclash-dummy-smoke/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260708101743/metadata.json

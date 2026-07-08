@@ -1,0 +1,33 @@
+2026-07-08 10:17:43 [Dummy] DEBUG Checking if container codeclash/dummy exists
+2026-07-08 10:17:43 [Dummy] INFO Building Docker image codeclash/dummy. This may take 1-5 minutes and only work on Linux for some games.
+2026-07-08 10:18:02 [Dummy] INFO ✅ Built Docker image codeclash/dummy
+2026-07-08 10:18:02 [Dummy] DEBUG Starting container with command: docker run -d --name minisweagent-c0f72ced -w /workspace --rm codeclash/dummy sleep 10h
+2026-07-08 10:18:03 [Dummy] INFO Started container minisweagent-c0f72ced with ID 34f21f8e7fe85e72f314af323cea23673bc90dd8800ff615c92541c18b6d90ef
+2026-07-08 10:18:03 [Dummy] DEBUG Checking if container codeclash/dummy exists
+2026-07-08 10:18:03 [Dummy] DEBUG Container codeclash/dummy exists
+2026-07-08 10:18:03 [Dummy] DEBUG Starting container with command: docker run -d --name minisweagent-e42159b4 -w /workspace --rm codeclash/dummy sleep 10h
+2026-07-08 10:18:03 [Dummy] INFO Started container minisweagent-e42159b4 with ID 6c3bd7ce49fcdce64130f111d58d0ce5a439fc4cec8b5e8eb927ebd611a78cb1
+2026-07-08 10:18:04 [Dummy] DEBUG Checking if container codeclash/dummy exists
+2026-07-08 10:18:04 [Dummy] DEBUG Container codeclash/dummy exists
+2026-07-08 10:18:04 [Dummy] DEBUG Starting container with command: docker run -d --name minisweagent-407f83c2 -w /workspace --rm codeclash/dummy sleep 10h
+2026-07-08 10:18:04 [Dummy] INFO Started container minisweagent-407f83c2 with ID a53b4b2d0ac4b788d30a9b718a9d84e29084d295ad6c18c4c1e2a37e5c46c4e6
+2026-07-08 10:18:04 [Dummy] INFO Agent p1 passed submission validation
+2026-07-08 10:18:04 [Dummy] INFO Agent p2 passed submission validation
+2026-07-08 10:18:04 [Dummy] DEBUG Copying p1's codebase
+2026-07-08 10:18:04 [Dummy] DEBUG Copying p2's codebase
+2026-07-08 10:18:05 [Dummy] INFO Running game: python engine.py /p1/main.py /p2/main.py -r 1000 > /logs/result.log;
+2026-07-08 10:18:05 [Dummy] INFO Agent p1 passed submission validation
+2026-07-08 10:18:05 [Dummy] INFO Agent p2 passed submission validation
+2026-07-08 10:18:05 [Dummy] DEBUG Copying p1's codebase
+2026-07-08 10:18:05 [Dummy] DEBUG Copying p2's codebase
+2026-07-08 10:18:06 [Dummy] INFO Running game: python engine.py /p1/main.py /p2/main.py -r 1000 > /logs/result.log;
+2026-07-08 10:18:06 [Dummy] INFO Agent p2 passed submission validation
+2026-07-08 10:18:06 [Dummy] INFO Agent p1 passed submission validation
+2026-07-08 10:18:06 [Dummy] DEBUG Copying p2's codebase
+2026-07-08 10:18:06 [Dummy] DEBUG Copying p1's codebase
+2026-07-08 10:18:07 [Dummy] INFO Running game: python engine.py /p2/main.py /p1/main.py -r 1000 > /logs/result.log;
+2026-07-08 10:18:07 [Dummy] INFO Agent p1 passed submission validation
+2026-07-08 10:18:07 [Dummy] INFO Agent p2 passed submission validation
+2026-07-08 10:18:07 [Dummy] DEBUG Copying p1's codebase
+2026-07-08 10:18:07 [Dummy] DEBUG Copying p2's codebase
+2026-07-08 10:18:08 [Dummy] INFO Running game: python engine.py /p1/main.py /p2/main.py -r 1000 > /logs/result.log;

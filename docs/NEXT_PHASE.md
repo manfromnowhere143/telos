@@ -2,38 +2,39 @@
 
 ## Current Action
 
-Run `iter03_codeclash_smoke` exactly as frozen in
-[`../experiments/iter03_codeclash_smoke/HYPOTHESIS.md`](../experiments/iter03_codeclash_smoke/HYPOTHESIS.md).
+Run `iter04_agent_behavior_slice` exactly as frozen in
+[`../experiments/iter04_agent_behavior_slice/HYPOTHESIS.md`](../experiments/iter04_agent_behavior_slice/HYPOTHESIS.md).
 
-The output is not a model score. It is a no-LLM public-run receipt:
+The output is not a model score. It is a run-selection gate:
 
-- run the pinned CodeClash dummy tournament or publish the blocked infrastructure result,
-- preserve tournament artifacts,
-- produce a valid Telos receipt,
-- keep model/API/GPU spend at zero.
+- choose the smallest CodeClash run with real agent behavior,
+- publish the expected artifact contract,
+- name the first-run falsifier,
+- keep model/API/GPU spend at zero unless a later gate explicitly changes that.
 
 ## Infrastructure Discipline
 
 Available cloud and sandbox resources are escalation tools, not default proof. The order is:
 
 1. local receipt validation,
-2. local CodeClash smoke under Docker,
-3. E2B or sandboxed execution only when local Docker is blocked and the run stays no-LLM,
-4. GPU or model cloud only when a later frozen gate names the spend and expected evidence.
+2. local or GitHub-runner CodeClash smoke under Docker,
+3. deterministic agent-behavior smoke,
+4. E2B or sandboxed execution only when isolation is needed and the gate records it,
+5. GPU or model cloud only when a later frozen gate names the spend and expected evidence.
 
-No GPU or model run is authorized by `iter00`, `iter01`, `iter02`, or `iter03`.
+No GPU or model run is authorized by `iter00`, `iter01`, `iter02`, `iter03`, or `iter04`.
 
-## After The CodeClash Smoke Gate
+## After The Agent-Behavior Slice Gate
 
-If the smoke gate passes:
+If the slice gate passes:
 
-1. Publish the receipt and parsed artifacts.
-2. Freeze the first model-agent run `HYPOTHESIS.md`.
-3. Keep the first model run small enough to falsify receipt quality.
+1. Run the selected deterministic or instant-submit agent-behavior smoke.
+2. Publish the receipt and parsed artifacts.
+3. Freeze the first model-agent run only after the behavior smoke clears.
 4. Escalate to sandbox/cloud only if the frozen run requires isolation or compute.
 
-If the smoke gate fails:
+If the slice gate fails:
 
 1. Publish the failure.
-2. Fix the concrete infrastructure gap or choose a narrower CodeClash slice.
+2. Choose a narrower agent-behavior slice or publish the null.
 3. Do not start a model run.

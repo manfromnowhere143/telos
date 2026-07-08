@@ -1,0 +1,169 @@
+{
+  "name": "PvpTournament",
+  "tournament_id": "PvpTournament.Dummy.260708101743",
+  "config": {
+    "tournament": {
+      "rounds": 3
+    },
+    "game": {
+      "name": "Dummy",
+      "sims_per_round": 1000
+    },
+    "players": [
+      {
+        "agent": "dummy",
+        "name": "p1"
+      },
+      {
+        "agent": "dummy",
+        "name": "p2"
+      }
+    ],
+    "prompts": {
+      "game_description": "You are a software developer ({{player_id}}) competing in a coding game.\n\nThe game is played in {{rounds}} rounds. For every round, you (and your competitor) edit program code that controls your bot. This is round {{round}}.\nAfter you and your competitor finish editing your codebases, the game is run automatically.\n"
+    }
+  },
+  "created_timestamp": 1783505863,
+  "aws": {},
+  "round_stats": {
+    "0": {
+      "round_num": 0,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p2": 487,
+        "p1": 513
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 513,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 487,
+          "valid_submit": true
+        }
+      }
+    },
+    "1": {
+      "round_num": 1,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p2": 481,
+        "p1": 519
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 519,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 481,
+          "valid_submit": true
+        }
+      }
+    },
+    "2": {
+      "round_num": 2,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p2": 496,
+        "p1": 504
+      },
+      "player_stats": {
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 496,
+          "valid_submit": true
+        },
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 504,
+          "valid_submit": true
+        }
+      }
+    },
+    "3": {
+      "round_num": 3,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p2": 497,
+        "p1": 503
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 503,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 497,
+          "valid_submit": true
+        }
+      }
+    }
+  },
+  "game": {
+    "name": "Dummy",
+    "config": {
+      "name": "Dummy",
+      "sims_per_round": 1000
+    },
+    "game_id": "PvpTournament.Dummy.260708101743",
+    "created_timestamp": 1783505863
+  },
+  "agents": [
+    {
+      "name": "p1",
+      "player_unique_id": "9c08c598-4b02-4355-bf1c-99d82269c0c2",
+      "created_timestamp": 1783505883,
+      "config": {
+        "agent": "dummy",
+        "name": "p1"
+      },
+      "initial_commit_hash": "41786d9a1d9b89a2aeb389b51c7d9ca32f9e990c",
+      "branch_name": "PvpTournament.Dummy.260708101743.p1",
+      "round_tags": {
+        "0": "9c08c598-4b02-4355-bf1c-99d82269c0c2-round-0",
+        "1": "9c08c598-4b02-4355-bf1c-99d82269c0c2-round-1",
+        "2": "9c08c598-4b02-4355-bf1c-99d82269c0c2-round-2",
+        "3": "9c08c598-4b02-4355-bf1c-99d82269c0c2-round-3"
+      },
+      "agent_stats": {}
+    },
+    {
+      "name": "p2",
+      "player_unique_id": "d9664be0-2271-49ae-9048-fc013f21a9f1",
+      "created_timestamp": 1783505884,
+      "config": {
+        "agent": "dummy",
+        "name": "p2"
+      },
+      "initial_commit_hash": "41786d9a1d9b89a2aeb389b51c7d9ca32f9e990c",
+      "branch_name": "PvpTournament.Dummy.260708101743.p2",
+      "round_tags": {
+        "0": "d9664be0-2271-49ae-9048-fc013f21a9f1-round-0",
+        "1": "d9664be0-2271-49ae-9048-fc013f21a9f1-round-1",
+        "2": "d9664be0-2271-49ae-9048-fc013f21a9f1-round-2",
+        "3": "d9664be0-2271-49ae-9048-fc013f21a9f1-round-3"
+      },
+      "agent_stats": {}
+    }
+  ]
+}

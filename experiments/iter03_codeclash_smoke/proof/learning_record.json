@@ -1,0 +1,13 @@
+{
+  "experiment_id": "iter03_codeclash_smoke",
+  "status": "pass",
+  "result_path": "experiments/iter03_codeclash_smoke/RESULT.md",
+  "evidence_paths": [
+    "experiments/iter03_codeclash_smoke/proof/valid/receipt_codeclash_smoke.json",
+    "experiments/iter03_codeclash_smoke/proof/run_summary.json",
+    "experiments/iter03_codeclash_smoke/proof/review.md",
+    "experiments/iter03_codeclash_smoke/proof/raw/telos-codeclash-summary.json"
+  ],
+  "insight": "The CodeClash receipt loop works on a real no-LLM public tournament; the next falsifier must add real agent behavior without overclaiming model capability.",
+  "next_action": "freeze the smallest real agent-behavior CodeClash run"
+}
