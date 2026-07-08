@@ -108,6 +108,8 @@ python3 scripts/validate_receipts.py experiments/iter15_provider_strict_diff_rer
 python3 scripts/audit_provider_strict_diff_rerun.py
 python3 scripts/validate_receipts.py experiments/iter16_provider_workspace_hygiene_control/proof
 python3 scripts/audit_provider_workspace_hygiene_control.py
+python3 scripts/validate_receipts.py experiments/iter17_provider_lint_hygiene_control/proof
+python3 scripts/audit_provider_lint_hygiene_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

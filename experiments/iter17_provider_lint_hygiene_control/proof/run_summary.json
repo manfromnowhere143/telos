@@ -1,0 +1,91 @@
+{
+  "schema_version": "telos.provider_lint_hygiene_control.summary.v1",
+  "status": "pass",
+  "runner": "ephemeral_gce_vm_dedicated_service_account",
+  "service_account_short_id": "telos-vertex-runner",
+  "selected_model": "vertex_ai/gemini-3.1-pro-preview-customtools",
+  "region": "global",
+  "vertex_location_configured_in_model_kwargs": true,
+  "workspace_hygiene_instruction_present": true,
+  "source_style_hygiene_instruction_present": true,
+  "preflight_status": "pass",
+  "preflight_http_status": "200",
+  "preflight_total_token_count": 2,
+  "codeclash_started": true,
+  "run_exit_code": 0,
+  "p1_trajectory_present": true,
+  "p1_agent_exit_status": "Submitted",
+  "model_api_calls_reported": 5,
+  "model_cost_reported_usd": 0.02864,
+  "p1_modified_files": [
+    "README_agent.md",
+    "main.py"
+  ],
+  "p2_modified_files": [],
+  "p1_full_diff_lines": 35,
+  "p2_full_diff_lines": 0,
+  "allowed_changed_files_observed": [
+    "README_agent.md",
+    "main.py"
+  ],
+  "helper_residue_files": [],
+  "scratch_used_outside_workspace": true,
+  "scratch_deleted_before_submission": true,
+  "git_status_checked_before_submission": true,
+  "git_diff_check_run_before_submission": true,
+  "git_diff_check_passed_before_submission": true,
+  "git_status_output_before_submission": [
+    " M main.py",
+    "?? README_agent.md"
+  ],
+  "git_diff_check_error_lines_before_submission": [],
+  "pre_submit_combined_status_and_diff_check_output": [
+    " M main.py",
+    "?? README_agent.md"
+  ],
+  "strict_diff_quality_status": "clean_workspace_and_lint_hygiene",
+  "clean_pass": true,
+  "style_caveat_trailing_blank_whitespace_in_main_py_diff": false,
+  "added_lines_with_trailing_whitespace": [],
+  "trailing_added_blank_lines": [],
+  "changed_files_reconstructable": true,
+  "cloud_vm_deleted": true,
+  "raw_binary_round_archive_committed": false,
+  "project_identifier_committed": false,
+  "credential_material_committed": false,
+  "provider_private_fields_redacted": true,
+  "production_or_live_domain_changed": false,
+  "leaderboard_or_swebench_claimed": false,
+  "game_score_used_as_model_capability_evidence": false,
+  "round0_winner": "p2",
+  "round0_scores": {
+    "p1": 0.0,
+    "p2": 1
+  },
+  "round1_winner": "p1",
+  "round1_scores": {
+    "p1": 1,
+    "p2": 0.0
+  },
+  "behavior_depth_caveat": "The submitted edit implements boundary checks only; self-collision and broader game strategy remain for the next gate.",
+  "next_gate": "experiments/iter18_provider_behavior_depth_control/HYPOTHESIS.md",
+  "artifact_hashes": {
+    "preflight.json": "0813fa6b74cd54511a4069d621fa5ba7c4e111cc9656097c185c96a60a1816e0",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/everything.log": "8d8eb2e4d3f85eef6c17d9a0c675a2b35ac68272cde7788baff8e39496585c7d",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/game.log": "87084b3a451739523d1fffd4cfaa4130426eebe8cebfd52f3a4469343701ed1d",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/metadata.json": "ff0ee29045448048a01081fbef9037ee5df467522a801ed86c741bdeb297d06c",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/players/p1/changes_r1.json": "25dc6b665170fe9d1ba047480f36b8cd9de9c947b63db2ed2617ee31fe556601",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/players/p1/p1_r1.traj.json": "176c7eb1778b142c9e0d0a2b4f0491fa6b951c364820854314140557e9bcfd5a",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/players/p1/player.log": "0a82e337d0146178e4b4955b44ce48c04f3d413e0cbcef197b343d3d91974a95",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/players/p2/changes_r1.json": "197a2994f20c0b3252520f01f2e736b3b0fe7f9928141c911851cbae339b39bf",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/players/p2/player.log": "c3db7c32f675696ec742e5f08403a126f64ebf05fbc176b93c15d7693f61eda8",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/tournament.log": "19cb84091d58e46e7ccbf16a877c86cfd073e70c30c4c87383af93aaf5e5d4b9",
+    "raw/codeclash/telos-codeclash-provider-run.log": "1aa44db861975d7d568fd8a8ddcc1cfe5c85d8f2848320c127c3cddcd1e99492",
+    "raw/control/codeclash_commit.txt": "c67a8ba2ee4a66ccc5ba548c26b85115ff65f2e4463c6ac40949032cfa1ba7d4",
+    "raw/control/run_exit_code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/control/telos-cloud-setup.log": "d37cdf5aaa30c5142499db500214f487452ee124edec7c42792b4e7a11b619ba",
+    "raw/control/telos-uv-sync.log": "bde402b914b06ef2e10feee5aeab9a1799c82f69ed950d91aae182a2b9be5a61",
+    "raw/control/telos_commit.txt": "e77b7c648dcf663aaeba6725d5a73b4a48bacd7103ab9ff50c71d8b847fefec2",
+    "raw_summary.json": "8c4d07f5dabef208bc132f8b1d65616266cab08c500058166343d67fe59cfa63"
+  }
+}

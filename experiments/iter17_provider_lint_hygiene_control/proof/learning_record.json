@@ -1,0 +1,18 @@
+{
+  "schema_version": "telos.learning_record.v1",
+  "experiment_id": "iter17_provider_lint_hygiene_control",
+  "status": "pass",
+  "insight": "Adding an explicit git diff --check source-style control preserved clean workspace hygiene and removed the trailing-whitespace caveat from iter16, while leaving task-depth as the next concrete gap.",
+  "next_action": "run the same provider-smoke shape with workspace and lint hygiene retained, then require one additional behavior-depth improvement such as self-collision prevention or publish a null if the agent cannot safely do it",
+  "result_path": "experiments/iter17_provider_lint_hygiene_control/RESULT.md",
+  "evidence_paths": [
+    "experiments/iter17_provider_lint_hygiene_control/proof/run_summary.json",
+    "experiments/iter17_provider_lint_hygiene_control/proof/preflight.json",
+    "experiments/iter17_provider_lint_hygiene_control/proof/diff_summary.md",
+    "experiments/iter17_provider_lint_hygiene_control/proof/review.md",
+    "experiments/iter17_provider_lint_hygiene_control/proof/raw/codeclash/telos-codeclash-provider-run.log",
+    "experiments/iter17_provider_lint_hygiene_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/players/p1/p1_r1.traj.json",
+    "experiments/iter17_provider_lint_hygiene_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708173719/players/p1/changes_r1.json",
+    "experiments/iter17_provider_lint_hygiene_control/proof/valid/receipt_provider_lint_hygiene_control.json"
+  ]
+}

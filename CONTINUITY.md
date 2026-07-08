@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter17_provider_lint_hygiene_control/HYPOTHESIS.md`
+- `experiments/iter18_provider_behavior_depth_control/HYPOTHESIS.md`
 
 Current claim:
 
@@ -77,9 +77,14 @@ Current claim:
   `$0.035064` reported cost, used `/tmp/patch.py` as scratch, removed it, ran
   `git status --short`, and submitted only `README_agent.md` plus `main.py`. The result records a
   style caveat because the submitted `main.py` diff contains one whitespace-only added blank line.
+- `iter17_provider_lint_hygiene_control` passed the clean workspace-and-lint bar: the same
+  provider-smoke shape completed with exit code `0`, `p1` submitted with `5` model API calls and
+  `$0.02864` reported cost, used `/tmp/patch.py` as scratch, removed it, ran
+  `git status --short && git diff --check`, and submitted only `README_agent.md` plus `main.py`
+  with no helper residue or added trailing whitespace.
 - No model or benchmark result is claimed yet.
-- The next gate must retain workspace hygiene and add a source-style hygiene check such as
-  `git diff --check` before submission.
+- The next gate must retain workspace and source-style hygiene, then test one concrete
+  behavior-depth improvement beyond board-boundary checks or publish a clean null.
 
 ## Required Verification
 
@@ -118,6 +123,8 @@ python3 scripts/validate_receipts.py experiments/iter15_provider_strict_diff_rer
 python3 scripts/audit_provider_strict_diff_rerun.py
 python3 scripts/validate_receipts.py experiments/iter16_provider_workspace_hygiene_control/proof
 python3 scripts/audit_provider_workspace_hygiene_control.py
+python3 scripts/validate_receipts.py experiments/iter17_provider_lint_hygiene_control/proof
+python3 scripts/audit_provider_lint_hygiene_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

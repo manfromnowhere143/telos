@@ -127,6 +127,12 @@ jobs:
       - name: Provider workspace hygiene control audit
         run: python3 scripts/audit_provider_workspace_hygiene_control.py
 
+      - name: Provider lint hygiene control receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter17_provider_lint_hygiene_control/proof
+
+      - name: Provider lint hygiene control audit
+        run: python3 scripts/audit_provider_lint_hygiene_control.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 
