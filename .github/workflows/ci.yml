@@ -6,19 +6,48 @@ on:
 
 jobs:
   verify:
+    name: verify py${{ matrix.python-version }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
-      - name: Install tools
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install verification tools
         run: |
-          uv tool install ruff
-          uv pip install --system pytest
+          python -m pip install --upgrade pip
+          python -m pip install pytest ruff
+
+      - name: Compile
+        run: python3 -m compileall telos scripts tests
+
       - name: Lint
         run: ruff check .
+
       - name: Tests
         run: pytest -q
+
+      - name: JSON guard
+        run: python3 scripts/validate_json.py
+
       - name: Docs guard
         run: python3 scripts/validate_docs.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
+
+      - name: Receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
+
+      - name: Learning ledger guard
+        run: python3 scripts/validate_learning_ledger.py
+
+      - name: Handoff guard
+        run: python3 scripts/validate_handoff.py

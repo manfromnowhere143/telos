@@ -2,10 +2,9 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
-No result is claimed yet. The repository begins with one frozen gate:
-[`experiments/iter00_target_survey`](experiments/iter00_target_survey/HYPOTHESIS.md), a
-pre-registered target survey that decides which public benchmark family is strong enough to carry
-the first Telos result.
+No model result is claimed yet. The repository begins with a completed target survey:
+[`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
+hybrid Telos overlay on public software-agent tasks.
 
 The question is narrow and testable:
 
@@ -21,10 +20,11 @@ and an adversarial review pass.
 ## Honest Status
 
 - Repository scaffold: active.
-- First gate: pre-registered target survey, result pending.
+- First gate: target survey published as `HYBRID_OVERLAY_SELECTED`.
+- Current gate: first public task slice, pre-registered in
+  [`experiments/iter02_public_task_slice`](experiments/iter02_public_task_slice/HYPOTHESIS.md).
 - Benchmark result: none yet.
-- Claims frozen today: only the research question, the protocol shape, and the target-selection
-  criteria in [`PREREGISTRATION.md`](PREREGISTRATION.md).
+- Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
 This repo deliberately separates the research line from Sentinel. Sentinel proved a standard:
 frozen bars, public baselines, nulls published, raw evidence committed, corrections on the record.
@@ -44,11 +44,14 @@ This repo applies that standard to autonomous agent completion.
 | saturation risk | current leaderboards have not made the target uninformative |
 | operational cost | the first honest experiment is affordable |
 
-The survey will choose one of three actions:
+The survey chose one of three actions:
 
 1. Freeze the first public benchmark target.
-2. Freeze a hybrid benchmark built from public tasks plus Telos proof receipts.
+2. **Freeze a hybrid benchmark built from public tasks plus Telos proof receipts.**
 3. Publish a survey null if no candidate clears the bar.
+
+Survey result: [`experiments/iter00_target_survey/RESULT.md`](experiments/iter00_target_survey/RESULT.md).
+Receipt dry run: [`experiments/iter01_receipt_dry_run/RESULT.md`](experiments/iter01_receipt_dry_run/RESULT.md).
 
 ## Candidate Target Families
 
@@ -60,7 +63,7 @@ The initial candidates are documented in [`benchmarks/CANDIDATES.md`](benchmarks
 - adversarial tool agents: AgentDojo-style utility/security tradeoffs
 - custom Telos overlay: public tasks with receipt requirements added around them
 
-The target is not chosen by taste. It is chosen by the frozen survey.
+The target was not chosen by taste. It was chosen by the frozen survey.
 
 ## Architecture
 
@@ -84,6 +87,7 @@ flowchart LR
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
+Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
 
 ## Repository Map
 
@@ -108,6 +112,10 @@ ruff check .
 pytest -q
 python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
+python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
+python3 scripts/validate_learning_ledger.py
+python3 scripts/validate_json.py
+python3 scripts/validate_handoff.py
 python3 scripts/make_handoff.py
 ```
 

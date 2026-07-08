@@ -1,0 +1,31 @@
+{
+  "receipt_id": "telos-iter01-valid-001",
+  "task_id": "iter01-receipt-dry-run",
+  "agent_id": "telos-protocol-fixture",
+  "benchmark_id": "telos-protocol-dry-run",
+  "status": "pass",
+  "stated_goal": "Validate that a Telos proof receipt can carry acceptance criteria, evidence, falsifiers, and a canonical digest.",
+  "acceptance_criteria": [
+    "valid receipt passes the validator",
+    "invalid receipt is rejected",
+    "learning record names a concrete next action"
+  ],
+  "evidence": [
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": "experiments/iter01_receipt_dry_run/proof/valid/receipt_valid.json"
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": "experiments/iter01_receipt_dry_run/proof/invalid/receipt_bad_sha.json"
+    }
+  ],
+  "falsifiers": [
+    "missing evidence field passes validation",
+    "bad sha256 passes validation",
+    "learning record has no next action"
+  ],
+  "sha256": "2bb15ccc0bfa4476d22ef6a68473eebb97df7552c00f9362bef12e7fd6cd1218"
+}

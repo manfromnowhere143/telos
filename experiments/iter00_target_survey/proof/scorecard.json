@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-07-08T09:45:00Z",
+  "decision": "HYBRID_OVERLAY_SELECTED",
+  "candidates": [
+    {
+      "candidate_id": "telos_codeclash_swebench_overlay",
+      "frontier_relevance": 5,
+      "public_baseline_quality": 5,
+      "falsifiability": 5,
+      "evidence_surface": 5,
+      "aweb_fit": 5,
+      "saturation_risk": 1,
+      "operational_cost": 2,
+      "rationale": "Selected target. CodeClash supplies goal-oriented multi-round software development with logs and public ELO anchors; SWE-bench Verified supplies human-validated patch tasks and a stable coding-agent baseline. The Telos overlay adds completion receipts, diff scope, verification claims, and stop-correctness without inventing a private benchmark.",
+      "sources": [
+        "https://codeclash.ai/",
+        "https://www.swebench.com/verified.html",
+        "https://www.swebench.com/"
+      ]
+    },
+    {
+      "candidate_id": "swebench_verified_coding_agents",
+      "frontier_relevance": 5,
+      "public_baseline_quality": 5,
+      "falsifiability": 5,
+      "evidence_surface": 5,
+      "aweb_fit": 5,
+      "saturation_risk": 3,
+      "operational_cost": 2,
+      "rationale": "Strong public coding-agent anchor with 500 human-validated instances, patch artifacts, and test-based scoring. Not selected alone because leaderboard saturation and ticket-shaped tasks make the core Telos question narrower than the mission: goal completion can still be proxied by visible tests.",
+      "sources": [
+        "https://www.swebench.com/verified.html",
+        "https://www.swebench.com/",
+        "https://openai.com/index/introducing-swe-bench-verified/"
+      ]
+    },
+    {
+      "candidate_id": "metr_rebench_ai_rd_agents",
+      "frontier_relevance": 5,
+      "public_baseline_quality": 5,
+      "falsifiability": 5,
+      "evidence_surface": 4,
+      "aweb_fit": 3,
+      "saturation_risk": 1,
+      "operational_cost": 4,
+      "rationale": "High-value later line: direct AI R&D capability with human comparisons and realistic research engineering. Not first because the frozen gate caps operational cost at 3; RE-Bench is better after the receipt protocol is proven on a cheaper software target.",
+      "sources": [
+        "https://metr.org/blog/2024-11-22-evaluating-r-d-capabilities-of-llms/",
+        "https://github.com/METR/RE-Bench",
+        "https://arxiv.org/abs/2411.15114"
+      ]
+    },
+    {
+      "candidate_id": "tau3_service_agents",
+      "frontier_relevance": 4,
+      "public_baseline_quality": 4,
+      "falsifiability": 4,
+      "evidence_surface": 4,
+      "aweb_fit": 3,
+      "saturation_risk": 2,
+      "operational_cost": 3,
+      "rationale": "Good service-agent target because policy adherence, tool calls, user interaction, and database state are naturally receipt-bearing. Not first because the public tau-bench repository warns its original tasks are outdated and the current tau2/tau3 line adds heavier setup and voice/knowledge complexity.",
+      "sources": [
+        "https://github.com/sierra-research/tau-bench",
+        "https://github.com/sierra-research/tau2-bench",
+        "https://github.com/sierra-research/tau2-bench/releases"
+      ]
+    },
+    {
+      "candidate_id": "agentdojo_adversarial_tool_agents",
+      "frontier_relevance": 4,
+      "public_baseline_quality": 4,
+      "falsifiability": 4,
+      "evidence_surface": 3,
+      "aweb_fit": 4,
+      "saturation_risk": 1,
+      "operational_cost": 2,
+      "rationale": "Useful later security line because it measures tool-agent behavior under adversarial prompt-injection pressure. Not first because it would make Telos look like a prompt-injection benchmark instead of a general completion-proof protocol.",
+      "sources": [
+        "https://agentdojo.spylab.ai/",
+        "https://github.com/ethz-spylab/agentdojo",
+        "https://arxiv.org/abs/2406.13352"
+      ]
+    }
+  ]
+}

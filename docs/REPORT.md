@@ -1,14 +1,16 @@
 # Report
 
-No benchmark result is claimed yet.
+No model or benchmark result is claimed yet.
 
-This file will become the technical report only after the first target survey publishes a result
-and the first Telos experiment is pre-registered.
+This file will become the technical report only after the first Telos proof experiment produces
+agent-attempt evidence. The target survey result is published, but it is not an agent result.
 
 Current evidence:
 
 - `PREREGISTRATION.md` freezes the target-selection gate.
-- `experiments/iter00_target_survey/HYPOTHESIS.md` freezes the first survey protocol.
+- `experiments/iter00_target_survey/RESULT.md` selects the first target family.
+- `experiments/iter01_receipt_dry_run/RESULT.md` validates the receipt dry run.
+- `experiments/iter02_public_task_slice/HYPOTHESIS.md` freezes the next public-slice gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

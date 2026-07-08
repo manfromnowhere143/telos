@@ -22,13 +22,15 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter00_target_survey/HYPOTHESIS.md`
+- `experiments/iter02_public_task_slice/HYPOTHESIS.md`
 
 Current claim:
 
-- No benchmark result is claimed yet.
-- The only frozen claim is that target selection must be evidence-scored before the first Telos
-  experiment.
+- `iter00_target_survey` selected a hybrid Telos overlay on CodeClash + SWE-bench Verified.
+- `iter01_receipt_dry_run` passed: valid receipt accepted, invalid receipt rejected, learning
+  record validated.
+- No model or benchmark result is claimed yet.
+- The next gate must freeze the first public task slice before any model or cloud run.
 
 ## Required Verification
 
@@ -39,6 +41,10 @@ ruff check .
 pytest -q
 python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
+python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
+python3 scripts/validate_learning_ledger.py
+python3 scripts/validate_json.py
+python3 scripts/validate_handoff.py
 python3 scripts/make_handoff.py
 ```
 

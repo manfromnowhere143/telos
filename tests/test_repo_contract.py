@@ -25,4 +25,4 @@ def test_core_research_files_exist() -> None:
 def test_readme_names_the_first_gate_without_claiming_results() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "iter00_target_survey" in readme
-    assert "No result is claimed yet" in readme
+    assert "No model result is claimed yet" in readme

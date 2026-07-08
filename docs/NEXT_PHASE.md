@@ -2,31 +2,38 @@
 
 ## Current Action
 
-Run `iter00_target_survey` exactly as frozen in
-[`../experiments/iter00_target_survey/HYPOTHESIS.md`](../experiments/iter00_target_survey/HYPOTHESIS.md).
+Run `iter02_public_task_slice` exactly as frozen in
+[`../experiments/iter02_public_task_slice/HYPOTHESIS.md`](../experiments/iter02_public_task_slice/HYPOTHESIS.md).
 
-The output is not a model score. It is a target decision:
+The output is not a model score. It is a public-slice decision:
 
-- choose a benchmark,
-- publish a survey null,
-- or freeze a hybrid Telos overlay.
+- choose the first public task slice,
+- publish the expected artifact contract,
+- name the first-run falsifier,
+- keep cloud spend at zero.
 
-## After A Positive Survey
+## Infrastructure Discipline
 
-If one target clears the bar:
+Available cloud and sandbox resources are escalation tools, not default proof. The order is:
 
-1. Write `experiments/iter01_<target>/HYPOTHESIS.md`.
-2. Freeze the primary metric and baseline number.
-3. Implement the smallest faithful harness.
-4. Run a dry receipt on one task.
-5. Stop if the receipt cannot be independently validated.
+1. local receipt validation,
+2. local public-task harness smoke,
+3. E2B or sandboxed execution when isolation matters,
+4. GPU or cloud only when the frozen gate names the spend and the expected evidence.
 
-## After A Survey Null
+No cloud run is authorized by `iter00`, `iter01`, or `iter02`.
 
-If no target clears the bar:
+## After The Public Slice Gate
 
-1. Publish the null in `RESULT.md`.
-2. Name the failed criteria per candidate.
-3. Do not start `iter01`.
-4. Either revise the candidate list with new public sources or close the repo as a clean negative
-   target-selection result.
+If the slice gate passes:
+
+1. Write the first public-task run `HYPOTHESIS.md`.
+2. Freeze the primary Telos metric.
+3. Run only the smallest public-task harness that can falsify receipt quality.
+4. Escalate to E2B/cloud only if the frozen run requires isolation or compute.
+
+If the slice gate fails:
+
+1. Publish the failure.
+2. Choose a narrower public task slice or publish the null.
+3. Do not start a model run.

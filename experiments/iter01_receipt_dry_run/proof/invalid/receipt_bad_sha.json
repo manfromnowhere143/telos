@@ -1,0 +1,22 @@
+{
+  "receipt_id": "telos-iter01-invalid-001",
+  "task_id": "iter01-receipt-dry-run",
+  "agent_id": "telos-protocol-fixture",
+  "benchmark_id": "telos-protocol-dry-run",
+  "status": "pass",
+  "stated_goal": "This receipt should fail because its digest is deliberately wrong.",
+  "acceptance_criteria": [
+    "validator rejects bad digest"
+  ],
+  "evidence": [
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": "experiments/iter01_receipt_dry_run/proof/invalid/receipt_bad_sha.json"
+    }
+  ],
+  "falsifiers": [
+    "bad sha256 passes validation"
+  ],
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+}

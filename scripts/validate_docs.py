@@ -35,9 +35,15 @@ def tracked_markdown() -> list[str]:
         text=True,
         check=False,
     )
-    if result.stdout.strip():
-        return result.stdout.split()
-    return sorted(str(path.relative_to(ROOT)) for path in ROOT.glob("**/*.md"))
+    tracked = set(result.stdout.split())
+    discovered = {
+        str(path.relative_to(ROOT))
+        for path in ROOT.glob("**/*.md")
+        if ".git" not in path.parts
+        and ".pytest_cache" not in path.parts
+        and ".ruff_cache" not in path.parts
+    }
+    return sorted(tracked | discovered)
 
 
 def check_mermaid(path: str, src: str) -> None:
