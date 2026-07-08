@@ -41,8 +41,10 @@ and an adversarial review pass.
   [`experiments/iter10_provider_auth_recovery`](experiments/iter10_provider_auth_recovery/RESULT.md).
 - Provider-model pilot retry: blocked in
   [`experiments/iter11_provider_model_pilot_retry`](experiments/iter11_provider_model_pilot_retry/RESULT.md).
-- Current gate: Vertex model access recovery, pre-registered in
-  [`experiments/iter12_vertex_model_access_recovery`](experiments/iter12_vertex_model_access_recovery/HYPOTHESIS.md).
+- Vertex model access recovery: passed in
+  [`experiments/iter12_vertex_model_access_recovery`](experiments/iter12_vertex_model_access_recovery/RESULT.md).
+- Current gate: provider-model pilot retry after access recovery, pre-registered in
+  [`experiments/iter13_provider_model_pilot_retry_after_access_recovery`](experiments/iter13_provider_model_pilot_retry_after_access_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -82,7 +84,8 @@ Provider-model pilot slice: [`experiments/iter08_provider_model_pilot_slice/RESU
 Provider-model pilot smoke: [`experiments/iter09_provider_model_pilot_smoke/RESULT.md`](experiments/iter09_provider_model_pilot_smoke/RESULT.md).
 Provider auth recovery: [`experiments/iter10_provider_auth_recovery/RESULT.md`](experiments/iter10_provider_auth_recovery/RESULT.md).
 Provider-model pilot retry: [`experiments/iter11_provider_model_pilot_retry/RESULT.md`](experiments/iter11_provider_model_pilot_retry/RESULT.md).
-Vertex model access recovery: [`experiments/iter12_vertex_model_access_recovery/HYPOTHESIS.md`](experiments/iter12_vertex_model_access_recovery/HYPOTHESIS.md).
+Vertex model access recovery: [`experiments/iter12_vertex_model_access_recovery/RESULT.md`](experiments/iter12_vertex_model_access_recovery/RESULT.md).
+Provider-model pilot retry after access recovery: [`experiments/iter13_provider_model_pilot_retry_after_access_recovery/HYPOTHESIS.md`](experiments/iter13_provider_model_pilot_retry_after_access_recovery/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -163,6 +166,8 @@ python3 scripts/validate_receipts.py experiments/iter10_provider_auth_recovery/p
 python3 scripts/audit_provider_auth_recovery.py
 python3 scripts/validate_receipts.py experiments/iter11_provider_model_pilot_retry/proof
 python3 scripts/audit_provider_model_pilot_retry.py
+python3 scripts/validate_receipts.py experiments/iter12_vertex_model_access_recovery/proof
+python3 scripts/audit_vertex_model_access_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

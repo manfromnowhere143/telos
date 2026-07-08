@@ -1,0 +1,54 @@
+{
+  "acceptance_criteria": [
+    "Identify the runner identity without committing account email, project identifier, token, or credential JSON.",
+    "Verify Vertex access with a minimal-spend preflight and no benchmark run.",
+    "Keep the selected next model endpoint as gemini-3.1-pro-preview-customtools only if the original endpoint has verified access.",
+    "Record the auth surface, endpoint, region, and spend ceiling for the next provider smoke.",
+    "Make no leaderboard, SWE-bench, production, or live-domain claim."
+  ],
+  "agent_id": "telos-vertex-runner",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "evidence": [
+    {
+      "artifact": "experiments/iter12_vertex_model_access_recovery/proof/probe.json",
+      "kind": "test",
+      "notes": "Ephemeral GCE VM attached to the dedicated Telos runner identity reached the original Vertex custom-tools endpoint with HTTP 200, one candidate, and usage metadata.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter12_vertex_model_access_recovery/proof/raw/vertex_access_probe_serial.log",
+      "kind": "artifact",
+      "notes": "Sanitized serial-observed probe transcript records vm_created=true, the one-line Vertex probe result, and vm_deleted=true.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter12_vertex_model_access_recovery/proof/cloud_state.json",
+      "kind": "diff_scope",
+      "notes": "Cloud IAM side effects are limited to a dedicated runner short ID with Vertex user permission and operator attach permission; token-impersonation permission was removed.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter12_vertex_model_access_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review confirms this is access recovery only and does not claim provider capability or benchmark performance.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed. The ephemeral access-probe VM was deleted after the probe; the dedicated runner identity is retained for the next pre-registered smoke.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The gate must be blocked if the dedicated runner identity cannot reach the original Vertex model endpoint.",
+    "The gate must be blocked if the probe requires committing account email, project identifier, token, credential JSON, or raw secrets.",
+    "The gate must be blocked if the probe starts CodeClash, SWE-bench, a model sweep, or a leaderboard run.",
+    "The gate must be blocked if cloud side effects cannot be recorded and bounded.",
+    "The gate must not select a replacement model inside this result."
+  ],
+  "receipt_id": "iter12-vertex-model-access-recovery-pass",
+  "sha256": "12573c6c59b9fe12b493427660f20c3fd4d05eeb9764f60c0c0890d8ad4cf279",
+  "stated_goal": "Recover a usable Vertex access path for the already selected gemini-3.1-pro-preview-customtools provider smoke without changing the model, running CodeClash, or committing sensitive Google Cloud identifiers.",
+  "status": "pass",
+  "task_id": "vertex:gemini-3.1-pro-preview-customtools@gce-dedicated-service-account-preflight"
+}

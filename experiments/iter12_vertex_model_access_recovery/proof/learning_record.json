@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter12_vertex_model_access_recovery/proof/probe.json",
+    "experiments/iter12_vertex_model_access_recovery/proof/cloud_state.json",
+    "experiments/iter12_vertex_model_access_recovery/proof/raw/vertex_access_probe_serial.log",
+    "experiments/iter12_vertex_model_access_recovery/proof/valid/receipt_vertex_model_access_recovery.json",
+    "experiments/iter12_vertex_model_access_recovery/proof/review.md"
+  ],
+  "experiment_id": "iter12_vertex_model_access_recovery",
+  "insight": "The original Vertex Gemini custom-tools endpoint is reachable from an ephemeral GCE runner when the runner uses a dedicated service account with Vertex user permission; the iter11 blocker was runner IAM, not a need to replace the selected model.",
+  "next_action": "run a new pre-registered provider smoke with the dedicated Telos Vertex runner identity and the original custom-tools endpoint",
+  "result_path": "experiments/iter12_vertex_model_access_recovery/RESULT.md",
+  "status": "pass"
+}

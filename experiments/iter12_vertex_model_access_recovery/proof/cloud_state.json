@@ -1,0 +1,21 @@
+{
+  "account_identifier_committed": false,
+  "aiplatform_user_binding_visible_after_cleanup": true,
+  "cloud_side_effects_removed": [
+    "roles/iam.serviceAccountTokenCreator binding for the active operator on the dedicated runner identity"
+  ],
+  "cloud_side_effects_retained": [
+    "dedicated service account short ID exists",
+    "project IAM binding grants roles/aiplatform.user to the dedicated runner identity",
+    "service-account IAM binding grants roles/iam.serviceAccountUser to the active operator for VM attachment"
+  ],
+  "credential_material_committed": false,
+  "dedicated_runner_short_id": "telos-vertex-runner",
+  "ephemeral_vm_deleted": true,
+  "full_service_account_identifier_committed": false,
+  "project_identifier_committed": false,
+  "schema_version": "telos.vertex_model_access_recovery.cloud_state.v1",
+  "service_account_user_binding_visible_after_cleanup": true,
+  "status": "pass",
+  "token_creator_binding_visible_after_cleanup": false
+}

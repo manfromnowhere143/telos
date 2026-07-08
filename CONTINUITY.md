@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter12_vertex_model_access_recovery/HYPOTHESIS.md`
+- `experiments/iter13_provider_model_pilot_retry_after_access_recovery/HYPOTHESIS.md`
 
 Current claim:
 
@@ -56,9 +56,13 @@ Current claim:
   CodeClash path and reached Vertex, but the selected `gemini-3.1-pro-preview-customtools` model
   path returned `aiplatform.endpoints.predict` permission denial until the run hit the 45-minute
   ceiling. No provider trajectory, cost, or API-call stats are claimed.
+- `iter12_vertex_model_access_recovery` passed: a dedicated Telos runner identity reached the
+  original Vertex custom-tools endpoint from an ephemeral GCE VM through metadata credentials,
+  returned HTTP `200` with one candidate and usage metadata, deleted the probe VM, and kept the
+  original model selection.
 - No model or benchmark result is claimed yet.
-- The next gate must recover or replace the selected Vertex model access path before any new
-  provider smoke.
+- The next gate must run the provider smoke on the dedicated Telos runner identity or publish
+  blocked/null evidence.
 
 ## Required Verification
 
@@ -87,6 +91,8 @@ python3 scripts/validate_receipts.py experiments/iter10_provider_auth_recovery/p
 python3 scripts/audit_provider_auth_recovery.py
 python3 scripts/validate_receipts.py experiments/iter11_provider_model_pilot_retry/proof
 python3 scripts/audit_provider_model_pilot_retry.py
+python3 scripts/validate_receipts.py experiments/iter12_vertex_model_access_recovery/proof
+python3 scripts/audit_vertex_model_access_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
