@@ -84,6 +84,7 @@ python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py
 python3 scripts/validate_deterministic_edit_slice.py
+python3 scripts/validate_provider_model_pilot_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py

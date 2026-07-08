@@ -1,0 +1,87 @@
+{
+  "budget": {
+    "dollar_ceiling_usd": 25,
+    "max_model_invocations": 8,
+    "max_output_tokens_per_call": 4096,
+    "max_wall_clock_minutes": 45,
+    "stop_if_cost_exceeds_usd": 25,
+    "stop_if_cost_missing": true
+  },
+  "codeclash": {
+    "commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "existing_provider_path_evidence": [
+      "pyproject.toml includes litellm",
+      "codeclash/agents/minisweagent.py resolves models through mini-swe-agent get_model",
+      "configs/pvp include provider-backed BattleSnake examples with model_class: portkey"
+    ],
+    "repository": "https://github.com/CodeClash-ai/CodeClash"
+  },
+  "credential_surface": {
+    "execution_location": "local first; GitHub Actions only after a secret-safe Workload Identity or secret path is added",
+    "forbidden_logging": [
+      "access tokens",
+      "API keys",
+      "raw credential JSON"
+    ],
+    "gcloud_project_configured": true,
+    "project_identifier_logged": false,
+    "required_repo_secrets": [],
+    "required_services_enabled": [
+      "aiplatform.googleapis.com",
+      "generativelanguage.googleapis.com"
+    ]
+  },
+  "evidence_plan": [
+    "raw CodeClash artifact bundle",
+    "metadata.json with provider-backed p1 agent stats",
+    "p1 Mini-SWE-Agent trajectory",
+    "p1 and p2 change records",
+    "run log with secrets redacted",
+    "run_summary.json with model id, cost, calls, status, and artifact hashes",
+    "valid Telos receipt",
+    "adversarial review"
+  ],
+  "execution_falsifiers": [
+    "zero-spend preflight cannot resolve ADC, project, enabled services, or model endpoint",
+    "CodeClash cannot run the provider-backed config without leaking credentials",
+    "p1 trajectory or agent_stats are missing",
+    "provider cost is missing, nonnumeric, or above the frozen ceiling",
+    "model invocations exceed the frozen ceiling",
+    "the result cannot be separated from a leaderboard or production claim"
+  ],
+  "pilot_id": "vertex_gemini_3_1_pro_customtools_codeclash_micro_edit",
+  "provider": {
+    "base_model_id": "gemini-3.1-pro-preview",
+    "launch_stage": "Public preview",
+    "model_id": "gemini-3.1-pro-preview-customtools",
+    "model_region": "global",
+    "name": "Google Vertex AI",
+    "official_model_doc": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-pro",
+    "selection_reason": "The custom-tools endpoint is documented as optimized for agentic workflows that use custom tools and bash."
+  },
+  "schema_version": "telos.provider_model_pilot_slice.v1",
+  "selected_candidate": "vertex_gemini_3_1_pro_customtools_codeclash_micro_edit",
+  "status": "selected",
+  "task": {
+    "game": "BattleSnake",
+    "non_goal": "Do not claim game improvement, leaderboard rank, SWE-bench performance, or production behavior.",
+    "pilot_config_path": "configs/test/telos_battlesnake_vertex_gemini_pilot.yaml",
+    "players": [
+      {
+        "agent": "mini",
+        "model_id": "gemini-3.1-pro-preview-customtools",
+        "name": "p1",
+        "provider_backed": true,
+        "step_limit": 8
+      },
+      {
+        "agent": "dummy",
+        "name": "p2",
+        "provider_backed": false
+      }
+    ],
+    "primary_goal": "Capture the first provider-backed Mini-SWE-Agent trajectory, stats, diff-scope, and receipt on a tiny public CodeClash task.",
+    "rounds": 1,
+    "sims_per_round": 1
+  }
+}

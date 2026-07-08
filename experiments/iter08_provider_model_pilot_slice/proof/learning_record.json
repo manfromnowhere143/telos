@@ -1,0 +1,13 @@
+{
+  "evidence_paths": [
+    "experiments/iter08_provider_model_pilot_slice/proof/selected_pilot.json",
+    "experiments/iter08_provider_model_pilot_slice/proof/scorecard.json",
+    "experiments/iter08_provider_model_pilot_slice/proof/preflight.json",
+    "experiments/iter08_provider_model_pilot_slice/proof/review.md"
+  ],
+  "experiment_id": "iter08_provider_model_pilot_slice",
+  "insight": "The first paid-provider run should use local-first Vertex because Google Cloud is configured and repo/API-key secret paths for OpenAI, Anthropic, and Portkey are not present.",
+  "next_action": "run the Vertex Gemini CodeClash pilot smoke under the frozen budget or publish blocked/null evidence if preflight fails",
+  "result_path": "experiments/iter08_provider_model_pilot_slice/RESULT.md",
+  "status": "pass"
+}

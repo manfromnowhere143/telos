@@ -19,8 +19,9 @@ Current evidence:
 - `experiments/iter06_deterministic_edit_slice/RESULT.md` selects the deterministic edit slice.
 - `experiments/iter07_deterministic_edit_smoke/RESULT.md` validates deterministic non-empty diff
   capture through the CodeClash Mini-SWE-Agent path.
-- `experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md` freezes the next provider-model
-  pilot selection gate.
+- `experiments/iter08_provider_model_pilot_slice/RESULT.md` selects the first paid-provider pilot
+  without making a model-result claim.
+- `experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md` freezes the next paid smoke gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

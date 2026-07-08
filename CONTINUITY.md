@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md`
+- `experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md`
 
 Current claim:
 
@@ -44,9 +44,12 @@ Current claim:
 - `iter07_deterministic_edit_smoke` passed: GitHub Actions ran the deterministic Mini-SWE-Agent
   edit smoke, captured a non-empty `p1` diff creating `telos_marker.py`, and produced a valid,
   audited Telos receipt.
+- `iter08_provider_model_pilot_slice` passed: selected a local-first Google Vertex AI
+  `gemini-3.1-pro-preview-customtools` CodeClash pilot with a $25 ceiling and no model-result
+  claim.
 - No model or benchmark result is claimed yet.
-- The next gate must select the first provider-model pilot and freeze the model, cost ceiling,
-  task, and expected evidence before any paid execution.
+- The next gate may run exactly one paid provider-model smoke under the frozen budget and evidence
+  bars, or publish blocked/null evidence if zero-spend preflight fails.
 
 ## Required Verification
 
@@ -61,6 +64,7 @@ python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py
 python3 scripts/validate_deterministic_edit_slice.py
+python3 scripts/validate_provider_model_pilot_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py

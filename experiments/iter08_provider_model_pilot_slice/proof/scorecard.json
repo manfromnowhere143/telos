@@ -1,0 +1,75 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "vertex_gemini_3_1_pro_customtools_codeclash_micro_edit",
+      "components": {
+        "adapter_uncertainty_penalty": -3,
+        "artifact_surface": 5,
+        "bounded_spend": 5,
+        "credential_readiness": 5,
+        "frontier_model_fit": 5,
+        "harness_fidelity": 5,
+        "overclaim_control": 5,
+        "preview_model_penalty": -2
+      },
+      "decision": "selected",
+      "rationale": "Current Google docs name Gemini 3.1 Pro preview and a custom-tools endpoint for agentic bash/custom-tool workflows; local Google Cloud project and services are available; the run can stay on the proven CodeClash path with a strict first-smoke budget.",
+      "score": 30
+    },
+    {
+      "candidate_id": "openai_gpt_5_5_codeclash_micro_edit",
+      "components": {
+        "artifact_surface": 5,
+        "bounded_spend": 5,
+        "credential_readiness": 0,
+        "frontier_model_fit": 5,
+        "harness_fidelity": 5,
+        "missing_secret_penalty": -1,
+        "overclaim_control": 5
+      },
+      "decision": "defer_until_secret_path_exists",
+      "rationale": "OpenAI docs identify gpt-5.5 as the latest model for complex tool-heavy coding workflows, but this repo has no OPENAI_API_KEY in local env or GitHub secrets.",
+      "score": 24
+    },
+    {
+      "candidate_id": "codeclash_portkey_gemini_existing_config",
+      "components": {
+        "artifact_surface": 5,
+        "bounded_spend": 4,
+        "credential_readiness": 0,
+        "frontier_model_fit": 3,
+        "harness_fidelity": 5,
+        "older_model_penalty": -1,
+        "overclaim_control": 5
+      },
+      "decision": "defer_until_portkey_key_exists",
+      "rationale": "Pinned CodeClash already has Portkey-backed Google configs, but no PORTKEY_API_KEY is visible and the strongest current Google model would still require an updated config.",
+      "score": 21
+    },
+    {
+      "candidate_id": "swebench_verified_single_task_provider_overlay",
+      "components": {
+        "artifact_surface": 4,
+        "bounded_spend": 3,
+        "credential_readiness": 5,
+        "environment_complexity_penalty": -5,
+        "frontier_model_fit": 5,
+        "harness_fidelity": 2,
+        "overclaim_control": 5
+      },
+      "decision": "defer_after_first_codeclash_paid_smoke",
+      "rationale": "High-value target, but it adds environment and scoring complexity before the first paid provider receipt is proven on CodeClash.",
+      "score": 19
+    }
+  ],
+  "criteria": {
+    "artifact_surface": "trajectory, metadata, diff-scope, logs, cost, and receipt can be audited",
+    "bounded_spend": "max calls, tokens, wall time, and dollar ceiling can be frozen before execution",
+    "credential_readiness": "secret-safe local or CI credential path exists without logging values",
+    "frontier_model_fit": "current reasoning or agentic coding model verified from official docs",
+    "harness_fidelity": "keeps the CodeClash Mini-SWE-Agent path proven in iter05-iter07",
+    "overclaim_control": "pilot result cannot be mistaken for a leaderboard or production result"
+  },
+  "schema_version": "telos.provider_model_pilot_scorecard.v1",
+  "selected": "vertex_gemini_3_1_pro_customtools_codeclash_micro_edit"
+}

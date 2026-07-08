@@ -61,6 +61,7 @@ python3 scripts/validate_learning_ledger.py
 | `iter05_agent_behavior_smoke` | pass | deterministic Mini-SWE-Agent trajectory and stats are auditable at zero provider cost | freeze first deterministic edit-agent slice |
 | `iter06_deterministic_edit_slice` | pass | a committed CodeClash overlay is the cleanest route to non-empty diff evidence | run deterministic edit smoke |
 | `iter07_deterministic_edit_smoke` | pass | non-empty CodeClash Mini-SWE-Agent diffs are auditable at zero provider cost | freeze first provider-model pilot slice |
+| `iter08_provider_model_pilot_slice` | pass | local-first Vertex is the only visible paid-provider path with configured infrastructure and no secret leakage | run the frozen provider-model pilot smoke or publish blocked/null evidence |
 
-The next experiment should not spend cloud resources. It should freeze the first provider-model
-pilot with exact model, budget, task target, falsifiers, and receipt fields before any paid run.
+The next experiment may spend only inside the frozen `iter09` ceiling. It should publish blocked or
+null evidence if the provider endpoint, cost accounting, or artifact capture cannot be verified.

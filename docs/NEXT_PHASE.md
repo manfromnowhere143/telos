@@ -2,16 +2,17 @@
 
 ## Current Action
 
-Run `iter08_provider_model_pilot_slice` exactly as frozen in
-[`../experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md`](../experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md).
+Run `iter09_provider_model_pilot_smoke` exactly as frozen in
+[`../experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md`](../experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md).
 
-The output is not a model score. It is a selected provider-model pilot specification:
+The output is not a model score. It is a paid-provider smoke receipt:
 
-- score candidate pilot designs,
-- freeze exact provider and model identity,
-- freeze task target, budget ceiling, and max API calls,
-- define raw artifact retention, receipt fields, audit checks, and stop criteria,
-- preserve the boundary that no paid execution occurs during the selection gate.
+- run only the selected Google Vertex AI `gemini-3.1-pro-preview-customtools` pilot,
+- cap the run at 8 model invocations, 4096 output tokens per call, 45 minutes, and $25,
+- preserve metadata, logs, trajectory, agent stats, diff-scope artifacts, and cost evidence,
+- produce a valid Telos receipt,
+- publish blocked/null evidence if preflight, endpoint resolution, cost accounting, or artifact
+  capture fails.
 
 ## Infrastructure Discipline
 
@@ -26,18 +27,19 @@ Available cloud and sandbox resources are escalation tools, not default proof. T
 7. GPU or provider model cloud only when a frozen gate names the spend and expected evidence.
 
 No GPU or provider model run is authorized by `iter00`, `iter01`, `iter02`, `iter03`, `iter04`, or
-`iter05`. `iter06`, `iter07`, and `iter08` also forbid provider model calls and GPU runs.
+`iter05`. `iter06`, `iter07`, and `iter08` also forbid provider model calls and GPU runs. `iter09`
+authorizes only the single frozen paid smoke.
 
-## After The Provider-Model Pilot Slice Gate
+## After The Provider-Model Pilot Smoke Gate
 
-If the selection gate passes:
+If the smoke gate passes:
 
-1. Publish the selected pilot spec and review.
-2. Run the paid pilot only if the selected spec names model, budget, task, and expected evidence.
-3. Escalate to sandbox/cloud only if the selected run requires isolation or compute.
+1. Publish the receipt, parsed artifacts, cost evidence, and review.
+2. Decide whether a second provider run is justified by the evidence.
+3. Do not start sweeps or leaderboard submissions without a new frozen gate.
 
-If the selection gate fails:
+If the smoke gate fails:
 
 1. Publish the failure.
-2. Fix the concrete selection gap or choose a narrower pilot.
-3. Do not start a paid model run.
+2. Fix only the concrete preflight, adapter, or artifact gap.
+3. Do not broaden provider scope.

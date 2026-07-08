@@ -33,8 +33,10 @@ and an adversarial review pass.
   [`experiments/iter06_deterministic_edit_slice`](experiments/iter06_deterministic_edit_slice/RESULT.md).
 - Deterministic edit smoke: passed in
   [`experiments/iter07_deterministic_edit_smoke`](experiments/iter07_deterministic_edit_smoke/RESULT.md).
-- Current gate: provider-model pilot slice, pre-registered in
-  [`experiments/iter08_provider_model_pilot_slice`](experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md).
+- Provider-model pilot slice: selected in
+  [`experiments/iter08_provider_model_pilot_slice`](experiments/iter08_provider_model_pilot_slice/RESULT.md).
+- Current gate: provider-model pilot smoke, pre-registered in
+  [`experiments/iter09_provider_model_pilot_smoke`](experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -70,7 +72,8 @@ Agent-behavior slice: [`experiments/iter04_agent_behavior_slice/RESULT.md`](expe
 Agent-behavior smoke: [`experiments/iter05_agent_behavior_smoke/RESULT.md`](experiments/iter05_agent_behavior_smoke/RESULT.md).
 Deterministic edit slice: [`experiments/iter06_deterministic_edit_slice/RESULT.md`](experiments/iter06_deterministic_edit_slice/RESULT.md).
 Deterministic edit smoke: [`experiments/iter07_deterministic_edit_smoke/RESULT.md`](experiments/iter07_deterministic_edit_smoke/RESULT.md).
-Provider-model pilot slice: [`experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md`](experiments/iter08_provider_model_pilot_slice/HYPOTHESIS.md).
+Provider-model pilot slice: [`experiments/iter08_provider_model_pilot_slice/RESULT.md`](experiments/iter08_provider_model_pilot_slice/RESULT.md).
+Provider-model pilot smoke: [`experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md`](experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -137,6 +140,7 @@ python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py
 python3 scripts/validate_deterministic_edit_slice.py
+python3 scripts/validate_provider_model_pilot_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py

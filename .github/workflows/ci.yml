@@ -55,6 +55,9 @@ jobs:
       - name: Deterministic edit slice guard
         run: python3 scripts/validate_deterministic_edit_slice.py
 
+      - name: Provider model pilot slice guard
+        run: python3 scripts/validate_provider_model_pilot_slice.py
+
       - name: Receipt guard
         run: python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 
