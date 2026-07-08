@@ -2,16 +2,17 @@
 
 ## Current Action
 
-Run `iter10_provider_auth_recovery` exactly as frozen in
-[`../experiments/iter10_provider_auth_recovery/HYPOTHESIS.md`](../experiments/iter10_provider_auth_recovery/HYPOTHESIS.md).
+Run `iter11_provider_model_pilot_retry` exactly as frozen in
+[`../experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md`](../experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md).
 
-The output is not a model score. It is an authentication readiness result:
+The output is not a leaderboard score. It is the first paid provider-backed agent-attempt smoke:
 
-- restore non-interactive ADC or configure a GitHub Workload Identity / secret path,
-- verify readiness without printing tokens, API keys, account emails, credential JSON, or project
-  identifiers,
-- keep the already frozen `iter09` model, task, and budget unchanged,
-- publish blocked/null evidence if credential readiness still requires interactive auth.
+- keep the already frozen model, task, and budget unchanged,
+- verify ADC again before the run without printing tokens, API keys, account emails, credential
+  JSON, or project identifiers,
+- run the one-round CodeClash BattleSnake provider smoke only under the `$25` ceiling,
+- publish blocked/null evidence if the provider endpoint, LiteLLM, CodeClash, cost accounting, or
+  credential path fails.
 
 ## Infrastructure Discipline
 
@@ -28,18 +29,19 @@ Available cloud and sandbox resources are escalation tools, not default proof. T
 No GPU or provider model run is authorized by `iter00`, `iter01`, `iter02`, `iter03`, `iter04`, or
 `iter05`. `iter06`, `iter07`, and `iter08` also forbid provider model calls and GPU runs. `iter09`
 authorized only the single frozen paid smoke, but it stopped before spend because preflight failed.
-`iter10` does not authorize a model call.
+`iter10` restored the credential path without calling a model. `iter11` authorizes only the same
+single frozen paid smoke under the original `$25` ceiling.
 
-## After The Provider Auth Recovery Gate
+## After The Provider Pilot Retry Gate
 
-If the auth gate passes:
+If the provider smoke passes:
 
-1. Retry the existing `iter09` smoke without changing model, budget, or task.
-2. Preserve the same evidence bars and stop conditions.
+1. Publish the raw artifacts, receipt, cost record, diff summary, and review.
+2. Freeze the first analysis gate from the observed agent behavior.
 3. Do not start sweeps or leaderboard submissions.
 
-If the auth gate fails:
+If the provider smoke blocks or fails:
 
 1. Publish the failure.
-2. Do not retry the paid smoke.
+2. Do not widen model, budget, or task scope.
 3. Keep the blocker explicit in `HANDOFF.md`.

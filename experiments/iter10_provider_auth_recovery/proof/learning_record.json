@@ -1,0 +1,13 @@
+{
+  "evidence_paths": [
+    "experiments/iter10_provider_auth_recovery/proof/preflight.json",
+    "experiments/iter10_provider_auth_recovery/proof/preflight/auth_readiness.log",
+    "experiments/iter10_provider_auth_recovery/proof/valid/receipt_provider_auth_recovery.json",
+    "experiments/iter10_provider_auth_recovery/proof/review.md"
+  ],
+  "experiment_id": "iter10_provider_auth_recovery",
+  "insight": "Local ADC can now refresh non-interactively without committing credential material, so the frozen provider-model smoke can be retried under the original model and budget scope.",
+  "next_action": "run the frozen Vertex Gemini CodeClash provider smoke retry under the documented $25 ceiling",
+  "result_path": "experiments/iter10_provider_auth_recovery/RESULT.md",
+  "status": "pass"
+}

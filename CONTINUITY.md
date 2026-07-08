@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter10_provider_auth_recovery/HYPOTHESIS.md`
+- `experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md`
 
 Current claim:
 
@@ -49,9 +49,12 @@ Current claim:
   claim.
 - `iter09_provider_model_pilot_smoke` blocked before spend: ADC token refresh required
   interactive reauthentication, so no paid model call or CodeClash provider run occurred.
+- `iter10_provider_auth_recovery` passed: local ADC refresh now succeeds with token output
+  suppressed, required Google services are visible by service name, and no credential material or
+  project/account identifier is committed.
 - No model or benchmark result is claimed yet.
-- The next gate must restore a secret-safe non-interactive provider credential path before retrying
-  the already frozen paid smoke.
+- The next gate must retry the already frozen paid smoke without changing model, task, or `$25`
+  budget scope.
 
 ## Required Verification
 
@@ -76,6 +79,8 @@ python3 scripts/validate_receipts.py experiments/iter07_deterministic_edit_smoke
 python3 scripts/audit_deterministic_edit_smoke.py
 python3 scripts/validate_receipts.py experiments/iter09_provider_model_pilot_smoke/proof
 python3 scripts/audit_provider_model_pilot_smoke.py
+python3 scripts/validate_receipts.py experiments/iter10_provider_auth_recovery/proof
+python3 scripts/audit_provider_auth_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,46 @@
+{
+  "acceptance_criteria": [
+    "Non-interactive ADC refresh succeeds locally with token output suppressed.",
+    "No token, API key, credential JSON, account email, or Google Cloud project identifier is committed.",
+    "Vertex AI and Generative Language service readiness remains verified by service name only.",
+    "The result publishes the exact auth surface to use for retrying the frozen provider smoke without broadening model scope."
+  ],
+  "agent_id": "telos-local-provider-auth-preflight",
+  "benchmark_id": "telos_provider_auth_recovery",
+  "evidence": [
+    {
+      "artifact": "experiments/iter10_provider_auth_recovery/proof/preflight/auth_readiness.log",
+      "kind": "test",
+      "notes": "ADC refresh succeeded with access-token output redirected away from logs; only service names were recorded.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter10_provider_auth_recovery/proof/preflight.json",
+      "kind": "artifact",
+      "notes": "Structured preflight records the usable auth surface and the selected retry model without credential values.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter10_provider_auth_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review confirms this gate makes no model call and commits no secret-bearing identifiers.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed; this was credential readiness only.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The gate must be blocked if credentials require an interactive prompt after recovery.",
+    "The gate must be blocked if any credential value or account/project identifier has to be printed or committed.",
+    "The gate must not claim a provider-model result because no model call is authorized in iter10.",
+    "The retry path must stay within the frozen iter09 model and budget scope."
+  ],
+  "receipt_id": "iter10-provider-auth-recovery-pass",
+  "sha256": "3678448080a5cd30b4f6557f84c5329bd6440b8263c785b567350e222fb17300",
+  "stated_goal": "Restore a secret-safe provider authentication path for the selected Vertex Gemini pilot without making a paid model call.",
+  "status": "pass",
+  "task_id": "provider-auth:local-adc-refresh-for-vertex-gemini-pilot"
+}

@@ -37,8 +37,10 @@ and an adversarial review pass.
   [`experiments/iter08_provider_model_pilot_slice`](experiments/iter08_provider_model_pilot_slice/RESULT.md).
 - Provider-model pilot smoke: blocked before spend in
   [`experiments/iter09_provider_model_pilot_smoke`](experiments/iter09_provider_model_pilot_smoke/RESULT.md).
-- Current gate: provider auth recovery, pre-registered in
-  [`experiments/iter10_provider_auth_recovery`](experiments/iter10_provider_auth_recovery/HYPOTHESIS.md).
+- Provider auth recovery: passed in
+  [`experiments/iter10_provider_auth_recovery`](experiments/iter10_provider_auth_recovery/RESULT.md).
+- Current gate: provider-model pilot retry, pre-registered in
+  [`experiments/iter11_provider_model_pilot_retry`](experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -76,7 +78,8 @@ Deterministic edit slice: [`experiments/iter06_deterministic_edit_slice/RESULT.m
 Deterministic edit smoke: [`experiments/iter07_deterministic_edit_smoke/RESULT.md`](experiments/iter07_deterministic_edit_smoke/RESULT.md).
 Provider-model pilot slice: [`experiments/iter08_provider_model_pilot_slice/RESULT.md`](experiments/iter08_provider_model_pilot_slice/RESULT.md).
 Provider-model pilot smoke: [`experiments/iter09_provider_model_pilot_smoke/RESULT.md`](experiments/iter09_provider_model_pilot_smoke/RESULT.md).
-Provider auth recovery: [`experiments/iter10_provider_auth_recovery/HYPOTHESIS.md`](experiments/iter10_provider_auth_recovery/HYPOTHESIS.md).
+Provider auth recovery: [`experiments/iter10_provider_auth_recovery/RESULT.md`](experiments/iter10_provider_auth_recovery/RESULT.md).
+Provider-model pilot retry: [`experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md`](experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -153,6 +156,8 @@ python3 scripts/validate_receipts.py experiments/iter07_deterministic_edit_smoke
 python3 scripts/audit_deterministic_edit_smoke.py
 python3 scripts/validate_receipts.py experiments/iter09_provider_model_pilot_smoke/proof
 python3 scripts/audit_provider_model_pilot_smoke.py
+python3 scripts/validate_receipts.py experiments/iter10_provider_auth_recovery/proof
+python3 scripts/audit_provider_auth_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

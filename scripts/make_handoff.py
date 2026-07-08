@@ -94,6 +94,8 @@ python3 scripts/validate_receipts.py experiments/iter07_deterministic_edit_smoke
 python3 scripts/audit_deterministic_edit_smoke.py
 python3 scripts/validate_receipts.py experiments/iter09_provider_model_pilot_smoke/proof
 python3 scripts/audit_provider_model_pilot_smoke.py
+python3 scripts/validate_receipts.py experiments/iter10_provider_auth_recovery/proof
+python3 scripts/audit_provider_auth_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -23,8 +23,10 @@ Current evidence:
   without making a model-result claim.
 - `experiments/iter09_provider_model_pilot_smoke/RESULT.md` blocks before spend because ADC
   reauthentication is interactive.
-- `experiments/iter10_provider_auth_recovery/HYPOTHESIS.md` freezes provider-auth recovery before
-  retrying the paid smoke.
+- `experiments/iter10_provider_auth_recovery/RESULT.md` restores non-interactive local ADC
+  readiness without making a model call.
+- `experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md` freezes the provider-model pilot
+  retry before the first paid agent-attempt smoke.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
