@@ -1,0 +1,62 @@
+{
+  "receipt_id": "iter16-provider-workspace-hygiene-control-pass",
+  "task_id": "codeclash:telos_battlesnake_vertex_gemini_pilot@381cdfa05a35e8acd35853b9fc7e13005121b127",
+  "agent_id": "codeclash-minisweagent-vertex-gemini-3-1-pro-customtools-p1-workspace-hygiene-control",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "status": "pass",
+  "stated_goal": "Test whether an explicit workspace-hygiene control removes helper-file residue from the frozen Vertex Gemini CodeClash provider smoke without changing the model, benchmark family, or evidence standard.",
+  "acceptance_criteria": [
+    "Zero-spend preflight confirms the dedicated runner can call the selected Vertex endpoint without committing sensitive Google identifiers.",
+    "The CodeClash run exits successfully under the frozen model, task, runner, and budget.",
+    "Raw output is retained under proof/raw with sensitive identifiers and provider-private fields redacted before commit.",
+    "The result records provider trajectory, cost, API-call stats, changed files, and full diff scope.",
+    "The submitted diff has clean workspace hygiene, with no unreferenced helper, scratch, cache, generated, or secret-risk files.",
+    "No leaderboard, SWE-bench, production, or live-domain claim is made."
+  ],
+  "evidence": [
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": "experiments/iter16_provider_workspace_hygiene_control/proof/run_summary.json",
+      "notes": "Execution succeeded and strict workspace-hygiene status is clean_workspace_hygiene; style caveat is recorded separately."
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": "experiments/iter16_provider_workspace_hygiene_control/proof/raw/control/telos-cloud-setup.log",
+      "notes": "Ephemeral GCE runner installed Docker, CodeClash dependencies, applied the overlay, and ran with explicit global Vertex routing."
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": "experiments/iter16_provider_workspace_hygiene_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p1/p1_r1.traj.json",
+      "notes": "Sanitized provider trajectory records the submitted run, API calls, cost, scratch-file deletion, and git status check."
+    },
+    {
+      "kind": "diff_scope",
+      "status": "pass",
+      "artifact": "experiments/iter16_provider_workspace_hygiene_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p1/changes_r1.json",
+      "notes": "Changed-file set is limited to README_agent.md and main.py; no helper or scratch residue remains."
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": "experiments/iter16_provider_workspace_hygiene_control/proof/review.md",
+      "notes": "Review separates workspace-hygiene success from leaderboard/SWE-bench/production/model-superiority claims and records the trailing-whitespace caveat."
+    },
+    {
+      "kind": "live_check",
+      "status": "not_applicable",
+      "notes": "No production or live-domain behavior changed. The only cloud side effect was an ephemeral VM deleted after artifact collection."
+    }
+  ],
+  "falsifiers": [
+    "The gate must be blocked if the dedicated runner cannot call the selected Vertex endpoint during preflight.",
+    "The gate must be blocked if CodeClash cannot run the provider-backed config without leaking credentials.",
+    "The gate must be blocked if the run exceeds the frozen $25 ceiling or 45-minute wall-clock ceiling.",
+    "The gate must fail if execution succeeds but the submitted diff leaves an unjustified helper, scratch, cache, generated, or secret-risk file.",
+    "The result must not claim leaderboard, SWE-bench, production, or live-domain verification.",
+    "The proof bundle must not commit token, credential JSON, account email, Google Cloud project identifier, or provider-private thought-signature values."
+  ],
+  "sha256": "084021b715ee027f3e91f248355523d6e6c9e088bcc47c3196d2e3d6a9390add"
+}

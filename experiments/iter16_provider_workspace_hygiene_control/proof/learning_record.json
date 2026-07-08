@@ -1,0 +1,18 @@
+{
+  "schema_version": "telos.learning_record.v1",
+  "experiment_id": "iter16_provider_workspace_hygiene_control",
+  "status": "pass",
+  "insight": "An explicit workspace-hygiene prompt control removed the helper-file residue seen in iter15 while preserving provider-run completion, but the submitted diff still carried a minor trailing-whitespace style issue.",
+  "next_action": "run the same provider-smoke shape with workspace hygiene retained and an added source-style check such as git diff --check before submission",
+  "result_path": "experiments/iter16_provider_workspace_hygiene_control/RESULT.md",
+  "evidence_paths": [
+    "experiments/iter16_provider_workspace_hygiene_control/proof/run_summary.json",
+    "experiments/iter16_provider_workspace_hygiene_control/proof/preflight.json",
+    "experiments/iter16_provider_workspace_hygiene_control/proof/diff_summary.md",
+    "experiments/iter16_provider_workspace_hygiene_control/proof/review.md",
+    "experiments/iter16_provider_workspace_hygiene_control/proof/raw/codeclash/telos-codeclash-provider-run.log",
+    "experiments/iter16_provider_workspace_hygiene_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p1/p1_r1.traj.json",
+    "experiments/iter16_provider_workspace_hygiene_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p1/changes_r1.json",
+    "experiments/iter16_provider_workspace_hygiene_control/proof/valid/receipt_provider_workspace_hygiene_control.json"
+  ]
+}

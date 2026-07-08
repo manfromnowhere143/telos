@@ -1,0 +1,79 @@
+{
+  "schema_version": "telos.provider_workspace_hygiene_control.summary.v1",
+  "status": "pass",
+  "runner": "ephemeral_gce_vm_dedicated_service_account",
+  "service_account_short_id": "telos-vertex-runner",
+  "selected_model": "vertex_ai/gemini-3.1-pro-preview-customtools",
+  "region": "global",
+  "vertex_location_configured_in_model_kwargs": true,
+  "workspace_hygiene_instruction_present": true,
+  "preflight_status": "pass",
+  "preflight_http_status": "200",
+  "preflight_total_token_count": 2,
+  "codeclash_started": true,
+  "run_exit_code": 0,
+  "p1_trajectory_present": true,
+  "p1_agent_exit_status": "Submitted",
+  "model_api_calls_reported": 6,
+  "model_cost_reported_usd": 0.035064,
+  "p1_modified_files": [
+    "README_agent.md",
+    "main.py"
+  ],
+  "p2_modified_files": [],
+  "p1_full_diff_lines": 37,
+  "p2_full_diff_lines": 0,
+  "allowed_changed_files_observed": [
+    "README_agent.md",
+    "main.py"
+  ],
+  "helper_residue_files": [],
+  "scratch_used_outside_workspace": true,
+  "scratch_deleted_before_submission": true,
+  "git_status_checked_before_submission": true,
+  "git_status_output_before_submission": [
+    " M main.py",
+    "?? README_agent.md"
+  ],
+  "strict_diff_quality_status": "clean_workspace_hygiene",
+  "clean_pass": true,
+  "style_caveat_trailing_blank_whitespace_in_main_py_diff": true,
+  "cloud_vm_deleted": true,
+  "raw_binary_round_archive_committed": false,
+  "project_identifier_committed": false,
+  "credential_material_committed": false,
+  "provider_private_fields_redacted": true,
+  "production_or_live_domain_changed": false,
+  "leaderboard_or_swebench_claimed": false,
+  "game_score_used_as_model_capability_evidence": false,
+  "round0_winner": "p1",
+  "round0_scores": {
+    "p2": 0.0,
+    "p1": 1
+  },
+  "round1_winner": "p1",
+  "round1_scores": {
+    "p2": 0.0,
+    "p1": 1
+  },
+  "next_gate": "experiments/iter17_provider_lint_hygiene_control/HYPOTHESIS.md",
+  "artifact_hashes": {
+    "preflight.json": "f1cd50c3c7421656cdedb6086c0419a3f5b9a382a75afe29f4ca0bf010533a99",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/everything.log": "34f3aa619b8ec3ccb5140d49efefe76a5cb3405b967c739774ace4c08da27dfc",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/game.log": "ae6374a6db60798c2ad3af84b22971fcfb50299616bbf29c8b5c4db2696b8651",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/metadata.json": "cd1e789824c6872b3de9600f37012e5f3822e36e21d2eaff62ebe7394ecf5c3c",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p1/changes_r1.json": "c328ab31f2c9699dbf31b7c6b8570148405fcc820276328589f19c88729552f2",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p1/p1_r1.traj.json": "74ecdbed3035dafcbffc0a391911795d868fb89af814bbe270e16b47851f1298",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p1/player.log": "6f8999363cd3877483ad73347063affcef860df3f13b78ff6c1a545996b997e0",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p2/changes_r1.json": "ec6f270915b0e58451480486b6428844d7848641c576e5103a954588ae50cbd3",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/players/p2/player.log": "af1535d9857ad308d234fb6aacb05f50a1be81c4956d3ce46299480fd06e706f",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708171352/tournament.log": "49b1372e7995e443840a0e46761f84b678bff963f21881c3a2b05bef108d71f6",
+    "raw/codeclash/telos-codeclash-provider-run.log": "d4e7ea458e105410edf80831c8e81bf4fcce6459ff522390e4b035a72789d8cf",
+    "raw/control/codeclash_commit.txt": "c67a8ba2ee4a66ccc5ba548c26b85115ff65f2e4463c6ac40949032cfa1ba7d4",
+    "raw/control/run_exit_code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "raw/control/telos-cloud-setup.log": "4ffb5d7d2041a9fa85d9c91448a471aa516a8b3629e5052f00e307254573998d",
+    "raw/control/telos-uv-sync.log": "ba20b20ddb38af08d8bb18a7bfd7cc2d3a60ef49788c8523be459658f176a497",
+    "raw/control/telos_commit.txt": "2255cdd0f0ad4efd8bc465d0dd2de68d56696e9b96a7536551cafb514eb085fc",
+    "raw_summary.json": "ae58dbc329e597a81cff7ff1ec61864f1311dd77136cba0ad63ffb155cc2fd7e"
+  }
+}

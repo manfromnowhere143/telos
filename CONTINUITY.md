@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter16_provider_workspace_hygiene_control/HYPOTHESIS.md`
+- `experiments/iter17_provider_lint_hygiene_control/HYPOTHESIS.md`
 
 Current claim:
 
@@ -72,8 +72,14 @@ Current claim:
   recovered with explicit `global` Vertex routing, CodeClash exited `0`, `p1` submitted with `5`
   model API calls and `$0.037882` reported cost, but the submitted diff left `patch.py` and
   `patch2.py`, so the strict status is `fail_unjustified_helper_files`.
+- `iter16_provider_workspace_hygiene_control` passed the concrete helper-residue bar: the same
+  provider-smoke shape completed with exit code `0`, `p1` submitted with `6` model API calls and
+  `$0.035064` reported cost, used `/tmp/patch.py` as scratch, removed it, ran
+  `git status --short`, and submitted only `README_agent.md` plus `main.py`. The result records a
+  style caveat because the submitted `main.py` diff contains one whitespace-only added blank line.
 - No model or benchmark result is claimed yet.
-- The next gate must test the same provider-smoke shape with an explicit workspace-hygiene control.
+- The next gate must retain workspace hygiene and add a source-style hygiene check such as
+  `git diff --check` before submission.
 
 ## Required Verification
 
@@ -110,6 +116,8 @@ python3 scripts/validate_receipts.py experiments/iter14_provider_diff_quality_re
 python3 scripts/audit_provider_diff_quality_review.py
 python3 scripts/validate_receipts.py experiments/iter15_provider_strict_diff_rerun/proof
 python3 scripts/audit_provider_strict_diff_rerun.py
+python3 scripts/validate_receipts.py experiments/iter16_provider_workspace_hygiene_control/proof
+python3 scripts/audit_provider_workspace_hygiene_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

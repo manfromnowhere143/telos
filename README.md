@@ -49,8 +49,10 @@ and an adversarial review pass.
   [`experiments/iter14_provider_diff_quality_review`](experiments/iter14_provider_diff_quality_review/RESULT.md).
 - Provider strict diff rerun: failed the clean diff-quality bar in
   [`experiments/iter15_provider_strict_diff_rerun`](experiments/iter15_provider_strict_diff_rerun/RESULT.md).
-- Current gate: provider workspace hygiene control, pre-registered in
-  [`experiments/iter16_provider_workspace_hygiene_control`](experiments/iter16_provider_workspace_hygiene_control/HYPOTHESIS.md).
+- Provider workspace hygiene control: passed the helper-residue bar with a recorded style caveat in
+  [`experiments/iter16_provider_workspace_hygiene_control`](experiments/iter16_provider_workspace_hygiene_control/RESULT.md).
+- Current gate: provider lint hygiene control, pre-registered in
+  [`experiments/iter17_provider_lint_hygiene_control`](experiments/iter17_provider_lint_hygiene_control/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -94,7 +96,8 @@ Vertex model access recovery: [`experiments/iter12_vertex_model_access_recovery/
 Provider-model pilot retry after access recovery: [`experiments/iter13_provider_model_pilot_retry_after_access_recovery/RESULT.md`](experiments/iter13_provider_model_pilot_retry_after_access_recovery/RESULT.md).
 Provider diff quality review: [`experiments/iter14_provider_diff_quality_review/RESULT.md`](experiments/iter14_provider_diff_quality_review/RESULT.md).
 Provider strict diff rerun: [`experiments/iter15_provider_strict_diff_rerun/RESULT.md`](experiments/iter15_provider_strict_diff_rerun/RESULT.md).
-Provider workspace hygiene control: [`experiments/iter16_provider_workspace_hygiene_control/HYPOTHESIS.md`](experiments/iter16_provider_workspace_hygiene_control/HYPOTHESIS.md).
+Provider workspace hygiene control: [`experiments/iter16_provider_workspace_hygiene_control/RESULT.md`](experiments/iter16_provider_workspace_hygiene_control/RESULT.md).
+Provider lint hygiene control: [`experiments/iter17_provider_lint_hygiene_control/HYPOTHESIS.md`](experiments/iter17_provider_lint_hygiene_control/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -183,6 +186,8 @@ python3 scripts/validate_receipts.py experiments/iter14_provider_diff_quality_re
 python3 scripts/audit_provider_diff_quality_review.py
 python3 scripts/validate_receipts.py experiments/iter15_provider_strict_diff_rerun/proof
 python3 scripts/audit_provider_strict_diff_rerun.py
+python3 scripts/validate_receipts.py experiments/iter16_provider_workspace_hygiene_control/proof
+python3 scripts/audit_provider_workspace_hygiene_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
