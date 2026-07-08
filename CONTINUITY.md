@@ -22,15 +22,18 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter02_public_task_slice/HYPOTHESIS.md`
+- `experiments/iter03_codeclash_smoke/HYPOTHESIS.md`
 
 Current claim:
 
 - `iter00_target_survey` selected a hybrid Telos overlay on CodeClash + SWE-bench Verified.
 - `iter01_receipt_dry_run` passed: valid receipt accepted, invalid receipt rejected, learning
   record validated.
+- `iter02_public_task_slice` passed: selected a CodeClash-first no-LLM smoke slice with SWE-bench
+  Verified receipt fields.
 - No model or benchmark result is claimed yet.
-- The next gate must freeze the first public task slice before any model or cloud run.
+- The next gate must run the no-LLM CodeClash smoke and convert logs into a receipt, or publish a
+  null/blocked result with the infrastructure evidence.
 
 ## Required Verification
 
@@ -41,6 +44,7 @@ ruff check .
 pytest -q
 python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
+python3 scripts/validate_public_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py

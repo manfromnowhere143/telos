@@ -4,8 +4,9 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
-import subprocess
 from pathlib import Path
+import re
+import subprocess
 
 
 def run(args: list[str]) -> str:
@@ -29,11 +30,20 @@ def experiment_status() -> list[str]:
     return rows
 
 
+def active_gate() -> str:
+    continuity = Path("CONTINUITY.md").read_text(encoding="utf-8")
+    match = re.search(r"Current gate:\n\n- `([^`]+)`", continuity)
+    if match:
+        return match.group(1)
+    return "experiments/iter03_codeclash_smoke/HYPOTHESIS.md"
+
+
 def main() -> None:
     now = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     branch = run(["git", "rev-parse", "--abbrev-ref", "HEAD"]) or "git branch unavailable"
     status = run(["git", "status", "--short"]) or "clean"
     rows = "\n".join(experiment_status()) or "- no experiments yet"
+    gate = active_gate()
     content = f"""# HANDOFF - dynamic state snapshot
 
 Generated: {now} by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
@@ -56,10 +66,10 @@ Working tree:
 
 ## Current Gate
 
-- Active gate: `experiments/iter02_public_task_slice/HYPOTHESIS.md`.
+- Active gate: `{gate}`.
 - No benchmark result is claimed yet.
-- Next action: freeze the first public task slice exactly as pre-registered, then publish
-  `RESULT.md` with source receipts under `experiments/iter02_public_task_slice/proof/`.
+- Next action: run the no-LLM CodeClash smoke exactly as pre-registered, then publish
+  `RESULT.md` with logs and a receipt under `experiments/iter03_codeclash_smoke/proof/`.
 
 ## Verification Before Action
 
@@ -70,6 +80,7 @@ ruff check .
 pytest -q
 python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
+python3 scripts/validate_public_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py

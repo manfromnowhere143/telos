@@ -21,8 +21,10 @@ and an adversarial review pass.
 
 - Repository scaffold: active.
 - First gate: target survey published as `HYBRID_OVERLAY_SELECTED`.
-- Current gate: first public task slice, pre-registered in
-  [`experiments/iter02_public_task_slice`](experiments/iter02_public_task_slice/HYPOTHESIS.md).
+- Public slice: selected in
+  [`experiments/iter02_public_task_slice`](experiments/iter02_public_task_slice/RESULT.md).
+- Current gate: CodeClash no-LLM smoke receipt, pre-registered in
+  [`experiments/iter03_codeclash_smoke`](experiments/iter03_codeclash_smoke/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -52,6 +54,7 @@ The survey chose one of three actions:
 
 Survey result: [`experiments/iter00_target_survey/RESULT.md`](experiments/iter00_target_survey/RESULT.md).
 Receipt dry run: [`experiments/iter01_receipt_dry_run/RESULT.md`](experiments/iter01_receipt_dry_run/RESULT.md).
+Public slice: [`experiments/iter02_public_task_slice/RESULT.md`](experiments/iter02_public_task_slice/RESULT.md).
 
 ## Candidate Target Families
 
@@ -112,6 +115,7 @@ ruff check .
 pytest -q
 python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
+python3 scripts/validate_public_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py

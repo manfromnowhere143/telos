@@ -43,6 +43,9 @@ jobs:
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
+      - name: Public slice guard
+        run: python3 scripts/validate_public_slice.py
+
       - name: Receipt guard
         run: python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 
