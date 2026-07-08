@@ -55,6 +55,10 @@ python3 scripts/validate_learning_ledger.py
 | experiment | status | insight | next action |
 |---|---|---|---|
 | `iter01_receipt_dry_run` | pass | receipt validation is independently checkable | freeze first public-task slice |
+| `iter02_public_task_slice` | pass | CodeClash-first gives a public, cheap receipt surface | run no-LLM CodeClash smoke |
+| `iter03_codeclash_smoke` | pass | CodeClash artifacts and receipts audit cleanly for no-LLM tournament runs | add real agent behavior without provider spend |
+| `iter04_agent_behavior_slice` | pass | deterministic Mini-SWE-Agent PvP is the smallest public agent-behavior slice | run deterministic behavior smoke |
+| `iter05_agent_behavior_smoke` | pass | deterministic Mini-SWE-Agent trajectory and stats are auditable at zero provider cost | freeze first deterministic edit-agent slice |
 
-The next experiment should not spend cloud resources until the public-task slice names the exact
-task, expected artifact shape, and falsifier.
+The next experiment should not spend cloud resources until a deterministic edit slice produces
+audited non-empty diff evidence.

@@ -1,0 +1,60 @@
+{
+  "acceptance_criteria": [
+    "GitHub Actions run 28936411484 completes successfully.",
+    "CodeClash is checked out at commit 381cdfa05a35e8acd35853b9fc7e13005121b127.",
+    "The BattleSnake instant-submit PvP config runs without provider credentials.",
+    "Metadata contains parseable BattleSnake round statistics.",
+    "p1 has a Mini-SWE-Agent trajectory artifact.",
+    "p1 agent_stats record zero provider cost and at least one deterministic model invocation.",
+    "Player change records exist for diff-scope evidence.",
+    "No model capability, leaderboard, SWE-bench, production, or live-domain result is claimed."
+  ],
+  "agent_id": "codeclash-minisweagent-instant-submit-p1",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "evidence": [
+    {
+      "artifact": "experiments/iter05_agent_behavior_smoke/proof/raw",
+      "kind": "artifact",
+      "notes": "Raw GitHub Actions artifact bundle is committed, including run log, metadata, p1 trajectory, player change records, logs, and round archives.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter05_agent_behavior_smoke/proof/run_summary.json",
+      "kind": "test",
+      "notes": "The GitHub workflow completed successfully and the summarizer recorded zero provider cost with one deterministic model invocation.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter05_agent_behavior_smoke/proof/run_summary.json",
+      "kind": "diff_scope",
+      "notes": "p1 and p2 change records exist and contain empty diffs, expected for instant-submit and dummy players.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter05_agent_behavior_smoke/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review limits the claim to deterministic agent-path evidence capture and rejects model, leaderboard, SWE-bench, production, and live-domain claims.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "Receipt fails if the workflow did not complete successfully.",
+    "Receipt fails if CodeClash was not checked out at the frozen commit.",
+    "Receipt fails if metadata lacks parseable BattleSnake round statistics.",
+    "Receipt fails if p1 trajectory or agent_stats are missing.",
+    "Receipt fails if deterministic model invocations are zero.",
+    "Receipt fails if provider cost is nonzero.",
+    "Receipt fails if diff-scope evidence is absent.",
+    "Receipt fails if the result claims model capability, leaderboard performance, SWE-bench performance, or production/live-domain verification."
+  ],
+  "receipt_id": "iter05-agent-behavior-smoke-gh-28936411484",
+  "sha256": "324fe91b342725bd58dfc660fd4bfa18b8fe4ea2cdf2a2605db0bc435e7f6721",
+  "stated_goal": "Run the selected deterministic Mini-SWE-Agent BattleSnake PvP smoke and verify that Telos can capture trajectory, agent_stats, diff-scope, artifact, and review evidence without provider model spend.",
+  "status": "pass",
+  "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml@381cdfa05a35e8acd35853b9fc7e13005121b127"
+}

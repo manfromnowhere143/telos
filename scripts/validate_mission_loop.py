@@ -96,6 +96,8 @@ def main() -> int:
         "validate_mission_loop.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",
+        "validate_receipts.py experiments/iter05_agent_behavior_smoke/proof",
+        "audit_agent_behavior_smoke.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

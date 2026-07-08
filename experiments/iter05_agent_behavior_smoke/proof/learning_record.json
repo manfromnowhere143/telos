@@ -1,0 +1,12 @@
+{
+  "experiment_id": "iter05_agent_behavior_smoke",
+  "status": "pass",
+  "result_path": "experiments/iter05_agent_behavior_smoke/RESULT.md",
+  "evidence_paths": [
+    "experiments/iter05_agent_behavior_smoke/proof/run_summary.json",
+    "experiments/iter05_agent_behavior_smoke/proof/valid/receipt_agent_behavior_smoke.json",
+    "experiments/iter05_agent_behavior_smoke/proof/review.md"
+  ],
+  "insight": "The deterministic Mini-SWE-Agent path produces auditable trajectory and agent_stats evidence with zero provider cost; the next useful gate should require a deterministic non-empty edit before paid model spend.",
+  "next_action": "freeze the first deterministic edit-agent slice"
+}

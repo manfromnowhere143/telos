@@ -27,8 +27,10 @@ and an adversarial review pass.
   [`experiments/iter03_codeclash_smoke`](experiments/iter03_codeclash_smoke/RESULT.md).
 - Agent-behavior slice: selected in
   [`experiments/iter04_agent_behavior_slice`](experiments/iter04_agent_behavior_slice/RESULT.md).
-- Current gate: deterministic Mini-SWE-Agent behavior smoke, pre-registered in
-  [`experiments/iter05_agent_behavior_smoke`](experiments/iter05_agent_behavior_smoke/HYPOTHESIS.md).
+- Agent-behavior smoke: passed in
+  [`experiments/iter05_agent_behavior_smoke`](experiments/iter05_agent_behavior_smoke/RESULT.md).
+- Current gate: deterministic edit slice, pre-registered in
+  [`experiments/iter06_deterministic_edit_slice`](experiments/iter06_deterministic_edit_slice/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -61,6 +63,8 @@ Receipt dry run: [`experiments/iter01_receipt_dry_run/RESULT.md`](experiments/it
 Public slice: [`experiments/iter02_public_task_slice/RESULT.md`](experiments/iter02_public_task_slice/RESULT.md).
 CodeClash smoke: [`experiments/iter03_codeclash_smoke/RESULT.md`](experiments/iter03_codeclash_smoke/RESULT.md).
 Agent-behavior slice: [`experiments/iter04_agent_behavior_slice/RESULT.md`](experiments/iter04_agent_behavior_slice/RESULT.md).
+Agent-behavior smoke: [`experiments/iter05_agent_behavior_smoke/RESULT.md`](experiments/iter05_agent_behavior_smoke/RESULT.md).
+Deterministic edit slice: [`experiments/iter06_deterministic_edit_slice/HYPOTHESIS.md`](experiments/iter06_deterministic_edit_slice/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -129,6 +133,8 @@ python3 scripts/validate_agent_behavior_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py
+python3 scripts/validate_receipts.py experiments/iter05_agent_behavior_smoke/proof
+python3 scripts/audit_agent_behavior_smoke.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

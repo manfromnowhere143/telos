@@ -86,6 +86,8 @@ python3 scripts/validate_agent_behavior_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py
+python3 scripts/validate_receipts.py experiments/iter05_agent_behavior_smoke/proof
+python3 scripts/audit_agent_behavior_smoke.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
