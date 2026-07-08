@@ -112,8 +112,14 @@ def validate_agent_behavior_slice(data: dict[str, Any]) -> AgentBehaviorSlice:
         raise AgentBehaviorSliceValidationError("mini agent must use instant_submit")
     if mini.get("model_class") != "minisweagent.models.test_models.DeterministicModel":
         raise AgentBehaviorSliceValidationError("mini agent must use deterministic model class")
-    if mini.get("expected_api_calls") != 0:
-        raise AgentBehaviorSliceValidationError("mini agent expected_api_calls must be 0")
+    if mini.get("provider_backed") is not False:
+        raise AgentBehaviorSliceValidationError("mini agent provider_backed must be false")
+    if mini.get("expected_provider_cost") not in (0, 0.0):
+        raise AgentBehaviorSliceValidationError("mini agent expected_provider_cost must be 0")
+    if int(mini.get("expected_model_calls_min", 0)) < 1:
+        raise AgentBehaviorSliceValidationError(
+            "mini agent expected_model_calls_min must be at least 1"
+        )
 
     expected_artifacts = data["expected_artifacts"]
     if not isinstance(expected_artifacts, list) or not expected_artifacts:

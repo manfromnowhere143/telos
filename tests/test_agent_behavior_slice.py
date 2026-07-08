@@ -31,7 +31,9 @@ def valid_slice() -> dict:
                     "type": "mini",
                     "model_name": "instant_submit",
                     "model_class": "minisweagent.models.test_models.DeterministicModel",
-                    "expected_api_calls": 0,
+                    "provider_backed": False,
+                    "expected_provider_cost": 0,
+                    "expected_model_calls_min": 1,
                 },
                 {"name": "p2", "type": "dummy"},
             ],
@@ -60,6 +62,14 @@ def test_agent_behavior_slice_requires_deterministic_mini_agent() -> None:
     data["config"]["agents"][0]["model_class"] = "provider.Model"
 
     with pytest.raises(AgentBehaviorSliceValidationError, match="deterministic"):
+        validate_agent_behavior_slice(data)
+
+
+def test_agent_behavior_slice_forbids_provider_backed_model() -> None:
+    data = valid_slice()
+    data["config"]["agents"][0]["provider_backed"] = True
+
+    with pytest.raises(AgentBehaviorSliceValidationError, match="provider_backed"):
         validate_agent_behavior_slice(data)
 
 

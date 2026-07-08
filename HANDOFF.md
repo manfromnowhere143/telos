@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-08T10:29:08Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-08T10:38:00Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -38,6 +38,7 @@ Run:
 ruff check .
 pytest -q
 python3 scripts/validate_docs.py
+python3 scripts/validate_mission_loop.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

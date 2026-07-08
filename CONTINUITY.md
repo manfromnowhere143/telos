@@ -14,6 +14,8 @@ carries the dynamic state.
 5. **Corrections stay visible.** If a claim is wrong, correct it in place and explain the reason.
 6. **Cheap-first.** Offline gates run before API spend, GPU spend, or long harness runs.
 7. **One operator at a time.** Keep the repo handoff-ready after every state change.
+8. **Mission loop is explicit.** The public loop contract lives at `mission/loop.json`. Do not claim
+   private Aweb/Maestro execution unless Aweb discovery returns a concrete Telos capability slug.
 
 ## Current Research Arc
 
@@ -47,6 +49,7 @@ Run before and after material changes:
 ruff check .
 pytest -q
 python3 scripts/validate_docs.py
+python3 scripts/validate_mission_loop.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

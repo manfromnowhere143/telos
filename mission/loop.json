@@ -1,0 +1,100 @@
+{
+  "mission_id": "telos",
+  "standard": "maestro-compatible-evidence-loop-v1",
+  "status": "active_open_repo_loop",
+  "claim_boundary": "The Telos mission loop is active through the public repository, local validators, and GitHub Actions. No callable Aweb/Maestro Telos capability is claimed until Aweb discovery returns a concrete capability slug.",
+  "source_of_truth": [
+    "CONTINUITY.md",
+    "HANDOFF.md",
+    "experiments/",
+    ".github/workflows/ci.yml",
+    ".github/workflows/codeclash-agent-behavior.yml"
+  ],
+  "active_gate": "experiments/iter05_agent_behavior_smoke/HYPOTHESIS.md",
+  "loop": [
+    {
+      "phase": "pre_register",
+      "artifact": "experiments/*/HYPOTHESIS.md",
+      "bar": "hypothesis, acceptance bars, and falsifiers exist before data"
+    },
+    {
+      "phase": "execute",
+      "artifact": ".github/workflows/* or local command transcript",
+      "bar": "runner command, pinned upstream commit, and environment are recorded"
+    },
+    {
+      "phase": "collect_evidence",
+      "artifact": "experiments/*/proof/raw/",
+      "bar": "raw artifacts are retained or the missing artifact is reported as a result gap"
+    },
+    {
+      "phase": "audit",
+      "artifact": "scripts/validate_*.py and scripts/audit_*.py",
+      "bar": "receipts, raw hashes, docs, learning ledger, and handoff validate in CI"
+    },
+    {
+      "phase": "publish_result",
+      "artifact": "experiments/*/RESULT.md",
+      "bar": "result language stays below evidence and includes nulls when bars fail"
+    },
+    {
+      "phase": "learn_or_stop",
+      "artifact": "docs/LEARNING_ENGINE.md and proof/learning_record.json",
+      "bar": "advance only from a validated result; stop when the current goal is objectively complete"
+    },
+    {
+      "phase": "handoff",
+      "artifact": "HANDOFF.md",
+      "bar": "next operator can resume without guessing current gate, claims, or verification commands"
+    }
+  ],
+  "refinement_policy": [
+    "If the gate fails because the hypothesis was false, publish a null result with raw evidence.",
+    "If the gate fails because the harness or invariant was wrong, patch only that concrete gap, rerun validation, and keep the correction visible.",
+    "If the gate passes, publish proof, receipt, audit, and the next gate before expanding scope.",
+    "Do not add provider-model, leaderboard, production, or live-domain claims without matching evidence."
+  ],
+  "aweb_discovery": {
+    "checked_at_utc": "2026-07-08T10:34:00Z",
+    "queries": [
+      {
+        "kind": "mcp",
+        "query": "aweb_explore(search='maestro mission loop telos sentinel research')",
+        "capability_count": 0
+      },
+      {
+        "kind": "mcp",
+        "query": "aweb_explore(domain='maestro')",
+        "capability_count": 0
+      },
+      {
+        "kind": "mcp",
+        "query": "aweb_explore(search='agent runtime mission orchestration')",
+        "capability_count": 0
+      },
+      {
+        "kind": "mcp",
+        "query": "aweb_explore(domain='agent-runtime')",
+        "capability_count": 0
+      }
+    ],
+    "activation_gate": "Register or expose a concrete Aweb/Maestro capability slug for Telos before claiming private runtime orchestration.",
+    "current_operator_action": "Run the public loop through GitHub Actions and committed proof receipts until a callable Aweb mission capability exists."
+  },
+  "current_validation": [
+    "python3 -m compileall telos scripts tests",
+    "ruff check .",
+    "pytest -q",
+    "python3 scripts/validate_json.py",
+    "python3 scripts/validate_docs.py",
+    "python3 scripts/validate_mission_loop.py",
+    "python3 scripts/validate_target_survey.py",
+    "python3 scripts/validate_public_slice.py",
+    "python3 scripts/validate_agent_behavior_slice.py",
+    "python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof",
+    "python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof",
+    "python3 scripts/audit_codeclash_smoke.py",
+    "python3 scripts/validate_learning_ledger.py",
+    "python3 scripts/validate_handoff.py"
+  ]
+}

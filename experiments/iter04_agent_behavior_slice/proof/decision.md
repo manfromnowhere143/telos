@@ -38,7 +38,7 @@ CodeClash configs too early. The better order is:
 The next gate fails if the selected run does not produce:
 
 - Mini-SWE-Agent trajectory for `p1`,
-- agent stats with zero API calls,
+- agent stats with zero provider cost and at least one deterministic model invocation,
 - CodeClash metadata and round result,
 - diff-scope records for both players,
 - a valid Telos receipt.

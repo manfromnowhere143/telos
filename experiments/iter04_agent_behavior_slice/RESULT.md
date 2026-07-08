@@ -28,7 +28,8 @@ exercise real agent machinery without jumping to a paid model benchmark.
 - one Mini-SWE-Agent player,
 - one dummy opponent,
 - deterministic `instant_submit` model,
-- expected provider API calls: zero.
+- expected provider cost: zero,
+- expected deterministic model invocations: at least one.
 
 This adds agent trajectory and agent-stat evidence while preserving the cheap-first standard.
 
@@ -44,11 +45,11 @@ Raw scorecard: [`proof/scorecard.json`](proof/scorecard.json)
 
 ## What This Does Not Claim
 
-- No model capability is claimed.
+- No provider-model capability is claimed.
 - No CodeClash leaderboard result is claimed.
 - No SWE-bench result is claimed.
-- The selected deterministic model may submit without editing; the next gate must report that
-  honestly from trajectory and diff-scope artifacts.
+- The selected deterministic model may submit without editing; the next gate must report model
+  invocations, trajectory, cost, and diff-scope artifacts honestly.
 
 ## Next Gate
 

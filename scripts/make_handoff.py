@@ -79,6 +79,7 @@ Run:
 ruff check .
 pytest -q
 python3 scripts/validate_docs.py
+python3 scripts/validate_mission_loop.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

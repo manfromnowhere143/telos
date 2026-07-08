@@ -81,10 +81,10 @@ jobs:
           if not agent_stats:
               raise SystemExit("p1 agent_stats missing")
           for round_id, stats in agent_stats.items():
-              if stats.get("api_calls") != 0:
-                  raise SystemExit(f"p1 round {round_id} api_calls was not zero: {stats}")
               if stats.get("cost") not in (0, 0.0):
                   raise SystemExit(f"p1 round {round_id} cost was not zero: {stats}")
+              if int(stats.get("api_calls", 0)) < 1:
+                  raise SystemExit(f"p1 round {round_id} had no deterministic model invocation: {stats}")
 
           change_files = sorted(out.glob("*/players/*/changes_r*.json"))
           if not change_files:
@@ -101,6 +101,8 @@ jobs:
               "round_count": len(round_stats),
               "agent_names": [agent.get("name") for agent in metadata.get("agents", [])],
               "p1_agent_stats": agent_stats,
+              "p1_provider_cost_zero": all(stats.get("cost") in (0, 0.0) for stats in agent_stats.values()),
+              "p1_model_invocations": sum(int(stats.get("api_calls", 0)) for stats in agent_stats.values()),
               "p1_trajectory_paths": [str(path) for path in trajectories],
               "change_file_count": len(change_files),
           }

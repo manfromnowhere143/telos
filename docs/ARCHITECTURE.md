@@ -97,3 +97,8 @@ scripts and records why.
 
 The research repo remains public and reproducible. Aweb can remain the private orchestration layer
 only where it adds real evidence.
+
+The current public mission loop is defined in [`MISSION_LOOP.md`](MISSION_LOOP.md) and
+[`../mission/loop.json`](../mission/loop.json). It records that Aweb discovery has not yet returned
+a callable Telos/Maestro capability slug, so the active loop is GitHub Actions plus committed proof
+artifacts. That is a deliberate claim boundary, not a downgrade.

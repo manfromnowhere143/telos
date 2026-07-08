@@ -18,7 +18,8 @@ agent path without provider API calls.
 - Agent type: `mini`
 - Model: `instant_submit`
 - Model class: `minisweagent.models.test_models.DeterministicModel`
-- Expected provider API calls: `0`
+- Expected provider cost: `0`
+- Expected deterministic model invocations: at least `1`
 
 ## Primary Command
 
@@ -34,8 +35,8 @@ If local Docker remains blocked, run:
 .github/workflows/codeclash-agent-behavior.yml
 ```
 
-The workflow fails if `p1` has no Mini-SWE-Agent trajectory, if `p1` agent stats are missing, or if
-deterministic-model API calls or cost are nonzero.
+The workflow fails if `p1` has no Mini-SWE-Agent trajectory, if `p1` agent stats are missing, if
+deterministic-model invocations are zero, or if provider cost is nonzero.
 
 ## Bars
 
@@ -44,7 +45,7 @@ The gate passes only if all hold:
 - CodeClash run exits 0.
 - Metadata contains a parsed BattleSnake round result.
 - `p1` has a Mini-SWE-Agent trajectory artifact.
-- `p1` agent stats record zero API calls and zero provider cost.
+- `p1` agent stats record zero provider cost and at least one deterministic model invocation.
 - Player change records exist for diff-scope evidence.
 - A Telos receipt validates with `scripts/validate_receipts.py`.
 - No model capability, leaderboard, or SWE-bench result is claimed.
@@ -54,7 +55,8 @@ The gate passes only if all hold:
 Publish a null or blocked result if:
 
 - the selected config requires provider credentials,
-- the deterministic model path makes nonzero provider calls,
+- the deterministic model path records zero model invocations,
+- the deterministic model path records nonzero provider cost,
 - trajectory or agent_stats artifacts are missing,
 - diff-scope evidence is absent,
 - the result cannot be separated from a benchmark claim.

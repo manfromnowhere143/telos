@@ -97,6 +97,7 @@ flowchart LR
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
 Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
+Mission loop: [`docs/MISSION_LOOP.md`](docs/MISSION_LOOP.md).
 
 ## Repository Map
 
@@ -109,6 +110,7 @@ telos/                     receipt validation and target scorecard primitives
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, report, next phase
 experiments/               one folder per pre-registered experiment
+mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
 tests/                     repository and protocol tests
@@ -120,6 +122,7 @@ tests/                     repository and protocol tests
 ruff check .
 pytest -q
 python3 scripts/validate_docs.py
+python3 scripts/validate_mission_loop.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py
