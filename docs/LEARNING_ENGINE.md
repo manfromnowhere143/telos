@@ -62,6 +62,7 @@ python3 scripts/validate_learning_ledger.py
 | `iter06_deterministic_edit_slice` | pass | a committed CodeClash overlay is the cleanest route to non-empty diff evidence | run deterministic edit smoke |
 | `iter07_deterministic_edit_smoke` | pass | non-empty CodeClash Mini-SWE-Agent diffs are auditable at zero provider cost | freeze first provider-model pilot slice |
 | `iter08_provider_model_pilot_slice` | pass | local-first Vertex is the only visible paid-provider path with configured infrastructure and no secret leakage | run the frozen provider-model pilot smoke or publish blocked/null evidence |
+| `iter09_provider_model_pilot_smoke` | blocked | ADC requires interactive reauthentication, so the paid run correctly stopped before spend | restore secret-safe non-interactive provider authentication |
 
-The next experiment may spend only inside the frozen `iter09` ceiling. It should publish blocked or
-null evidence if the provider endpoint, cost accounting, or artifact capture cannot be verified.
+The next experiment should not call a model. It should restore non-interactive provider
+authentication or publish blocked/null evidence.

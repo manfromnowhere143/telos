@@ -79,6 +79,12 @@ jobs:
       - name: Deterministic edit smoke audit
         run: python3 scripts/audit_deterministic_edit_smoke.py
 
+      - name: Provider model pilot smoke receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter09_provider_model_pilot_smoke/proof
+
+      - name: Provider model pilot smoke audit
+        run: python3 scripts/audit_provider_model_pilot_smoke.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

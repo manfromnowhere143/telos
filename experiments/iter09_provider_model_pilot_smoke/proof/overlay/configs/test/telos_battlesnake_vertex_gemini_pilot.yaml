@@ -1,0 +1,28 @@
+game:
+  name: BattleSnake
+  sims_per_round: 1
+  args:
+    width: 11
+    height: 11
+    browser: false
+tournament:
+  rounds: 1
+players:
+- agent: mini
+  name: p1
+  config:
+    agent: !include mini/telos_vertex_gemini_agent.yaml
+    model: !include mini/telos_vertex_gemini_3_1_pro_customtools.yaml
+- agent: dummy
+  name: p2
+prompts:
+  game_description: |-
+    You are competing in a small BattleSnake coding game.
+
+    Your bot controls a snake on an 11x11 board. Snakes collect food, avoid collisions, and try to
+    outlast opponents. This is a one-round provider-model smoke test. The goal is not a leaderboard
+    score; the goal is to make a bounded, evidence-capturable agent attempt.
+
+    If you can identify a safe improvement to `main.py`, make it and document the reasoning briefly
+    in `README_agent.md`. If you cannot identify a safe improvement quickly, write a short
+    `README_agent.md` note explaining what you inspected and submit.

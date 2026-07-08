@@ -2,17 +2,16 @@
 
 ## Current Action
 
-Run `iter09_provider_model_pilot_smoke` exactly as frozen in
-[`../experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md`](../experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md).
+Run `iter10_provider_auth_recovery` exactly as frozen in
+[`../experiments/iter10_provider_auth_recovery/HYPOTHESIS.md`](../experiments/iter10_provider_auth_recovery/HYPOTHESIS.md).
 
-The output is not a model score. It is a paid-provider smoke receipt:
+The output is not a model score. It is an authentication readiness result:
 
-- run only the selected Google Vertex AI `gemini-3.1-pro-preview-customtools` pilot,
-- cap the run at 8 model invocations, 4096 output tokens per call, 45 minutes, and $25,
-- preserve metadata, logs, trajectory, agent stats, diff-scope artifacts, and cost evidence,
-- produce a valid Telos receipt,
-- publish blocked/null evidence if preflight, endpoint resolution, cost accounting, or artifact
-  capture fails.
+- restore non-interactive ADC or configure a GitHub Workload Identity / secret path,
+- verify readiness without printing tokens, API keys, account emails, credential JSON, or project
+  identifiers,
+- keep the already frozen `iter09` model, task, and budget unchanged,
+- publish blocked/null evidence if credential readiness still requires interactive auth.
 
 ## Infrastructure Discipline
 
@@ -28,18 +27,19 @@ Available cloud and sandbox resources are escalation tools, not default proof. T
 
 No GPU or provider model run is authorized by `iter00`, `iter01`, `iter02`, `iter03`, `iter04`, or
 `iter05`. `iter06`, `iter07`, and `iter08` also forbid provider model calls and GPU runs. `iter09`
-authorizes only the single frozen paid smoke.
+authorized only the single frozen paid smoke, but it stopped before spend because preflight failed.
+`iter10` does not authorize a model call.
 
-## After The Provider-Model Pilot Smoke Gate
+## After The Provider Auth Recovery Gate
 
-If the smoke gate passes:
+If the auth gate passes:
 
-1. Publish the receipt, parsed artifacts, cost evidence, and review.
-2. Decide whether a second provider run is justified by the evidence.
-3. Do not start sweeps or leaderboard submissions without a new frozen gate.
+1. Retry the existing `iter09` smoke without changing model, budget, or task.
+2. Preserve the same evidence bars and stop conditions.
+3. Do not start sweeps or leaderboard submissions.
 
-If the smoke gate fails:
+If the auth gate fails:
 
 1. Publish the failure.
-2. Fix only the concrete preflight, adapter, or artifact gap.
-3. Do not broaden provider scope.
+2. Do not retry the paid smoke.
+3. Keep the blocker explicit in `HANDOFF.md`.

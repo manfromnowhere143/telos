@@ -21,7 +21,10 @@ Current evidence:
   capture through the CodeClash Mini-SWE-Agent path.
 - `experiments/iter08_provider_model_pilot_slice/RESULT.md` selects the first paid-provider pilot
   without making a model-result claim.
-- `experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md` freezes the next paid smoke gate.
+- `experiments/iter09_provider_model_pilot_smoke/RESULT.md` blocks before spend because ADC
+  reauthentication is interactive.
+- `experiments/iter10_provider_auth_recovery/HYPOTHESIS.md` freezes provider-auth recovery before
+  retrying the paid smoke.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

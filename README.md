@@ -35,8 +35,10 @@ and an adversarial review pass.
   [`experiments/iter07_deterministic_edit_smoke`](experiments/iter07_deterministic_edit_smoke/RESULT.md).
 - Provider-model pilot slice: selected in
   [`experiments/iter08_provider_model_pilot_slice`](experiments/iter08_provider_model_pilot_slice/RESULT.md).
-- Current gate: provider-model pilot smoke, pre-registered in
-  [`experiments/iter09_provider_model_pilot_smoke`](experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md).
+- Provider-model pilot smoke: blocked before spend in
+  [`experiments/iter09_provider_model_pilot_smoke`](experiments/iter09_provider_model_pilot_smoke/RESULT.md).
+- Current gate: provider auth recovery, pre-registered in
+  [`experiments/iter10_provider_auth_recovery`](experiments/iter10_provider_auth_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -73,7 +75,8 @@ Agent-behavior smoke: [`experiments/iter05_agent_behavior_smoke/RESULT.md`](expe
 Deterministic edit slice: [`experiments/iter06_deterministic_edit_slice/RESULT.md`](experiments/iter06_deterministic_edit_slice/RESULT.md).
 Deterministic edit smoke: [`experiments/iter07_deterministic_edit_smoke/RESULT.md`](experiments/iter07_deterministic_edit_smoke/RESULT.md).
 Provider-model pilot slice: [`experiments/iter08_provider_model_pilot_slice/RESULT.md`](experiments/iter08_provider_model_pilot_slice/RESULT.md).
-Provider-model pilot smoke: [`experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md`](experiments/iter09_provider_model_pilot_smoke/HYPOTHESIS.md).
+Provider-model pilot smoke: [`experiments/iter09_provider_model_pilot_smoke/RESULT.md`](experiments/iter09_provider_model_pilot_smoke/RESULT.md).
+Provider auth recovery: [`experiments/iter10_provider_auth_recovery/HYPOTHESIS.md`](experiments/iter10_provider_auth_recovery/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -148,6 +151,8 @@ python3 scripts/validate_receipts.py experiments/iter05_agent_behavior_smoke/pro
 python3 scripts/audit_agent_behavior_smoke.py
 python3 scripts/validate_receipts.py experiments/iter07_deterministic_edit_smoke/proof
 python3 scripts/audit_deterministic_edit_smoke.py
+python3 scripts/validate_receipts.py experiments/iter09_provider_model_pilot_smoke/proof
+python3 scripts/audit_provider_model_pilot_smoke.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

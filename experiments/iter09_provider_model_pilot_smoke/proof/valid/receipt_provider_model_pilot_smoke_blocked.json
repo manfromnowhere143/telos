@@ -1,0 +1,46 @@
+{
+  "acceptance_criteria": [
+    "Zero-spend preflight verifies secret-safe ADC and service readiness before any model call.",
+    "The selected CodeClash provider config can run without leaking credentials.",
+    "If preflight fails, no paid model call is made and blocked evidence is published.",
+    "No leaderboard, SWE-bench, production, or live-domain result is claimed."
+  ],
+  "agent_id": "codeclash-minisweagent-vertex-gemini-3-1-pro-customtools-p1",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "evidence": [
+    {
+      "artifact": "experiments/iter09_provider_model_pilot_smoke/proof/preflight/adc_check.log",
+      "kind": "artifact",
+      "notes": "ADC token refresh failed before any provider call; command output suppressed token values.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter09_provider_model_pilot_smoke/proof/preflight.json",
+      "kind": "test",
+      "notes": "Preflight records model_call_made=false and provider_spend_usd=0.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter09_provider_model_pilot_smoke/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review confirms the blocked result does not claim provider capability or benchmark performance.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The paid smoke must not run if ADC cannot refresh without interactive reauthentication.",
+    "The result must be blocked if any credential value would need to be printed or committed.",
+    "The result must not claim provider-model capability because no model call occurred.",
+    "The result must not claim leaderboard, SWE-bench, production, or live-domain verification."
+  ],
+  "receipt_id": "iter09-provider-model-pilot-smoke-blocked-adc",
+  "sha256": "46a0578a56e163b07d06e3ba6f7ba2424d33de089a7c65e6e1017493572a03b1",
+  "stated_goal": "Run the selected Vertex Gemini CodeClash provider-model pilot smoke under a $25 ceiling, or publish blocked/null evidence if zero-spend preflight fails.",
+  "status": "blocked",
+  "task_id": "codeclash:configs/test/telos_battlesnake_vertex_gemini_pilot.yaml@381cdfa05a35e8acd35853b9fc7e13005121b127"
+}

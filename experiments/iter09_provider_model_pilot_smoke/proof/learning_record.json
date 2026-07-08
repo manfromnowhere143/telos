@@ -1,0 +1,13 @@
+{
+  "evidence_paths": [
+    "experiments/iter09_provider_model_pilot_smoke/proof/preflight.json",
+    "experiments/iter09_provider_model_pilot_smoke/proof/preflight/adc_check.log",
+    "experiments/iter09_provider_model_pilot_smoke/proof/valid/receipt_provider_model_pilot_smoke_blocked.json",
+    "experiments/iter09_provider_model_pilot_smoke/proof/review.md"
+  ],
+  "experiment_id": "iter09_provider_model_pilot_smoke",
+  "insight": "The selected Vertex pilot is blocked by non-interactive ADC reauthentication, so the next concrete gap is a secret-safe provider credential path rather than model or benchmark design.",
+  "next_action": "restore non-interactive provider authentication or a GitHub secret/workload-identity path before retrying the paid smoke",
+  "result_path": "experiments/iter09_provider_model_pilot_smoke/RESULT.md",
+  "status": "blocked"
+}
