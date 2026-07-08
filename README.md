@@ -45,8 +45,10 @@ and an adversarial review pass.
   [`experiments/iter12_vertex_model_access_recovery`](experiments/iter12_vertex_model_access_recovery/RESULT.md).
 - Provider-model pilot retry after access recovery: passed in
   [`experiments/iter13_provider_model_pilot_retry_after_access_recovery`](experiments/iter13_provider_model_pilot_retry_after_access_recovery/RESULT.md).
-- Current gate: provider diff quality review, pre-registered in
-  [`experiments/iter14_provider_diff_quality_review`](experiments/iter14_provider_diff_quality_review/HYPOTHESIS.md).
+- Provider diff quality review: passed in
+  [`experiments/iter14_provider_diff_quality_review`](experiments/iter14_provider_diff_quality_review/RESULT.md).
+- Current gate: strict provider diff rerun, pre-registered in
+  [`experiments/iter15_provider_strict_diff_rerun`](experiments/iter15_provider_strict_diff_rerun/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -88,7 +90,8 @@ Provider auth recovery: [`experiments/iter10_provider_auth_recovery/RESULT.md`](
 Provider-model pilot retry: [`experiments/iter11_provider_model_pilot_retry/RESULT.md`](experiments/iter11_provider_model_pilot_retry/RESULT.md).
 Vertex model access recovery: [`experiments/iter12_vertex_model_access_recovery/RESULT.md`](experiments/iter12_vertex_model_access_recovery/RESULT.md).
 Provider-model pilot retry after access recovery: [`experiments/iter13_provider_model_pilot_retry_after_access_recovery/RESULT.md`](experiments/iter13_provider_model_pilot_retry_after_access_recovery/RESULT.md).
-Provider diff quality review: [`experiments/iter14_provider_diff_quality_review/HYPOTHESIS.md`](experiments/iter14_provider_diff_quality_review/HYPOTHESIS.md).
+Provider diff quality review: [`experiments/iter14_provider_diff_quality_review/RESULT.md`](experiments/iter14_provider_diff_quality_review/RESULT.md).
+Provider strict diff rerun: [`experiments/iter15_provider_strict_diff_rerun/HYPOTHESIS.md`](experiments/iter15_provider_strict_diff_rerun/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -173,6 +176,8 @@ python3 scripts/validate_receipts.py experiments/iter12_vertex_model_access_reco
 python3 scripts/audit_vertex_model_access_recovery.py
 python3 scripts/validate_receipts.py experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof
 python3 scripts/audit_provider_model_pilot_after_access.py
+python3 scripts/validate_receipts.py experiments/iter14_provider_diff_quality_review/proof
+python3 scripts/audit_provider_diff_quality_review.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

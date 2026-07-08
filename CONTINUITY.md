@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter14_provider_diff_quality_review/HYPOTHESIS.md`
+- `experiments/iter15_provider_strict_diff_rerun/HYPOTHESIS.md`
 
 Current claim:
 
@@ -64,9 +64,12 @@ Current claim:
   the frozen Vertex Gemini CodeClash provider smoke with exit code `0`, `p1` trajectory present,
   `5` API calls, `$0.030392000000000002` reported model cost, and a visible diff-hygiene issue
   because `p1` left `patch.py`.
+- `iter14_provider_diff_quality_review` passed: no provider/model/API/GPU spend occurred; the
+  `p1` diff was reconstructed from committed artifacts; the `main.py` boundary edit was judged to
+  satisfy the local Step 1 task intent; and unreferenced helper files such as `patch.py` now fail
+  future clean-pass provider-smoke quality gates.
 - No model or benchmark result is claimed yet.
-- The next gate must review the first provider diff offline before any additional paid provider
-  smoke.
+- The next gate must rerun the same provider-smoke shape with the strict diff-quality bar.
 
 ## Required Verification
 
@@ -99,6 +102,8 @@ python3 scripts/validate_receipts.py experiments/iter12_vertex_model_access_reco
 python3 scripts/audit_vertex_model_access_recovery.py
 python3 scripts/validate_receipts.py experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof
 python3 scripts/audit_provider_model_pilot_after_access.py
+python3 scripts/validate_receipts.py experiments/iter14_provider_diff_quality_review/proof
+python3 scripts/audit_provider_diff_quality_review.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

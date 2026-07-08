@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter14_provider_diff_quality_review/proof/run_summary.json",
+    "experiments/iter14_provider_diff_quality_review/proof/review.md",
+    "experiments/iter14_provider_diff_quality_review/proof/valid/receipt_provider_diff_quality_review.json",
+    "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708155545/players/p1/changes_r1.json",
+    "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/test/telos_battlesnake_vertex_gemini_pilot.yaml"
+  ],
+  "experiment_id": "iter14_provider_diff_quality_review",
+  "insight": "The first completed provider diff satisfied the narrow boundary-check task but left an unreferenced helper file; future provider smokes need a separate diff-quality status so execution success cannot hide codebase hygiene failures.",
+  "next_action": "run the same provider smoke shape with the strict diff-quality bar before scaling or claiming stronger benchmark evidence",
+  "result_path": "experiments/iter14_provider_diff_quality_review/RESULT.md",
+  "status": "pass"
+}

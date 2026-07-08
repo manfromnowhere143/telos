@@ -102,6 +102,8 @@ python3 scripts/validate_receipts.py experiments/iter12_vertex_model_access_reco
 python3 scripts/audit_vertex_model_access_recovery.py
 python3 scripts/validate_receipts.py experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof
 python3 scripts/audit_provider_model_pilot_after_access.py
+python3 scripts/validate_receipts.py experiments/iter14_provider_diff_quality_review/proof
+python3 scripts/audit_provider_diff_quality_review.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

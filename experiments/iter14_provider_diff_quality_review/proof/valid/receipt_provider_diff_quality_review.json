@@ -1,0 +1,55 @@
+{
+  "receipt_id": "iter14-provider-diff-quality-review-pass",
+  "task_id": "offline-review:iter13-provider-diff-quality@6ab09cd",
+  "agent_id": "telos-offline-reviewer",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "status": "pass",
+  "stated_goal": "Review the first completed provider-backed CodeClash diff offline before any additional paid provider smoke and decide whether future receipts need a stricter diff-quality bar.",
+  "acceptance_criteria": [
+    "No provider, model API, GPU, VM, or CodeClash rerun occurs.",
+    "The review reconstructs the p1 modified-file set and key main.py diff hunks from committed artifacts.",
+    "The review judges whether the main.py boundary edit satisfies the local task intent.",
+    "The review judges whether retaining patch.py should fail future smoke quality gates.",
+    "The result publishes a concrete next-bar decision for future provider smokes.",
+    "No leaderboard, SWE-bench, production, or live-domain claim is made."
+  ],
+  "evidence": [
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": "experiments/iter14_provider_diff_quality_review/proof/run_summary.json",
+      "notes": "Offline summary records zero spend, no model/API/GPU use, reconstructed diff files, task-prompt resolution, and the next quality bar."
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708155545/players/p1/changes_r1.json",
+      "notes": "Committed iter13 change record is sufficient to reconstruct p1 modified files and key main.py hunks."
+    },
+    {
+      "kind": "diff_scope",
+      "status": "pass",
+      "artifact": "experiments/iter14_provider_diff_quality_review/proof/review.md",
+      "notes": "Review records that main.py satisfies the narrow Step 1 boundary intent while patch.py should fail future clean-pass quality gates."
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": "experiments/iter14_provider_diff_quality_review/proof/review.md",
+      "notes": "Review separates task-quality evidence from game score, leaderboard, SWE-bench, and production claims."
+    },
+    {
+      "kind": "live_check",
+      "status": "not_applicable",
+      "notes": "Offline review changed no production or live-domain behavior and created no cloud resources."
+    }
+  ],
+  "falsifiers": [
+    "The gate must be blocked if committed iter13 artifacts are insufficient to reconstruct the diff.",
+    "The gate must be blocked if the review requires another model call or CodeClash rerun.",
+    "The gate must fail if it silently excuses patch.py instead of making a future quality-bar decision.",
+    "The gate must fail if it uses the game score as model-capability evidence.",
+    "The result must not claim leaderboard, SWE-bench, production, or live-domain verification."
+  ],
+  "sha256": "352ae532d75b3f3aa8ec5f2c640d70c14a6b8f88d2a82d29ad0aa271b440b58e"
+}

@@ -1,0 +1,70 @@
+{
+  "artifact_hashes": {
+    "iter09_overlay_task_config": "7b30b314b0ed2aa61b2a3de0feaca17662dae6c068c7d2bb791f50bcea173461",
+    "iter13_p1_changes": "18b5cdf50af9bfa1babed22bd0481ccba05373f6bbbc0d33cf451298720b5b55",
+    "iter13_p1_trajectory": "ed201627f8e81d078a6e145d1d3f8d993f9b513061af56a6077d8a769f7b63d1",
+    "iter13_run_summary": "bd3245ee97fb6d0211a96531b32786087cfee0e6478b6835a203e99c24dc1d68"
+  },
+  "cloud_resources_created": false,
+  "diff_quality_status": "quality_fail_for_future_clean_pass",
+  "gpu_used": false,
+  "input_paths": {
+    "iter09_overlay_task_config": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/test/telos_battlesnake_vertex_gemini_pilot.yaml",
+    "iter13_p1_changes": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708155545/players/p1/changes_r1.json",
+    "iter13_p1_trajectory": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708155545/players/p1/p1_r1.traj.json",
+    "iter13_run_summary": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/run_summary.json"
+  },
+  "judgments": {
+    "main_py_boundary_edit_satisfies_local_step1_intent": true,
+    "main_py_limitations": [
+      "does not solve self-collision",
+      "does not solve opponent collision",
+      "does not optimize food strategy",
+      "does not establish game-performance superiority"
+    ],
+    "patch_helper_file_should_fail_future_clean_pass": true,
+    "readme_agent_allowed_by_prompt": true
+  },
+  "model_api_calls_made": 0,
+  "next_bar_decision": {
+    "future_provider_smoke_requires_diff_quality_status": true,
+    "future_provider_smoke_unjustified_helper_files_fail_clean_pass": true,
+    "quality_fail_examples": [
+      "patch.py",
+      "scratch.py",
+      "tmp.py",
+      "unreferenced generated files",
+      "cache files"
+    ],
+    "status_rule": "Execution pass plus unjustified helper-file residue must publish quality_fail/fail evidence, not a clean pass."
+  },
+  "production_or_live_domain_changed": false,
+  "provider_model_called": false,
+  "reconstruction": {
+    "full_diff_contains_is_move_safe": true,
+    "full_diff_contains_main_py": true,
+    "full_diff_contains_patch_py": true,
+    "key_main_py_boundary_checks": [
+      "if my_head[\"x\"] == 0: is_move_safe[\"left\"] = False",
+      "if my_head[\"x\"] == board_width - 1: is_move_safe[\"right\"] = False",
+      "if my_head[\"y\"] == 0: is_move_safe[\"down\"] = False",
+      "if my_head[\"y\"] == board_height - 1: is_move_safe[\"up\"] = False"
+    ],
+    "p1_modified_files": [
+      "README_agent.md",
+      "main.py",
+      "patch.py"
+    ],
+    "p2_modified_files": []
+  },
+  "schema_version": "telos.provider_diff_quality_review.summary.v1",
+  "source_experiment": "iter13_provider_model_pilot_retry_after_access_recovery",
+  "spend_usd": 0,
+  "status": "pass",
+  "task_prompt_resolution": {
+    "committed_overlay_path_exists": true,
+    "root_relative_path_exists": false,
+    "root_relative_path_named_in_prior_hypotheses": "configs/test/telos_battlesnake_vertex_gemini_pilot.yaml",
+    "trajectory_prompt_present": true
+  }
+}
