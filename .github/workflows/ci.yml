@@ -103,6 +103,12 @@ jobs:
       - name: Vertex model access recovery audit
         run: python3 scripts/audit_vertex_model_access_recovery.py
 
+      - name: Provider model pilot after access receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof
+
+      - name: Provider model pilot after access audit
+        run: python3 scripts/audit_provider_model_pilot_after_access.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

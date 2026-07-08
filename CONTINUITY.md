@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter13_provider_model_pilot_retry_after_access_recovery/HYPOTHESIS.md`
+- `experiments/iter14_provider_diff_quality_review/HYPOTHESIS.md`
 
 Current claim:
 
@@ -60,9 +60,13 @@ Current claim:
   original Vertex custom-tools endpoint from an ephemeral GCE VM through metadata credentials,
   returned HTTP `200` with one candidate and usage metadata, deleted the probe VM, and kept the
   original model selection.
+- `iter13_provider_model_pilot_retry_after_access_recovery` passed: the dedicated runner completed
+  the frozen Vertex Gemini CodeClash provider smoke with exit code `0`, `p1` trajectory present,
+  `5` API calls, `$0.030392000000000002` reported model cost, and a visible diff-hygiene issue
+  because `p1` left `patch.py`.
 - No model or benchmark result is claimed yet.
-- The next gate must run the provider smoke on the dedicated Telos runner identity or publish
-  blocked/null evidence.
+- The next gate must review the first provider diff offline before any additional paid provider
+  smoke.
 
 ## Required Verification
 
@@ -93,6 +97,8 @@ python3 scripts/validate_receipts.py experiments/iter11_provider_model_pilot_ret
 python3 scripts/audit_provider_model_pilot_retry.py
 python3 scripts/validate_receipts.py experiments/iter12_vertex_model_access_recovery/proof
 python3 scripts/audit_vertex_model_access_recovery.py
+python3 scripts/validate_receipts.py experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof
+python3 scripts/audit_provider_model_pilot_after_access.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

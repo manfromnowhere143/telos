@@ -1,0 +1,60 @@
+{
+  "receipt_id": "iter13-provider-model-pilot-after-access-pass",
+  "task_id": "codeclash:configs/test/telos_battlesnake_vertex_gemini_pilot.yaml@381cdfa05a35e8acd35853b9fc7e13005121b127",
+  "agent_id": "codeclash-minisweagent-vertex-gemini-3-1-pro-customtools-p1",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "status": "pass",
+  "stated_goal": "Run the frozen Vertex Gemini CodeClash provider-model pilot after access recovery under the dedicated Telos runner identity and a $25 ceiling.",
+  "acceptance_criteria": [
+    "Dedicated runner preflight can call the selected Vertex endpoint without committing sensitive Google identifiers.",
+    "The CodeClash run exits successfully under the frozen model, task, runner, and budget.",
+    "Raw CodeClash output is retained with sensitive identifiers redacted before commit.",
+    "The proof records p1 trajectory, changed files, diff summary, model cost, and API-call stats.",
+    "No leaderboard, SWE-bench, production, or live-domain claim is made."
+  ],
+  "evidence": [
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/run_summary.json",
+      "notes": "Provider-backed CodeClash smoke exited 0 with p1 trajectory, cost, API calls, and diff artifacts."
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/raw/control/telos-cloud-setup.log",
+      "notes": "Ephemeral GCE runner installed Docker, uv, Python 3.11, CodeClash dependencies, google-auth, and the Telos overlay."
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708155545/players/p1/p1_r1.traj.json",
+      "notes": "Provider Mini-SWE-Agent trajectory records model stats with cost 0.030392000000000002 and 5 API calls."
+    },
+    {
+      "kind": "diff_scope",
+      "status": "pass",
+      "artifact": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/diff_summary.md",
+      "notes": "Diff summary records main.py, README_agent.md, and the retained patch.py helper file for follow-up review."
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": "experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof/review.md",
+      "notes": "Review states scope boundaries and the hygiene issue without making benchmark or production claims."
+    },
+    {
+      "kind": "live_check",
+      "status": "not_applicable",
+      "notes": "No production or live-domain behavior changed. The ephemeral VM was deleted after artifact collection."
+    }
+  ],
+  "falsifiers": [
+    "The gate must be blocked if the dedicated runner cannot call the selected Vertex endpoint during preflight.",
+    "The gate must be blocked if CodeClash cannot run the provider-backed config without leaking credentials.",
+    "The gate must be blocked if the run exceeds the frozen $25 ceiling or 45-minute wall-clock ceiling.",
+    "The gate must be blocked if p1 trajectory, cost, API-call stats, or sanitized raw artifacts are missing.",
+    "The result must not claim leaderboard, SWE-bench, production, or live-domain verification."
+  ],
+  "sha256": "86b265dda59c981afde6d0e31c337c83a5154337c47d4de4a05904ea5649f3c5"
+}

@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-08T15:19:39Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-08T16:09:42Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -29,11 +29,12 @@ clean
 - experiments/iter10_provider_auth_recovery: RESULT PUBLISHED
 - experiments/iter11_provider_model_pilot_retry: RESULT PUBLISHED
 - experiments/iter12_vertex_model_access_recovery: RESULT PUBLISHED
-- experiments/iter13_provider_model_pilot_retry_after_access_recovery: PRE-REGISTERED, result pending
+- experiments/iter13_provider_model_pilot_retry_after_access_recovery: RESULT PUBLISHED
+- experiments/iter14_provider_diff_quality_review: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter13_provider_model_pilot_retry_after_access_recovery/HYPOTHESIS.md`.
+- Active gate: `experiments/iter14_provider_diff_quality_review/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -67,6 +68,8 @@ python3 scripts/validate_receipts.py experiments/iter11_provider_model_pilot_ret
 python3 scripts/audit_provider_model_pilot_retry.py
 python3 scripts/validate_receipts.py experiments/iter12_vertex_model_access_recovery/proof
 python3 scripts/audit_vertex_model_access_recovery.py
+python3 scripts/validate_receipts.py experiments/iter13_provider_model_pilot_retry_after_access_recovery/proof
+python3 scripts/audit_provider_model_pilot_after_access.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
