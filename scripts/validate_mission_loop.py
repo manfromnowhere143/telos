@@ -94,6 +94,7 @@ def main() -> int:
 
     for required in [
         "validate_mission_loop.py",
+        "validate_deterministic_edit_slice.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",
         "validate_receipts.py experiments/iter05_agent_behavior_smoke/proof",

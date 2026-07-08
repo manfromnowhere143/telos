@@ -1,0 +1,13 @@
+model_name: telos_edit_battlesnake_marker
+model_class: minisweagent.models.test_models.DeterministicModel
+outputs:
+  - role: assistant
+    content: "Writing a deterministic Python marker comment."
+    extra:
+      actions:
+        - command: "printf '\n# Telos deterministic edit smoke marker\n' >> codeclash/arenas/battlesnake/battlesnake.py"
+  - role: assistant
+    content: "Submitting after deterministic edit."
+    extra:
+      actions:
+        - command: "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"

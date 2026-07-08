@@ -1,0 +1,54 @@
+{
+  "schema_version": "telos.deterministic_edit_slice_scorecard.v1",
+  "candidates": [
+    {
+      "candidate_id": "codeclash_overlay_battlesnake_python_marker_edit",
+      "path": "experiments/iter06_deterministic_edit_slice/proof/overlay",
+      "score": 25,
+      "components": {
+        "agent_path_fidelity": 5,
+        "non_empty_diff_confidence": 5,
+        "artifact_surface": 5,
+        "cost_control": 5,
+        "public_reproducibility": 4,
+        "runtime_complexity_penalty": -1,
+        "overclaim_risk_penalty": -3
+      },
+      "decision": "selected",
+      "rationale": "Keeps the public CodeClash Mini-SWE-Agent path, uses a deterministic two-step model, and should produce a non-empty BattleSnake Python diff without provider spend."
+    },
+    {
+      "candidate_id": "minimal_local_edit_harness_public_fixture",
+      "path": "custom local fixture",
+      "score": 19,
+      "components": {
+        "agent_path_fidelity": 3,
+        "non_empty_diff_confidence": 5,
+        "artifact_surface": 4,
+        "cost_control": 5,
+        "public_reproducibility": 3,
+        "runtime_complexity_penalty": 0,
+        "overclaim_risk_penalty": -1
+      },
+      "decision": "defer",
+      "rationale": "Would prove non-empty diffs, but would reduce fidelity to the public CodeClash agent path already proven in iter05."
+    },
+    {
+      "candidate_id": "codeclash_ladder_instant_submit_variant",
+      "path": "configs/test/battlesnake_ladder_smoke.yaml",
+      "score": 14,
+      "components": {
+        "agent_path_fidelity": 4,
+        "non_empty_diff_confidence": 1,
+        "artifact_surface": 5,
+        "cost_control": 5,
+        "public_reproducibility": 5,
+        "runtime_complexity_penalty": -3,
+        "overclaim_risk_penalty": -3
+      },
+      "decision": "reject_for_this_gate",
+      "rationale": "Uses public CodeClash machinery but inherits instant-submit behavior, so it is not the cleanest route to non-empty diff evidence."
+    }
+  ],
+  "selected": "codeclash_overlay_battlesnake_python_marker_edit"
+}

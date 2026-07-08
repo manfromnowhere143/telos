@@ -59,6 +59,7 @@ python3 scripts/validate_learning_ledger.py
 | `iter03_codeclash_smoke` | pass | CodeClash artifacts and receipts audit cleanly for no-LLM tournament runs | add real agent behavior without provider spend |
 | `iter04_agent_behavior_slice` | pass | deterministic Mini-SWE-Agent PvP is the smallest public agent-behavior slice | run deterministic behavior smoke |
 | `iter05_agent_behavior_smoke` | pass | deterministic Mini-SWE-Agent trajectory and stats are auditable at zero provider cost | freeze first deterministic edit-agent slice |
+| `iter06_deterministic_edit_slice` | pass | a committed CodeClash overlay is the cleanest route to non-empty diff evidence | run deterministic edit smoke |
 
-The next experiment should not spend cloud resources until a deterministic edit slice produces
-audited non-empty diff evidence.
+The next experiment should not spend cloud resources until deterministic non-empty diff evidence is
+audited.

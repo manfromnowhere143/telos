@@ -1,0 +1,84 @@
+{
+  "schema_version": "telos.deterministic_edit_slice.v1",
+  "slice_id": "codeclash_overlay_battlesnake_python_marker_edit_slice",
+  "status": "selected",
+  "selected_candidate": "codeclash_overlay_battlesnake_python_marker_edit",
+  "source": {
+    "name": "CodeClash",
+    "url": "https://github.com/codeclash-ai/codeclash",
+    "commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "license_note": "MIT licensed public repository."
+  },
+  "overlay": {
+    "model_config": "experiments/iter06_deterministic_edit_slice/proof/overlay/configs/mini/telos_edit_battlesnake_marker.yaml",
+    "run_config": "experiments/iter06_deterministic_edit_slice/proof/overlay/configs/test/telos_battlesnake_edit_test.yaml",
+    "copy_targets": [
+      "configs/mini/telos_edit_battlesnake_marker.yaml",
+      "configs/test/telos_battlesnake_edit_test.yaml"
+    ]
+  },
+  "config": {
+    "path": "configs/test/telos_battlesnake_edit_test.yaml",
+    "game": "BattleSnake",
+    "tournament_rounds": 1,
+    "sims_per_round": 1,
+    "agents": [
+      {
+        "name": "p1",
+        "type": "mini",
+        "model_name": "telos_edit_battlesnake_marker",
+        "model_class": "minisweagent.models.test_models.DeterministicModel",
+        "provider_backed": false,
+        "expected_provider_cost": 0,
+        "expected_model_calls_min": 2,
+        "expected_modified_files": [
+          "codeclash/arenas/battlesnake/battlesnake.py"
+        ]
+      },
+      {
+        "name": "p2",
+        "type": "dummy"
+      }
+    ]
+  },
+  "expected_artifacts": [
+    {
+      "kind": "artifact",
+      "name": "codeclash_logs",
+      "purpose": "Preserve tournament, game, player, and combined logs."
+    },
+    {
+      "kind": "test",
+      "name": "round_result",
+      "purpose": "Parse the BattleSnake result from metadata."
+    },
+    {
+      "kind": "diff_scope",
+      "name": "non_empty_change_record",
+      "purpose": "Verify p1 changes include codeclash/arenas/battlesnake/battlesnake.py."
+    },
+    {
+      "kind": "trajectory",
+      "name": "mini_agent_trajectory",
+      "purpose": "Capture the two deterministic Mini-SWE-Agent actions."
+    },
+    {
+      "kind": "agent_stats",
+      "name": "mini_agent_stats",
+      "purpose": "Verify exit status, zero cost, and deterministic model-call count."
+    },
+    {
+      "kind": "adversarial_review",
+      "name": "receipt_review",
+      "purpose": "Check that the result does not overclaim model capability."
+    }
+  ],
+  "first_run_command": "uv run codeclash run configs/test/telos_battlesnake_edit_test.yaml -o /tmp/telos-codeclash-deterministic-edit-smoke",
+  "first_run_falsifier": "The run fails if p1 lacks trajectory or agent_stats evidence, if provider cost is nonzero, if deterministic model calls are fewer than two, or if p1 diff-scope does not include codeclash/arenas/battlesnake/battlesnake.py.",
+  "spend": {
+    "api_calls": false,
+    "cloud": false,
+    "gpu": false,
+    "local_or_github_runner": true
+  }
+}
