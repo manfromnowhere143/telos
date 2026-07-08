@@ -1,0 +1,280 @@
+{
+  "case_count": 8,
+  "cases": [
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "body": [
+        {
+          "x": 0,
+          "y": 5
+        },
+        {
+          "x": 1,
+          "y": 5
+        }
+      ],
+      "case_id": "boundary-left",
+      "expected_safe_moves": [
+        "up",
+        "down"
+      ],
+      "forbidden_move": "left",
+      "observed_safe_moves": [
+        "up",
+        "down"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 20: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "body": [
+        {
+          "x": 10,
+          "y": 5
+        },
+        {
+          "x": 9,
+          "y": 5
+        }
+      ],
+      "case_id": "boundary-right",
+      "expected_safe_moves": [
+        "up",
+        "down"
+      ],
+      "forbidden_move": "right",
+      "observed_safe_moves": [
+        "up",
+        "down"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 20: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "body": [
+        {
+          "x": 5,
+          "y": 0
+        },
+        {
+          "x": 5,
+          "y": 1
+        }
+      ],
+      "case_id": "boundary-down",
+      "expected_safe_moves": [
+        "left",
+        "right"
+      ],
+      "forbidden_move": "down",
+      "observed_safe_moves": [
+        "left",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "left",
+      "stdout_lines": [
+        "MOVE 20: left"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "body": [
+        {
+          "x": 5,
+          "y": 10
+        },
+        {
+          "x": 5,
+          "y": 9
+        }
+      ],
+      "case_id": "boundary-up",
+      "expected_safe_moves": [
+        "left",
+        "right"
+      ],
+      "forbidden_move": "up",
+      "observed_safe_moves": [
+        "left",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "left",
+      "stdout_lines": [
+        "MOVE 20: left"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "case_id": "self-left",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 20: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 6,
+          "y": 4
+        },
+        {
+          "x": 6,
+          "y": 5
+        }
+      ],
+      "case_id": "self-right",
+      "expected_safe_moves": [
+        "up",
+        "left"
+      ],
+      "forbidden_move": "right",
+      "observed_safe_moves": [
+        "up",
+        "left"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 20: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 4
+        },
+        {
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "case_id": "self-down",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "down",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 20: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 6
+        },
+        {
+          "x": 5,
+          "y": 6
+        }
+      ],
+      "case_id": "self-up",
+      "expected_safe_moves": [
+        "down",
+        "right"
+      ],
+      "forbidden_move": "up",
+      "observed_safe_moves": [
+        "down",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "down",
+      "stdout_lines": [
+        "MOVE 20: down"
+      ]
+    }
+  ],
+  "cloud_or_gpu_used": false,
+  "failed_case_count": 0,
+  "module_imported": true,
+  "passed_case_count": 8,
+  "provider_api_calls": 0,
+  "random_choice_probe_used": true,
+  "reconstructed_from_modified_files": true,
+  "schema_version": "telos.behavior_semantic_verification.report.v1",
+  "source_changes_path": "experiments/iter19_provider_final_inspection_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708185232/players/p1/changes_r1.json",
+  "status": "pass",
+  "submitted_logic_mutated": false
+}

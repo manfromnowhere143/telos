@@ -57,8 +57,10 @@ and an adversarial review pass.
   [`experiments/iter18_provider_behavior_depth_control`](experiments/iter18_provider_behavior_depth_control/RESULT.md).
 - Provider final inspection control: passed the final inspection bar in
   [`experiments/iter19_provider_final_inspection_control`](experiments/iter19_provider_final_inspection_control/RESULT.md).
-- Current gate: behavior semantic verification, pre-registered in
-  [`experiments/iter20_behavior_semantic_verification`](experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md).
+- Behavior semantic verification: passed eight deterministic local safety cases in
+  [`experiments/iter20_behavior_semantic_verification`](experiments/iter20_behavior_semantic_verification/RESULT.md).
+- Current gate: opponent collision control, pre-registered in
+  [`experiments/iter21_opponent_collision_control`](experiments/iter21_opponent_collision_control/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -106,7 +108,8 @@ Provider workspace hygiene control: [`experiments/iter16_provider_workspace_hygi
 Provider lint hygiene control: [`experiments/iter17_provider_lint_hygiene_control/RESULT.md`](experiments/iter17_provider_lint_hygiene_control/RESULT.md).
 Provider behavior depth control: [`experiments/iter18_provider_behavior_depth_control/RESULT.md`](experiments/iter18_provider_behavior_depth_control/RESULT.md).
 Provider final inspection control: [`experiments/iter19_provider_final_inspection_control/RESULT.md`](experiments/iter19_provider_final_inspection_control/RESULT.md).
-Behavior semantic verification: [`experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md`](experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md).
+Behavior semantic verification: [`experiments/iter20_behavior_semantic_verification/RESULT.md`](experiments/iter20_behavior_semantic_verification/RESULT.md).
+Opponent collision control: [`experiments/iter21_opponent_collision_control/HYPOTHESIS.md`](experiments/iter21_opponent_collision_control/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -203,6 +206,8 @@ python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_
 python3 scripts/audit_provider_behavior_depth_control.py
 python3 scripts/validate_receipts.py experiments/iter19_provider_final_inspection_control/proof
 python3 scripts/audit_provider_final_inspection_control.py
+python3 scripts/validate_receipts.py experiments/iter20_behavior_semantic_verification/proof
+python3 scripts/audit_behavior_semantic_verification.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

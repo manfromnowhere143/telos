@@ -145,6 +145,12 @@ jobs:
       - name: Provider final inspection control audit
         run: python3 scripts/audit_provider_final_inspection_control.py
 
+      - name: Behavior semantic verification receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter20_behavior_semantic_verification/proof
+
+      - name: Behavior semantic verification audit
+        run: python3 scripts/audit_behavior_semantic_verification.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

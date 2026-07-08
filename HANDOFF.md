@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-08T19:05:02Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-08T19:15:33Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -11,7 +11,16 @@ branch: master
 Working tree:
 
 ```text
-clean
+M .github/workflows/ci.yml
+ M CONTINUITY.md
+ M README.md
+ M mission/loop.json
+ M scripts/make_handoff.py
+?? experiments/iter20_behavior_semantic_verification/RESULT.md
+?? experiments/iter20_behavior_semantic_verification/proof/
+?? experiments/iter21_opponent_collision_control/
+?? scripts/audit_behavior_semantic_verification.py
+?? scripts/verify_behavior_semantics.py
 ```
 
 ## Experiments
@@ -36,11 +45,12 @@ clean
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
-- experiments/iter20_behavior_semantic_verification: PRE-REGISTERED, result pending
+- experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
+- experiments/iter21_opponent_collision_control: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md`.
+- Active gate: `experiments/iter21_opponent_collision_control/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -88,6 +98,8 @@ python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_
 python3 scripts/audit_provider_behavior_depth_control.py
 python3 scripts/validate_receipts.py experiments/iter19_provider_final_inspection_control/proof
 python3 scripts/audit_provider_final_inspection_control.py
+python3 scripts/validate_receipts.py experiments/iter20_behavior_semantic_verification/proof
+python3 scripts/audit_behavior_semantic_verification.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

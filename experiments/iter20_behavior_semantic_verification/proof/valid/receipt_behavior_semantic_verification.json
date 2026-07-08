@@ -1,0 +1,57 @@
+{
+  "acceptance_criteria": [
+    "The submitted diff is reconstructed from committed iter19 artifacts.",
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The verifier runs locally and records command output.",
+    "All four boundary cases pass.",
+    "All four self-collision cases pass.",
+    "The result records the iter19 formatting caveat separately from semantic behavior.",
+    "No leaderboard, SWE-bench, production, or live-domain claim is made."
+  ],
+  "agent_id": "codex-local-deterministic-semantic-verifier",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter20_behavior_semantic_verification/proof/semantic_report.json",
+      "kind": "test",
+      "notes": "Eight deterministic cases passed with the forbidden move absent from the observed safe-move list.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter20_behavior_semantic_verification/proof/reconstructed/main.py",
+      "kind": "artifact",
+      "notes": "The submitted main.py was reconstructed from iter19 changes_r1.json modified_files content.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter19_provider_final_inspection_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708185232/players/p1/changes_r1.json",
+      "kind": "diff_scope",
+      "notes": "Frozen input changed only README_agent.md and main.py.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter20_behavior_semantic_verification/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review keeps the semantic claim narrow and preserves the iter19 blank-line style caveat.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed; this was local proof verification only.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must be blocked if committed iter19 artifacts cannot reconstruct the submitted main.py.",
+    "The result must be blocked if the reconstructed bot cannot be imported without changing submitted logic.",
+    "The result must fail if any boundary case can select the forbidden out-of-bounds move.",
+    "The result must fail if any self-collision case can select the forbidden own-body move.",
+    "The result must fail if the verifier mutates submitted safety logic instead of inspecting its safe-move set.",
+    "The result must not claim leaderboard, SWE-bench, production, or live-domain verification."
+  ],
+  "receipt_id": "iter20-behavior-semantic-verification-pass",
+  "sha256": "5715ef0795241bdacf7ac3cf9ce4732569f826b6cc7c88a3b59ffee12f48435f",
+  "stated_goal": "Verify the boundary and self-collision behavior claimed by the submitted iter19 provider diff using deterministic local tests reconstructed from committed artifacts.",
+  "status": "pass",
+  "task_id": "telos:iter20_behavior_semantic_verification@iter19_provider_final_inspection_control"
+}

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md`
+- `experiments/iter21_opponent_collision_control/HYPOTHESIS.md`
 
 Current claim:
 
@@ -94,9 +94,14 @@ Current claim:
   `git status --short && git diff --check` with return code `0` immediately before submission. The
   submitted diff still changed only `README_agent.md` plus `main.py` and retained source-evident
   self-collision prevention.
+- `iter20_behavior_semantic_verification` passed: the submitted `iter19` diff was reconstructed
+  from committed artifacts, imported locally, and verified with eight deterministic safety cases.
+  All four boundary cases and all four self-collision cases excluded the forbidden move; no
+  provider call, API call, GPU, cloud runner, production change, leaderboard run, or SWE-bench run
+  occurred.
 - No model or benchmark result is claimed yet.
-- The next gate must reconstruct the iter19 provider diff and verify boundary plus self-collision
-  behavior with deterministic local tests before claiming semantic correctness.
+- The next gate must test opponent-collision behavior while preserving final-inspection and
+  semantic-verification controls.
 
 ## Required Verification
 
@@ -141,6 +146,8 @@ python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_
 python3 scripts/audit_provider_behavior_depth_control.py
 python3 scripts/validate_receipts.py experiments/iter19_provider_final_inspection_control/proof
 python3 scripts/audit_provider_final_inspection_control.py
+python3 scripts/validate_receipts.py experiments/iter20_behavior_semantic_verification/proof
+python3 scripts/audit_behavior_semantic_verification.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
