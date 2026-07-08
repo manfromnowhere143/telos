@@ -1,0 +1,79 @@
+{
+  "allowed_changed_files_observed": [
+    "README_agent.md",
+    "main.py"
+  ],
+  "artifact_hashes": {
+    "preflight.json": "06e18c9489411b57483ec83cec9c751a7069a1b4ff934aa9c4bd417398df3fee",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/everything.log": "52963f0d4dbbd11f67bcf4b14526b77166a6c06db2f511af136ff45baf219f3b",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/game.log": "47bb7505da82214fef7d9d6b21abdd86796d31f2dfe91fee52dc20deab1ee909",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/metadata.json": "b09537f0994a793a5639423a7b0d017ef6f40a85460c19cfc4695538cd754e8b",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p1/changes_r1.json": "421ed9c927620805312d235ba5a090a414f67e4e7b17c1ad1c42ee40df99aee9",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p1/p1_r1.traj.json": "a7a94ecef1bf68075904a6648fecdbf48025bd802b484b6d57ce270b5e33e8a4",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p1/player.log": "4533875cfbb23b26994d6f7a5746b048a21974b1bcdad385492970e550cda215",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p2/changes_r1.json": "f4549b489f5cd930ff092e7e58c9688ddbbcb43af160edde1884e7623a1efa57",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p2/player.log": "6148e36e84ed7fb634a8aa257259855e48f0f2cbfca4ec9e2576495034b3bd0b",
+    "raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/tournament.log": "8294f6c3f7522197cc756955feee7161ceb0016d175d9a3e1c16a91db906e057",
+    "raw/codeclash/telos-codeclash-provider-run.log": "a766c754dd63ea3e192ed484943b8037f303a7d2689bb7d37cd991706f9aca76",
+    "raw/control/telos-cloud-setup.log": "960709d2be702fda6f056ab427513e3044e7ab9bb58c15277dbe78c1137eca36",
+    "raw/control/telos-uv-sync.log": "b1593106d11db8aa710608d09ae50c80c707b81f3418db60eccffffa09a172ac",
+    "raw_summary.json": "5b7b67fdbff8c3d1189e7771e2ed364d3420b600f7fd832f00804cc99c8ac917"
+  },
+  "clean_pass": false,
+  "cloud_vm_deleted": true,
+  "codeclash_started": true,
+  "credential_material_committed": false,
+  "failure_class": "strict_diff_quality_fail",
+  "game_score_used_as_model_capability_evidence": false,
+  "helper_residue_files": [
+    "patch.py",
+    "patch2.py"
+  ],
+  "leaderboard_or_swebench_claimed": false,
+  "metadata_present": true,
+  "model_api_calls_reported": 5,
+  "model_cost_reported_usd": 0.037882,
+  "next_gate": "experiments/iter16_provider_workspace_hygiene_control/HYPOTHESIS.md",
+  "p1_agent_exit_status": "Submitted",
+  "p1_full_diff_lines": 127,
+  "p1_modified_files": [
+    "README_agent.md",
+    "main.py",
+    "patch.py",
+    "patch2.py"
+  ],
+  "p1_trajectory_present": true,
+  "p2_full_diff_lines": 0,
+  "p2_modified_files": [],
+  "preflight_http_status": "200",
+  "preflight_status": "pass",
+  "preflight_total_token_count": 2,
+  "production_or_live_domain_changed": false,
+  "project_identifier_committed": false,
+  "provider_private_fields_redacted": true,
+  "raw_binary_round_archive_committed": false,
+  "region": "global",
+  "rerun_recovery_notes": [
+    "direct preflight and CodeClash provider run used global Vertex routing",
+    "previous us-central1 routing failure was not treated as a model result",
+    "execution success is separated from strict diff-quality failure"
+  ],
+  "round0_scores": {
+    "p1": 1,
+    "p2": 0.0
+  },
+  "round0_winner": "p1",
+  "round1_scores": {
+    "p1": 1,
+    "p2": 0.0
+  },
+  "round1_winner": "p1",
+  "run_exit_code": 0,
+  "runner": "ephemeral_gce_vm_dedicated_service_account",
+  "schema_version": "telos.provider_strict_diff_rerun.summary.v1",
+  "selected_model": "vertex_ai/gemini-3.1-pro-preview-customtools",
+  "service_account_short_id": "telos-vertex-runner",
+  "status": "fail",
+  "strict_diff_quality_status": "fail_unjustified_helper_files",
+  "vertex_location_configured_in_model_kwargs": true
+}

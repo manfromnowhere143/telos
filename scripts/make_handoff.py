@@ -104,6 +104,8 @@ python3 scripts/validate_receipts.py experiments/iter13_provider_model_pilot_ret
 python3 scripts/audit_provider_model_pilot_after_access.py
 python3 scripts/validate_receipts.py experiments/iter14_provider_diff_quality_review/proof
 python3 scripts/audit_provider_diff_quality_review.py
+python3 scripts/validate_receipts.py experiments/iter15_provider_strict_diff_rerun/proof
+python3 scripts/audit_provider_strict_diff_rerun.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

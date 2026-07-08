@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter15_provider_strict_diff_rerun/HYPOTHESIS.md`
+- `experiments/iter16_provider_workspace_hygiene_control/HYPOTHESIS.md`
 
 Current claim:
 
@@ -68,8 +68,12 @@ Current claim:
   `p1` diff was reconstructed from committed artifacts; the `main.py` boundary edit was judged to
   satisfy the local Step 1 task intent; and unreferenced helper files such as `patch.py` now fail
   future clean-pass provider-smoke quality gates.
+- `iter15_provider_strict_diff_rerun` failed the clean diff-quality bar: the provider-backed rerun
+  recovered with explicit `global` Vertex routing, CodeClash exited `0`, `p1` submitted with `5`
+  model API calls and `$0.037882` reported cost, but the submitted diff left `patch.py` and
+  `patch2.py`, so the strict status is `fail_unjustified_helper_files`.
 - No model or benchmark result is claimed yet.
-- The next gate must rerun the same provider-smoke shape with the strict diff-quality bar.
+- The next gate must test the same provider-smoke shape with an explicit workspace-hygiene control.
 
 ## Required Verification
 
@@ -104,6 +108,8 @@ python3 scripts/validate_receipts.py experiments/iter13_provider_model_pilot_ret
 python3 scripts/audit_provider_model_pilot_after_access.py
 python3 scripts/validate_receipts.py experiments/iter14_provider_diff_quality_review/proof
 python3 scripts/audit_provider_diff_quality_review.py
+python3 scripts/validate_receipts.py experiments/iter15_provider_strict_diff_rerun/proof
+python3 scripts/audit_provider_strict_diff_rerun.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

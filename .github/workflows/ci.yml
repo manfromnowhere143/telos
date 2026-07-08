@@ -115,6 +115,12 @@ jobs:
       - name: Provider diff quality review audit
         run: python3 scripts/audit_provider_diff_quality_review.py
 
+      - name: Provider strict diff rerun receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter15_provider_strict_diff_rerun/proof
+
+      - name: Provider strict diff rerun audit
+        run: python3 scripts/audit_provider_strict_diff_rerun.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

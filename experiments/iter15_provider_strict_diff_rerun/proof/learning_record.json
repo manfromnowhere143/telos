@@ -1,0 +1,18 @@
+{
+  "evidence_paths": [
+    "experiments/iter15_provider_strict_diff_rerun/proof/run_summary.json",
+    "experiments/iter15_provider_strict_diff_rerun/proof/preflight.json",
+    "experiments/iter15_provider_strict_diff_rerun/proof/diff_summary.md",
+    "experiments/iter15_provider_strict_diff_rerun/proof/review.md",
+    "experiments/iter15_provider_strict_diff_rerun/proof/raw/codeclash/telos-codeclash-provider-run.log",
+    "experiments/iter15_provider_strict_diff_rerun/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p1/p1_r1.traj.json",
+    "experiments/iter15_provider_strict_diff_rerun/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p1/changes_r1.json",
+    "experiments/iter15_provider_strict_diff_rerun/proof/valid/receipt_provider_strict_diff_rerun.json"
+  ],
+  "experiment_id": "iter15_provider_strict_diff_rerun",
+  "insight": "A provider-backed run can complete successfully while still failing the stricter Telos clean-pass bar because helper files remain in the submitted diff.",
+  "next_action": "run the same provider-smoke shape with an explicit workspace-hygiene control before scaling or claiming stronger benchmark evidence",
+  "result_path": "experiments/iter15_provider_strict_diff_rerun/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

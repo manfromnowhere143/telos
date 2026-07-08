@@ -1,0 +1,79 @@
+👋 This is mini-swe-agent version 2.4.2.
+Check the v2 migration guide at https://klieret.short.gy/mini-v2-migration
+Loading global config from '/root/.config/mini-swe-agent/.env'
+🏓 INFO [BattleSnake] Building Docker image codeclash/battlesnake. This may take
+1-5 minutes and only work on Linux for some games.
+🏓 INFO [BattleSnake] ✅ Built Docker image codeclash/battlesnake
+🏓 INFO [BattleSnake] Started container minisweagent-33c3ca6b with ID
+c432e6ea385c15b4ddabd2002b57528b0923a4a913c581d08d209585be5be1c4
+🏓 INFO [BattleSnake] Started container minisweagent-8a995f23 with ID
+e89b68e0410e1ef635d8f6893e7c168b5e3681da22d3b56b81584692dd2ce19d
+👤 INFO [p1] Switching to branch PvpTournament.BattleSnake.260708165140.p1 for
+pushing changes
+🏓 INFO [BattleSnake] Started container minisweagent-1981b12d with ID
+3d4583db8eebf62e2e22562a14d47546c31649382c91bd2e65eb1ed10ea823b4
+👤 INFO [p2] Switching to branch PvpTournament.BattleSnake.260708165140.p2 for
+pushing changes
+🏓 INFO [BattleSnake] Agent p2 passed submission validation
+🏓 INFO [BattleSnake] Agent p1 passed submission validation
+Copy between containers: 3d4583db8eebf62e2e22562a14d47546c31649382c91bd2e65eb1ed10ea823b4:/workspace -> c432e6ea385c15b4ddabd2002b57528b0923a4a913c581d08d209585be5be1c4:/p2
+Copy between containers: e89b68e0410e1ef635d8f6893e7c168b5e3681da22d3b56b81584692dd2ce19d:/workspace -> c432e6ea385c15b4ddabd2002b57528b0923a4a913c581d08d209585be5be1c4:/p1
+🏓 INFO [BattleSnake] Running game with players: ['p2', 'p1']
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00, 10.35it/s]
+Copy from container: cmd=['docker', 'cp', 'c432e6ea385c15b4ddabd2002b57528b0923a4a913c581d08d209585be5be1c4:/logs/.', '/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/rounds/0']
+🏆 INFO [PvpTournament] In round 0, the winner is p1.
+
+                       Summary of player performance:
+                       - p2: submission compiled successfully, score=0.0
+                       - p1: submission compiled successfully, score=1
+🏆 INFO [PvpTournament] Copying round 0 log(s) to p2's container...
+Copy to container: cmd=['docker', 'cp', '/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/rounds/0', '3d4583db8eebf62e2e22562a14d47546c31649382c91bd2e65eb1ed10ea823b4:/logs/rounds/0']
+🏆 INFO [PvpTournament] Copying round 0 log(s) to p1's container...
+Copy to container: cmd=['docker', 'cp', '/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/rounds/0', 'e89b68e0410e1ef635d8f6893e7c168b5e3681da22d3b56b81584692dd2ce19d:/logs/rounds/0']
+🏆 INFO [PvpTournament] Compressing round 0 logs, this might take a while...
+(tar -zcf
+/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p
+2.260708165140/rounds/round_0.tar.gz -C
+/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p
+2.260708165140/rounds 0)
+🏆 INFO [PvpTournament] Round 0 logs compressed successfully
+👤 INFO [p2] Committed changes for p2 for round 1
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+
+[1;31mProvider List: https://docs.litellm.ai/docs/providers[0m
+
+Copy to container: cmd=['docker', 'cp', '/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p1/p1_r1.traj.json', 'e89b68e0410e1ef635d8f6893e7c168b5e3681da22d3b56b81584692dd2ce19d:/logs/edits/p1_r1.traj.json']
+👤 INFO [p1] Committed changes for p1 for round 1
+🏆 INFO [PvpTournament] Round completed.
+🏓 INFO [BattleSnake] Agent p1 passed submission validation
+🏓 INFO [BattleSnake] Agent p2 passed submission validation
+Copy between containers: e89b68e0410e1ef635d8f6893e7c168b5e3681da22d3b56b81584692dd2ce19d:/workspace -> c432e6ea385c15b4ddabd2002b57528b0923a4a913c581d08d209585be5be1c4:/p1
+Copy between containers: 3d4583db8eebf62e2e22562a14d47546c31649382c91bd2e65eb1ed10ea823b4:/workspace -> c432e6ea385c15b4ddabd2002b57528b0923a4a913c581d08d209585be5be1c4:/p2
+🏓 INFO [BattleSnake] Running game with players: ['p1', 'p2']
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:00<00:00,  5.82it/s]
+100%|██████████| 1/1 [00:00<00:00,  5.80it/s]
+Copy from container: cmd=['docker', 'cp', 'c432e6ea385c15b4ddabd2002b57528b0923a4a913c581d08d209585be5be1c4:/logs/.', '/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/rounds/1']
+🏆 INFO [PvpTournament] In round 1, the winner is p1.
+
+                       Summary of player performance:
+                       - p1: submission compiled successfully, score=1
+                       - p2: submission compiled successfully, score=0.0
+🏆 INFO [PvpTournament] Compressing round 1 logs, this might take a while...
+(tar -zcf
+/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p
+2.260708165140/rounds/round_1.tar.gz -C
+/tmp/telos-codeclash-provider-strict-run/PvpTournament.BattleSnake.r1.s1.p2.p1.p
+2.260708165140/rounds 1)
+🏆 INFO [PvpTournament] Round 1 logs compressed successfully

@@ -1,0 +1,62 @@
+{
+  "acceptance_criteria": [
+    "Zero-spend preflight confirms the dedicated runner can call the selected Vertex endpoint without committing sensitive Google identifiers.",
+    "The CodeClash run exits successfully under the frozen model, task, runner, and budget.",
+    "Raw output is retained under proof/raw with sensitive identifiers and provider-private fields redacted before commit.",
+    "The result records provider trajectory, cost, API-call stats, changed files, and full diff scope.",
+    "The submitted diff is classified as clean, with no unreferenced helper, scratch, cache, generated, or secret-risk files.",
+    "No leaderboard, SWE-bench, production, or live-domain claim is made."
+  ],
+  "agent_id": "codeclash-minisweagent-vertex-gemini-3-1-pro-customtools-p1",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "evidence": [
+    {
+      "artifact": "experiments/iter15_provider_strict_diff_rerun/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Execution succeeded, but strict diff-quality status is fail_unjustified_helper_files because patch.py and patch2.py remained in the submitted diff.",
+      "status": "fail"
+    },
+    {
+      "artifact": "experiments/iter15_provider_strict_diff_rerun/proof/raw/control/telos-cloud-setup.log",
+      "kind": "build",
+      "notes": "Ephemeral GCE runner installed Docker, CodeClash dependencies, applied the overlay, and ran with explicit global Vertex routing.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter15_provider_strict_diff_rerun/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p1/p1_r1.traj.json",
+      "kind": "artifact",
+      "notes": "Sanitized provider trajectory records the submitted run, API calls, cost, and tool actions.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter15_provider_strict_diff_rerun/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708165140/players/p1/changes_r1.json",
+      "kind": "diff_scope",
+      "notes": "Changed-file set includes README_agent.md, main.py, patch.py, and patch2.py; helper residue prevents a clean pass.",
+      "status": "fail"
+    },
+    {
+      "artifact": "experiments/iter15_provider_strict_diff_rerun/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review separates provider execution success from strict diff-quality failure and rejects leaderboard/SWE-bench/production/model-superiority claims.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed. The only cloud side effect was an ephemeral VM deleted after artifact collection.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The gate must be blocked if the dedicated runner cannot call the selected Vertex endpoint during preflight.",
+    "The gate must be blocked if CodeClash cannot run the provider-backed config without leaking credentials.",
+    "The gate must be blocked if the run exceeds the frozen $25 ceiling or 45-minute wall-clock ceiling.",
+    "The gate must fail if execution succeeds but the submitted diff leaves an unjustified helper, scratch, cache, generated, or secret-risk file.",
+    "The result must not claim leaderboard, SWE-bench, production, or live-domain verification.",
+    "The proof bundle must not commit token, credential JSON, account email, Google Cloud project identifier, or provider-private thought-signature values."
+  ],
+  "receipt_id": "iter15-provider-strict-diff-rerun-fail-helper-residue",
+  "sha256": "0fe20788f20f8318510c2d174a8d3b168eeb2dc675f7a2615ad34f727fe3172a",
+  "stated_goal": "Rerun the frozen Vertex Gemini CodeClash provider smoke under a strict diff-quality bar and publish a clean pass only if execution succeeds and the submitted diff has no unjustified helper residue.",
+  "status": "fail",
+  "task_id": "codeclash:telos_battlesnake_vertex_gemini_pilot@381cdfa05a35e8acd35853b9fc7e13005121b127"
+}
