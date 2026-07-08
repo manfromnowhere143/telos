@@ -15,7 +15,7 @@ non-empty code diff through the real CodeClash Mini-SWE-Agent path.
 - Overlay run config:
   `experiments/iter06_deterministic_edit_slice/proof/overlay/configs/test/telos_battlesnake_edit_test.yaml`
 - Effective CodeClash config: `configs/test/telos_battlesnake_edit_test.yaml`
-- Expected modified file: `codeclash/arenas/battlesnake/battlesnake.py`
+- Expected modified file: `telos_marker.py`
 - Expected provider cost: `0`
 - Expected deterministic model invocations: at least `2`
 
@@ -33,7 +33,7 @@ The gate passes only if all hold:
 - Metadata contains a parsed BattleSnake result.
 - `p1` has a Mini-SWE-Agent trajectory artifact.
 - `p1` agent stats record zero provider cost and at least two deterministic model invocations.
-- `p1` diff-scope record is non-empty and names `codeclash/arenas/battlesnake/battlesnake.py`.
+- `p1` diff-scope record is non-empty and names `telos_marker.py`.
 - A Telos receipt validates with `scripts/validate_receipts.py`.
 - No model capability, leaderboard, SWE-bench, production, or live-domain result is claimed.
 

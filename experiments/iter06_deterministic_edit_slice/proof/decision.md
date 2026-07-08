@@ -3,7 +3,7 @@
 Selected:
 
 ```text
-codeclash_overlay_battlesnake_python_marker_edit_slice
+codeclash_overlay_workspace_python_marker_edit_slice
 ```
 
 ## Rationale
@@ -12,10 +12,15 @@ codeclash_overlay_battlesnake_python_marker_edit_slice
 The next missing evidence type is a real non-empty diff. The selected slice keeps the same public
 CodeClash BattleSnake path and changes only the deterministic model output:
 
-1. append a marker comment to `codeclash/arenas/battlesnake/battlesnake.py`,
+1. create `telos_marker.py` in the player workspace,
 2. submit.
 
 That should produce a non-empty `p1` change record while keeping provider cost at zero.
+
+Correction after first execution attempt: workflow run `28937796613` showed that targeting
+`codeclash/arenas/battlesnake/battlesnake.py` was wrong for the player workspace. The CodeClash run
+completed, but the summarizer found no modified files. The corrected slice writes a new `.py` file
+inside the actual workspace instead of guessing a CodeClash source path.
 
 ## Why This Is Better Than A Local Fixture
 
@@ -35,6 +40,6 @@ Run `iter07_deterministic_edit_smoke`:
 
 - apply the overlay into the pinned CodeClash checkout,
 - run the selected config,
-- verify `p1` changed `codeclash/arenas/battlesnake/battlesnake.py`,
+- verify `p1` changed `telos_marker.py`,
 - preserve raw artifacts,
 - publish a Telos receipt or a null result.

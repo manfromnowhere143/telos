@@ -51,6 +51,7 @@ jobs:
 
       - name: CodeClash BattleSnake deterministic edit run
         run: |
+          set -o pipefail
           rm -rf "$CODECLASH_OUT"
           mkdir -p "$CODECLASH_OUT"
           cd "$CODECLASH_DIR"
@@ -100,7 +101,7 @@ jobs:
               for change in p1_changes
               for filename in (change.get("modified_files") or {})
           })
-          expected_file = "codeclash/arenas/battlesnake/battlesnake.py"
+          expected_file = "telos_marker.py"
           if expected_file not in changed_files:
               raise SystemExit(f"{expected_file} not found in p1 modified files: {changed_files}")
           if not any((change.get("full_diff") or "").strip() for change in p1_changes):
@@ -137,6 +138,7 @@ jobs:
           PY
 
       - name: Upload deterministic edit artifacts
+        if: always()
         uses: actions/upload-artifact@v7
         with:
           name: codeclash-deterministic-edit-smoke

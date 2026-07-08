@@ -10,7 +10,7 @@ The output is not a model score. It is a deterministic non-empty diff receipt:
 - apply the committed CodeClash overlay,
 - run the selected BattleSnake deterministic edit config,
 - preserve metadata, logs, trajectory, agent stats, and diff-scope artifacts,
-- prove `p1` modified `codeclash/arenas/battlesnake/battlesnake.py`,
+- prove `p1` modified `telos_marker.py`,
 - keep provider API/GPU spend at zero,
 - produce a valid Telos receipt.
 

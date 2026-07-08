@@ -46,7 +46,7 @@ def main() -> int:
             raise ValueError("unexpected schema_version")
         if data.get("status") != "selected":
             raise ValueError("status must be selected")
-        if data.get("selected_candidate") != "codeclash_overlay_battlesnake_python_marker_edit":
+        if data.get("selected_candidate") != "codeclash_overlay_workspace_python_marker_edit":
             raise ValueError("unexpected selected candidate")
 
         source = require_mapping(data, "source")
@@ -67,7 +67,7 @@ def main() -> int:
         run_text = overlay_paths[1].read_text(encoding="utf-8")
         for required in [
             "minisweagent.models.test_models.DeterministicModel",
-            "codeclash/arenas/battlesnake/battlesnake.py",
+            "telos_marker.py",
             "COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
         ]:
             if required not in model_text:
@@ -93,15 +93,15 @@ def main() -> int:
         )
         if not mini:
             raise ValueError("missing mini agent")
-        if mini.get("model_name") != "telos_edit_battlesnake_marker":
-            raise ValueError("mini model must be telos_edit_battlesnake_marker")
+        if mini.get("model_name") != "telos_edit_workspace_marker":
+            raise ValueError("mini model must be telos_edit_workspace_marker")
         if mini.get("provider_backed") is not False:
             raise ValueError("mini provider_backed must be false")
         if mini.get("expected_provider_cost") not in (0, 0.0):
             raise ValueError("expected provider cost must be zero")
         if int(mini.get("expected_model_calls_min", 0)) < 2:
             raise ValueError("expected model calls must be at least two")
-        expected_files = ["codeclash/arenas/battlesnake/battlesnake.py"]
+        expected_files = ["telos_marker.py"]
         if mini.get("expected_modified_files") != expected_files:
             raise ValueError("expected modified files must be the BattleSnake Python file")
 
@@ -126,7 +126,7 @@ def main() -> int:
     except (TypeError, ValueError) as exc:
         return fail(str(exc))
 
-    print("deterministic edit slice valid: selected=codeclash_overlay_battlesnake_python_marker_edit")
+    print("deterministic edit slice valid: selected=codeclash_overlay_workspace_python_marker_edit")
     return 0
 
 

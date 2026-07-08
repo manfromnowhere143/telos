@@ -1,8 +1,8 @@
 {
   "schema_version": "telos.deterministic_edit_slice.v1",
-  "slice_id": "codeclash_overlay_battlesnake_python_marker_edit_slice",
+  "slice_id": "codeclash_overlay_workspace_python_marker_edit_slice",
   "status": "selected",
-  "selected_candidate": "codeclash_overlay_battlesnake_python_marker_edit",
+  "selected_candidate": "codeclash_overlay_workspace_python_marker_edit",
   "source": {
     "name": "CodeClash",
     "url": "https://github.com/codeclash-ai/codeclash",
@@ -26,13 +26,13 @@
       {
         "name": "p1",
         "type": "mini",
-        "model_name": "telos_edit_battlesnake_marker",
+        "model_name": "telos_edit_workspace_marker",
         "model_class": "minisweagent.models.test_models.DeterministicModel",
         "provider_backed": false,
         "expected_provider_cost": 0,
         "expected_model_calls_min": 2,
         "expected_modified_files": [
-          "codeclash/arenas/battlesnake/battlesnake.py"
+          "telos_marker.py"
         ]
       },
       {
@@ -55,7 +55,7 @@
     {
       "kind": "diff_scope",
       "name": "non_empty_change_record",
-      "purpose": "Verify p1 changes include codeclash/arenas/battlesnake/battlesnake.py."
+      "purpose": "Verify p1 changes include telos_marker.py."
     },
     {
       "kind": "trajectory",
@@ -74,7 +74,7 @@
     }
   ],
   "first_run_command": "uv run codeclash run configs/test/telos_battlesnake_edit_test.yaml -o /tmp/telos-codeclash-deterministic-edit-smoke",
-  "first_run_falsifier": "The run fails if p1 lacks trajectory or agent_stats evidence, if provider cost is nonzero, if deterministic model calls are fewer than two, or if p1 diff-scope does not include codeclash/arenas/battlesnake/battlesnake.py.",
+  "first_run_falsifier": "The run fails if p1 lacks trajectory or agent_stats evidence, if provider cost is nonzero, if deterministic model calls are fewer than two, or if p1 diff-scope does not include telos_marker.py.",
   "spend": {
     "api_calls": false,
     "cloud": false,

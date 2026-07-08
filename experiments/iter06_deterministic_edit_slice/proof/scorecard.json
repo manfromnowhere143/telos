@@ -2,7 +2,7 @@
   "schema_version": "telos.deterministic_edit_slice_scorecard.v1",
   "candidates": [
     {
-      "candidate_id": "codeclash_overlay_battlesnake_python_marker_edit",
+      "candidate_id": "codeclash_overlay_workspace_python_marker_edit",
       "path": "experiments/iter06_deterministic_edit_slice/proof/overlay",
       "score": 25,
       "components": {
@@ -15,7 +15,7 @@
         "overclaim_risk_penalty": -3
       },
       "decision": "selected",
-      "rationale": "Keeps the public CodeClash Mini-SWE-Agent path, uses a deterministic two-step model, and should produce a non-empty BattleSnake Python diff without provider spend."
+      "rationale": "Keeps the public CodeClash Mini-SWE-Agent path, uses a deterministic two-step model, and should produce a non-empty workspace Python diff without provider spend."
     },
     {
       "candidate_id": "minimal_local_edit_harness_public_fixture",
@@ -50,5 +50,5 @@
       "rationale": "Uses public CodeClash machinery but inherits instant-submit behavior, so it is not the cleanest route to non-empty diff evidence."
     }
   ],
-  "selected": "codeclash_overlay_battlesnake_python_marker_edit"
+  "selected": "codeclash_overlay_workspace_python_marker_edit"
 }
