@@ -29,6 +29,18 @@ From a clean CodeClash checkout at the pinned commit:
 uv run codeclash run configs/test/dummy.yaml -o /tmp/telos-codeclash-dummy-smoke
 ```
 
+## GitHub Execution Surface
+
+If local Docker remains blocked, run the manual workflow:
+
+```text
+.github/workflows/codeclash-smoke.yml
+```
+
+The workflow uses Ubuntu Docker, installs `uv`, checks out the pinned CodeClash commit, runs the
+CodeClash dummy-arena unit smoke, runs the no-LLM dummy tournament, writes a structured summary,
+and uploads the logs as `codeclash-dummy-smoke`.
+
 ## Bars
 
 The gate passes only if all hold:

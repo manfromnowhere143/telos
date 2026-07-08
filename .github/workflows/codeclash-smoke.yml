@@ -1,0 +1,102 @@
+name: codeclash-smoke
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dummy-tournament:
+    name: dummy tournament
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      CODECLASH_COMMIT: 381cdfa05a35e8acd35853b9fc7e13005121b127
+      CODECLASH_DIR: /tmp/telos-codeclash
+      CODECLASH_OUT: /tmp/telos-codeclash-dummy-smoke
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Docker readiness
+        run: |
+          docker version
+          docker info
+
+      - name: Clone pinned CodeClash
+        run: |
+          git clone https://github.com/CodeClash-ai/CodeClash.git "$CODECLASH_DIR"
+          cd "$CODECLASH_DIR"
+          git checkout "$CODECLASH_COMMIT"
+          git rev-parse HEAD | tee /tmp/telos-codeclash-commit.txt
+
+      - name: Install CodeClash
+        run: |
+          cd "$CODECLASH_DIR"
+          uv sync --python 3.11 --extra dev
+
+      - name: CodeClash unit smoke
+        run: |
+          cd "$CODECLASH_DIR"
+          uv run pytest tests/arenas/test_dummy.py -q | tee /tmp/telos-codeclash-unit.log
+
+      - name: CodeClash no-LLM dummy tournament
+        run: |
+          rm -rf "$CODECLASH_OUT"
+          mkdir -p "$CODECLASH_OUT"
+          cd "$CODECLASH_DIR"
+          uv run codeclash run configs/test/dummy.yaml -o "$CODECLASH_OUT" 2>&1 | tee /tmp/telos-codeclash-run.log
+
+      - name: Summarize smoke artifacts
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          out = Path(os.environ["CODECLASH_OUT"])
+          metadata_files = sorted(out.glob("*/metadata.json"))
+          if not metadata_files:
+              raise SystemExit(f"no metadata.json found under {out}")
+
+          metadata_path = metadata_files[-1]
+          metadata = json.loads(metadata_path.read_text())
+          round_stats = metadata.get("round_stats", {})
+          if not round_stats:
+              raise SystemExit("metadata has no round_stats")
+
+          summary = {
+              "schema_version": "telos.codeclash_smoke.summary.v1",
+              "codeclash_commit": os.environ["CODECLASH_COMMIT"],
+              "output_root": str(out),
+              "metadata_path": str(metadata_path),
+              "tournament_id": metadata.get("id") or metadata.get("tournament_id"),
+              "game": metadata.get("game", {}).get("name"),
+              "agent_names": [agent.get("name") for agent in metadata.get("agents", [])],
+              "round_count": len(round_stats),
+              "round_stats_keys": sorted(round_stats.keys(), key=str),
+          }
+          Path("/tmp/telos-codeclash-summary.json").write_text(json.dumps(summary, indent=2) + "\n")
+          print(json.dumps(summary, indent=2))
+          PY
+
+      - name: Upload smoke artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: codeclash-dummy-smoke
+          if-no-files-found: error
+          path: |
+            /tmp/telos-codeclash-dummy-smoke/**
+            /tmp/telos-codeclash-commit.txt
+            /tmp/telos-codeclash-unit.log
+            /tmp/telos-codeclash-run.log
+            /tmp/telos-codeclash-summary.json
