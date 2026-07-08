@@ -1,0 +1,71 @@
+{
+  "schema_version": "telos.agent_behavior_slice.v1",
+  "slice_id": "codeclash_battlesnake_instant_submit_pvp_slice",
+  "status": "selected",
+  "selected_candidate": "codeclash_battlesnake_pvp_test_instant_submit",
+  "source": {
+    "name": "CodeClash",
+    "url": "https://github.com/codeclash-ai/codeclash",
+    "commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "license_note": "MIT licensed public repository."
+  },
+  "config": {
+    "path": "configs/test/battlesnake_pvp_test.yaml",
+    "game": "BattleSnake",
+    "tournament_rounds": 1,
+    "sims_per_round": 1,
+    "agents": [
+      {
+        "name": "p1",
+        "type": "mini",
+        "model_name": "instant_submit",
+        "model_class": "minisweagent.models.test_models.DeterministicModel",
+        "expected_api_calls": 0
+      },
+      {
+        "name": "p2",
+        "type": "dummy"
+      }
+    ]
+  },
+  "expected_artifacts": [
+    {
+      "kind": "artifact",
+      "name": "codeclash_logs",
+      "purpose": "Preserve tournament, game, player, and combined logs."
+    },
+    {
+      "kind": "test",
+      "name": "round_result",
+      "purpose": "Parse the one-simulation BattleSnake result from metadata."
+    },
+    {
+      "kind": "diff_scope",
+      "name": "change_records",
+      "purpose": "Record changed files for the mini and dummy players."
+    },
+    {
+      "kind": "trajectory",
+      "name": "mini_agent_trajectory",
+      "purpose": "Capture the Mini-SWE-Agent loop and deterministic submit action."
+    },
+    {
+      "kind": "agent_stats",
+      "name": "mini_agent_stats",
+      "purpose": "Verify exit status, cost, and API-call count."
+    },
+    {
+      "kind": "adversarial_review",
+      "name": "receipt_review",
+      "purpose": "Check that the result does not overclaim model capability."
+    }
+  ],
+  "first_run_command": "uv run codeclash run configs/test/battlesnake_pvp_test.yaml -o /tmp/telos-codeclash-agent-behavior-smoke",
+  "first_run_falsifier": "The run fails if p1 lacks trajectory or agent_stats evidence, if provider API calls are nonzero, or if diff-scope records are absent.",
+  "spend": {
+    "api_calls": false,
+    "cloud": false,
+    "gpu": false,
+    "local_or_github_runner": true
+  }
+}

@@ -1,5 +1,11 @@
 """Telos research harness."""
 
+from telos.agent_behavior_slice import (
+    AgentBehaviorSlice,
+    AgentBehaviorSliceValidationError,
+    load_agent_behavior_slice,
+    validate_agent_behavior_slice,
+)
 from telos.proof import ProofReceipt, ProofValidationError, load_receipt, validate_receipt
 from telos.public_slice import (
     PublicSlice,
@@ -13,6 +19,8 @@ from telos.ledger import LearningRecord, LedgerValidationError, latest_next_acti
 
 __all__ = [
     "CandidateScore",
+    "AgentBehaviorSlice",
+    "AgentBehaviorSliceValidationError",
     "LearningRecord",
     "LedgerValidationError",
     "ProofReceipt",
@@ -21,11 +29,13 @@ __all__ = [
     "PublicSliceValidationError",
     "SurveyDecision",
     "SurveyValidationError",
+    "load_agent_behavior_slice",
     "load_public_slice",
     "load_receipt",
     "load_survey",
     "latest_next_action",
     "rank_candidates",
+    "validate_agent_behavior_slice",
     "validate_receipt",
     "validate_public_slice",
     "validate_survey",

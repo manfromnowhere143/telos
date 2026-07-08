@@ -22,7 +22,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter04_agent_behavior_slice/HYPOTHESIS.md`
+- `experiments/iter05_agent_behavior_smoke/HYPOTHESIS.md`
 
 Current claim:
 
@@ -33,9 +33,11 @@ Current claim:
   Verified receipt fields.
 - `iter03_codeclash_smoke` passed: GitHub Actions ran the no-LLM CodeClash dummy tournament and
   produced a valid Telos receipt.
+- `iter04_agent_behavior_slice` passed: selected the deterministic Mini-SWE-Agent BattleSnake PvP
+  smoke as the first real agent-behavior run.
 - No model or benchmark result is claimed yet.
-- The next gate must freeze the smallest real agent-behavior CodeClash run before any model or
-  leaderboard claim.
+- The next gate must run the selected deterministic Mini-SWE-Agent behavior smoke and publish a
+  receipt or null before any provider model or leaderboard claim.
 
 ## Required Verification
 
@@ -47,6 +49,7 @@ pytest -q
 python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
+python3 scripts/validate_agent_behavior_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py

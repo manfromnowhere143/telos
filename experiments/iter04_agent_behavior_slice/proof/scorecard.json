@@ -1,0 +1,51 @@
+{
+  "schema_version": "telos.agent_behavior_slice_scorecard.v1",
+  "candidates": [
+    {
+      "candidate_id": "codeclash_battlesnake_pvp_test_instant_submit",
+      "config": "configs/test/battlesnake_pvp_test.yaml",
+      "score": 21,
+      "components": {
+        "agent_behavior": 4,
+        "artifact_surface": 5,
+        "cost_control": 5,
+        "public_config": 5,
+        "runtime_complexity_penalty": -1,
+        "overclaim_risk_penalty": -2
+      },
+      "decision": "selected",
+      "rationale": "Exercises Mini-SWE-Agent trajectory and agent_stats with deterministic zero-API model in the smallest public PvP config."
+    },
+    {
+      "candidate_id": "codeclash_battlesnake_ladder_smoke",
+      "config": "configs/test/battlesnake_ladder_smoke.yaml",
+      "score": 18,
+      "components": {
+        "agent_behavior": 4,
+        "artifact_surface": 5,
+        "cost_control": 5,
+        "public_config": 5,
+        "runtime_complexity_penalty": -3,
+        "overclaim_risk_penalty": -3
+      },
+      "decision": "later",
+      "rationale": "Good next ladder-system smoke, but branch initialization and ladder state add moving parts before the basic Mini-SWE-Agent PvP receipt is proven."
+    },
+    {
+      "candidate_id": "custom_deterministic_edit_agent",
+      "config": "custom",
+      "score": 15,
+      "components": {
+        "agent_behavior": 5,
+        "artifact_surface": 4,
+        "cost_control": 5,
+        "public_config": 1,
+        "runtime_complexity_penalty": -0,
+        "overclaim_risk_penalty": -0
+      },
+      "decision": "defer",
+      "rationale": "Would guarantee a non-empty diff, but creates new local harness design before exhausting public CodeClash configs."
+    }
+  ],
+  "selected": "codeclash_battlesnake_pvp_test_instant_submit"
+}

@@ -25,8 +25,10 @@ and an adversarial review pass.
   [`experiments/iter02_public_task_slice`](experiments/iter02_public_task_slice/RESULT.md).
 - CodeClash smoke: passed in
   [`experiments/iter03_codeclash_smoke`](experiments/iter03_codeclash_smoke/RESULT.md).
-- Current gate: first real agent-behavior slice, pre-registered in
-  [`experiments/iter04_agent_behavior_slice`](experiments/iter04_agent_behavior_slice/HYPOTHESIS.md).
+- Agent-behavior slice: selected in
+  [`experiments/iter04_agent_behavior_slice`](experiments/iter04_agent_behavior_slice/RESULT.md).
+- Current gate: deterministic Mini-SWE-Agent behavior smoke, pre-registered in
+  [`experiments/iter05_agent_behavior_smoke`](experiments/iter05_agent_behavior_smoke/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -58,6 +60,7 @@ Survey result: [`experiments/iter00_target_survey/RESULT.md`](experiments/iter00
 Receipt dry run: [`experiments/iter01_receipt_dry_run/RESULT.md`](experiments/iter01_receipt_dry_run/RESULT.md).
 Public slice: [`experiments/iter02_public_task_slice/RESULT.md`](experiments/iter02_public_task_slice/RESULT.md).
 CodeClash smoke: [`experiments/iter03_codeclash_smoke/RESULT.md`](experiments/iter03_codeclash_smoke/RESULT.md).
+Agent-behavior slice: [`experiments/iter04_agent_behavior_slice/RESULT.md`](experiments/iter04_agent_behavior_slice/RESULT.md).
 
 ## Candidate Target Families
 
@@ -119,6 +122,7 @@ pytest -q
 python3 scripts/validate_docs.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
+python3 scripts/validate_agent_behavior_slice.py
 python3 scripts/validate_receipts.py experiments/iter01_receipt_dry_run/proof
 python3 scripts/validate_receipts.py experiments/iter03_codeclash_smoke/proof
 python3 scripts/audit_codeclash_smoke.py

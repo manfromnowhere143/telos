@@ -12,8 +12,10 @@ Current evidence:
 - `experiments/iter01_receipt_dry_run/RESULT.md` validates the receipt dry run.
 - `experiments/iter02_public_task_slice/RESULT.md` selects the public task slice.
 - `experiments/iter03_codeclash_smoke/RESULT.md` validates the CodeClash no-LLM smoke receipt.
-- `experiments/iter04_agent_behavior_slice/HYPOTHESIS.md` freezes the next agent-behavior slice
-  gate.
+- `experiments/iter04_agent_behavior_slice/RESULT.md` selects the deterministic agent-behavior
+  slice.
+- `experiments/iter05_agent_behavior_smoke/HYPOTHESIS.md` freezes the next deterministic
+  agent-behavior smoke.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
