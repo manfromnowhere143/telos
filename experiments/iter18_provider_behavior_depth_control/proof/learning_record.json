@@ -1,0 +1,18 @@
+{
+  "schema_version": "telos.learning_record.v1",
+  "experiment_id": "iter18_provider_behavior_depth_control",
+  "status": "pass",
+  "insight": "The provider-backed agent preserved clean final diff hygiene and added a source-evident self-collision safety behavior, but it skipped the requested git status workspace-inspection command.",
+  "next_action": "rerun the provider behavior-depth shape with an explicit final inspection control requiring git status --short and git diff --check immediately before submission",
+  "result_path": "experiments/iter18_provider_behavior_depth_control/RESULT.md",
+  "evidence_paths": [
+    "experiments/iter18_provider_behavior_depth_control/proof/run_summary.json",
+    "experiments/iter18_provider_behavior_depth_control/proof/preflight.json",
+    "experiments/iter18_provider_behavior_depth_control/proof/diff_summary.md",
+    "experiments/iter18_provider_behavior_depth_control/proof/review.md",
+    "experiments/iter18_provider_behavior_depth_control/proof/raw/codeclash/telos-codeclash-provider-run.log",
+    "experiments/iter18_provider_behavior_depth_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708180156/players/p1/p1_r1.traj.json",
+    "experiments/iter18_provider_behavior_depth_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708180156/players/p1/changes_r1.json",
+    "experiments/iter18_provider_behavior_depth_control/proof/valid/receipt_provider_behavior_depth_control.json"
+  ]
+}

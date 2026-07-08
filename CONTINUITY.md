@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter18_provider_behavior_depth_control/HYPOTHESIS.md`
+- `experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md`
 
 Current claim:
 
@@ -82,9 +82,14 @@ Current claim:
   `$0.02864` reported cost, used `/tmp/patch.py` as scratch, removed it, ran
   `git status --short && git diff --check`, and submitted only `README_agent.md` plus `main.py`
   with no helper residue or added trailing whitespace.
+- `iter18_provider_behavior_depth_control` passed with a process caveat: the same provider-smoke
+  shape completed with exit code `0`, `p1` submitted with `6` model API calls and `$0.036876`
+  reported cost, removed `/tmp/patch.py`, fixed an initial `git diff --check` trailing-whitespace
+  failure, submitted only `README_agent.md` plus `main.py`, and added source-evident Step 2
+  self-collision prevention. The caveat is that the trajectory does not show `git status --short`.
 - No model or benchmark result is claimed yet.
-- The next gate must retain workspace and source-style hygiene, then test one concrete
-  behavior-depth improvement beyond board-boundary checks or publish a clean null.
+- The next gate must retain behavior-depth progress and require an explicit final
+  `git status --short && git diff --check` after all fixes and before submission.
 
 ## Required Verification
 
@@ -125,6 +130,8 @@ python3 scripts/validate_receipts.py experiments/iter16_provider_workspace_hygie
 python3 scripts/audit_provider_workspace_hygiene_control.py
 python3 scripts/validate_receipts.py experiments/iter17_provider_lint_hygiene_control/proof
 python3 scripts/audit_provider_lint_hygiene_control.py
+python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_control/proof
+python3 scripts/audit_provider_behavior_depth_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

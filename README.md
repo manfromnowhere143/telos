@@ -53,8 +53,10 @@ and an adversarial review pass.
   [`experiments/iter16_provider_workspace_hygiene_control`](experiments/iter16_provider_workspace_hygiene_control/RESULT.md).
 - Provider lint hygiene control: passed the clean workspace-and-lint bar in
   [`experiments/iter17_provider_lint_hygiene_control`](experiments/iter17_provider_lint_hygiene_control/RESULT.md).
-- Current gate: provider behavior depth control, pre-registered in
-  [`experiments/iter18_provider_behavior_depth_control`](experiments/iter18_provider_behavior_depth_control/HYPOTHESIS.md).
+- Provider behavior depth control: passed with a process caveat in
+  [`experiments/iter18_provider_behavior_depth_control`](experiments/iter18_provider_behavior_depth_control/RESULT.md).
+- Current gate: provider final inspection control, pre-registered in
+  [`experiments/iter19_provider_final_inspection_control`](experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -100,7 +102,8 @@ Provider diff quality review: [`experiments/iter14_provider_diff_quality_review/
 Provider strict diff rerun: [`experiments/iter15_provider_strict_diff_rerun/RESULT.md`](experiments/iter15_provider_strict_diff_rerun/RESULT.md).
 Provider workspace hygiene control: [`experiments/iter16_provider_workspace_hygiene_control/RESULT.md`](experiments/iter16_provider_workspace_hygiene_control/RESULT.md).
 Provider lint hygiene control: [`experiments/iter17_provider_lint_hygiene_control/RESULT.md`](experiments/iter17_provider_lint_hygiene_control/RESULT.md).
-Provider behavior depth control: [`experiments/iter18_provider_behavior_depth_control/HYPOTHESIS.md`](experiments/iter18_provider_behavior_depth_control/HYPOTHESIS.md).
+Provider behavior depth control: [`experiments/iter18_provider_behavior_depth_control/RESULT.md`](experiments/iter18_provider_behavior_depth_control/RESULT.md).
+Provider final inspection control: [`experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md`](experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -193,6 +196,8 @@ python3 scripts/validate_receipts.py experiments/iter16_provider_workspace_hygie
 python3 scripts/audit_provider_workspace_hygiene_control.py
 python3 scripts/validate_receipts.py experiments/iter17_provider_lint_hygiene_control/proof
 python3 scripts/audit_provider_lint_hygiene_control.py
+python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_control/proof
+python3 scripts/audit_provider_behavior_depth_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

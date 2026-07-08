@@ -133,6 +133,12 @@ jobs:
       - name: Provider lint hygiene control audit
         run: python3 scripts/audit_provider_lint_hygiene_control.py
 
+      - name: Provider behavior depth control receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_control/proof
+
+      - name: Provider behavior depth control audit
+        run: python3 scripts/audit_provider_behavior_depth_control.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

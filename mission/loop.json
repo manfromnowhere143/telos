@@ -11,7 +11,7 @@
     ".github/workflows/codeclash-agent-behavior.yml",
     ".github/workflows/codeclash-deterministic-edit.yml"
   ],
-  "active_gate": "experiments/iter18_provider_behavior_depth_control/HYPOTHESIS.md",
+  "active_gate": "experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md",
   "loop": [
     {
       "phase": "pre_register",
@@ -119,6 +119,8 @@
     "python3 scripts/audit_provider_workspace_hygiene_control.py",
     "python3 scripts/validate_receipts.py experiments/iter17_provider_lint_hygiene_control/proof",
     "python3 scripts/audit_provider_lint_hygiene_control.py",
+    "python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_control/proof",
+    "python3 scripts/audit_provider_behavior_depth_control.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_handoff.py"
   ]
