@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md`
+- `experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md`
 
 Current claim:
 
@@ -87,9 +87,16 @@ Current claim:
   reported cost, removed `/tmp/patch.py`, fixed an initial `git diff --check` trailing-whitespace
   failure, submitted only `README_agent.md` plus `main.py`, and added source-evident Step 2
   self-collision prevention. The caveat is that the trajectory does not show `git status --short`.
+- `iter19_provider_final_inspection_control` passed the final-inspection bar: the same
+  provider-smoke shape completed with exit code `0`, `p1` submitted with `5` model API calls and
+  `$0.034589999999999996` reported cost, removed `/tmp/edit.py`, fixed an initial
+  `git status --short && git diff --check` trailing-whitespace failure, then ran
+  `git status --short && git diff --check` with return code `0` immediately before submission. The
+  submitted diff still changed only `README_agent.md` plus `main.py` and retained source-evident
+  self-collision prevention.
 - No model or benchmark result is claimed yet.
-- The next gate must retain behavior-depth progress and require an explicit final
-  `git status --short && git diff --check` after all fixes and before submission.
+- The next gate must reconstruct the iter19 provider diff and verify boundary plus self-collision
+  behavior with deterministic local tests before claiming semantic correctness.
 
 ## Required Verification
 
@@ -132,6 +139,8 @@ python3 scripts/validate_receipts.py experiments/iter17_provider_lint_hygiene_co
 python3 scripts/audit_provider_lint_hygiene_control.py
 python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_control/proof
 python3 scripts/audit_provider_behavior_depth_control.py
+python3 scripts/validate_receipts.py experiments/iter19_provider_final_inspection_control/proof
+python3 scripts/audit_provider_final_inspection_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

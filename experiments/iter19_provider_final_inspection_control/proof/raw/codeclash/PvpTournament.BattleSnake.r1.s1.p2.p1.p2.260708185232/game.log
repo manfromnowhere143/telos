@@ -1,0 +1,29 @@
+2026-07-08 18:52:32 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-08 18:52:32 [BattleSnake] INFO Building Docker image codeclash/battlesnake. This may take 1-5 minutes and only work on Linux for some games.
+2026-07-08 18:57:35 [BattleSnake] INFO ✅ Built Docker image codeclash/battlesnake
+2026-07-08 18:57:35 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-773aecba -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-08 18:57:35 [BattleSnake] INFO Started container minisweagent-773aecba with ID 8c10334da1f09e57e0699e1c2c7d1451d3790662fbef251208cb20b86d8cbb84
+2026-07-08 18:57:35 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-08 18:57:36 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-08 18:57:36 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-ff292c89 -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-08 18:57:36 [BattleSnake] INFO Started container minisweagent-ff292c89 with ID dbc0e4afe6c38bafc5c11b5833747e0901d52ef3f6f359b2e2d2d023b7c6fcc3
+2026-07-08 18:57:37 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-08 18:57:37 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-08 18:57:37 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-b9cca628 -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-08 18:57:37 [BattleSnake] INFO Started container minisweagent-b9cca628 with ID b8e2a8609bbf92e1025a2586c62ec795c2a49776ec7ce272b66732ba7ab0589e
+2026-07-08 18:57:38 [BattleSnake] INFO Agent p1 passed submission validation
+2026-07-08 18:57:39 [BattleSnake] INFO Agent p2 passed submission validation
+2026-07-08 18:57:39 [BattleSnake] DEBUG Copying p1's codebase
+2026-07-08 18:57:39 [BattleSnake] DEBUG Copying p2's codebase
+2026-07-08 18:57:40 [BattleSnake] DEBUG Starting game servers
+2026-07-08 18:57:44 [BattleSnake] DEBUG Waiting for ports: {'p1': 8001, 'p2': 8002}
+2026-07-08 18:57:44 [BattleSnake] DEBUG All ports are ready
+2026-07-08 18:57:44 [BattleSnake] INFO Running game with players: ['p1', 'p2']
+2026-07-08 18:58:08 [BattleSnake] INFO Agent p2 passed submission validation
+2026-07-08 18:58:08 [BattleSnake] INFO Agent p1 passed submission validation
+2026-07-08 18:58:08 [BattleSnake] DEBUG Copying p2's codebase
+2026-07-08 18:58:08 [BattleSnake] DEBUG Copying p1's codebase
+2026-07-08 18:58:09 [BattleSnake] DEBUG Starting game servers
+2026-07-08 18:58:13 [BattleSnake] DEBUG Waiting for ports: {'p2': 8001, 'p1': 8002}
+2026-07-08 18:58:14 [BattleSnake] DEBUG All ports are ready
+2026-07-08 18:58:14 [BattleSnake] INFO Running game with players: ['p2', 'p1']

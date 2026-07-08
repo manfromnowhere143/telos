@@ -55,8 +55,10 @@ and an adversarial review pass.
   [`experiments/iter17_provider_lint_hygiene_control`](experiments/iter17_provider_lint_hygiene_control/RESULT.md).
 - Provider behavior depth control: passed with a process caveat in
   [`experiments/iter18_provider_behavior_depth_control`](experiments/iter18_provider_behavior_depth_control/RESULT.md).
-- Current gate: provider final inspection control, pre-registered in
-  [`experiments/iter19_provider_final_inspection_control`](experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md).
+- Provider final inspection control: passed the final inspection bar in
+  [`experiments/iter19_provider_final_inspection_control`](experiments/iter19_provider_final_inspection_control/RESULT.md).
+- Current gate: behavior semantic verification, pre-registered in
+  [`experiments/iter20_behavior_semantic_verification`](experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -103,7 +105,8 @@ Provider strict diff rerun: [`experiments/iter15_provider_strict_diff_rerun/RESU
 Provider workspace hygiene control: [`experiments/iter16_provider_workspace_hygiene_control/RESULT.md`](experiments/iter16_provider_workspace_hygiene_control/RESULT.md).
 Provider lint hygiene control: [`experiments/iter17_provider_lint_hygiene_control/RESULT.md`](experiments/iter17_provider_lint_hygiene_control/RESULT.md).
 Provider behavior depth control: [`experiments/iter18_provider_behavior_depth_control/RESULT.md`](experiments/iter18_provider_behavior_depth_control/RESULT.md).
-Provider final inspection control: [`experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md`](experiments/iter19_provider_final_inspection_control/HYPOTHESIS.md).
+Provider final inspection control: [`experiments/iter19_provider_final_inspection_control/RESULT.md`](experiments/iter19_provider_final_inspection_control/RESULT.md).
+Behavior semantic verification: [`experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md`](experiments/iter20_behavior_semantic_verification/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -198,6 +201,8 @@ python3 scripts/validate_receipts.py experiments/iter17_provider_lint_hygiene_co
 python3 scripts/audit_provider_lint_hygiene_control.py
 python3 scripts/validate_receipts.py experiments/iter18_provider_behavior_depth_control/proof
 python3 scripts/audit_provider_behavior_depth_control.py
+python3 scripts/validate_receipts.py experiments/iter19_provider_final_inspection_control/proof
+python3 scripts/audit_provider_final_inspection_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,18 @@
+{
+  "schema_version": "telos.learning_record.v1",
+  "experiment_id": "iter19_provider_final_inspection_control",
+  "status": "pass",
+  "insight": "An explicit final-inspection instruction closed the iter18 process caveat: after fixing whitespace, the provider-backed agent ran git status --short && git diff --check immediately before submission while preserving self-collision behavior evidence.",
+  "next_action": "verify the submitted boundary and self-collision behavior with deterministic semantic tests reconstructed from the committed provider diff",
+  "result_path": "experiments/iter19_provider_final_inspection_control/RESULT.md",
+  "evidence_paths": [
+    "experiments/iter19_provider_final_inspection_control/proof/run_summary.json",
+    "experiments/iter19_provider_final_inspection_control/proof/preflight.json",
+    "experiments/iter19_provider_final_inspection_control/proof/diff_summary.md",
+    "experiments/iter19_provider_final_inspection_control/proof/review.md",
+    "experiments/iter19_provider_final_inspection_control/proof/raw/codeclash/telos-codeclash-provider-run.log",
+    "experiments/iter19_provider_final_inspection_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708185232/players/p1/p1_r1.traj.json",
+    "experiments/iter19_provider_final_inspection_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708185232/players/p1/changes_r1.json",
+    "experiments/iter19_provider_final_inspection_control/proof/valid/receipt_provider_final_inspection_control.json"
+  ]
+}
