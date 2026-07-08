@@ -91,6 +91,12 @@ jobs:
       - name: Provider auth recovery audit
         run: python3 scripts/audit_provider_auth_recovery.py
 
+      - name: Provider model pilot retry receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter11_provider_model_pilot_retry/proof
+
+      - name: Provider model pilot retry audit
+        run: python3 scripts/audit_provider_model_pilot_retry.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

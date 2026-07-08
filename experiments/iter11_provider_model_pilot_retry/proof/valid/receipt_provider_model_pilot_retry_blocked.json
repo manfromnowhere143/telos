@@ -1,0 +1,54 @@
+{
+  "acceptance_criteria": [
+    "Zero-spend preflight confirms provider auth and cloud runner readiness before model execution.",
+    "The CodeClash run uses the frozen Vertex Gemini model, task, and $25 budget ceiling.",
+    "Raw artifacts are retained or sanitized before commit if provider logs include project identifiers.",
+    "The result records whether p1 produced a provider-backed trajectory, changed files, cost, and API-call stats.",
+    "No leaderboard, SWE-bench, production, or live-domain claim is made."
+  ],
+  "agent_id": "codeclash-minisweagent-vertex-gemini-3-1-pro-customtools-p1",
+  "benchmark_id": "telos_codeclash_swebench_overlay",
+  "evidence": [
+    {
+      "artifact": "experiments/iter11_provider_model_pilot_retry/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Cloud CodeClash run reached Vertex predict but blocked with PERMISSION_DENIED and timed out; no provider trajectory was produced.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter11_provider_model_pilot_retry/proof/raw/control/telos-cloud-setup.log",
+      "kind": "build",
+      "notes": "Ephemeral GCE runner installed Docker, CodeClash dependencies, build-essential, google-auth, and applied the frozen overlay.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter11_provider_model_pilot_retry/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708140449/everything.log",
+      "kind": "artifact",
+      "notes": "Redacted CodeClash combined log records repeated aiplatform.endpoints.predict permission denial for the selected model.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter11_provider_model_pilot_retry/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review confirms no provider capability or benchmark result is claimed and sensitive identifiers are redacted.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed. The only cloud side effect was an ephemeral VM that was deleted after artifact collection.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The gate must be blocked if Vertex predict permission is denied for the selected model.",
+    "The gate must be blocked if p1 does not produce a provider-backed trajectory and agent stats.",
+    "The gate must be blocked if model cost or API-call stats are missing after an incomplete provider run.",
+    "The result must not claim leaderboard, SWE-bench, production, or live-domain verification.",
+    "The proof bundle must not commit token, credential JSON, account email, or Google Cloud project identifier values."
+  ],
+  "receipt_id": "iter11-provider-model-pilot-retry-blocked-vertex-permission",
+  "sha256": "8c0eef73a78925cf86d74a44819d4988ed952c5bdc64c2a4119d4320120a0a16",
+  "stated_goal": "Run the frozen Vertex Gemini CodeClash provider-model pilot smoke under a $25 ceiling, or publish blocked/null evidence if the provider endpoint, access, cost accounting, or runner fails.",
+  "status": "blocked",
+  "task_id": "codeclash:configs/test/telos_battlesnake_vertex_gemini_pilot.yaml@381cdfa05a35e8acd35853b9fc7e13005121b127"
+}

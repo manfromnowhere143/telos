@@ -96,6 +96,8 @@ python3 scripts/validate_receipts.py experiments/iter09_provider_model_pilot_smo
 python3 scripts/audit_provider_model_pilot_smoke.py
 python3 scripts/validate_receipts.py experiments/iter10_provider_auth_recovery/proof
 python3 scripts/audit_provider_auth_recovery.py
+python3 scripts/validate_receipts.py experiments/iter11_provider_model_pilot_retry/proof
+python3 scripts/audit_provider_model_pilot_retry.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

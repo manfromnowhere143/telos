@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md`
+- `experiments/iter12_vertex_model_access_recovery/HYPOTHESIS.md`
 
 Current claim:
 
@@ -52,9 +52,13 @@ Current claim:
 - `iter10_provider_auth_recovery` passed: local ADC refresh now succeeds with token output
   suppressed, required Google services are visible by service name, and no credential material or
   project/account identifier is committed.
+- `iter11_provider_model_pilot_retry` blocked: an ephemeral GCE runner executed the frozen
+  CodeClash path and reached Vertex, but the selected `gemini-3.1-pro-preview-customtools` model
+  path returned `aiplatform.endpoints.predict` permission denial until the run hit the 45-minute
+  ceiling. No provider trajectory, cost, or API-call stats are claimed.
 - No model or benchmark result is claimed yet.
-- The next gate must retry the already frozen paid smoke without changing model, task, or `$25`
-  budget scope.
+- The next gate must recover or replace the selected Vertex model access path before any new
+  provider smoke.
 
 ## Required Verification
 
@@ -81,6 +85,8 @@ python3 scripts/validate_receipts.py experiments/iter09_provider_model_pilot_smo
 python3 scripts/audit_provider_model_pilot_smoke.py
 python3 scripts/validate_receipts.py experiments/iter10_provider_auth_recovery/proof
 python3 scripts/audit_provider_auth_recovery.py
+python3 scripts/validate_receipts.py experiments/iter11_provider_model_pilot_retry/proof
+python3 scripts/audit_provider_model_pilot_retry.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

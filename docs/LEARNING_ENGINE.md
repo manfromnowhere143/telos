@@ -64,6 +64,7 @@ python3 scripts/validate_learning_ledger.py
 | `iter08_provider_model_pilot_slice` | pass | local-first Vertex is the only visible paid-provider path with configured infrastructure and no secret leakage | run the frozen provider-model pilot smoke or publish blocked/null evidence |
 | `iter09_provider_model_pilot_smoke` | blocked | ADC requires interactive reauthentication, so the paid run correctly stopped before spend | restore secret-safe non-interactive provider authentication |
 | `iter10_provider_auth_recovery` | pass | local ADC can now refresh non-interactively without committing credential material | run the frozen Vertex Gemini CodeClash provider smoke retry under the documented $25 ceiling |
+| `iter11_provider_model_pilot_retry` | blocked | cloud-runner CodeClash reaches Vertex, but the selected custom-tools model path denies predict permission | recover or replace the selected Vertex model access path before retrying the smoke |
 
-The next experiment may call only the frozen Vertex Gemini provider smoke. It must not start sweeps,
-leaderboard submissions, or alternate model arms.
+The next experiment must not run CodeClash. It should verify provider-model access with minimal
+probes and sanitized logs before any new provider smoke.

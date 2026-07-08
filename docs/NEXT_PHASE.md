@@ -2,17 +2,16 @@
 
 ## Current Action
 
-Run `iter11_provider_model_pilot_retry` exactly as frozen in
-[`../experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md`](../experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md).
+Run `iter12_vertex_model_access_recovery` exactly as frozen in
+[`../experiments/iter12_vertex_model_access_recovery/HYPOTHESIS.md`](../experiments/iter12_vertex_model_access_recovery/HYPOTHESIS.md).
 
-The output is not a leaderboard score. It is the first paid provider-backed agent-attempt smoke:
+The output is not a leaderboard score. It is an access-recovery result:
 
-- keep the already frozen model, task, and budget unchanged,
-- verify ADC again before the run without printing tokens, API keys, account emails, credential
-  JSON, or project identifiers,
-- run the one-round CodeClash BattleSnake provider smoke only under the `$25` ceiling,
-- publish blocked/null evidence if the provider endpoint, LiteLLM, CodeClash, cost accounting, or
-  credential path fails.
+- verify whether the selected Vertex model path is reachable by the runner identity,
+- keep tokens, account emails, credential JSON, and project identifiers out of committed logs,
+- use only minimal provider-access probes, not a CodeClash run,
+- either recover `gemini-3.1-pro-preview-customtools` predict access or freeze a new reachable
+  provider-model slice before retrying the smoke.
 
 ## Infrastructure Discipline
 
@@ -29,18 +28,19 @@ Available cloud and sandbox resources are escalation tools, not default proof. T
 No GPU or provider model run is authorized by `iter00`, `iter01`, `iter02`, `iter03`, `iter04`, or
 `iter05`. `iter06`, `iter07`, and `iter08` also forbid provider model calls and GPU runs. `iter09`
 authorized only the single frozen paid smoke, but it stopped before spend because preflight failed.
-`iter10` restored the credential path without calling a model. `iter11` authorizes only the same
-single frozen paid smoke under the original `$25` ceiling.
+`iter10` restored the credential path without calling a model. `iter11` authorized only the same
+single frozen paid smoke under the original `$25` ceiling; it blocked on Vertex predict permission.
+`iter12` does not authorize CodeClash. It only recovers or replaces the provider access path.
 
-## After The Provider Pilot Retry Gate
+## After The Vertex Access Recovery Gate
 
-If the provider smoke passes:
+If access recovery passes:
 
-1. Publish the raw artifacts, receipt, cost record, diff summary, and review.
-2. Freeze the first analysis gate from the observed agent behavior.
+1. Freeze the exact next provider smoke retry with model, region, runner, and budget.
+2. Preserve the same evidence bars and redaction rules.
 3. Do not start sweeps or leaderboard submissions.
 
-If the provider smoke blocks or fails:
+If access recovery blocks or fails:
 
 1. Publish the failure.
 2. Do not widen model, budget, or task scope.

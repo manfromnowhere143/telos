@@ -25,8 +25,11 @@ Current evidence:
   reauthentication is interactive.
 - `experiments/iter10_provider_auth_recovery/RESULT.md` restores non-interactive local ADC
   readiness without making a model call.
-- `experiments/iter11_provider_model_pilot_retry/HYPOTHESIS.md` freezes the provider-model pilot
-  retry before the first paid agent-attempt smoke.
+- `experiments/iter11_provider_model_pilot_retry/RESULT.md` blocks on Vertex
+  `aiplatform.endpoints.predict` permission for the selected model path after cloud-runner setup,
+  Docker, and CodeClash reach the provider call path.
+- `experiments/iter12_vertex_model_access_recovery/HYPOTHESIS.md` freezes access recovery before
+  any further provider smoke.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

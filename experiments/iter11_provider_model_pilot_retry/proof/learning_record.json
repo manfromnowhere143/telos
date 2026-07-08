@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter11_provider_model_pilot_retry/proof/run_summary.json",
+    "experiments/iter11_provider_model_pilot_retry/proof/raw/codeclash/telos-codeclash-provider-run.log",
+    "experiments/iter11_provider_model_pilot_retry/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708140449/everything.log",
+    "experiments/iter11_provider_model_pilot_retry/proof/valid/receipt_provider_model_pilot_retry_blocked.json",
+    "experiments/iter11_provider_model_pilot_retry/proof/review.md"
+  ],
+  "experiment_id": "iter11_provider_model_pilot_retry",
+  "insight": "The cloud runner can execute CodeClash and reach Vertex, but the selected Gemini custom-tools model path is blocked by aiplatform.endpoints.predict permission or endpoint availability, so access must be verified before retrying.",
+  "next_action": "recover or replace the selected Vertex model access path before the next provider smoke",
+  "result_path": "experiments/iter11_provider_model_pilot_retry/RESULT.md",
+  "status": "blocked"
+}

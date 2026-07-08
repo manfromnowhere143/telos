@@ -1,0 +1,130 @@
+{
+  "name": "PvpTournament",
+  "tournament_id": "PvpTournament.BattleSnake.260708140449",
+  "config": {
+    "game": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "tournament": {
+      "rounds": 1
+    },
+    "players": [
+      {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n\nImprove the bot if you can do so safely within the command budget. Prefer a small, reversible,\nwell-scoped edit over broad rewrites. If you cannot identify a safe edit, leave a concise note in\n`README_agent.md` and submit.\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 8,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096
+            }
+          }
+        }
+      },
+      {
+        "agent": "dummy",
+        "name": "p2"
+      }
+    ],
+    "prompts": {
+      "game_description": "You are competing in a small BattleSnake coding game.\n\nYour bot controls a snake on an 11x11 board. Snakes collect food, avoid collisions, and try to\noutlast opponents. This is a one-round provider-model smoke test. The goal is not a leaderboard\nscore; the goal is to make a bounded, evidence-capturable agent attempt.\n\nIf you can identify a safe improvement to `main.py`, make it and document the reasoning briefly\nin `README_agent.md`. If you cannot identify a safe improvement quickly, write a short\n`README_agent.md` note explaining what you inspected and submit."
+    }
+  },
+  "created_timestamp": 1783519489,
+  "aws": {},
+  "round_stats": {
+    "0": {
+      "round_num": 0,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p2": 0.0,
+        "p1": 1
+      },
+      "player_stats": {
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 0.0,
+          "valid_submit": true
+        },
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 1,
+          "valid_submit": true
+        }
+      }
+    }
+  },
+  "game": {
+    "name": "BattleSnake",
+    "config": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "game_id": "PvpTournament.BattleSnake.260708140449",
+    "created_timestamp": 1783519489
+  },
+  "agents": [
+    {
+      "name": "p2",
+      "player_unique_id": "cf7b6510-931e-4998-9b4c-65e005d74fe3",
+      "created_timestamp": 1783519802,
+      "config": {
+        "agent": "dummy",
+        "name": "p2"
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260708140449.p2",
+      "round_tags": {},
+      "agent_stats": {}
+    },
+    {
+      "name": "p1",
+      "player_unique_id": "b743e983-dc19-49f0-8634-95cfdb77fdc3",
+      "created_timestamp": 1783519801,
+      "config": {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n\nImprove the bot if you can do so safely within the command budget. Prefer a small, reversible,\nwell-scoped edit over broad rewrites. If you cannot identify a safe edit, leave a concise note in\n`README_agent.md` and submit.\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 8,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096
+            }
+          }
+        }
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260708140449.p1",
+      "round_tags": {},
+      "agent_stats": {}
+    }
+  ]
+}
