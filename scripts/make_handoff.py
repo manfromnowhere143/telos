@@ -118,6 +118,8 @@ python3 scripts/validate_receipts.py experiments/iter20_behavior_semantic_verifi
 python3 scripts/audit_behavior_semantic_verification.py
 python3 scripts/validate_receipts.py experiments/iter21_opponent_collision_control/proof
 python3 scripts/audit_opponent_collision_control.py
+python3 scripts/validate_receipts.py experiments/iter22_semantic_mutation_guard/proof
+python3 scripts/audit_semantic_mutation_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

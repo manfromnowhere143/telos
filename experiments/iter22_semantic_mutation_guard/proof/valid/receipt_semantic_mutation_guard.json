@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The clean reconstructed iter21 bot still passes all twelve semantic cases.",
+    "The boundary mutant fails at least one boundary case.",
+    "The self-collision mutant fails at least one self-collision case.",
+    "The opponent-collision mutant fails at least one opponent-collision case.",
+    "Command output and mutation report are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-semantic-mutation-guard",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter22_semantic_mutation_guard/proof/mutation_report.json",
+      "kind": "test",
+      "notes": "Clean bot passed all cases and all targeted mutants were detected.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter22_semantic_mutation_guard/proof/mutants/",
+      "kind": "artifact",
+      "notes": "Committed local mutant sources for boundary, self-collision, and opponent-collision branches.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter22_semantic_mutation_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review keeps the result limited to verifier sensitivity for targeted mutants.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the reconstructed iter21 bot cannot be loaded locally.",
+    "The result must block if the clean reconstructed bot no longer passes the frozen semantic cases.",
+    "The result must fail if a boundary mutant passes all boundary cases.",
+    "The result must fail if a self-collision mutant passes all self-collision cases.",
+    "The result must fail if an opponent-collision mutant passes all opponent-collision cases.",
+    "The result must not treat provider game score as verifier evidence."
+  ],
+  "receipt_id": "iter22-semantic-mutation-guard-pass",
+  "sha256": "0c711b36a67f5c8c84d65f29a2a605006f1279dac67023857a58b9ce6be4ece2",
+  "stated_goal": "Verify that the deterministic semantic suite fails targeted mutants that disable boundary, self-collision, or opponent-collision safety checks.",
+  "status": "pass",
+  "task_id": "telos:iter22_semantic_mutation_guard@iter21_opponent_collision_control"
+}

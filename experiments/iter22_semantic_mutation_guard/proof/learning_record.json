@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter22_semantic_mutation_guard/proof/run_summary.json",
+    "experiments/iter22_semantic_mutation_guard/proof/mutation_report.json",
+    "experiments/iter22_semantic_mutation_guard/proof/command_output.txt",
+    "experiments/iter22_semantic_mutation_guard/proof/review.md",
+    "experiments/iter22_semantic_mutation_guard/proof/valid/receipt_semantic_mutation_guard.json"
+  ],
+  "experiment_id": "iter22_semantic_mutation_guard",
+  "insight": "The semantic suite is failure-sensitive for targeted removals of boundary, self-collision, and opponent-collision checks; all three mutants were detected.",
+  "next_action": "test the recorded tail-exclusion caveat directly with a tail-semantics falsification gate before expanding provider behavior claims",
+  "result_path": "experiments/iter22_semantic_mutation_guard/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

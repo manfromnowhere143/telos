@@ -1,0 +1,896 @@
+{
+  "all_mutants_detected": true,
+  "clean_case_count": 12,
+  "clean_cases_failed": 0,
+  "clean_cases_passed": 12,
+  "clean_results": [
+    {
+      "case_id": "boundary-left",
+      "expected_safe_moves": [
+        "up",
+        "down"
+      ],
+      "forbidden_move": "left",
+      "observed_safe_moves": [
+        "up",
+        "down"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 22: up"
+      ]
+    },
+    {
+      "case_id": "boundary-right",
+      "expected_safe_moves": [
+        "up",
+        "down"
+      ],
+      "forbidden_move": "right",
+      "observed_safe_moves": [
+        "up",
+        "down"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 22: up"
+      ]
+    },
+    {
+      "case_id": "boundary-down",
+      "expected_safe_moves": [
+        "left",
+        "right"
+      ],
+      "forbidden_move": "down",
+      "observed_safe_moves": [
+        "left",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "left",
+      "stdout_lines": [
+        "MOVE 22: left"
+      ]
+    },
+    {
+      "case_id": "boundary-up",
+      "expected_safe_moves": [
+        "left",
+        "right"
+      ],
+      "forbidden_move": "up",
+      "observed_safe_moves": [
+        "left",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "left",
+      "stdout_lines": [
+        "MOVE 22: left"
+      ]
+    },
+    {
+      "case_id": "self-left",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 22: up"
+      ]
+    },
+    {
+      "case_id": "self-right",
+      "expected_safe_moves": [
+        "up",
+        "left"
+      ],
+      "forbidden_move": "right",
+      "observed_safe_moves": [
+        "up",
+        "left"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 22: up"
+      ]
+    },
+    {
+      "case_id": "self-down",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "down",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 22: up"
+      ]
+    },
+    {
+      "case_id": "self-up",
+      "expected_safe_moves": [
+        "down",
+        "right"
+      ],
+      "forbidden_move": "up",
+      "observed_safe_moves": [
+        "down",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "down",
+      "stdout_lines": [
+        "MOVE 22: down"
+      ]
+    },
+    {
+      "case_id": "opponent-left",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 22: up"
+      ]
+    },
+    {
+      "case_id": "opponent-right",
+      "expected_safe_moves": [
+        "up",
+        "left"
+      ],
+      "forbidden_move": "right",
+      "observed_safe_moves": [
+        "up",
+        "left"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 22: up"
+      ]
+    },
+    {
+      "case_id": "opponent-down",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "down",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 22: up"
+      ]
+    },
+    {
+      "case_id": "opponent-up",
+      "expected_safe_moves": [
+        "down",
+        "right"
+      ],
+      "forbidden_move": "up",
+      "observed_safe_moves": [
+        "down",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "down",
+      "stdout_lines": [
+        "MOVE 22: down"
+      ]
+    }
+  ],
+  "cloud_or_gpu_used": false,
+  "local_cpu_only": true,
+  "mutation_count": 3,
+  "mutations": [
+    {
+      "all_case_results": [
+        {
+          "case_id": "boundary-left",
+          "expected_safe_moves": [
+            "up",
+            "down"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "down",
+            "left"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "boundary-right",
+          "expected_safe_moves": [
+            "up",
+            "down"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "boundary-down",
+          "expected_safe_moves": [
+            "left",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "down",
+            "left",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "down",
+          "stdout_lines": [
+            "MOVE 22: down"
+          ]
+        },
+        {
+          "case_id": "boundary-up",
+          "expected_safe_moves": [
+            "left",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "up",
+            "left",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-left",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-right",
+          "expected_safe_moves": [
+            "up",
+            "left"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "left"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-down",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "up",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-up",
+          "expected_safe_moves": [
+            "down",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "down",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "down",
+          "stdout_lines": [
+            "MOVE 22: down"
+          ]
+        },
+        {
+          "case_id": "opponent-left",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-right",
+          "expected_safe_moves": [
+            "up",
+            "left"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "left"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-down",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "up",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-up",
+          "expected_safe_moves": [
+            "down",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "down",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "down",
+          "stdout_lines": [
+            "MOVE 22: down"
+          ]
+        }
+      ],
+      "description": "Disable the board-boundary unsafe-move branch.",
+      "failed_target_case_ids": [
+        "boundary-left",
+        "boundary-right",
+        "boundary-down",
+        "boundary-up"
+      ],
+      "mutant_path": "experiments/iter22_semantic_mutation_guard/proof/mutants/boundary_noop.py",
+      "mutation_id": "boundary_noop",
+      "source_sha256": "45c7e8e591e6e714da2ae6b025fb6da0c78f41c817f5c637c989d8ddca619129",
+      "target_detected": true,
+      "target_prefix": "boundary-"
+    },
+    {
+      "all_case_results": [
+        {
+          "case_id": "boundary-left",
+          "expected_safe_moves": [
+            "up",
+            "down"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "down"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "boundary-right",
+          "expected_safe_moves": [
+            "up",
+            "down"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "down"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "boundary-down",
+          "expected_safe_moves": [
+            "left",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "left",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "left",
+          "stdout_lines": [
+            "MOVE 22: left"
+          ]
+        },
+        {
+          "case_id": "boundary-up",
+          "expected_safe_moves": [
+            "left",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "left",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "left",
+          "stdout_lines": [
+            "MOVE 22: left"
+          ]
+        },
+        {
+          "case_id": "self-left",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "left",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-right",
+          "expected_safe_moves": [
+            "up",
+            "left"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "left",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-down",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-up",
+          "expected_safe_moves": [
+            "down",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-left",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-right",
+          "expected_safe_moves": [
+            "up",
+            "left"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "left"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-down",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "up",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-up",
+          "expected_safe_moves": [
+            "down",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "down",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "down",
+          "stdout_lines": [
+            "MOVE 22: down"
+          ]
+        }
+      ],
+      "description": "Disable own-body protection while preserving opponent-body protection. The submitted implementation also iterates over our own snake in board.snakes, so this mutant must exclude the self snake from that later loop to create the intended own-body regression.",
+      "failed_target_case_ids": [
+        "self-left",
+        "self-right",
+        "self-down",
+        "self-up"
+      ],
+      "mutant_path": "experiments/iter22_semantic_mutation_guard/proof/mutants/self_collision_noop.py",
+      "mutation_id": "self_collision_noop",
+      "source_sha256": "915beea37f593ee9ad3e581173a53f0870624b403448eba0d47e5eda6e2c5bf5",
+      "target_detected": true,
+      "target_prefix": "self-"
+    },
+    {
+      "all_case_results": [
+        {
+          "case_id": "boundary-left",
+          "expected_safe_moves": [
+            "up",
+            "down"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "down"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "boundary-right",
+          "expected_safe_moves": [
+            "up",
+            "down"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "down"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "boundary-down",
+          "expected_safe_moves": [
+            "left",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "left",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "left",
+          "stdout_lines": [
+            "MOVE 22: left"
+          ]
+        },
+        {
+          "case_id": "boundary-up",
+          "expected_safe_moves": [
+            "left",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "left",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "left",
+          "stdout_lines": [
+            "MOVE 22: left"
+          ]
+        },
+        {
+          "case_id": "self-left",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-right",
+          "expected_safe_moves": [
+            "up",
+            "left"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "left"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-down",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "up",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "self-up",
+          "expected_safe_moves": [
+            "down",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "down",
+            "right"
+          ],
+          "passed": true,
+          "selected_move": "down",
+          "stdout_lines": [
+            "MOVE 22: down"
+          ]
+        },
+        {
+          "case_id": "opponent-left",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "left",
+          "observed_safe_moves": [
+            "up",
+            "left",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-right",
+          "expected_safe_moves": [
+            "up",
+            "left"
+          ],
+          "forbidden_move": "right",
+          "observed_safe_moves": [
+            "up",
+            "left",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-down",
+          "expected_safe_moves": [
+            "up",
+            "right"
+          ],
+          "forbidden_move": "down",
+          "observed_safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        },
+        {
+          "case_id": "opponent-up",
+          "expected_safe_moves": [
+            "down",
+            "right"
+          ],
+          "forbidden_move": "up",
+          "observed_safe_moves": [
+            "up",
+            "down",
+            "right"
+          ],
+          "passed": false,
+          "selected_move": "up",
+          "stdout_lines": [
+            "MOVE 22: up"
+          ]
+        }
+      ],
+      "description": "Disable the opponent-body unsafe-move branch.",
+      "failed_target_case_ids": [
+        "opponent-left",
+        "opponent-right",
+        "opponent-down",
+        "opponent-up"
+      ],
+      "mutant_path": "experiments/iter22_semantic_mutation_guard/proof/mutants/opponent_collision_noop.py",
+      "mutation_id": "opponent_collision_noop",
+      "source_sha256": "2084b5ae9a5147678015501a86c587db678f8a233ab265d0b5b660b8c28182e3",
+      "target_detected": true,
+      "target_prefix": "opponent-"
+    }
+  ],
+  "provider_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.semantic_mutation_guard.report.v1",
+  "source_main_path": "experiments/iter21_opponent_collision_control/proof/reconstructed/main.py",
+  "source_semantic_report_path": "experiments/iter21_opponent_collision_control/proof/semantic_report.json",
+  "status": "pass",
+  "submitted_logic_changed_for_clean_run": false
+}

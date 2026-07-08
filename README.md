@@ -61,8 +61,10 @@ and an adversarial review pass.
   [`experiments/iter20_behavior_semantic_verification`](experiments/iter20_behavior_semantic_verification/RESULT.md).
 - Opponent collision control: passed the provider run and twelve semantic safety cases in
   [`experiments/iter21_opponent_collision_control`](experiments/iter21_opponent_collision_control/RESULT.md).
-- Current gate: semantic mutation guard, pre-registered in
-  [`experiments/iter22_semantic_mutation_guard`](experiments/iter22_semantic_mutation_guard/HYPOTHESIS.md).
+- Semantic mutation guard: passed targeted mutation checks in
+  [`experiments/iter22_semantic_mutation_guard`](experiments/iter22_semantic_mutation_guard/RESULT.md).
+- Current gate: tail semantics falsification, pre-registered in
+  [`experiments/iter23_tail_semantics_falsification`](experiments/iter23_tail_semantics_falsification/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -112,7 +114,8 @@ Provider behavior depth control: [`experiments/iter18_provider_behavior_depth_co
 Provider final inspection control: [`experiments/iter19_provider_final_inspection_control/RESULT.md`](experiments/iter19_provider_final_inspection_control/RESULT.md).
 Behavior semantic verification: [`experiments/iter20_behavior_semantic_verification/RESULT.md`](experiments/iter20_behavior_semantic_verification/RESULT.md).
 Opponent collision control: [`experiments/iter21_opponent_collision_control/RESULT.md`](experiments/iter21_opponent_collision_control/RESULT.md).
-Semantic mutation guard: [`experiments/iter22_semantic_mutation_guard/HYPOTHESIS.md`](experiments/iter22_semantic_mutation_guard/HYPOTHESIS.md).
+Semantic mutation guard: [`experiments/iter22_semantic_mutation_guard/RESULT.md`](experiments/iter22_semantic_mutation_guard/RESULT.md).
+Tail semantics falsification: [`experiments/iter23_tail_semantics_falsification/HYPOTHESIS.md`](experiments/iter23_tail_semantics_falsification/HYPOTHESIS.md).
 
 ## Candidate Target Families
 
@@ -213,6 +216,8 @@ python3 scripts/validate_receipts.py experiments/iter20_behavior_semantic_verifi
 python3 scripts/audit_behavior_semantic_verification.py
 python3 scripts/validate_receipts.py experiments/iter21_opponent_collision_control/proof
 python3 scripts/audit_opponent_collision_control.py
+python3 scripts/validate_receipts.py experiments/iter22_semantic_mutation_guard/proof
+python3 scripts/audit_semantic_mutation_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
