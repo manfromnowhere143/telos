@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Install tools
+        run: |
+          uv tool install ruff
+          uv pip install --system pytest
+      - name: Lint
+        run: ruff check .
+      - name: Tests
+        run: pytest -q
+      - name: Docs guard
+        run: python3 scripts/validate_docs.py
+      - name: Target survey guard
+        run: python3 scripts/validate_target_survey.py
