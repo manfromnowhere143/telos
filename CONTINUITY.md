@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter21_opponent_collision_control/HYPOTHESIS.md`
+- `experiments/iter22_semantic_mutation_guard/HYPOTHESIS.md`
 
 Current claim:
 
@@ -99,9 +99,14 @@ Current claim:
   All four boundary cases and all four self-collision cases excluded the forbidden move; no
   provider call, API call, GPU, cloud runner, production change, leaderboard run, or SWE-bench run
   occurred.
+- `iter21_opponent_collision_control` passed: the provider-backed run completed with exit code `0`,
+  `p1` submitted with `5` model API calls and `$0.043329999999999994` reported cost, final
+  inspection ran clean after whitespace repair, and the reconstructed submitted bot passed twelve
+  deterministic semantic cases covering boundary, self-collision, and opponent-body collision
+  behavior. The result records tail-exclusion semantics and a repaired redaction placeholder.
 - No model or benchmark result is claimed yet.
-- The next gate must test opponent-collision behavior while preserving final-inspection and
-  semantic-verification controls.
+- The next gate must test the verifier itself with semantic mutation checks before treating the
+  semantic suite as robust.
 
 ## Required Verification
 
@@ -148,6 +153,8 @@ python3 scripts/validate_receipts.py experiments/iter19_provider_final_inspectio
 python3 scripts/audit_provider_final_inspection_control.py
 python3 scripts/validate_receipts.py experiments/iter20_behavior_semantic_verification/proof
 python3 scripts/audit_behavior_semantic_verification.py
+python3 scripts/validate_receipts.py experiments/iter21_opponent_collision_control/proof
+python3 scripts/audit_opponent_collision_control.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

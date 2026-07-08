@@ -1,0 +1,63 @@
+{
+  "acceptance_criteria": [
+    "Provider preflight succeeds without committing credential, account, or project identifiers.",
+    "CodeClash exits successfully under the frozen runner, task, model, and budget.",
+    "The submitted diff is reconstructable from committed artifacts.",
+    "The submitted diff has no helper-file residue or git diff --check failure.",
+    "The trajectory records final git status --short && git diff --check after all fixes and before submission.",
+    "Deterministic semantic tests pass for boundary, self-collision, and opponent-collision cases.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codeclash-minisweagent-vertex-gemini-3-1-pro-customtools-p1-opponent-collision-control",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter21_opponent_collision_control/proof/semantic_report.json",
+      "kind": "test",
+      "notes": "Twelve deterministic semantic cases passed.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter21_opponent_collision_control/proof/raw/control/telos-cloud-setup.log",
+      "kind": "build",
+      "notes": "Ephemeral GCE runner installed CodeClash dependencies and executed the provider run.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter21_opponent_collision_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708192510/players/p1/p1_r1.traj.json",
+      "kind": "artifact",
+      "notes": "Redacted, repaired, parseable provider trajectory records scratch use, whitespace repair, final inspection, and submission.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter21_opponent_collision_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708192510/players/p1/changes_r1.json",
+      "kind": "diff_scope",
+      "notes": "Changed-file set is limited to README_agent.md and main.py.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter21_opponent_collision_control/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records tail semantics, redaction repair, and claim limits.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The gate must block if provider preflight fails before spend.",
+    "The gate must fail if the submitted diff leaves helper, scratch, cache, generated, or secret-risk residue.",
+    "The gate must fail if final workspace inspection is missing or occurs before the final fix.",
+    "The gate must fail if any boundary or self-collision case regresses.",
+    "The gate must fail if any opponent-collision case can select the forbidden occupied-cell move.",
+    "The result must not use one-game score as model-capability evidence."
+  ],
+  "receipt_id": "iter21-opponent-collision-control-pass",
+  "sha256": "737f4c5838d1981984c48b8e7f1d7fa2f1667e06ceed4ff4eacbd40766eb627a",
+  "stated_goal": "Test whether the provider-backed agent can add opponent-body collision checks while preserving final inspection and deterministic semantic verification controls.",
+  "status": "pass",
+  "task_id": "codeclash:telos_battlesnake_vertex_gemini_pilot@381cdfa05a35e8acd35853b9fc7e13005121b127"
+}

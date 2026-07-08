@@ -1,0 +1,477 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "boundary-left",
+      "expected_safe_moves": [
+        "up",
+        "down"
+      ],
+      "forbidden_move": "left",
+      "observed_safe_moves": [
+        "up",
+        "down"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 0,
+          "y": 5
+        },
+        {
+          "x": 1,
+          "y": 5
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "boundary-right",
+      "expected_safe_moves": [
+        "up",
+        "down"
+      ],
+      "forbidden_move": "right",
+      "observed_safe_moves": [
+        "up",
+        "down"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 10,
+          "y": 5
+        },
+        {
+          "x": 9,
+          "y": 5
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "boundary-down",
+      "expected_safe_moves": [
+        "left",
+        "right"
+      ],
+      "forbidden_move": "down",
+      "observed_safe_moves": [
+        "left",
+        "right"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "left",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 0
+        },
+        {
+          "x": 5,
+          "y": 1
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: left"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "boundary-up",
+      "expected_safe_moves": [
+        "left",
+        "right"
+      ],
+      "forbidden_move": "up",
+      "observed_safe_moves": [
+        "left",
+        "right"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "left",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 10
+        },
+        {
+          "x": 5,
+          "y": 9
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: left"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "self-left",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "self-right",
+      "expected_safe_moves": [
+        "up",
+        "left"
+      ],
+      "forbidden_move": "right",
+      "observed_safe_moves": [
+        "up",
+        "left"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 6,
+          "y": 4
+        },
+        {
+          "x": 6,
+          "y": 5
+        },
+        {
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "self-down",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "down",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 4
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 6,
+          "y": 4
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "self-up",
+      "expected_safe_moves": [
+        "down",
+        "right"
+      ],
+      "forbidden_move": "up",
+      "observed_safe_moves": [
+        "down",
+        "right"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "down",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 6
+        },
+        {
+          "x": 5,
+          "y": 6
+        },
+        {
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: down"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "opponent-left",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "opponent_body": [
+        {
+          "x": 3,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 4
+        }
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "opponent-right",
+      "expected_safe_moves": [
+        "up",
+        "left"
+      ],
+      "forbidden_move": "right",
+      "observed_safe_moves": [
+        "up",
+        "left"
+      ],
+      "opponent_body": [
+        {
+          "x": 7,
+          "y": 5
+        },
+        {
+          "x": 6,
+          "y": 5
+        },
+        {
+          "x": 6,
+          "y": 4
+        }
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "opponent-down",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "down",
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "opponent_body": [
+        {
+          "x": 5,
+          "y": 3
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 6,
+          "y": 4
+        }
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: up"
+      ]
+    },
+    {
+      "board_height": 11,
+      "board_width": 11,
+      "case_id": "opponent-up",
+      "expected_safe_moves": [
+        "down",
+        "right"
+      ],
+      "forbidden_move": "up",
+      "observed_safe_moves": [
+        "down",
+        "right"
+      ],
+      "opponent_body": [
+        {
+          "x": 5,
+          "y": 7
+        },
+        {
+          "x": 5,
+          "y": 6
+        },
+        {
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "passed": true,
+      "selected_move": "down",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 21: down"
+      ]
+    }
+  ],
+  "cloud_or_gpu_used_for_semantic_verification": false,
+  "failed_case_count": 0,
+  "module_imported": true,
+  "passed_case_count": 12,
+  "provider_api_calls_for_semantic_verification": 0,
+  "random_choice_probe_used": true,
+  "reconstructed_from_modified_files": true,
+  "schema_version": "telos.opponent_collision_semantic_report.v1",
+  "source_changes_path": "experiments/iter21_opponent_collision_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708192510/players/p1/changes_r1.json",
+  "status": "pass",
+  "submitted_logic_mutated": false,
+  "tail_semantics": "self and opponent collision cases place the forbidden adjacent body segment before the tail because the submitted implementation intentionally excludes tails"
+}

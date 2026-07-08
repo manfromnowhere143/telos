@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter21_opponent_collision_control/proof/run_summary.json",
+    "experiments/iter21_opponent_collision_control/proof/preflight.json",
+    "experiments/iter21_opponent_collision_control/proof/raw_summary.json",
+    "experiments/iter21_opponent_collision_control/proof/semantic_report.json",
+    "experiments/iter21_opponent_collision_control/proof/command_output.txt",
+    "experiments/iter21_opponent_collision_control/proof/review.md",
+    "experiments/iter21_opponent_collision_control/proof/valid/receipt_opponent_collision_control.json"
+  ],
+  "experiment_id": "iter21_opponent_collision_control",
+  "insight": "The provider-backed agent added boundary, self-collision, and opponent-body collision checks that passed twelve deterministic semantic cases when reconstructed from committed artifacts.",
+  "next_action": "run a semantic mutation guard that proves the verifier fails when boundary, self-collision, or opponent-collision checks are removed",
+  "result_path": "experiments/iter21_opponent_collision_control/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

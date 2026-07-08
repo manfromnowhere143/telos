@@ -1,0 +1,17 @@
+opponent collision semantic verification: pass
+source_changes=experiments/iter21_opponent_collision_control/proof/raw/codeclash/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260708192510/players/p1/changes_r1.json
+provider_api_calls_for_semantic_verification=0
+cloud_or_gpu_used_for_semantic_verification=false
+cases=12 passed=12 failed=0
+boundary-left: pass forbidden=left safe=up,down
+boundary-right: pass forbidden=right safe=up,down
+boundary-down: pass forbidden=down safe=left,right
+boundary-up: pass forbidden=up safe=left,right
+self-left: pass forbidden=left safe=up,right
+self-right: pass forbidden=right safe=up,left
+self-down: pass forbidden=down safe=up,right
+self-up: pass forbidden=up safe=down,right
+opponent-left: pass forbidden=left safe=up,right
+opponent-right: pass forbidden=right safe=up,left
+opponent-down: pass forbidden=down safe=up,right
+opponent-up: pass forbidden=up safe=down,right

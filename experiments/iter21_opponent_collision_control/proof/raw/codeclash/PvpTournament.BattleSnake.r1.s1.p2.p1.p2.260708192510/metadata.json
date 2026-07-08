@@ -1,0 +1,167 @@
+{
+  "name": "PvpTournament",
+  "tournament_id": "PvpTournament.BattleSnake.260708192510",
+  "config": {
+    "game": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "tournament": {
+      "rounds": 1
+    },
+    "players": [
+      {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n\nImprove the bot if you can do so safely within the command budget. Prefer a small, reversible,\nwell-scoped edit over broad rewrites. If you cannot identify a safe edit, leave a concise note in\n`README_agent.md` and submit.\n\nStore final task changes inside {{working_dir}} or subdirectories.\n\nWorkspace hygiene control:\n- Use `/tmp` for scratch scripts, or delete scratch scripts before final submission.\n- Before submitting, inspect the submitted workspace with `git status --short` or equivalent.\n- Final submitted diff may include task-relevant source changes and `README_agent.md`.\n- Final submitted diff must not include unreferenced helper, scratch, cache, generated, or\n  secret-risk files.\n- Before final submission, run `git diff --check` or an equivalent trailing-whitespace check.\n- If that check reports whitespace errors, fix only those whitespace errors before submitting.\n\nOpponent collision control:\n- Implement a narrow safety layer in `main.py`.\n- Preserve or add board-boundary checks so moves off the board are unsafe.\n- Preserve or add self-collision checks so moves into your own body are unsafe.\n- Add opponent-body collision checks so moves into another snake body segment are unsafe.\n- Keep the edit source-evident and avoid broad strategy rewrites.\n- If you cannot identify a safe opponent-collision edit, write that null decision in\n  `README_agent.md` and submit a clean workspace.\n\nFinal inspection control:\n- After all edits, after any whitespace fixes, and immediately before final submission, run\n  exactly `git status --short && git diff --check` or an equivalent final inspection command.\n- Do not submit until that final inspection command has returned.\n- It is acceptable for `git status --short` to show task files such as `main.py` and\n  `README_agent.md`; `git diff --check` must report no errors.\n- Do not combine the final inspection command with the submit command.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 8,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global"
+            }
+          }
+        }
+      },
+      {
+        "agent": "dummy",
+        "name": "p2"
+      }
+    ],
+    "prompts": {
+      "game_description": "You are competing in a small BattleSnake coding game.\n\nYour bot controls a snake on an 11x11 board. Snakes collect food, avoid collisions, and try to\noutlast opponents. This is a one-round provider-model smoke test. The goal is not a leaderboard\nscore; the goal is to make a bounded, evidence-capturable agent attempt.\n\nImplement the next narrow safety layer in `main.py`: board-boundary checks, self-collision\nchecks, and opponent-body collision checks. Document the bounded edit briefly in\n`README_agent.md`. If you cannot implement it safely within the command budget, write a short\nnull note in `README_agent.md` and submit a clean workspace."
+    }
+  },
+  "created_timestamp": 1783538710,
+  "aws": {},
+  "round_stats": {
+    "0": {
+      "round_num": 0,
+      "winner": "p2",
+      "details": [],
+      "scores": {
+        "p1": 0.0,
+        "p2": 1
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 0.0,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 1,
+          "valid_submit": true
+        }
+      }
+    },
+    "1": {
+      "round_num": 1,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p1": 1,
+        "p2": 0.0
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 1,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 0.0,
+          "valid_submit": true
+        }
+      }
+    }
+  },
+  "game": {
+    "name": "BattleSnake",
+    "config": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "game_id": "PvpTournament.BattleSnake.260708192510",
+    "created_timestamp": 1783538710
+  },
+  "agents": [
+    {
+      "name": "p1",
+      "player_unique_id": "dc118aaf-3f49-49f1-98fe-8da9b52674e8",
+      "created_timestamp": 1783539004,
+      "config": {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n\nImprove the bot if you can do so safely within the command budget. Prefer a small, reversible,\nwell-scoped edit over broad rewrites. If you cannot identify a safe edit, leave a concise note in\n`README_agent.md` and submit.\n\nStore final task changes inside {{working_dir}} or subdirectories.\n\nWorkspace hygiene control:\n- Use `/tmp` for scratch scripts, or delete scratch scripts before final submission.\n- Before submitting, inspect the submitted workspace with `git status --short` or equivalent.\n- Final submitted diff may include task-relevant source changes and `README_agent.md`.\n- Final submitted diff must not include unreferenced helper, scratch, cache, generated, or\n  secret-risk files.\n- Before final submission, run `git diff --check` or an equivalent trailing-whitespace check.\n- If that check reports whitespace errors, fix only those whitespace errors before submitting.\n\nOpponent collision control:\n- Implement a narrow safety layer in `main.py`.\n- Preserve or add board-boundary checks so moves off the board are unsafe.\n- Preserve or add self-collision checks so moves into your own body are unsafe.\n- Add opponent-body collision checks so moves into another snake body segment are unsafe.\n- Keep the edit source-evident and avoid broad strategy rewrites.\n- If you cannot identify a safe opponent-collision edit, write that null decision in\n  `README_agent.md` and submit a clean workspace.\n\nFinal inspection control:\n- After all edits, after any whitespace fixes, and immediately before final submission, run\n  exactly `git status --short && git diff --check` or an equivalent final inspection command.\n- Do not submit until that final inspection command has returned.\n- It is acceptable for `git status --short` to show task files such as `main.py` and\n  `README_agent.md`; `git diff --check` must report no errors.\n- Do not combine the final inspection command with the submit command.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 8,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global"
+            }
+          }
+        }
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260708192510.p1",
+      "round_tags": {
+        "0": "dc118aaf-3f49-49f1-98fe-8da9b52674e8-round-0",
+        "1": "dc118aaf-3f49-49f1-98fe-8da9b52674e8-round-1"
+      },
+      "agent_stats": {
+        "1": {
+          "exit_status": "Submitted",
+          "cost": 0.043329999999999994,
+          "api_calls": 5
+        }
+      }
+    },
+    {
+      "name": "p2",
+      "player_unique_id": "e25532b9-7be0-417e-b6db-13e709988c19",
+      "created_timestamp": 1783539006,
+      "config": {
+        "agent": "dummy",
+        "name": "p2"
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260708192510.p2",
+      "round_tags": {
+        "0": "e25532b9-7be0-417e-b6db-13e709988c19-round-0",
+        "1": "e25532b9-7be0-417e-b6db-13e709988c19-round-1"
+      },
+      "agent_stats": {}
+    }
+  ]
+}
