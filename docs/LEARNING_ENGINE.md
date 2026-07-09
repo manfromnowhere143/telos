@@ -115,8 +115,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter59_provider_compatible_paid_execution_after_dependency_recovery` | blocked | both selected BattleSnake rows executed, but each provider call returned a redacted Vertex model-not-found-or-access-denied response before verified-completion evidence could be accepted; excluded pairs, GPU, cloud runner, and Sentinel resources remained untouched | recover the provider model binding before retrying the same two-row pilot |
 | `iter60_provider_model_binding_recovery` | blocked | adding `vertex_location: global` moved the LiteLLM provider path past the prior model-location error but exposed a redacted `CONSUMER_INVALID` quota-project response; no BattleSnake row, excluded pair, GPU, cloud runner, or Sentinel resource was used | recover the LiteLLM Vertex quota-project/header path before retrying the exact two-row paid pilot |
 | `iter61_vertex_quota_project_binding_recovery` | blocked | Mini-SWE-Agent passes `model_kwargs` into LiteLLM and LiteLLM accepts `extra_headers`, but a bounded probe with `X-Goog-User-Project` still returned redacted `CONSUMER_INVALID` evidence | recover the LiteLLM Vertex bearer-token/header path before retrying the exact two-row paid pilot |
+| `iter62_vertex_bearer_token_path_recovery` | blocked | LiteLLM custom headers can override the default Authorization header, but a bounded runtime bearer-token plus quota-project probe still returned redacted `CONSUMER_INVALID` evidence | recheck current direct REST versus LiteLLM access-path parity before retrying the two-row paid pilot |
 
-The next experiment may recover only the LiteLLM Vertex bearer-token/header path under a `2`
-call / `$0.05` spend ceiling. Executing BattleSnake rows, executing excluded pairs, using GPU,
+The next experiment may only recheck current direct REST versus LiteLLM access-path parity under a
+`2` call / `$0.05` spend ceiling. Executing BattleSnake rows, executing excluded pairs, using GPU,
 modifying Sentinel resources, changing production/live domains, and making unsupported
 benchmark/model claims remain forbidden.

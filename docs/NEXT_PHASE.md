@@ -2,15 +2,15 @@
 
 ## Current Action
 
-Run `iter62_vertex_bearer_token_path_recovery` exactly as
+Run `iter63_vertex_access_path_parity_recheck` exactly as
 frozen in
-[`../experiments/iter62_vertex_bearer_token_path_recovery/HYPOTHESIS.md`](../experiments/iter62_vertex_bearer_token_path_recovery/HYPOTHESIS.md).
+[`../experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md`](../experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
-model-superiority result, or state-of-the-art claim. It is a narrow Vertex bearer-token/header
-recovery gate after `iter61` proved the LiteLLM `extra_headers` path exists but still blocked on a
-redacted `CONSUMER_INVALID` response. The target is to recover one concrete access-path blocker,
-not to claim protocol effect.
+model-superiority result, or state-of-the-art claim. It is a narrow Vertex access-path parity
+recheck after `iter62` proved custom Authorization headers can override LiteLLM defaults but still
+blocked on redacted `CONSUMER_INVALID` evidence. The target is to distinguish stale provider
+access from a LiteLLM-specific parity gap, not to claim protocol effect.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -75,8 +75,10 @@ not to claim protocol effect.
   [`../experiments/iter60_provider_model_binding_recovery/proof/run_summary.json`](../experiments/iter60_provider_model_binding_recovery/proof/run_summary.json),
 - use the blocked iter61 quota-project binding evidence from
   [`../experiments/iter61_vertex_quota_project_binding_recovery/proof/run_summary.json`](../experiments/iter61_vertex_quota_project_binding_recovery/proof/run_summary.json),
-- recover only the LiteLLM Vertex bearer-token/header path that produced the redacted
-  `CONSUMER_INVALID` response after the quota header was injected,
+- use the blocked iter62 bearer-token path evidence from
+  [`../experiments/iter62_vertex_bearer_token_path_recovery/proof/run_summary.json`](../experiments/iter62_vertex_bearer_token_path_recovery/proof/run_summary.json),
+- recheck only current direct REST versus LiteLLM access-path parity for the same selected Vertex
+  global model,
 - execute no BattleSnake row in this recovery gate,
 - preserve the Telos receipt-validation path for the next two-row retry,
 - keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
@@ -168,24 +170,24 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   completion evidence could be accepted. `iter60` blocked after adding `vertex_location: global`:
   the LiteLLM path reached the global endpoint but returned a redacted `CONSUMER_INVALID` response.
   `iter61` proved `extra_headers` can pass through Mini-SWE-Agent into LiteLLM, but the bounded
-  quota-header probe still returned redacted `CONSUMER_INVALID` evidence. `iter62` authorizes only
-  bearer-token/header recovery under a `2` invocation and `$0.05` spend ceiling, with no
-  BattleSnake row execution.
+  quota-header probe still returned redacted `CONSUMER_INVALID` evidence. `iter62` proved custom
+  Authorization headers can override LiteLLM defaults, but a runtime bearer-token plus
+  quota-project probe still returned redacted `CONSUMER_INVALID` evidence. `iter63` authorizes only
+  current direct REST versus LiteLLM parity checking under a `2` invocation and `$0.05` spend
+  ceiling, with no BattleSnake row execution.
 
-## During Bearer-Token Recovery
+## During Access-Path Parity Recheck
 
 If the recovery runs:
 
-1. Inspect LiteLLM Vertex header precedence, token handling, and the iter56 direct REST probe
-   evidence.
-2. Identify a secret-safe way to pass bearer-token/header data at runtime without committing
-   project, account, service-account, token, VM, zone, or credential material.
+1. Run the current direct REST probe with suppressed ADC bearer token and `X-Goog-User-Project`.
+2. Run at most one matching LiteLLM probe if needed to classify the blocker.
 3. Record before/after binding mechanics, provider call and cost counts, redaction, and
    adversarial review before interpretation.
 
 If the recovery blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific bearer-token/header, credential, config, cost, redaction, or metric
-   gap.
+2. Correct only the specific provider-access, LiteLLM-parity, credential, config, cost, redaction,
+   or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

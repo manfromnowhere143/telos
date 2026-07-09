@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter62_vertex_bearer_token_path_recovery/HYPOTHESIS.md`
+- `experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -298,8 +298,13 @@ Current claim:
   a redacted `CONSUMER_INVALID` response. One provider call occurred, no BattleSnake row or
   excluded pair executed, no GPU or cloud runner was used, and no Sentinel-named resource was
   modified.
+- `iter62_vertex_bearer_token_path_recovery` blocked after proving LiteLLM custom headers can
+  override the default Authorization header: one bounded LiteLLM probe with runtime bearer-token
+  and quota-project headers still returned redacted `CONSUMER_INVALID` evidence. One provider call
+  occurred, no BattleSnake row or excluded pair executed, no GPU or cloud runner was used, and no
+  Sentinel-named resource was modified.
 - No model or benchmark result is claimed yet.
-- The next gate may recover only the LiteLLM Vertex bearer-token/header path under a `2`
+- The next gate may only recheck current direct REST versus LiteLLM access-path parity under a `2`
   invocation and `$0.05` spend ceiling. BattleSnake row execution, excluded-pair execution, GPU
   use, Sentinel resource modification, production/live-domain changes, and benchmark/model
   overclaims remain forbidden.
@@ -431,6 +436,8 @@ python3 scripts/validate_receipts.py experiments/iter60_provider_model_binding_r
 python3 scripts/audit_provider_model_binding_recovery.py
 python3 scripts/validate_receipts.py experiments/iter61_vertex_quota_project_binding_recovery/proof
 python3 scripts/audit_vertex_quota_project_binding_recovery.py
+python3 scripts/validate_receipts.py experiments/iter62_vertex_bearer_token_path_recovery/proof
+python3 scripts/audit_vertex_bearer_token_path_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

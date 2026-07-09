@@ -198,6 +198,8 @@ python3 scripts/validate_receipts.py experiments/iter60_provider_model_binding_r
 python3 scripts/audit_provider_model_binding_recovery.py
 python3 scripts/validate_receipts.py experiments/iter61_vertex_quota_project_binding_recovery/proof
 python3 scripts/audit_vertex_quota_project_binding_recovery.py
+python3 scripts/validate_receipts.py experiments/iter62_vertex_bearer_token_path_recovery/proof
+python3 scripts/audit_vertex_bearer_token_path_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

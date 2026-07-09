@@ -1,0 +1,105 @@
+Traceback (most recent call last):
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2496, in completion
+    response = client.post(url=url, headers=headers, json=data, logging_obj=logging_obj)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 950, in post
+    raise e
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 932, in post
+    response.raise_for_status()
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '403 Forbidden' for url 'https://aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/global/publishers/google/models/gemini-3.1-pro-preview-customtools:generateContent'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2500, in completion
+    raise VertexAIError(
+litellm.llms.vertex_ai.common_utils.VertexAIError: {
+  "error": {
+    "code": 403,
+    "message": "Permission denied on resource project [REDACTED_GCP_PROJECT].",
+    "status": "PERMISSION_DENIED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "CONSUMER_INVALID",
+        "domain": "googleapis.com",
+        "metadata": {
+          "service": "aiplatform.googleapis.com",
+          "containerInfo": "[REDACTED_GCP_PROJECT]",
+          "consumer": "projects/[REDACTED_GCP_PROJECT]"
+        }
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+        "locale": "en-US",
+        "message": "Permission denied on resource project [REDACTED_GCP_PROJECT]."
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Google developers console",
+            "url": "https://console.developers.google.com"
+          }
+        ]
+      }
+    ]
+  }
+}
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<string>", line 6, in <module>
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1382, in wrapper
+    raise e
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1251, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3973, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2329, in exception_type
+    raise e
+  File "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1280, in exception_type
+    raise BadRequestError(
+litellm.exceptions.BadRequestError: litellm.BadRequestError: Vertex_aiException BadRequestError - {
+  "error": {
+    "code": 403,
+    "message": "Permission denied on resource project [REDACTED_GCP_PROJECT].",
+    "status": "PERMISSION_DENIED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "CONSUMER_INVALID",
+        "domain": "googleapis.com",
+        "metadata": {
+          "service": "aiplatform.googleapis.com",
+          "containerInfo": "[REDACTED_GCP_PROJECT]",
+          "consumer": "projects/[REDACTED_GCP_PROJECT]"
+        }
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.LocalizedMessage",
+        "locale": "en-US",
+        "message": "Permission denied on resource project [REDACTED_GCP_PROJECT]."
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.Help",
+        "links": [
+          {
+            "description": "Google developers console",
+            "url": "https://console.developers.google.com"
+          }
+        ]
+      }
+    ]
+  }
+}

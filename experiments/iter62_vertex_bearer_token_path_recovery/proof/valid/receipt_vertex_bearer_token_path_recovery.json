@@ -1,0 +1,40 @@
+{
+  "acceptance_criteria": [
+    "Iter61 is a clean blocked result with redacted CONSUMER_INVALID evidence.",
+    "The binding path injects bearer token and quota project at runtime without committed secrets.",
+    "At most two provider probes and at most $0.05 bounded spend occur.",
+    "No BattleSnake row, excluded pair, GPU, Sentinel mutation, cloud runner, or overclaim occurs."
+  ],
+  "agent_id": "codex-local-vertex-bearer-token-path-recovery",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter62_vertex_bearer_token_path_recovery/proof/bearer_token_path_report.json",
+      "kind": "test",
+      "notes": "Records source-path support, runtime token binding, minimal probe outcome, calls, cost, redaction, and no-row controls.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter62_vertex_bearer_token_path_recovery/proof/recovered_runtime_binding/",
+      "kind": "artifact",
+      "notes": "Secret-safe runtime binding template for a future exact two-row retry.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter62_vertex_bearer_token_path_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the bearer-token-only claim boundary.",
+      "status": "blocked"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter61 does not show the named access-path blocker.",
+    "The result must block if a secret-safe LiteLLM bearer-token/header path cannot be identified.",
+    "The result must fail if any BattleSnake row, excluded pair, GPU, Sentinel mutation, cloud runner, or overclaim occurs."
+  ],
+  "receipt_id": "iter62-vertex-bearer-token-path-recovery-blocked",
+  "sha256": "d654df43e56fdb9ce0414f3fac7ca95d274e276baae68ef11ef7aeaba5d404c8",
+  "stated_goal": "Recover the LiteLLM Vertex bearer-token/header path after iter61 showed that quota-project extra_headers alone still blocked.",
+  "status": "blocked",
+  "task_id": "telos:iter62_vertex_bearer_token_path_recovery@iter61"
+}

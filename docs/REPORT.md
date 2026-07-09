@@ -191,6 +191,14 @@ Current evidence:
 - `experiments/iter62_vertex_bearer_token_path_recovery/HYPOTHESIS.md` pre-registers the next
   blocker-only gate: recover the LiteLLM Vertex bearer-token/header path under a `2` call and
   `$0.05` ceiling without executing any BattleSnake row.
+- `experiments/iter62_vertex_bearer_token_path_recovery/RESULT.md` blocks after proving LiteLLM
+  custom headers can override the default Authorization header. The bounded runtime bearer-token
+  plus quota-project probe still returned a redacted `CONSUMER_INVALID` response. One provider
+  call occurred, no BattleSnake row or excluded pair ran, no GPU or cloud runner was used, no
+  Sentinel resource was modified, and no benchmark/model claim is made.
+- `experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md` pre-registers the next
+  blocker-only gate: recheck current direct REST versus LiteLLM access-path parity under a `2`
+  call and `$0.05` ceiling without executing any BattleSnake row.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
