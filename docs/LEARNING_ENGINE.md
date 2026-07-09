@@ -109,7 +109,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter53_provider_compatible_protocol_effect_execution_after_condition_recovery` | blocked | condition separation is ready, but paid provider-compatible execution still needs a committed pair executor plus pinned CodeClash and Docker runner readiness before model calls can start | recover a zero-spend provider pair executor before retrying the two-row paid pilot |
 | `iter54_provider_pair_executor_recovery` | pass | the two-row provider-compatible executor can materialize exact baseline and Telos commands with pinned CodeClash, copied overlays, Docker daemon readiness, and zero provider calls | run only the bounded two-row paid provider-compatible pilot and publish exact evidence counts, costs, receipt validation, redaction, teardown proof, and nulls |
 | `iter55_provider_compatible_paid_execution_after_executor_recovery` | blocked | the paid two-row pilot is ready at the executor layer but blocked by provider credentials: ADC requires interactive reauthentication and dedicated-runner impersonation is unavailable | recover a non-interactive provider auth path or token-creator permission before retrying the exact two-row paid pilot |
+| `iter56_provider_auth_recovery_for_paid_protocol_effect` | pass | local ADC can be repaired non-interactively and the selected Vertex endpoint answers a minimal access probe without executing either paid BattleSnake row | retry the exact two-row paid pilot under the recovered ADC path |
 
-The next experiment may recover only the credential path needed for the exact two-row paid pilot.
-Executing either BattleSnake row, executing excluded pairs, GPU use, Sentinel resource modification,
-production/live-domain changes, and unsupported benchmark/model claims remain forbidden.
+The next experiment may execute only the two selected provider-compatible BattleSnake rows under
+the recovered ADC path and the frozen `16` call / `$10.00` spend ceilings. Executing excluded pairs,
+GPU use, Sentinel resource modification, production/live-domain changes, and unsupported
+benchmark/model claims remain forbidden.

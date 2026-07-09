@@ -11,7 +11,7 @@
     ".github/workflows/codeclash-agent-behavior.yml",
     ".github/workflows/codeclash-deterministic-edit.yml"
   ],
-  "active_gate": "experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/HYPOTHESIS.md",
+  "active_gate": "experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/HYPOTHESIS.md",
   "loop": [
     {
       "phase": "pre_register",
@@ -195,6 +195,8 @@
     "python3 scripts/audit_provider_pair_executor_recovery.py",
     "python3 scripts/validate_receipts.py experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof",
     "python3 scripts/audit_provider_compatible_paid_execution_after_executor_recovery.py",
+    "python3 scripts/validate_receipts.py experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/proof",
+    "python3 scripts/audit_provider_auth_recovery_for_paid_protocol_effect.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_handoff.py"
   ]

@@ -145,6 +145,13 @@ Current evidence:
   the recovery ceiling at `2` provider access probes and `$1.00` spend, forbids either BattleSnake
   row from running, and forbids benchmark, leaderboard, SWE-bench, production/live-domain,
   model-superiority, or state-of-the-art claims.
+- `experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/RESULT.md` passes auth
+  recovery: local ADC was repaired non-interactively, one minimal Vertex access probe returned
+  HTTP `200` with usage metadata under a `$0.01` spend bound, and no BattleSnake row, excluded
+  pair, cloud runner, GPU, Sentinel resource, or benchmark/model claim occurred.
+- `experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/HYPOTHESIS.md`
+  pre-registers the exact two-row paid retry after auth recovery, preserving the `16` provider-call
+  and `$10.00` spend ceilings and the same no-overclaim boundary.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -1,0 +1,41 @@
+{
+  "acceptance_criteria": [
+    "Iter55 is a clean blocked result caused by credential readiness.",
+    "Non-interactive ADC or dedicated-runner impersonation is available with token output suppressed.",
+    "At most two provider access probes and at most $1.00 spend are allowed.",
+    "No iter55 BattleSnake command, excluded pair, GPU, Sentinel resource mutation, or overclaim occurs."
+  ],
+  "agent_id": "codex-local-provider-auth-recovery",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/proof/auth_recovery_report.json",
+      "kind": "test",
+      "notes": "Auth recovery report records ADC repair, impersonation status, and minimal access probe evidence.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/proof/vertex_access_probe.json",
+      "kind": "artifact",
+      "notes": "Probe records bounded provider-access evidence without committing token, account, or project identifiers.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the auth-only claim boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if non-interactive auth is not available.",
+    "The result must fail if either paid BattleSnake row runs.",
+    "The result must fail if provider probe count or spend ceiling is exceeded.",
+    "The result must fail if identifiers, credentials, provider-private fields, or overclaims are committed."
+  ],
+  "receipt_id": "iter56-provider-auth-recovery-pass",
+  "sha256": "43f2ca7422949d11c85b171591cf20e571d4ba57d6d5d04a814048dfbef45ddb",
+  "stated_goal": "Recover a non-interactive provider authentication path for the exact two-row paid protocol-effect pilot without executing either BattleSnake row.",
+  "status": "pass",
+  "task_id": "telos:iter56_provider_auth_recovery_for_paid_protocol_effect@iter55"
+}
