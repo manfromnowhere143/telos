@@ -1,0 +1,47 @@
+{
+  "acceptance_criteria": [
+    "Exactly six frozen task-condition pairs remain represented.",
+    "Provider-backed commands name concrete provider overlay, model, agent, and cost configs.",
+    "Incompatible pairs are blocked explicitly rather than relabeled as provider-backed.",
+    "Provider model calls, provider spend, cloud runner startup, GPU use, and Sentinel resource modification remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-provider-command-binding-verifier",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter47_provider_task_condition_command_binding_recovery/proof/command_binding_report.json",
+      "kind": "test",
+      "notes": "Report records concrete provider command bindings and incompatible pairs.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter47_provider_task_condition_command_binding_recovery/proof/run_summary.json",
+      "kind": "artifact",
+      "notes": "Summary records zero spend and the narrowed next gate.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter47_provider_task_condition_command_binding_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records why full six-pair execution remains blocked.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if any frozen pair cannot be represented as a provider-backed command.",
+    "The result must fail if a deterministic/no-provider command is labeled provider-backed.",
+    "The result must fail if any provider model call, spend, cloud runner startup, GPU use, or Sentinel resource modification occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter47-provider-task-condition-command-binding-recovery-blocked",
+  "sha256": "a783494b2e59b94a57525266c4543eec1a5947f277bc5c9e579fbac4ae96bfc2",
+  "stated_goal": "Recover zero-spend provider task-condition command bindings before retrying any paid six-pair protocol-effect execution.",
+  "status": "blocked",
+  "task_id": "telos:iter47_provider_task_condition_command_binding_recovery@iter46"
+}

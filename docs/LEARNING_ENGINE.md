@@ -100,6 +100,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter44_public_task_protocol_effect_execution_after_harness_recovery` | blocked | harness recovery is not the same as six-pair protocol-effect execution; the recovered harness still disables full task-condition execution and requires an executor-assembly gate | assemble and dry-run the public task-condition executor before retrying provider-backed protocol-effect execution |
 | `iter45_public_task_condition_executor_assembly` | pass | the frozen public task-condition slice can be represented as six audited dry-run pairs with artifact, cost, redaction, lifecycle, receipt, and metric plans before provider execution | run the pre-registered provider-backed six-pair protocol-effect execution using the assembled executor and publish exact counts, costs, raw artifacts, receipts, and nulls |
 | `iter46_public_task_protocol_effect_execution_with_assembled_executor` | blocked | the dry-run executor manifest is not yet a provider-backed executor; provider overlays must be bound into exact task-condition commands before paid execution can start | recover provider task-condition command binding without spend, then retry the six-pair execution only if the command surface is concrete and audited |
+| `iter47_provider_task_condition_command_binding_recovery` | blocked | the existing Vertex provider overlay binds only the BattleSnake PvP surface; Dummy and deterministic-edit pairs must be narrowed or get new provider overlays before paid execution | pre-register a provider-compatible protocol-effect slice refreeze before any provider-backed execution retry |
 
-The next experiment may recover provider task-condition command binding only. It must keep provider
-calls, provider spend, cloud runner startup, GPU use, and Sentinel resource modification at zero.
+The next experiment may refreeze a provider-compatible protocol-effect slice only. It must keep
+provider calls, provider spend, cloud runner startup, GPU use, and Sentinel resource modification at
+zero.

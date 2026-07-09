@@ -104,8 +104,11 @@ Current evidence:
 - `experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/RESULT.md`
   blocks before provider execution because provider overlays were not bound into each pair command
   and the recovered harness still disabled full task-condition execution.
-- `experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md` freezes a
-  zero-spend command-binding recovery gate.
+- `experiments/iter47_provider_task_condition_command_binding_recovery/RESULT.md` blocks and
+  narrows the provider command surface to two BattleSnake PvP pairs while keeping four incompatible
+  pairs visible.
+- `experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/HYPOTHESIS.md` freezes a
+  zero-spend provider-compatible slice refreeze gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

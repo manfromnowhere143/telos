@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md`
+- `experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -215,10 +215,16 @@ Current claim:
   remained planned, zero started, zero provider model calls occurred, zero spend occurred, no cloud
   runner started, no GPU was used, no Sentinel-named resources were modified, and no
   benchmark/model result is claimed.
+- `iter47_provider_task_condition_command_binding_recovery` blocked and narrowed the provider
+  command surface: the existing Vertex provider overlay can bind the two BattleSnake PvP condition
+  pairs, but it cannot honestly bind the Dummy or deterministic-edit pairs without changing task
+  semantics. Zero provider model calls occurred, zero spend occurred, no cloud runner started, no
+  GPU was used, no Sentinel-named resources were modified, and no benchmark/model result is
+  claimed.
 - No model or benchmark result is claimed yet.
-- The next gate may recover provider task-condition command binding only; provider calls, spend,
-  cloud runner startup, GPU use, and Sentinel resource modification remain forbidden until the
-  command surface is concrete and audited.
+- The next gate may refreeze a provider-compatible protocol-effect slice only; provider calls,
+  spend, cloud runner startup, GPU use, and Sentinel resource modification remain forbidden until a
+  provider-compatible slice is frozen and audited.
 
 ## Required Verification
 
@@ -317,6 +323,8 @@ python3 scripts/validate_receipts.py experiments/iter45_public_task_condition_ex
 python3 scripts/audit_public_task_condition_executor_assembly.py
 python3 scripts/validate_receipts.py experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof
 python3 scripts/audit_public_task_protocol_effect_execution_with_assembled_executor.py
+python3 scripts/validate_receipts.py experiments/iter47_provider_task_condition_command_binding_recovery/proof
+python3 scripts/audit_provider_task_condition_command_binding_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

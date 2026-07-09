@@ -307,6 +307,12 @@ jobs:
       - name: Public task protocol effect execution with assembled executor audit
         run: python3 scripts/audit_public_task_protocol_effect_execution_with_assembled_executor.py
 
+      - name: Provider task condition command binding recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter47_provider_task_condition_command_binding_recovery/proof
+
+      - name: Provider task condition command binding recovery audit
+        run: python3 scripts/audit_provider_task_condition_command_binding_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

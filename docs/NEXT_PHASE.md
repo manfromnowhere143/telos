@@ -2,10 +2,10 @@
 
 ## Current Action
 
-Run `iter47_provider_task_condition_command_binding_recovery` exactly as frozen in
-[`../experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md`](../experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md).
+Run `iter48_provider_compatible_protocol_effect_slice_refreeze` exactly as frozen in
+[`../experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/HYPOTHESIS.md`](../experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/HYPOTHESIS.md).
 
-The output is not a leaderboard score. It is a zero-spend command-binding recovery gate:
+The output is not a leaderboard score. It is a zero-spend provider-compatible slice-refreeze gate:
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -36,9 +36,12 @@ The output is not a leaderboard score. It is a zero-spend command-binding recove
   [`../experiments/iter45_public_task_condition_executor_assembly/proof/executor_manifest.json`](../experiments/iter45_public_task_condition_executor_assembly/proof/executor_manifest.json),
 - use the blocked execution-with-assembled-executor evidence from
   [`../experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/run_summary.json`](../experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/run_summary.json),
-- recover exact provider command bindings for the six frozen baseline/Telos task-condition pairs,
-- name the provider overlay/config for each provider-backed pair or block with a concrete
-  incompatibility,
+- use the command-binding recovery evidence from
+  [`../experiments/iter47_provider_task_condition_command_binding_recovery/proof/command_binding_report.json`](../experiments/iter47_provider_task_condition_command_binding_recovery/proof/command_binding_report.json),
+- preserve all six original pairs as historical context,
+- select only provider-compatible pairs with concrete command bindings unless new no-spend overlays
+  are generated and audited,
+- record excluded pair ids and reasons,
 - keep provider model calls at `0`,
 - keep provider spend at `$0.00`,
 - forbid cloud runner startup,
@@ -90,20 +93,22 @@ production, live-domain behavior, model-superiority, or state-of-the-art claims.
 `iter45` passed that dry-run executor assembly with six frozen pairs and zero spend. `iter46`
 blocked before provider execution because provider overlays were not bound into the per-pair
 commands and the recovered harness still disabled full task-condition execution. `iter47`
-authorizes only zero-spend command-binding recovery; provider calls, cloud runner startup, GPU use,
-and Sentinel resource modification remain forbidden.
+blocked and narrowed the command surface to two provider-ready BattleSnake PvP pairs while keeping
+four incompatible pairs visible. `iter48` authorizes only zero-spend provider-compatible slice
+refreeze; provider calls, cloud runner startup, GPU use, and Sentinel resource modification remain
+forbidden.
 
-## After The Command-Binding Gate
+## After The Slice-Refreeze Gate
 
-If the command-binding gate passes:
+If the slice-refreeze gate passes:
 
-1. Pre-register the bounded six-pair execution retry against the audited command surface.
+1. Pre-register the bounded provider-compatible execution retry against the audited command surface.
 2. Keep exact counts before percentages for baseline and Telos-enforced conditions.
 3. Publish all raw artifacts, receipts, blocked/null rows, costs, and audit notes.
 
-If the command-binding gate blocks or fails:
+If the slice-refreeze gate blocks or fails:
 
 1. Publish the blocked/null or quality-failure result.
-2. Correct only the specific provider-command, config, overlay, harness, artifact, cost, redaction,
-   lifecycle, receipt, or metric gap.
+2. Correct only the specific slice-selection, provider-command, config, overlay, harness, artifact,
+   cost, redaction, lifecycle, receipt, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.
