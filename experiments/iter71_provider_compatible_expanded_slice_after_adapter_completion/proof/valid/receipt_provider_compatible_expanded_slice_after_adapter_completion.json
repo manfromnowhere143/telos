@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "Iter70 adapter completion is present, passed, and audit-clean.",
+    "The existing two-row BattleSnake provider-compatible result is read as prior evidence.",
+    "Every selected row has source, adapter, command, artifact, cost, redaction, receipt, and teardown plans.",
+    "Every candidate row has an explicit inclusion or exclusion decision.",
+    "The next paid gate has exact provider/API and spend ceilings if authorized.",
+    "The slice is explicitly stratified and does not authorize pooled benchmark/model claims.",
+    "Provider calls, spend, row execution, GPU use, cloud runner startup, Sentinel mutation, and live-domain mutation remain zero."
+  ],
+  "agent_id": "codex-local-expanded-slice-refreeze-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof/expanded_slice_decision.json",
+      "kind": "test",
+      "notes": "Machine-readable expanded slice selection and next-gate plan.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof/candidate_rows.json",
+      "kind": "artifact",
+      "notes": "Exact candidate rows with inclusion decisions and execution plans.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the stratified boundary and no-claim constraints.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter70 is missing, failed, or audit-dirty.",
+    "The result must block if any selected row lacks source, adapter, command, artifact, cost, receipt, redaction, or teardown plans.",
+    "The result must block if incomparable rows are mixed without an explicit analysis boundary.",
+    "The result must fail if provider calls, spend, row execution, GPU, cloud runner startup, Sentinel mutation, or live-domain mutation occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, leaderboard, SWE-bench, production, live-domain, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter71-provider-compatible-expanded-slice-after-adapter-pass",
+  "sha256": "09c32d2477987c83d3d0e975402186f18bb9aafcb1c318997b7abdb59e058e74",
+  "stated_goal": "Refreeze the expanded provider-compatible protocol-effect slice from committed iter70 adapter evidence without provider calls, spend, row execution, GPU, cloud runner startup, Sentinel mutation, or benchmark/model overclaim.",
+  "status": "pass",
+  "task_id": "telos:iter71_provider_compatible_expanded_slice_after_adapter_completion@iter70"
+}

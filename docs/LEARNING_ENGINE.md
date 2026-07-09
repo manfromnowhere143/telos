@@ -124,8 +124,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter68_provider_compatible_task_surface_adapter_recovery` | blocked | deterministic-edit adapter rows can be planned from committed source, but Dummy cannot be adapted honestly until its source config is committed | snapshot required CodeClash task source files from the pinned checkout before completing expanded adapter recovery |
 | `iter69_codeclash_task_surface_source_snapshot_recovery` | pass | the missing Dummy task source was recovered from the pinned CodeClash Git blob and committed as source-only snapshot evidence with matching hashes | complete the provider-compatible expanded adapter set from committed source snapshots before any expanded paid protocol-effect retry |
 | `iter70_provider_compatible_expanded_adapter_completion` | pass | committed source snapshots are sufficient to plan four provider-compatible Dummy/deterministic-edit adapter rows, but the adapters are planning evidence only | refreeze or reject the expanded provider-compatible slice before any paid execution of adapter-planned rows |
+| `iter71_provider_compatible_expanded_slice_after_adapter_completion` | pass | the expanded provider-compatible slice can be frozen only as a stratified six-row plan, retaining two already executed BattleSnake rows and selecting four adapter-planned rows without cross-surface pooling | run only the pre-registered four-row adapter-planned paid gate under the frozen provider/API and spend ceilings |
 
-The next experiment may only refreeze or reject the expanded provider-compatible slice from
-committed adapter evidence. It must use zero provider calls, zero spend, no row execution, no GPU,
-no cloud runner, no Sentinel mutation, and the existing no-benchmark/no-model-result claim
-boundary.
+The next experiment may only execute the four adapter-planned rows selected by `iter71` under the
+frozen `32` provider-invocation and `$10.00` spend ceilings. It must use no GPU, no cloud runner,
+mutate no Sentinel resource, keep the stratified no-pooling boundary, and preserve the existing
+no-benchmark/no-model-result claim boundary.

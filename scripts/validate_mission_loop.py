@@ -195,6 +195,8 @@ def main() -> int:
         "audit_codeclash_task_surface_source_snapshot_recovery.py",
         "validate_receipts.py experiments/iter70_provider_compatible_expanded_adapter_completion/proof",
         "audit_provider_compatible_expanded_adapter_completion.py",
+        "validate_receipts.py experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof",
+        "audit_provider_compatible_expanded_slice_after_adapter_completion.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

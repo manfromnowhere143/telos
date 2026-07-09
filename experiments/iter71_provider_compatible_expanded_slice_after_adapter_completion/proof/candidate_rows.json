@@ -1,0 +1,513 @@
+{
+  "candidate_decisions": [
+    {
+      "analysis_stratum": "battlesnake_pvp_existing_paid_evidence",
+      "condition_id": "baseline_agent_completion_evidence",
+      "decision": "include",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "reason": "retained from the already executed iter66 two-row provider-compatible BattleSnake pilot",
+      "selection_status": "included_existing_execution_evidence"
+    },
+    {
+      "analysis_stratum": "battlesnake_pvp_existing_paid_evidence",
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "decision": "include",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "reason": "retained from the already executed iter66 two-row provider-compatible BattleSnake pilot",
+      "selection_status": "included_existing_execution_evidence"
+    },
+    {
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "condition_id": "baseline_agent_completion_evidence",
+      "decision": "include",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "reason": "iter70 completed a provider-compatible adapter plan from committed source evidence; the row is selected for the next bounded adapter-row execution gate but remains non-execution evidence here",
+      "selection_status": "included_pending_execution"
+    },
+    {
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "decision": "include",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "reason": "iter70 completed a provider-compatible adapter plan from committed source evidence; the row is selected for the next bounded adapter-row execution gate but remains non-execution evidence here",
+      "selection_status": "included_pending_execution"
+    },
+    {
+      "analysis_stratum": "deterministic_edit_small_workspace_edit",
+      "condition_id": "baseline_agent_completion_evidence",
+      "decision": "include",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "reason": "iter70 completed a provider-compatible adapter plan from committed source evidence; the row is selected for the next bounded adapter-row execution gate but remains non-execution evidence here",
+      "selection_status": "included_pending_execution"
+    },
+    {
+      "analysis_stratum": "deterministic_edit_small_workspace_edit",
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "decision": "include",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "reason": "iter70 completed a provider-compatible adapter plan from committed source evidence; the row is selected for the next bounded adapter-row execution gate but remains non-execution evidence here",
+      "selection_status": "included_pending_execution"
+    }
+  ],
+  "candidate_rows": [
+    {
+      "adapter_evidence": {
+        "binding_status": "provider_backed_command_ready",
+        "provider_agent_config": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/mini/telos_vertex_gemini_agent.yaml",
+        "provider_cost_registry": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+        "provider_model_config": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "provider_overlay_config": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/test/telos_battlesnake_vertex_gemini_pilot.yaml"
+      },
+      "analysis_stratum": "battlesnake_pvp_existing_paid_evidence",
+      "condition_id": "baseline_agent_completion_evidence",
+      "cost_capture_plan": {
+        "missing_cost_blocks_result": true,
+        "primary_source": "metadata.json agents[].agent_stats",
+        "required": true,
+        "secondary_source": "p1 trajectory response/cost fields when present"
+      },
+      "decision": "include",
+      "decision_reason": "retained from the already executed iter66 two-row provider-compatible BattleSnake pilot",
+      "execution_evidence_status": "executed_in_iter66",
+      "future_artifact_plan": {
+        "binary_archives_committed": false,
+        "optional_text_artifacts": [
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p1/p1_r1.traj.json",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p1/changes_r1.json",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p2/changes_r1.json"
+        ],
+        "pair_summary": "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/pairs/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml.json",
+        "raw_root": "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+        "required_text_artifacts": [
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/codeclash_run.log",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/metadata.json",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/redaction_scan.json"
+        ]
+      },
+      "future_execution_command": "uv run codeclash run configs/test/telos_battlesnake_vertex_gemini_pilot.yaml -o /tmp/telos-codeclash-protocol-effect/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "receipt_validation_plan": {
+        "failure_rule": "Do not discard missing evidence; count it in secondary metrics.",
+        "missing_receipt_counts_as_evidence_failure": false,
+        "posthoc_adversarial_review_required": true,
+        "raw_completion_evidence_interpretable_without_receipt": true,
+        "required_outputs": [
+          "raw_logs",
+          "agent_trajectory_when_available",
+          "diff_scope",
+          "test_or_arena_result",
+          "cost_and_call_stats_when_provider_backed",
+          "post_hoc_adversarial_review"
+        ],
+        "telos_receipt_required_before_acceptance": false
+      },
+      "redaction_plan": {
+        "forbidden_residue": [
+          "credential material",
+          "access tokens",
+          "service-account email",
+          "project identifier",
+          "unredacted provider-specific private fields"
+        ],
+        "scan_required": true,
+        "scan_scope": [
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/pairs/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml.json"
+        ]
+      },
+      "rerun_in_next_paid_gate": false,
+      "selection_status": "included_existing_execution_evidence",
+      "source_evidence": {
+        "execution_report": "experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/protocol_effect_report.json",
+        "execution_summary": "experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/run_summary.json",
+        "slice_artifact": "experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof/provider_compatible_slice.json",
+        "source_kind": "prior_provider_compatible_slice"
+      },
+      "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml",
+      "teardown_plan": {
+        "already_executed_in_iter66": true,
+        "must_not_stop_or_modify_sentinel_resources": true,
+        "remove_tmp_output_root": null,
+        "required": false
+      },
+      "verified_completion_evidence": true
+    },
+    {
+      "adapter_evidence": {
+        "binding_status": "provider_backed_command_ready",
+        "provider_agent_config": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/mini/telos_vertex_gemini_agent.yaml",
+        "provider_cost_registry": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+        "provider_model_config": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "provider_overlay_config": "experiments/iter09_provider_model_pilot_smoke/proof/overlay/configs/test/telos_battlesnake_vertex_gemini_pilot.yaml"
+      },
+      "analysis_stratum": "battlesnake_pvp_existing_paid_evidence",
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "cost_capture_plan": {
+        "missing_cost_blocks_result": true,
+        "primary_source": "metadata.json agents[].agent_stats",
+        "required": true,
+        "secondary_source": "p1 trajectory response/cost fields when present"
+      },
+      "decision": "include",
+      "decision_reason": "retained from the already executed iter66 two-row provider-compatible BattleSnake pilot",
+      "execution_evidence_status": "executed_in_iter66",
+      "future_artifact_plan": {
+        "binary_archives_committed": false,
+        "optional_text_artifacts": [
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p1/p1_r1.traj.json",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p1/changes_r1.json",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p2/changes_r1.json"
+        ],
+        "pair_summary": "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/pairs/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml.json",
+        "raw_root": "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+        "required_text_artifacts": [
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/codeclash_run.log",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/metadata.json",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/redaction_scan.json"
+        ]
+      },
+      "future_execution_command": "uv run codeclash run configs/test/telos_battlesnake_vertex_gemini_pilot.yaml -o /tmp/telos-codeclash-protocol-effect/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "receipt_validation_plan": {
+        "failure_rule": "Receipt failure is a task-level evidence failure, not hidden cleanup.",
+        "missing_receipt_counts_as_evidence_failure": true,
+        "posthoc_adversarial_review_required": true,
+        "raw_completion_evidence_interpretable_without_receipt": false,
+        "required_outputs": [
+          "valid_telos_receipt",
+          "raw_logs",
+          "agent_trajectory_when_available",
+          "diff_scope",
+          "test_or_arena_result",
+          "cost_and_call_stats_when_provider_backed",
+          "adversarial_review"
+        ],
+        "telos_receipt_required_before_acceptance": true
+      },
+      "redaction_plan": {
+        "forbidden_residue": [
+          "credential material",
+          "access tokens",
+          "service-account email",
+          "project identifier",
+          "unredacted provider-specific private fields"
+        ],
+        "scan_required": true,
+        "scan_scope": [
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+          "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/pairs/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml.json"
+        ]
+      },
+      "rerun_in_next_paid_gate": false,
+      "selection_status": "included_existing_execution_evidence",
+      "source_evidence": {
+        "execution_report": "experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/protocol_effect_report.json",
+        "execution_summary": "experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/run_summary.json",
+        "slice_artifact": "experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof/provider_compatible_slice.json",
+        "source_kind": "prior_provider_compatible_slice"
+      },
+      "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml",
+      "teardown_plan": {
+        "already_executed_in_iter66": true,
+        "must_not_stop_or_modify_sentinel_resources": true,
+        "remove_tmp_output_root": null,
+        "required": false
+      },
+      "verified_completion_evidence": true
+    },
+    {
+      "adapter_evidence": {
+        "adapter_status": "planned_from_committed_source",
+        "execution_result": false,
+        "generated_adapter_planning_evidence_only": true,
+        "provider_agent_config": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_baseline_agent.yaml",
+        "provider_cost_registry": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+        "provider_model_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "provider_overlay_config": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/test/telos_dummy_vertex_baseline.yaml"
+      },
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "condition_id": "baseline_agent_completion_evidence",
+      "cost_capture_plan": {
+        "missing_cost_blocks_result": true,
+        "primary_source": "metadata.json agents[].agent_stats",
+        "required": true
+      },
+      "decision": "include",
+      "decision_reason": "iter70 completed a provider-compatible adapter plan from committed source evidence; the row is selected for the next bounded adapter-row execution gate but remains non-execution evidence here",
+      "execution_evidence_status": "not_executed_planning_only",
+      "future_artifact_plan": {
+        "binary_archives_committed": false,
+        "optional_text_artifacts": [
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml/players/p1/p1_r1.traj.json",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml/players/p1/changes_r1.json"
+        ],
+        "pair_summary": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/pairs/baseline-agent-completion-evidence__configs-test-dummy-yaml.json",
+        "raw_root": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml",
+        "required_text_artifacts": [
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml/codeclash_run.log",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml/metadata.json",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml/redaction_scan.json"
+        ]
+      },
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_dummy_vertex_baseline.yaml -o /tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "receipt_validation_plan": {
+        "required_before_acceptance": false,
+        "validation_command": null
+      },
+      "redaction_plan": {
+        "forbidden_residue": [
+          "credential material",
+          "access tokens",
+          "service-account email",
+          "project identifier",
+          "unredacted provider-specific private fields"
+        ],
+        "scan_required": true
+      },
+      "rerun_in_next_paid_gate": true,
+      "selection_status": "included_pending_execution",
+      "source_evidence": {
+        "source_config_path": "experiments/source_snapshots/codeclash/configs/test/dummy.yaml",
+        "source_config_sha256": "b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97",
+        "source_kind": "committed_source_snapshot",
+        "source_model_path": null,
+        "source_model_sha256": null,
+        "source_semantic_note": "Dummy is a minimal CodeClash task surface. The adapter preserves the Dummy game and source prompt while making p1 provider-compatible; future execution must not treat this as a benchmark-quality task without a separate slice decision."
+      },
+      "task_id": "codeclash:configs/test/dummy.yaml",
+      "teardown_plan": {
+        "already_executed_in_iter66": false,
+        "must_not_stop_or_modify_sentinel_resources": true,
+        "remove_tmp_output_root": "/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-completion-evidence__configs-test-dummy-yaml",
+        "required": true
+      },
+      "verified_completion_evidence": null
+    },
+    {
+      "adapter_evidence": {
+        "adapter_status": "planned_from_committed_source",
+        "execution_result": false,
+        "generated_adapter_planning_evidence_only": true,
+        "provider_agent_config": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+        "provider_cost_registry": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+        "provider_model_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "provider_overlay_config": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/test/telos_dummy_vertex_receipt_enforced.yaml"
+      },
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "cost_capture_plan": {
+        "missing_cost_blocks_result": true,
+        "primary_source": "metadata.json agents[].agent_stats",
+        "required": true
+      },
+      "decision": "include",
+      "decision_reason": "iter70 completed a provider-compatible adapter plan from committed source evidence; the row is selected for the next bounded adapter-row execution gate but remains non-execution evidence here",
+      "execution_evidence_status": "not_executed_planning_only",
+      "future_artifact_plan": {
+        "binary_archives_committed": false,
+        "optional_text_artifacts": [
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/players/p1/p1_r1.traj.json",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/players/p1/changes_r1.json"
+        ],
+        "pair_summary": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/pairs/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml.json",
+        "raw_root": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+        "required_text_artifacts": [
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/codeclash_run.log",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/metadata.json",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/redaction_scan.json"
+        ]
+      },
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_dummy_vertex_receipt_enforced.yaml -o /tmp/telos-codeclash-protocol-effect-expanded-slice/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "receipt_validation_plan": {
+        "required_before_acceptance": true,
+        "validation_command": "python3 scripts/validate_receipts.py experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+      },
+      "redaction_plan": {
+        "forbidden_residue": [
+          "credential material",
+          "access tokens",
+          "service-account email",
+          "project identifier",
+          "unredacted provider-specific private fields"
+        ],
+        "scan_required": true
+      },
+      "rerun_in_next_paid_gate": true,
+      "selection_status": "included_pending_execution",
+      "source_evidence": {
+        "source_config_path": "experiments/source_snapshots/codeclash/configs/test/dummy.yaml",
+        "source_config_sha256": "b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97",
+        "source_kind": "committed_source_snapshot",
+        "source_model_path": null,
+        "source_model_sha256": null,
+        "source_semantic_note": "Dummy is a minimal CodeClash task surface. The adapter preserves the Dummy game and source prompt while adding only the Telos receipt condition; future execution must keep this separated from benchmark or model-quality claims."
+      },
+      "task_id": "codeclash:configs/test/dummy.yaml",
+      "teardown_plan": {
+        "already_executed_in_iter66": false,
+        "must_not_stop_or_modify_sentinel_resources": true,
+        "remove_tmp_output_root": "/tmp/telos-codeclash-protocol-effect-expanded-slice/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+        "required": true
+      },
+      "verified_completion_evidence": null
+    },
+    {
+      "adapter_evidence": {
+        "adapter_status": "planned_from_committed_source",
+        "execution_result": false,
+        "generated_adapter_planning_evidence_only": true,
+        "provider_agent_config": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_baseline_agent.yaml",
+        "provider_cost_registry": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+        "provider_model_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "provider_overlay_config": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/test/telos_battlesnake_edit_vertex_baseline.yaml"
+      },
+      "analysis_stratum": "deterministic_edit_small_workspace_edit",
+      "condition_id": "baseline_agent_completion_evidence",
+      "cost_capture_plan": {
+        "missing_cost_blocks_result": true,
+        "primary_source": "metadata.json agents[].agent_stats",
+        "required": true
+      },
+      "decision": "include",
+      "decision_reason": "iter70 completed a provider-compatible adapter plan from committed source evidence; the row is selected for the next bounded adapter-row execution gate but remains non-execution evidence here",
+      "execution_evidence_status": "not_executed_planning_only",
+      "future_artifact_plan": {
+        "binary_archives_committed": false,
+        "optional_text_artifacts": [
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/players/p1/p1_r1.traj.json",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/players/p1/changes_r1.json"
+        ],
+        "pair_summary": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/pairs/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml.json",
+        "raw_root": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+        "required_text_artifacts": [
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/codeclash_run.log",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/metadata.json",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/redaction_scan.json"
+        ]
+      },
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_battlesnake_edit_vertex_baseline.yaml -o /tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "receipt_validation_plan": {
+        "required_before_acceptance": false,
+        "validation_command": null
+      },
+      "redaction_plan": {
+        "forbidden_residue": [
+          "credential material",
+          "access tokens",
+          "service-account email",
+          "project identifier",
+          "unredacted provider-specific private fields"
+        ],
+        "scan_required": true
+      },
+      "rerun_in_next_paid_gate": true,
+      "selection_status": "included_pending_execution",
+      "source_evidence": {
+        "source_config_path": "experiments/iter06_deterministic_edit_slice/proof/overlay/configs/test/telos_battlesnake_edit_test.yaml",
+        "source_config_sha256": "f6f228683c76c950ac6fa0f3d490b7c24a690387e6ffac59c99e581c77112c3b",
+        "source_kind": "committed_source_snapshot",
+        "source_model_path": "experiments/iter06_deterministic_edit_slice/proof/overlay/configs/mini/telos_edit_battlesnake_marker.yaml",
+        "source_model_sha256": "3a383e1bb80cd0229b77c8d3e3cd7ec4dba09320433af979c0909eb793a88bb6",
+        "source_semantic_note": "Deterministic-edit source already encodes a small non-empty workspace edit target and was planned from committed iter06 evidence in iter68."
+      },
+      "task_id": "codeclash:configs/test/telos_battlesnake_edit_test.yaml",
+      "teardown_plan": {
+        "already_executed_in_iter66": false,
+        "must_not_stop_or_modify_sentinel_resources": true,
+        "remove_tmp_output_root": "/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+        "required": true
+      },
+      "verified_completion_evidence": null
+    },
+    {
+      "adapter_evidence": {
+        "adapter_status": "planned_from_committed_source",
+        "execution_result": false,
+        "generated_adapter_planning_evidence_only": true,
+        "provider_agent_config": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_receipt_enforced_agent.yaml",
+        "provider_cost_registry": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+        "provider_model_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "provider_overlay_config": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/test/telos_battlesnake_edit_vertex_receipt_enforced.yaml"
+      },
+      "analysis_stratum": "deterministic_edit_small_workspace_edit",
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "cost_capture_plan": {
+        "missing_cost_blocks_result": true,
+        "primary_source": "metadata.json agents[].agent_stats",
+        "required": true
+      },
+      "decision": "include",
+      "decision_reason": "iter70 completed a provider-compatible adapter plan from committed source evidence; the row is selected for the next bounded adapter-row execution gate but remains non-execution evidence here",
+      "execution_evidence_status": "not_executed_planning_only",
+      "future_artifact_plan": {
+        "binary_archives_committed": false,
+        "optional_text_artifacts": [
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/players/p1/p1_r1.traj.json",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/players/p1/changes_r1.json"
+        ],
+        "pair_summary": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/pairs/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml.json",
+        "raw_root": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+        "required_text_artifacts": [
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/codeclash_run.log",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/metadata.json",
+          "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/redaction_scan.json"
+        ]
+      },
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_battlesnake_edit_vertex_receipt_enforced.yaml -o /tmp/telos-codeclash-protocol-effect-expanded-slice/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "receipt_validation_plan": {
+        "required_before_acceptance": true,
+        "validation_command": "python3 scripts/validate_receipts.py experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+      },
+      "redaction_plan": {
+        "forbidden_residue": [
+          "credential material",
+          "access tokens",
+          "service-account email",
+          "project identifier",
+          "unredacted provider-specific private fields"
+        ],
+        "scan_required": true
+      },
+      "rerun_in_next_paid_gate": true,
+      "selection_status": "included_pending_execution",
+      "source_evidence": {
+        "source_config_path": "experiments/iter06_deterministic_edit_slice/proof/overlay/configs/test/telos_battlesnake_edit_test.yaml",
+        "source_config_sha256": "f6f228683c76c950ac6fa0f3d490b7c24a690387e6ffac59c99e581c77112c3b",
+        "source_kind": "committed_source_snapshot",
+        "source_model_path": "experiments/iter06_deterministic_edit_slice/proof/overlay/configs/mini/telos_edit_battlesnake_marker.yaml",
+        "source_model_sha256": "3a383e1bb80cd0229b77c8d3e3cd7ec4dba09320433af979c0909eb793a88bb6",
+        "source_semantic_note": "Deterministic-edit source already encodes a small non-empty workspace edit target; the adapter adds the Telos receipt condition before acceptance."
+      },
+      "task_id": "codeclash:configs/test/telos_battlesnake_edit_test.yaml",
+      "teardown_plan": {
+        "already_executed_in_iter66": false,
+        "must_not_stop_or_modify_sentinel_resources": true,
+        "remove_tmp_output_root": "/tmp/telos-codeclash-protocol-effect-expanded-slice/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+        "required": true
+      },
+      "verified_completion_evidence": null
+    }
+  ],
+  "excluded_rows": [],
+  "experiment_id": "iter71_provider_compatible_expanded_slice_after_adapter_completion",
+  "redaction_findings": [],
+  "redaction_scan_passed": true,
+  "schema_version": "telos.provider_compatible_expanded_slice_after_adapter_completion.candidate_rows.v1",
+  "status": "pass"
+}

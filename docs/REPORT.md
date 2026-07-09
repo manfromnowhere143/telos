@@ -263,8 +263,14 @@ Current evidence:
   planned from committed source evidence; the generated adapters are planning evidence only, not
   execution evidence. Zero provider calls, zero spend, no row execution, no GPU, no cloud runner,
   no Sentinel mutation, and no benchmark/model/state-of-the-art claim occurred.
-- `experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/HYPOTHESIS.md`
-  pre-registers the next zero-spend slice-refreeze gate before any expanded paid execution.
+- `experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md`
+  passes that zero-spend slice-refreeze gate. The expanded provider-compatible slice is frozen as
+  six stratified rows: two already executed BattleSnake rows are retained as prior paid evidence
+  and four adapter-planned Dummy/deterministic-edit rows are selected for a bounded future paid
+  gate. Zero provider calls, zero spend, no row execution, no GPU, no cloud runner, no Sentinel
+  mutation, and no benchmark/model/state-of-the-art claim occurred.
+- `experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md`
+  pre-registers the next bounded paid gate for only the four adapter-planned rows.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

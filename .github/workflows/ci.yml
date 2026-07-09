@@ -451,6 +451,12 @@ jobs:
       - name: Provider-compatible expanded adapter completion audit
         run: python3 scripts/audit_provider_compatible_expanded_adapter_completion.py
 
+      - name: Provider-compatible expanded slice after adapter completion receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof
+
+      - name: Provider-compatible expanded slice after adapter completion audit
+        run: python3 scripts/audit_provider_compatible_expanded_slice_after_adapter_completion.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

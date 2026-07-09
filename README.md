@@ -233,9 +233,14 @@ and an adversarial review pass.
   zero spend; four Dummy/deterministic-edit adapter rows and eight overlay files were planned as
   planning evidence only, not execution evidence, in
   [`experiments/iter70_provider_compatible_expanded_adapter_completion`](experiments/iter70_provider_compatible_expanded_adapter_completion/RESULT.md).
-- Current gate: provider-compatible expanded slice after adapter completion,
+- Provider-compatible expanded slice after adapter completion: passed locally with zero provider
+  calls and zero spend; the slice is frozen as six stratified rows, retaining the two already
+  executed BattleSnake rows and selecting four adapter-planned Dummy/deterministic-edit rows for a
+  bounded future paid gate without cross-surface pooling or benchmark/model claims in
+  [`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md).
+- Current gate: provider-compatible expanded paid execution after slice refreeze,
   pre-registered in
-  [`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/HYPOTHESIS.md).
+  [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row pilot only; not a benchmark result.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
@@ -356,21 +361,23 @@ CodeClash task-surface source snapshot recovery:
 Provider-compatible expanded adapter completion:
 [`experiments/iter70_provider_compatible_expanded_adapter_completion/RESULT.md`](experiments/iter70_provider_compatible_expanded_adapter_completion/RESULT.md).
 Provider-compatible expanded slice after adapter completion:
-[`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/HYPOTHESIS.md`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/HYPOTHESIS.md) (next gate).
+[`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md).
+Provider-compatible expanded paid execution after slice refreeze:
+[`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md) (next gate).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21"]-->I22["22"]-->I23["23"]-->I24["24"]-->I25["25"]-->I26["26"]-->I27["27"]-->I28["28"]-->I29["29"]-->I30["30"]-->I31["31"]-->I32["32"]-->I33["33"]-->I34["34"]-->I35["35"]-->I36["36"]-->I37["37"]-->I38["38"]-->I39["39"]-->I40["40"]-->I41["41"]-->I42["42"]-->I43["43"]-->I44["44"]-->I45["45"]-->I46["46"]-->I47["47"]-->I48["48"]-->I49["49"]-->I50["50"]-->I51["51"]-->I52["52"]-->I53["53"]-->I54["54"]-->I55["55"]-->I56["56"]-->I57["57"]-->I58["58"]-->I59["59"]-->I60["60"]-->I61["61"]-->I62["62"]-->I63["63"]-->I64["64"]-->I65["65"]-->I66["66"]-->I67["67"]-->I68["68"]-->I69["69"]-->I70["70"]-->I71["71"]
+  I21["21"]-->I22["22"]-->I23["23"]-->I24["24"]-->I25["25"]-->I26["26"]-->I27["27"]-->I28["28"]-->I29["29"]-->I30["30"]-->I31["31"]-->I32["32"]-->I33["33"]-->I34["34"]-->I35["35"]-->I36["36"]-->I37["37"]-->I38["38"]-->I39["39"]-->I40["40"]-->I41["41"]-->I42["42"]-->I43["43"]-->I44["44"]-->I45["45"]-->I46["46"]-->I47["47"]-->I48["48"]-->I49["49"]-->I50["50"]-->I51["51"]-->I52["52"]-->I53["53"]-->I54["54"]-->I55["55"]-->I56["56"]-->I57["57"]-->I58["58"]-->I59["59"]-->I60["60"]-->I61["61"]-->I62["62"]-->I63["63"]-->I64["64"]-->I65["65"]-->I66["66"]-->I67["67"]-->I68["68"]-->I69["69"]-->I70["70"]-->I71["71"]-->I72["72"]
   classDef p fill:#efe,stroke:#272,color:#000;
   classDef n fill:#fee,stroke:#c22,color:#000;
   classDef b fill:#ffd,stroke:#861,color:#000;
   classDef a fill:#eef,stroke:#17e,color:#000;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58,I63,I64,I65,I66,I69,I70 p;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58,I63,I64,I65,I66,I69,I70,I71 p;
   class I23,I25 n;
   class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57,I59,I60,I61,I62,I67,I68 b;
-  class I71 a;
+  class I72 a;
 ```
 
 ## Candidate Target Families
