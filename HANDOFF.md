@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-09T16:08:03Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-09T16:10:58Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -11,21 +11,7 @@ branch: master
 Working tree:
 
 ```text
-M .github/workflows/ci.yml
- M CONTINUITY.md
- M README.md
- M docs/LEARNING_ENGINE.md
- M docs/MISSION_LOOP.md
- M docs/NEXT_PHASE.md
- M docs/REPORT.md
- M mission/loop.json
- M scripts/make_handoff.py
- M scripts/validate_mission_loop.py
-?? experiments/iter63_vertex_access_path_parity_recheck/RESULT.md
-?? experiments/iter63_vertex_access_path_parity_recheck/proof/
-?? experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/
-?? scripts/audit_vertex_access_path_parity_recheck.py
-?? scripts/verify_vertex_access_path_parity_recheck.py
+clean
 ```
 
 ## Experiments
