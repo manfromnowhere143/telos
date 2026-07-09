@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter52 condition-runtime separation is a committed pass.",
+    "Exactly two selected BattleSnake rows remain planned and all four excluded historical pairs remain unattempted.",
+    "Provider calls do not start unless a committed pair executor can run the separated rows.",
+    "Provider model invocations remain at or below 16 and provider spend remains at or below $10.00.",
+    "No GPU is requested or used, no Sentinel-named resource is modified, and no production or live-domain behavior changes.",
+    "The Telos row cannot count as verified completion without a valid receipt.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-provider-compatible-execution-preflight",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/preflight.json",
+      "kind": "test",
+      "notes": "Preflight records why the paid two-row execution did not start.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/execution_report.json",
+      "kind": "artifact",
+      "notes": "Execution report preserves blocked rows and uncomputed metrics.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the executor and runner-readiness gap.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter52 proof is missing, failed, blocked, or not validated.",
+    "The result must block if the committed wrapper still cannot execute pair rows.",
+    "The result must block if pinned CodeClash and Docker runner readiness are not cleanly available.",
+    "The result must block if the base harness still declares full protocol-effect execution disabled.",
+    "The result must fail if provider calls, spend, cloud runner startup, GPU use, Sentinel resource modification, or excluded-pair execution occurs after a blocking preflight.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter53-provider-compatible-protocol-effect-execution-after-condition-recovery-blocked",
+  "sha256": "6a82e524195e47bbaff02b65fb5b6e6bd462c1c87717e17b680e59b764942c06",
+  "stated_goal": "Execute the two provider-compatible BattleSnake condition rows only if iter52 condition separation, provider readiness, CodeClash runner readiness, wrapper execution, cost capture, raw-artifact retention, receipt validation, redaction, and lifecycle controls are all ready before provider calls.",
+  "status": "blocked",
+  "task_id": "telos:iter53_provider_compatible_protocol_effect_execution_after_condition_recovery@iter52"
+}

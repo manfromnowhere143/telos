@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/HYPOTHESIS.md`
+- `experiments/iter54_provider_pair_executor_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -365,6 +365,8 @@ python3 scripts/validate_receipts.py experiments/iter51_provider_compatible_prot
 python3 scripts/audit_provider_compatible_protocol_effect_execution_with_wrapper.py
 python3 scripts/validate_receipts.py experiments/iter52_provider_condition_runtime_separation_recovery/proof
 python3 scripts/audit_provider_condition_runtime_separation_recovery.py
+python3 scripts/validate_receipts.py experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof
+python3 scripts/audit_provider_compatible_protocol_effect_execution_after_condition_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

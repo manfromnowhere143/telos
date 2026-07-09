@@ -124,9 +124,13 @@ Current evidence:
 - `experiments/iter52_provider_condition_runtime_separation_recovery/RESULT.md` passes the
   zero-spend condition-runtime separation recovery: the future baseline and Telos rows now have
   distinct commands, overlays, prompts, and a Telos receipt-validation path before acceptance.
-- `experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/HYPOTHESIS.md`
-  freezes the bounded two-row provider-compatible protocol-effect pilot under the `16` invocation
-  and `$10.00` ceilings.
+- `experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/RESULT.md`
+  blocks before provider execution because the pair executor is still intentionally unimplemented,
+  the base harness still disables full protocol-effect execution, the pinned CodeClash checkout is
+  not ready, and Docker readiness timed out. Zero provider calls, zero spend, no cloud runner, no
+  GPU, and no Sentinel modification occurred.
+- `experiments/iter54_provider_pair_executor_recovery/HYPOTHESIS.md` pre-registers the zero-spend
+  executor-recovery gate needed before retrying the two-row paid pilot.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
