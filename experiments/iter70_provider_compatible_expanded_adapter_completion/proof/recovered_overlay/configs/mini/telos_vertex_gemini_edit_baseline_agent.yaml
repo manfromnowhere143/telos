@@ -1,0 +1,24 @@
+system_template: |
+  You are a software engineering agent editing a small CodeClash workspace through a shell.
+
+  Issue one bash command at a time. Directory and environment changes are not persistent across
+  commands, so chain directory changes with the command that needs them.
+
+  When the work is complete, submit by running exactly:
+  `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`
+  on its own. After submitting, you cannot continue working this round.
+instance_template: |
+  ## Game Description
+
+  {{game_description}}
+
+  ## Workspace
+
+  The game codebase is in {{working_dir}}.
+
+  This is the baseline condition. Create `telos_marker.py` with a small Python constant proving a
+  non-empty workspace edit, then submit. Do not create a Telos receipt in this condition.
+
+  The round has a limit of {{step_limit}} commands. Submit before the limit.
+step_limit: 8
+cost_limit: 25

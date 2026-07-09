@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter70_provider_compatible_expanded_adapter_completion/HYPOTHESIS.md`
+- `experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -338,11 +338,15 @@ Current claim:
   `configs/test/dummy.yaml` from the pinned CodeClash Git blob at
   `381cdfa05a35e8acd35853b9fc7e13005121b127` into committed source-only snapshots with hash
   `b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97`.
+- `iter70_provider_compatible_expanded_adapter_completion` passed locally with zero provider
+  calls, zero spend, no row execution, no GPU, no cloud runner, and no Sentinel mutation. Four
+  Dummy/deterministic-edit adapter rows and eight overlay files are planned as planning evidence
+  only, not execution evidence.
 - No model or benchmark result is claimed yet.
-- The next gate may only complete the provider-compatible expanded adapter plan from committed
-  source snapshots or publish a precise adapter blocker. It must use zero provider calls, zero
-  spend, no row execution, no GPU or cloud runner, mutate no Sentinel resource, change no
-  production/live-domain behavior, and make no benchmark/model claim.
+- The next gate may only refreeze or reject the expanded provider-compatible slice from committed
+  adapter evidence. It must use zero provider calls, zero spend, no row execution, no GPU or cloud
+  runner, mutate no Sentinel resource, change no production/live-domain behavior, and make no
+  benchmark/model claim.
 
 ## Required Verification
 
@@ -487,6 +491,8 @@ python3 scripts/validate_receipts.py experiments/iter68_provider_compatible_task
 python3 scripts/audit_provider_compatible_task_surface_adapter_recovery.py
 python3 scripts/validate_receipts.py experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof
 python3 scripts/audit_codeclash_task_surface_source_snapshot_recovery.py
+python3 scripts/validate_receipts.py experiments/iter70_provider_compatible_expanded_adapter_completion/proof
+python3 scripts/audit_provider_compatible_expanded_adapter_completion.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-09T17:47:13Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-09T17:58:39Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -86,11 +86,12 @@ clean
 - experiments/iter67_provider_compatible_expanded_slice_refreeze: RESULT PUBLISHED
 - experiments/iter68_provider_compatible_task_surface_adapter_recovery: RESULT PUBLISHED
 - experiments/iter69_codeclash_task_surface_source_snapshot_recovery: RESULT PUBLISHED
-- experiments/iter70_provider_compatible_expanded_adapter_completion: PRE-REGISTERED, result pending
+- experiments/iter70_provider_compatible_expanded_adapter_completion: RESULT PUBLISHED
+- experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter70_provider_compatible_expanded_adapter_completion/HYPOTHESIS.md`.
+- Active gate: `experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -238,6 +239,8 @@ python3 scripts/validate_receipts.py experiments/iter68_provider_compatible_task
 python3 scripts/audit_provider_compatible_task_surface_adapter_recovery.py
 python3 scripts/validate_receipts.py experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof
 python3 scripts/audit_codeclash_task_surface_source_snapshot_recovery.py
+python3 scripts/validate_receipts.py experiments/iter70_provider_compatible_expanded_adapter_completion/proof
+python3 scripts/audit_provider_compatible_expanded_adapter_completion.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,23 @@
+tournament:
+  rounds: 3
+game:
+  name: Dummy
+  sims_per_round: 1000
+players:
+- agent: mini
+  name: p1
+  config:
+    agent: !include mini/telos_vertex_gemini_dummy_baseline_agent.yaml
+    model: !include mini/telos_vertex_gemini_3_1_pro_customtools.yaml
+- agent: dummy
+  name: p2
+prompts:
+  game_description: |-
+    You are a software developer ({{player_id}}) competing in a coding game.
+
+    The game is played in {{rounds}} rounds. For every round, you (and your competitor) edit
+    program code that controls your bot. This is round {{round}}. After you and your competitor
+    finish editing your codebases, the game is run automatically.
+
+    This is the baseline raw-completion-evidence condition. Complete the task and submit without
+    creating a Telos receipt.

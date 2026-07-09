@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "Iter69 passed with a matching committed Dummy source snapshot hash.",
+    "Iter68 residual Dummy adapter rejection is present and corrected by committed source evidence.",
+    "Dummy and deterministic-edit baseline/Telos rows have command, artifact, cost, receipt, redaction, and teardown plans.",
+    "Generated adapters are labeled as planning evidence, not execution results.",
+    "Provider calls, spend, row execution, GPU use, cloud runner startup, Sentinel mutation, and live-domain mutation remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-expanded-adapter-completion-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/adapter_completion_report.json",
+      "kind": "test",
+      "notes": "Machine-readable expanded adapter completion report.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/",
+      "kind": "artifact",
+      "notes": "Provider-compatible Dummy and deterministic-edit adapter overlays.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the planning-only boundary and Dummy semantic caveat.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter69 is missing, failed, or hash-mismatched.",
+    "The result must block if any planned row lacks committed source evidence or exact future command/artifact/cost plans.",
+    "The result must fail if generated adapters are presented as execution evidence.",
+    "The result must fail if provider calls, spend, row execution, GPU, cloud runner startup, Sentinel mutation, or live-domain mutation occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, leaderboard, SWE-bench, production, live-domain, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter70-provider-compatible-expanded-adapter-completion-pass",
+  "sha256": "c700740931116e7f26abf8621e76cf4172afb215bc47af886f5e0e4450bf2b06",
+  "stated_goal": "Complete provider-compatible adapter planning for the committed Dummy and deterministic-edit task surfaces without provider calls or row execution.",
+  "status": "pass",
+  "task_id": "telos:iter70_provider_compatible_expanded_adapter_completion@iter69"
+}

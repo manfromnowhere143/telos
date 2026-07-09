@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/run_summary.json",
+    "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/adapter_completion_report.json",
+    "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/command_output.txt",
+    "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/review.md",
+    "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/test/telos_dummy_vertex_baseline.yaml",
+    "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/test/telos_dummy_vertex_receipt_enforced.yaml",
+    "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/valid/receipt_provider_compatible_expanded_adapter_completion.json"
+  ],
+  "experiment_id": "iter70_provider_compatible_expanded_adapter_completion",
+  "insight": "Committed source snapshots are sufficient to plan four provider-compatible adapter rows, but paid execution still requires a separate expanded-slice refreeze.",
+  "next_action": "refreeze or reject the expanded provider-compatible slice before any paid execution of adapter-planned rows",
+  "result_path": "experiments/iter70_provider_compatible_expanded_adapter_completion/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

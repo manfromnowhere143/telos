@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter70_provider_compatible_expanded_adapter_completion` exactly as
+Run `iter71_provider_compatible_expanded_slice_after_adapter_completion` exactly as
 frozen in
-[`../experiments/iter70_provider_compatible_expanded_adapter_completion/HYPOTHESIS.md`](../experiments/iter70_provider_compatible_expanded_adapter_completion/HYPOTHESIS.md).
+[`../experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/HYPOTHESIS.md`](../experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -19,9 +19,10 @@ BattleSnake rows already executed. `iter68` planned two deterministic-edit adapt
 committed source but blocked because `configs/test/dummy.yaml` was not committed as source
 evidence. `iter69` passed the local source-snapshot recovery: the Dummy source file is committed
 as task-surface evidence with hash
-`b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97`. The target of `iter70` is
-to complete the expanded provider-compatible adapter plan from committed source before any larger
-paid execution is considered.
+`b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97`. `iter70` passed local
+adapter completion with four planned Dummy/deterministic-edit rows and eight overlay files, all
+labeled as planning evidence only. The target of `iter71` is to refreeze or reject the expanded
+provider-compatible slice before any larger paid execution is considered.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -114,6 +115,10 @@ paid execution is considered.
   [`../experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof/source_snapshot_report.json`](../experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof/source_snapshot_report.json),
 - use the committed Dummy source snapshot from
   [`../experiments/source_snapshots/codeclash/configs/test/dummy.yaml`](../experiments/source_snapshots/codeclash/configs/test/dummy.yaml),
+- use the passed iter70 adapter completion report from
+  [`../experiments/iter70_provider_compatible_expanded_adapter_completion/proof/adapter_completion_report.json`](../experiments/iter70_provider_compatible_expanded_adapter_completion/proof/adapter_completion_report.json),
+- use the iter70 planned overlays from
+  [`../experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/`](../experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/),
 - execute no row and no excluded pair,
 - keep all prior exclusions visible with reasons,
 - keep provider model calls at `0`,
@@ -225,17 +230,17 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   expanded-slice refreeze because no additional condition-balanced provider-compatible rows exist
   in committed evidence. `iter68` planned deterministic-edit adapter rows but blocked on missing
   committed Dummy source content. `iter69` passed zero-spend CodeClash source snapshot recovery.
-  `iter70` authorizes only zero-spend provider-compatible expanded adapter completion before
-  further paid execution.
+  `iter70` passed zero-spend provider-compatible expanded adapter completion with four planned
+  rows. `iter71` authorizes only zero-spend expanded-slice refreeze before further paid execution.
 
-## During Provider-Compatible Expanded Adapter Completion
+## During Provider-Compatible Expanded Slice Refreeze
 
 If the gate runs:
 
-1. Revalidate the iter68 blocked adapter recovery and iter69 passed source snapshot.
-2. Build only provider-compatible adapter plans from committed Dummy and deterministic-edit source.
-3. Materialize exact future commands, artifacts, costs, receipt validation, redaction, and teardown
-   plans for every planned row.
+1. Revalidate the iter70 adapter-completion report and all planned row hashes.
+2. Decide which rows enter the expanded provider-compatible slice and which remain excluded.
+3. Materialize exact provider/API ceilings, spend ceilings, artifacts, costs, receipt validation,
+   redaction, and teardown plans for any next paid gate.
 4. Record redaction, hash, and claim-boundary proof before any paid run.
 
 If the gate blocks, fails, or produces ambiguous evidence:
