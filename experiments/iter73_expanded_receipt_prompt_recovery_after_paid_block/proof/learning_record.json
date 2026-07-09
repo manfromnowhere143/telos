@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/run_summary.json",
+    "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/expanded_receipt_prompt_recovery_report.json",
+    "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/receipt_failure_diagnosis.json",
+    "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/fixture_validation_report.json",
+    "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/recovered_overlay/configs/mini/",
+    "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/valid/receipt_expanded_receipt_prompt_recovery_after_paid_block.json"
+  ],
+  "experiment_id": "iter73_expanded_receipt_prompt_recovery_after_paid_block",
+  "insight": "The iter72 expanded receipt-required failures were prompt/schema alignment gaps: the agents produced receipt-like shortcuts instead of the ten-field Telos proof receipt.",
+  "next_action": "pre-register a bounded paid retry of the same four adapter-planned rows using the iter73 recovered expanded receipt prompts",
+  "result_path": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

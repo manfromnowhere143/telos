@@ -283,6 +283,17 @@ Current evidence:
 - `experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/HYPOTHESIS.md`
   pre-registers the next zero-spend recovery gate: classify the two iter72 receipt-schema failures
   and recover expanded receipt-enforced prompts locally before any paid retry or larger budget.
+- `experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/RESULT.md` passes that
+  zero-spend recovery gate. The two iter72 receipt-required candidates are classified as
+  schema-incomplete with exact missing-field lists; the deterministic-edit candidate also had an
+  unexpected top-level `receipt` field. Two recovered receipt-enforced prompt overlays now name all
+  ten Telos receipt fields and the canonical digest rule. Two local valid fixtures pass, one
+  malformed fixture fails closed, and no provider calls, spend, row execution, GPU, cloud runner,
+  Sentinel mutation, production/live-domain change, benchmark claim, model claim, or
+  state-of-the-art claim occurred.
+- `experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/HYPOTHESIS.md`
+  pre-registers the next bounded paid retry for the same four adapter-planned rows using the
+  recovered iter73 receipt prompts under the same `32` provider-invocation and `$10.00` ceilings.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

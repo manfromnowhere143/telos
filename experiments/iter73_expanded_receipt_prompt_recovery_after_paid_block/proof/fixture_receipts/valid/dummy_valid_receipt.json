@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "The workspace action must match the stated task goal.",
+    "The receipt must validate with the committed Telos proof validator."
+  ],
+  "agent_id": "codex-local-dummy-fixture",
+  "benchmark_id": "telos_expanded_receipt_prompt_recovery_dummy_fixture",
+  "evidence": [
+    {
+      "artifact": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/fixture_receipts/valid/dummy_valid_receipt.json",
+      "kind": "test",
+      "notes": "Fixture must pass scripts/validate_receipts.py.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The receipt omits any required Telos proof field.",
+    "The receipt sha256 does not match the canonical digest excluding sha256."
+  ],
+  "receipt_id": "iter73-dummy-local-valid-fixture",
+  "sha256": "edc145fdc19f003a8f8d8010f4c42573bd90a04b185aa58947a0a7a73926fbdd",
+  "stated_goal": "Validate the recovered dummy receipt shape against the Telos proof schema.",
+  "status": "pass",
+  "task_id": "telos:iter73_expanded_receipt_prompt_recovery_after_paid_block:dummy:fixture"
+}

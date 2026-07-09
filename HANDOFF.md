@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-09T18:50:07Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-09T19:08:49Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -89,11 +89,12 @@ clean
 - experiments/iter70_provider_compatible_expanded_adapter_completion: RESULT PUBLISHED
 - experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion: RESULT PUBLISHED
 - experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze: RESULT PUBLISHED
-- experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block: PRE-REGISTERED, result pending
+- experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block: RESULT PUBLISHED
+- experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/HYPOTHESIS.md`.
+- Active gate: `experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -247,6 +248,8 @@ python3 scripts/validate_receipts.py experiments/iter71_provider_compatible_expa
 python3 scripts/audit_provider_compatible_expanded_slice_after_adapter_completion.py
 python3 scripts/validate_receipts.py experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof
 python3 scripts/audit_provider_compatible_expanded_paid_execution_after_slice_refreeze.py
+python3 scripts/validate_receipts.py experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof
+python3 scripts/audit_expanded_receipt_prompt_recovery_after_paid_block.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

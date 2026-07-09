@@ -1,0 +1,143 @@
+{
+  "all_candidates_classified_schema_incomplete": true,
+  "candidate_diagnoses": [
+    {
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "candidate_equals_invalid_artifact": true,
+      "candidate_fields": [
+        "sha256",
+        "status"
+      ],
+      "candidate_path": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/telos_completion_receipt_candidate.json",
+      "candidate_sha256": "90a02e9da86e189df8dc865165eb93239531961d27a7f015ff9a81909020eed1",
+      "classification": "schema_incomplete",
+      "diagnosis_validation": {
+        "returncode": 1,
+        "stderr": "",
+        "stdout": "receipt validation failed:\n - valid receipt failed /Users/danielwahnich/workspace/telos/experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/diagnosis_receipt_probe/dummy/valid/telos_completion_receipt.json: missing fields: acceptance_criteria, agent_id, benchmark_id, evidence, falsifiers, receipt_id, stated_goal, task_id",
+        "timed_out": false
+      },
+      "diagnosis_validation_command": "python3 scripts/validate_receipts.py experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/diagnosis_receipt_probe/dummy",
+      "expected_missing_required_fields": [
+        "acceptance_criteria",
+        "agent_id",
+        "benchmark_id",
+        "evidence",
+        "falsifiers",
+        "receipt_id",
+        "stated_goal",
+        "task_id"
+      ],
+      "expected_unexpected_fields": [],
+      "invalid_artifact_path": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/invalid/telos_completion_receipt.json",
+      "invalid_artifact_sha256": "bf02e33493072f3f774654a7a65782c583efff94f9ecafcca3afba6cbd9dc3bd",
+      "iter72_receipt_valid": false,
+      "iter72_receipt_validation_reason": "candidate_failed_receipt_validation",
+      "iter72_receipt_validation_stdout": "receipt validation failed:\n - valid receipt failed experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/valid/telos_completion_receipt.json: missing fields: acceptance_criteria, agent_id, benchmark_id, evidence, falsifiers, receipt_id, stated_goal, task_id",
+      "iter72_verified_completion_evidence": false,
+      "missing_fields_match_expected": true,
+      "missing_required_fields": [
+        "acceptance_criteria",
+        "agent_id",
+        "benchmark_id",
+        "evidence",
+        "falsifiers",
+        "receipt_id",
+        "stated_goal",
+        "task_id"
+      ],
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "slug": "dummy",
+      "status_value_if_present": "completed",
+      "status_value_valid_if_present": false,
+      "unexpected_fields_match_expected": true,
+      "unexpected_fields_under_schema": [],
+      "validator_error": "missing fields: acceptance_criteria, agent_id, benchmark_id, evidence, falsifiers, receipt_id, stated_goal, task_id"
+    },
+    {
+      "analysis_stratum": "deterministic_edit_small_workspace_edit",
+      "candidate_equals_invalid_artifact": true,
+      "candidate_fields": [
+        "receipt",
+        "sha256"
+      ],
+      "candidate_path": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/telos_completion_receipt_candidate.json",
+      "candidate_sha256": "4a06a7717fd0b263e1cf83de038ed64a5fc25cde522be03c7b2fe012c93c636e",
+      "classification": "schema_incomplete",
+      "diagnosis_validation": {
+        "returncode": 1,
+        "stderr": "",
+        "stdout": "receipt validation failed:\n - valid receipt failed /Users/danielwahnich/workspace/telos/experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/diagnosis_receipt_probe/deterministic_edit/valid/telos_completion_receipt.json: missing fields: acceptance_criteria, agent_id, benchmark_id, evidence, falsifiers, receipt_id, stated_goal, status, task_id",
+        "timed_out": false
+      },
+      "diagnosis_validation_command": "python3 scripts/validate_receipts.py experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/diagnosis_receipt_probe/deterministic_edit",
+      "expected_missing_required_fields": [
+        "acceptance_criteria",
+        "agent_id",
+        "benchmark_id",
+        "evidence",
+        "falsifiers",
+        "receipt_id",
+        "stated_goal",
+        "status",
+        "task_id"
+      ],
+      "expected_unexpected_fields": [
+        "receipt"
+      ],
+      "invalid_artifact_path": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/invalid/telos_completion_receipt.json",
+      "invalid_artifact_sha256": "a097403cc41e7a3692610ca7b9dc9472994a8243981c3b11fe51f96e4c1345c2",
+      "iter72_receipt_valid": false,
+      "iter72_receipt_validation_reason": "candidate_failed_receipt_validation",
+      "iter72_receipt_validation_stdout": "receipt validation failed:\n - valid receipt failed experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/valid/telos_completion_receipt.json: missing fields: acceptance_criteria, agent_id, benchmark_id, evidence, falsifiers, receipt_id, stated_goal, status, task_id",
+      "iter72_verified_completion_evidence": false,
+      "missing_fields_match_expected": true,
+      "missing_required_fields": [
+        "acceptance_criteria",
+        "agent_id",
+        "benchmark_id",
+        "evidence",
+        "falsifiers",
+        "receipt_id",
+        "stated_goal",
+        "status",
+        "task_id"
+      ],
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "slug": "deterministic_edit",
+      "status_value_if_present": null,
+      "status_value_valid_if_present": null,
+      "unexpected_fields_match_expected": true,
+      "unexpected_fields_under_schema": [
+        "receipt"
+      ],
+      "validator_error": "missing fields: acceptance_criteria, agent_id, benchmark_id, evidence, falsifiers, receipt_id, stated_goal, status, task_id"
+    }
+  ],
+  "experiment_id": "iter73_expanded_receipt_prompt_recovery_after_paid_block",
+  "proof_module_path": "telos/proof.py",
+  "proof_module_sha256": "52c6b20cc3c8327ecb782d64e57c3a41edb4618373278486879c97c0082c526e",
+  "schema_path": "protocol/proof.schema.json",
+  "schema_required_fields": [
+    "receipt_id",
+    "task_id",
+    "agent_id",
+    "benchmark_id",
+    "status",
+    "stated_goal",
+    "acceptance_criteria",
+    "evidence",
+    "falsifiers",
+    "sha256"
+  ],
+  "schema_sha256": "d598ab16675a9e47d1030d4053588795767963ff8f0702a984302bd330319559",
+  "schema_version": "telos.expanded_receipt_prompt_recovery.diagnosis.v1",
+  "source_iter72_report_path": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/protocol_effect_report.json",
+  "source_iter72_report_sha256": "773151dc371fa9f4e52f4183ffc8158d540e90f673aff8ff9ca44210fe041f05",
+  "source_iter72_summary_path": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/run_summary.json",
+  "source_iter72_summary_sha256": "196ba929894b649db63e90d3211a154799ccc9a90429b4adeb16896a8393e3d6",
+  "validator_path": "scripts/validate_receipts.py",
+  "validator_sha256": "f7e9bc955d8b14c12b40eeecb4d1d099d227791f7c16774e87c4edcd9fee5f97"
+}

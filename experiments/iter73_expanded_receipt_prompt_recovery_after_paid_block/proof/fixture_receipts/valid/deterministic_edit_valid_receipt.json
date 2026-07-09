@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "The workspace action must match the stated task goal.",
+    "The receipt must validate with the committed Telos proof validator."
+  ],
+  "agent_id": "codex-local-deterministic_edit-fixture",
+  "benchmark_id": "telos_expanded_receipt_prompt_recovery_deterministic_edit_fixture",
+  "evidence": [
+    {
+      "artifact": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/fixture_receipts/valid/deterministic_edit_valid_receipt.json",
+      "kind": "test",
+      "notes": "Fixture must pass scripts/validate_receipts.py.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The receipt omits any required Telos proof field.",
+    "The receipt sha256 does not match the canonical digest excluding sha256."
+  ],
+  "receipt_id": "iter73-deterministic_edit-local-valid-fixture",
+  "sha256": "ba871d807f310859f4d1b39d53886fbb8889a50d49bfb7eecbca3855a42b27ed",
+  "stated_goal": "Validate the recovered deterministic_edit receipt shape against the Telos proof schema.",
+  "status": "pass",
+  "task_id": "telos:iter73_expanded_receipt_prompt_recovery_after_paid_block:deterministic_edit:fixture"
+}

@@ -1,0 +1,24 @@
+{
+  "acceptance_criteria": [
+    "The workspace action must match the stated task goal.",
+    "The receipt must validate with the committed Telos proof validator."
+  ],
+  "agent_id": "provider-agent-expanded-dummy-telos-receipt-enforced",
+  "benchmark_id": "telos_codeclash_expanded_dummy_receipt_schema_recovery",
+  "evidence": [
+    {
+      "artifact": "telos_completion_receipt.json",
+      "kind": "artifact",
+      "notes": "Receipt created in the CodeClash workspace before final submission.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The receipt omits any required Telos proof field.",
+    "The receipt sha256 does not match the canonical digest excluding sha256."
+  ],
+  "receipt_id": "iter73-local-malformed-missing-sha256",
+  "stated_goal": "Make the smallest task-appropriate Dummy workspace edit and emit a valid Telos receipt.",
+  "status": "pass",
+  "task_id": "codeclash:configs/test/dummy.yaml"
+}

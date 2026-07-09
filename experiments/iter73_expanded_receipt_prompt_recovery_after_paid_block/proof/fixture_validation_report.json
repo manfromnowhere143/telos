@@ -1,0 +1,19 @@
+{
+  "malformed_expected_error": "missing fields: sha256",
+  "malformed_fixture_failed": true,
+  "malformed_fixture_path": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/fixture_receipts/invalid/missing_sha256_receipt.json",
+  "malformed_observed_error": "missing fields: sha256",
+  "schema_version": "telos.expanded_receipt_prompt_recovery.fixture_validation.v1",
+  "valid_fixture_paths": [
+    "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/fixture_receipts/valid/dummy_valid_receipt.json",
+    "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/fixture_receipts/valid/deterministic_edit_valid_receipt.json"
+  ],
+  "valid_fixtures_passed": true,
+  "validator_command": "python3 scripts/validate_receipts.py experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/fixture_receipts",
+  "validator_result": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "receipt validation: 2 valid receipts passed",
+    "timed_out": false
+  }
+}

@@ -126,8 +126,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter70_provider_compatible_expanded_adapter_completion` | pass | committed source snapshots are sufficient to plan four provider-compatible Dummy/deterministic-edit adapter rows, but the adapters are planning evidence only | refreeze or reject the expanded provider-compatible slice before any paid execution of adapter-planned rows |
 | `iter71_provider_compatible_expanded_slice_after_adapter_completion` | pass | the expanded provider-compatible slice can be frozen only as a stratified six-row plan, retaining two already executed BattleSnake rows and selecting four adapter-planned rows without cross-surface pooling | run only the pre-registered four-row adapter-planned paid gate under the frozen provider/API and spend ceilings |
 | `iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze` | blocked | the four adapter-planned rows executed under ceiling, but both receipt-required expanded rows emitted schema-incomplete receipt candidates and therefore could not count as verified completion evidence | recover expanded receipt-enforced prompt/schema alignment locally before any paid retry or higher-budget gate |
+| `iter73_expanded_receipt_prompt_recovery_after_paid_block` | pass | the two expanded receipt failures were local prompt/schema alignment gaps, and recovered receipt-enforced prompts now name all required fields and digest rules with local valid/malformed fixture proof | retry the same four adapter-planned rows under the recovered prompts and frozen paid ceiling |
 
-The next experiment may only classify the iter72 receipt-schema failures and recover expanded
-receipt-enforced prompts locally. It must use zero provider calls, zero spend, no row execution, no
-GPU, no cloud runner, mutate no Sentinel resource, keep the stratified no-pooling boundary, and
-preserve the existing no-benchmark/no-model-result claim boundary.
+The next experiment may only retry the same four adapter-planned rows under the recovered iter73
+receipt prompts and the frozen `32` provider-invocation and `$10.00` spend ceilings. It must not
+rerun the retained BattleSnake rows, use GPU or cloud runner, mutate Sentinel resources, pool
+cross-surface metrics, or make benchmark/model-result claims.

@@ -245,9 +245,14 @@ and an adversarial review pass.
   receipt candidates were schema-incomplete; no GPU/cloud/Sentinel/live-domain mutation or
   benchmark/model/SOTA claim occurred in
   [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
-- Current gate: expanded receipt prompt recovery after paid block,
+- Expanded receipt prompt recovery after paid block: passed locally with zero provider calls and
+  zero spend; the two iter72 receipt failures were classified with exact missing fields, two
+  recovered receipt-enforced prompt overlays were produced, local valid fixtures passed, and a
+  malformed fixture failed closed in
+  [`experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block`](experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/RESULT.md).
+- Current gate: provider-compatible expanded paid retry after receipt prompt recovery,
   pre-registered in
-  [`experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block`](experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/HYPOTHESIS.md).
+  [`experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery`](experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot plus a blocked four-row
   adapter-validation extension; neither is a benchmark result.

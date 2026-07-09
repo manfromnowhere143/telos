@@ -243,20 +243,24 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   and `$10.00`. `iter72` executed exactly those four rows and blocked under ceiling: 17 provider
   calls, `$0.057646` cost, no retained BattleSnake rerun, deterministic-edit baseline verified
   completion evidence only, and both receipt-required expanded rows rejected because their receipt
-  candidates were schema-incomplete.
+  candidates were schema-incomplete. `iter73` passed local recovery with zero provider calls and
+  zero spend: the two receipt failures were classified with exact missing fields, two recovered
+  receipt-enforced prompt overlays were produced, local valid fixtures passed, and one malformed
+  fixture failed closed.
 
-## During Expanded Receipt Prompt Recovery
+## During Expanded Paid Retry After Receipt Prompt Recovery
 
 If the gate runs:
 
-1. Revalidate the iter72 blocked proof, receipt, and audit.
-2. Classify the two invalid receipt candidates and record exact missing fields.
-3. Recover only the expanded receipt-enforced prompt/schema overlays needed for Dummy and
-   deterministic-edit rows.
-4. Prove the recovered receipt shape with local positive and malformed fixtures.
+1. Revalidate the iter72 blocked proof and iter73 receipt-prompt recovery proof.
+2. Materialize only the four iter71 adapter-planned row commands.
+3. Use the recovered iter73 prompt overlays for the two receipt-enforced rows.
+4. Record exact provider/API calls, spend, artifacts, costs, receipt validation, redaction, and
+   teardown evidence.
+5. Keep the analysis stratified by task surface and forbid pooled benchmark/model claims.
 
 If the gate blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific receipt prompt/schema, redaction, or validation gap.
+2. Correct only the specific command, provider, cost, redaction, receipt, teardown, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

@@ -1,0 +1,42 @@
+{
+  "acceptance_criteria": [
+    "Iter72 proof validates and its audit publishes a clean blocked artifact packet.",
+    "Both iter72 receipt candidates are classified with exact missing fields.",
+    "Recovered expanded receipt-enforced overlays include all required fields and the digest rule.",
+    "Local valid and malformed fixtures prove validator behavior.",
+    "No provider call, spend, row execution, GPU, cloud runner, Sentinel mutation, or overclaim occurs."
+  ],
+  "agent_id": "codex-local-expanded-receipt-prompt-recovery",
+  "benchmark_id": "telos_codeclash_expanded_receipt_schema_recovery",
+  "evidence": [
+    {
+      "artifact": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/expanded_receipt_prompt_recovery_report.json",
+      "kind": "test",
+      "notes": "Records diagnosis, recovered prompts, fixture validation, and zero-spend controls.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/recovered_overlay/",
+      "kind": "artifact",
+      "notes": "Recovered receipt-enforced prompt overlays for the two expanded rows.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the local-only claim boundary and remaining paid-retry gap.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter72 proof, receipt validation, or audit is missing.",
+    "The result must fail if either recovered prompt omits a required field or digest rule.",
+    "The result must fail if valid fixtures fail or malformed fixtures pass.",
+    "The result must fail if provider calls, spend, row execution, GPU, cloud runner, Sentinel mutation, or overclaim occurs."
+  ],
+  "receipt_id": "iter73-expanded-receipt-prompt-recovery-pass",
+  "sha256": "6ed5ef102f056962c2351cc5619a1dc1d6720ed1ef7bdd6e2461a217454484c8",
+  "stated_goal": "Diagnose the iter72 expanded receipt-schema failures and recover schema-aligned receipt-enforced prompts before any paid retry.",
+  "status": "pass",
+  "task_id": "telos:iter73_expanded_receipt_prompt_recovery_after_paid_block@iter72"
+}
