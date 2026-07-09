@@ -93,8 +93,10 @@ and an adversarial review pass.
   [`experiments/iter35_release_manifest_self_coverage_guard`](experiments/iter35_release_manifest_self_coverage_guard/RESULT.md).
 - Release manifest self-coverage negative guard: passed with five malformed self-coverage fixtures in
   [`experiments/iter36_release_manifest_self_coverage_negative_guard`](experiments/iter36_release_manifest_self_coverage_negative_guard/RESULT.md).
-- Current gate: release manifest self-coverage public sync guard, pre-registered in
-  [`experiments/iter37_release_manifest_self_coverage_public_sync_guard`](experiments/iter37_release_manifest_self_coverage_public_sync_guard/HYPOTHESIS.md).
+- Release manifest self-coverage public sync guard: passed against README/report/next-phase/continuity prose in
+  [`experiments/iter37_release_manifest_self_coverage_public_sync_guard`](experiments/iter37_release_manifest_self_coverage_public_sync_guard/RESULT.md).
+- Current gate: release manifest self-coverage public sync negative guard, pre-registered in
+  [`experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard`](experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -103,6 +105,13 @@ Claim-boundary reviewer entry point:
 It indexes the current claim-boundary proof packet and keeps failed/null rows, changed candidates,
 and no-claim exclusions visible. It is not a leaderboard, SWE-bench, production, live-domain, or
 model-superiority result.
+
+Self-coverage reviewer entry points:
+[`experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json`](experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json)
+and
+[`experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json`](experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json).
+They account for the release manifest's own self-verification gates and negative fixtures without
+changing the claim boundary.
 
 This repo deliberately separates the research line from Sentinel. Sentinel proved a standard:
 frozen bars, public baselines, nulls published, raw evidence committed, corrections on the record.
@@ -165,34 +174,36 @@ Release manifest public sync guard: [`experiments/iter33_release_manifest_public
 Release manifest public sync negative guard: [`experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md`](experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md).
 Release manifest self-coverage guard: [`experiments/iter35_release_manifest_self_coverage_guard/RESULT.md`](experiments/iter35_release_manifest_self_coverage_guard/RESULT.md).
 Release manifest self-coverage negative guard: [`experiments/iter36_release_manifest_self_coverage_negative_guard/RESULT.md`](experiments/iter36_release_manifest_self_coverage_negative_guard/RESULT.md).
-Release manifest self-coverage public sync guard: [`experiments/iter37_release_manifest_self_coverage_public_sync_guard/HYPOTHESIS.md`](experiments/iter37_release_manifest_self_coverage_public_sync_guard/HYPOTHESIS.md).
+Release manifest self-coverage public sync guard: [`experiments/iter37_release_manifest_self_coverage_public_sync_guard/RESULT.md`](experiments/iter37_release_manifest_self_coverage_public_sync_guard/RESULT.md).
+Release manifest self-coverage public sync negative guard: [`experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/HYPOTHESIS.md`](experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["iter21<br/>opponent pass<br/>tail caveat"] --> I22["iter22<br/>mutation pass"]
-  I22 --> I23["iter23<br/>occupied-tail failure"]
-  I23 --> I24["iter24<br/>changed candidate pass"]
-  I24 --> I25["iter25<br/>own-tail mutant missed"]
+  I21["iter21<br/>opponent pass<br/>tail caveat"] --> I22["iter22<br/>mut pass"]
+  I22 --> I23["iter23<br/>tail fail"]
+  I23 --> I24["iter24<br/>candidate pass"]
+  I24 --> I25["iter25<br/>tail mutant missed"]
   I25 --> I26["iter26<br/>compound pass"]
   I26 --> I27["iter27<br/>claim matrix pass"]
   I27 --> I28["iter28<br/>prose guard pass"]
   I28 --> I29["iter29<br/>negative pass"]
   I29 --> I30["iter30<br/>schema guard pass"]
-  I30 --> I31["iter31<br/>release manifest pass"]
-  I31 --> I32["iter32<br/>manifest negative pass"]
-  I32 --> I33["iter33<br/>public sync pass"]
-  I33 --> I34["iter34<br/>public sync negative guard pass"]
+  I30 --> I31["iter31<br/>manifest pass"]
+  I31 --> I32["iter32<br/>manifest neg pass"]
+  I32 --> I33["iter33<br/>sync pass"]
+  I33 --> I34["iter34<br/>sync neg pass"]
   I34 --> I35["iter35<br/>coverage pass"]
   I35 --> I36["iter36<br/>negative pass"]
-  I36 --> I37["iter37<br/>sync pending"]
+  I36 --> I37["iter37<br/>sync pass"]
+  I37 --> I38["iter38<br/>negative pending"]
   classDef pass fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   classDef fail fill:#fde8e8,stroke:#c62828,color:#3b0d0d;
   classDef pending fill:#fff4d6,stroke:#8a6d1d,color:#382900;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36 pass;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37 pass;
   class I23,I25 fail;
-  class I37 pending;
+  class I38 pending;
 ```
 
 ## Candidate Target Families
@@ -324,6 +335,8 @@ python3 scripts/validate_receipts.py experiments/iter35_release_manifest_self_co
 python3 scripts/audit_release_manifest_self_coverage_guard.py
 python3 scripts/validate_receipts.py experiments/iter36_release_manifest_self_coverage_negative_guard/proof
 python3 scripts/audit_release_manifest_self_coverage_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter37_release_manifest_self_coverage_public_sync_guard/proof
+python3 scripts/audit_release_manifest_self_coverage_public_sync_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

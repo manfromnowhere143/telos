@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The release manifest, self-coverage report, and self-coverage negative guard load locally.",
+    "All checked public prose files exist.",
+    "Public prose stays inside the claim boundaries.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-release-manifest-self-coverage-public-sync",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter37_release_manifest_self_coverage_public_sync_guard/proof/public_sync_report.json",
+      "kind": "test",
+      "notes": "Public prose checks against release manifest and self-coverage evidence.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json",
+      "kind": "artifact",
+      "notes": "Self-coverage report surfaced by public prose.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter37_release_manifest_self_coverage_public_sync_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records public-sync boundary and no-overclaim constraints.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if source proof artifacts cannot be loaded.",
+    "The result must fail if public prose bypasses the release manifest.",
+    "The result must fail if public prose hides self-coverage evidence.",
+    "The result must fail if failed/null rows are hidden.",
+    "The result must not widen into benchmark, production, live-domain, or model-superiority claims."
+  ],
+  "receipt_id": "iter37-release-manifest-self-coverage-public-sync-guard-pass",
+  "sha256": "42b31ef84b04ea279e60e4c2097fb6366363878cf0e2bd39b2d12dd47c5cea68",
+  "stated_goal": "Verify public prose surfaces the self-coverage report and negative guard without bypassing claim boundaries.",
+  "status": "pass",
+  "task_id": "telos:iter37_release_manifest_self_coverage_public_sync_guard@iter35_iter36_self_coverage"
+}

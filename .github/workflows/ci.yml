@@ -247,6 +247,12 @@ jobs:
       - name: Release manifest self-coverage negative guard audit
         run: python3 scripts/audit_release_manifest_self_coverage_negative_guard.py
 
+      - name: Release manifest self-coverage public sync guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter37_release_manifest_self_coverage_public_sync_guard/proof
+
+      - name: Release manifest self-coverage public sync guard audit
+        run: python3 scripts/audit_release_manifest_self_coverage_public_sync_guard.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

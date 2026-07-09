@@ -90,6 +90,7 @@ python3 scripts/validate_learning_ledger.py
 | `iter34_release_manifest_public_sync_negative_guard` | pass | the public-sync guard catches generated public-prose fixtures that bypass the release manifest, hide nulls, conflate candidate/original logic, or add overclaims | pre-register a self-coverage guard so the release-manifest reviewer packet accounts for its own manifest, negative, and public-sync proof gates |
 | `iter35_release_manifest_self_coverage_guard` | pass | a self-coverage report can account for the release-manifest reviewer packet's own manifest, negative, public-sync, and public-sync-negative proof gates without rewriting prior evidence | pre-register negative self-coverage fixtures so missing, stale, or hidden self-verification artifacts are rejected |
 | `iter36_release_manifest_self_coverage_negative_guard` | pass | the self-coverage guard rejects malformed reports that remove self-verification gates, stale hashes, hide failed/null gates, conflate candidate/original logic, or add forbidden benchmark claims | pre-register a public-sync guard so README, report, next-phase, and continuity prose surface the self-coverage report without bypassing claim boundaries |
+| `iter37_release_manifest_self_coverage_public_sync_guard` | pass | public prose can surface the self-coverage report and negative guard while keeping the release manifest as the claim-boundary reviewer entry point | pre-register negative public-sync fixtures so prose that hides self-coverage or bypasses the release manifest is rejected |
 
 The next experiment must not run CodeClash or call a provider model. It should publish a local
-public-sync guard for the release-manifest self-coverage report.
+negative public-sync guard for the release-manifest self-coverage prose.

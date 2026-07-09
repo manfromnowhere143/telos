@@ -78,8 +78,10 @@ Current evidence:
   for the release-manifest reviewer packet's own `iter31` through `iter34` proof gates.
 - `experiments/iter36_release_manifest_self_coverage_negative_guard/RESULT.md` passes a
   negative-fixture guard for the self-coverage report.
-- `experiments/iter37_release_manifest_self_coverage_public_sync_guard/HYPOTHESIS.md` freezes a
+- `experiments/iter37_release_manifest_self_coverage_public_sync_guard/RESULT.md` passes a
   public-sync guard for self-coverage prose.
+- `experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/HYPOTHESIS.md`
+  freezes a negative-fixture guard for self-coverage public prose.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
@@ -87,6 +89,13 @@ Current claim-boundary reviewer entry point:
 [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json).
 The manifest keeps failed/null gates, the changed candidate, original-provider rows, and no-claim
 exclusions in one hash-checked packet.
+
+Current self-coverage reviewer entry points:
+[`../experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json`](../experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json)
+and
+[`../experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json`](../experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json).
+They account for the release manifest's own proof gates and malformed self-coverage fixtures
+without changing the claim boundary.
 
 ## Reporting Rule
 

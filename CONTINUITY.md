@@ -24,11 +24,16 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter37_release_manifest_self_coverage_public_sync_guard/HYPOTHESIS.md`
+- `experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
 - `experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`
+
+Self-coverage reviewer entry points:
+
+- `experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json`
+- `experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json`
 
 Current claim:
 
@@ -164,8 +169,13 @@ Current claim:
 - `iter36_release_manifest_self_coverage_negative_guard` passed: the real `iter35` self-coverage
   report still passed, and five malformed self-coverage fixtures failed for expected reasons. No
   provider, API, GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
+- `iter37_release_manifest_self_coverage_public_sync_guard` passed: README, report, next-phase,
+  and continuity prose surface the release-manifest self-coverage report and negative guard while
+  keeping the release manifest as the claim-boundary reviewer entry point. No provider, API, GPU,
+  cloud runner, production change, leaderboard run, or SWE-bench run occurred.
 - No model or benchmark result is claimed yet.
-- The next gate must verify public prose surfaces self-coverage without widening claims.
+- The next gate must prove malformed self-coverage public prose is rejected without widening
+  claims.
 
 ## Required Verification
 
@@ -244,6 +254,8 @@ python3 scripts/validate_receipts.py experiments/iter35_release_manifest_self_co
 python3 scripts/audit_release_manifest_self_coverage_guard.py
 python3 scripts/validate_receipts.py experiments/iter36_release_manifest_self_coverage_negative_guard/proof
 python3 scripts/audit_release_manifest_self_coverage_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter37_release_manifest_self_coverage_public_sync_guard/proof
+python3 scripts/audit_release_manifest_self_coverage_public_sync_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
