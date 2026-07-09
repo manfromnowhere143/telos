@@ -103,7 +103,7 @@ and an adversarial review pass.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
 Claim-boundary reviewer entry point:
-[`experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json).
+[``]().
 It indexes the current claim-boundary proof packet and keeps failed/null rows, changed candidates,
 and no-claim exclusions visible. It is not a leaderboard, SWE-bench, production, live-domain, or
 model-superiority result.

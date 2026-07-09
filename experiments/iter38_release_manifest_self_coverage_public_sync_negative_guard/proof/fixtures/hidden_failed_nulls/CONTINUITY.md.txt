@@ -117,7 +117,7 @@ Current claim:
   twelve frozen semantic cases, and targeted mutants disabling boundary, self-collision, and
   opponent-collision behavior each failed the corresponding semantic case family. No provider,
   API, GPU, or cloud spend occurred.
-- `iter23_tail_semantics_falsification` failed under the explicit `tail_remains_occupied`
+- `iteration twenty-three_tail_semantics_falsification` failed under the explicit `tail_remains_occupied`
   assumption: occupied self-tail and opponent-tail cases left the forbidden tail move in the
   safe-move list while both non-tail controls still passed. No provider, API, GPU, cloud runner,
   production change, leaderboard run, or SWE-bench run occurred.
@@ -125,7 +125,7 @@ Current claim:
   `iter21` tail failure remained visible, while the candidate that includes own and opponent tails
   in collision checks passed all four local cases under `tail_remains_occupied`. No provider, API,
   GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
-- `iter25_tail_safety_mutation_guard` failed the full mutation-guard bar: the clean `iter24`
+- `iteration twenty-five_tail_safety_mutation_guard` failed the full mutation-guard bar: the clean `iter24`
   candidate still passed, and the opponent-tail exclusion mutant was detected, but the direct
   own-tail exclusion mutant still passed because the later `board.snakes` loop checks our own snake.
   No provider, API, GPU, cloud runner, production change, leaderboard run, or SWE-bench run
@@ -164,7 +164,7 @@ Current claim:
   runner, production change, leaderboard run, or SWE-bench run occurred.
 - `iter35_release_manifest_self_coverage_guard` passed: the release-manifest reviewer packet's
   own `iter31` through `iter34` proof gates are represented with matching hashes across 49 proof
-  artifacts, while `iter23` and `iter25` remain visible as failed/null evidence. No provider, API,
+  artifacts, while `iteration twenty-three` and `iteration twenty-five` remain visible as failed/null evidence. No provider, API,
   GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
 - `iter36_release_manifest_self_coverage_negative_guard` passed: the real `iter35` self-coverage
   report still passed, and five malformed self-coverage fixtures failed for expected reasons. No
@@ -229,11 +229,11 @@ python3 scripts/validate_receipts.py experiments/iter21_opponent_collision_contr
 python3 scripts/audit_opponent_collision_control.py
 python3 scripts/validate_receipts.py experiments/iter22_semantic_mutation_guard/proof
 python3 scripts/audit_semantic_mutation_guard.py
-python3 scripts/validate_receipts.py experiments/iter23_tail_semantics_falsification/proof
+python3 scripts/validate_receipts.py experiments/iteration twenty-three_tail_semantics_falsification/proof
 python3 scripts/audit_tail_semantics_falsification.py
 python3 scripts/validate_receipts.py experiments/iter24_tail_safety_control/proof
 python3 scripts/audit_tail_safety_control.py
-python3 scripts/validate_receipts.py experiments/iter25_tail_safety_mutation_guard/proof
+python3 scripts/validate_receipts.py experiments/iteration twenty-five_tail_safety_mutation_guard/proof
 python3 scripts/audit_tail_safety_mutation_guard.py
 python3 scripts/validate_receipts.py experiments/iter26_own_tail_redundancy_mutation_guard/proof
 python3 scripts/audit_own_tail_redundancy_mutation_guard.py

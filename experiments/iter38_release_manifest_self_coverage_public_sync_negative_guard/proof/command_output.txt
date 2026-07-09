@@ -1,0 +1,13 @@
+release manifest self coverage public sync negative guard: pass
+source_iter37=experiments/iter37_release_manifest_self_coverage_public_sync_guard/proof/public_sync_report.json
+provider_api_calls=0
+cloud_or_gpu_used=false
+real_public_prose_passed=true
+fixtures=6 failed_as_expected=6
+failed_fixture_ids=
+missing_release_manifest_reference: pass observed=required_snippets:README.md,required_snippets:docs/REPORT.md,required_snippets:docs/NEXT_PHASE.md,required_snippets:CONTINUITY.md,manifest_referenced_everywhere
+missing_self_coverage_report_reference: pass observed=required_snippets:README.md,required_snippets:docs/REPORT.md,required_snippets:docs/NEXT_PHASE.md,required_snippets:CONTINUITY.md,self_coverage_referenced_everywhere
+missing_self_coverage_negative_guard_reference: pass observed=required_snippets:README.md,required_snippets:docs/REPORT.md,required_snippets:docs/NEXT_PHASE.md,required_snippets:CONTINUITY.md,negative_report_referenced_everywhere
+hidden_failed_nulls: pass observed=required_snippets:docs/NEXT_PHASE.md,failed_null_rows_visible
+candidate_original_conflation: pass observed=changed_candidate_boundary_visible
+forbidden_benchmark_or_runtime_claim: pass observed=forbidden_claims:README.md,forbidden_claims:docs/REPORT.md,forbidden_claims:docs/NEXT_PHASE.md,forbidden_claims:CONTINUITY.md

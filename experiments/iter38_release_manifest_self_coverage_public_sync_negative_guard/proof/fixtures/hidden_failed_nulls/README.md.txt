@@ -63,13 +63,13 @@ and an adversarial review pass.
   [`experiments/iter21_opponent_collision_control`](experiments/iter21_opponent_collision_control/RESULT.md).
 - Semantic mutation guard: passed targeted mutation checks in
   [`experiments/iter22_semantic_mutation_guard`](experiments/iter22_semantic_mutation_guard/RESULT.md).
-- Tail semantics falsification: failed under the explicit occupied-tail assumption in
-  [`experiments/iter23_tail_semantics_falsification`](experiments/iter23_tail_semantics_falsification/RESULT.md).
+- Tail semantics falsification: passed under the explicit occupied-tail assumption in
+  [`experiments/iteration twenty-three_tail_semantics_falsification`](experiments/iteration twenty-three_tail_semantics_falsification/RESULT.md).
 - Tail safety control: passed for a clearly labeled changed candidate in
   [`experiments/iter24_tail_safety_control`](experiments/iter24_tail_safety_control/RESULT.md).
-- Tail safety mutation guard: failed because the own-tail mutant did not remove the redundant
+- Tail safety mutation guard: passed because the own-tail mutant did not remove the redundant
   self-snake fallback path in
-  [`experiments/iter25_tail_safety_mutation_guard`](experiments/iter25_tail_safety_mutation_guard/RESULT.md).
+  [`experiments/iteration twenty-five_tail_safety_mutation_guard`](experiments/iteration twenty-five_tail_safety_mutation_guard/RESULT.md).
 - Own-tail redundancy mutation guard: passed with a compound own-tail mutant in
   [`experiments/iter26_own_tail_redundancy_mutation_guard`](experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md).
 - Semantic claim boundary matrix: passed with original/candidate/failure/verifier rows separated in
@@ -162,9 +162,9 @@ Provider final inspection control: [`experiments/iter19_provider_final_inspectio
 Behavior semantic verification: [`experiments/iter20_behavior_semantic_verification/RESULT.md`](experiments/iter20_behavior_semantic_verification/RESULT.md).
 Opponent collision control: [`experiments/iter21_opponent_collision_control/RESULT.md`](experiments/iter21_opponent_collision_control/RESULT.md).
 Semantic mutation guard: [`experiments/iter22_semantic_mutation_guard/RESULT.md`](experiments/iter22_semantic_mutation_guard/RESULT.md).
-Tail semantics falsification: [`experiments/iter23_tail_semantics_falsification/RESULT.md`](experiments/iter23_tail_semantics_falsification/RESULT.md).
+Tail semantics falsification: [`experiments/iteration twenty-three_tail_semantics_falsification/RESULT.md`](experiments/iteration twenty-three_tail_semantics_falsification/RESULT.md).
 Tail safety control: [`experiments/iter24_tail_safety_control/RESULT.md`](experiments/iter24_tail_safety_control/RESULT.md).
-Tail safety mutation guard: [`experiments/iter25_tail_safety_mutation_guard/RESULT.md`](experiments/iter25_tail_safety_mutation_guard/RESULT.md).
+Tail safety mutation guard: [`experiments/iteration twenty-five_tail_safety_mutation_guard/RESULT.md`](experiments/iteration twenty-five_tail_safety_mutation_guard/RESULT.md).
 Own-tail redundancy mutation guard: [`experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md`](experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md).
 Semantic claim boundary matrix: [`experiments/iter27_semantic_claim_boundary_matrix/RESULT.md`](experiments/iter27_semantic_claim_boundary_matrix/RESULT.md).
 Public claim surface guard: [`experiments/iter28_public_claim_surface_guard/RESULT.md`](experiments/iter28_public_claim_surface_guard/RESULT.md).
@@ -185,9 +185,9 @@ Public task protocol-effect slice: [`experiments/iter39_public_task_protocol_eff
 ```mermaid
 flowchart LR
   I21["iter21<br/>opp pass<br/>tail caveat"] --> I22["iter22<br/>mut pass"]
-  I22 --> I23["iter23<br/>tail fail"]
+  I22 --> I23["iteration twenty-three<br/>tail fail"]
   I23 --> I24["iter24<br/>cand pass"]
-  I24 --> I25["iter25<br/>mut miss"]
+  I24 --> I25["iteration twenty-five<br/>mut miss"]
   I25 --> I26["iter26<br/>compound pass"]
   I26 --> I27["iter27<br/>matrix pass"]
   I27 --> I28["iter28<br/>prose pass"]
@@ -311,11 +311,11 @@ python3 scripts/validate_receipts.py experiments/iter21_opponent_collision_contr
 python3 scripts/audit_opponent_collision_control.py
 python3 scripts/validate_receipts.py experiments/iter22_semantic_mutation_guard/proof
 python3 scripts/audit_semantic_mutation_guard.py
-python3 scripts/validate_receipts.py experiments/iter23_tail_semantics_falsification/proof
+python3 scripts/validate_receipts.py experiments/iteration twenty-three_tail_semantics_falsification/proof
 python3 scripts/audit_tail_semantics_falsification.py
 python3 scripts/validate_receipts.py experiments/iter24_tail_safety_control/proof
 python3 scripts/audit_tail_safety_control.py
-python3 scripts/validate_receipts.py experiments/iter25_tail_safety_mutation_guard/proof
+python3 scripts/validate_receipts.py experiments/iteration twenty-five_tail_safety_mutation_guard/proof
 python3 scripts/audit_tail_safety_mutation_guard.py
 python3 scripts/validate_receipts.py experiments/iter26_own_tail_redundancy_mutation_guard/proof
 python3 scripts/audit_own_tail_redundancy_mutation_guard.py

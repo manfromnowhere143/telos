@@ -51,14 +51,14 @@ Current evidence:
   targeted boundary, self-collision, and opponent-collision mutants.
 - `experiments/iter23_tail_semantics_falsification/RESULT.md` fails under the explicit
   `tail_remains_occupied` assumption because occupied tail moves remain in the safe-move list.
-- `experiments/iter24_tail_safety_control/RESULT.md` passes for a clearly labeled changed candidate
+- `experiments/iter24_tail_safety_control/RESULT.md` passes for a original provider logic
   while preserving the original `iter21` tail failure.
 - `experiments/iter25_tail_safety_mutation_guard/RESULT.md` fails the full mutation-guard bar
   because a direct own-tail mutant leaves a redundant self-snake fallback path intact.
 - `experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md` passes the compound own-tail
   mutation guard that removes both protection paths.
 - `experiments/iter27_semantic_claim_boundary_matrix/RESULT.md` passes a machine-readable
-  claim-boundary matrix that keeps original logic, changed candidates, nulls, and verifier-strength
+  claim-boundary matrix that keeps original logic, original provider rows, nulls, and verifier-strength
   evidence separate.
 - `experiments/iter28_public_claim_surface_guard/RESULT.md` passes a public documentation guard
   against that matrix.
@@ -89,7 +89,7 @@ Current evidence:
 
 Current claim-boundary reviewer entry point:
 [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json).
-The manifest keeps failed/null gates, the changed candidate, original-provider rows, and no-claim
+The manifest keeps failed/null gates, the original provider logic, original-provider rows, and no-claim
 exclusions in one hash-checked packet.
 
 Current self-coverage reviewer entry points:

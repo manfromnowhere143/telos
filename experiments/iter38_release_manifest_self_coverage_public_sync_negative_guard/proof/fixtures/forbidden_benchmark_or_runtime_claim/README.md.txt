@@ -354,3 +354,5 @@ python3 scripts/make_handoff.py
 The language in this repo must stay below the evidence. A claim is allowed only when it has a
 source, a receipt, a log, or a clearly marked hypothesis behind it. Nulls and blocked gates are
 first-class results. Corrections remain in the record.
+
+CodeClash leaderboard result is claimed.

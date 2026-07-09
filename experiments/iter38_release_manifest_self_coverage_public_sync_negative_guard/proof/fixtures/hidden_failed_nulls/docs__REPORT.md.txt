@@ -49,11 +49,11 @@ Current evidence:
   and records the tail-exclusion caveat.
 - `experiments/iter22_semantic_mutation_guard/RESULT.md` proves the semantic verifier detects
   targeted boundary, self-collision, and opponent-collision mutants.
-- `experiments/iter23_tail_semantics_falsification/RESULT.md` fails under the explicit
+- `experiments/iteration twenty-three_tail_semantics_falsification/RESULT.md` fails under the explicit
   `tail_remains_occupied` assumption because occupied tail moves remain in the safe-move list.
 - `experiments/iter24_tail_safety_control/RESULT.md` passes for a clearly labeled changed candidate
   while preserving the original `iter21` tail failure.
-- `experiments/iter25_tail_safety_mutation_guard/RESULT.md` fails the full mutation-guard bar
+- `experiments/iteration twenty-five_tail_safety_mutation_guard/RESULT.md` fails the full mutation-guard bar
   because a direct own-tail mutant leaves a redundant self-snake fallback path intact.
 - `experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md` passes the compound own-tail
   mutation guard that removes both protection paths.

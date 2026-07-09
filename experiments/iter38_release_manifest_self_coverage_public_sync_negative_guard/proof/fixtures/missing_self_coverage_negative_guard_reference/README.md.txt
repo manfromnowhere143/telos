@@ -111,7 +111,7 @@ model-superiority result.
 Self-coverage reviewer entry points:
 [`experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json`](experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json)
 and
-[`experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json`](experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json).
+[``]().
 They account for the release manifest's own self-verification gates and negative fixtures without
 changing the claim boundary.
 

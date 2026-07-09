@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/run_summary.json",
+    "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/negative_guard_report.json",
+    "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/command_output.txt",
+    "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/review.md",
+    "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/valid/receipt_release_manifest_self_coverage_public_sync_negative_guard.json"
+  ],
+  "experiment_id": "iter38_release_manifest_self_coverage_public_sync_negative_guard",
+  "insight": "The self-coverage public-sync guard catches malformed prose that hides the release manifest, hides self-coverage evidence, hides failed/null gates, conflates changed candidate logic with original provider logic, or adds forbidden claims.",
+  "next_action": "pre-register a public-task protocol-effect slice so baseline and Telos-enforced completion evidence can be compared on frozen external tasks",
+  "result_path": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

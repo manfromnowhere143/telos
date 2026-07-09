@@ -65,7 +65,7 @@ and an adversarial review pass.
   [`experiments/iter22_semantic_mutation_guard`](experiments/iter22_semantic_mutation_guard/RESULT.md).
 - Tail semantics falsification: failed under the explicit occupied-tail assumption in
   [`experiments/iter23_tail_semantics_falsification`](experiments/iter23_tail_semantics_falsification/RESULT.md).
-- Tail safety control: passed for a clearly labeled changed candidate in
+- Tail safety control: passed for a original provider logic in
   [`experiments/iter24_tail_safety_control`](experiments/iter24_tail_safety_control/RESULT.md).
 - Tail safety mutation guard: failed because the own-tail mutant did not remove the redundant
   self-snake fallback path in
@@ -104,7 +104,7 @@ and an adversarial review pass.
 
 Claim-boundary reviewer entry point:
 [`experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json).
-It indexes the current claim-boundary proof packet and keeps failed/null rows, changed candidates,
+It indexes the current claim-boundary proof packet and keeps failed/null rows, original provider rows,
 and no-claim exclusions visible. It is not a leaderboard, SWE-bench, production, live-domain, or
 model-superiority result.
 

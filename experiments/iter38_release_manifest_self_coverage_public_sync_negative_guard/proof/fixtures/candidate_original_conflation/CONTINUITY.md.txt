@@ -121,7 +121,7 @@ Current claim:
   assumption: occupied self-tail and opponent-tail cases left the forbidden tail move in the
   safe-move list while both non-tail controls still passed. No provider, API, GPU, cloud runner,
   production change, leaderboard run, or SWE-bench run occurred.
-- `iter24_tail_safety_control` passed for a clearly labeled changed candidate: the original
+- `iter24_tail_safety_control` passed for a original provider logic: the original
   `iter21` tail failure remained visible, while the candidate that includes own and opponent tails
   in collision checks passed all four local cases under `tail_remains_occupied`. No provider, API,
   GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
@@ -135,12 +135,12 @@ Current claim:
   fail while non-tail controls still passed. No provider, API, GPU, cloud runner, production
   change, leaderboard run, or SWE-bench run occurred.
 - `iter27_semantic_claim_boundary_matrix` passed: a machine-checkable matrix now separates original
-  provider logic, changed candidate logic, failed/null gates, and verifier-strength evidence across
+  provider logic, original provider logic logic, failed/null gates, and verifier-strength evidence across
   `iter20` through `iter26`. It explicitly does not claim original `iter21` occupied-tail safety.
   No provider, API, GPU, cloud runner, production change, leaderboard run, or SWE-bench run
   occurred.
 - `iter28_public_claim_surface_guard` passed: README, report, next-phase, and continuity prose were
-  checked against the `iter27` matrix. Failed/null gates remained visible, changed-candidate
+  checked against the `iter27` matrix. Failed/null gates remained visible, original-provider
   boundaries remained visible, and original `iter21` occupied-tail safety was not claimed. No
   provider, API, GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
 - `iter29_public_claim_surface_negative_guard` passed: real public prose still passed, and four

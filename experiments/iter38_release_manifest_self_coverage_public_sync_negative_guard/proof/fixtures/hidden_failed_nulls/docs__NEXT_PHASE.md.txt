@@ -15,7 +15,7 @@ The output is not a leaderboard score. It is a public-task protocol-effect slice
   and
   [`../experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json`](../experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json)
   visible as self-coverage reviewer evidence,
-- keep `iter23` and `iter25` visible as failed/null evidence,
+- keep prior gates visible,
 - keep the changed `iter24` candidate separate from original `iter21` provider logic,
 - keep the `iter35` self-coverage report visible,
 - keep the `iter36` self-coverage negative guard visible,
@@ -41,9 +41,9 @@ authorized only the single frozen paid smoke, but it stopped before spend becaus
 `iter10` restored the credential path without calling a model. `iter11` authorized only the same
 single frozen paid smoke under the original `$25` ceiling; it blocked on Vertex predict permission.
 `iter12` authorized a minimal access probe. `iter13` through `iter19` stayed inside their frozen
-provider-smoke and quality-control gates. `iter20` through `iter23` returned to local semantic
-verification. `iter23` failed locally under the explicit `tail_remains_occupied` assumption.
-`iter24` passed locally for a changed candidate under the same assumption. `iter25` failed the full
+provider-smoke and quality-control gates. `iter20` through `iteration twenty-three` returned to local semantic
+verification. `iteration twenty-three` failed locally under the explicit `tail_remains_occupied` assumption.
+`iter24` passed locally for a changed candidate under the same assumption. `iteration twenty-five` failed the full
 mutation-guard bar because a single own-tail mutation left the self-snake fallback path intact.
 `iter26` passed the compound own-tail mutation guard. `iter27` passed the claim-boundary matrix.
 `iter28` passed the public claim-surface guard. `iter29` passed the negative public-claim fixture

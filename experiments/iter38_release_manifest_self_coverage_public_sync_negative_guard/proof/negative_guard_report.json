@@ -1,0 +1,719 @@
+{
+  "cloud_or_gpu_used": false,
+  "failed_fixture_ids": [],
+  "fixture_count": 6,
+  "fixtures": [
+    {
+      "checks": [
+        {
+          "check_id": "required_snippets:README.md",
+          "file": "README.md",
+          "missing": [
+            "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "missing": [
+            "../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "missing": [
+            "../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "missing": [
+            "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "forbidden_claims:README.md",
+          "file": "README.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "release_manifest_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_guard_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "manifest_referenced_everywhere",
+          "status": "fail"
+        },
+        {
+          "check_id": "self_coverage_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_report_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "failed_null_rows_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "changed_candidate_boundary_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "no_benchmark_or_production_claims",
+          "status": "pass"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_failed_checks": [
+        "required_snippets:README.md",
+        "required_snippets:docs/REPORT.md",
+        "required_snippets:docs/NEXT_PHASE.md",
+        "required_snippets:CONTINUITY.md",
+        "manifest_referenced_everywhere"
+      ],
+      "fixture_id": "missing_release_manifest_reference",
+      "fixture_paths": {
+        "CONTINUITY.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_release_manifest_reference/CONTINUITY.md.txt",
+        "README.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_release_manifest_reference/README.md.txt",
+        "docs/NEXT_PHASE.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_release_manifest_reference/docs__NEXT_PHASE.md.txt",
+        "docs/REPORT.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_release_manifest_reference/docs__REPORT.md.txt"
+      },
+      "malformation_detected": true,
+      "observed_failed_checks": [
+        "required_snippets:README.md",
+        "required_snippets:docs/REPORT.md",
+        "required_snippets:docs/NEXT_PHASE.md",
+        "required_snippets:CONTINUITY.md",
+        "manifest_referenced_everywhere"
+      ],
+      "status": "pass"
+    },
+    {
+      "checks": [
+        {
+          "check_id": "required_snippets:README.md",
+          "file": "README.md",
+          "missing": [
+            "experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "missing": [
+            "../experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "missing": [
+            "../experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "missing": [
+            "experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "forbidden_claims:README.md",
+          "file": "README.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "release_manifest_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_guard_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "manifest_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_referenced_everywhere",
+          "status": "fail"
+        },
+        {
+          "check_id": "negative_report_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "failed_null_rows_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "changed_candidate_boundary_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "no_benchmark_or_production_claims",
+          "status": "pass"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_failed_checks": [
+        "required_snippets:README.md",
+        "required_snippets:docs/REPORT.md",
+        "required_snippets:docs/NEXT_PHASE.md",
+        "required_snippets:CONTINUITY.md",
+        "self_coverage_referenced_everywhere"
+      ],
+      "fixture_id": "missing_self_coverage_report_reference",
+      "fixture_paths": {
+        "CONTINUITY.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_self_coverage_report_reference/CONTINUITY.md.txt",
+        "README.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_self_coverage_report_reference/README.md.txt",
+        "docs/NEXT_PHASE.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_self_coverage_report_reference/docs__NEXT_PHASE.md.txt",
+        "docs/REPORT.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_self_coverage_report_reference/docs__REPORT.md.txt"
+      },
+      "malformation_detected": true,
+      "observed_failed_checks": [
+        "required_snippets:README.md",
+        "required_snippets:docs/REPORT.md",
+        "required_snippets:docs/NEXT_PHASE.md",
+        "required_snippets:CONTINUITY.md",
+        "self_coverage_referenced_everywhere"
+      ],
+      "status": "pass"
+    },
+    {
+      "checks": [
+        {
+          "check_id": "required_snippets:README.md",
+          "file": "README.md",
+          "missing": [
+            "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "missing": [
+            "../experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "missing": [
+            "../experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "missing": [
+            "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "forbidden_claims:README.md",
+          "file": "README.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "release_manifest_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_guard_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "manifest_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_report_referenced_everywhere",
+          "status": "fail"
+        },
+        {
+          "check_id": "failed_null_rows_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "changed_candidate_boundary_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "no_benchmark_or_production_claims",
+          "status": "pass"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_failed_checks": [
+        "required_snippets:README.md",
+        "required_snippets:docs/REPORT.md",
+        "required_snippets:docs/NEXT_PHASE.md",
+        "required_snippets:CONTINUITY.md",
+        "negative_report_referenced_everywhere"
+      ],
+      "fixture_id": "missing_self_coverage_negative_guard_reference",
+      "fixture_paths": {
+        "CONTINUITY.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_self_coverage_negative_guard_reference/CONTINUITY.md.txt",
+        "README.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_self_coverage_negative_guard_reference/README.md.txt",
+        "docs/NEXT_PHASE.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_self_coverage_negative_guard_reference/docs__NEXT_PHASE.md.txt",
+        "docs/REPORT.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/missing_self_coverage_negative_guard_reference/docs__REPORT.md.txt"
+      },
+      "malformation_detected": true,
+      "observed_failed_checks": [
+        "required_snippets:README.md",
+        "required_snippets:docs/REPORT.md",
+        "required_snippets:docs/NEXT_PHASE.md",
+        "required_snippets:CONTINUITY.md",
+        "negative_report_referenced_everywhere"
+      ],
+      "status": "pass"
+    },
+    {
+      "checks": [
+        {
+          "check_id": "required_snippets:README.md",
+          "file": "README.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "required_snippets:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "required_snippets:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "missing": [
+            "keep `iter23` and `iter25` visible as failed/null evidence"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "required_snippets:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:README.md",
+          "file": "README.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "release_manifest_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_guard_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "manifest_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_report_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "failed_null_rows_visible",
+          "status": "fail"
+        },
+        {
+          "check_id": "changed_candidate_boundary_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "no_benchmark_or_production_claims",
+          "status": "pass"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_failed_checks": [
+        "required_snippets:docs/NEXT_PHASE.md",
+        "failed_null_rows_visible"
+      ],
+      "fixture_id": "hidden_failed_nulls",
+      "fixture_paths": {
+        "CONTINUITY.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/hidden_failed_nulls/CONTINUITY.md.txt",
+        "README.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/hidden_failed_nulls/README.md.txt",
+        "docs/NEXT_PHASE.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/hidden_failed_nulls/docs__NEXT_PHASE.md.txt",
+        "docs/REPORT.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/hidden_failed_nulls/docs__REPORT.md.txt"
+      },
+      "malformation_detected": true,
+      "observed_failed_checks": [
+        "required_snippets:docs/NEXT_PHASE.md",
+        "failed_null_rows_visible"
+      ],
+      "status": "pass"
+    },
+    {
+      "checks": [
+        {
+          "check_id": "required_snippets:README.md",
+          "file": "README.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "required_snippets:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "required_snippets:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "required_snippets:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:README.md",
+          "file": "README.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "found": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "release_manifest_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_guard_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "manifest_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_report_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "failed_null_rows_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "changed_candidate_boundary_visible",
+          "status": "fail"
+        },
+        {
+          "check_id": "no_benchmark_or_production_claims",
+          "status": "pass"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_failed_checks": [
+        "changed_candidate_boundary_visible"
+      ],
+      "fixture_id": "candidate_original_conflation",
+      "fixture_paths": {
+        "CONTINUITY.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/candidate_original_conflation/CONTINUITY.md.txt",
+        "README.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/candidate_original_conflation/README.md.txt",
+        "docs/NEXT_PHASE.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/candidate_original_conflation/docs__NEXT_PHASE.md.txt",
+        "docs/REPORT.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/candidate_original_conflation/docs__REPORT.md.txt"
+      },
+      "malformation_detected": true,
+      "observed_failed_checks": [
+        "changed_candidate_boundary_visible"
+      ],
+      "status": "pass"
+    },
+    {
+      "checks": [
+        {
+          "check_id": "required_snippets:README.md",
+          "file": "README.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "required_snippets:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "required_snippets:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "required_snippets:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "missing": [],
+          "status": "pass"
+        },
+        {
+          "check_id": "forbidden_claims:README.md",
+          "file": "README.md",
+          "found": [
+            "CodeClash leaderboard result is claimed"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "forbidden_claims:docs/REPORT.md",
+          "file": "docs/REPORT.md",
+          "found": [
+            "SWE-bench result is claimed"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "forbidden_claims:docs/NEXT_PHASE.md",
+          "file": "docs/NEXT_PHASE.md",
+          "found": [
+            "production result is claimed"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "forbidden_claims:CONTINUITY.md",
+          "file": "CONTINUITY.md",
+          "found": [
+            "live-domain result is claimed"
+          ],
+          "status": "fail"
+        },
+        {
+          "check_id": "release_manifest_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_guard_status_pass",
+          "status": "pass"
+        },
+        {
+          "check_id": "manifest_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "self_coverage_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "negative_report_referenced_everywhere",
+          "status": "pass"
+        },
+        {
+          "check_id": "failed_null_rows_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "changed_candidate_boundary_visible",
+          "status": "pass"
+        },
+        {
+          "check_id": "no_benchmark_or_production_claims",
+          "status": "pass"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_failed_checks": [
+        "forbidden_claims:README.md",
+        "forbidden_claims:docs/REPORT.md",
+        "forbidden_claims:docs/NEXT_PHASE.md",
+        "forbidden_claims:CONTINUITY.md"
+      ],
+      "fixture_id": "forbidden_benchmark_or_runtime_claim",
+      "fixture_paths": {
+        "CONTINUITY.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/forbidden_benchmark_or_runtime_claim/CONTINUITY.md.txt",
+        "README.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/forbidden_benchmark_or_runtime_claim/README.md.txt",
+        "docs/NEXT_PHASE.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/forbidden_benchmark_or_runtime_claim/docs__NEXT_PHASE.md.txt",
+        "docs/REPORT.md": "experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof/fixtures/forbidden_benchmark_or_runtime_claim/docs__REPORT.md.txt"
+      },
+      "malformation_detected": true,
+      "observed_failed_checks": [
+        "forbidden_claims:README.md",
+        "forbidden_claims:docs/REPORT.md",
+        "forbidden_claims:docs/NEXT_PHASE.md",
+        "forbidden_claims:CONTINUITY.md"
+      ],
+      "status": "pass"
+    }
+  ],
+  "fixtures_failed_as_expected": true,
+  "leaderboard_or_swebench_claimed": false,
+  "local_cpu_only": true,
+  "model_superiority_claimed": false,
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 0,
+  "provider_game_score_used_as_verifier_evidence": false,
+  "provider_spend_usd": 0.0,
+  "real_failed_check_ids": [],
+  "real_public_prose_passed": true,
+  "schema_version": "telos.release_manifest_self_coverage_public_sync_negative_guard.report.v1",
+  "source_iter37_clean_pass": true,
+  "source_iter37_report_path": "experiments/iter37_release_manifest_self_coverage_public_sync_guard/proof/public_sync_report.json",
+  "source_iter37_report_sha256": "103e0b0f47b5bc9c9e2a383509992423902511460364b4e9d2a2defa2da0bd02",
+  "source_iter37_status": "pass",
+  "source_manifest_path": "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json",
+  "source_manifest_sha256": "2d231a5001d023565575c5b6aeee5c18768ef76e353dd5a02517d13cecc84d32",
+  "source_negative_guard_report_path": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json",
+  "source_negative_guard_report_sha256": "ef041d4d169670c24ede09085f3b2813f55d52740308486b1c5e12f5e6146562",
+  "source_self_coverage_report_path": "experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json",
+  "source_self_coverage_report_sha256": "2bc3796212f4ed2c4978674463f800e7f7b92a8861b534a5e7df9b1c7fce33d9",
+  "status": "pass"
+}
