@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter69_codeclash_task_surface_source_snapshot_recovery/HYPOTHESIS.md`
+- `experiments/iter70_provider_compatible_expanded_adapter_completion/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -333,11 +333,16 @@ Current claim:
   calls, zero spend, no row execution, no GPU, no cloud runner, and no Sentinel mutation. Two
   deterministic-edit adapter rows were planned from committed `iter06` source, but two Dummy rows
   remain rejected because `configs/test/dummy.yaml` has no committed source snapshot.
+- `iter69_codeclash_task_surface_source_snapshot_recovery` passed locally with zero provider
+  calls, zero spend, no row execution, no GPU, no cloud runner, and no Sentinel mutation. It copied
+  `configs/test/dummy.yaml` from the pinned CodeClash Git blob at
+  `381cdfa05a35e8acd35853b9fc7e13005121b127` into committed source-only snapshots with hash
+  `b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97`.
 - No model or benchmark result is claimed yet.
-- The next gate may only snapshot required CodeClash task-source files from the pinned checkout or
-  publish a precise source-snapshot blocker. It must use zero provider calls, zero spend, no row
-  execution, no GPU or cloud runner, mutate no Sentinel resource, change no production/live-domain
-  behavior, and make no benchmark/model claim.
+- The next gate may only complete the provider-compatible expanded adapter plan from committed
+  source snapshots or publish a precise adapter blocker. It must use zero provider calls, zero
+  spend, no row execution, no GPU or cloud runner, mutate no Sentinel resource, change no
+  production/live-domain behavior, and make no benchmark/model claim.
 
 ## Required Verification
 
@@ -480,6 +485,8 @@ python3 scripts/validate_receipts.py experiments/iter67_provider_compatible_expa
 python3 scripts/audit_provider_compatible_expanded_slice_refreeze.py
 python3 scripts/validate_receipts.py experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof
 python3 scripts/audit_provider_compatible_task_surface_adapter_recovery.py
+python3 scripts/validate_receipts.py experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof
+python3 scripts/audit_codeclash_task_surface_source_snapshot_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

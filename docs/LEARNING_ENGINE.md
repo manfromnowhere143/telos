@@ -122,8 +122,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment` | pass | the receipt-prompt-aligned paid retry made the Telos receipt valid and both baseline and Telos rows had verified-completion evidence, giving a two-row primary delta of 0 | freeze the smallest justified expanded provider-compatible slice before further paid execution |
 | `iter67_provider_compatible_expanded_slice_refreeze` | blocked | the committed candidate universe still has no condition-balanced provider-compatible task rows beyond the two BattleSnake rows already executed in iter66 | recover provider-compatible task-surface adapters for the excluded public rows before attempting any larger paid protocol-effect run |
 | `iter68_provider_compatible_task_surface_adapter_recovery` | blocked | deterministic-edit adapter rows can be planned from committed source, but Dummy cannot be adapted honestly until its source config is committed | snapshot required CodeClash task source files from the pinned checkout before completing expanded adapter recovery |
+| `iter69_codeclash_task_surface_source_snapshot_recovery` | pass | the missing Dummy task source was recovered from the pinned CodeClash Git blob and committed as source-only snapshot evidence with matching hashes | complete the provider-compatible expanded adapter set from committed source snapshots before any expanded paid protocol-effect retry |
 
-The next experiment may only snapshot required CodeClash source task files from the pinned checkout
-or publish a precise source-snapshot blocker. It must use zero provider calls, zero spend, no row
+The next experiment may only complete provider-compatible adapter planning from committed source
+snapshots or publish a precise adapter blocker. It must use zero provider calls, zero spend, no row
 execution, no GPU, no cloud runner, no Sentinel mutation, and the existing no-benchmark/no-model-
 result claim boundary.

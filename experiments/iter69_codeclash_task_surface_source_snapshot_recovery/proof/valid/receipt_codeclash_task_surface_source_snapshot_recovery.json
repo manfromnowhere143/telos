@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter68 is present and blocked for committed_dummy_source_surface_missing.",
+    "The pinned CodeClash checkout path and commit are recorded.",
+    "configs/test/dummy.yaml is copied from the pinned Git blob into committed evidence.",
+    "Source, canonical snapshot, and proof snapshot hashes match.",
+    "Copied files are labeled as task-surface evidence, not execution results.",
+    "Provider calls, spend, row execution, GPU, cloud runner startup, Sentinel mutation, and live-domain mutation remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-codeclash-source-snapshot-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof/source_snapshot_report.json",
+      "kind": "test",
+      "notes": "Machine-readable source snapshot and hash equality report.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/source_snapshots/codeclash/configs/test/dummy.yaml",
+      "kind": "artifact",
+      "notes": "Canonical committed CodeClash Dummy task-surface snapshot.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the source-only boundary and dirty-checkout caveat.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter68 is missing or was not blocked for the source-snapshot blocker.",
+    "The result must block if the pinned CodeClash checkout or source Git blob cannot be read.",
+    "The result must block if any copied snapshot hash differs from the pinned source blob.",
+    "The result must fail if copied task source is presented as execution evidence.",
+    "The result must fail if provider calls, spend, row execution, GPU, cloud runner startup, Sentinel mutation, or live-domain mutation occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, leaderboard, SWE-bench, production, live-domain, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter69-codeclash-task-surface-source-snapshot-recovery-pass",
+  "sha256": "4a7a05e6fcfa36635954c5b4b420fbb3d5e8e13a8881e4d7ff37fa11d7166e9a",
+  "stated_goal": "Recover committed source evidence for the CodeClash Dummy task surface without provider calls, row execution, GPU, cloud runner startup, or Sentinel mutation.",
+  "status": "pass",
+  "task_id": "telos:iter69_codeclash_task_surface_source_snapshot_recovery@iter68"
+}

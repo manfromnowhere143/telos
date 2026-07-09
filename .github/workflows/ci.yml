@@ -439,6 +439,12 @@ jobs:
       - name: Provider-compatible task-surface adapter recovery audit
         run: python3 scripts/audit_provider_compatible_task_surface_adapter_recovery.py
 
+      - name: CodeClash task-surface source snapshot recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof
+
+      - name: CodeClash task-surface source snapshot recovery audit
+        run: python3 scripts/audit_codeclash_task_surface_source_snapshot_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

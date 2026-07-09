@@ -19,7 +19,7 @@ def run(args: list[str]) -> str:
 
 def experiment_status() -> list[str]:
     rows = []
-    for path in sorted(Path("experiments").glob("*/")):
+    for path in sorted(Path("experiments").glob("iter*/")):
         if (path / "RESULT.md").exists():
             status = "RESULT PUBLISHED"
         elif (path / "HYPOTHESIS.md").exists():
@@ -212,6 +212,8 @@ python3 scripts/validate_receipts.py experiments/iter67_provider_compatible_expa
 python3 scripts/audit_provider_compatible_expanded_slice_refreeze.py
 python3 scripts/validate_receipts.py experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof
 python3 scripts/audit_provider_compatible_task_surface_adapter_recovery.py
+python3 scripts/validate_receipts.py experiments/iter69_codeclash_task_surface_source_snapshot_recovery/proof
+python3 scripts/audit_codeclash_task_surface_source_snapshot_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

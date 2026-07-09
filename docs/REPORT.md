@@ -250,6 +250,14 @@ Current evidence:
   cloud runner, no Sentinel mutation, and no benchmark/model/state-of-the-art claim occurred.
 - `experiments/iter69_codeclash_task_surface_source_snapshot_recovery/HYPOTHESIS.md`
   pre-registers the source-snapshot recovery needed before Dummy adapters can be validated.
+- `experiments/iter69_codeclash_task_surface_source_snapshot_recovery/RESULT.md` passes that
+  source-snapshot recovery. `configs/test/dummy.yaml` is copied from the pinned CodeClash Git blob
+  at commit `381cdfa05a35e8acd35853b9fc7e13005121b127` into canonical and proof snapshots with
+  matching hash `b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97`. Zero provider
+  calls, zero spend, no row execution, no GPU, no cloud runner, no Sentinel mutation, and no
+  benchmark/model/state-of-the-art claim occurred.
+- `experiments/iter70_provider_compatible_expanded_adapter_completion/HYPOTHESIS.md`
+  pre-registers the next zero-spend adapter-completion gate before any larger paid execution.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
