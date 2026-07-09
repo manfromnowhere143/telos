@@ -301,6 +301,12 @@ jobs:
       - name: Public task condition executor assembly audit
         run: python3 scripts/audit_public_task_condition_executor_assembly.py
 
+      - name: Public task protocol effect execution with assembled executor receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof
+
+      - name: Public task protocol effect execution with assembled executor audit
+        run: python3 scripts/audit_public_task_protocol_effect_execution_with_assembled_executor.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

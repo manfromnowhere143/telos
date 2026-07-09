@@ -1,0 +1,117 @@
+{
+  "attempted_task_condition_pairs": 0,
+  "blocked_task_condition_pairs": 6,
+  "blockers": [
+    "provider_overlay_not_bound_to_pair_commands",
+    "recovered_harness_full_execution_disabled",
+    "recovered_harness_requires_future_task_condition_gate"
+  ],
+  "cloud_runner_started": false,
+  "condition_rows": [
+    {
+      "attempted_task_count": 0,
+      "blocked_task_count": 3,
+      "condition_id": "baseline_agent_completion_evidence",
+      "planned_task_count": 3,
+      "planned_task_ids": [
+        "codeclash:configs/test/dummy.yaml",
+        "codeclash:configs/test/battlesnake_pvp_test.yaml",
+        "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+      ],
+      "reason": "preflight_blocked_before_provider_command_binding",
+      "status": "blocked",
+      "verified_completion_count": 0,
+      "verified_completion_rate": null
+    },
+    {
+      "attempted_task_count": 0,
+      "blocked_task_count": 3,
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "planned_task_count": 3,
+      "planned_task_ids": [
+        "codeclash:configs/test/dummy.yaml",
+        "codeclash:configs/test/battlesnake_pvp_test.yaml",
+        "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+      ],
+      "reason": "preflight_blocked_before_provider_command_binding",
+      "status": "blocked",
+      "verified_completion_count": 0,
+      "verified_completion_rate": null
+    }
+  ],
+  "experiment_id": "iter46_public_task_protocol_effect_execution_with_assembled_executor",
+  "failures": [],
+  "gpu_used": false,
+  "metrics": {
+    "primary": {
+      "exact_counts_available": false,
+      "metric_id": "verified_completion_rate",
+      "reason": "no task-condition pair executed",
+      "status": "blocked",
+      "value": null
+    },
+    "secondary": [
+      {
+        "metric_id": "proxy_pass_receipt_fail_rate",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "unsupported_claim_rate",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "over_edit_rate",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "evidence_missing_rate",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "audit_minutes_per_task",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "false_positive_rate",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "false_negative_rate",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "model_api_calls_per_task",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "cost_usd_per_task",
+        "reason": "not computable without executed provider-backed pair artifacts",
+        "status": "blocked",
+        "value": null
+      }
+    ]
+  },
+  "next_gate": "experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md",
+  "planned_task_condition_pairs": 6,
+  "provider_model_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.public_task_protocol_effect_execution_with_assembled_executor.report.v1",
+  "sentinel_named_resources_modified": false,
+  "status": "blocked"
+}

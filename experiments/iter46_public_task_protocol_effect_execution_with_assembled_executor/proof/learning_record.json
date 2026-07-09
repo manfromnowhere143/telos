@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/run_summary.json",
+    "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/preflight.json",
+    "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/execution_report.json",
+    "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/command_output.txt",
+    "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/review.md",
+    "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/valid/receipt_public_task_protocol_effect_execution_with_assembled_executor.json"
+  ],
+  "experiment_id": "iter46_public_task_protocol_effect_execution_with_assembled_executor",
+  "insight": "The dry-run executor manifest is not yet a provider-backed executor; provider overlays must be bound into exact task-condition commands before paid execution can start.",
+  "next_action": "recover provider task-condition command binding without spend, then retry the six-pair execution only if the command surface is concrete and audited",
+  "result_path": "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}

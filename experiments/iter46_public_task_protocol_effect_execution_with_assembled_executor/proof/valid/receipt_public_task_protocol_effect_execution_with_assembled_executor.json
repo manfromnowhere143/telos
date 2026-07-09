@@ -1,0 +1,48 @@
+{
+  "acceptance_criteria": [
+    "The iter45 executor manifest remains present and audited.",
+    "Provider-backed pair commands must be concrete before any pair is run.",
+    "The recovered harness must not require a future task-condition gate before execution.",
+    "No provider spend, cloud runner startup, GPU use, or model invocation occurs after a blocking preflight.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-protocol-effect-executor",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/preflight.json",
+      "kind": "test",
+      "notes": "Preflight records why six-pair provider-backed execution did not start.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/execution_report.json",
+      "kind": "artifact",
+      "notes": "Execution report preserves blocked condition rows and uncomputed metrics.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the command-binding gap and claim boundary.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if provider-backed pair commands are not concrete before execution.",
+    "The result must block if the recovered harness still requires a future task-condition gate.",
+    "The result must fail if any task-condition pair is executed after a blocking preflight.",
+    "The result must fail if provider spend, GPU use, cloud runner startup, or model calls occur after a blocking preflight.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter46-public-task-protocol-effect-execution-with-assembled-executor-blocked",
+  "sha256": "ce8f71b6f53bf32d123980595aff6651d95ac93f4a155c1679463ab1a25e6bb9",
+  "stated_goal": "Execute the frozen six-pair public task protocol-effect slice only if the assembled executor binds provider-backed commands concretely and the recovered harness enables execution.",
+  "status": "blocked",
+  "task_id": "telos:iter46_public_task_protocol_effect_execution_with_assembled_executor@iter45"
+}

@@ -118,8 +118,12 @@ and an adversarial review pass.
   zero provider model calls, zero provider spend, no cloud runner, and full execution still disabled
   in
   [`experiments/iter45_public_task_condition_executor_assembly`](experiments/iter45_public_task_condition_executor_assembly/RESULT.md).
-- Current gate: public task protocol-effect execution with the assembled executor, pre-registered in
-  [`experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor`](experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/HYPOTHESIS.md).
+- Public task protocol-effect execution with assembled executor: blocked before provider execution
+  because provider overlays were not bound into pair commands and the recovered harness still
+  disabled full task-condition execution in
+  [`experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor`](experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/RESULT.md).
+- Current gate: provider task-condition command binding recovery, pre-registered in
+  [`experiments/iter47_provider_task_condition_command_binding_recovery`](experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -206,19 +210,20 @@ Public task protocol-effect execution retry: [`experiments/iter42_public_task_pr
 Provider execution harness recovery: [`experiments/iter43_provider_execution_harness_recovery/RESULT.md`](experiments/iter43_provider_execution_harness_recovery/RESULT.md).
 Public task protocol-effect execution after harness recovery: [`experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/RESULT.md`](experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/RESULT.md).
 Public task-condition executor assembly: [`experiments/iter45_public_task_condition_executor_assembly/RESULT.md`](experiments/iter45_public_task_condition_executor_assembly/RESULT.md).
-Public task protocol-effect execution with assembled executor: [`experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/HYPOTHESIS.md`](experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/HYPOTHESIS.md).
+Public task protocol-effect execution with assembled executor: [`experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/RESULT.md`](experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/RESULT.md).
+Provider task-condition command binding recovery: [`experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md`](experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21 opp"]-->I22["22 mut"]-->I23["23 tail null"]-->I24["24 cand"]-->I25["25 mut null"]-->I26["26 compound"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 block"]-->I41["41 runner"]-->I42["42 block"]-->I43["43 harness"]-->I44["44 block"]-->I45["45 exec-plan"]-->I46["46 exec"]
+  I21["21 opp"]-->I22["22 mut"]-->I23["23 tail null"]-->I24["24 cand"]-->I25["25 mut null"]-->I26["26 compound"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 block"]-->I41["41 runner"]-->I42["42 block"]-->I43["43 harness"]-->I44["44 block"]-->I45["45 exec-plan"]-->I46["46 block"]-->I47["47 bind"]
   classDef p fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   classDef n fill:#fde8e8,stroke:#c62828,color:#3b0d0d;
   classDef b fill:#fff4d6,stroke:#8a6d1d,color:#382900;
   class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45 p;
   class I23,I25 n;
-  class I40,I42,I44,I46 b;
+  class I40,I42,I44,I46,I47 b;
 ```
 
 ## Candidate Target Families
@@ -368,6 +373,8 @@ python3 scripts/validate_receipts.py experiments/iter44_public_task_protocol_eff
 python3 scripts/audit_public_task_protocol_effect_execution_after_harness_recovery.py
 python3 scripts/validate_receipts.py experiments/iter45_public_task_condition_executor_assembly/proof
 python3 scripts/audit_public_task_condition_executor_assembly.py
+python3 scripts/validate_receipts.py experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof
+python3 scripts/audit_public_task_protocol_effect_execution_with_assembled_executor.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/HYPOTHESIS.md`
+- `experiments/iter47_provider_task_condition_command_binding_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -209,9 +209,16 @@ Current claim:
   pair has artifact, cost, redaction, lifecycle, receipt, and metric plans. Zero provider model
   calls occurred, zero spend occurred, no cloud runner started, no GPU was used, and no
   benchmark/model result is claimed.
+- `iter46_public_task_protocol_effect_execution_with_assembled_executor` blocked before provider
+  execution: the `iter45` manifest was accepted, but provider overlays were not bound into the
+  pair commands, and the recovered harness still disabled full task-condition execution. Six pairs
+  remained planned, zero started, zero provider model calls occurred, zero spend occurred, no cloud
+  runner started, no GPU was used, no Sentinel-named resources were modified, and no
+  benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate may execute the six frozen task-condition pairs only under the `iter46` budget,
-  Sentinel isolation, artifact, redaction, cost, receipt, and claim-boundary controls.
+- The next gate may recover provider task-condition command binding only; provider calls, spend,
+  cloud runner startup, GPU use, and Sentinel resource modification remain forbidden until the
+  command surface is concrete and audited.
 
 ## Required Verification
 
@@ -308,6 +315,8 @@ python3 scripts/validate_receipts.py experiments/iter44_public_task_protocol_eff
 python3 scripts/audit_public_task_protocol_effect_execution_after_harness_recovery.py
 python3 scripts/validate_receipts.py experiments/iter45_public_task_condition_executor_assembly/proof
 python3 scripts/audit_public_task_condition_executor_assembly.py
+python3 scripts/validate_receipts.py experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/proof
+python3 scripts/audit_public_task_protocol_effect_execution_with_assembled_executor.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
