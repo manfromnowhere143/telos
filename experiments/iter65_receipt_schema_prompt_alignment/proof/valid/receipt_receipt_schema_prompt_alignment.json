@@ -1,0 +1,42 @@
+{
+  "acceptance_criteria": [
+    "The iter64 invalid receipt candidate is classified with the committed schema and validator.",
+    "A recovered prompt overlay includes every required Telos receipt field and digest rule.",
+    "A local valid fixture passes scripts/validate_receipts.py.",
+    "A local malformed fixture fails for the expected reason.",
+    "No provider call, provider spend, GPU, cloud runner, Sentinel mutation, or overclaim occurs."
+  ],
+  "agent_id": "codex-local-receipt-schema-prompt-alignment",
+  "benchmark_id": "telos_codeclash_battlesnake_protocol_effect_receipt_schema",
+  "evidence": [
+    {
+      "artifact": "experiments/iter65_receipt_schema_prompt_alignment/proof/receipt_schema_alignment_report.json",
+      "kind": "test",
+      "notes": "Records diagnosis, local fixture validation, redaction scan, and zero-spend controls.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+      "kind": "artifact",
+      "notes": "Recovered receipt-enforced prompt overlay for a future paid retry.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter65_receipt_schema_prompt_alignment/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the local-only claim boundary and remaining paid-run gap.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter64 proof, schema, validator, or candidate evidence is missing.",
+    "The result must fail if the recovered prompt omits a required receipt field or digest rule.",
+    "The result must fail if the valid fixture fails or the malformed fixture passes.",
+    "The result must fail if provider calls, spend, GPU, cloud runner, Sentinel mutation, or overclaim occurs."
+  ],
+  "receipt_id": "iter65-receipt-schema-prompt-alignment-pass",
+  "sha256": "f0170d3aa2ad84e33605f76cf34fd6c4dec41ae6caeed8f98faf9115aa99ff80",
+  "stated_goal": "Diagnose the iter64 Telos receipt failure and recover a schema-aligned local receipt prompt before any additional paid provider-compatible retry.",
+  "status": "pass",
+  "task_id": "telos:iter65_receipt_schema_prompt_alignment@iter64"
+}

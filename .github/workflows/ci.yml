@@ -415,6 +415,12 @@ jobs:
       - name: Provider-compatible paid execution after access-path recovery audit
         run: python3 scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py
 
+      - name: Receipt schema prompt alignment receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter65_receipt_schema_prompt_alignment/proof
+
+      - name: Receipt schema prompt alignment audit
+        run: python3 scripts/audit_receipt_schema_prompt_alignment.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

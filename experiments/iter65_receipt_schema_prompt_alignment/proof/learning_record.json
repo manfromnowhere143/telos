@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter65_receipt_schema_prompt_alignment/proof/run_summary.json",
+    "experiments/iter65_receipt_schema_prompt_alignment/proof/receipt_schema_alignment_report.json",
+    "experiments/iter65_receipt_schema_prompt_alignment/proof/receipt_failure_diagnosis.json",
+    "experiments/iter65_receipt_schema_prompt_alignment/proof/fixture_validation_report.json",
+    "experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+    "experiments/iter65_receipt_schema_prompt_alignment/proof/valid/receipt_receipt_schema_prompt_alignment.json"
+  ],
+  "experiment_id": "iter65_receipt_schema_prompt_alignment",
+  "insight": "The iter64 Telos receipt failure was a prompt/schema alignment gap: the agent emitted a receipt-like JSON object, but the prompt did not expose the committed Telos receipt fields or canonical sha256 rule.",
+  "next_action": "run the pre-registered bounded paid retry of the same two frozen provider-compatible rows using the recovered receipt prompt overlay",
+  "result_path": "experiments/iter65_receipt_schema_prompt_alignment/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

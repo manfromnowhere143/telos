@@ -217,6 +217,15 @@ Current evidence:
 - `experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md` pre-registers the next
   zero-spend gate: diagnose the iter64 receipt-schema failure and recover a schema-aligned Telos
   receipt prompt before any further paid retry.
+- `experiments/iter65_receipt_schema_prompt_alignment/RESULT.md` passes that local gate with zero
+  provider calls and zero spend. The iter64 Telos receipt candidate is classified as
+  schema-incomplete because it omitted `agent_id`, `benchmark_id`, `evidence`, `receipt_id`,
+  `sha256`, `stated_goal`, `status`, and `task_id`; the recovered prompt overlay now names the
+  required fields and digest rule, a local valid fixture passes, and a malformed fixture fails.
+- `experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md`
+  pre-registers the next bounded paid retry: exactly the same two provider-compatible BattleSnake
+  rows, the recovered iter65 Telos receipt overlay, the `16` call and `$10.00` ceilings, no
+  excluded pairs, no GPU/cloud runner/Sentinel mutation, and no benchmark/model claim.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

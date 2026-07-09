@@ -11,7 +11,7 @@
     ".github/workflows/codeclash-agent-behavior.yml",
     ".github/workflows/codeclash-deterministic-edit.yml"
   ],
-  "active_gate": "experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md",
+  "active_gate": "experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md",
   "loop": [
     {
       "phase": "pre_register",
@@ -213,6 +213,8 @@
     "python3 scripts/audit_vertex_access_path_parity_recheck.py",
     "python3 scripts/validate_receipts.py experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof",
     "python3 scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py",
+    "python3 scripts/validate_receipts.py experiments/iter65_receipt_schema_prompt_alignment/proof",
+    "python3 scripts/audit_receipt_schema_prompt_alignment.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_handoff.py"
   ]

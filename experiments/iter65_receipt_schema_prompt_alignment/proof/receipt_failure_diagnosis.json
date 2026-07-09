@@ -1,0 +1,59 @@
+{
+  "candidate_equals_invalid_artifact": true,
+  "candidate_fields": [
+    "acceptance_criteria",
+    "evidence_artifacts",
+    "falsifiers",
+    "files_changed",
+    "files_intentionally_left_unchanged",
+    "goal"
+  ],
+  "classification": "schema_incomplete",
+  "diagnosis_validation": {
+    "returncode": 1,
+    "stderr": "",
+    "stdout": "receipt validation failed:\n - valid receipt failed /Users/danielwahnich/workspace/telos/experiments/iter65_receipt_schema_prompt_alignment/proof/diagnosis_receipt_probe/valid/telos_completion_receipt.json: missing fields: agent_id, benchmark_id, evidence, receipt_id, sha256, stated_goal, status, task_id",
+    "timed_out": false
+  },
+  "diagnosis_validation_command": "python3 scripts/validate_receipts.py experiments/iter65_receipt_schema_prompt_alignment/proof/diagnosis_receipt_probe",
+  "iter64_candidate_path": "experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/telos_completion_receipt_candidate.json",
+  "iter64_candidate_sha256": "dda2449e2b326bc61ced70d72bebcba5e1e5bfac48eeed6471dddaa85d20910d",
+  "iter64_invalid_artifact_path": "experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/invalid/telos_completion_receipt.json",
+  "iter64_invalid_artifact_sha256": "367595fad7eec78f8e044348372195aa829142eb7aab6475758e671ab54ca020",
+  "missing_required_fields": [
+    "agent_id",
+    "benchmark_id",
+    "evidence",
+    "receipt_id",
+    "sha256",
+    "stated_goal",
+    "status",
+    "task_id"
+  ],
+  "proof_module_path": "telos/proof.py",
+  "proof_module_sha256": "52c6b20cc3c8327ecb782d64e57c3a41edb4618373278486879c97c0082c526e",
+  "schema_path": "protocol/proof.schema.json",
+  "schema_required_fields": [
+    "receipt_id",
+    "task_id",
+    "agent_id",
+    "benchmark_id",
+    "status",
+    "stated_goal",
+    "acceptance_criteria",
+    "evidence",
+    "falsifiers",
+    "sha256"
+  ],
+  "schema_sha256": "d598ab16675a9e47d1030d4053588795767963ff8f0702a984302bd330319559",
+  "schema_version": "telos.receipt_schema_prompt_alignment.diagnosis.v1",
+  "unexpected_fields_under_schema": [
+    "evidence_artifacts",
+    "files_changed",
+    "files_intentionally_left_unchanged",
+    "goal"
+  ],
+  "validator_error": "missing fields: agent_id, benchmark_id, evidence, receipt_id, sha256, stated_goal, status, task_id",
+  "validator_path": "scripts/validate_receipts.py",
+  "validator_sha256": "f7e9bc955d8b14c12b40eeecb4d1d099d227791f7c16774e87c4edcd9fee5f97"
+}

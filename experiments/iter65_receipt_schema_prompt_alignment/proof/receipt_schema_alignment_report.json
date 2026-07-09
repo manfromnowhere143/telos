@@ -1,0 +1,54 @@
+{
+  "benchmark_result_claimed": false,
+  "blockers": [],
+  "cloud_runner_started": false,
+  "excluded_pair_executed": false,
+  "experiment_id": "iter65_receipt_schema_prompt_alignment",
+  "failures": [],
+  "gpu_used": false,
+  "iter64_audit": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "iter64 provider-compatible paid execution after access path recovery audit: clean artifact packet",
+    "timed_out": false
+  },
+  "iter64_receipt_failure_classification": "schema_incomplete",
+  "iter64_receipt_validation": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "receipt validation: 1 valid receipts passed",
+    "timed_out": false
+  },
+  "leaderboard_or_swebench_result_claimed": false,
+  "local_malformed_fixture_failed": true,
+  "local_valid_fixture_passed": true,
+  "missing_required_fields": [
+    "agent_id",
+    "benchmark_id",
+    "evidence",
+    "receipt_id",
+    "sha256",
+    "stated_goal",
+    "status",
+    "task_id"
+  ],
+  "model_superiority_claimed": false,
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "recovered_prompt_digest_rule_present": true,
+  "recovered_prompt_path": "experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+  "recovered_prompt_required_fields_present": true,
+  "redaction_findings": [],
+  "redaction_scan_passed": true,
+  "schema_version": "telos.receipt_schema_prompt_alignment.report.v1",
+  "sentinel_named_resources_modified": false,
+  "state_of_the_art_result_claimed": false,
+  "status": "pass",
+  "unexpected_fields_under_schema": [
+    "evidence_artifacts",
+    "files_changed",
+    "files_intentionally_left_unchanged",
+    "goal"
+  ]
+}

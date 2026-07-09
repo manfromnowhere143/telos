@@ -2,16 +2,17 @@
 
 ## Current Action
 
-Run `iter65_receipt_schema_prompt_alignment` exactly as
+Run `iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment` exactly as
 frozen in
-[`../experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md`](../experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md).
+[`../experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md`](../experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
 provider-backed protocol-effect measurement: baseline verified-completion evidence was `true`,
 Telos verified-completion evidence was `false`, and the Telos row failed because its receipt
-candidate did not match the Telos proof schema. The target of `iter65` is to recover that receipt
-schema/prompt alignment locally with zero provider calls before any paid retry.
+candidate did not match the Telos proof schema. `iter65` recovered that receipt schema/prompt
+alignment locally with zero provider calls. The target of `iter66` is to retry only the same two
+frozen provider-compatible BattleSnake rows using the recovered receipt prompt overlay.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -84,11 +85,15 @@ schema/prompt alignment locally with zero provider calls before any paid retry.
   [`../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/run_summary.json`](../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/run_summary.json),
 - use the iter64 invalid Telos receipt candidate from
   [`../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/telos_completion_receipt_candidate.json`](../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/telos_completion_receipt_candidate.json),
-- execute no BattleSnake row and no excluded pair,
-- recover only the Telos receipt prompt/schema alignment locally,
+- use the passed iter65 receipt-schema prompt recovery from
+  [`../experiments/iter65_receipt_schema_prompt_alignment/proof/run_summary.json`](../experiments/iter65_receipt_schema_prompt_alignment/proof/run_summary.json),
+- use the recovered iter65 Telos receipt overlay from
+  [`../experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml`](../experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml),
+- execute only the two selected provider-compatible BattleSnake rows,
+- execute no excluded pair,
 - keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
-- keep provider model calls at `0`,
-- keep provider spend at `$0.00`,
+- keep provider model calls at or below `16`,
+- keep provider spend at or below `$10.00`,
 - start no cloud runner,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
@@ -185,22 +190,26 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   measurement: baseline verified-completion evidence was `true`, Telos verified-completion
   evidence was `false`, the primary delta was `-1`, 10 provider calls and `$0.070448` CodeClash
   metadata cost were recorded, the baseline row was explicitly recovered after a verifier crash,
-  and the Telos row's receipt candidate failed schema validation. `iter65` authorizes only local
+  and the Telos row's receipt candidate failed schema validation. `iter65` passed local
   receipt-schema prompt alignment with zero provider calls, zero spend, no GPU, no cloud runner,
-  no Sentinel modification, and no benchmark/model overclaim.
+  no Sentinel modification, and no benchmark/model overclaim. It classified the iter64 receipt
+  candidate as schema-incomplete, recovered the prompt overlay, and validated local positive and
+  malformed fixtures. `iter66` authorizes only a bounded retry of the same two
+  provider-compatible BattleSnake rows with that recovered overlay under the existing `16` call
+  and `$10.00` ceilings.
 
-## During Receipt-Schema Prompt Alignment
+## During Provider-Compatible Paid Execution After Receipt Prompt Alignment
 
 If the gate runs:
 
-1. Load the iter64 invalid receipt candidate and current Telos proof schema.
-2. Classify the missing schema fields and digest rule.
-3. Produce a recovered Telos receipt prompt overlay and local valid/malformed fixtures.
-4. Run only local receipt validation, redaction scan, metrics, and adversarial review before
-   interpretation.
+1. Revalidate iter64 and iter65 receipts and audits before execution.
+2. Materialize the recovered iter65 Telos receipt overlay into the runtime CodeClash checkout.
+3. Execute only the two selected provider-compatible BattleSnake rows.
+4. Parse provider calls, metadata cost, raw artifacts, Telos receipt validation, redaction scan,
+   metrics, and adversarial review before interpretation.
 
 If the gate blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific schema, prompt, fixture, redaction, receipt, or metric gap.
+2. Correct only the specific runtime, overlay, cost, redaction, receipt, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

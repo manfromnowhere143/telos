@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "The bot should not move out of bounds.",
+    "The changes should be safe and well-scoped."
+  ],
+  "agent_id": "codex-local-fixture",
+  "benchmark_id": "telos_receipt_schema_alignment_fixture",
+  "evidence": [
+    {
+      "artifact": "experiments/iter65_receipt_schema_prompt_alignment/proof/fixture_receipts/valid/local_valid_receipt.json",
+      "kind": "test",
+      "notes": "Fixture must pass scripts/validate_receipts.py.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The bot moves out of bounds.",
+    "The bot crashes due to syntax errors."
+  ],
+  "receipt_id": "iter65-local-valid-fixture-pass",
+  "sha256": "a04b76a78a11a6345b869104c068f9083b717733d0cf8859e1bc3dfd10be3e48",
+  "stated_goal": "Validate a local fixture against the Telos proof receipt schema.",
+  "status": "pass",
+  "task_id": "telos:iter65_receipt_schema_prompt_alignment:fixture"
+}

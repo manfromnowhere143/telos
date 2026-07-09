@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md`
+- `experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -315,11 +315,15 @@ Current claim:
   `$0.070448` CodeClash metadata cost were recorded; excluded pairs stayed unattempted; and no
   GPU, cloud runner, Sentinel mutation, production/live-domain change, benchmark claim, model
   claim, or state-of-the-art claim occurred.
+- `iter65_receipt_schema_prompt_alignment` passed as a zero-spend local prompt/schema recovery:
+  the iter64 Telos receipt candidate was classified as schema-incomplete because it omitted eight
+  required Telos proof fields, the recovered prompt overlay now names the required fields and
+  digest rule, the local valid fixture passes, and the malformed fixture fails.
 - No model or benchmark result is claimed yet.
-- The next gate may only recover the iter64 receipt-schema prompt gap locally with zero provider
-  calls, zero provider spend, no BattleSnake row execution, no excluded-pair execution, no GPU, no
-  cloud runner, no Sentinel resource modification, no production/live-domain change, and the
-  existing no-benchmark/no-model-result claim boundary.
+- The next gate may only retry the same two frozen provider-compatible BattleSnake rows with the
+  recovered `iter65` receipt prompt overlay under the `16` provider-call and `$10.00` spend
+  ceilings. It may execute no excluded pair, use no GPU or cloud runner, mutate no Sentinel
+  resource, change no production/live-domain behavior, and make no benchmark/model claim.
 
 ## Required Verification
 
@@ -454,6 +458,8 @@ python3 scripts/validate_receipts.py experiments/iter63_vertex_access_path_parit
 python3 scripts/audit_vertex_access_path_parity_recheck.py
 python3 scripts/validate_receipts.py experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof
 python3 scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py
+python3 scripts/validate_receipts.py experiments/iter65_receipt_schema_prompt_alignment/proof
+python3 scripts/audit_receipt_schema_prompt_alignment.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
