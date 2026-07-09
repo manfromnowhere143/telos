@@ -1,0 +1,45 @@
+{
+  "acceptance_criteria": [
+    "Iter63 is a clean access-path recovery pass before paid execution.",
+    "Exactly two selected BattleSnake condition rows execute and zero excluded pairs execute.",
+    "Provider calls stay at or below 16 and provider spend at or below $10.00.",
+    "No GPU, Sentinel resource mutation, production/live-domain mutation, or overclaim occurs.",
+    "The Telos row is accepted as verified completion only if receipt validation passes.",
+    "Runtime project and bearer-token values are injected only at execution time and are not committed."
+  ],
+  "agent_id": "codex-local-provider-compatible-paid-execution-runner",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records exact row execution, call, cost, receipt, and metric counts.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/raw/",
+      "kind": "artifact",
+      "notes": "Raw packet contains command transcripts, CodeClash metadata, trajectory, changes, and extracted round results.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the two-row claim boundary and any null/blocked outcome.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter63 is not a clean access-path recovery pass.",
+    "The result must block if runtime credential, Docker, or CodeClash readiness regresses.",
+    "The result must fail if any excluded pair executes.",
+    "The result must fail if provider calls, spend, GPU use, Sentinel mutation, or overclaim exceeds the gate.",
+    "The result must fail if credential, project, service-account, or token residue is committed.",
+    "The result must not accept the Telos row as verified completion unless receipt validation passes."
+  ],
+  "receipt_id": "iter64-provider-compatible-paid-execution-after-access-path-recovery-pass",
+  "sha256": "73aeba41ef6ec9dfd0a21a18013135a974e200ac68964ce11cd59a4019992ecd",
+  "stated_goal": "Execute exactly the two frozen provider-compatible BattleSnake rows after iter63 recovered the Vertex access path, then measure verified-completion evidence under baseline and Telos receipt-enforced conditions.",
+  "status": "pass",
+  "task_id": "telos:iter64_provider_compatible_paid_execution_after_access_path_recovery@iter63"
+}

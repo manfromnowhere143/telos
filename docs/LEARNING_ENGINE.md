@@ -117,9 +117,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter61_vertex_quota_project_binding_recovery` | blocked | Mini-SWE-Agent passes `model_kwargs` into LiteLLM and LiteLLM accepts `extra_headers`, but a bounded probe with `X-Goog-User-Project` still returned redacted `CONSUMER_INVALID` evidence | recover the LiteLLM Vertex bearer-token/header path before retrying the exact two-row paid pilot |
 | `iter62_vertex_bearer_token_path_recovery` | blocked | LiteLLM custom headers can override the default Authorization header, but a bounded runtime bearer-token plus quota-project probe still returned redacted `CONSUMER_INVALID` evidence | recheck current direct REST versus LiteLLM access-path parity before retrying the two-row paid pilot |
 | `iter63_vertex_access_path_parity_recheck` | pass | current direct REST and LiteLLM access paths both reach the selected Vertex global model through secret-safe runtime credentials | pre-register the exact two-row paid pilot retry using the recovered access path |
+| `iter64_provider_compatible_paid_execution_after_access_path_recovery` | pass | the first bounded two-row provider-backed protocol-effect pilot measured baseline verified-completion evidence as true and Telos verified-completion evidence as false because the Telos receipt candidate failed schema validation | recover receipt-schema prompt alignment locally before any paid retry or slice expansion |
 
-The next experiment may only retry the exact two selected provider-compatible BattleSnake rows
-under the recovered access path, a `16` call / `$10.00` spend ceiling, raw artifact/cost/receipt/
-redaction evidence, and the existing no-benchmark/no-model-result claim boundary. Executing
-excluded pairs, using GPU, modifying Sentinel resources, changing production/live domains, and
-making unsupported benchmark/model claims remain forbidden.
+The next experiment may only diagnose and recover the iter64 receipt-schema prompt gap locally.
+It must use zero provider calls, zero provider spend, no GPU, no cloud runner, no Sentinel
+modification, no production/live-domain change, no excluded-pair execution, and the existing
+no-benchmark/no-model-result claim boundary.

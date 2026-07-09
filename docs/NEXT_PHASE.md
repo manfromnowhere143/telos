@@ -2,16 +2,16 @@
 
 ## Current Action
 
-Run `iter64_provider_compatible_paid_execution_after_access_path_recovery` exactly as
+Run `iter65_receipt_schema_prompt_alignment` exactly as
 frozen in
-[`../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md`](../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md).
+[`../experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md`](../experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
-model-superiority result, or state-of-the-art claim. It is the bounded two-row
-provider-compatible protocol-effect retry after `iter63` proved current direct REST and LiteLLM
-access paths both reach the selected Vertex global model. The target is to produce exact
-baseline-versus-Telos evidence counts on the frozen BattleSnake slice, not to claim a benchmark
-result.
+model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
+provider-backed protocol-effect measurement: baseline verified-completion evidence was `true`,
+Telos verified-completion evidence was `false`, and the Telos row failed because its receipt
+candidate did not match the Telos proof schema. The target of `iter65` is to recover that receipt
+schema/prompt alignment locally with zero provider calls before any paid retry.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -80,13 +80,15 @@ result.
   [`../experiments/iter62_vertex_bearer_token_path_recovery/proof/run_summary.json`](../experiments/iter62_vertex_bearer_token_path_recovery/proof/run_summary.json),
 - use the passed iter63 access-path parity evidence from
   [`../experiments/iter63_vertex_access_path_parity_recheck/proof/run_summary.json`](../experiments/iter63_vertex_access_path_parity_recheck/proof/run_summary.json),
-- execute only the two selected BattleSnake rows from the iter54 command manifest,
-- inject the runtime Vertex project, bearer token, and quota project only through environment
-  variables under the iter63-proven LiteLLM access path,
-- preserve the Telos receipt-validation path for the next two-row retry,
+- use the passed iter64 two-row measurement from
+  [`../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/run_summary.json`](../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/run_summary.json),
+- use the iter64 invalid Telos receipt candidate from
+  [`../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/telos_completion_receipt_candidate.json`](../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/telos_completion_receipt_candidate.json),
+- execute no BattleSnake row and no excluded pair,
+- recover only the Telos receipt prompt/schema alignment locally,
 - keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
-- keep provider model calls at or below `16`,
-- keep provider spend at or below `$10.00`,
+- keep provider model calls at `0`,
+- keep provider spend at `$0.00`,
 - start no cloud runner,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
@@ -179,23 +181,26 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   access-path parity recheck: current direct REST and LiteLLM probes both reached the selected
   Vertex global model with two provider calls, `$0.000014` observed LiteLLM cost, no BattleSnake
   row execution, no excluded pair, no GPU, no cloud runner, no Sentinel modification, and no
-  benchmark/model claim. `iter64` authorizes only the exact two-row paid provider-compatible
-  BattleSnake retry under the recovered access path, `16` invocation and `$10.00` spend ceilings,
-  with excluded pairs, GPU use, Sentinel modification, production/live-domain changes, and
-  benchmark/model overclaims still forbidden.
+  benchmark/model claim. `iter64` passed as a bounded two-row provider-backed protocol-effect
+  measurement: baseline verified-completion evidence was `true`, Telos verified-completion
+  evidence was `false`, the primary delta was `-1`, 10 provider calls and `$0.070448` CodeClash
+  metadata cost were recorded, the baseline row was explicitly recovered after a verifier crash,
+  and the Telos row's receipt candidate failed schema validation. `iter65` authorizes only local
+  receipt-schema prompt alignment with zero provider calls, zero spend, no GPU, no cloud runner,
+  no Sentinel modification, and no benchmark/model overclaim.
 
-## During Paid Two-Row Retry
+## During Receipt-Schema Prompt Alignment
 
-If the retry runs:
+If the gate runs:
 
-1. Materialize the iter63-proven LiteLLM access path with runtime-only env credentials.
-2. Run exactly the baseline and Telos selected BattleSnake rows.
-3. Commit raw logs, metadata, trajectories when available, diff scope, cost/call counts, receipt
-   validation, redaction scan, metrics, and adversarial review before interpretation.
+1. Load the iter64 invalid receipt candidate and current Telos proof schema.
+2. Classify the missing schema fields and digest rule.
+3. Produce a recovered Telos receipt prompt overlay and local valid/malformed fixtures.
+4. Run only local receipt validation, redaction scan, metrics, and adversarial review before
+   interpretation.
 
-If the retry blocks, fails, or produces ambiguous evidence:
+If the gate blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific access-path, credential, runner, config, cost, redaction, receipt, or
-   metric gap.
+2. Correct only the specific schema, prompt, fixture, redaction, receipt, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

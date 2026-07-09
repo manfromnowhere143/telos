@@ -1,0 +1,22 @@
+{
+  "goal": "Improve the Battlesnake bot safely within the command budget.",
+  "acceptance_criteria": [
+    "The bot should not move out of bounds.",
+    "The changes should be safe and well-scoped."
+  ],
+  "evidence_artifacts": [
+    "main.py",
+    "README_agent.md"
+  ],
+  "falsifiers": [
+    "The bot moves out of bounds.",
+    "The bot crashes due to syntax errors."
+  ],
+  "files_changed": [
+    "main.py",
+    "README_agent.md"
+  ],
+  "files_intentionally_left_unchanged": [
+    "server.py"
+  ]
+}

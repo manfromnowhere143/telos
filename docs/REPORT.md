@@ -1,6 +1,8 @@
 # Report
 
-No model or benchmark result is claimed yet.
+No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
+protocol-effect pilot result from `iter64`; it is not a benchmark result and it does not support a
+model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -202,9 +204,19 @@ Current evidence:
   row or excluded pair ran, no GPU or cloud runner was used, no Sentinel resource was modified,
   and no benchmark/model claim is made.
 - `experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md`
-  pre-registers the next execution gate: retry exactly the two frozen provider-compatible
-  BattleSnake rows under the recovered access path, the `16` call and `$10.00` ceilings, full raw
+  pre-registers the execution gate: retry exactly the two frozen provider-compatible BattleSnake
+  rows under the recovered access path, the `16` call and `$10.00` ceilings, full raw
   artifact/cost/receipt/redaction evidence, and no benchmark/model claim.
+- `experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/RESULT.md`
+  passes as the first bounded two-row provider-backed protocol-effect measurement. Baseline
+  verified-completion evidence was `true`; Telos verified-completion evidence was `false` because
+  the Telos row receipt candidate failed validation; the exact primary delta was `-1`; provider
+  calls were `10`; CodeClash metadata cost was `$0.070448`; excluded pairs remained unattempted;
+  no GPU, cloud runner, Sentinel mutation, production/live-domain change, benchmark claim, model
+  claim, or state-of-the-art claim occurred.
+- `experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md` pre-registers the next
+  zero-spend gate: diagnose the iter64 receipt-schema failure and recover a schema-aligned Telos
+  receipt prompt before any further paid retry.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

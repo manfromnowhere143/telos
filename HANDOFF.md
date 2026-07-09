@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-09T16:10:58Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-09T16:34:38Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -11,7 +11,21 @@ branch: master
 Working tree:
 
 ```text
-clean
+M .github/workflows/ci.yml
+ M CONTINUITY.md
+ M README.md
+ M docs/LEARNING_ENGINE.md
+ M docs/MISSION_LOOP.md
+ M docs/NEXT_PHASE.md
+ M docs/REPORT.md
+ M mission/loop.json
+ M scripts/make_handoff.py
+ M scripts/validate_mission_loop.py
+?? experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/RESULT.md
+?? experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof/
+?? experiments/iter65_receipt_schema_prompt_alignment/
+?? scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py
+?? scripts/verify_provider_compatible_paid_execution_after_access_path_recovery.py
 ```
 
 ## Experiments
@@ -80,11 +94,12 @@ clean
 - experiments/iter61_vertex_quota_project_binding_recovery: RESULT PUBLISHED
 - experiments/iter62_vertex_bearer_token_path_recovery: RESULT PUBLISHED
 - experiments/iter63_vertex_access_path_parity_recheck: RESULT PUBLISHED
-- experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery: PRE-REGISTERED, result pending
+- experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery: RESULT PUBLISHED
+- experiments/iter65_receipt_schema_prompt_alignment: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md`.
+- Active gate: `experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -220,6 +235,8 @@ python3 scripts/validate_receipts.py experiments/iter62_vertex_bearer_token_path
 python3 scripts/audit_vertex_bearer_token_path_recovery.py
 python3 scripts/validate_receipts.py experiments/iter63_vertex_access_path_parity_recheck/proof
 python3 scripts/audit_vertex_access_path_parity_recheck.py
+python3 scripts/validate_receipts.py experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof
+python3 scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

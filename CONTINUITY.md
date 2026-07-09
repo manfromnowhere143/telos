@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md`
+- `experiments/iter65_receipt_schema_prompt_alignment/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -308,12 +308,18 @@ Current claim:
   path. Two provider calls occurred, observed LiteLLM cost was `$0.000014`, no BattleSnake row or
   excluded pair executed, no GPU or cloud runner was used, and no Sentinel-named resource was
   modified.
+- `iter64_provider_compatible_paid_execution_after_access_path_recovery` passed as the first
+  bounded two-row provider-backed protocol-effect measurement. Baseline verified-completion
+  evidence was `true`; Telos verified-completion evidence was `false` because the Telos row
+  receipt candidate failed schema validation; the primary delta was `-1`; 10 provider calls and
+  `$0.070448` CodeClash metadata cost were recorded; excluded pairs stayed unattempted; and no
+  GPU, cloud runner, Sentinel mutation, production/live-domain change, benchmark claim, model
+  claim, or state-of-the-art claim occurred.
 - No model or benchmark result is claimed yet.
-- The next gate may only retry the exact two selected provider-compatible BattleSnake rows under
-  the recovered access path, a `16` invocation and `$10.00` spend ceiling, raw artifact/cost/
-  receipt/redaction evidence, and the existing no-benchmark/no-model-result claim boundary.
-  Excluded-pair execution, GPU use, Sentinel resource modification, production/live-domain
-  changes, and benchmark/model overclaims remain forbidden.
+- The next gate may only recover the iter64 receipt-schema prompt gap locally with zero provider
+  calls, zero provider spend, no BattleSnake row execution, no excluded-pair execution, no GPU, no
+  cloud runner, no Sentinel resource modification, no production/live-domain change, and the
+  existing no-benchmark/no-model-result claim boundary.
 
 ## Required Verification
 
@@ -446,6 +452,8 @@ python3 scripts/validate_receipts.py experiments/iter62_vertex_bearer_token_path
 python3 scripts/audit_vertex_bearer_token_path_recovery.py
 python3 scripts/validate_receipts.py experiments/iter63_vertex_access_path_parity_recheck/proof
 python3 scripts/audit_vertex_access_path_parity_recheck.py
+python3 scripts/validate_receipts.py experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof
+python3 scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -409,6 +409,12 @@ jobs:
       - name: Vertex access-path parity recheck audit
         run: python3 scripts/audit_vertex_access_path_parity_recheck.py
 
+      - name: Provider-compatible paid execution after access-path recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/proof
+
+      - name: Provider-compatible paid execution after access-path recovery audit
+        run: python3 scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 
