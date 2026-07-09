@@ -98,8 +98,11 @@ Current evidence:
 - `experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/RESULT.md`
   blocks before provider execution because the recovered harness still disables full task-condition
   execution.
-- `experiments/iter45_public_task_condition_executor_assembly/HYPOTHESIS.md` freezes a zero-spend
-  executor-assembly dry-run gate.
+- `experiments/iter45_public_task_condition_executor_assembly/RESULT.md` passes a zero-spend
+  executor-assembly dry-run gate with six frozen task-condition pairs and full execution still
+  disabled.
+- `experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/HYPOTHESIS.md`
+  freezes the bounded six-pair provider-backed execution retry.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

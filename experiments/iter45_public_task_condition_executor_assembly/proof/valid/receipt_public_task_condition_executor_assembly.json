@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "Exactly six frozen task-condition pairs are represented.",
+    "Baseline and Telos receipt-enforced conditions remain separate.",
+    "Every pair has artifact, cost, redaction, lifecycle, receipt, and metric plans.",
+    "Full execution remains disabled until a later pre-registered gate.",
+    "Provider model calls, provider spend, cloud runner startup, and GPU use remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-task-condition-executor-assembler",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter45_public_task_condition_executor_assembly/proof/executor_manifest.json",
+      "kind": "test",
+      "notes": "Manifest enumerates all frozen task-condition pairs and their plans.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter45_public_task_condition_executor_assembly/proof/run_summary.json",
+      "kind": "artifact",
+      "notes": "Summary records the dry-run-only result and zero spend boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter45_public_task_condition_executor_assembly/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the assembly boundary and what remains unearned.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must fail if any frozen task or condition is dropped, renamed, or duplicated.",
+    "The result must fail if any pair lacks artifact, cost, redaction, lifecycle, receipt, or metric plans.",
+    "The result must fail if full execution is enabled in this assembly gate.",
+    "The result must fail if any provider model call, cloud runner startup, GPU use, or provider spend occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter45-public-task-condition-executor-assembly-pass",
+  "sha256": "e66477fade52ef4830fb26682257a00facc4014cb8f13617d8fbad21936a1faa",
+  "stated_goal": "Assemble and dry-run the frozen public task-condition executor manifest before retrying provider-backed protocol-effect execution.",
+  "status": "pass",
+  "task_id": "telos:iter45_public_task_condition_executor_assembly@iter44"
+}

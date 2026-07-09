@@ -2,10 +2,10 @@
 
 ## Current Action
 
-Run `iter45_public_task_condition_executor_assembly` exactly as frozen in
-[`../experiments/iter45_public_task_condition_executor_assembly/HYPOTHESIS.md`](../experiments/iter45_public_task_condition_executor_assembly/HYPOTHESIS.md).
+Run `iter46_public_task_protocol_effect_execution_with_assembled_executor` exactly as frozen in
+[`../experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/HYPOTHESIS.md`](../experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/HYPOTHESIS.md).
 
-The output is not a leaderboard score. It is a zero-spend executor-assembly gate:
+The output is not a leaderboard score. It is a bounded six-pair protocol-effect execution gate:
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -32,11 +32,16 @@ The output is not a leaderboard score. It is a zero-spend executor-assembly gate
   [`../experiments/iter43_provider_execution_harness_recovery/proof/run_summary.json`](../experiments/iter43_provider_execution_harness_recovery/proof/run_summary.json),
 - use the blocked execution-after-harness evidence from
   [`../experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/proof/run_summary.json`](../experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/proof/run_summary.json),
-- assemble the six frozen baseline/Telos task-condition pairs into an auditable executor manifest,
-- dry-run artifact, cost, redaction, lifecycle, receipt, and metric destinations without starting a
-  cloud runner,
-- keep provider model calls at `0`,
-- keep provider spend at `$0.00`,
+- use the assembled executor manifest from
+  [`../experiments/iter45_public_task_condition_executor_assembly/proof/executor_manifest.json`](../experiments/iter45_public_task_condition_executor_assembly/proof/executor_manifest.json),
+- execute only the six frozen baseline/Telos task-condition pairs represented in that manifest,
+- keep provider model calls at or below `48`,
+- keep provider spend at or below `$25.00`,
+- forbid GPU use,
+- use only Telos-named ephemeral non-GPU runners,
+- do not modify, stop, start, delete, or reuse Sentinel-named resources,
+- publish raw logs, trajectories when present, pair summaries, cost/call stats, redaction scans,
+  receipts, exact counts, and null/blocked rows,
 - do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
   state-of-the-art claims.
 
@@ -80,17 +85,21 @@ the recovered harness still disables full protocol-effect execution and requires
 task-condition gate. `iter45` authorizes only executor assembly and dry-run validation; it does not
 authorize provider model calls, cloud runner startup, GPU, leaderboard, SWE-bench result,
 production, live-domain behavior, model-superiority, or state-of-the-art claims.
+`iter45` passed that dry-run executor assembly with six frozen pairs and zero spend. `iter46`
+authorizes only the bounded six-pair provider-backed execution under the recorded $25, 48-call,
+90-minute, no-GPU, Sentinel-isolation, artifact, redaction, receipt, and claim-boundary controls.
 
-## After The Executor-Assembly Gate
+## After The Six-Pair Execution Gate
 
-If the executor-assembly gate passes:
+If the six-pair execution gate passes:
 
-1. Pre-register a retry of the frozen provider-backed six-pair execution.
-2. Keep exact counts before percentages for baseline and Telos-enforced conditions.
-3. Publish all raw artifacts, receipts, blocked/null rows, costs, and audit notes.
+1. Publish exact counts before percentages for baseline and Telos-enforced conditions.
+2. Publish all raw artifacts, receipts, blocked/null rows, costs, and audit notes.
+3. Pre-register the next replication or expansion gate only after the pilot result is audited.
 
-If the executor-assembly gate blocks or fails:
+If the six-pair execution gate blocks or fails:
 
 1. Publish the blocked/null or quality-failure result.
-2. Correct only the specific executor, artifact, cost, redaction, lifecycle, receipt, or metric gap.
+2. Correct only the specific provider, runner, artifact, cost, redaction, lifecycle, receipt, or
+   metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.
