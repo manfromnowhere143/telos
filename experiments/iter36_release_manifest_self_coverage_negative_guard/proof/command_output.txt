@@ -1,0 +1,12 @@
+release manifest self coverage negative guard: pass
+source_iter35=experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json
+provider_api_calls=0
+cloud_or_gpu_used=false
+real_self_coverage_passed=true
+fixtures=5 failed_as_expected=5
+failed_fixture_ids=
+missing_self_verification_gate: pass observed=covered_gate_ids mismatch;covered_gate_count mismatch
+stale_artifact_hash: pass observed=iter31_claim_boundary_release_manifest: stale summary hash
+hidden_failed_nulls: pass observed=failed/null gates must remain visible
+candidate_original_conflation: pass observed=changed candidate boundary must remain visible
+forbidden_benchmark_claim: pass observed=leaderboard_or_swebench_claimed must be false

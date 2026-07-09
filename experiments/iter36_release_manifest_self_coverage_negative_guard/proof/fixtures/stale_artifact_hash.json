@@ -1,0 +1,455 @@
+{
+  "changed_candidate_boundary_visible": true,
+  "changed_candidate_claim_ids": [
+    "iter24_changed_candidate_occupied_tail_control"
+  ],
+  "cloud_or_gpu_used": false,
+  "covered_gate_count": 4,
+  "covered_gate_ids": [
+    "iter31_claim_boundary_release_manifest",
+    "iter32_claim_boundary_release_manifest_negative_guard",
+    "iter33_release_manifest_public_sync_guard",
+    "iter34_release_manifest_public_sync_negative_guard"
+  ],
+  "covered_gates": [
+    {
+      "claim_boundary": {
+        "cloud_or_gpu_used": false,
+        "leaderboard_or_swebench_claimed": false,
+        "local_cpu_only": true,
+        "model_superiority_claimed": false,
+        "production_or_live_domain_changed": false,
+        "provider_api_calls": 0,
+        "provider_game_score_used_as_verifier_evidence": false,
+        "provider_spend_usd": 0.0
+      },
+      "clean_local_pass": true,
+      "experiment_id": "iter31_claim_boundary_release_manifest",
+      "hypothesis": {
+        "kind": "hypothesis",
+        "path": "experiments/iter31_claim_boundary_release_manifest/HYPOTHESIS.md",
+        "sha256": "42744598a337380c50da0dfb3f4c4b38b373fa48847608acc74d9f0ee1c53eb2"
+      },
+      "primary_report": {
+        "kind": "release_manifest",
+        "path": "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json",
+        "sha256": "2d231a5001d023565575c5b6aeee5c18768ef76e353dd5a02517d13cecc84d32"
+      },
+      "proof_artifact_count": 6,
+      "proof_artifacts": [
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json",
+          "sha256": "2d231a5001d023565575c5b6aeee5c18768ef76e353dd5a02517d13cecc84d32"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter31_claim_boundary_release_manifest/proof/command_output.txt",
+          "sha256": "33218e4699cb61cd318d008a660e84c0fa20da9251927a4dbe63a5596993a5e0"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter31_claim_boundary_release_manifest/proof/learning_record.json",
+          "sha256": "d4123fcdfdac3131e8f69ecfe68c77e24e1ae560cc60a8a4190ae89b70a00595"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter31_claim_boundary_release_manifest/proof/review.md",
+          "sha256": "7597848d9d1dc4ca95d636a79195bab098b9e0681f0227dc4fb62b071e0e10c1"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter31_claim_boundary_release_manifest/proof/run_summary.json",
+          "sha256": "9b5bbba82e9c75f4c0f40f67f83887c89febf96131a0f11d7999400edf824e23"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter31_claim_boundary_release_manifest/proof/valid/receipt_claim_boundary_release_manifest.json",
+          "sha256": "0d5ac710a3bf710bcca8110da8e6a3a8686b5fa2dbfe0272429245c89bd00915"
+        }
+      ],
+      "receipt": {
+        "kind": "receipt",
+        "path": "experiments/iter31_claim_boundary_release_manifest/proof/valid/receipt_claim_boundary_release_manifest.json",
+        "sha256": "0d5ac710a3bf710bcca8110da8e6a3a8686b5fa2dbfe0272429245c89bd00915"
+      },
+      "result": {
+        "kind": "result",
+        "path": "experiments/iter31_claim_boundary_release_manifest/RESULT.md",
+        "sha256": "198f8b386e10da2e73f29bb5a46277bd4ac84b69e274d99c5d1c83ea94b32436"
+      },
+      "role": "release_manifest",
+      "status": "pass",
+      "summary": {
+        "kind": "run_summary",
+        "path": "experiments/iter31_claim_boundary_release_manifest/proof/run_summary.json",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "claim_boundary": {
+        "cloud_or_gpu_used": false,
+        "leaderboard_or_swebench_claimed": false,
+        "local_cpu_only": true,
+        "model_superiority_claimed": false,
+        "production_or_live_domain_changed": false,
+        "provider_api_calls": 0,
+        "provider_game_score_used_as_verifier_evidence": false,
+        "provider_spend_usd": 0.0
+      },
+      "clean_local_pass": true,
+      "experiment_id": "iter32_claim_boundary_release_manifest_negative_guard",
+      "hypothesis": {
+        "kind": "hypothesis",
+        "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/HYPOTHESIS.md",
+        "sha256": "c33e5ae38965467171e5c4bc192dbecd76bb342d3e563a47e14f79d15a9d89cb"
+      },
+      "primary_report": {
+        "kind": "release_manifest_negative_guard",
+        "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/negative_guard_report.json",
+        "sha256": "f5012bd1686e328b3dbcba5700202cd997b32dab7fd96c1b3222ee64b1dd710d"
+      },
+      "proof_artifact_count": 11,
+      "proof_artifacts": [
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/command_output.txt",
+          "sha256": "b31710a1d1b1b56db48075859079ae333bd175f6731792a7239039e67dd8ee66"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/candidate_original_conflation.json",
+          "sha256": "8cb4c1e15de98621770c41eb615b721e92588ab8b88bd6217df0ca76c25e1dce"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/forbidden_claim_made.json",
+          "sha256": "49018439bf63d7060f7ef99a8f52b8853ad548e6e97d6b6ae3090609b486588d"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/hidden_failed_null_rows.json",
+          "sha256": "2c3d6190eee8c7a951450013a69f32a2a08f8ccfc6ceb8cfaa0d525131cf1b80"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/missing_source_artifact.json",
+          "sha256": "9c0a644a7128365bc40da45dab3656be0a3f0c2aea3d8050d7641eeb079115ce"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/stale_artifact_hash.json",
+          "sha256": "a2ec79dd63f96347660730fd42a123345fdb0588e5894aa5f13875f19c517bb4"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/learning_record.json",
+          "sha256": "028fb793dfc2ef78a72e0ed2dbb39afa5c37116d320b7189571d46e2e4d92664"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/negative_guard_report.json",
+          "sha256": "f5012bd1686e328b3dbcba5700202cd997b32dab7fd96c1b3222ee64b1dd710d"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/review.md",
+          "sha256": "64ef0df9ff6ae866ad1bb181987bb8542854da7f932cfec9377a03934bd6d8ca"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/run_summary.json",
+          "sha256": "34271bf3cf4157483623d9b78925727af9c930fa3a5fdcf0635601f191af51da"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/valid/receipt_claim_boundary_release_manifest_negative_guard.json",
+          "sha256": "67c189bf457091fd7db8b11d9ed9689cc138aa18458683bee95f4301b113c211"
+        }
+      ],
+      "receipt": {
+        "kind": "receipt",
+        "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/valid/receipt_claim_boundary_release_manifest_negative_guard.json",
+        "sha256": "67c189bf457091fd7db8b11d9ed9689cc138aa18458683bee95f4301b113c211"
+      },
+      "result": {
+        "kind": "result",
+        "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/RESULT.md",
+        "sha256": "535494c3ae55d05e9f634ab86b196bc2ae13698d25a522accad0394b8dcc6771"
+      },
+      "role": "release_manifest_negative_guard",
+      "status": "pass",
+      "summary": {
+        "kind": "run_summary",
+        "path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/run_summary.json",
+        "sha256": "34271bf3cf4157483623d9b78925727af9c930fa3a5fdcf0635601f191af51da"
+      }
+    },
+    {
+      "claim_boundary": {
+        "cloud_or_gpu_used": false,
+        "leaderboard_or_swebench_claimed": false,
+        "local_cpu_only": true,
+        "model_superiority_claimed": false,
+        "production_or_live_domain_changed": false,
+        "provider_api_calls": 0,
+        "provider_game_score_used_as_verifier_evidence": false,
+        "provider_spend_usd": 0.0
+      },
+      "clean_local_pass": true,
+      "experiment_id": "iter33_release_manifest_public_sync_guard",
+      "hypothesis": {
+        "kind": "hypothesis",
+        "path": "experiments/iter33_release_manifest_public_sync_guard/HYPOTHESIS.md",
+        "sha256": "f2b2127823965057f9b7a805f0a6e15170dfb6807287038a475b501f414812c1"
+      },
+      "primary_report": {
+        "kind": "public_sync_guard",
+        "path": "experiments/iter33_release_manifest_public_sync_guard/proof/public_sync_report.json",
+        "sha256": "356a2e96f34ee5ca8fa2e71726c57d8b646bbd795c4a594c7234486199f9fe7a"
+      },
+      "proof_artifact_count": 6,
+      "proof_artifacts": [
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter33_release_manifest_public_sync_guard/proof/command_output.txt",
+          "sha256": "ad3e2c29d08d8bfdbf326ef17725abb4fb5088682e2244ceb60e2fb1e49ccfd0"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter33_release_manifest_public_sync_guard/proof/learning_record.json",
+          "sha256": "5d1888085a2c4b39bcda4656067fd61799a75003e7681f2276d7fc6563d99614"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter33_release_manifest_public_sync_guard/proof/public_sync_report.json",
+          "sha256": "356a2e96f34ee5ca8fa2e71726c57d8b646bbd795c4a594c7234486199f9fe7a"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter33_release_manifest_public_sync_guard/proof/review.md",
+          "sha256": "d6ef329a0da5f824aa10da7ed1c77e37a4d848f4b0d593e12350f5a1c37a6a62"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter33_release_manifest_public_sync_guard/proof/run_summary.json",
+          "sha256": "0fba0217275b68c4cad819eb4be66d430522da25d22dd336b53fb480a330ef39"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter33_release_manifest_public_sync_guard/proof/valid/receipt_release_manifest_public_sync_guard.json",
+          "sha256": "a4bef5e5de3ec81d3a8dc41cdf2a9a995be28a466ad7831ba8856f8ce42df550"
+        }
+      ],
+      "receipt": {
+        "kind": "receipt",
+        "path": "experiments/iter33_release_manifest_public_sync_guard/proof/valid/receipt_release_manifest_public_sync_guard.json",
+        "sha256": "a4bef5e5de3ec81d3a8dc41cdf2a9a995be28a466ad7831ba8856f8ce42df550"
+      },
+      "result": {
+        "kind": "result",
+        "path": "experiments/iter33_release_manifest_public_sync_guard/RESULT.md",
+        "sha256": "cb0bb4f546d8c8ae12ffd95004054375957c397815df5c0677d596c2441d9dc9"
+      },
+      "role": "public_sync_guard",
+      "status": "pass",
+      "summary": {
+        "kind": "run_summary",
+        "path": "experiments/iter33_release_manifest_public_sync_guard/proof/run_summary.json",
+        "sha256": "0fba0217275b68c4cad819eb4be66d430522da25d22dd336b53fb480a330ef39"
+      }
+    },
+    {
+      "claim_boundary": {
+        "cloud_or_gpu_used": false,
+        "leaderboard_or_swebench_claimed": false,
+        "local_cpu_only": true,
+        "model_superiority_claimed": false,
+        "production_or_live_domain_changed": false,
+        "provider_api_calls": 0,
+        "provider_game_score_used_as_verifier_evidence": false,
+        "provider_spend_usd": 0.0
+      },
+      "clean_local_pass": true,
+      "experiment_id": "iter34_release_manifest_public_sync_negative_guard",
+      "hypothesis": {
+        "kind": "hypothesis",
+        "path": "experiments/iter34_release_manifest_public_sync_negative_guard/HYPOTHESIS.md",
+        "sha256": "ad3cc668e250ceb734633ad7a1df8d31c91a602c3673717a660710b38c2ea578"
+      },
+      "primary_report": {
+        "kind": "public_sync_negative_guard",
+        "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/negative_guard_report.json",
+        "sha256": "d707921fd89e21e64b9aa911d31f3bad0507137281d8b6477d0f1381b86e7fe0"
+      },
+      "proof_artifact_count": 26,
+      "proof_artifacts": [
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/command_output.txt",
+          "sha256": "b9e2456e0d3775b3384c1cffb3ab12e3616ca4041f282b0cdc926cb4eea4629b"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/benchmark_result_overclaim/CONTINUITY.md.txt",
+          "sha256": "8e1b1af835e410fa0f4a12a0c3cd9dc4e3a5af13799592091e5c9742ad640492"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/benchmark_result_overclaim/README.md.txt",
+          "sha256": "7789402252db35e499bdab6a3d1a742af5c1a25522d3f1af03ac16dd55c2431e"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/benchmark_result_overclaim/docs__NEXT_PHASE.md.txt",
+          "sha256": "27e94784291e93062dd9b1c67bb95c7e03b06faea6bd5a2b999bc9e846566d5e"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/benchmark_result_overclaim/docs__REPORT.md.txt",
+          "sha256": "cf6e307c10c2e8b6bc53fa1b151e1714e8a640c7475d5f8e196c3122b274cfa5"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/candidate_original_conflation/CONTINUITY.md.txt",
+          "sha256": "75c28f808176a6ae1d955ffa402817a9066cdeb42125f519e7acf786630ff461"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/candidate_original_conflation/README.md.txt",
+          "sha256": "b67be85072da43065a6488c19563e94db6204bf4e38f36775c82a76c26942848"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/candidate_original_conflation/docs__NEXT_PHASE.md.txt",
+          "sha256": "5c390029fe16d2b7dcc954c13f7070484c8e018dd552e03ba50f146c46c6bab9"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/candidate_original_conflation/docs__REPORT.md.txt",
+          "sha256": "5614945025b8130f29ed84ec031c67da4aae1270068f102a6473fc88a22254d4"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/hidden_failed_nulls/CONTINUITY.md.txt",
+          "sha256": "ad3a0e614f780e738322f9c1f55a0f0e4b6ce2fe939e1b95428563bbbdf6a6ab"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/hidden_failed_nulls/README.md.txt",
+          "sha256": "0091cc4f619a41a4f0f56ac8161580ed7bdf76b088f29831137bf5a6818bf5c0"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/hidden_failed_nulls/docs__NEXT_PHASE.md.txt",
+          "sha256": "a42b4eff7d6e7e2e6ea40573911b94464480cfecc60c0331d0d91c1d7820f7d0"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/hidden_failed_nulls/docs__REPORT.md.txt",
+          "sha256": "1e62bcf4c50e6573fa3b82340e6fb37c30b24580681f2a3b8a43785a4b6a612b"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/missing_release_manifest_reference/CONTINUITY.md.txt",
+          "sha256": "fcfd8eca377e87b885f0d8bb8c8fac0d52dd3fd3498f0ba63e5df56cd07c25a8"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/missing_release_manifest_reference/README.md.txt",
+          "sha256": "22092003b9c440dce5dcbb2d287bd6b8d317245e67280033a45531dfb47e3654"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/missing_release_manifest_reference/docs__NEXT_PHASE.md.txt",
+          "sha256": "9632dd0af708fc11fbdeafcb058cd9163599c1e1f460eb2b6bcf4f753e730c70"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/missing_release_manifest_reference/docs__REPORT.md.txt",
+          "sha256": "df5058feccc48da8edf586631643356b9f75baeff438a27e6b67036226d0eaef"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/original_iter21_tail_overclaim/CONTINUITY.md.txt",
+          "sha256": "8e1b1af835e410fa0f4a12a0c3cd9dc4e3a5af13799592091e5c9742ad640492"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/original_iter21_tail_overclaim/README.md.txt",
+          "sha256": "c339e9a70f77e59a0b9f9dd8da1f83d68aefd9ad4847fc0d56660b14fdce2c80"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/original_iter21_tail_overclaim/docs__NEXT_PHASE.md.txt",
+          "sha256": "27e94784291e93062dd9b1c67bb95c7e03b06faea6bd5a2b999bc9e846566d5e"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/original_iter21_tail_overclaim/docs__REPORT.md.txt",
+          "sha256": "e574c9ba6935f0bf3a9ae9807aeadf98f44b95d1578b7ace13fc964b79a74dba"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/learning_record.json",
+          "sha256": "2db16a2f1cb0955ab77f613434fd15c35b6fce90ea55900f2ed33389f6d611e5"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/negative_guard_report.json",
+          "sha256": "d707921fd89e21e64b9aa911d31f3bad0507137281d8b6477d0f1381b86e7fe0"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/review.md",
+          "sha256": "55c64e7f82e35cc14ba6b47694f40ee3836a03b3597e9c60fc210c7cfdb7b9ad"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/run_summary.json",
+          "sha256": "9b90421c08129fa2f46a8dda70c2a65b1560fe6c60feac15055725456729859e"
+        },
+        {
+          "kind": "proof_artifact",
+          "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/valid/receipt_release_manifest_public_sync_negative_guard.json",
+          "sha256": "7bed5688dfac6fc1fd750ad40e951c3b898dc0269cf74909c975a0234454def5"
+        }
+      ],
+      "receipt": {
+        "kind": "receipt",
+        "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/valid/receipt_release_manifest_public_sync_negative_guard.json",
+        "sha256": "7bed5688dfac6fc1fd750ad40e951c3b898dc0269cf74909c975a0234454def5"
+      },
+      "result": {
+        "kind": "result",
+        "path": "experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md",
+        "sha256": "f5511a11dfdbe40670bd56676d1eec2eaecf1e56fe5e4ffad29bdde545e6b8d9"
+      },
+      "role": "public_sync_negative_guard",
+      "status": "pass",
+      "summary": {
+        "kind": "run_summary",
+        "path": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/run_summary.json",
+        "sha256": "9b90421c08129fa2f46a8dda70c2a65b1560fe6c60feac15055725456729859e"
+      }
+    }
+  ],
+  "failed_null_gates_visible": true,
+  "failed_or_null_claim_ids": [
+    "iter23_original_occupied_tail_falsification",
+    "iter25_tail_safety_mutation_guard_miss"
+  ],
+  "leaderboard_or_swebench_claimed": false,
+  "local_cpu_only": true,
+  "model_superiority_claimed": false,
+  "production_or_live_domain_changed": false,
+  "proof_artifact_count": 49,
+  "provider_api_calls": 0,
+  "provider_game_score_used_as_verifier_evidence": false,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.release_manifest_self_coverage_guard.report.v1",
+  "self_verification_gates_clean": true,
+  "source_manifest_path": "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json",
+  "source_manifest_sha256": "2d231a5001d023565575c5b6aeee5c18768ef76e353dd5a02517d13cecc84d32",
+  "status": "pass"
+}

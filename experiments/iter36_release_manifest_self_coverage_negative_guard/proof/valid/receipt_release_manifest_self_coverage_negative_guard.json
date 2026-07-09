@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The real iter35 self-coverage report still passes.",
+    "Every malformed self-coverage fixture fails for the expected reason.",
+    "Fixture files remain separate from real proof artifacts.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-release-manifest-self-coverage-negative-fixtures",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json",
+      "kind": "test",
+      "notes": "Real self-coverage report plus malformed report fixtures.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/fixtures/",
+      "kind": "artifact",
+      "notes": "Generated fixture reports; real proof artifacts are not mutated.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records fixture coverage and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the iter35 self-coverage report cannot be loaded.",
+    "The result must fail if the real self-coverage report no longer passes.",
+    "The result must fail if any malformed fixture passes.",
+    "The result must fail if fixture generation mutates real proof artifacts.",
+    "The result must not widen into benchmark or production claims."
+  ],
+  "receipt_id": "iter36-release-manifest-self-coverage-negative-guard-pass",
+  "sha256": "826a18f8bf9b64cc766974972eeb2249a890fd628dd593f1de4c7d6396bc100a",
+  "stated_goal": "Prove the release-manifest self-coverage guard catches malformed reports.",
+  "status": "pass",
+  "task_id": "telos:iter36_release_manifest_self_coverage_negative_guard@iter35_self_coverage"
+}

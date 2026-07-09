@@ -1,0 +1,97 @@
+{
+  "cloud_or_gpu_used": false,
+  "failed_fixture_ids": [],
+  "fixture_count": 5,
+  "fixtures": [
+    {
+      "expected_detection_observed": true,
+      "expected_failure_fragments": [
+        "covered_gate_ids mismatch",
+        "covered_gate_count mismatch"
+      ],
+      "fixture_id": "missing_self_verification_gate",
+      "fixture_path": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/fixtures/missing_self_verification_gate.json",
+      "fixture_sha256": "fc00b70a2bea41150bbc1a09e702d215b3402f00f89a80353233797ab281245f",
+      "malformation_detected": true,
+      "observed_failures": [
+        "covered_gate_ids mismatch",
+        "covered_gate_count mismatch"
+      ],
+      "status": "pass"
+    },
+    {
+      "expected_detection_observed": true,
+      "expected_failure_fragments": [
+        "stale summary hash"
+      ],
+      "fixture_id": "stale_artifact_hash",
+      "fixture_path": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/fixtures/stale_artifact_hash.json",
+      "fixture_sha256": "172babd5f305982e70c77ed3c8d69c6ab9db112a017655d42d8f1cfe5a9cd349",
+      "malformation_detected": true,
+      "observed_failures": [
+        "iter31_claim_boundary_release_manifest: stale summary hash"
+      ],
+      "status": "pass"
+    },
+    {
+      "expected_detection_observed": true,
+      "expected_failure_fragments": [
+        "failed/null gates must remain visible"
+      ],
+      "fixture_id": "hidden_failed_nulls",
+      "fixture_path": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/fixtures/hidden_failed_nulls.json",
+      "fixture_sha256": "e934225d87798518f73700a1ba3f91f48f905bb98840dda1f478aa8eefac80b2",
+      "malformation_detected": true,
+      "observed_failures": [
+        "failed/null gates must remain visible"
+      ],
+      "status": "pass"
+    },
+    {
+      "expected_detection_observed": true,
+      "expected_failure_fragments": [
+        "changed candidate boundary must remain visible"
+      ],
+      "fixture_id": "candidate_original_conflation",
+      "fixture_path": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/fixtures/candidate_original_conflation.json",
+      "fixture_sha256": "7509ff6d29a2b207496379ca8b5a3fa1b0c212e472f028417698267233a2de07",
+      "malformation_detected": true,
+      "observed_failures": [
+        "changed candidate boundary must remain visible"
+      ],
+      "status": "pass"
+    },
+    {
+      "expected_detection_observed": true,
+      "expected_failure_fragments": [
+        "leaderboard_or_swebench_claimed must be false"
+      ],
+      "fixture_id": "forbidden_benchmark_claim",
+      "fixture_path": "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/fixtures/forbidden_benchmark_claim.json",
+      "fixture_sha256": "4edbf207721c03e7cefb1930a306296aa48911bd43fbd3c764b46ec6bfcd3ee8",
+      "malformation_detected": true,
+      "observed_failures": [
+        "leaderboard_or_swebench_claimed must be false"
+      ],
+      "status": "pass"
+    }
+  ],
+  "fixtures_failed_as_expected": true,
+  "leaderboard_or_swebench_claimed": false,
+  "local_cpu_only": true,
+  "model_superiority_claimed": false,
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 0,
+  "provider_game_score_used_as_verifier_evidence": false,
+  "provider_spend_usd": 0.0,
+  "real_self_coverage_failures": [],
+  "real_self_coverage_passed": true,
+  "schema_version": "telos.release_manifest_self_coverage_negative_guard.report.v1",
+  "source_iter35_clean_pass": true,
+  "source_iter35_report_path": "experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json",
+  "source_iter35_report_sha256": "2bc3796212f4ed2c4978674463f800e7f7b92a8861b534a5e7df9b1c7fce33d9",
+  "source_iter35_status": "pass",
+  "source_iter35_summary_path": "experiments/iter35_release_manifest_self_coverage_guard/proof/run_summary.json",
+  "source_iter35_summary_sha256": "f6a006f7a145b423b5ffbc5fad3c97cd33c2dbaeeb2783ba8db2d2944c12bc88",
+  "status": "pass"
+}

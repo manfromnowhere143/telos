@@ -125,6 +125,8 @@ def main() -> int:
         "audit_release_manifest_public_sync_negative_guard.py",
         "validate_receipts.py experiments/iter35_release_manifest_self_coverage_guard/proof",
         "audit_release_manifest_self_coverage_guard.py",
+        "validate_receipts.py experiments/iter36_release_manifest_self_coverage_negative_guard/proof",
+        "audit_release_manifest_self_coverage_negative_guard.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

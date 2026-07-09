@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md`
+- `experiments/iter37_release_manifest_self_coverage_public_sync_guard/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -161,8 +161,11 @@ Current claim:
   own `iter31` through `iter34` proof gates are represented with matching hashes across 49 proof
   artifacts, while `iter23` and `iter25` remain visible as failed/null evidence. No provider, API,
   GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
+- `iter36_release_manifest_self_coverage_negative_guard` passed: the real `iter35` self-coverage
+  report still passed, and five malformed self-coverage fixtures failed for expected reasons. No
+  provider, API, GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
 - No model or benchmark result is claimed yet.
-- The next gate must prove malformed self-coverage fixtures are rejected without widening claims.
+- The next gate must verify public prose surfaces self-coverage without widening claims.
 
 ## Required Verification
 
@@ -239,6 +242,8 @@ python3 scripts/validate_receipts.py experiments/iter34_release_manifest_public_
 python3 scripts/audit_release_manifest_public_sync_negative_guard.py
 python3 scripts/validate_receipts.py experiments/iter35_release_manifest_self_coverage_guard/proof
 python3 scripts/audit_release_manifest_self_coverage_guard.py
+python3 scripts/validate_receipts.py experiments/iter36_release_manifest_self_coverage_negative_guard/proof
+python3 scripts/audit_release_manifest_self_coverage_negative_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/run_summary.json",
+    "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json",
+    "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/command_output.txt",
+    "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/review.md",
+    "experiments/iter36_release_manifest_self_coverage_negative_guard/proof/valid/receipt_release_manifest_self_coverage_negative_guard.json"
+  ],
+  "experiment_id": "iter36_release_manifest_self_coverage_negative_guard",
+  "insight": "The self-coverage guard rejects malformed reports that remove self-verification gates, stale hashes, hide failed/null gates, conflate candidate/original logic, or add forbidden benchmark claims.",
+  "next_action": "pre-register a public-sync guard so README, report, next-phase, and continuity prose surface the self-coverage report without bypassing claim boundaries",
+  "result_path": "experiments/iter36_release_manifest_self_coverage_negative_guard/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
