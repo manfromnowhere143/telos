@@ -2,10 +2,10 @@
 
 ## Current Action
 
-Run `iter44_public_task_protocol_effect_execution_after_harness_recovery` exactly as frozen in
-[`../experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/HYPOTHESIS.md`](../experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/HYPOTHESIS.md).
+Run `iter45_public_task_condition_executor_assembly` exactly as frozen in
+[`../experiments/iter45_public_task_condition_executor_assembly/HYPOTHESIS.md`](../experiments/iter45_public_task_condition_executor_assembly/HYPOTHESIS.md).
 
-The output is not a leaderboard score. It is a bounded public-task protocol-effect execution gate:
+The output is not a leaderboard score. It is a zero-spend executor-assembly gate:
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -30,12 +30,13 @@ The output is not a leaderboard score. It is a bounded public-task protocol-effe
   [`../experiments/iter42_public_task_protocol_effect_execution_retry/proof/preflight.json`](../experiments/iter42_public_task_protocol_effect_execution_retry/proof/preflight.json),
 - use the recovered provider-harness evidence from
   [`../experiments/iter43_provider_execution_harness_recovery/proof/run_summary.json`](../experiments/iter43_provider_execution_harness_recovery/proof/run_summary.json),
-- execute the six frozen baseline/Telos task-condition pairs only after the recovered harness
-  passes secret-safe preflight,
-- stop and publish blocked/null evidence before provider calls if provider, cost, artifact,
-  redaction, Docker, CodeClash, or runner-lifecycle controls are unavailable,
-- keep total model invocations at or below `48`,
-- keep total provider spend below `$25`,
+- use the blocked execution-after-harness evidence from
+  [`../experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/proof/run_summary.json`](../experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/proof/run_summary.json),
+- assemble the six frozen baseline/Telos task-condition pairs into an auditable executor manifest,
+- dry-run artifact, cost, redaction, lifecycle, receipt, and metric destinations without starting a
+  cloud runner,
+- keep provider model calls at `0`,
+- keep provider spend at `$0.00`,
 - do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
   state-of-the-art claims.
 
@@ -74,20 +75,22 @@ provider execution because Docker and pinned CodeClash runner readiness were not
 spend. `iter42` blocked before provider execution because the provider-capable execution harness,
 cost capture, and raw-artifact redaction controls were not recovered. `iter43` passed provider
 harness recovery with a non-GPU runner lifecycle probe, zero provider model calls, zero full
-task-condition pairs, and zero provider spend. `iter44` authorizes only the frozen six-pair
-protocol-effect execution under the recovered harness and does not authorize GPU, leaderboard,
-SWE-bench result, production, live-domain behavior, model-superiority, or state-of-the-art claims.
+task-condition pairs, and zero provider spend. `iter44` blocked before provider execution because
+the recovered harness still disables full protocol-effect execution and requires a future
+task-condition gate. `iter45` authorizes only executor assembly and dry-run validation; it does not
+authorize provider model calls, cloud runner startup, GPU, leaderboard, SWE-bench result,
+production, live-domain behavior, model-superiority, or state-of-the-art claims.
 
-## After The Execution Gate
+## After The Executor-Assembly Gate
 
-If the execution gate passes:
+If the executor-assembly gate passes:
 
-1. Publish exact counts before percentages for baseline and Telos-enforced conditions.
-2. Publish all raw artifacts, receipts, blocked/null rows, costs, and audit notes.
-3. Decide whether the evidence supports a broader public benchmark run.
+1. Pre-register a retry of the frozen provider-backed six-pair execution.
+2. Keep exact counts before percentages for baseline and Telos-enforced conditions.
+3. Publish all raw artifacts, receipts, blocked/null rows, costs, and audit notes.
 
-If the execution gate blocks or fails:
+If the executor-assembly gate blocks or fails:
 
 1. Publish the blocked/null or quality-failure result.
-2. Correct only the specific provider, runner, artifact, cost, redaction, lifecycle, or metric gap.
+2. Correct only the specific executor, artifact, cost, redaction, lifecycle, receipt, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

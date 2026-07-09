@@ -95,8 +95,11 @@ Current evidence:
 - `experiments/iter43_provider_execution_harness_recovery/RESULT.md` passes a bounded
   provider-execution harness recovery gate with a non-GPU runner lifecycle probe, zero provider
   model calls, zero spend, and zero full task-condition pairs.
-- `experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/HYPOTHESIS.md`
-  freezes the retry of the public-task protocol-effect execution under the recovered harness.
+- `experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/RESULT.md`
+  blocks before provider execution because the recovered harness still disables full task-condition
+  execution.
+- `experiments/iter45_public_task_condition_executor_assembly/HYPOTHESIS.md` freezes a zero-spend
+  executor-assembly dry-run gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

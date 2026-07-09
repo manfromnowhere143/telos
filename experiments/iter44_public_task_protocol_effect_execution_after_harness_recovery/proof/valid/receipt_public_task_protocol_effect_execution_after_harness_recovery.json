@@ -1,0 +1,47 @@
+{
+  "acceptance_criteria": [
+    "The recovered harness remains the execution path.",
+    "Six frozen task-condition pairs remain planned and separated by condition.",
+    "Provider calls do not start if the recovered harness still requires a future execution gate.",
+    "Blocked rows are published at full weight.",
+    "No provider spend, GPU use, production/live-domain change, leaderboard, SWE-bench, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-protocol-effect-executor",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/proof/preflight.json",
+      "kind": "test",
+      "notes": "Preflight checks whether the recovered harness can execute task-condition pairs.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/proof/execution_report.json",
+      "kind": "artifact",
+      "notes": "Execution report preserves blocked rows and uncomputed metrics.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the boundary between harness recovery and full execution.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the recovered harness still disables full protocol-effect execution.",
+    "The result must fail if any task-condition pair count changes after pre-registration.",
+    "The result must fail if any provider model call or spend occurs after a blocking preflight.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter44-public-task-protocol-effect-execution-after-harness-blocked",
+  "sha256": "b9cbddb6ab7a76db11abec7020b4a8eda7a9f9e7c6eb71d5d6ab82e3e85201ef",
+  "stated_goal": "Execute the frozen public task protocol-effect slice after harness recovery only if the recovered harness can run the six frozen task-condition pairs.",
+  "status": "blocked",
+  "task_id": "telos:iter44_public_task_protocol_effect_execution_after_harness_recovery@iter43"
+}
