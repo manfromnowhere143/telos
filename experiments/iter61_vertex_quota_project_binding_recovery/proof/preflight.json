@@ -1,0 +1,54 @@
+{
+  "adc_access_token_available": true,
+  "adc_token_output_suppressed": true,
+  "battle_snake_rows_executed": false,
+  "cloud_runner_started": false,
+  "excluded_pair_executed": false,
+  "excluded_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "gcloud_project_available": true,
+  "gpu_used": false,
+  "iter56_direct_rest_probe_region": "global",
+  "iter56_direct_rest_probe_status": "pass",
+  "iter56_direct_rest_probe_usage_metadata_present": true,
+  "iter60_after_vertex_location": "global",
+  "iter60_blockers": [
+    "recovered_model_binding_probe_failed"
+  ],
+  "iter60_redacted_consumer_invalid_present": true,
+  "iter60_report_status": "blocked",
+  "iter60_status": "blocked",
+  "project_identifier_logged": false,
+  "provider_call_ceiling": 2,
+  "provider_spend_ceiling_usd": 0.05,
+  "runtime_binding": {
+    "credential_material_committed": false,
+    "mechanism": "runtime_env_quota_project_header_injection",
+    "project_identifier_committed": false,
+    "quota_header": "X-Goog-User-Project",
+    "quota_project_source": "env:TELOS_VERTEX_QUOTA_PROJECT",
+    "schema_version": "telos.vertex_quota_project_binding.mechanism.v1",
+    "template_json_path": "experiments/iter61_vertex_quota_project_binding_recovery/proof/recovered_runtime_binding/quota_project_binding.json",
+    "template_yaml_path": "experiments/iter61_vertex_quota_project_binding_recovery/proof/recovered_runtime_binding/telos_vertex_gemini_3_1_pro_customtools.quota-template.yaml",
+    "vertex_project_source": "env:TELOS_VERTEX_PROJECT"
+  },
+  "schema_version": "telos.vertex_quota_project_binding.preflight.v1",
+  "sentinel_named_resources_modified": false,
+  "source_path": {
+    "codeclash_checkout_present": true,
+    "codeclash_python_present": true,
+    "extra_headers_present_before": false,
+    "litellm_completion_supports_extra_headers": true,
+    "minisweagent_litellm_model_path": "/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py",
+    "minisweagent_model_kwargs_passthrough": true,
+    "model_config_present": true,
+    "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+    "project_identifier_committed": false,
+    "schema_version": "telos.vertex_quota_project_binding.source_path.v1",
+    "vertex_location": "global"
+  }
+}

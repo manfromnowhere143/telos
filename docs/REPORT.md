@@ -183,6 +183,14 @@ Current evidence:
 - `experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md` pre-registers the next
   blocker-only gate: recover the LiteLLM Vertex quota-project/header binding under a `2` call and
   `$0.05` ceiling without executing any BattleSnake row.
+- `experiments/iter61_vertex_quota_project_binding_recovery/RESULT.md` blocks after proving the
+  Mini-SWE-Agent/LiteLLM `extra_headers` path exists. The bounded LiteLLM probe with
+  `X-Goog-User-Project` still returned a redacted `CONSUMER_INVALID` response. One provider call
+  occurred, no BattleSnake row or excluded pair ran, no GPU or cloud runner was used, no Sentinel
+  resource was modified, and no benchmark/model claim is made.
+- `experiments/iter62_vertex_bearer_token_path_recovery/HYPOTHESIS.md` pre-registers the next
+  blocker-only gate: recover the LiteLLM Vertex bearer-token/header path under a `2` call and
+  `$0.05` ceiling without executing any BattleSnake row.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -185,9 +185,14 @@ and an adversarial review pass.
   redacted `CONSUMER_INVALID`/quota-project response, with one provider call, no row execution, no
   excluded pairs, no GPU, no cloud runner, no Sentinel mutation, and no benchmark/model claim in
   [`experiments/iter60_provider_model_binding_recovery`](experiments/iter60_provider_model_binding_recovery/RESULT.md).
-- Current gate: Vertex quota-project binding recovery,
+- Vertex quota-project binding recovery: blocked after proving the Mini-SWE-Agent/LiteLLM
+  `extra_headers` path exists; one bounded LiteLLM probe with `X-Goog-User-Project` still returned
+  a redacted `CONSUMER_INVALID` response, with no row execution, no excluded pairs, no GPU, no
+  cloud runner, no Sentinel mutation, and no benchmark/model claim in
+  [`experiments/iter61_vertex_quota_project_binding_recovery`](experiments/iter61_vertex_quota_project_binding_recovery/RESULT.md).
+- Current gate: Vertex bearer token path recovery,
   pre-registered in
-  [`experiments/iter61_vertex_quota_project_binding_recovery`](experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md).
+  [`experiments/iter62_vertex_bearer_token_path_recovery`](experiments/iter62_vertex_bearer_token_path_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
@@ -290,21 +295,22 @@ Provider-compatible paid execution after auth recovery: [`experiments/iter57_pro
 CodeClash Vertex dependency recovery: [`experiments/iter58_codeclash_vertex_dependency_recovery/RESULT.md`](experiments/iter58_codeclash_vertex_dependency_recovery/RESULT.md).
 Provider-compatible paid execution after dependency recovery: [`experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/RESULT.md`](experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/RESULT.md).
 Provider model binding recovery: [`experiments/iter60_provider_model_binding_recovery/RESULT.md`](experiments/iter60_provider_model_binding_recovery/RESULT.md).
-Vertex quota-project binding recovery: [`experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md`](experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md).
+Vertex quota-project binding recovery: [`experiments/iter61_vertex_quota_project_binding_recovery/RESULT.md`](experiments/iter61_vertex_quota_project_binding_recovery/RESULT.md).
+Vertex bearer token path recovery: [`experiments/iter62_vertex_bearer_token_path_recovery/HYPOTHESIS.md`](experiments/iter62_vertex_bearer_token_path_recovery/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21 opp"]-->I22["22 mut"]-->I23["23 null"]-->I24["24 cand"]-->I25["25 null"]-->I26["26 own"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 man"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 blk"]-->I41["41 run"]-->I42["42 blk"]-->I43["43 hrn"]-->I44["44 blk"]-->I45["45 plan"]-->I46["46 blk"]-->I47["47 bind"]-->I48["48 slice"]-->I49["49 blk"]-->I50["50 wrap"]-->I51["51 blk"]-->I52["52 cond"]-->I53["53 blk"]-->I54["54 exec"]-->I55["55 blk"]-->I56["56 auth"]-->I57["57 blk"]-->I58["58 dep"]-->I59["59 blk"]-->I60["60 blk"]-->I61["61 hdr"]
+  I21["21 opp"]-->I22["22 mut"]-->I23["23 null"]-->I24["24 cand"]-->I25["25 null"]-->I26["26 own"]-->I27["27 mat"]-->I28["28 pr"]-->I29["29 neg"]-->I30["30 sch"]-->I31["31 man"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cov"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slc"]-->I40["40 blk"]-->I41["41 run"]-->I42["42 blk"]-->I43["43 hrn"]-->I44["44 blk"]-->I45["45 plan"]-->I46["46 blk"]-->I47["47 bind"]-->I48["48 slc"]-->I49["49 blk"]-->I50["50 wrap"]-->I51["51 blk"]-->I52["52 cd"]-->I53["53 blk"]-->I54["54 exec"]-->I55["55 blk"]-->I56["56 au"]-->I57["57 blk"]-->I58["58 dep"]-->I59["59 blk"]-->I60["60 blk"]-->I61["61 blk"]-->I62["62 tok"]
   classDef p fill:#efe,stroke:#272,color:#000;
   classDef n fill:#fee,stroke:#c22,color:#000;
   classDef b fill:#ffd,stroke:#861,color:#000;
   classDef a fill:#eef,stroke:#17e,color:#000;
   class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58 p;
   class I23,I25 n;
-  class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57,I59,I60 b;
-  class I61 a;
+  class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57,I59,I60,I61 b;
+  class I62 a;
 ```
 
 ## Candidate Target Families
@@ -484,6 +490,8 @@ python3 scripts/validate_receipts.py experiments/iter59_provider_compatible_paid
 python3 scripts/audit_provider_compatible_paid_execution_after_dependency_recovery.py
 python3 scripts/validate_receipts.py experiments/iter60_provider_model_binding_recovery/proof
 python3 scripts/audit_provider_model_binding_recovery.py
+python3 scripts/validate_receipts.py experiments/iter61_vertex_quota_project_binding_recovery/proof
+python3 scripts/audit_vertex_quota_project_binding_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

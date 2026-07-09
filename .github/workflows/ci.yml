@@ -391,6 +391,12 @@ jobs:
       - name: Provider model binding recovery audit
         run: python3 scripts/audit_provider_model_binding_recovery.py
 
+      - name: Vertex quota-project binding recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter61_vertex_quota_project_binding_recovery/proof
+
+      - name: Vertex quota-project binding recovery audit
+        run: python3 scripts/audit_vertex_quota_project_binding_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

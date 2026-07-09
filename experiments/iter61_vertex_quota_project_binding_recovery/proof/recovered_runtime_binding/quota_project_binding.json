@@ -1,0 +1,20 @@
+{
+  "credential_material_committed": false,
+  "mechanism": "runtime_env_quota_project_header_injection",
+  "model_kwargs_template": {
+    "extra_headers": {
+      "X-Goog-User-Project": "${TELOS_VERTEX_QUOTA_PROJECT}"
+    },
+    "max_tokens": 4096,
+    "temperature": 0.2,
+    "vertex_location": "global",
+    "vertex_project": "${TELOS_VERTEX_PROJECT}"
+  },
+  "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+  "project_identifier_committed": false,
+  "runtime_env_vars": [
+    "TELOS_VERTEX_PROJECT",
+    "TELOS_VERTEX_QUOTA_PROJECT"
+  ],
+  "schema_version": "telos.vertex_quota_project_binding.runtime_template.v1"
+}

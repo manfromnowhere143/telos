@@ -1,0 +1,40 @@
+{
+  "acceptance_criteria": [
+    "Iter60 is a clean blocked result with redacted CONSUMER_INVALID evidence.",
+    "The binding path injects the quota project at runtime without committing identifiers.",
+    "At most two provider probes and at most $0.05 bounded spend occur.",
+    "No BattleSnake row, excluded pair, GPU, Sentinel mutation, cloud runner, or overclaim occurs."
+  ],
+  "agent_id": "codex-local-vertex-quota-project-binding-recovery",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter61_vertex_quota_project_binding_recovery/proof/quota_project_binding_report.json",
+      "kind": "test",
+      "notes": "Records source-path support, runtime binding, minimal probe outcome, calls, cost, redaction, and no-row controls.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter61_vertex_quota_project_binding_recovery/proof/recovered_runtime_binding/",
+      "kind": "artifact",
+      "notes": "Project-safe runtime binding template for a future exact two-row retry.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter61_vertex_quota_project_binding_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the quota-project-only claim boundary.",
+      "status": "blocked"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter60 does not show the named quota-project/header blocker.",
+    "The result must block if a secret-safe LiteLLM quota-project/header path cannot be identified.",
+    "The result must fail if any BattleSnake row, excluded pair, GPU, Sentinel mutation, cloud runner, or overclaim occurs."
+  ],
+  "receipt_id": "iter61-vertex-quota-project-binding-recovery-blocked",
+  "sha256": "9e8a376e350fc988fe3724fd4950adeca32ce2598c0aa5b0a6f2cd3fb37526ab",
+  "stated_goal": "Recover the LiteLLM Vertex quota-project/header binding that caused the iter60 model-binding recovery probe to block.",
+  "status": "blocked",
+  "task_id": "telos:iter61_vertex_quota_project_binding_recovery@iter60"
+}
