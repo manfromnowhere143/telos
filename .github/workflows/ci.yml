@@ -337,6 +337,12 @@ jobs:
       - name: Provider-compatible protocol effect execution with wrapper audit
         run: python3 scripts/audit_provider_compatible_protocol_effect_execution_with_wrapper.py
 
+      - name: Provider condition runtime separation recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter52_provider_condition_runtime_separation_recovery/proof
+
+      - name: Provider condition runtime separation recovery audit
+        run: python3 scripts/audit_provider_condition_runtime_separation_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

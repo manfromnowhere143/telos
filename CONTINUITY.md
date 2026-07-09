@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter52_provider_condition_runtime_separation_recovery/HYPOTHESIS.md`
+- `experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -244,10 +244,17 @@ Current claim:
   command, overlay, and agent prompt apart from output directory. Two pairs remained planned, zero
   started, zero provider model calls occurred, zero spend occurred, no cloud runner started, no GPU
   was used, no Sentinel-named resources were modified, and no benchmark/model result is claimed.
+- `iter52_provider_condition_runtime_separation_recovery` passed as a zero-spend readiness gate:
+  the wrapper now exposes a disabled-by-default execution mode, the baseline and Telos rows have
+  distinct runtime commands, provider overlays, and agent prompts, and the Telos row has a concrete
+  receipt validation path before verified completion can be accepted. Zero provider model calls
+  occurred, zero spend occurred, no cloud runner started, no GPU was used, no Sentinel-named
+  resources were modified, and no benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate may recover only condition-separated provider-wrapper readiness at zero spend.
-  Provider calls, cloud runner startup, GPU use, Sentinel resource modification, excluded-pair
-  execution, and benchmark/model overclaims remain forbidden.
+- The next gate may run only the two selected provider-compatible BattleSnake condition rows under
+  the frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
+  excluded-pair execution, production/live-domain changes, and benchmark/model overclaims remain
+  forbidden.
 
 ## Required Verification
 
@@ -356,6 +363,8 @@ python3 scripts/validate_receipts.py experiments/iter50_provider_compatible_exec
 python3 scripts/audit_provider_compatible_execution_wrapper_recovery.py
 python3 scripts/validate_receipts.py experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof
 python3 scripts/audit_provider_compatible_protocol_effect_execution_with_wrapper.py
+python3 scripts/validate_receipts.py experiments/iter52_provider_condition_runtime_separation_recovery/proof
+python3 scripts/audit_provider_condition_runtime_separation_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

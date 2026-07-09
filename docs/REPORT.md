@@ -121,8 +121,12 @@ Current evidence:
   blocks before provider execution because the wrapper remains dry-run-only and the baseline/Telos
   runtime conditions are not distinct beyond output directory. Zero provider calls, zero spend, no
   cloud runner, no GPU, and no Sentinel modification occurred.
-- `experiments/iter52_provider_condition_runtime_separation_recovery/HYPOTHESIS.md` freezes the
-  zero-spend recovery gate for condition-separated provider-wrapper readiness.
+- `experiments/iter52_provider_condition_runtime_separation_recovery/RESULT.md` passes the
+  zero-spend condition-runtime separation recovery: the future baseline and Telos rows now have
+  distinct commands, overlays, prompts, and a Telos receipt-validation path before acceptance.
+- `experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/HYPOTHESIS.md`
+  freezes the bounded two-row provider-compatible protocol-effect pilot under the `16` invocation
+  and `$10.00` ceilings.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter51 is a committed blocked result caused by wrapper execution-mode and condition-separation gaps.",
+    "The wrapper exposes an execution mode while remaining dry-run by default.",
+    "Exactly two selected BattleSnake pairs are planned and all four excluded historical pairs remain rejected.",
+    "Baseline and Telos rows have distinct runtime commands, provider overlays, and provider agent prompts beyond output directory.",
+    "The Telos row has a concrete receipt path and validation command before verified completion can be accepted.",
+    "Provider calls, spend, cloud runner startup, GPU use, and Sentinel resource modification remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-provider-condition-separation-verifier",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/condition_runtime_separation_plan.json",
+      "kind": "test",
+      "notes": "Condition-separated plan records runtime commands, overlays, prompts, and receipt checks.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/condition_runtime_separation_report.json",
+      "kind": "artifact",
+      "notes": "Report records zero-spend recovery checks and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records why iter52 is readiness evidence, not a benchmark result.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter51 is missing or was not blocked for the known wrapper/condition gaps.",
+    "The result must block if wrapper execution mode cannot be expressed without enabling paid execution by default.",
+    "The result must block if baseline and Telos runtime plans differ only by output directory.",
+    "The result must block if the Telos row lacks receipt path or validation command before acceptance.",
+    "The result must fail if provider calls, spend, cloud runner startup, GPU use, Sentinel resource modification, or excluded-pair execution occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter52-provider-condition-runtime-separation-recovery-pass",
+  "sha256": "ceb0a1311632a3a9cd3bf794b5eca8e080e3141098a58e2157603d4e06628393",
+  "stated_goal": "Recover zero-spend provider-wrapper readiness by making baseline and Telos receipt-enforced rows distinct runtime conditions before any paid retry.",
+  "status": "pass",
+  "task_id": "telos:iter52_provider_condition_runtime_separation_recovery@iter51"
+}

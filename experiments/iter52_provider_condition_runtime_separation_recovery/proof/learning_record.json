@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter52_provider_condition_runtime_separation_recovery/proof/condition_runtime_separation_plan.json",
+    "experiments/iter52_provider_condition_runtime_separation_recovery/proof/condition_runtime_separation_report.json",
+    "experiments/iter52_provider_condition_runtime_separation_recovery/proof/command_output.txt",
+    "experiments/iter52_provider_condition_runtime_separation_recovery/proof/review.md",
+    "experiments/iter52_provider_condition_runtime_separation_recovery/proof/run_summary.json",
+    "experiments/iter52_provider_condition_runtime_separation_recovery/proof/learning_record.json",
+    "experiments/iter52_provider_condition_runtime_separation_recovery/proof/valid/receipt_provider_condition_runtime_separation_recovery.json"
+  ],
+  "experiment_id": "iter52_provider_condition_runtime_separation_recovery",
+  "insight": "The provider-compatible retry can now be represented as two distinct runtime conditions: a baseline raw-evidence row and a Telos receipt-enforced row with pre-acceptance receipt validation.",
+  "next_action": "pre-register and run only the bounded two-pair paid retry if provider credentials, budget, teardown, redaction, and receipt gates are all green",
+  "result_path": "experiments/iter52_provider_condition_runtime_separation_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

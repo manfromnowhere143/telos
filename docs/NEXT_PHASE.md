@@ -2,11 +2,15 @@
 
 ## Current Action
 
-Run `iter52_provider_condition_runtime_separation_recovery` exactly as frozen in
-[`../experiments/iter52_provider_condition_runtime_separation_recovery/HYPOTHESIS.md`](../experiments/iter52_provider_condition_runtime_separation_recovery/HYPOTHESIS.md).
+Run `iter53_provider_compatible_protocol_effect_execution_after_condition_recovery` exactly as
+frozen in
+[`../experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/HYPOTHESIS.md`](../experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/HYPOTHESIS.md).
 
-The output is not a leaderboard score and not a paid provider run. It is a zero-spend recovery gate
-for the condition-separation gap exposed by iter51:
+The output is not a leaderboard score, SWE-bench score, production/live-domain result,
+model-superiority result, or state-of-the-art claim. It is the smallest paid provider-compatible
+protocol-effect pilot that Telos has earned so far: two BattleSnake PvP rows, one baseline
+raw-evidence condition and one Telos receipt-enforced condition, under the frozen `16` invocation
+and `$10.00` ceilings.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -47,14 +51,16 @@ for the condition-separation gap exposed by iter51:
   [`../experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/wrapper_dry_run_plan.json`](../experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/wrapper_dry_run_plan.json),
 - use the blocked iter51 preflight from
   [`../experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/preflight.json`](../experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/preflight.json),
-- recover a wrapper execution mode that remains disabled by default,
-- recover distinct baseline and Telos receipt-enforced runtime plans beyond output directory,
-- prove the Telos row has a concrete receipt validation path before result acceptance,
-- attempt no provider-backed task pair in this gate,
+- use the passed iter52 condition-separation plan from
+  [`../experiments/iter52_provider_condition_runtime_separation_recovery/proof/condition_runtime_separation_plan.json`](../experiments/iter52_provider_condition_runtime_separation_recovery/proof/condition_runtime_separation_plan.json),
+- use the recovered iter52 overlays from
+  [`../experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/`](../experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/),
+- execute only the two selected provider-compatible BattleSnake rows,
+- validate the Telos receipt before accepting the Telos row as verified completion,
 - keep all four excluded Dummy/deterministic-edit pairs visible as exclusions,
 - keep future provider model calls capped at `16`,
 - keep future provider spend capped at `$10.00`,
-- do not start a cloud runner,
+- start only a Telos-named ephemeral non-GPU runner if the preflight and teardown plan are green,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
 - do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
@@ -113,23 +119,26 @@ selected BattleSnake pair plans and rejects all four historical exclusions witho
 spend, cloud runner startup, GPU use, or Sentinel modification. `iter51` authorizes only the
 bounded two-pair provider-compatible execution retry under the frozen `16` invocation and `$10.00`
 spend ceilings, but it blocked before provider execution because the wrapper was dry-run-only and
-the baseline/Telos runtime plans were not distinct beyond output directory. `iter52` authorizes only
-zero-spend condition-runtime separation recovery. Provider calls, cloud runner startup, GPU use,
-Sentinel resource modification, excluded-pair execution, and benchmark/model overclaims remain
-forbidden.
+the baseline/Telos runtime plans were not distinct beyond output directory. `iter52` passed as a
+zero-spend condition-runtime separation recovery: the wrapper now exposes a disabled-by-default
+execution mode, the baseline and Telos rows use distinct runtime plans, and the Telos row has a
+concrete receipt-validation command before acceptance. `iter53` authorizes only the two selected
+provider-compatible BattleSnake rows under the same `16` invocation and `$10.00` ceilings. GPU use,
+Sentinel resource modification, excluded-pair execution, production/live-domain changes, and
+benchmark/model overclaims remain forbidden.
 
-## After The Condition-Separation Recovery Gate
+## After The Bounded Two-Row Pilot
 
-If the condition-separation recovery gate passes:
+If the bounded two-row pilot passes:
 
-1. Pre-register a bounded paid retry that uses the recovered condition-separated wrapper.
-2. Preserve the `16` invocation and `$10.00` spend ceilings unless a later gate justifies a change.
-3. Publish exact condition wiring, receipt checks, raw artifact plans, costs, and audit notes before
-   any execution expansion.
+1. Publish exact primary and secondary metric counts before any interpretation.
+2. Keep any effect claim limited to the two provider-compatible BattleSnake rows.
+3. Pre-register the smallest expansion only after the proof packet, redaction, receipt validation,
+   cost capture, teardown proof, and adversarial review are clean.
 
-If the condition-separation recovery gate blocks or fails:
+If the bounded two-row pilot blocks or fails:
 
 1. Publish the blocked/null or quality-failure result.
-2. Correct only the specific wrapper, command, config, overlay, receipt, artifact, cost, redaction,
-   lifecycle, or metric gap.
+2. Correct only the specific credential, runner, wrapper, command, config, overlay, receipt,
+   artifact, cost, redaction, lifecycle, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.
