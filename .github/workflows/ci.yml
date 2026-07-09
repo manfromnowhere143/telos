@@ -349,6 +349,12 @@ jobs:
       - name: Provider-compatible execution after condition recovery audit
         run: python3 scripts/audit_provider_compatible_protocol_effect_execution_after_condition_recovery.py
 
+      - name: Provider pair executor recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter54_provider_pair_executor_recovery/proof
+
+      - name: Provider pair executor recovery audit
+        run: python3 scripts/audit_provider_pair_executor_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

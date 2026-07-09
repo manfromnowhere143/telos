@@ -1,0 +1,105 @@
+{
+  "benchmark_result_claimed": false,
+  "blockers": [],
+  "cloud_runner_started": false,
+  "codeclash": {
+    "actual_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "checkout_path": "/tmp/telos-codeclash",
+    "checkout_present": true,
+    "commit_identifier_logged": true,
+    "expected_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "pinned_commit_present": true,
+    "status_short_line_count": 0
+  },
+  "condition_plan_status": "condition_separated_ready",
+  "docker": {
+    "containers_started": false,
+    "docker_daemon_ready": true,
+    "path_cli_path": "/usr/local/bin/docker",
+    "path_cli_target": "/Volumes/Docker/Docker.app/Contents/Resources/bin/docker",
+    "path_cli_target_expected": "/Applications/Docker.app/Contents/Resources/bin/docker",
+    "path_cli_target_is_current_app": false,
+    "preferred_cli_path": "/Applications/Docker.app/Contents/Resources/bin/docker",
+    "preferred_cli_present": true,
+    "preferred_cli_ps_ready": true,
+    "preferred_cli_ready": true,
+    "preferred_cli_server_version": "28.2.2",
+    "socket_version_payload_present": true,
+    "socket_version_ready": true
+  },
+  "excluded_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "executor_plan_status": "executor_readiness_ready",
+  "experiment_id": "iter54_provider_pair_executor_recovery",
+  "failures": [],
+  "gpu_used": false,
+  "leaderboard_or_swebench_result_claimed": false,
+  "model_superiority_claimed": false,
+  "next_gate": "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md",
+  "overlay_copy": {
+    "all_hashes_match": true,
+    "copied_file_count": 6,
+    "copies": [
+      {
+        "destination": "configs/mini/telos_litellm_cost_registry_entry.json",
+        "destination_sha256": "87c7bc166a35101d5c8750517c73c231ba62b84cc373c18ec241b19bb5f8657c",
+        "hash_match": true,
+        "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+        "source_sha256": "87c7bc166a35101d5c8750517c73c231ba62b84cc373c18ec241b19bb5f8657c"
+      },
+      {
+        "destination": "configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "destination_sha256": "c7dc99e86b0a42ea6e83cd1413f9a2d3a044e1be253844b77411c21086f663f6",
+        "hash_match": true,
+        "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "source_sha256": "c7dc99e86b0a42ea6e83cd1413f9a2d3a044e1be253844b77411c21086f663f6"
+      },
+      {
+        "destination": "configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+        "destination_sha256": "d8587dab4faef836c39c26f6ad4186f0fb66a90f0e295152dcb64852b0652279",
+        "hash_match": true,
+        "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+        "source_sha256": "d8587dab4faef836c39c26f6ad4186f0fb66a90f0e295152dcb64852b0652279"
+      },
+      {
+        "destination": "configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+        "destination_sha256": "79a95e0ae1202369fcb33540f575f58739092fd358a835d94438a133661c27c1",
+        "hash_match": true,
+        "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+        "source_sha256": "79a95e0ae1202369fcb33540f575f58739092fd358a835d94438a133661c27c1"
+      },
+      {
+        "destination": "configs/test/telos_battlesnake_vertex_gemini_baseline.yaml",
+        "destination_sha256": "fb0d6534322044db1e5ddaafe3dd798f9af2483d070d04f78f7d876e85269db5",
+        "hash_match": true,
+        "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_baseline.yaml",
+        "source_sha256": "fb0d6534322044db1e5ddaafe3dd798f9af2483d070d04f78f7d876e85269db5"
+      },
+      {
+        "destination": "configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml",
+        "destination_sha256": "fe71a2874696891715cfaed83b7f26a3d25c65faa3fd5683125c99885d24e4e5",
+        "hash_match": true,
+        "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml",
+        "source_sha256": "fe71a2874696891715cfaed83b7f26a3d25c65faa3fd5683125c99885d24e4e5"
+      }
+    ]
+  },
+  "production_or_live_domain_changed": false,
+  "provider_command_executed": false,
+  "provider_model_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.provider_pair_executor_recovery.report.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml"
+  ],
+  "sentinel_named_resources_modified": false,
+  "source_iter52_plan_path": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/condition_runtime_separation_plan.json",
+  "source_iter53_summary_path": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/run_summary.json",
+  "state_of_the_art_result_claimed": false,
+  "status": "pass"
+}

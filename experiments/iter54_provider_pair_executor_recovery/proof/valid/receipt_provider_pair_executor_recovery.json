@@ -1,0 +1,45 @@
+{
+  "acceptance_criteria": [
+    "Iter53 is a committed blocked result with zero provider calls and zero spend.",
+    "The pinned CodeClash checkout is present at the frozen commit.",
+    "Recovered iter52 overlays are copied or exactly mapped into the pinned checkout.",
+    "The wrapper materializes exact commands for only the two selected BattleSnake rows.",
+    "Docker daemon readiness is proven through a bounded no-container probe.",
+    "Provider calls, provider spend, cloud runner startup, GPU use, and Sentinel resource modification remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-provider-pair-executor-recovery",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter54_provider_pair_executor_recovery/proof/executor_readiness_report.json",
+      "kind": "test",
+      "notes": "Executor readiness report records CodeClash, Docker, overlay, and command readiness.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter54_provider_pair_executor_recovery/proof/command_manifest.json",
+      "kind": "artifact",
+      "notes": "Command manifest records the exact future provider-backed commands without executing them.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter54_provider_pair_executor_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the zero-spend boundary and CLI symlink caveat.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the pinned CodeClash checkout cannot be verified.",
+    "The result must block if Docker daemon readiness cannot be proven.",
+    "The result must fail if any provider command is executed.",
+    "The result must fail if provider calls, provider spend, cloud runner startup, GPU use, or Sentinel resource modification occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter54-provider-pair-executor-recovery-pass",
+  "sha256": "e5aff46417e459751e9144cb8682a70c938f28dc4e6b5cb691d0b525eb09e399",
+  "stated_goal": "Recover a zero-spend provider pair executor for the two condition-separated BattleSnake rows before any paid retry.",
+  "status": "pass",
+  "task_id": "telos:iter54_provider_pair_executor_recovery@iter53"
+}

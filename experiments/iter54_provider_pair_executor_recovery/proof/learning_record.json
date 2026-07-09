@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter54_provider_pair_executor_recovery/proof/run_summary.json",
+    "experiments/iter54_provider_pair_executor_recovery/proof/executor_readiness_report.json",
+    "experiments/iter54_provider_pair_executor_recovery/proof/command_manifest.json",
+    "experiments/iter54_provider_pair_executor_recovery/proof/overlay_copy_manifest.json",
+    "experiments/iter54_provider_pair_executor_recovery/proof/valid/receipt_provider_pair_executor_recovery.json"
+  ],
+  "experiment_id": "iter54_provider_pair_executor_recovery",
+  "insight": "The two-row provider-compatible executor can materialize exact commands after condition separation, with pinned CodeClash, copied overlays, Docker daemon readiness, and zero provider calls.",
+  "next_action": "pre-register the paid two-row provider-compatible retry using the recovered executor and keep the claim limited to exact two-row protocol-effect evidence",
+  "result_path": "experiments/iter54_provider_pair_executor_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

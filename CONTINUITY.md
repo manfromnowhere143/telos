@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter54_provider_pair_executor_recovery/HYPOTHESIS.md`
+- `experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -250,6 +250,19 @@ Current claim:
   receipt validation path before verified completion can be accepted. Zero provider model calls
   occurred, zero spend occurred, no cloud runner started, no GPU was used, no Sentinel-named
   resources were modified, and no benchmark/model result is claimed.
+- `iter53_provider_compatible_protocol_effect_execution_after_condition_recovery` blocked before
+  provider execution: condition separation was ready, but the pair executor still intentionally
+  raised, the base harness still disabled full protocol-effect execution, the pinned CodeClash
+  checkout was not ready, and Docker readiness timed out. Zero provider model calls occurred, zero
+  spend occurred, no cloud runner started, no GPU was used, no Sentinel-named resources were
+  modified, and no benchmark/model result is claimed.
+- `iter54_provider_pair_executor_recovery` passed as a zero-spend readiness gate: the pinned
+  CodeClash checkout was ready, six recovered overlay files were copied with matching hashes,
+  exact baseline/Telos commands were materialized without execution, Docker daemon readiness was
+  proven through the current Docker Desktop binary, and the stale `/usr/local/bin/docker` symlink
+  caveat was recorded. Zero provider model calls occurred, zero spend occurred, no cloud runner
+  started, no GPU was used, no Sentinel-named resources were modified, and no benchmark/model
+  result is claimed.
 - No model or benchmark result is claimed yet.
 - The next gate may run only the two selected provider-compatible BattleSnake condition rows under
   the frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
@@ -367,6 +380,8 @@ python3 scripts/validate_receipts.py experiments/iter52_provider_condition_runti
 python3 scripts/audit_provider_condition_runtime_separation_recovery.py
 python3 scripts/validate_receipts.py experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof
 python3 scripts/audit_provider_compatible_protocol_effect_execution_after_condition_recovery.py
+python3 scripts/validate_receipts.py experiments/iter54_provider_pair_executor_recovery/proof
+python3 scripts/audit_provider_pair_executor_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -29,6 +29,10 @@ DEFAULT_NEXT_EXPERIMENT = "iter51_provider_compatible_protocol_effect_execution_
 DEFAULT_CONDITION_SEPARATED_NEXT_EXPERIMENT = (
     "iter53_provider_compatible_protocol_effect_execution_after_condition_recovery"
 )
+DEFAULT_EXECUTOR_RECOVERY_NEXT_EXPERIMENT = (
+    "iter55_provider_compatible_paid_execution_after_executor_recovery"
+)
+DEFAULT_CODECLASH_DIR = "/tmp/telos-codeclash"
 SOURCE_ITER51_SUMMARY = (
     ROOT
     / "experiments"
@@ -522,6 +526,41 @@ def condition_future_command(pair: dict[str, Any]) -> str:
     )
 
 
+def recovered_overlay_destination(source_rel_path: str) -> str:
+    parts = Path(source_rel_path).parts
+    if "recovered_overlay" not in parts:
+        raise ValueError(f"not a recovered-overlay path: {source_rel_path}")
+    marker = parts.index("recovered_overlay")
+    return Path(*parts[marker + 1 :]).as_posix()
+
+
+def materialized_codeclash_command(
+    pair_plan: dict[str, Any], *, codeclash_dir: str = DEFAULT_CODECLASH_DIR
+) -> str:
+    overlay_dest = recovered_overlay_destination(str(pair_plan["provider_overlay_config"]))
+    return (
+        f"cd {codeclash_dir} && "
+        f"uv run codeclash run {overlay_dest} -o {pair_plan['condition_output_root']}"
+    )
+
+
+def overlay_copy_manifest(pair_plan: dict[str, Any]) -> list[dict[str, Any]]:
+    required_files = pair_plan.get("overlay_copy_plan", {}).get("required_files", [])
+    manifest = []
+    for source in sorted(required_files):
+        destination = recovered_overlay_destination(source)
+        source_path = ROOT / source
+        manifest.append(
+            {
+                "source": source,
+                "destination": destination,
+                "source_exists": source_path.exists(),
+                "copy_required_before_execution": True,
+            }
+        )
+    return manifest
+
+
 def receipt_validation_plan(pair: dict[str, Any], next_experiment: str) -> dict[str, Any]:
     pair_id = pair["pair_id"]
     proof_root = f"experiments/{next_experiment}/proof/raw/{pair_id}"
@@ -883,20 +922,113 @@ def build_condition_separated_plan(
     }
 
 
-def execute_pair(pair_plan: dict[str, Any], *, allow_provider_execution: bool) -> dict[str, Any]:
+def executor_readiness_pair(
+    pair_plan: dict[str, Any], *, codeclash_dir: str = DEFAULT_CODECLASH_DIR
+) -> dict[str, Any]:
+    copy_manifest = overlay_copy_manifest(pair_plan)
+    return {
+        "pair_id": pair_plan["pair_id"],
+        "condition_id": pair_plan["condition_id"],
+        "task_id": pair_plan["task_id"],
+        "provider_overlay_source": pair_plan["provider_overlay_config"],
+        "provider_overlay_destination": recovered_overlay_destination(
+            str(pair_plan["provider_overlay_config"])
+        ),
+        "overlay_copy_manifest": copy_manifest,
+        "overlay_source_all_present": all(item["source_exists"] for item in copy_manifest),
+        "materialized_codeclash_command": materialized_codeclash_command(
+            pair_plan, codeclash_dir=codeclash_dir
+        ),
+        "future_artifact_plan": pair_plan["future_artifact_plan"],
+        "cost_capture_plan": pair_plan["cost_capture_plan"],
+        "redaction_plan": pair_plan["redaction_plan"],
+        "receipt_validation_plan": pair_plan["receipt_validation_plan"],
+        "runner_lifecycle_plan": pair_plan["runner_lifecycle_plan"],
+        "provider_command_executed": False,
+        "provider_model_api_calls": 0,
+        "provider_spend_usd": 0.0,
+    }
+
+
+def build_executor_readiness_plan(
+    condition_plan: dict[str, Any],
+    *,
+    codeclash_dir: str = DEFAULT_CODECLASH_DIR,
+    next_experiment: str = DEFAULT_EXECUTOR_RECOVERY_NEXT_EXPERIMENT,
+) -> dict[str, Any]:
+    pair_records = [
+        executor_readiness_pair(pair_plan, codeclash_dir=codeclash_dir)
+        for pair_plan in condition_plan.get("condition_pair_plans", [])
+    ]
+    failures: list[str] = []
+    blockers: list[str] = []
+    if condition_plan.get("status") != "condition_separated_ready":
+        blockers.append("condition_plan_not_ready")
+    if len(pair_records) != 2:
+        failures.append("executor_pair_record_count_not_two")
+    if not all(record["overlay_source_all_present"] for record in pair_records):
+        blockers.append("overlay_source_missing")
+    if len({record["materialized_codeclash_command"] for record in pair_records}) != len(
+        pair_records
+    ):
+        failures.append("materialized_commands_not_unique")
+
+    return {
+        "schema_version": "telos.provider_pair_executor_readiness.plan.v1",
+        "status": "executor_readiness_ready" if not failures and not blockers else "blocked",
+        "wrapper_path": "scripts/run_provider_compatible_protocol_effect_pairs.py",
+        "source_condition_plan_status": condition_plan.get("status"),
+        "next_execution_experiment": next_experiment,
+        "codeclash_dir": codeclash_dir,
+        "selected_pair_count": len(pair_records),
+        "selected_pair_ids": [record["pair_id"] for record in pair_records],
+        "excluded_pair_count": condition_plan.get("excluded_pair_count"),
+        "excluded_pair_ids": condition_plan.get("excluded_pair_ids"),
+        "pair_executor_records": pair_records,
+        "execute_pair_readiness_path_implemented": True,
+        "provider_command_executed": False,
+        "provider_model_api_calls": 0,
+        "provider_spend_usd": 0.0,
+        "cloud_runner_started": False,
+        "gpu_used": False,
+        "sentinel_named_resources_modified": False,
+        "claim_boundary": condition_plan.get("claim_boundary", {}),
+        "blockers": blockers,
+        "failures": failures,
+    }
+
+
+def execute_pair(
+    pair_plan: dict[str, Any],
+    *,
+    allow_provider_execution: bool,
+    codeclash_dir: str = DEFAULT_CODECLASH_DIR,
+    dry_run_only: bool = True,
+) -> dict[str, Any]:
     if not allow_provider_execution:
         raise RuntimeError(
             "provider execution is disabled by default; run condition-separated planning first"
         )
-    raise RuntimeError(
-        "provider execution is intentionally not implemented in the iter52 recovery wrapper; "
-        f"future gate must execute {pair_plan['pair_id']} only after iter52 passes"
-    )
+    readiness = executor_readiness_pair(pair_plan, codeclash_dir=codeclash_dir)
+    if dry_run_only:
+        return readiness
+    raise RuntimeError("provider command execution requires a future paid execution gate")
 
 
-def execute_pairs(plan: dict[str, Any], *, allow_provider_execution: bool) -> list[dict[str, Any]]:
+def execute_pairs(
+    plan: dict[str, Any],
+    *,
+    allow_provider_execution: bool,
+    codeclash_dir: str = DEFAULT_CODECLASH_DIR,
+    dry_run_only: bool = True,
+) -> list[dict[str, Any]]:
     return [
-        execute_pair(pair_plan, allow_provider_execution=allow_provider_execution)
+        execute_pair(
+            pair_plan,
+            allow_provider_execution=allow_provider_execution,
+            codeclash_dir=codeclash_dir,
+            dry_run_only=dry_run_only,
+        )
         for pair_plan in plan.get("condition_pair_plans", [])
     ]
 
@@ -1016,9 +1148,10 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument(
         "--mode",
-        choices=["dry-run", "condition-separated-plan", "execute"],
+        choices=["dry-run", "condition-separated-plan", "executor-readiness", "execute"],
         default="dry-run",
     )
+    parser.add_argument("--codeclash-dir", default=DEFAULT_CODECLASH_DIR)
     parser.add_argument(
         "--execute",
         action="store_true",
@@ -1040,7 +1173,11 @@ def main() -> int:
     args = parser.parse_args()
 
     mode = "execute" if args.execute else args.mode
-    if args.write_recovered_overlay or mode in {"condition-separated-plan", "execute"}:
+    if args.write_recovered_overlay or mode in {
+        "condition-separated-plan",
+        "executor-readiness",
+        "execute",
+    }:
         write_recovered_overlay_files()
 
     if mode == "dry-run":
@@ -1077,6 +1214,30 @@ def main() -> int:
             "model_calls=0 spend=0.0 cloud_runner_started=false "
             "provider_execution_enabled_by_default=false"
         )
+    elif mode == "executor-readiness":
+        next_experiment = (
+            args.next_experiment
+            if args.next_experiment != DEFAULT_NEXT_EXPERIMENT
+            else DEFAULT_EXECUTOR_RECOVERY_NEXT_EXPERIMENT
+        )
+        condition_plan = build_condition_separated_plan(
+            slice_path=args.slice,
+            iter51_summary_path=args.iter51_summary,
+            next_experiment=next_experiment,
+        )
+        plan = build_executor_readiness_plan(
+            condition_plan,
+            codeclash_dir=args.codeclash_dir,
+            next_experiment=next_experiment,
+        )
+        success_status = "executor_readiness_ready"
+        message = (
+            "provider pair executor readiness: "
+            f"status={plan['status']} "
+            f"selected={plan['selected_pair_count']} "
+            "model_calls=0 spend=0.0 cloud_runner_started=false "
+            "provider_command_executed=false"
+        )
     else:
         next_experiment = (
             args.next_experiment
@@ -1092,11 +1253,18 @@ def main() -> int:
             args.allow_provider_execution
             and os.environ.get("TELOS_ALLOW_PROVIDER_EXECUTION") == "1"
         )
-        execute_pairs(plan, allow_provider_execution=allowed)
-        success_status = "executed"
+        plan["executor_records"] = execute_pairs(
+            plan,
+            allow_provider_execution=allowed,
+            codeclash_dir=args.codeclash_dir,
+            dry_run_only=True,
+        )
+        plan["status"] = "executor_readiness_ready"
+        success_status = "executor_readiness_ready"
         message = (
             "provider condition runtime separation execution: "
-            "status=executed model_calls=unavailable spend=unavailable"
+            "status=executor_readiness_ready model_calls=0 spend=0.0 "
+            "provider_command_executed=false"
         )
 
     write_json(args.output, plan)

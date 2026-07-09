@@ -2,16 +2,15 @@
 
 ## Current Action
 
-Run `iter54_provider_pair_executor_recovery` exactly as
+Run `iter55_provider_compatible_paid_execution_after_executor_recovery` exactly as
 frozen in
-[`../experiments/iter54_provider_pair_executor_recovery/HYPOTHESIS.md`](../experiments/iter54_provider_pair_executor_recovery/HYPOTHESIS.md).
+[`../experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md`](../experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
-model-superiority result, or state-of-the-art claim. It is the zero-spend executor-recovery gate
-needed after `iter53` blocked before provider execution. The immediate target is not a model call;
-it is a committed pair executor that proves pinned CodeClash checkout readiness, overlay copying,
-Docker/runner readiness, exact command materialization, artifact capture, cost parsing, receipt
-validation, redaction, and teardown controls before the next paid retry.
+model-superiority result, or state-of-the-art claim. It is the smallest paid protocol-effect
+measurement allowed by the current evidence line: exactly two frozen provider-compatible
+BattleSnake rows, one baseline and one Telos receipt-enforced condition. The target is exact
+evidence counts, not a broad benchmark claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -58,14 +57,17 @@ validation, redaction, and teardown controls before the next paid retry.
   [`../experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/`](../experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/),
 - use the blocked iter53 execution preflight from
   [`../experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/preflight.json`](../experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/preflight.json),
-- recover executor readiness for only the two selected provider-compatible BattleSnake rows,
-- do not execute a provider-backed BattleSnake row in iter54,
+- use the passed iter54 executor readiness summary from
+  [`../experiments/iter54_provider_pair_executor_recovery/proof/run_summary.json`](../experiments/iter54_provider_pair_executor_recovery/proof/run_summary.json),
+- use the exact iter54 command manifest from
+  [`../experiments/iter54_provider_pair_executor_recovery/proof/command_manifest.json`](../experiments/iter54_provider_pair_executor_recovery/proof/command_manifest.json),
+- execute only the two selected provider-compatible BattleSnake rows named in the iter54 manifest,
 - preserve the Telos receipt-validation path before accepting any future Telos row as verified
   completion,
-- keep all four excluded Dummy/deterministic-edit pairs visible as exclusions,
-- keep provider model calls at `0`,
-- keep provider spend at `$0.00`,
-- start no cloud runner unless iter54 explicitly records a no-model lifecycle probe and teardown,
+- keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
+- keep provider model calls at or below `16`,
+- keep provider spend at or below `$10.00`,
+- start only a Telos-named ephemeral non-GPU cloud runner after preflight, with teardown proof,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
 - do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
@@ -133,20 +135,24 @@ Sentinel resource modification, excluded-pair execution, production/live-domain 
 benchmark/model overclaims remain forbidden. `iter53` blocked before provider execution: the pair
 executor still intentionally raises, the base harness still disables full protocol-effect
 execution, the pinned CodeClash checkout is not ready, and Docker readiness timed out. `iter54`
-authorizes only zero-spend provider pair executor recovery before any paid retry.
+passed zero-spend provider pair executor recovery: pinned CodeClash was ready, recovered overlays
+were copied with matching hashes, Docker daemon readiness was proven through the current Docker
+Desktop binary, and exact two-row commands were materialized without provider execution. `iter55`
+authorizes only the bounded two-row paid provider-compatible pilot under the frozen `16` invocation
+and `$10.00` spend ceilings.
 
-## After Executor Recovery
+## During The Paid Pilot
 
-If executor recovery passes:
+If the paid pilot runs:
 
-1. Pre-register the smallest paid retry of exactly the two provider-compatible BattleSnake rows.
-2. Keep any effect claim limited to those two rows.
+1. Execute exactly the two provider-compatible BattleSnake rows from the iter54 command manifest.
+2. Keep any effect claim limited to those two rows and exact evidence counts.
 3. Require exact primary and secondary metric counts, redaction, receipt validation, cost capture,
    teardown proof, and adversarial review before interpretation.
 
-If executor recovery blocks or fails:
+If the paid pilot blocks, fails, or produces ambiguous evidence:
 
-1. Publish the blocked/null or quality-failure result.
-2. Correct only the specific credential, runner, wrapper, command, config, overlay, receipt,
-   artifact, cost, redaction, lifecycle, or metric gap.
+1. Publish the blocked/null or quality-failure result without softening the bar.
+2. Correct only the specific credential, runner, command, config, receipt, artifact, cost,
+   redaction, lifecycle, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

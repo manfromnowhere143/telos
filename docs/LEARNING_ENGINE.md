@@ -107,8 +107,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter51_provider_compatible_protocol_effect_execution_with_wrapper` | blocked | the wrapper is still dry-run-only and the Telos row is not a distinct runtime condition from baseline, so a paid run would not produce strong protocol-effect evidence | recover a condition-separated provider wrapper with explicit execution mode before any paid two-pair protocol-effect retry |
 | `iter52_provider_condition_runtime_separation_recovery` | pass | the provider-compatible retry now has distinct baseline and Telos runtime commands, overlays, prompts, and a Telos receipt-validation path before acceptance, while execution remains disabled by default | run only the bounded two-row paid provider-compatible pilot under the recovered condition-separated plan and frozen claim boundary |
 | `iter53_provider_compatible_protocol_effect_execution_after_condition_recovery` | blocked | condition separation is ready, but paid provider-compatible execution still needs a committed pair executor plus pinned CodeClash and Docker runner readiness before model calls can start | recover a zero-spend provider pair executor before retrying the two-row paid pilot |
+| `iter54_provider_pair_executor_recovery` | pass | the two-row provider-compatible executor can materialize exact baseline and Telos commands with pinned CodeClash, copied overlays, Docker daemon readiness, and zero provider calls | run only the bounded two-row paid provider-compatible pilot and publish exact evidence counts, costs, receipt validation, redaction, teardown proof, and nulls |
 
-The next experiment may recover only the executor machinery needed for the two selected
-provider-compatible BattleSnake rows. Provider calls, provider spend, excluded-pair execution, GPU
-use, Sentinel resource modification, production/live-domain changes, and unsupported
-benchmark/model claims remain forbidden.
+The next experiment may execute only the two selected provider-compatible BattleSnake rows under
+the `iter55` frozen ceilings. Excluded-pair execution, GPU use, Sentinel resource modification,
+production/live-domain changes, and unsupported benchmark/model claims remain forbidden.

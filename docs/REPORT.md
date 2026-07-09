@@ -129,8 +129,16 @@ Current evidence:
   the base harness still disables full protocol-effect execution, the pinned CodeClash checkout is
   not ready, and Docker readiness timed out. Zero provider calls, zero spend, no cloud runner, no
   GPU, and no Sentinel modification occurred.
-- `experiments/iter54_provider_pair_executor_recovery/HYPOTHESIS.md` pre-registers the zero-spend
-  executor-recovery gate needed before retrying the two-row paid pilot.
+- `experiments/iter54_provider_pair_executor_recovery/RESULT.md` passes the zero-spend executor
+  recovery gate: pinned CodeClash checkout ready, six recovered overlays copied with matching
+  hashes, exact two-row command manifest materialized, Docker daemon readiness proven through the
+  current Docker Desktop binary, zero provider calls, zero spend, no GPU, and no Sentinel
+  modification.
+- `experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md`
+  pre-registers the smallest paid two-row provider-compatible protocol-effect pilot. It is the
+  first gate allowed to measure a baseline-vs-Telos evidence difference, with a `16` provider-call
+  ceiling, `$10.00` spend ceiling, redaction/cost/receipt/teardown evidence, and no benchmark,
+  leaderboard, SWE-bench, production/live-domain, model-superiority, or state-of-the-art claim.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
