@@ -151,6 +151,8 @@ def main() -> int:
         "audit_provider_task_condition_command_binding_recovery.py",
         "validate_receipts.py experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof",
         "audit_provider_compatible_protocol_effect_slice_refreeze.py",
+        "validate_receipts.py experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof",
+        "audit_provider_compatible_protocol_effect_execution_retry.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

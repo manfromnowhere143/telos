@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter49_provider_compatible_protocol_effect_execution_retry/HYPOTHESIS.md`
+- `experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -226,10 +226,17 @@ Current claim:
   pairs remain visible historical exclusions with reasons. Zero provider model calls occurred, zero
   spend occurred, no cloud runner started, no GPU was used, no Sentinel-named resources were
   modified, and no benchmark/model result is claimed.
+- `iter49_provider_compatible_protocol_effect_execution_retry` blocked before provider execution:
+  the two-pair slice remained valid and provider-ready, but the required committed execution wrapper
+  was missing and the existing provider harness still disabled full task-condition execution. Two
+  pairs remained planned, zero started, zero provider model calls occurred, zero spend occurred, no
+  cloud runner started, no GPU was used, no Sentinel-named resources were modified, and no
+  benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate may run only the two selected provider-compatible BattleSnake pairs under the
-  frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
-  excluded-pair execution, and benchmark/model overclaims remain forbidden.
+- The next gate may recover only the missing two-pair provider-compatible execution wrapper at
+  zero provider calls and zero spend. Paid execution, GPU use, Sentinel resource modification,
+  excluded-pair execution, and benchmark/model overclaims remain forbidden until a wrapper-recovery
+  result earns a narrower retry.
 
 ## Required Verification
 
@@ -332,6 +339,8 @@ python3 scripts/validate_receipts.py experiments/iter47_provider_task_condition_
 python3 scripts/audit_provider_task_condition_command_binding_recovery.py
 python3 scripts/validate_receipts.py experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof
 python3 scripts/audit_provider_compatible_protocol_effect_slice_refreeze.py
+python3 scripts/validate_receipts.py experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof
+python3 scripts/audit_provider_compatible_protocol_effect_execution_retry.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

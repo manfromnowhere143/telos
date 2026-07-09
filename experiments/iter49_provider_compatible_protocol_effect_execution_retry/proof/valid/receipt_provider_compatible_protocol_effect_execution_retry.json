@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "The iter48 provider-compatible slice exists, passed, and selects exactly two BattleSnake pairs.",
+    "The four excluded Dummy and deterministic-edit pairs remain excluded and visible.",
+    "Provider, runner, overlay, cost, artifact, receipt, and redaction preflight evidence is recorded.",
+    "Provider calls do not start if the full task-pair execution wrapper is absent.",
+    "No provider model call, spend, cloud runner startup, GPU use, Sentinel resource modification, or live-domain change occurs after a blocking preflight.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-provider-compatible-execution-preflight",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/preflight.json",
+      "kind": "test",
+      "notes": "Preflight records slice, wrapper, provider-harness, and no-spend checks.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/execution_report.json",
+      "kind": "artifact",
+      "notes": "Execution report publishes blocked rows and uncomputed metrics.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records why provider calls were not started.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the iter48 refrozen slice or audit evidence is missing.",
+    "The result must block if the two-pair execution wrapper is missing.",
+    "The result must block if the existing provider harness still disables full task-condition execution.",
+    "The result must fail if an excluded pair is attempted.",
+    "The result must fail if any provider model call, spend, cloud runner startup, GPU use, or Sentinel resource modification occurs after a blocking preflight.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter49-provider-compatible-protocol-effect-execution-retry-blocked",
+  "sha256": "22436185b37be7c8cfb7897497a9b46252d7c17d03cd45ea656c16c78cae1f5e",
+  "stated_goal": "Retry the provider-compatible protocol-effect execution only for the two frozen BattleSnake pairs if preflight proves an execution wrapper is present and safe.",
+  "status": "blocked",
+  "task_id": "telos:iter49_provider_compatible_protocol_effect_execution_retry@iter48"
+}

@@ -110,8 +110,12 @@ Current evidence:
 - `experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/RESULT.md` passes the
   zero-spend provider-compatible slice refreeze: two BattleSnake pairs selected, four historical
   pairs excluded with reasons, zero provider calls, zero spend.
-- `experiments/iter49_provider_compatible_protocol_effect_execution_retry/HYPOTHESIS.md` freezes the
-  bounded two-pair provider-compatible execution retry.
+- `experiments/iter49_provider_compatible_protocol_effect_execution_retry/RESULT.md` blocks before
+  provider execution because the two-pair execution wrapper is not committed and the recovered
+  provider harness still disables full task-condition execution. Zero provider calls, zero spend,
+  no cloud runner, no GPU, and no Sentinel modification occurred.
+- `experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md` freezes the
+  zero-spend wrapper-recovery gate required before a paid two-pair execution retry.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

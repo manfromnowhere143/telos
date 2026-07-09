@@ -102,7 +102,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter46_public_task_protocol_effect_execution_with_assembled_executor` | blocked | the dry-run executor manifest is not yet a provider-backed executor; provider overlays must be bound into exact task-condition commands before paid execution can start | recover provider task-condition command binding without spend, then retry the six-pair execution only if the command surface is concrete and audited |
 | `iter47_provider_task_condition_command_binding_recovery` | blocked | the existing Vertex provider overlay binds only the BattleSnake PvP surface; Dummy and deterministic-edit pairs must be narrowed or get new provider overlays before paid execution | pre-register a provider-compatible protocol-effect slice refreeze before any provider-backed execution retry |
 | `iter48_provider_compatible_protocol_effect_slice_refreeze` | pass | the next honest provider-compatible execution slice is the two-pair BattleSnake PvP baseline/Telos comparison; four historical pairs remain excluded until compatible overlays exist | run the bounded provider-compatible execution retry only for the two selected BattleSnake pairs under the frozen budget and claim boundary |
+| `iter49_provider_compatible_protocol_effect_execution_retry` | blocked | the two-pair provider-compatible slice is ready, but paid execution must still block until a committed wrapper can run exactly those pairs and preserve cost, raw artifact, receipt, redaction, and lifecycle evidence | recover a zero-spend provider-compatible execution wrapper before retrying the two-pair provider run |
 
-The next experiment may run only the two selected provider-compatible BattleSnake pairs under the
-frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
-excluded-pair execution, and unsupported benchmark/model claims remain forbidden.
+The next experiment may recover only the missing two-pair provider-compatible execution wrapper at
+zero provider calls and zero spend. Paid execution, GPU use, Sentinel resource modification,
+excluded-pair execution, and unsupported benchmark/model claims remain forbidden until a
+wrapper-recovery result earns a narrower retry.

@@ -129,8 +129,12 @@ and an adversarial review pass.
   provider-compatible pairs, four excluded historical pairs, zero provider calls, zero spend, no
   cloud runner, no GPU, and no Sentinel resource modification in
   [`experiments/iter48_provider_compatible_protocol_effect_slice_refreeze`](experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/RESULT.md).
-- Current gate: provider-compatible protocol-effect execution retry, pre-registered in
-  [`experiments/iter49_provider_compatible_protocol_effect_execution_retry`](experiments/iter49_provider_compatible_protocol_effect_execution_retry/HYPOTHESIS.md).
+- Provider-compatible protocol-effect execution retry: blocked before provider execution because
+  the two-pair execution wrapper is not yet committed and the recovered provider harness still
+  disables full task-condition execution in
+  [`experiments/iter49_provider_compatible_protocol_effect_execution_retry`](experiments/iter49_provider_compatible_protocol_effect_execution_retry/RESULT.md).
+- Current gate: provider-compatible execution wrapper recovery, pre-registered in
+  [`experiments/iter50_provider_compatible_execution_wrapper_recovery`](experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -220,19 +224,20 @@ Public task-condition executor assembly: [`experiments/iter45_public_task_condit
 Public task protocol-effect execution with assembled executor: [`experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/RESULT.md`](experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor/RESULT.md).
 Provider task-condition command binding recovery: [`experiments/iter47_provider_task_condition_command_binding_recovery/RESULT.md`](experiments/iter47_provider_task_condition_command_binding_recovery/RESULT.md).
 Provider-compatible protocol-effect slice refreeze: [`experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/RESULT.md`](experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/RESULT.md).
-Provider-compatible protocol-effect execution retry: [`experiments/iter49_provider_compatible_protocol_effect_execution_retry/HYPOTHESIS.md`](experiments/iter49_provider_compatible_protocol_effect_execution_retry/HYPOTHESIS.md).
+Provider-compatible protocol-effect execution retry: [`experiments/iter49_provider_compatible_protocol_effect_execution_retry/RESULT.md`](experiments/iter49_provider_compatible_protocol_effect_execution_retry/RESULT.md).
+Provider-compatible execution wrapper recovery: [`experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md`](experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21 opp"]-->I22["22 mut"]-->I23["23 tail null"]-->I24["24 cand"]-->I25["25 mut null"]-->I26["26 compound"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 block"]-->I41["41 runner"]-->I42["42 block"]-->I43["43 harness"]-->I44["44 block"]-->I45["45 exec-plan"]-->I46["46 block"]-->I47["47 bind"]-->I48["48 slice"]-->I49["49 exec"]
+  I21["21 opp"]-->I22["22 mut"]-->I23["23 tail null"]-->I24["24 cand"]-->I25["25 mut null"]-->I26["26 compound"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 block"]-->I41["41 runner"]-->I42["42 block"]-->I43["43 harness"]-->I44["44 block"]-->I45["45 exec-plan"]-->I46["46 block"]-->I47["47 bind"]-->I48["48 slice"]-->I49["49 block"]-->I50["50 wrapper"]
   classDef p fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   classDef n fill:#fde8e8,stroke:#c62828,color:#3b0d0d;
   classDef b fill:#fff4d6,stroke:#8a6d1d,color:#382900;
   class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48 p;
   class I23,I25 n;
-  class I40,I42,I44,I46,I47,I49 b;
+  class I40,I42,I44,I46,I47,I49,I50 b;
 ```
 
 ## Candidate Target Families
@@ -388,6 +393,8 @@ python3 scripts/validate_receipts.py experiments/iter47_provider_task_condition_
 python3 scripts/audit_provider_task_condition_command_binding_recovery.py
 python3 scripts/validate_receipts.py experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof
 python3 scripts/audit_provider_compatible_protocol_effect_slice_refreeze.py
+python3 scripts/validate_receipts.py experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof
+python3 scripts/audit_provider_compatible_protocol_effect_execution_retry.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

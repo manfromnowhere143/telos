@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-09T09:59:40Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-09T10:22:14Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -65,11 +65,12 @@ clean
 - experiments/iter46_public_task_protocol_effect_execution_with_assembled_executor: RESULT PUBLISHED
 - experiments/iter47_provider_task_condition_command_binding_recovery: RESULT PUBLISHED
 - experiments/iter48_provider_compatible_protocol_effect_slice_refreeze: RESULT PUBLISHED
-- experiments/iter49_provider_compatible_protocol_effect_execution_retry: PRE-REGISTERED, result pending
+- experiments/iter49_provider_compatible_protocol_effect_execution_retry: RESULT PUBLISHED
+- experiments/iter50_provider_compatible_execution_wrapper_recovery: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter49_provider_compatible_protocol_effect_execution_retry/HYPOTHESIS.md`.
+- Active gate: `experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -175,6 +176,8 @@ python3 scripts/validate_receipts.py experiments/iter47_provider_task_condition_
 python3 scripts/audit_provider_task_condition_command_binding_recovery.py
 python3 scripts/validate_receipts.py experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof
 python3 scripts/audit_provider_compatible_protocol_effect_slice_refreeze.py
+python3 scripts/validate_receipts.py experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof
+python3 scripts/audit_provider_compatible_protocol_effect_execution_retry.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

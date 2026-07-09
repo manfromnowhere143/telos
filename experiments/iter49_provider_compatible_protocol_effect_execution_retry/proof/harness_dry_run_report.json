@@ -1,0 +1,99 @@
+{
+  "account_identifier_logged": false,
+  "credential_material_logged": false,
+  "full_task_condition_pairs_executed": 0,
+  "gcloud_readiness": {
+    "account_identifier_logged": false,
+    "active_account_count": 1,
+    "dedicated_runner_short_id": "telos-vertex-runner",
+    "dedicated_runner_visible_count": 1,
+    "gcloud_present": true,
+    "gcloud_version_ready": true,
+    "project_configured": true,
+    "project_identifier_logged": false,
+    "running_sentinel_named_vm_count": 1,
+    "running_telos_vm_count": 0,
+    "running_vm_count": 3,
+    "service_account_identifier_logged": false,
+    "services_enabled": {
+      "aiplatform.googleapis.com": true,
+      "compute.googleapis.com": true,
+      "iam.googleapis.com": true
+    }
+  },
+  "harness_path": "scripts/run_ephemeral_vertex_codeclash_provider.py",
+  "lifecycle_probe": {
+    "cloud_runner_estimated_spend_bound_usd": 0.0,
+    "delete_attempted": false,
+    "full_task_condition_pair_executed": false,
+    "mode": "dry_run",
+    "model_call_made": false,
+    "no_gpu_requested": true,
+    "running_telos_vm_count_after": 0,
+    "running_telos_vm_count_before": 0,
+    "schema_version": "telos.provider_execution_harness.lifecycle_probe.v1",
+    "serial_marker_seen": false,
+    "service_account_identifier_logged": false,
+    "vm_created": false,
+    "vm_deleted": true,
+    "vm_identifier_logged": false,
+    "zone_logged": false
+  },
+  "prior_provider_artifact_summary": {
+    "account_identifier_committed": null,
+    "change_path_count": 1,
+    "cost_capture_parser_validated": true,
+    "credential_material_committed": false,
+    "model_api_calls_reported": 5,
+    "model_cost_reported_usd": 0.043329999999999994,
+    "p1_exit_status": "Submitted",
+    "preflight_http_status": "200",
+    "preflight_status": "pass",
+    "prior_proof_path": "experiments/iter21_opponent_collision_control/proof",
+    "project_identifier_committed": false,
+    "provider_private_fields_redacted": true,
+    "raw_artifact_retention_validated": true,
+    "raw_binary_round_archive_committed": false,
+    "required_artifact_count": 5,
+    "required_artifact_existing_count": 5,
+    "run_exit_code": 0,
+    "trajectory_path_count": 1
+  },
+  "project_identifier_logged": false,
+  "provider_execution_plan": {
+    "captures": [
+      "preflight_response",
+      "run_exit_code",
+      "raw_codeclash_logs",
+      "agent_trajectory",
+      "changes_json",
+      "api_call_count",
+      "model_cost_usd",
+      "artifact_hashes",
+      "redaction_scan",
+      "runner_lifecycle"
+    ],
+    "codeclash_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "frozen_configs": [
+      "configs/test/dummy.yaml",
+      "configs/test/battlesnake_pvp_test.yaml",
+      "configs/test/telos_battlesnake_edit_test.yaml"
+    ],
+    "full_protocol_effect_execution_enabled": false,
+    "model_id": "gemini-3.1-pro-preview-customtools",
+    "provider": "Google Vertex AI",
+    "region": "global",
+    "requires_future_gate_to_execute_task_condition_pairs": true,
+    "runner": "ephemeral_gce_vm_dedicated_service_account",
+    "runner_short_id": "telos-vertex-runner",
+    "schema_version": "telos.provider_execution_harness.plan.v1"
+  },
+  "provider_model_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "redaction_scan": {
+    "checked_text_file_count": 27,
+    "secret_or_identifier_hits": [],
+    "secret_scan_passed": true
+  },
+  "schema_version": "telos.provider_execution_harness.report.v1"
+}
