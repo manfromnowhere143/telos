@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The real public prose still passes the public-sync guard.",
+    "Every malformed public-prose fixture fails for the expected reason.",
+    "Fixture files remain separate from real public prose.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-release-manifest-public-sync-negative-fixtures",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/negative_guard_report.json",
+      "kind": "test",
+      "notes": "Real public prose plus malformed public-prose fixtures.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/fixtures/",
+      "kind": "artifact",
+      "notes": "Generated fixture prose; real public prose is not mutated.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter34_release_manifest_public_sync_negative_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records fixture coverage and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the iter33 public-sync report cannot be loaded.",
+    "The result must fail if real public prose no longer passes.",
+    "The result must fail if any malformed public-prose fixture passes.",
+    "The result must fail if fixture prose mutates real public prose.",
+    "The result must not widen into benchmark or production claims."
+  ],
+  "receipt_id": "iter34-release-manifest-public-sync-negative-guard-pass",
+  "sha256": "997b8db3472c4dceadfe06e0794de0f604e3add6305f377ba104d6072765e535",
+  "stated_goal": "Prove the release-manifest public-sync guard catches malformed public prose.",
+  "status": "pass",
+  "task_id": "telos:iter34_release_manifest_public_sync_negative_guard@iter33_public_sync"
+}

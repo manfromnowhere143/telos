@@ -1,0 +1,12 @@
+release manifest public sync negative guard: pass
+source_iter33=experiments/iter33_release_manifest_public_sync_guard/proof/public_sync_report.json
+provider_api_calls=0
+cloud_or_gpu_used=false
+real_public_prose_passed=true
+fixtures=5 failed_as_expected=5
+failed_fixture_ids=
+missing_release_manifest_reference: pass observed=required_snippets:README.md,required_snippets:docs/REPORT.md,required_snippets:docs/NEXT_PHASE.md,required_snippets:CONTINUITY.md,manifest_referenced_everywhere
+hidden_failed_nulls: pass observed=required_snippets:README.md,required_snippets:docs/REPORT.md,required_snippets:docs/NEXT_PHASE.md,required_snippets:CONTINUITY.md,failed_null_rows_visible
+candidate_original_conflation: pass observed=required_snippets:README.md,required_snippets:docs/REPORT.md,required_snippets:docs/NEXT_PHASE.md,changed_candidate_boundary_visible
+original_iter21_tail_overclaim: pass observed=forbidden_claims:README.md
+benchmark_result_overclaim: pass observed=forbidden_claims:README.md,forbidden_claims:docs/REPORT.md

@@ -1,0 +1,157 @@
+{
+  "cloud_or_gpu_used": false,
+  "failed_fixture_ids": [],
+  "fixture_count": 5,
+  "fixtures": [
+    {
+      "errors": [
+        {
+          "code": "stale_artifact_hash",
+          "detail": "hash mismatch for experiments/iter20_behavior_semantic_verification/RESULT.md",
+          "path": "$.artifact_index[0].sha256"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "stale_artifact_hash"
+      ],
+      "fixture_id": "stale_artifact_hash",
+      "fixture_path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/stale_artifact_hash.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "stale_artifact_hash"
+      ],
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "hidden_failed_null_rows",
+          "detail": "failed/null ids mismatch",
+          "path": "$.claim_boundary_matrix.failed_or_null_claim_ids"
+        },
+        {
+          "code": "hidden_failed_null_rows",
+          "detail": "failed/null gates must not be hidden",
+          "path": "$.claim_boundary_matrix.failed_null_gates_hidden"
+        },
+        {
+          "code": "hidden_failed_null_rows",
+          "detail": "row ids mismatch",
+          "path": "$.failed_or_null_rows"
+        },
+        {
+          "code": "hidden_failed_null_rows",
+          "detail": "public surface must keep failed/null gates visible",
+          "path": "$.public_claim_surface.failed_null_gates_visible"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "hidden_failed_null_rows"
+      ],
+      "fixture_id": "hidden_failed_null_rows",
+      "fixture_path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/hidden_failed_null_rows.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "hidden_failed_null_rows"
+      ],
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "candidate_original_conflation",
+          "detail": "changed candidate row conflated with original provider logic",
+          "path": "$.changed_candidate_rows[0]"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "candidate_original_conflation"
+      ],
+      "fixture_id": "candidate_original_conflation",
+      "fixture_path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/candidate_original_conflation.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "candidate_original_conflation"
+      ],
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "forbidden_claim_made",
+          "detail": "expected False",
+          "path": "$.leaderboard_or_swebench_claimed"
+        },
+        {
+          "code": "forbidden_claim_made",
+          "detail": "must be empty",
+          "path": "$.forbidden_claims_made"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "forbidden_claim_made"
+      ],
+      "fixture_id": "forbidden_claim_made",
+      "fixture_path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/forbidden_claim_made.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "forbidden_claim_made"
+      ],
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "missing_source_artifact",
+          "detail": "missing 'experiments/missing/source_artifact.json'",
+          "path": "$.source_artifacts[0].path"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "missing_source_artifact"
+      ],
+      "fixture_id": "missing_source_artifact",
+      "fixture_path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/missing_source_artifact.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "missing_source_artifact"
+      ],
+      "status": "pass"
+    }
+  ],
+  "fixtures_failed_as_expected": true,
+  "leaderboard_or_swebench_claimed": false,
+  "local_cpu_only": true,
+  "model_superiority_claimed": false,
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 0,
+  "provider_game_score_used_as_verifier_evidence": false,
+  "provider_spend_usd": 0.0,
+  "real_manifest_audit": {
+    "command": "python3 scripts/audit_claim_boundary_release_manifest.py",
+    "passed": true,
+    "returncode": 0,
+    "stderr_lines": [],
+    "stdout_lines": [
+      "claim boundary release manifest audit: clean manifest pass"
+    ]
+  },
+  "real_manifest_audit_passed": true,
+  "real_manifest_error_codes": [],
+  "real_manifest_validation_passed": true,
+  "schema_version": "telos.claim_boundary_release_manifest_negative_guard.report.v1",
+  "source_audit_path": "scripts/audit_claim_boundary_release_manifest.py",
+  "source_audit_sha256": "99d45c0633642ed8995664295ddae0ae0d6a22309e56d2c2fe6da43c16cf1337",
+  "source_iter31_clean_pass": true,
+  "source_iter31_status": "pass",
+  "source_manifest_path": "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json",
+  "source_manifest_sha256": "2d231a5001d023565575c5b6aeee5c18768ef76e353dd5a02517d13cecc84d32",
+  "source_summary_path": "experiments/iter31_claim_boundary_release_manifest/proof/run_summary.json",
+  "source_summary_sha256": "9b5bbba82e9c75f4c0f40f67f83887c89febf96131a0f11d7999400edf824e23",
+  "status": "pass"
+}

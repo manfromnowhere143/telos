@@ -1,0 +1,37 @@
+{
+  "artifact_hashes": {
+    "command_output.txt": "3df9dd4fd61b65bac6107e4e772453038e937c23f0bdfd0f443a5f46b8136e20",
+    "review.md": "4caf542dc0d42857d5d021f844083f02b913c536987a48e14d56da0a373b2eff",
+    "tail_semantics_report.json": "1985507bb807d9d821f7a2298e0acc0c2245a68393be743e4f908fc4219474c1"
+  },
+  "case_count": 4,
+  "clean_pass": false,
+  "cloud_or_gpu_used": false,
+  "experiment_id": "iter23_tail_semantics_falsification",
+  "failed_case_count": 2,
+  "failed_case_ids": [
+    "own-tail-left-occupied-risk",
+    "opponent-tail-left-occupied-risk"
+  ],
+  "game_score_used_as_verifier_evidence": false,
+  "leaderboard_or_swebench_claimed": false,
+  "local_cpu_only": true,
+  "next_gate": "experiments/iter24_tail_safety_control/HYPOTHESIS.md",
+  "non_tail_controls_passed": true,
+  "opponent_tail_risk_detected": true,
+  "own_tail_risk_detected": true,
+  "passed_case_count": 2,
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "quality_failure": true,
+  "schema_version": "telos.tail_semantics_falsification.summary.v1",
+  "source_experiment": "iter21_opponent_collision_control",
+  "source_main_path": "experiments/iter21_opponent_collision_control/proof/reconstructed/main.py",
+  "source_main_sha256": "82c0dc71f794795968f0b0d93268bcb2b0a55f0e8e28a8094952b8ab07f1d5a2",
+  "source_semantic_report_path": "experiments/iter21_opponent_collision_control/proof/semantic_report.json",
+  "source_semantic_report_sha256": "87ec944f25ae7a5a591383bbef469639ed9c45b79d9bf766c6f46180ce87feaf",
+  "status": "fail",
+  "submitted_logic_mutated": false,
+  "tail_occupancy_assumption": "tail_remains_occupied"
+}

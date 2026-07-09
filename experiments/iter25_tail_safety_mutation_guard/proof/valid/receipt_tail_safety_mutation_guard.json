@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The clean iter24 candidate imports locally and passes the four frozen cases.",
+    "The own-tail exclusion mutant fails the own occupied-tail case.",
+    "The opponent-tail exclusion mutant fails the opponent occupied-tail case.",
+    "The verifier records the exact tail-occupancy assumption.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-tail-safety-mutator",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter25_tail_safety_mutation_guard/proof/mutation_report.json",
+      "kind": "test",
+      "notes": "Clean candidate and targeted tail-exclusion mutants run against frozen cases.",
+      "status": "fail"
+    },
+    {
+      "artifact": "experiments/iter24_tail_safety_control/proof/candidate/main.py",
+      "kind": "artifact",
+      "notes": "Clean candidate source under mutation guard.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter25_tail_safety_mutation_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records mutation targets and claim boundary.",
+      "status": "fail"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the clean candidate cannot be loaded locally.",
+    "The result must fail if the clean candidate no longer passes the frozen cases.",
+    "The result must fail if a targeted tail-exclusion mutant escapes its occupied-tail target case.",
+    "The result must fail if the source under mutation is hidden.",
+    "The result must not treat provider game score as verifier evidence."
+  ],
+  "receipt_id": "iter25-tail-safety-mutation-guard-fail",
+  "sha256": "2a5370d82a8f0d09a47c540c7e48066fb7df24aa0a88b0ae4c4adac419657ecf",
+  "stated_goal": "Prove the occupied-tail verifier detects targeted regressions that reintroduce tail-excluding checks into the iter24 changed candidate.",
+  "status": "fail",
+  "task_id": "telos:iter25_tail_safety_mutation_guard@iter24_tail_safety_control"
+}

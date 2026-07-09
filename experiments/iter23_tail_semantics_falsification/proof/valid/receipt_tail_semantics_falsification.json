@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The reconstructed bot imports locally.",
+    "The verifier records the exact tail-occupancy assumption.",
+    "The submitted bot does not select an occupied self-tail or opponent-tail cell when safer alternatives exist.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-tail-semantics-verifier",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter23_tail_semantics_falsification/proof/tail_semantics_report.json",
+      "kind": "test",
+      "notes": "Occupied-tail risk cases expose whether the forbidden tail move remains in the observed safe-move list.",
+      "status": "fail"
+    },
+    {
+      "artifact": "experiments/iter21_opponent_collision_control/proof/reconstructed/main.py",
+      "kind": "artifact",
+      "notes": "Frozen reconstructed iter21 bot under test.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter23_tail_semantics_falsification/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the tail-occupancy assumption and claim boundary.",
+      "status": "fail"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the reconstructed iter21 bot cannot be loaded locally.",
+    "The result must block if the harness cannot encode a tail-occupancy assumption without changing submitted logic.",
+    "The result must fail if the bot can select an occupied self-tail cell when safer alternatives exist.",
+    "The result must fail if the bot can select an occupied opponent-tail cell when safer alternatives exist.",
+    "The result must not hide the tail-assumption boundary.",
+    "The result must not treat provider game score as verifier evidence."
+  ],
+  "receipt_id": "iter23-tail-semantics-falsification-fail",
+  "sha256": "6177b6f26a9523d173b3a14c79ae52ea00e186cd00546618a0167f2f168cb5df",
+  "stated_goal": "Test whether the reconstructed iter21 bot treats occupied self and opponent tail cells as unsafe under an explicit tail-remains-occupied assumption.",
+  "status": "fail",
+  "task_id": "telos:iter23_tail_semantics_falsification@iter21_opponent_collision_control"
+}

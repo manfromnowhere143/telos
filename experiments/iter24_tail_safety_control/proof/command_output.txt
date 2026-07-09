@@ -1,0 +1,13 @@
+tail safety control: pass
+source_tail_report=experiments/iter23_tail_semantics_falsification/proof/tail_semantics_report.json
+provider_api_calls=0
+cloud_or_gpu_used=false
+tail_occupancy_assumption=tail_remains_occupied
+original_logic=original_iter21
+original_cases=4 passed=2 failed=2
+candidate_logic=changed_candidate_tail_occupied
+candidate_cases=4 passed=4 failed=0
+candidate own-tail-left-occupied-risk: pass forbidden=left safe=up,right
+candidate opponent-tail-left-occupied-risk: pass forbidden=left safe=up,right
+candidate own-non-tail-left-control: pass forbidden=left safe=up,right
+candidate opponent-non-tail-left-control: pass forbidden=left safe=up,right

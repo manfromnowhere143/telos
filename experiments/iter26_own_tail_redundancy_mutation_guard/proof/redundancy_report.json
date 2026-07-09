@@ -1,0 +1,213 @@
+{
+  "clean_candidate_case_count": 4,
+  "clean_candidate_passed": true,
+  "clean_results": [
+    {
+      "case_family": "own_tail",
+      "case_id": "own-tail-left-occupied-risk",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 26: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "opponent_tail",
+      "case_id": "opponent-tail-left-occupied-risk",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 26: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "control_non_tail",
+      "case_id": "own-non-tail-left-control",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 26: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "control_non_tail",
+      "case_id": "opponent-non-tail-left-control",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 26: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    }
+  ],
+  "cloud_or_gpu_used": false,
+  "compound_mutant": true,
+  "compound_mutant_path": "experiments/iter26_own_tail_redundancy_mutation_guard/proof/mutants/own_tail_compound_exclusion.py",
+  "compound_mutant_sha256": "c194b741c6854bcedec2a947b8a24eef325be14da6071ff16b3bdeefc9458c86",
+  "compound_patches": [
+    {
+      "needle": "if next_pos in my_body:",
+      "patch_id": "direct_own_tail_exclusion",
+      "replacement": "if next_pos in my_body[:-1]:"
+    },
+    {
+      "needle": "opponents = game_state['board']['snakes']",
+      "patch_id": "self_snake_fallback_removed",
+      "replacement": "opponents = [snake for snake in game_state['board']['snakes'] if snake.get('id') != game_state['you'].get('id')]"
+    }
+  ],
+  "control_cases_passed": true,
+  "local_cpu_only": true,
+  "mutant_results": [
+    {
+      "case_family": "own_tail",
+      "case_id": "own-tail-left-occupied-risk",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": true,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "left",
+        "right"
+      ],
+      "passed": false,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 26: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "opponent_tail",
+      "case_id": "opponent-tail-left-occupied-risk",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 26: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "control_non_tail",
+      "case_id": "own-non-tail-left-control",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 26: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "control_non_tail",
+      "case_id": "opponent-non-tail-left-control",
+      "expected_safe_moves": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "stdout_lines": [
+        "MOVE 26: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    }
+  ],
+  "opponent_tail_still_passed": true,
+  "provider_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.own_tail_redundancy_mutation_guard.report.v1",
+  "source_candidate_path": "experiments/iter24_tail_safety_control/proof/candidate/main.py",
+  "source_candidate_sha256": "2f0e306fbef5b4fbf3675168e3e14b599c86377443dd6fddf59ce433f97edd06",
+  "source_iter25_report_path": "experiments/iter25_tail_safety_mutation_guard/proof/mutation_report.json",
+  "source_iter25_report_sha256": "a94a099b350c4e1a5937f57c5862823655a89b29d8d9d5b17ff89b875e822d4c",
+  "status": "pass",
+  "tail_occupancy_assumption": "tail_remains_occupied",
+  "target_case_id": "own-tail-left-occupied-risk",
+  "target_detected": true,
+  "target_observed_safe_moves": [
+    "up",
+    "left",
+    "right"
+  ],
+  "test_cases_mutated": false
+}

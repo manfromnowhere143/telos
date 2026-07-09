@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter30_boundary_matrix_schema_guard/proof/run_summary.json",
+    "experiments/iter30_boundary_matrix_schema_guard/proof/schema_guard_report.json",
+    "experiments/iter30_boundary_matrix_schema_guard/proof/claim_boundary_matrix.schema.json",
+    "experiments/iter30_boundary_matrix_schema_guard/proof/command_output.txt",
+    "experiments/iter30_boundary_matrix_schema_guard/proof/review.md",
+    "experiments/iter30_boundary_matrix_schema_guard/proof/valid/receipt_boundary_matrix_schema_guard.json"
+  ],
+  "experiment_id": "iter30_boundary_matrix_schema_guard",
+  "insight": "The claim-boundary matrix can be guarded by an explicit local schema validator that rejects malformed rows and hidden failed/null gates.",
+  "next_action": "pre-register a release manifest for the claim-boundary evidence chain so reviewers can verify the result packet without guessing artifact scope",
+  "result_path": "experiments/iter30_boundary_matrix_schema_guard/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

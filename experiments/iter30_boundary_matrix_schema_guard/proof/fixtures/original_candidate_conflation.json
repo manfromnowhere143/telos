@@ -1,0 +1,250 @@
+{
+  "changed_candidate_claim_ids": [
+    "iter24_changed_candidate_occupied_tail_control"
+  ],
+  "cloud_or_gpu_used": false,
+  "experiment_id": "iter27_semantic_claim_boundary_matrix",
+  "failed_null_gates_hidden": false,
+  "failed_or_null_claim_ids": [
+    "iter23_original_occupied_tail_falsification",
+    "iter25_tail_safety_mutation_guard_miss"
+  ],
+  "included_experiments": [
+    "iter20_behavior_semantic_verification",
+    "iter21_opponent_collision_control",
+    "iter22_semantic_mutation_guard",
+    "iter23_tail_semantics_falsification",
+    "iter24_tail_safety_control",
+    "iter25_tail_safety_mutation_guard",
+    "iter26_own_tail_redundancy_mutation_guard"
+  ],
+  "leaderboard_or_swebench_claimed": false,
+  "local_cpu_only": true,
+  "original_iter21_occupied_tail_safety_claimed": false,
+  "original_provider_logic_claim_ids": [
+    "iter20_original_boundary_self_semantics",
+    "iter21_original_opponent_body_semantics",
+    "iter23_original_occupied_tail_falsification"
+  ],
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 0,
+  "provider_game_score_used_as_verifier_evidence": false,
+  "provider_spend_usd": 0.0,
+  "row_count": 7,
+  "rows": [
+    {
+      "boundary": "Local deterministic semantic cases only; no opponent-body, occupied-tail, benchmark, or production claim.",
+      "changed_candidate": false,
+      "claim": "The reconstructed iter19 submitted bot passed local boundary and self-collision semantic cases.",
+      "claim_id": "iter20_original_boundary_self_semantics",
+      "does_not_claim": [
+        "no_codeclash_leaderboard_claim",
+        "no_model_superiority_claim",
+        "no_production_or_live_domain_claim",
+        "no_provider_game_score_as_verifier_evidence",
+        "no_swebench_claim",
+        "occupied_tail_safety",
+        "opponent_body_safety"
+      ],
+      "evidence_paths": [
+        "experiments/iter20_behavior_semantic_verification/proof/run_summary.json",
+        "experiments/iter20_behavior_semantic_verification/RESULT.md",
+        "experiments/iter20_behavior_semantic_verification/proof/semantic_report.json",
+        "experiments/iter20_behavior_semantic_verification/proof/valid/receipt_behavior_semantic_verification.json"
+      ],
+      "experiment_id": "iter20_behavior_semantic_verification",
+      "failure_visible": false,
+      "original_provider_logic": true,
+      "source_summary_clean_pass": true,
+      "source_summary_status": "pass",
+      "status": "pass",
+      "subject_id": "iter19_provider_submitted_bot",
+      "subject_type": "reconstructed_original_provider_logic",
+      "verifier_strength_evidence": false
+    },
+    {
+      "boundary": "Tails were excluded from the collision checks; this does not claim occupied-tail safety.",
+      "changed_candidate": false,
+      "claim": "The reconstructed iter21 submitted bot passed local boundary, self-collision, and opponent-body semantic cases.",
+      "claim_id": "iter21_original_opponent_body_semantics",
+      "does_not_claim": [
+        "no_codeclash_leaderboard_claim",
+        "no_model_superiority_claim",
+        "no_production_or_live_domain_claim",
+        "no_provider_game_score_as_verifier_evidence",
+        "no_swebench_claim",
+        "occupied_tail_safety"
+      ],
+      "evidence_paths": [
+        "experiments/iter21_opponent_collision_control/proof/run_summary.json",
+        "experiments/iter21_opponent_collision_control/RESULT.md",
+        "experiments/iter21_opponent_collision_control/proof/semantic_report.json",
+        "experiments/iter21_opponent_collision_control/proof/valid/receipt_opponent_collision_control.json"
+      ],
+      "experiment_id": "iter21_opponent_collision_control",
+      "failure_visible": false,
+      "original_provider_logic": true,
+      "source_summary_clean_pass": true,
+      "source_summary_status": "pass",
+      "status": "pass",
+      "subject_id": "iter21_provider_submitted_bot",
+      "subject_type": "reconstructed_original_provider_logic",
+      "verifier_strength_evidence": false
+    },
+    {
+      "boundary": "Mutation guard covers the targeted non-tail semantic families only; it does not prove occupied-tail safety.",
+      "changed_candidate": false,
+      "claim": "Targeted boundary, self-collision, and opponent-collision mutants were detected by the local semantic suite.",
+      "claim_id": "iter22_original_semantic_mutation_guard",
+      "does_not_claim": [
+        "complete_semantic_coverage",
+        "no_codeclash_leaderboard_claim",
+        "no_model_superiority_claim",
+        "no_production_or_live_domain_claim",
+        "no_provider_game_score_as_verifier_evidence",
+        "no_swebench_claim",
+        "occupied_tail_safety"
+      ],
+      "evidence_paths": [
+        "experiments/iter22_semantic_mutation_guard/proof/run_summary.json",
+        "experiments/iter22_semantic_mutation_guard/RESULT.md",
+        "experiments/iter22_semantic_mutation_guard/proof/mutation_report.json",
+        "experiments/iter22_semantic_mutation_guard/proof/valid/receipt_semantic_mutation_guard.json"
+      ],
+      "experiment_id": "iter22_semantic_mutation_guard",
+      "failure_visible": false,
+      "original_provider_logic": false,
+      "source_summary_clean_pass": true,
+      "source_summary_status": "pass",
+      "status": "pass",
+      "subject_id": "iter21_semantic_suite",
+      "subject_type": "verifier_harness",
+      "verifier_strength_evidence": true
+    },
+    {
+      "boundary": "This is a failure/null result for occupied-tail safety on the original iter21 logic; non-tail controls still passed.",
+      "changed_candidate": false,
+      "claim": "Under tail_remains_occupied, occupied self-tail and opponent-tail moves remained in the original safe-move list.",
+      "claim_id": "iter23_original_occupied_tail_falsification",
+      "does_not_claim": [
+        "no_codeclash_leaderboard_claim",
+        "no_model_superiority_claim",
+        "no_production_or_live_domain_claim",
+        "no_provider_game_score_as_verifier_evidence",
+        "no_swebench_claim",
+        "original_iter21_occupied_tail_safety"
+      ],
+      "evidence_paths": [
+        "experiments/iter23_tail_semantics_falsification/proof/run_summary.json",
+        "experiments/iter23_tail_semantics_falsification/RESULT.md",
+        "experiments/iter23_tail_semantics_falsification/proof/tail_semantics_report.json",
+        "experiments/iter23_tail_semantics_falsification/proof/valid/receipt_tail_semantics_falsification.json"
+      ],
+      "experiment_id": "iter23_tail_semantics_falsification",
+      "failure_visible": true,
+      "original_provider_logic": true,
+      "source_summary_clean_pass": false,
+      "source_summary_status": "fail",
+      "status": "null",
+      "subject_id": "iter21_provider_submitted_bot",
+      "subject_type": "reconstructed_original_provider_logic",
+      "verifier_strength_evidence": false
+    },
+    {
+      "boundary": "Candidate source is not the original provider submission and must not be described as historical iter21 behavior.",
+      "changed_candidate": true,
+      "claim": "A clearly labeled changed candidate passed the occupied-tail and non-tail local cases under tail_remains_occupied.",
+      "claim_id": "iter24_changed_candidate_occupied_tail_control",
+      "does_not_claim": [
+        "no_codeclash_leaderboard_claim",
+        "no_model_superiority_claim",
+        "no_production_or_live_domain_claim",
+        "no_provider_game_score_as_verifier_evidence",
+        "no_swebench_claim",
+        "original_iter21_occupied_tail_safety"
+      ],
+      "evidence_paths": [
+        "experiments/iter24_tail_safety_control/proof/run_summary.json",
+        "experiments/iter24_tail_safety_control/RESULT.md",
+        "experiments/iter24_tail_safety_control/proof/tail_safety_report.json",
+        "experiments/iter24_tail_safety_control/proof/candidate/main.py",
+        "experiments/iter24_tail_safety_control/proof/valid/receipt_tail_safety_control.json"
+      ],
+      "experiment_id": "iter24_tail_safety_control",
+      "failure_visible": false,
+      "original_provider_logic": true,
+      "source_summary_clean_pass": true,
+      "source_summary_status": "pass",
+      "status": "pass",
+      "subject_id": "changed_candidate_tail_occupied",
+      "subject_type": "changed_candidate",
+      "verifier_strength_evidence": false
+    },
+    {
+      "boundary": "This is a failure/null result for the full mutation-guard bar, not a clean verifier-strength pass.",
+      "changed_candidate": false,
+      "claim": "The opponent-tail mutant was detected, but the direct own-tail mutant was missed because the self-snake fallback path still protected the tail.",
+      "claim_id": "iter25_tail_safety_mutation_guard_miss",
+      "does_not_claim": [
+        "full_tail_mutation_guard_strength",
+        "no_codeclash_leaderboard_claim",
+        "no_model_superiority_claim",
+        "no_production_or_live_domain_claim",
+        "no_provider_game_score_as_verifier_evidence",
+        "no_swebench_claim"
+      ],
+      "evidence_paths": [
+        "experiments/iter25_tail_safety_mutation_guard/proof/run_summary.json",
+        "experiments/iter25_tail_safety_mutation_guard/RESULT.md",
+        "experiments/iter25_tail_safety_mutation_guard/proof/mutation_report.json",
+        "experiments/iter25_tail_safety_mutation_guard/proof/valid/receipt_tail_safety_mutation_guard.json"
+      ],
+      "experiment_id": "iter25_tail_safety_mutation_guard",
+      "failure_visible": true,
+      "original_provider_logic": false,
+      "source_summary_clean_pass": false,
+      "source_summary_status": "fail",
+      "status": "null",
+      "subject_id": "iter24_candidate_tail_mutation_guard",
+      "subject_type": "verifier_harness",
+      "verifier_strength_evidence": true
+    },
+    {
+      "boundary": "Verifier-strength evidence for this compound own-tail regression only; not a benchmark or production claim.",
+      "changed_candidate": false,
+      "claim": "A compound own-tail mutant that removed both direct own-body checking and the self-snake fallback was detected by the occupied-tail verifier.",
+      "claim_id": "iter26_compound_own_tail_redundancy_guard",
+      "does_not_claim": [
+        "complete_semantic_coverage",
+        "general_battlesnake_strength",
+        "no_codeclash_leaderboard_claim",
+        "no_model_superiority_claim",
+        "no_production_or_live_domain_claim",
+        "no_provider_game_score_as_verifier_evidence",
+        "no_swebench_claim"
+      ],
+      "evidence_paths": [
+        "experiments/iter26_own_tail_redundancy_mutation_guard/proof/run_summary.json",
+        "experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md",
+        "experiments/iter26_own_tail_redundancy_mutation_guard/proof/redundancy_report.json",
+        "experiments/iter26_own_tail_redundancy_mutation_guard/proof/valid/receipt_own_tail_redundancy_mutation_guard.json"
+      ],
+      "experiment_id": "iter26_own_tail_redundancy_mutation_guard",
+      "failure_visible": false,
+      "original_provider_logic": false,
+      "source_summary_clean_pass": true,
+      "source_summary_status": "pass",
+      "status": "pass",
+      "subject_id": "iter24_candidate_compound_own_tail_guard",
+      "subject_type": "verifier_harness",
+      "verifier_strength_evidence": true
+    }
+  ],
+  "schema_version": "telos.semantic_claim_boundary_matrix.v1",
+  "status": "pass",
+  "verifier_strength_claim_ids": [
+    "iter22_original_semantic_mutation_guard",
+    "iter25_tail_safety_mutation_guard_miss",
+    "iter26_compound_own_tail_redundancy_guard"
+  ]
+}

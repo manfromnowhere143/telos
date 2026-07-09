@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter23_tail_semantics_falsification/proof/run_summary.json",
+    "experiments/iter23_tail_semantics_falsification/proof/tail_semantics_report.json",
+    "experiments/iter23_tail_semantics_falsification/proof/command_output.txt",
+    "experiments/iter23_tail_semantics_falsification/proof/review.md",
+    "experiments/iter23_tail_semantics_falsification/proof/valid/receipt_tail_semantics_falsification.json"
+  ],
+  "experiment_id": "iter23_tail_semantics_falsification",
+  "insight": "Under an explicit occupied-tail assumption, the reconstructed iter21 bot leaves occupied self-tail and opponent-tail moves in the safe-move list while non-tail controls still pass.",
+  "next_action": "pre-register a tail-safety control that either models tail occupancy explicitly or keeps the claim limited to non-tail body segments",
+  "result_path": "experiments/iter23_tail_semantics_falsification/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

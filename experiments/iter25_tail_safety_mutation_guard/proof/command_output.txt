@@ -1,0 +1,9 @@
+tail safety mutation guard: fail
+source_candidate=experiments/iter24_tail_safety_control/proof/candidate/main.py
+provider_api_calls=0
+cloud_or_gpu_used=false
+tail_occupancy_assumption=tail_remains_occupied
+clean_candidate_cases=4 passed=4
+mutations=2 detected=1
+own_tail_exclusion: missed target=own-tail-left-occupied-risk failed=
+opponent_tail_exclusion: detected target=opponent-tail-left-occupied-risk failed=opponent-tail-left-occupied-risk

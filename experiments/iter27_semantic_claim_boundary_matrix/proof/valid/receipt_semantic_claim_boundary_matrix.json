@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The matrix includes iter20 through iter26.",
+    "Failed/null gates remain visible as failed/null.",
+    "Original provider logic and changed candidate logic are not conflated.",
+    "Evidence paths exist for every non-pending row.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-claim-boundary-matrix",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter27_semantic_claim_boundary_matrix/proof/claim_boundary_matrix.json",
+      "kind": "artifact",
+      "notes": "Machine-readable claim-boundary matrix for iter20 through iter26.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter27_semantic_claim_boundary_matrix/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records coverage and no-overclaim invariants.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter27_semantic_claim_boundary_matrix/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review states the matrix boundaries in prose.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if required prior proof artifacts are missing.",
+    "The result must fail if failed/null gates are hidden or relabeled as clean passes.",
+    "The result must fail if original provider logic and changed candidate logic are conflated.",
+    "The result must fail if the matrix implies original iter21 occupied-tail safety.",
+    "The result must not treat provider game score as verifier evidence."
+  ],
+  "receipt_id": "iter27-semantic-claim-boundary-matrix-pass",
+  "sha256": "ba742de8f71690c992f4e33be9b7276ee5e84781f77b41c4905f17e2f789f233",
+  "stated_goal": "Publish a machine-checkable matrix separating original provider logic, changed candidates, failed/null gates, and verifier-strength evidence.",
+  "status": "pass",
+  "task_id": "telos:iter27_semantic_claim_boundary_matrix@iter20_iter26_semantic_chain"
+}

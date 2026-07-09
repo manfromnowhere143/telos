@@ -1,0 +1,200 @@
+{
+  "case_count": 4,
+  "cases": [
+    {
+      "case_family": "own_tail",
+      "case_id": "own-tail-left-occupied-risk",
+      "expected_safe_moves_if_tail_occupied": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": true,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "left",
+        "right"
+      ],
+      "opponent_body": null,
+      "passed": false,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 23: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "opponent_tail",
+      "case_id": "opponent-tail-left-occupied-risk",
+      "expected_safe_moves_if_tail_occupied": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": true,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "left",
+        "right"
+      ],
+      "opponent_body": [
+        {
+          "x": 3,
+          "y": 5
+        },
+        {
+          "x": 3,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 5
+        }
+      ],
+      "passed": false,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 23: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "control_non_tail",
+      "case_id": "own-non-tail-left-control",
+      "expected_safe_moves_if_tail_occupied": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "opponent_body": null,
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 4
+        },
+        {
+          "x": 4,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 23: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    },
+    {
+      "case_family": "control_non_tail",
+      "case_id": "opponent-non-tail-left-control",
+      "expected_safe_moves_if_tail_occupied": [
+        "up",
+        "right"
+      ],
+      "forbidden_move": "left",
+      "forbidden_move_observed_safe": false,
+      "forbidden_move_selected": false,
+      "observed_safe_moves": [
+        "up",
+        "right"
+      ],
+      "opponent_body": [
+        {
+          "x": 3,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 5
+        },
+        {
+          "x": 4,
+          "y": 4
+        }
+      ],
+      "passed": true,
+      "selected_move": "up",
+      "self_body": [
+        {
+          "x": 5,
+          "y": 5
+        },
+        {
+          "x": 5,
+          "y": 4
+        }
+      ],
+      "stdout_lines": [
+        "MOVE 23: up"
+      ],
+      "tail_occupancy_assumption": "tail_remains_occupied"
+    }
+  ],
+  "cloud_or_gpu_used": false,
+  "failed_case_count": 2,
+  "failed_case_ids": [
+    "own-tail-left-occupied-risk",
+    "opponent-tail-left-occupied-risk"
+  ],
+  "local_cpu_only": true,
+  "non_tail_controls_passed": true,
+  "opponent_tail_risk_detected": true,
+  "own_tail_risk_detected": true,
+  "passed_case_count": 2,
+  "provider_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.tail_semantics_falsification.report.v1",
+  "source_main_path": "experiments/iter21_opponent_collision_control/proof/reconstructed/main.py",
+  "source_semantic_report_path": "experiments/iter21_opponent_collision_control/proof/semantic_report.json",
+  "status": "fail",
+  "submitted_logic_mutated": false,
+  "tail_occupancy_assumption": "tail_remains_occupied"
+}

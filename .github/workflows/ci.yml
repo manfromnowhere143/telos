@@ -163,6 +163,78 @@ jobs:
       - name: Semantic mutation guard audit
         run: python3 scripts/audit_semantic_mutation_guard.py
 
+      - name: Tail semantics falsification receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter23_tail_semantics_falsification/proof
+
+      - name: Tail semantics falsification audit
+        run: python3 scripts/audit_tail_semantics_falsification.py
+
+      - name: Tail safety control receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter24_tail_safety_control/proof
+
+      - name: Tail safety control audit
+        run: python3 scripts/audit_tail_safety_control.py
+
+      - name: Tail safety mutation guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter25_tail_safety_mutation_guard/proof
+
+      - name: Tail safety mutation guard audit
+        run: python3 scripts/audit_tail_safety_mutation_guard.py
+
+      - name: Own-tail redundancy mutation guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter26_own_tail_redundancy_mutation_guard/proof
+
+      - name: Own-tail redundancy mutation guard audit
+        run: python3 scripts/audit_own_tail_redundancy_mutation_guard.py
+
+      - name: Semantic claim boundary matrix receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter27_semantic_claim_boundary_matrix/proof
+
+      - name: Semantic claim boundary matrix audit
+        run: python3 scripts/audit_semantic_claim_boundary_matrix.py
+
+      - name: Public claim surface guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter28_public_claim_surface_guard/proof
+
+      - name: Public claim surface guard audit
+        run: python3 scripts/audit_public_claim_surface_guard.py
+
+      - name: Public claim surface negative guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter29_public_claim_surface_negative_guard/proof
+
+      - name: Public claim surface negative guard audit
+        run: python3 scripts/audit_public_claim_surface_negative_guard.py
+
+      - name: Boundary matrix schema guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter30_boundary_matrix_schema_guard/proof
+
+      - name: Boundary matrix schema guard audit
+        run: python3 scripts/audit_boundary_matrix_schema_guard.py
+
+      - name: Claim boundary release manifest receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter31_claim_boundary_release_manifest/proof
+
+      - name: Claim boundary release manifest audit
+        run: python3 scripts/audit_claim_boundary_release_manifest.py
+
+      - name: Claim boundary release manifest negative guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter32_claim_boundary_release_manifest_negative_guard/proof
+
+      - name: Claim boundary release manifest negative guard audit
+        run: python3 scripts/audit_claim_boundary_release_manifest_negative_guard.py
+
+      - name: Release manifest public sync guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter33_release_manifest_public_sync_guard/proof
+
+      - name: Release manifest public sync guard audit
+        run: python3 scripts/audit_release_manifest_public_sync_guard.py
+
+      - name: Release manifest public sync negative guard receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter34_release_manifest_public_sync_negative_guard/proof
+
+      - name: Release manifest public sync negative guard audit
+        run: python3 scripts/audit_release_manifest_public_sync_negative_guard.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

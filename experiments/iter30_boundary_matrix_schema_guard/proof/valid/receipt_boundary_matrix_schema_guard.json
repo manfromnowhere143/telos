@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The current claim-boundary matrix validates.",
+    "Every malformed matrix fixture fails for the expected reason.",
+    "The schema or validator artifact is committed.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-boundary-matrix-schema-guard",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter30_boundary_matrix_schema_guard/proof/schema_guard_report.json",
+      "kind": "test",
+      "notes": "Real matrix validation plus intentionally malformed matrix fixtures.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter30_boundary_matrix_schema_guard/proof/claim_boundary_matrix.schema.json",
+      "kind": "artifact",
+      "notes": "Machine-readable manifest of required matrix fields and invariants.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter30_boundary_matrix_schema_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records schema coverage and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the current matrix cannot be loaded.",
+    "The result must fail if the current matrix fails validation.",
+    "The result must fail if any malformed matrix fixture passes.",
+    "The result must fail if original provider logic and changed candidate logic can be conflated.",
+    "The result must fail if failed/null rows can be hidden.",
+    "The result must not widen into benchmark, production, live-domain, or model-superiority claims."
+  ],
+  "receipt_id": "iter30-boundary-matrix-schema-guard-pass",
+  "sha256": "fd4a1dfa3800a0a402f19701c178544adcf98bb9ce51c7cc14a963a9bc46a5b6",
+  "stated_goal": "Validate the claim-boundary matrix shape and prove malformed matrix fixtures fail.",
+  "status": "pass",
+  "task_id": "telos:iter30_boundary_matrix_schema_guard@iter27_claim_boundary_matrix"
+}

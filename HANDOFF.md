@@ -1,11 +1,11 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-08T19:51:31Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-09T05:27:35Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
 ```text
-branch: master
+branch: agent/telos-release-manifest-guards
 ```
 
 Working tree:
@@ -39,11 +39,23 @@ clean
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
 - experiments/iter21_opponent_collision_control: RESULT PUBLISHED
 - experiments/iter22_semantic_mutation_guard: RESULT PUBLISHED
-- experiments/iter23_tail_semantics_falsification: PRE-REGISTERED, result pending
+- experiments/iter23_tail_semantics_falsification: RESULT PUBLISHED
+- experiments/iter24_tail_safety_control: RESULT PUBLISHED
+- experiments/iter25_tail_safety_mutation_guard: RESULT PUBLISHED
+- experiments/iter26_own_tail_redundancy_mutation_guard: RESULT PUBLISHED
+- experiments/iter27_semantic_claim_boundary_matrix: RESULT PUBLISHED
+- experiments/iter28_public_claim_surface_guard: RESULT PUBLISHED
+- experiments/iter29_public_claim_surface_negative_guard: RESULT PUBLISHED
+- experiments/iter30_boundary_matrix_schema_guard: RESULT PUBLISHED
+- experiments/iter31_claim_boundary_release_manifest: RESULT PUBLISHED
+- experiments/iter32_claim_boundary_release_manifest_negative_guard: RESULT PUBLISHED
+- experiments/iter33_release_manifest_public_sync_guard: RESULT PUBLISHED
+- experiments/iter34_release_manifest_public_sync_negative_guard: RESULT PUBLISHED
+- experiments/iter35_release_manifest_self_coverage_guard: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter23_tail_semantics_falsification/HYPOTHESIS.md`.
+- Active gate: `experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -97,6 +109,30 @@ python3 scripts/validate_receipts.py experiments/iter21_opponent_collision_contr
 python3 scripts/audit_opponent_collision_control.py
 python3 scripts/validate_receipts.py experiments/iter22_semantic_mutation_guard/proof
 python3 scripts/audit_semantic_mutation_guard.py
+python3 scripts/validate_receipts.py experiments/iter23_tail_semantics_falsification/proof
+python3 scripts/audit_tail_semantics_falsification.py
+python3 scripts/validate_receipts.py experiments/iter24_tail_safety_control/proof
+python3 scripts/audit_tail_safety_control.py
+python3 scripts/validate_receipts.py experiments/iter25_tail_safety_mutation_guard/proof
+python3 scripts/audit_tail_safety_mutation_guard.py
+python3 scripts/validate_receipts.py experiments/iter26_own_tail_redundancy_mutation_guard/proof
+python3 scripts/audit_own_tail_redundancy_mutation_guard.py
+python3 scripts/validate_receipts.py experiments/iter27_semantic_claim_boundary_matrix/proof
+python3 scripts/audit_semantic_claim_boundary_matrix.py
+python3 scripts/validate_receipts.py experiments/iter28_public_claim_surface_guard/proof
+python3 scripts/audit_public_claim_surface_guard.py
+python3 scripts/validate_receipts.py experiments/iter29_public_claim_surface_negative_guard/proof
+python3 scripts/audit_public_claim_surface_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter30_boundary_matrix_schema_guard/proof
+python3 scripts/audit_boundary_matrix_schema_guard.py
+python3 scripts/validate_receipts.py experiments/iter31_claim_boundary_release_manifest/proof
+python3 scripts/audit_claim_boundary_release_manifest.py
+python3 scripts/validate_receipts.py experiments/iter32_claim_boundary_release_manifest_negative_guard/proof
+python3 scripts/audit_claim_boundary_release_manifest_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter33_release_manifest_public_sync_guard/proof
+python3 scripts/audit_release_manifest_public_sync_guard.py
+python3 scripts/validate_receipts.py experiments/iter34_release_manifest_public_sync_negative_guard/proof
+python3 scripts/audit_release_manifest_public_sync_negative_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

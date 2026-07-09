@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The release manifest and iter32 negative guard are valid source artifacts.",
+    "Every checked public prose file exists.",
+    "Public prose references the release manifest and stays inside its claim boundaries.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-release-manifest-public-sync",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter33_release_manifest_public_sync_guard/proof/public_sync_report.json",
+      "kind": "test",
+      "notes": "Public prose checks against the release manifest and its negative guard.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json",
+      "kind": "artifact",
+      "notes": "Reviewer entry point used as the source of truth.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter33_release_manifest_public_sync_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records public-sync boundary and no-overclaim constraints.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the release manifest cannot be loaded.",
+    "The result must fail if public prose bypasses the release manifest.",
+    "The result must fail if failed/null rows are hidden.",
+    "The result must fail if original provider logic and changed candidate logic are conflated.",
+    "The result must not widen into benchmark, production, live-domain, or model-superiority claims."
+  ],
+  "receipt_id": "iter33-release-manifest-public-sync-guard-pass",
+  "sha256": "ad0312615e835f6ab2a31b4930aa600e568d35e4123483ea32e77b8bfe073d00",
+  "stated_goal": "Verify public prose references the release manifest and stays inside its claim boundaries.",
+  "status": "pass",
+  "task_id": "telos:iter33_release_manifest_public_sync_guard@iter31_iter32_release_manifest"
+}

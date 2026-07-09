@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter34_release_manifest_public_sync_negative_guard/proof/run_summary.json",
+    "experiments/iter34_release_manifest_public_sync_negative_guard/proof/negative_guard_report.json",
+    "experiments/iter34_release_manifest_public_sync_negative_guard/proof/command_output.txt",
+    "experiments/iter34_release_manifest_public_sync_negative_guard/proof/review.md",
+    "experiments/iter34_release_manifest_public_sync_negative_guard/proof/valid/receipt_release_manifest_public_sync_negative_guard.json"
+  ],
+  "experiment_id": "iter34_release_manifest_public_sync_negative_guard",
+  "insight": "The public-sync guard catches generated public-prose fixtures that bypass the release manifest, hide nulls, conflate candidate/original logic, or add overclaims.",
+  "next_action": "pre-register a self-coverage guard so the release-manifest reviewer packet accounts for its own manifest, negative, and public-sync proof gates",
+  "result_path": "experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

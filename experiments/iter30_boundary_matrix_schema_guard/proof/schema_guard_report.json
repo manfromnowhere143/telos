@@ -1,0 +1,153 @@
+{
+  "cloud_or_gpu_used": false,
+  "failed_fixture_ids": [],
+  "fixture_count": 5,
+  "fixtures": [
+    {
+      "errors": [
+        {
+          "code": "missing_evidence_path",
+          "detail": "missing experiments/missing/proof/run_summary.json",
+          "path": "$.rows[0].evidence_paths"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "missing_evidence_path"
+      ],
+      "fixture_id": "missing_evidence_path",
+      "fixture_path": "experiments/iter30_boundary_matrix_schema_guard/proof/fixtures/missing_evidence_path.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "missing_evidence_path"
+      ],
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "invalid_status",
+          "detail": "invalid status 'clean_win'",
+          "path": "$.rows[0].status"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "invalid_status"
+      ],
+      "fixture_id": "invalid_status",
+      "fixture_path": "experiments/iter30_boundary_matrix_schema_guard/proof/fixtures/invalid_status.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "invalid_status"
+      ],
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "original_candidate_conflation",
+          "detail": "row cannot be both original provider logic and changed candidate",
+          "path": "$.rows[4]"
+        },
+        {
+          "code": "original_candidate_conflation",
+          "detail": "original row must be labeled reconstructed_original_provider_logic",
+          "path": "$.rows[4].subject_type"
+        },
+        {
+          "code": "index_mismatch",
+          "detail": "expected row-derived list ['iter20_original_boundary_self_semantics', 'iter21_original_opponent_body_semantics', 'iter23_original_occupied_tail_falsification', 'iter24_changed_candidate_occupied_tail_control'], got ['iter20_original_boundary_self_semantics', 'iter21_original_opponent_body_semantics', 'iter23_original_occupied_tail_falsification']",
+          "path": "$.original_provider_logic_claim_ids"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "original_candidate_conflation"
+      ],
+      "fixture_id": "original_candidate_conflation",
+      "fixture_path": "experiments/iter30_boundary_matrix_schema_guard/proof/fixtures/original_candidate_conflation.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "index_mismatch",
+        "original_candidate_conflation"
+      ],
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "missing_required_exclusion",
+          "detail": "missing ['no_model_superiority_claim']",
+          "path": "$.rows[0].does_not_claim"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "missing_required_exclusion"
+      ],
+      "fixture_id": "missing_required_exclusion",
+      "fixture_path": "experiments/iter30_boundary_matrix_schema_guard/proof/fixtures/missing_required_exclusion.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "missing_required_exclusion"
+      ],
+      "status": "pass"
+    },
+    {
+      "errors": [
+        {
+          "code": "hidden_failed_null_rows",
+          "detail": "expected false",
+          "path": "$.failed_null_gates_hidden"
+        },
+        {
+          "code": "hidden_failed_null_rows",
+          "detail": "failed/null row must remain visible",
+          "path": "$.rows[3].failure_visible"
+        },
+        {
+          "code": "hidden_failed_null_rows",
+          "detail": "failed/null row must remain visible",
+          "path": "$.rows[5].failure_visible"
+        },
+        {
+          "code": "hidden_failed_null_rows",
+          "detail": "expected row-derived list ['iter23_original_occupied_tail_falsification', 'iter25_tail_safety_mutation_guard_miss'], got []",
+          "path": "$.failed_or_null_claim_ids"
+        }
+      ],
+      "expected_detection_observed": true,
+      "expected_error_codes": [
+        "hidden_failed_null_rows"
+      ],
+      "fixture_id": "hidden_failed_null_rows",
+      "fixture_path": "experiments/iter30_boundary_matrix_schema_guard/proof/fixtures/hidden_failed_null_rows.json",
+      "malformation_detected": true,
+      "observed_error_codes": [
+        "hidden_failed_null_rows"
+      ],
+      "status": "pass"
+    }
+  ],
+  "fixtures_failed_as_expected": true,
+  "leaderboard_or_swebench_claimed": false,
+  "local_cpu_only": true,
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 0,
+  "provider_game_score_used_as_verifier_evidence": false,
+  "provider_spend_usd": 0.0,
+  "real_matrix_error_codes": [],
+  "real_matrix_errors": [],
+  "real_matrix_valid": true,
+  "schema_path": "experiments/iter30_boundary_matrix_schema_guard/proof/claim_boundary_matrix.schema.json",
+  "schema_version": "telos.boundary_matrix_schema_guard.report.v1",
+  "source_matrix_path": "experiments/iter27_semantic_claim_boundary_matrix/proof/claim_boundary_matrix.json",
+  "source_matrix_sha256": "4adb874a3390d731123f55d32ad9aa1dc99812f09a9cda5915b70c0672fa0f3d",
+  "source_negative_guard_fixtures_failed_as_expected": true,
+  "source_negative_guard_report_path": "experiments/iter29_public_claim_surface_negative_guard/proof/negative_guard_report.json",
+  "source_negative_guard_report_sha256": "c83a8f2a926eb6319e4495969f09386fdd435bace668e009a924ce1ed7718347",
+  "source_negative_guard_status": "pass",
+  "status": "pass",
+  "validator_path": "scripts/verify_boundary_matrix_schema_guard.py"
+}

@@ -1,0 +1,10 @@
+tail semantics falsification: fail
+source_main=experiments/iter21_opponent_collision_control/proof/reconstructed/main.py
+provider_api_calls=0
+cloud_or_gpu_used=false
+tail_occupancy_assumption=tail_remains_occupied
+cases=4 passed=2 failed=2
+own-tail-left-occupied-risk: fail forbidden=left safe=up,left,right
+opponent-tail-left-occupied-risk: fail forbidden=left safe=up,left,right
+own-non-tail-left-control: pass forbidden=left safe=up,right
+opponent-non-tail-left-control: pass forbidden=left safe=up,right
