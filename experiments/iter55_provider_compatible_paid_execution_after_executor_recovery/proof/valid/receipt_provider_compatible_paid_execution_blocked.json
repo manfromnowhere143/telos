@@ -1,0 +1,41 @@
+{
+  "acceptance_criteria": [
+    "Iter54 is a clean pass.",
+    "Exactly two selected BattleSnake condition commands remain frozen.",
+    "Provider credentials are available non-interactively before any paid command starts.",
+    "Provider calls stay at or below 16 and provider spend at or below $10.00.",
+    "No excluded pair, GPU use, Sentinel resource mutation, or unsupported benchmark/model claim occurs."
+  ],
+  "agent_id": "codex-local-provider-compatible-paid-execution-preflight",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/preflight.json",
+      "kind": "test",
+      "notes": "Preflight records that ADC and impersonation were not ready, so no provider command ran.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/execution_plan.json",
+      "kind": "artifact",
+      "notes": "Execution plan keeps the two exact iter54 commands frozen and unexecuted.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the credential blocker and claim boundary.",
+      "status": "blocked"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if provider credentials are insufficient before execution.",
+    "The result must fail if a provider command runs after failed credential preflight.",
+    "The result must fail if provider calls, spend, GPU use, Sentinel mutation, or overclaim occurs outside the gate."
+  ],
+  "receipt_id": "iter55-provider-compatible-paid-execution-blocked",
+  "sha256": "86ac5c4e1078b4c1571dd1b4fd2eacf2d379c5bf771cf1a982b7128f1f428c75",
+  "stated_goal": "Run the bounded two-row provider-compatible pilot only if provider credentials, runner readiness, cost capture, redaction, and receipt controls are ready.",
+  "status": "blocked",
+  "task_id": "telos:iter55_provider_compatible_paid_execution_after_executor_recovery@iter54"
+}

@@ -2,15 +2,14 @@
 
 ## Current Action
 
-Run `iter55_provider_compatible_paid_execution_after_executor_recovery` exactly as
+Run `iter56_provider_auth_recovery_for_paid_protocol_effect` exactly as
 frozen in
-[`../experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md`](../experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md).
+[`../experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/HYPOTHESIS.md`](../experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
-model-superiority result, or state-of-the-art claim. It is the smallest paid protocol-effect
-measurement allowed by the current evidence line: exactly two frozen provider-compatible
-BattleSnake rows, one baseline and one Telos receipt-enforced condition. The target is exact
-evidence counts, not a broad benchmark claim.
+model-superiority result, or state-of-the-art claim. It is the narrow credential-recovery gate
+needed after `iter55` blocked before paid execution. The target is a non-interactive provider auth
+path for the exact two-row paid pilot, not execution of either BattleSnake row.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -61,13 +60,16 @@ evidence counts, not a broad benchmark claim.
   [`../experiments/iter54_provider_pair_executor_recovery/proof/run_summary.json`](../experiments/iter54_provider_pair_executor_recovery/proof/run_summary.json),
 - use the exact iter54 command manifest from
   [`../experiments/iter54_provider_pair_executor_recovery/proof/command_manifest.json`](../experiments/iter54_provider_pair_executor_recovery/proof/command_manifest.json),
-- execute only the two selected provider-compatible BattleSnake rows named in the iter54 manifest,
-- preserve the Telos receipt-validation path before accepting any future Telos row as verified
-  completion,
+- use the blocked iter55 auth preflight from
+  [`../experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/preflight.json`](../experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/preflight.json),
+- do not execute either selected provider-compatible BattleSnake row in iter56,
+- preserve the Telos receipt-validation path before any future paid retry can accept the Telos row
+  as verified completion,
 - keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
-- keep provider model calls at or below `16`,
-- keep provider spend at or below `$10.00`,
-- start only a Telos-named ephemeral non-GPU cloud runner after preflight, with teardown proof,
+- keep provider access probes at or below `2`,
+- keep provider spend at or below `$1.00`,
+- start no cloud runner unless the auth-recovery gate explicitly records a no-model lifecycle probe
+  and teardown,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
 - do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
@@ -138,21 +140,22 @@ execution, the pinned CodeClash checkout is not ready, and Docker readiness time
 passed zero-spend provider pair executor recovery: pinned CodeClash was ready, recovered overlays
 were copied with matching hashes, Docker daemon readiness was proven through the current Docker
 Desktop binary, and exact two-row commands were materialized without provider execution. `iter55`
-authorizes only the bounded two-row paid provider-compatible pilot under the frozen `16` invocation
-and `$10.00` spend ceilings.
+blocked before paid execution because ADC requires interactive reauthentication and active-user
+impersonation of the dedicated Telos runner lacks token-creator access. `iter56` authorizes only
+credential recovery for the same exact two-row paid pilot, with no BattleSnake row execution.
 
-## During The Paid Pilot
+## During Auth Recovery
 
-If the paid pilot runs:
+If auth recovery runs:
 
-1. Execute exactly the two provider-compatible BattleSnake rows from the iter54 command manifest.
-2. Keep any effect claim limited to those two rows and exact evidence counts.
-3. Require exact primary and secondary metric counts, redaction, receipt validation, cost capture,
-   teardown proof, and adversarial review before interpretation.
+1. Prove only a non-interactive provider auth path or token-creator permission.
+2. Keep any claim limited to auth readiness for the exact two-row pilot.
+3. Require token output suppression, redaction, call/cost counts for any probe, and adversarial
+   review before retrying paid execution.
 
-If the paid pilot blocks, fails, or produces ambiguous evidence:
+If auth recovery blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific credential, runner, command, config, receipt, artifact, cost,
-   redaction, lifecycle, or metric gap.
+2. Correct only the specific credential, permission, runner, artifact, cost, redaction, lifecycle,
+   or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

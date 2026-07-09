@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/run_summary.json",
+    "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/preflight.json",
+    "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/execution_plan.json",
+    "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/valid/receipt_provider_compatible_paid_execution_blocked.json"
+  ],
+  "experiment_id": "iter55_provider_compatible_paid_execution_after_executor_recovery",
+  "insight": "The paid two-row pilot is ready at the executor layer but blocked by provider credential readiness: ADC requires interactive reauthentication and dedicated-runner impersonation is not currently available.",
+  "next_action": "recover a non-interactive provider auth path or token-creator permission before retrying the exact two-row paid pilot",
+  "result_path": "experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}

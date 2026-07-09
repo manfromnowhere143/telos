@@ -135,10 +135,16 @@ Current evidence:
   current Docker Desktop binary, zero provider calls, zero spend, no GPU, and no Sentinel
   modification.
 - `experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md`
-  pre-registers the smallest paid two-row provider-compatible protocol-effect pilot. It is the
-  first gate allowed to measure a baseline-vs-Telos evidence difference, with a `16` provider-call
-  ceiling, `$10.00` spend ceiling, redaction/cost/receipt/teardown evidence, and no benchmark,
-  leaderboard, SWE-bench, production/live-domain, model-superiority, or state-of-the-art claim.
+  pre-registered the smallest paid two-row provider-compatible protocol-effect pilot.
+- `experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/RESULT.md` blocks
+  before provider execution because non-interactive ADC refresh requires reauthentication and
+  dedicated-runner impersonation lacks token-creator access. Zero provider calls, zero spend, no
+  cloud runner, no GPU, and no Sentinel modification occurred.
+- `experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/HYPOTHESIS.md` pre-registers
+  the narrow credential-recovery gate needed before retrying the exact two-row paid pilot. It keeps
+  the recovery ceiling at `2` provider access probes and `$1.00` spend, forbids either BattleSnake
+  row from running, and forbids benchmark, leaderboard, SWE-bench, production/live-domain,
+  model-superiority, or state-of-the-art claims.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/HYPOTHESIS.md`
+- `experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -263,11 +263,15 @@ Current claim:
   caveat was recorded. Zero provider model calls occurred, zero spend occurred, no cloud runner
   started, no GPU was used, no Sentinel-named resources were modified, and no benchmark/model
   result is claimed.
+- `iter55_provider_compatible_paid_execution_after_executor_recovery` blocked before provider
+  execution: the iter54 executor was ready, but non-interactive ADC refresh required
+  reauthentication and active-user impersonation of the dedicated Telos runner lacked token-creator
+  access. Zero provider model calls occurred, zero spend occurred, no cloud runner started, no GPU
+  was used, no Sentinel-named resources were modified, and no benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate may run only the two selected provider-compatible BattleSnake condition rows under
-  the frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
-  excluded-pair execution, production/live-domain changes, and benchmark/model overclaims remain
-  forbidden.
+- The next gate may recover only provider auth readiness for the exact two-row paid pilot. Executing
+  either BattleSnake row, GPU use, Sentinel resource modification, excluded-pair execution,
+  production/live-domain changes, and benchmark/model overclaims remain forbidden.
 
 ## Required Verification
 
@@ -382,6 +386,8 @@ python3 scripts/validate_receipts.py experiments/iter53_provider_compatible_prot
 python3 scripts/audit_provider_compatible_protocol_effect_execution_after_condition_recovery.py
 python3 scripts/validate_receipts.py experiments/iter54_provider_pair_executor_recovery/proof
 python3 scripts/audit_provider_pair_executor_recovery.py
+python3 scripts/validate_receipts.py experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof
+python3 scripts/audit_provider_compatible_paid_execution_after_executor_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
