@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md`
+- `experiments/iter41_public_task_protocol_effect_runner_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -180,9 +180,13 @@ Current claim:
   three executable CodeClash task surfaces, one SWE-bench Verified receipt anchor, baseline and
   Telos-enforced conditions, before-data metrics, and a bounded provider execution gate. No
   provider, API, GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
+- `iter40_public_task_protocol_effect_execution` blocked before provider execution: the secret-safe
+  preflight found Vertex service readiness but did not establish Docker daemon readiness or a
+  pinned CodeClash checkout, so zero task-condition pairs ran, zero provider model calls occurred,
+  zero spend occurred, and no benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate must execute only the frozen public-task protocol-effect slice and must block if
-  provider, runner, artifact, or cost controls are unavailable.
+- The next gate must recover only Docker and pinned CodeClash runner readiness before any retry of
+  the frozen provider-backed protocol-effect execution.
 
 ## Required Verification
 
@@ -267,6 +271,8 @@ python3 scripts/validate_receipts.py experiments/iter38_release_manifest_self_co
 python3 scripts/audit_release_manifest_self_coverage_public_sync_negative_guard.py
 python3 scripts/validate_receipts.py experiments/iter39_public_task_protocol_effect_slice/proof
 python3 scripts/audit_public_task_protocol_effect_slice.py
+python3 scripts/validate_receipts.py experiments/iter40_public_task_protocol_effect_execution/proof
+python3 scripts/audit_public_task_protocol_effect_execution.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

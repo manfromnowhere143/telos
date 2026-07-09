@@ -2,10 +2,10 @@
 
 ## Current Action
 
-Run `iter40_public_task_protocol_effect_execution` exactly as frozen in
-[`../experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md`](../experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md).
+Run `iter41_public_task_protocol_effect_runner_recovery` exactly as frozen in
+[`../experiments/iter41_public_task_protocol_effect_runner_recovery/HYPOTHESIS.md`](../experiments/iter41_public_task_protocol_effect_runner_recovery/HYPOTHESIS.md).
 
-The output is not a leaderboard score. It is a bounded public-task protocol-effect execution gate:
+The output is not a leaderboard score. It is a bounded runner-recovery gate:
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -22,8 +22,13 @@ The output is not a leaderboard score. It is a bounded public-task protocol-effe
 - use only the frozen task identifiers, baseline and Telos-instrumented conditions, and before-data
   metrics from
   [`../experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json`](../experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json),
-- stop and publish blocked/null evidence if provider, runner, artifact, or cost controls are
-  unavailable,
+- use the blocked preflight evidence from
+  [`../experiments/iter40_public_task_protocol_effect_execution/proof/preflight.json`](../experiments/iter40_public_task_protocol_effect_execution/proof/preflight.json),
+- recover only Docker and pinned CodeClash runner readiness before retrying provider-backed
+  execution,
+- stop and publish blocked/null evidence if runner or artifact controls remain unavailable,
+- keep provider model calls at `0`,
+- keep provider spend at `$0.00`,
 - do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
   state-of-the-art claims.
 
@@ -56,20 +61,23 @@ manifest. `iter32` passed the release-manifest negative guard. `iter33` passed t
 guard. `iter34` passed the public-sync negative guard. `iter35` passed the release-manifest
 self-coverage guard. `iter36` passed the self-coverage negative guard. `iter37` passed the
 self-coverage public-sync guard. `iter38` passed the self-coverage public-sync negative guard.
-`iter39` passed the public-task protocol-effect slice-selection gate. `iter40` authorizes only the
-frozen bounded execution and does not authorize GPU, leaderboard, SWE-bench result, production,
-live-domain behavior, model-superiority, or state-of-the-art claims.
+`iter39` passed the public-task protocol-effect slice-selection gate. `iter40` blocked before
+provider execution because Docker and pinned CodeClash runner readiness were not established.
+`iter41` authorizes only runner recovery and does not authorize provider model calls, GPU,
+leaderboard, SWE-bench result, production, live-domain behavior, model-superiority, or
+state-of-the-art claims.
 
-## After The Public Task Protocol-Effect Execution
+## After The Runner-Recovery Gate
 
-If the execution gate passes:
+If the runner-recovery gate passes:
 
-1. Publish exact counts before percentages for baseline and Telos-enforced conditions.
-2. Publish all raw artifacts, receipts, blocked/null rows, costs, and audit notes.
-3. Decide whether the evidence supports a broader public benchmark run.
+1. Publish Docker, pinned CodeClash, dependency, config-path, artifact, and zero-provider-call
+   evidence.
+2. Pre-register a retry of the frozen protocol-effect execution.
+3. Do not widen model, budget, task, or claim scope.
 
-If the execution gate blocks or fails:
+If the runner-recovery gate blocks or fails:
 
 1. Publish the blocked/null or quality-failure result.
-2. Correct only the specific provider, runner, artifact, cost, or harness gap.
+2. Correct only the specific runner, artifact, or harness gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

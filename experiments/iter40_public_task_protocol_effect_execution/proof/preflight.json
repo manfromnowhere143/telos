@@ -1,0 +1,57 @@
+{
+  "account_identifier_logged": false,
+  "blockers": [
+    "docker_daemon_not_ready",
+    "pinned_codeclash_checkout_not_ready"
+  ],
+  "checks": {
+    "artifact_destination_ready": true,
+    "cloud_runner_started": false,
+    "codeclash_cache": {
+      "cache_path": "/tmp/telos-codeclash",
+      "checkout_present": false,
+      "commit_identifier_logged": true,
+      "expected_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+      "pinned_commit_present": false
+    },
+    "cost_capture_required_before_execution": true,
+    "cost_capture_validated_by_execution": false,
+    "docker_cli_present": true,
+    "docker_daemon_ready": false,
+    "docker_info_timed_out": true,
+    "gcloud_account_identifier_logged": false,
+    "gcloud_active_account_count": 1,
+    "gcloud_auth_timed_out": false,
+    "gcloud_present": true,
+    "gcloud_project_configured": true,
+    "gcloud_project_identifier_logged": false,
+    "gcloud_services_list_timed_out": false,
+    "gcloud_version_ready": true,
+    "git_present": true,
+    "provider_model_api_calls": 0,
+    "provider_spend_usd": 0.0,
+    "secret_safe": true,
+    "uv_present": true,
+    "vertex_ai_service_enabled": true
+  },
+  "credential_material_logged": false,
+  "experiment_id": "iter40_public_task_protocol_effect_execution",
+  "project_identifier_logged": false,
+  "provider_boundary": {
+    "base_model_id": "gemini-3.1-pro-preview",
+    "dollar_ceiling_usd": 25,
+    "max_model_invocations": 48,
+    "max_output_tokens_per_call": 4096,
+    "model_id": "gemini-3.1-pro-preview-customtools",
+    "next_gate_path": "experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md",
+    "provider_authorized_only_in_next_gate": true,
+    "provider_name": "Google Vertex AI",
+    "region": "global",
+    "stop_if_cost_missing": true,
+    "stop_if_credentials_or_runner_unavailable": true,
+    "wall_clock_ceiling_minutes": 90
+  },
+  "schema_version": "telos.public_task_protocol_effect_execution.preflight.v1",
+  "source_slice_path": "experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json",
+  "status": "blocked"
+}

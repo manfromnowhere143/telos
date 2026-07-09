@@ -265,6 +265,12 @@ jobs:
       - name: Public task protocol effect slice audit
         run: python3 scripts/audit_public_task_protocol_effect_slice.py
 
+      - name: Public task protocol effect execution receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter40_public_task_protocol_effect_execution/proof
+
+      - name: Public task protocol effect execution audit
+        run: python3 scripts/audit_public_task_protocol_effect_execution.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

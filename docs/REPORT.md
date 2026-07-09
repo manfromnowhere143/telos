@@ -85,8 +85,10 @@ Current evidence:
 - `experiments/iter39_public_task_protocol_effect_slice/RESULT.md` passes a public-task
   protocol-effect slice-selection gate for comparing baseline and Telos-enforced completion
   evidence.
-- `experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md` freezes the execution
-  gate with provider, cost, artifact, and claim-boundary controls.
+- `experiments/iter40_public_task_protocol_effect_execution/RESULT.md` blocks before provider
+  execution because Docker and pinned CodeClash runner readiness were not established.
+- `experiments/iter41_public_task_protocol_effect_runner_recovery/HYPOTHESIS.md` freezes a
+  zero-provider-call recovery gate for runner readiness.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -133,6 +133,8 @@ def main() -> int:
         "audit_release_manifest_self_coverage_public_sync_negative_guard.py",
         "validate_receipts.py experiments/iter39_public_task_protocol_effect_slice/proof",
         "audit_public_task_protocol_effect_slice.py",
+        "validate_receipts.py experiments/iter40_public_task_protocol_effect_execution/proof",
+        "audit_public_task_protocol_effect_execution.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

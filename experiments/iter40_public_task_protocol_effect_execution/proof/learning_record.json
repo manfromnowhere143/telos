@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter40_public_task_protocol_effect_execution/proof/run_summary.json",
+    "experiments/iter40_public_task_protocol_effect_execution/proof/preflight.json",
+    "experiments/iter40_public_task_protocol_effect_execution/proof/execution_report.json",
+    "experiments/iter40_public_task_protocol_effect_execution/proof/command_output.txt",
+    "experiments/iter40_public_task_protocol_effect_execution/proof/review.md",
+    "experiments/iter40_public_task_protocol_effect_execution/proof/valid/receipt_public_task_protocol_effect_execution.json"
+  ],
+  "experiment_id": "iter40_public_task_protocol_effect_execution",
+  "insight": "The frozen protocol-effect slice could not honestly execute because runner readiness was not established before provider spend.",
+  "next_action": "recover Docker and pinned CodeClash runner readiness before retrying the frozen protocol-effect execution",
+  "result_path": "experiments/iter40_public_task_protocol_effect_execution/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}
