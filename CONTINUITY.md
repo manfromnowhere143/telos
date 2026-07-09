@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter42_public_task_protocol_effect_execution_retry/HYPOTHESIS.md`
+- `experiments/iter43_provider_execution_harness_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -188,9 +188,15 @@ Current claim:
   bounded readiness probe, but the isolated GitHub Actions path passed the dummy, BattleSnake
   behavior, and deterministic edit CodeClash runner checks at the frozen CodeClash commit with zero
   provider model calls and zero provider spend.
+- `iter42_public_task_protocol_effect_execution_retry` blocked before provider execution: the
+  `iter41` runner evidence was accepted and Google/Vertex readiness was visible without committed
+  identifiers, but no provider-capable GitHub workflow, GitHub provider secret boundary, committed
+  reusable provider execution harness, cost-capture harness, raw-artifact redaction harness, or
+  runner-lifecycle harness was recovered. Six task-condition pairs were planned, zero started, zero
+  provider model calls occurred, zero spend occurred, and no benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate must retry only the frozen provider-backed protocol-effect execution under the
-  recorded provider, cost, artifact, isolated-runner, and claim-boundary controls.
+- The next gate must recover the provider execution harness before retrying the frozen
+  provider-backed protocol-effect execution.
 
 ## Required Verification
 

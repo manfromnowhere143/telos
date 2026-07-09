@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter42_public_task_protocol_effect_execution_retry/proof/run_summary.json",
+    "experiments/iter42_public_task_protocol_effect_execution_retry/proof/preflight.json",
+    "experiments/iter42_public_task_protocol_effect_execution_retry/proof/execution_retry_report.json",
+    "experiments/iter42_public_task_protocol_effect_execution_retry/proof/command_output.txt",
+    "experiments/iter42_public_task_protocol_effect_execution_retry/proof/review.md",
+    "experiments/iter42_public_task_protocol_effect_execution_retry/proof/valid/receipt_public_task_protocol_effect_execution_retry.json"
+  ],
+  "experiment_id": "iter42_public_task_protocol_effect_execution_retry",
+  "insight": "Runner readiness is recovered, but the provider-backed protocol-effect retry still needs a committed execution harness with cost capture, artifact retention, redaction, and runner lifecycle proof before paid task-condition pairs can start.",
+  "next_action": "recover the provider execution harness before retrying the frozen protocol-effect execution slice",
+  "result_path": "experiments/iter42_public_task_protocol_effect_execution_retry/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}

@@ -1,0 +1,104 @@
+{
+  "account_identifier_logged": false,
+  "blockers": [
+    "provider_capable_github_workflow_missing",
+    "github_provider_secret_boundary_missing",
+    "committed_provider_execution_harness_missing",
+    "cost_capture_harness_not_validated",
+    "raw_artifact_redaction_harness_not_validated",
+    "ephemeral_runner_lifecycle_harness_not_validated",
+    "provider_capable_isolated_runner_unavailable"
+  ],
+  "checks": {
+    "artifact_destination_ready": true,
+    "cloud_runner_started": false,
+    "committed_harness": {
+      "committed_provider_execution_harness_present": false,
+      "cost_capture_harness_validated": false,
+      "ephemeral_runner_lifecycle_harness_validated": false,
+      "expected_harness_paths": [
+        ".github/workflows/public-task-protocol-effect-provider.yml",
+        "scripts/run_public_task_protocol_effect_provider_execution.py",
+        "scripts/run_ephemeral_vertex_codeclash_provider.py"
+      ],
+      "present_harness_paths": [],
+      "raw_artifact_redaction_harness_validated": false
+    },
+    "committed_harness_ready": false,
+    "cost_capture_required_before_execution": true,
+    "cost_capture_validated_by_execution": false,
+    "gcloud": {
+      "account_identifier_logged": false,
+      "gcloud_active_account_count": 1,
+      "gcloud_auth_timed_out": false,
+      "gcloud_present": true,
+      "gcloud_project_configured": true,
+      "gcloud_services_list_timed_out": false,
+      "gcloud_version_ready": true,
+      "project_identifier_logged": false,
+      "vertex_ai_service_enabled": true
+    },
+    "github_actions": {
+      "isolated_runner_recovered": true,
+      "runner_recovery_report_path": "experiments/iter41_public_task_protocol_effect_runner_recovery/proof/runner_recovery_report.json",
+      "secret_state": {
+        "gh_cli_present": true,
+        "provider_secret_name_count": 0,
+        "provider_secret_names_logged": false,
+        "secret_count": 0,
+        "secret_list_ok": true
+      },
+      "workflow_state": {
+        "provider_capable_workflow_count": 0,
+        "provider_capable_workflow_paths": [],
+        "provider_workflow_path_names_logged": false,
+        "workflow_dispatch_count": 3
+      }
+    },
+    "local_docker": {
+      "cli_present": true,
+      "daemon_ready": false,
+      "probe_timed_out": true
+    },
+    "previous_provider_evidence": {
+      "account_identifier_committed": null,
+      "available": true,
+      "cloud_vm_deleted": true,
+      "credential_material_committed": false,
+      "model_api_calls_reported": 5,
+      "model_cost_reported_usd": 0.043329999999999994,
+      "path": "experiments/iter21_opponent_collision_control/proof/run_summary.json",
+      "project_identifier_committed": false,
+      "runner": "ephemeral_gce_vm_dedicated_service_account",
+      "selected_model": "vertex_ai/gemini-3.1-pro-preview-customtools",
+      "status": "pass",
+      "treated_as_reusable_execution_harness": false
+    },
+    "provider_model_api_calls": 0,
+    "provider_spend_usd": 0.0,
+    "provider_workflow_ready": false,
+    "secret_safe": true
+  },
+  "credential_material_logged": false,
+  "experiment_id": "iter42_public_task_protocol_effect_execution_retry",
+  "project_identifier_logged": false,
+  "provider_boundary": {
+    "base_model_id": "gemini-3.1-pro-preview",
+    "dollar_ceiling_usd": 25,
+    "max_model_invocations": 48,
+    "max_output_tokens_per_call": 4096,
+    "model_id": "gemini-3.1-pro-preview-customtools",
+    "next_gate_path": "experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md",
+    "provider_authorized_only_in_next_gate": true,
+    "provider_name": "Google Vertex AI",
+    "region": "global",
+    "stop_if_cost_missing": true,
+    "stop_if_credentials_or_runner_unavailable": true,
+    "wall_clock_ceiling_minutes": 90
+  },
+  "schema_version": "telos.public_task_protocol_effect_execution_retry.preflight.v1",
+  "source_preflight_path": "experiments/iter40_public_task_protocol_effect_execution/proof/preflight.json",
+  "source_runner_recovery_path": "experiments/iter41_public_task_protocol_effect_runner_recovery/proof/runner_recovery_report.json",
+  "source_slice_path": "experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json",
+  "status": "blocked"
+}

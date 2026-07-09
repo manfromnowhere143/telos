@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "The preflight records provider, runner, cost, and artifact readiness without secrets.",
+    "Provider calls do not start if a provider-capable runner harness is unavailable.",
+    "Provider calls do not start if cost capture or artifact redaction is not validated.",
+    "Blocked rows are published at full weight.",
+    "Baseline and Telos-enforced planned conditions remain separated.",
+    "No leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-public-task-protocol-effect-retry-verifier",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter42_public_task_protocol_effect_execution_retry/proof/preflight.json",
+      "kind": "test",
+      "notes": "Secret-safe preflight blocked before provider execution.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter42_public_task_protocol_effect_execution_retry/proof/execution_retry_report.json",
+      "kind": "artifact",
+      "notes": "Planned task-condition pairs and uncomputed metrics are explicit.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter42_public_task_protocol_effect_execution_retry/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the provider-harness gap and claim boundary.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if provider-capable isolated execution is unavailable.",
+    "The result must block if provider credentials or service readiness are unavailable.",
+    "The result must block if provider cost capture cannot be guaranteed.",
+    "The result must block if raw artifact redaction and retention are not validated.",
+    "The result must fail if any provider call is made after a blocked preflight.",
+    "The result must fail if secret material or account/project identifiers are committed."
+  ],
+  "receipt_id": "iter42-public-task-protocol-effect-execution-retry-blocked",
+  "sha256": "b1ae8c86f7ef3061ee625d1d9359e8738d4cc87d9491b7fe165615cdce753d13",
+  "stated_goal": "Retry the frozen public task protocol-effect execution only if isolated runner, provider, artifact, and cost-capture controls are all ready.",
+  "status": "blocked",
+  "task_id": "telos:iter42_public_task_protocol_effect_execution_retry@iter41"
+}

@@ -89,8 +89,11 @@ Current evidence:
   execution because Docker and pinned CodeClash runner readiness were not established.
 - `experiments/iter41_public_task_protocol_effect_runner_recovery/RESULT.md` passes runner
   recovery through three isolated GitHub Actions CodeClash runs with zero provider spend.
-- `experiments/iter42_public_task_protocol_effect_execution_retry/HYPOTHESIS.md` freezes a bounded
-  retry of the protocol-effect execution gate.
+- `experiments/iter42_public_task_protocol_effect_execution_retry/RESULT.md` blocks before provider
+  execution because the provider-capable harness, cost capture, and raw-artifact redaction controls
+  were not recovered.
+- `experiments/iter43_provider_execution_harness_recovery/HYPOTHESIS.md` freezes a bounded
+  provider-execution harness recovery gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

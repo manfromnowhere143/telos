@@ -1,0 +1,132 @@
+{
+  "attempted_task_condition_pairs": 0,
+  "blocked_task_condition_pairs": 6,
+  "blockers": [
+    "provider_capable_github_workflow_missing",
+    "github_provider_secret_boundary_missing",
+    "committed_provider_execution_harness_missing",
+    "cost_capture_harness_not_validated",
+    "raw_artifact_redaction_harness_not_validated",
+    "ephemeral_runner_lifecycle_harness_not_validated",
+    "provider_capable_isolated_runner_unavailable"
+  ],
+  "claim_boundaries": {
+    "benchmark_result_claimed": false,
+    "leaderboard_or_swebench_result_claimed": false,
+    "live_domain_result_claimed": false,
+    "model_superiority_claimed": false,
+    "production_or_live_domain_changed": false,
+    "state_of_the_art_result_claimed": false
+  },
+  "cloud_runner_started": false,
+  "condition_results": [
+    {
+      "attempted_task_count": 0,
+      "blocked_task_count": 3,
+      "condition_id": "baseline_agent_completion_evidence",
+      "planned_task_count": 3,
+      "planned_task_ids": [
+        "codeclash:configs/test/dummy.yaml",
+        "codeclash:configs/test/battlesnake_pvp_test.yaml",
+        "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+      ],
+      "reason": "provider_execution_harness_blocked_before_execution",
+      "status": "blocked",
+      "verified_completion_count": 0,
+      "verified_completion_rate": null
+    },
+    {
+      "attempted_task_count": 0,
+      "blocked_task_count": 3,
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "planned_task_count": 3,
+      "planned_task_ids": [
+        "codeclash:configs/test/dummy.yaml",
+        "codeclash:configs/test/battlesnake_pvp_test.yaml",
+        "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+      ],
+      "reason": "provider_execution_harness_blocked_before_execution",
+      "status": "blocked",
+      "verified_completion_count": 0,
+      "verified_completion_rate": null
+    }
+  ],
+  "experiment_id": "iter42_public_task_protocol_effect_execution_retry",
+  "iter41_runner_recovery_accepted": true,
+  "metrics": {
+    "primary": {
+      "exact_counts_available": false,
+      "metric_id": "verified_completion_rate",
+      "reason": "no task-condition pair was executed after preflight blocked",
+      "status": "blocked",
+      "value": null
+    },
+    "secondary": [
+      {
+        "metric_id": "proxy_pass_receipt_fail_rate",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "unsupported_claim_rate",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "over_edit_rate",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "evidence_missing_rate",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "audit_minutes_per_task",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "false_positive_rate",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "false_negative_rate",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "model_api_calls_per_task",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "cost_usd_per_task",
+        "reason": "not computable without executed task-condition artifacts",
+        "status": "blocked",
+        "value": null
+      }
+    ]
+  },
+  "next_gate": "experiments/iter43_provider_execution_harness_recovery/HYPOTHESIS.md",
+  "planned_task_condition_pairs": 6,
+  "provider_execution_harness_recovered": false,
+  "provider_model_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "raw_execution_artifacts_created": false,
+  "schema_version": "telos.public_task_protocol_effect_execution_retry.report.v1",
+  "source_preflight_path": "experiments/iter40_public_task_protocol_effect_execution/proof/preflight.json",
+  "source_runner_recovery_path": "experiments/iter41_public_task_protocol_effect_runner_recovery/proof/runner_recovery_report.json",
+  "source_slice_path": "experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json",
+  "status": "blocked"
+}

@@ -277,6 +277,12 @@ jobs:
       - name: Public task protocol effect runner recovery audit
         run: python3 scripts/audit_public_task_protocol_effect_runner_recovery.py
 
+      - name: Public task protocol effect execution retry receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter42_public_task_protocol_effect_execution_retry/proof
+
+      - name: Public task protocol effect execution retry audit
+        run: python3 scripts/audit_public_task_protocol_effect_execution_retry.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 
