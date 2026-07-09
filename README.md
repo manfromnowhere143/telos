@@ -102,8 +102,11 @@ and an adversarial review pass.
 - Public task protocol-effect execution: blocked before provider execution because runner readiness
   was not established in
   [`experiments/iter40_public_task_protocol_effect_execution`](experiments/iter40_public_task_protocol_effect_execution/RESULT.md).
-- Current gate: public task protocol-effect runner recovery, pre-registered in
-  [`experiments/iter41_public_task_protocol_effect_runner_recovery`](experiments/iter41_public_task_protocol_effect_runner_recovery/HYPOTHESIS.md).
+- Public task protocol-effect runner recovery: passed through three isolated GitHub Actions
+  CodeClash runner checks with zero provider spend in
+  [`experiments/iter41_public_task_protocol_effect_runner_recovery`](experiments/iter41_public_task_protocol_effect_runner_recovery/RESULT.md).
+- Current gate: public task protocol-effect execution retry, pre-registered in
+  [`experiments/iter42_public_task_protocol_effect_execution_retry`](experiments/iter42_public_task_protocol_effect_execution_retry/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -185,7 +188,8 @@ Release manifest self-coverage public sync guard: [`experiments/iter37_release_m
 Release manifest self-coverage public sync negative guard: [`experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/RESULT.md`](experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/RESULT.md).
 Public task protocol-effect slice: [`experiments/iter39_public_task_protocol_effect_slice/RESULT.md`](experiments/iter39_public_task_protocol_effect_slice/RESULT.md).
 Public task protocol-effect execution: [`experiments/iter40_public_task_protocol_effect_execution/RESULT.md`](experiments/iter40_public_task_protocol_effect_execution/RESULT.md).
-Public task protocol-effect runner recovery: [`experiments/iter41_public_task_protocol_effect_runner_recovery/HYPOTHESIS.md`](experiments/iter41_public_task_protocol_effect_runner_recovery/HYPOTHESIS.md).
+Public task protocol-effect runner recovery: [`experiments/iter41_public_task_protocol_effect_runner_recovery/RESULT.md`](experiments/iter41_public_task_protocol_effect_runner_recovery/RESULT.md).
+Public task protocol-effect execution retry: [`experiments/iter42_public_task_protocol_effect_execution_retry/HYPOTHESIS.md`](experiments/iter42_public_task_protocol_effect_execution_retry/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
@@ -210,14 +214,15 @@ flowchart LR
   I37 --> I38["38<br/>sync neg"]
   I38 --> I39["39<br/>slice pass"]
   I39 --> I40["40<br/>preflight blocked"]
-  I40 --> I41["41<br/>runner recovery"]
+  I40 --> I41["41<br/>runner ok"]
+  I41 --> I42["42<br/>retry"]
   classDef pass fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   classDef fail fill:#fde8e8,stroke:#c62828,color:#3b0d0d;
   classDef pending fill:#fff4d6,stroke:#8a6d1d,color:#382900;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39 pass;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41 pass;
   class I23,I25 fail;
   class I40 fail;
-  class I41 pending;
+  class I42 pending;
 ```
 
 ## Candidate Target Families
@@ -357,6 +362,8 @@ python3 scripts/validate_receipts.py experiments/iter39_public_task_protocol_eff
 python3 scripts/audit_public_task_protocol_effect_slice.py
 python3 scripts/validate_receipts.py experiments/iter40_public_task_protocol_effect_execution/proof
 python3 scripts/audit_public_task_protocol_effect_execution.py
+python3 scripts/validate_receipts.py experiments/iter41_public_task_protocol_effect_runner_recovery/proof
+python3 scripts/audit_public_task_protocol_effect_runner_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

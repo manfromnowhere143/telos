@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Docker readiness is evidenced on a local or isolated runner.",
+    "Pinned CodeClash checkout uses the frozen commit.",
+    "CodeClash dependency installation succeeds.",
+    "Frozen CodeClash config paths are available.",
+    "Artifact destinations are writable and artifacts are retained or hashed.",
+    "Provider model API calls remain zero and provider spend remains zero.",
+    "No benchmark, SWE-bench, leaderboard, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-public-task-runner-recovery-verifier",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter41_public_task_protocol_effect_runner_recovery/proof/runner_recovery_report.json",
+      "kind": "test",
+      "notes": "Three isolated GitHub Actions CodeClash runner checks passed.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter41_public_task_protocol_effect_runner_recovery/proof/run_summary.json",
+      "kind": "artifact",
+      "notes": "Summary includes run ids, pinned commit, zero provider spend, and raw artifact hashes.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter41_public_task_protocol_effect_runner_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the isolated-runner boundary and forbids benchmark/model claims.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block or fail if Docker readiness is not evidenced on any allowed runner.",
+    "The result must fail if any run uses a non-frozen CodeClash commit.",
+    "The result must fail if dependency installation or artifact upload fails.",
+    "The result must fail if provider model calls or paid spend occur.",
+    "The result must fail if secret material or project/account identifiers are committed.",
+    "The result must not claim a benchmark, SWE-bench, leaderboard, production, live-domain, model-superiority, or state-of-the-art result."
+  ],
+  "receipt_id": "iter41-public-task-protocol-effect-runner-recovery-pass",
+  "sha256": "6e85c01ee4b0700ca5f296dc5fbc399c4250b2ce546766b16927c2d386193e04",
+  "stated_goal": "Recover runner readiness for the frozen public task protocol-effect slice without starting a provider model run.",
+  "status": "pass",
+  "task_id": "telos:iter41_public_task_protocol_effect_runner_recovery@iter40"
+}

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter41_public_task_protocol_effect_runner_recovery/HYPOTHESIS.md`
+- `experiments/iter42_public_task_protocol_effect_execution_retry/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -184,9 +184,13 @@ Current claim:
   preflight found Vertex service readiness but did not establish Docker daemon readiness or a
   pinned CodeClash checkout, so zero task-condition pairs ran, zero provider model calls occurred,
   zero spend occurred, and no benchmark/model result is claimed.
+- `iter41_public_task_protocol_effect_runner_recovery` passed: local Docker still did not answer a
+  bounded readiness probe, but the isolated GitHub Actions path passed the dummy, BattleSnake
+  behavior, and deterministic edit CodeClash runner checks at the frozen CodeClash commit with zero
+  provider model calls and zero provider spend.
 - No model or benchmark result is claimed yet.
-- The next gate must recover only Docker and pinned CodeClash runner readiness before any retry of
-  the frozen provider-backed protocol-effect execution.
+- The next gate must retry only the frozen provider-backed protocol-effect execution under the
+  recorded provider, cost, artifact, isolated-runner, and claim-boundary controls.
 
 ## Required Verification
 
@@ -273,6 +277,8 @@ python3 scripts/validate_receipts.py experiments/iter39_public_task_protocol_eff
 python3 scripts/audit_public_task_protocol_effect_slice.py
 python3 scripts/validate_receipts.py experiments/iter40_public_task_protocol_effect_execution/proof
 python3 scripts/audit_public_task_protocol_effect_execution.py
+python3 scripts/validate_receipts.py experiments/iter41_public_task_protocol_effect_runner_recovery/proof
+python3 scripts/audit_public_task_protocol_effect_runner_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -94,6 +94,7 @@ python3 scripts/validate_learning_ledger.py
 | `iter38_release_manifest_self_coverage_public_sync_negative_guard` | pass | the self-coverage public-sync guard catches malformed prose that hides the release manifest, hides self-coverage evidence, hides failed/null gates, conflates changed candidate logic with original provider logic, or adds forbidden claims | pre-register a public-task protocol-effect slice so baseline and Telos-enforced completion evidence can be compared on frozen external tasks |
 | `iter39_public_task_protocol_effect_slice` | pass | a public task protocol-effect slice can be frozen before execution with exact task identifiers, baseline and Telos-enforced conditions, before-data metrics, and a bounded provider execution gate | execute the frozen protocol-effect slice only under the recorded provider, cost, artifact, and claim-boundary controls |
 | `iter40_public_task_protocol_effect_execution` | blocked | the frozen protocol-effect slice could not honestly execute because runner readiness was not established before provider spend | recover Docker and pinned CodeClash runner readiness before retrying the frozen protocol-effect execution |
+| `iter41_public_task_protocol_effect_runner_recovery` | pass | local Docker remained unavailable, but the isolated GitHub Actions path proves runner readiness for all three frozen CodeClash surfaces at zero provider spend | retry the frozen protocol-effect execution only under the isolated-runner, provider, cost, artifact, and claim-boundary controls |
 
-The next experiment may recover only runner readiness. It must not start a provider model call or
-claim a benchmark/model result.
+The next experiment may retry only the frozen protocol-effect execution. It must block before
+provider spend if provider, cost, artifact, or isolated-runner controls are unavailable.

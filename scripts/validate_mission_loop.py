@@ -135,6 +135,8 @@ def main() -> int:
         "audit_public_task_protocol_effect_slice.py",
         "validate_receipts.py experiments/iter40_public_task_protocol_effect_execution/proof",
         "audit_public_task_protocol_effect_execution.py",
+        "validate_receipts.py experiments/iter41_public_task_protocol_effect_runner_recovery/proof",
+        "audit_public_task_protocol_effect_runner_recovery.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

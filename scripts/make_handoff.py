@@ -156,6 +156,8 @@ python3 scripts/validate_receipts.py experiments/iter39_public_task_protocol_eff
 python3 scripts/audit_public_task_protocol_effect_slice.py
 python3 scripts/validate_receipts.py experiments/iter40_public_task_protocol_effect_execution/proof
 python3 scripts/audit_public_task_protocol_effect_execution.py
+python3 scripts/validate_receipts.py experiments/iter41_public_task_protocol_effect_runner_recovery/proof
+python3 scripts/audit_public_task_protocol_effect_runner_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
