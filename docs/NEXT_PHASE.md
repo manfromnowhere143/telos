@@ -2,15 +2,15 @@
 
 ## Current Action
 
-Run `iter60_provider_model_binding_recovery` exactly as
+Run `iter61_vertex_quota_project_binding_recovery` exactly as
 frozen in
-[`../experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md`](../experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md).
+[`../experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md`](../experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
-model-superiority result, or state-of-the-art claim. It is a narrow provider model-binding
-recovery gate after `iter59` executed both selected rows and blocked on a redacted
-`vertex_model_not_found_or_access_denied` provider response. The target is to recover one concrete
-configuration blocker, not to claim protocol effect.
+model-superiority result, or state-of-the-art claim. It is a narrow Vertex quota-project/header
+recovery gate after `iter60` changed the provider location to `global` and then blocked on a
+redacted `CONSUMER_INVALID` LiteLLM response. The target is to recover one concrete integration
+blocker, not to claim protocol effect.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -71,8 +71,10 @@ configuration blocker, not to claim protocol effect.
   [`../experiments/iter58_codeclash_vertex_dependency_recovery/proof/run_summary.json`](../experiments/iter58_codeclash_vertex_dependency_recovery/proof/run_summary.json),
 - use the blocked iter59 paid retry evidence from
   [`../experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof/run_summary.json`](../experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof/run_summary.json),
-- recover only the provider model binding that produced
-  `vertex_model_not_found_or_access_denied`,
+- use the blocked iter60 model-binding evidence from
+  [`../experiments/iter60_provider_model_binding_recovery/proof/run_summary.json`](../experiments/iter60_provider_model_binding_recovery/proof/run_summary.json),
+- recover only the LiteLLM Vertex quota-project/header path that produced the redacted
+  `CONSUMER_INVALID` response,
 - execute no BattleSnake row in this recovery gate,
 - preserve the Telos receipt-validation path for the next two-row retry,
 - keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
@@ -161,21 +163,25 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   remained unchanged, and no paid row executed. `iter59` executed both selected rows and blocked:
   both rows made one provider call, recorded zero cost in CodeClash metadata, and returned the
   same redacted Vertex model-not-found-or-access-denied provider response before verified
-  completion evidence could be accepted. `iter60` authorizes only model-binding recovery under a
-  `2` invocation and `$0.05` spend ceiling, with no BattleSnake row execution.
+  completion evidence could be accepted. `iter60` blocked after adding `vertex_location: global`:
+  the LiteLLM path reached the global endpoint but returned a redacted `CONSUMER_INVALID` response.
+  `iter61` authorizes only quota-project/header recovery under a `2` invocation and `$0.05` spend
+  ceiling, with no BattleSnake row execution.
 
-## During Model-Binding Recovery
+## During Quota-Project Recovery
 
 If the recovery runs:
 
-1. Inspect the pinned provider configs and recovered overlays.
-2. Identify and freeze one accessible provider model binding, using at most two minimal provider
-   probes if needed.
-3. Record before/after binding values, provider call and cost counts, redaction, and adversarial
-   review before interpretation.
+1. Inspect the LiteLLM Vertex adapter, CodeClash Mini-SWE-Agent model config, and iter56 direct
+   REST probe evidence.
+2. Identify a secret-safe way to pass quota-project/header data without committing project,
+   account, service-account, token, VM, zone, or credential material.
+3. Record before/after binding mechanics, provider call and cost counts, redaction, and
+   adversarial review before interpretation.
 
 If the recovery blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific model-binding, credential, config, cost, redaction, or metric gap.
+2. Correct only the specific quota-project/header, credential, config, cost, redaction, or metric
+   gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

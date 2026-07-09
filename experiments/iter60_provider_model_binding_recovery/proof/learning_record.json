@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter60_provider_model_binding_recovery/proof/run_summary.json",
+    "experiments/iter60_provider_model_binding_recovery/proof/model_binding_recovery_report.json",
+    "experiments/iter60_provider_model_binding_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+    "experiments/iter60_provider_model_binding_recovery/proof/valid/receipt_provider_model_binding_recovery.json"
+  ],
+  "experiment_id": "iter60_provider_model_binding_recovery",
+  "insight": "Adding vertex_location=global moved LiteLLM past the prior model-location error but exposed a quota-project/header blocker.",
+  "next_action": "recover the LiteLLM Vertex quota-project/header path before retrying the two-row pilot",
+  "result_path": "experiments/iter60_provider_model_binding_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}

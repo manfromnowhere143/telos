@@ -1,0 +1,40 @@
+{
+  "acceptance_criteria": [
+    "Iter59 is a clean blocked result with vertex_model_not_found_or_access_denied.",
+    "Before and after model binding values are recorded.",
+    "The recovered binding is accessible under the local ADC context.",
+    "No BattleSnake row, excluded pair, GPU, Sentinel mutation, cloud runner, or overclaim occurs."
+  ],
+  "agent_id": "codex-local-provider-model-binding-recovery",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter60_provider_model_binding_recovery/proof/model_binding_recovery_report.json",
+      "kind": "test",
+      "notes": "Records before/after binding, minimal probe outcome, calls, cost, redaction, and no-row controls.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter60_provider_model_binding_recovery/proof/recovered_overlay/",
+      "kind": "artifact",
+      "notes": "Recovered provider model config overlay for the next exact two-row retry.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter60_provider_model_binding_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the model-binding-only claim boundary.",
+      "status": "blocked"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter59 does not name the provider model-binding blocker.",
+    "The result must block if the recovered binding cannot be probed within the call/spend ceiling.",
+    "The result must fail if any BattleSnake row, excluded pair, GPU, Sentinel mutation, cloud runner, or overclaim occurs."
+  ],
+  "receipt_id": "iter60-provider-model-binding-recovery-blocked",
+  "sha256": "6ee43ae2b41ae93cdb1aafdc4382d967db1dbbf4194e74ac5e7ca7c061976dd4",
+  "stated_goal": "Recover the provider model binding that caused the iter59 two-row provider run to block.",
+  "status": "blocked",
+  "task_id": "telos:iter60_provider_model_binding_recovery@iter59"
+}

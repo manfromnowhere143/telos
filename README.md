@@ -180,9 +180,14 @@ and an adversarial review pass.
   CodeClash metadata, no excluded pairs, no GPU, no cloud runner, no Sentinel mutation, and no
   verified-completion evidence in
   [`experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery`](experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/RESULT.md).
-- Current gate: provider model binding recovery,
+- Provider model binding recovery: blocked after adding `vertex_location: global` to the recovered
+  provider model overlay; the LiteLLM probe moved past the prior location error but returned a
+  redacted `CONSUMER_INVALID`/quota-project response, with one provider call, no row execution, no
+  excluded pairs, no GPU, no cloud runner, no Sentinel mutation, and no benchmark/model claim in
+  [`experiments/iter60_provider_model_binding_recovery`](experiments/iter60_provider_model_binding_recovery/RESULT.md).
+- Current gate: Vertex quota-project binding recovery,
   pre-registered in
-  [`experiments/iter60_provider_model_binding_recovery`](experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md).
+  [`experiments/iter61_vertex_quota_project_binding_recovery`](experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
@@ -284,21 +289,22 @@ Provider auth recovery for paid protocol effect: [`experiments/iter56_provider_a
 Provider-compatible paid execution after auth recovery: [`experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/RESULT.md`](experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/RESULT.md).
 CodeClash Vertex dependency recovery: [`experiments/iter58_codeclash_vertex_dependency_recovery/RESULT.md`](experiments/iter58_codeclash_vertex_dependency_recovery/RESULT.md).
 Provider-compatible paid execution after dependency recovery: [`experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/RESULT.md`](experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/RESULT.md).
-Provider model binding recovery: [`experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md`](experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md).
+Provider model binding recovery: [`experiments/iter60_provider_model_binding_recovery/RESULT.md`](experiments/iter60_provider_model_binding_recovery/RESULT.md).
+Vertex quota-project binding recovery: [`experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md`](experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21 opp"]-->I22["22 mut"]-->I23["23 null"]-->I24["24 cand"]-->I25["25 null"]-->I26["26 own"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 blk"]-->I41["41 run"]-->I42["42 blk"]-->I43["43 hrn"]-->I44["44 blk"]-->I45["45 plan"]-->I46["46 blk"]-->I47["47 bind"]-->I48["48 slice"]-->I49["49 blk"]-->I50["50 wrap"]-->I51["51 blk"]-->I52["52 cond"]-->I53["53 blk"]-->I54["54 exec"]-->I55["55 blk"]-->I56["56 auth"]-->I57["57 blk"]-->I58["58 dep"]-->I59["59 blk"]-->I60["60 mod"]
+  I21["21 opp"]-->I22["22 mut"]-->I23["23 null"]-->I24["24 cand"]-->I25["25 null"]-->I26["26 own"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 man"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 blk"]-->I41["41 run"]-->I42["42 blk"]-->I43["43 hrn"]-->I44["44 blk"]-->I45["45 plan"]-->I46["46 blk"]-->I47["47 bind"]-->I48["48 slice"]-->I49["49 blk"]-->I50["50 wrap"]-->I51["51 blk"]-->I52["52 cond"]-->I53["53 blk"]-->I54["54 exec"]-->I55["55 blk"]-->I56["56 auth"]-->I57["57 blk"]-->I58["58 dep"]-->I59["59 blk"]-->I60["60 blk"]-->I61["61 hdr"]
   classDef p fill:#efe,stroke:#272,color:#000;
   classDef n fill:#fee,stroke:#c22,color:#000;
   classDef b fill:#ffd,stroke:#861,color:#000;
   classDef a fill:#eef,stroke:#17e,color:#000;
   class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58 p;
   class I23,I25 n;
-  class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57,I59 b;
-  class I60 a;
+  class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57,I59,I60 b;
+  class I61 a;
 ```
 
 ## Candidate Target Families
@@ -476,6 +482,8 @@ python3 scripts/validate_receipts.py experiments/iter58_codeclash_vertex_depende
 python3 scripts/audit_codeclash_vertex_dependency_recovery.py
 python3 scripts/validate_receipts.py experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof
 python3 scripts/audit_provider_compatible_paid_execution_after_dependency_recovery.py
+python3 scripts/validate_receipts.py experiments/iter60_provider_model_binding_recovery/proof
+python3 scripts/audit_provider_model_binding_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md`
+- `experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -288,10 +288,16 @@ Current claim:
   CodeClash metadata, returned a redacted `vertex_model_not_found_or_access_denied` provider
   response, produced no verified-completion evidence, executed no excluded pairs, used no GPU, and
   modified no Sentinel-named resources.
+- `iter60_provider_model_binding_recovery` blocked after adding `vertex_location: global` to the
+  recovered provider model overlay: the LiteLLM probe reached the global Vertex endpoint but
+  returned a redacted `CONSUMER_INVALID` quota-project response. One provider call occurred, no
+  BattleSnake row or excluded pair executed, no GPU or cloud runner was used, and no Sentinel-named
+  resource was modified.
 - No model or benchmark result is claimed yet.
-- The next gate may recover only the provider model binding under a `2` invocation and `$0.05`
-  spend ceiling. BattleSnake row execution, excluded-pair execution, GPU use, Sentinel resource
-  modification, production/live-domain changes, and benchmark/model overclaims remain forbidden.
+- The next gate may recover only the LiteLLM Vertex quota-project/header path under a `2`
+  invocation and `$0.05` spend ceiling. BattleSnake row execution, excluded-pair execution, GPU
+  use, Sentinel resource modification, production/live-domain changes, and benchmark/model
+  overclaims remain forbidden.
 
 ## Required Verification
 
@@ -416,6 +422,8 @@ python3 scripts/validate_receipts.py experiments/iter58_codeclash_vertex_depende
 python3 scripts/audit_codeclash_vertex_dependency_recovery.py
 python3 scripts/validate_receipts.py experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof
 python3 scripts/audit_provider_compatible_paid_execution_after_dependency_recovery.py
+python3 scripts/validate_receipts.py experiments/iter60_provider_model_binding_recovery/proof
+python3 scripts/audit_provider_model_binding_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

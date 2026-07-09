@@ -174,6 +174,15 @@ Current evidence:
 - `experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md` pre-registers the next
   blocker-only recovery gate: recover an accessible provider model binding under a `2` call and
   `$0.05` ceiling without executing any BattleSnake row.
+- `experiments/iter60_provider_model_binding_recovery/RESULT.md` blocks after adding
+  `vertex_location: global` to the recovered provider model overlay. The minimal LiteLLM probe
+  moved past the prior location/model-not-found failure but returned a redacted `CONSUMER_INVALID`
+  quota-project response. One provider call occurred, no BattleSnake row or excluded pair ran, no
+  GPU or cloud runner was used, no Sentinel resource was modified, and no benchmark/model claim is
+  made.
+- `experiments/iter61_vertex_quota_project_binding_recovery/HYPOTHESIS.md` pre-registers the next
+  blocker-only gate: recover the LiteLLM Vertex quota-project/header binding under a `2` call and
+  `$0.05` ceiling without executing any BattleSnake row.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

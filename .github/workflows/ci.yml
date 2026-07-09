@@ -385,6 +385,12 @@ jobs:
       - name: Provider-compatible paid execution after dependency recovery audit
         run: python3 scripts/audit_provider_compatible_paid_execution_after_dependency_recovery.py
 
+      - name: Provider model binding recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter60_provider_model_binding_recovery/proof
+
+      - name: Provider model binding recovery audit
+        run: python3 scripts/audit_provider_model_binding_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

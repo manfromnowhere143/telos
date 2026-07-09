@@ -113,8 +113,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter57_provider_compatible_paid_execution_after_auth_recovery` | blocked | the retry reached a selected baseline row but made zero provider calls because the pinned CodeClash venv cannot import `google.auth`; the Telos row and all excluded rows remained unattempted | recover the CodeClash Vertex dependency without spend before retrying the exact two-row paid pilot |
 | `iter58_codeclash_vertex_dependency_recovery` | pass | the local CodeClash virtualenv can now import `google.auth` while the pinned checkout and frozen provider configs remain unchanged | retry the exact two-row paid pilot after dependency recovery |
 | `iter59_provider_compatible_paid_execution_after_dependency_recovery` | blocked | both selected BattleSnake rows executed, but each provider call returned a redacted Vertex model-not-found-or-access-denied response before verified-completion evidence could be accepted; excluded pairs, GPU, cloud runner, and Sentinel resources remained untouched | recover the provider model binding before retrying the same two-row pilot |
+| `iter60_provider_model_binding_recovery` | blocked | adding `vertex_location: global` moved the LiteLLM provider path past the prior model-location error but exposed a redacted `CONSUMER_INVALID` quota-project response; no BattleSnake row, excluded pair, GPU, cloud runner, or Sentinel resource was used | recover the LiteLLM Vertex quota-project/header path before retrying the exact two-row paid pilot |
 
-The next experiment may recover only the provider model binding under a `2` call / `$0.05` spend
-ceiling. Executing BattleSnake rows, executing excluded pairs, using GPU, modifying Sentinel
-resources, changing production/live domains, and making unsupported benchmark/model claims remain
-forbidden.
+The next experiment may recover only the LiteLLM Vertex quota-project/header path under a `2`
+call / `$0.05` spend ceiling. Executing BattleSnake rows, executing excluded pairs, using GPU,
+modifying Sentinel resources, changing production/live domains, and making unsupported
+benchmark/model claims remain forbidden.
