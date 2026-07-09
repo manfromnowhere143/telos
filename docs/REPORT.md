@@ -107,8 +107,11 @@ Current evidence:
 - `experiments/iter47_provider_task_condition_command_binding_recovery/RESULT.md` blocks and
   narrows the provider command surface to two BattleSnake PvP pairs while keeping four incompatible
   pairs visible.
-- `experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/HYPOTHESIS.md` freezes a
-  zero-spend provider-compatible slice refreeze gate.
+- `experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/RESULT.md` passes the
+  zero-spend provider-compatible slice refreeze: two BattleSnake pairs selected, four historical
+  pairs excluded with reasons, zero provider calls, zero spend.
+- `experiments/iter49_provider_compatible_protocol_effect_execution_retry/HYPOTHESIS.md` freezes the
+  bounded two-pair provider-compatible execution retry.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

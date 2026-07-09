@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/HYPOTHESIS.md`
+- `experiments/iter49_provider_compatible_protocol_effect_execution_retry/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -221,10 +221,15 @@ Current claim:
   semantics. Zero provider model calls occurred, zero spend occurred, no cloud runner started, no
   GPU was used, no Sentinel-named resources were modified, and no benchmark/model result is
   claimed.
+- `iter48_provider_compatible_protocol_effect_slice_refreeze` passed: the next provider-compatible
+  slice is now the two BattleSnake PvP condition pairs, while four Dummy and deterministic-edit
+  pairs remain visible historical exclusions with reasons. Zero provider model calls occurred, zero
+  spend occurred, no cloud runner started, no GPU was used, no Sentinel-named resources were
+  modified, and no benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate may refreeze a provider-compatible protocol-effect slice only; provider calls,
-  spend, cloud runner startup, GPU use, and Sentinel resource modification remain forbidden until a
-  provider-compatible slice is frozen and audited.
+- The next gate may run only the two selected provider-compatible BattleSnake pairs under the
+  frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
+  excluded-pair execution, and benchmark/model overclaims remain forbidden.
 
 ## Required Verification
 
@@ -325,6 +330,8 @@ python3 scripts/validate_receipts.py experiments/iter46_public_task_protocol_eff
 python3 scripts/audit_public_task_protocol_effect_execution_with_assembled_executor.py
 python3 scripts/validate_receipts.py experiments/iter47_provider_task_condition_command_binding_recovery/proof
 python3 scripts/audit_provider_task_condition_command_binding_recovery.py
+python3 scripts/validate_receipts.py experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof
+python3 scripts/audit_provider_compatible_protocol_effect_slice_refreeze.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
