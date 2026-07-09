@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter43_provider_execution_harness_recovery/HYPOTHESIS.md`
+- `experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -194,9 +194,15 @@ Current claim:
   reusable provider execution harness, cost-capture harness, raw-artifact redaction harness, or
   runner-lifecycle harness was recovered. Six task-condition pairs were planned, zero started, zero
   provider model calls occurred, zero spend occurred, and no benchmark/model result is claimed.
+- `iter43_provider_execution_harness_recovery` passed: the reusable provider harness is committed,
+  a separate non-GPU Telos VM lifecycle probe created and deleted its own runner, the post-probe
+  Telos VM count was zero, a Sentinel-named VM count was observed but not touched, prior provider
+  cost/artifact controls were validated, zero provider model calls occurred, zero full
+  task-condition pairs ran, and no benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate must recover the provider execution harness before retrying the frozen
-  provider-backed protocol-effect execution.
+- The next gate may retry the frozen provider-backed protocol-effect execution only under the
+  recovered harness, unchanged task slice, cost capture, artifact retention, redaction, and runner
+  lifecycle controls.
 
 ## Required Verification
 
@@ -285,6 +291,10 @@ python3 scripts/validate_receipts.py experiments/iter40_public_task_protocol_eff
 python3 scripts/audit_public_task_protocol_effect_execution.py
 python3 scripts/validate_receipts.py experiments/iter41_public_task_protocol_effect_runner_recovery/proof
 python3 scripts/audit_public_task_protocol_effect_runner_recovery.py
+python3 scripts/validate_receipts.py experiments/iter42_public_task_protocol_effect_execution_retry/proof
+python3 scripts/audit_public_task_protocol_effect_execution_retry.py
+python3 scripts/validate_receipts.py experiments/iter43_provider_execution_harness_recovery/proof
+python3 scripts/audit_provider_execution_harness_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

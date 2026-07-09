@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "Provider-capable execution is represented by committed reusable code.",
+    "Provider credentials and project/account identifiers are not committed or printed.",
+    "A non-GPU Telos runner lifecycle probe creates and deletes its own VM if executed.",
+    "Pinned CodeClash and frozen config paths are represented in the harness plan.",
+    "Provider model invocations remain zero in this harness gate.",
+    "No frozen baseline/Telos task-condition pair is executed.",
+    "Cost parsing, raw artifact retention, and redaction scanning are validated.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-provider-harness-recovery-verifier",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter43_provider_execution_harness_recovery/proof/provider_execution_harness_report.json",
+      "kind": "test",
+      "notes": "Harness report records runner readiness, lifecycle probe, cost parsing, and redaction scan.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter43_provider_execution_harness_recovery/proof/run_summary.json",
+      "kind": "artifact",
+      "notes": "Summary records zero model calls, zero task pairs, and sanitized lifecycle evidence.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter43_provider_execution_harness_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the harness boundary and forbids benchmark/model claims.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the dedicated runner identity or required services are unavailable.",
+    "The result must block if runner lifecycle creation/deletion cannot be proven.",
+    "The result must fail if any provider model call is made in this gate.",
+    "The result must fail if any full task-condition pair is executed in this gate.",
+    "The result must fail if secret material or project/account identifiers are committed.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter43-provider-execution-harness-recovery-pass",
+  "sha256": "36b07acf09bde9876bcfab4dde1181299446eb39a5ffbe72d6e7cafcb37692a0",
+  "stated_goal": "Recover a reusable provider-capable execution harness before retrying the frozen public task protocol-effect execution.",
+  "status": "pass",
+  "task_id": "telos:iter43_provider_execution_harness_recovery@iter42"
+}

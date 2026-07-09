@@ -92,8 +92,11 @@ Current evidence:
 - `experiments/iter42_public_task_protocol_effect_execution_retry/RESULT.md` blocks before provider
   execution because the provider-capable harness, cost capture, and raw-artifact redaction controls
   were not recovered.
-- `experiments/iter43_provider_execution_harness_recovery/HYPOTHESIS.md` freezes a bounded
-  provider-execution harness recovery gate.
+- `experiments/iter43_provider_execution_harness_recovery/RESULT.md` passes a bounded
+  provider-execution harness recovery gate with a non-GPU runner lifecycle probe, zero provider
+  model calls, zero spend, and zero full task-condition pairs.
+- `experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/HYPOTHESIS.md`
+  freezes the retry of the public-task protocol-effect execution under the recovered harness.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

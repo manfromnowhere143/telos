@@ -96,7 +96,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter40_public_task_protocol_effect_execution` | blocked | the frozen protocol-effect slice could not honestly execute because runner readiness was not established before provider spend | recover Docker and pinned CodeClash runner readiness before retrying the frozen protocol-effect execution |
 | `iter41_public_task_protocol_effect_runner_recovery` | pass | local Docker remained unavailable, but the isolated GitHub Actions path proves runner readiness for all three frozen CodeClash surfaces at zero provider spend | retry the frozen protocol-effect execution only under the isolated-runner, provider, cost, artifact, and claim-boundary controls |
 | `iter42_public_task_protocol_effect_execution_retry` | blocked | runner readiness is recovered, but provider-backed execution still needs a committed harness with cost capture, artifact retention, redaction, and runner lifecycle proof before paid task-condition pairs can start | recover the provider execution harness before retrying the frozen protocol-effect execution slice |
+| `iter43_provider_execution_harness_recovery` | pass | a separate non-GPU Telos runner lifecycle probe can create and delete its own VM while the committed harness validates cost parsing, artifact retention, and redaction without model calls or full task-condition execution | retry the frozen protocol-effect execution under the recovered provider harness and unchanged provider, cost, artifact, and claim-boundary controls |
 
-The next experiment may recover only the provider execution harness. It must block before full
-task-condition execution if provider, cost, artifact, redaction, or runner lifecycle controls are
-unavailable.
+The next experiment may execute only the frozen public-task protocol-effect slice. It must block
+before provider calls if provider, cost, artifact, redaction, Docker, CodeClash, or runner lifecycle
+controls are unavailable.

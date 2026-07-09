@@ -108,8 +108,11 @@ and an adversarial review pass.
 - Public task protocol-effect execution retry: blocked before provider execution because the
   provider-capable harness, cost capture, and raw-artifact redaction controls were not recovered in
   [`experiments/iter42_public_task_protocol_effect_execution_retry`](experiments/iter42_public_task_protocol_effect_execution_retry/RESULT.md).
-- Current gate: provider execution harness recovery, pre-registered in
-  [`experiments/iter43_provider_execution_harness_recovery`](experiments/iter43_provider_execution_harness_recovery/HYPOTHESIS.md).
+- Provider execution harness recovery: passed with a non-GPU ephemeral runner lifecycle probe,
+  zero provider model calls, zero provider spend, and zero full task-condition pairs in
+  [`experiments/iter43_provider_execution_harness_recovery`](experiments/iter43_provider_execution_harness_recovery/RESULT.md).
+- Current gate: public task protocol-effect execution after harness recovery, pre-registered in
+  [`experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery`](experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -193,19 +196,20 @@ Public task protocol-effect slice: [`experiments/iter39_public_task_protocol_eff
 Public task protocol-effect execution: [`experiments/iter40_public_task_protocol_effect_execution/RESULT.md`](experiments/iter40_public_task_protocol_effect_execution/RESULT.md).
 Public task protocol-effect runner recovery: [`experiments/iter41_public_task_protocol_effect_runner_recovery/RESULT.md`](experiments/iter41_public_task_protocol_effect_runner_recovery/RESULT.md).
 Public task protocol-effect execution retry: [`experiments/iter42_public_task_protocol_effect_execution_retry/RESULT.md`](experiments/iter42_public_task_protocol_effect_execution_retry/RESULT.md).
-Provider execution harness recovery: [`experiments/iter43_provider_execution_harness_recovery/HYPOTHESIS.md`](experiments/iter43_provider_execution_harness_recovery/HYPOTHESIS.md).
+Provider execution harness recovery: [`experiments/iter43_provider_execution_harness_recovery/RESULT.md`](experiments/iter43_provider_execution_harness_recovery/RESULT.md).
+Public task protocol-effect execution after harness recovery: [`experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/HYPOTHESIS.md`](experiments/iter44_public_task_protocol_effect_execution_after_harness_recovery/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21 opp"]-->I22["22 mut"]-->I23["23 tail null"]-->I24["24 cand"]-->I25["25 mut null"]-->I26["26 compound"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 block"]-->I41["41 runner"]-->I42["42 block"]-->I43["43 harness"]
+  I21["21 opp"]-->I22["22 mut"]-->I23["23 tail null"]-->I24["24 cand"]-->I25["25 mut null"]-->I26["26 compound"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 block"]-->I41["41 runner"]-->I42["42 block"]-->I43["43 harness"]-->I44["44 exec"]
   classDef p fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   classDef n fill:#fde8e8,stroke:#c62828,color:#3b0d0d;
   classDef b fill:#fff4d6,stroke:#8a6d1d,color:#382900;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41 p;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43 p;
   class I23,I25 n;
-  class I40,I42,I43 b;
+  class I40,I42,I44 b;
 ```
 
 ## Candidate Target Families

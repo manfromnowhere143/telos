@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter43_provider_execution_harness_recovery/proof/run_summary.json",
+    "experiments/iter43_provider_execution_harness_recovery/proof/provider_execution_harness_report.json",
+    "experiments/iter43_provider_execution_harness_recovery/proof/command_output.txt",
+    "experiments/iter43_provider_execution_harness_recovery/proof/review.md",
+    "experiments/iter43_provider_execution_harness_recovery/proof/valid/receipt_provider_execution_harness_recovery.json"
+  ],
+  "experiment_id": "iter43_provider_execution_harness_recovery",
+  "insight": "A separate non-GPU Telos runner lifecycle probe can create and delete its own VM, while the committed harness validates cost parsing, artifact retention, and redaction without model calls or full task-condition execution.",
+  "next_action": "retry the frozen protocol-effect execution under the recovered provider harness and unchanged provider, cost, artifact, and claim-boundary controls",
+  "result_path": "experiments/iter43_provider_execution_harness_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
