@@ -88,8 +88,11 @@ and an adversarial review pass.
   [`experiments/iter33_release_manifest_public_sync_guard`](experiments/iter33_release_manifest_public_sync_guard/RESULT.md).
 - Release manifest public sync negative guard: passed with five malformed public-prose fixtures in
   [`experiments/iter34_release_manifest_public_sync_negative_guard`](experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md).
-- Current gate: release manifest self-coverage guard, pre-registered in
-  [`experiments/iter35_release_manifest_self_coverage_guard`](experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md).
+- Release manifest self-coverage guard: passed with 49 proof artifacts indexed across `iter31`
+  through `iter34` in
+  [`experiments/iter35_release_manifest_self_coverage_guard`](experiments/iter35_release_manifest_self_coverage_guard/RESULT.md).
+- Current gate: release manifest self-coverage negative guard, pre-registered in
+  [`experiments/iter36_release_manifest_self_coverage_negative_guard`](experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -158,7 +161,8 @@ Claim boundary release manifest: [`experiments/iter31_claim_boundary_release_man
 Claim boundary release manifest negative guard: [`experiments/iter32_claim_boundary_release_manifest_negative_guard/RESULT.md`](experiments/iter32_claim_boundary_release_manifest_negative_guard/RESULT.md).
 Release manifest public sync guard: [`experiments/iter33_release_manifest_public_sync_guard/RESULT.md`](experiments/iter33_release_manifest_public_sync_guard/RESULT.md).
 Release manifest public sync negative guard: [`experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md`](experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md).
-Release manifest self-coverage guard: [`experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md`](experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md).
+Release manifest self-coverage guard: [`experiments/iter35_release_manifest_self_coverage_guard/RESULT.md`](experiments/iter35_release_manifest_self_coverage_guard/RESULT.md).
+Release manifest self-coverage negative guard: [`experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md`](experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
@@ -174,16 +178,17 @@ flowchart LR
   I28 --> I29["iter29<br/>negative guard pass"]
   I29 --> I30["iter30<br/>schema guard pass"]
   I30 --> I31["iter31<br/>release manifest pass"]
-  I31 --> I32["iter32<br/>manifest negative guard pass"]
+  I31 --> I32["iter32<br/>manifest negative pass"]
   I32 --> I33["iter33<br/>public sync pass"]
   I33 --> I34["iter34<br/>public sync negative guard pass"]
-  I34 --> I35["iter35<br/>self-coverage pending"]
+  I34 --> I35["iter35<br/>self-coverage pass"]
+  I35 --> I36["iter36<br/>self-coverage negative"]
   classDef pass fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   classDef fail fill:#fde8e8,stroke:#c62828,color:#3b0d0d;
   classDef pending fill:#fff4d6,stroke:#8a6d1d,color:#382900;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34 pass;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35 pass;
   class I23,I25 fail;
-  class I35 pending;
+  class I36 pending;
 ```
 
 ## Candidate Target Families
@@ -311,6 +316,8 @@ python3 scripts/validate_receipts.py experiments/iter33_release_manifest_public_
 python3 scripts/audit_release_manifest_public_sync_guard.py
 python3 scripts/validate_receipts.py experiments/iter34_release_manifest_public_sync_negative_guard/proof
 python3 scripts/audit_release_manifest_public_sync_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter35_release_manifest_self_coverage_guard/proof
+python3 scripts/audit_release_manifest_self_coverage_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

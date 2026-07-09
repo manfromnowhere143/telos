@@ -2,19 +2,19 @@
 
 ## Current Action
 
-Run `iter35_release_manifest_self_coverage_guard` exactly as frozen in
-[`../experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md`](../experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md).
+Run `iter36_release_manifest_self_coverage_negative_guard` exactly as frozen in
+[`../experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md`](../experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md).
 
-The output is not a leaderboard score. It is a self-coverage guard for the release-manifest
-reviewer packet:
+The output is not a leaderboard score. It is a negative-fixture guard for the release-manifest
+self-coverage report:
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
   as the claim-boundary reviewer entry point,
 - keep `iter23` and `iter25` visible as failed/null evidence,
 - keep the changed `iter24` candidate separate from original `iter21` provider logic,
-- account for the release manifest's own `iter31` through `iter34` proof gates,
-- verify self-coverage hashes against committed proof artifacts,
+- keep the `iter35` self-coverage report visible,
+- prove missing, stale, hidden, or overclaimed self-coverage fixtures are rejected,
 - do not call a provider model, run CodeClash, or make production/live-domain claims.
 
 ## Infrastructure Discipline
@@ -43,19 +43,20 @@ mutation-guard bar because a single own-tail mutation left the self-snake fallba
 `iter28` passed the public claim-surface guard. `iter29` passed the negative public-claim fixture
 guard. `iter30` passed the boundary-matrix schema guard. `iter31` passed the claim-boundary release
 manifest. `iter32` passed the release-manifest negative guard. `iter33` passed the public-sync
-guard. `iter34` passed the public-sync negative guard. `iter35` does not authorize provider, GPU,
-cloud, CodeClash, leaderboard, SWE-bench, production, or live-domain behavior.
+guard. `iter34` passed the public-sync negative guard. `iter35` passed the release-manifest
+self-coverage guard. `iter36` does not authorize provider, GPU, cloud, CodeClash, leaderboard,
+SWE-bench, production, or live-domain behavior.
 
-## After The Release Manifest Self-Coverage Guard
+## After The Release Manifest Self-Coverage Negative Guard
 
-If the self-coverage guard passes:
+If the negative guard passes:
 
-1. Publish proof that the reviewer packet accounts for `iter31` through `iter34`.
+1. Publish proof that malformed self-coverage fixtures are rejected.
 2. Keep the release manifest as the claim-boundary reviewer entry point.
 3. Do not expand to provider, leaderboard, SWE-bench, or production claims.
 
-If self-coverage fails:
+If the negative guard fails:
 
 1. Publish the quality failure.
-2. Correct only the self-coverage report or the specific stale reference.
+2. Correct only the fixture harness, self-coverage report, or specific stale reference.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

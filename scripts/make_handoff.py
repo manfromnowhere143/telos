@@ -144,6 +144,8 @@ python3 scripts/validate_receipts.py experiments/iter33_release_manifest_public_
 python3 scripts/audit_release_manifest_public_sync_guard.py
 python3 scripts/validate_receipts.py experiments/iter34_release_manifest_public_sync_negative_guard/proof
 python3 scripts/audit_release_manifest_public_sync_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter35_release_manifest_self_coverage_guard/proof
+python3 scripts/audit_release_manifest_self_coverage_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

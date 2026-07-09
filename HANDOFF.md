@@ -1,11 +1,11 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-09T05:27:35Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-09T05:44:14Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
 ```text
-branch: agent/telos-release-manifest-guards
+branch: master
 ```
 
 Working tree:
@@ -51,11 +51,12 @@ clean
 - experiments/iter32_claim_boundary_release_manifest_negative_guard: RESULT PUBLISHED
 - experiments/iter33_release_manifest_public_sync_guard: RESULT PUBLISHED
 - experiments/iter34_release_manifest_public_sync_negative_guard: RESULT PUBLISHED
-- experiments/iter35_release_manifest_self_coverage_guard: PRE-REGISTERED, result pending
+- experiments/iter35_release_manifest_self_coverage_guard: RESULT PUBLISHED
+- experiments/iter36_release_manifest_self_coverage_negative_guard: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md`.
+- Active gate: `experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -133,6 +134,8 @@ python3 scripts/validate_receipts.py experiments/iter33_release_manifest_public_
 python3 scripts/audit_release_manifest_public_sync_guard.py
 python3 scripts/validate_receipts.py experiments/iter34_release_manifest_public_sync_negative_guard/proof
 python3 scripts/audit_release_manifest_public_sync_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter35_release_manifest_self_coverage_guard/proof
+python3 scripts/audit_release_manifest_self_coverage_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

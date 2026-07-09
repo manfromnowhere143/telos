@@ -74,8 +74,10 @@ Current evidence:
   release-manifest references and claim boundaries.
 - `experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md` passes a
   negative-fixture guard for the release-manifest public-sync checks.
-- `experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md` freezes a self-coverage
-  guard for the release-manifest reviewer packet.
+- `experiments/iter35_release_manifest_self_coverage_guard/RESULT.md` passes a self-coverage guard
+  for the release-manifest reviewer packet's own `iter31` through `iter34` proof gates.
+- `experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md` freezes a
+  negative-fixture guard for the self-coverage report.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

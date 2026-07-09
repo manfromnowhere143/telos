@@ -1,0 +1,44 @@
+{
+  "artifact_hashes": {
+    "command_output.txt": "08b35cd309a03f5e0b13a1ef1b5239ce83d373fff8ceaee10cdec92c55772bef",
+    "review.md": "695c2621191ce87af6f76bf9259fb4695500694e5120c766a77743b3351e303f",
+    "self_coverage_report.json": "2bc3796212f4ed2c4978674463f800e7f7b92a8861b534a5e7df9b1c7fce33d9"
+  },
+  "changed_candidate_boundary_visible": true,
+  "changed_candidate_claim_ids": [
+    "iter24_changed_candidate_occupied_tail_control"
+  ],
+  "clean_pass": true,
+  "cloud_or_gpu_used": false,
+  "covered_gate_count": 4,
+  "covered_gate_ids": [
+    "iter31_claim_boundary_release_manifest",
+    "iter32_claim_boundary_release_manifest_negative_guard",
+    "iter33_release_manifest_public_sync_guard",
+    "iter34_release_manifest_public_sync_negative_guard"
+  ],
+  "experiment_id": "iter35_release_manifest_self_coverage_guard",
+  "failed_null_gates_visible": true,
+  "failed_or_null_claim_ids": [
+    "iter23_original_occupied_tail_falsification",
+    "iter25_tail_safety_mutation_guard_miss"
+  ],
+  "leaderboard_or_swebench_claimed": false,
+  "local_cpu_only": true,
+  "model_superiority_claimed": false,
+  "next_gate": "experiments/iter36_release_manifest_self_coverage_negative_guard/HYPOTHESIS.md",
+  "production_or_live_domain_changed": false,
+  "proof_artifact_count": 49,
+  "provider_api_calls": 0,
+  "provider_game_score_used_as_verifier_evidence": false,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.release_manifest_self_coverage_guard.summary.v1",
+  "self_coverage_failure_count": 0,
+  "self_coverage_failures": [],
+  "self_coverage_valid": true,
+  "self_verification_gates_clean": true,
+  "source_experiment": "iter31_claim_boundary_release_manifest",
+  "source_manifest_path": "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json",
+  "source_manifest_sha256": "2d231a5001d023565575c5b6aeee5c18768ef76e353dd5a02517d13cecc84d32",
+  "status": "pass"
+}
