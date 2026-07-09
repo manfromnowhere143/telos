@@ -114,8 +114,11 @@ Current evidence:
   provider execution because the two-pair execution wrapper is not committed and the recovered
   provider harness still disables full task-condition execution. Zero provider calls, zero spend,
   no cloud runner, no GPU, and no Sentinel modification occurred.
-- `experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md` freezes the
-  zero-spend wrapper-recovery gate required before a paid two-pair execution retry.
+- `experiments/iter50_provider_compatible_execution_wrapper_recovery/RESULT.md` passes the
+  zero-spend wrapper-recovery gate: two selected BattleSnake pair plans, four rejected exclusions,
+  zero provider calls, zero spend, no cloud runner, no GPU, and no Sentinel modification.
+- `experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/HYPOTHESIS.md`
+  freezes the bounded two-pair paid execution retry using the recovered wrapper.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

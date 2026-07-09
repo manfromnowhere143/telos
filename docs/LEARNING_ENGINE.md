@@ -103,8 +103,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter47_provider_task_condition_command_binding_recovery` | blocked | the existing Vertex provider overlay binds only the BattleSnake PvP surface; Dummy and deterministic-edit pairs must be narrowed or get new provider overlays before paid execution | pre-register a provider-compatible protocol-effect slice refreeze before any provider-backed execution retry |
 | `iter48_provider_compatible_protocol_effect_slice_refreeze` | pass | the next honest provider-compatible execution slice is the two-pair BattleSnake PvP baseline/Telos comparison; four historical pairs remain excluded until compatible overlays exist | run the bounded provider-compatible execution retry only for the two selected BattleSnake pairs under the frozen budget and claim boundary |
 | `iter49_provider_compatible_protocol_effect_execution_retry` | blocked | the two-pair provider-compatible slice is ready, but paid execution must still block until a committed wrapper can run exactly those pairs and preserve cost, raw artifact, receipt, redaction, and lifecycle evidence | recover a zero-spend provider-compatible execution wrapper before retrying the two-pair provider run |
+| `iter50_provider_compatible_execution_wrapper_recovery` | pass | a committed zero-spend wrapper can dry-run exactly the two provider-compatible BattleSnake pair plans and reject all four excluded historical pairs | run the bounded two-pair provider execution retry only under the wrapper, frozen budget, raw-artifact, receipt, redaction, lifecycle, and claim-boundary controls |
 
-The next experiment may recover only the missing two-pair provider-compatible execution wrapper at
-zero provider calls and zero spend. Paid execution, GPU use, Sentinel resource modification,
-excluded-pair execution, and unsupported benchmark/model claims remain forbidden until a
-wrapper-recovery result earns a narrower retry.
+The next experiment may run only the two selected provider-compatible BattleSnake pairs under the
+frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
+excluded-pair execution, and unsupported benchmark/model claims remain forbidden.

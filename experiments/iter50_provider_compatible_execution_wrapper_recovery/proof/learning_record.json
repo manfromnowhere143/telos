@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/run_summary.json",
+    "experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/wrapper_dry_run_plan.json",
+    "experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/command_output.txt",
+    "experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/review.md",
+    "experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/valid/receipt_provider_compatible_execution_wrapper_recovery.json"
+  ],
+  "experiment_id": "iter50_provider_compatible_execution_wrapper_recovery",
+  "insight": "A committed zero-spend wrapper can dry-run exactly the two provider-compatible BattleSnake pair plans and reject all four excluded historical pairs.",
+  "next_action": "run the bounded two-pair provider execution retry only under the wrapper, frozen budget, raw-artifact, receipt, redaction, lifecycle, and claim-boundary controls",
+  "result_path": "experiments/iter50_provider_compatible_execution_wrapper_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

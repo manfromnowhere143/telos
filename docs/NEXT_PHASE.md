@@ -2,11 +2,11 @@
 
 ## Current Action
 
-Run `iter50_provider_compatible_execution_wrapper_recovery` exactly as frozen in
-[`../experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md`](../experiments/iter50_provider_compatible_execution_wrapper_recovery/HYPOTHESIS.md).
+Run `iter51_provider_compatible_protocol_effect_execution_with_wrapper` exactly as frozen in
+[`../experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/HYPOTHESIS.md`](../experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/HYPOTHESIS.md).
 
-The output is not a leaderboard score. It is a zero-spend wrapper-recovery gate required before the
-two-pair provider-compatible execution retry can honestly run:
+The output is not a leaderboard score. It is a bounded two-pair provider-compatible execution retry
+using the recovered wrapper:
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -43,12 +43,13 @@ two-pair provider-compatible execution retry can honestly run:
   [`../experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof/provider_compatible_slice.json`](../experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof/provider_compatible_slice.json),
 - use the blocked iter49 preflight from
   [`../experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/preflight.json`](../experiments/iter49_provider_compatible_protocol_effect_execution_retry/proof/preflight.json),
-- recover a committed dry-run wrapper at `scripts/run_provider_compatible_protocol_effect_pairs.py`,
-- dry-run exactly the two selected BattleSnake PvP condition pairs,
+- use the recovered iter50 wrapper plan from
+  [`../experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/wrapper_dry_run_plan.json`](../experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/wrapper_dry_run_plan.json),
+- attempt only the two selected BattleSnake PvP condition pairs unless preflight blocks,
 - keep all four excluded Dummy/deterministic-edit pairs visible as exclusions,
-- keep provider model calls at `0`,
-- keep provider spend at `$0.00`,
-- keep cloud runner startup at `0` unless a separate lifecycle-only preflight is published first,
+- keep provider model calls at or below `16`,
+- keep provider spend at or below `$10.00`,
+- use only a Telos-named ephemeral non-GPU runner after preflight,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
 - do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
@@ -102,21 +103,22 @@ four incompatible pairs visible. `iter48` passed the zero-spend provider-compati
 selecting the two BattleSnake pairs and excluding four historical pairs with reasons. `iter49`
 blocked before provider execution because the required two-pair execution wrapper was missing and
 the recovered harness still disabled full task-condition execution. `iter50` authorizes only
-zero-spend provider-compatible execution wrapper recovery. Provider calls, paid execution, GPU use,
-Sentinel resource modification, excluded-pair execution, and benchmark/model overclaims remain
-forbidden.
+zero-spend provider-compatible execution wrapper recovery. `iter50` passed: the wrapper emits two
+selected BattleSnake pair plans and rejects all four historical exclusions without provider calls,
+spend, cloud runner startup, GPU use, or Sentinel modification. `iter51` authorizes only the
+bounded two-pair provider-compatible execution retry under the frozen `16` invocation and `$10.00`
+spend ceilings. GPU use, Sentinel resource modification, excluded-pair execution, and
+benchmark/model overclaims remain forbidden.
 
-## After The Wrapper-Recovery Gate
+## After The Execution-With-Wrapper Gate
 
-If the wrapper-recovery gate passes:
+If the execution-with-wrapper gate passes:
 
-1. Publish the exact wrapper dry-run plan and rejection evidence for excluded pairs.
-2. Pre-register the next two-pair paid execution retry only if cost, raw artifact, receipt,
-   redaction, metric, and lifecycle capture are represented by committed code.
-3. Keep the future paid retry within the existing `16` invocation and `$10.00` ceilings unless a
-   new gate narrows or changes them before data.
+1. Publish exact counts before percentages for baseline and Telos-enforced conditions.
+2. Publish all raw artifacts, receipts, blocked/null rows, costs, and audit notes.
+3. Pre-register expansion only if the result identifies a concrete next evidence gap.
 
-If the wrapper-recovery gate blocks or fails:
+If the execution-with-wrapper gate blocks or fails:
 
 1. Publish the blocked/null or quality-failure result.
 2. Correct only the specific wrapper, command, config, overlay, artifact, cost, redaction,

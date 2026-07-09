@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter49 is a committed blocked result with zero provider calls and zero spend.",
+    "The wrapper exists at scripts/run_provider_compatible_protocol_effect_pairs.py.",
+    "The wrapper dry-run emits exactly two selected BattleSnake pair plans.",
+    "All four excluded Dummy and deterministic-edit pairs are rejected by the wrapper.",
+    "Every selected pair plan has artifact, cost, redaction, receipt, lifecycle, and metric capture destinations.",
+    "Provider calls, provider spend, cloud runner startup, GPU use, and Sentinel resource modification remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-provider-compatible-wrapper-recovery-verifier",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/wrapper_dry_run_plan.json",
+      "kind": "test",
+      "notes": "Wrapper dry-run plan records selected pair plans and excluded-pair rejections.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/run_summary.json",
+      "kind": "artifact",
+      "notes": "Summary records zero spend and the next bounded execution gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter50_provider_compatible_execution_wrapper_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the wrapper-recovery boundary and claim limits.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter49 proof is missing or invalid.",
+    "The result must fail if the wrapper drops, renames, duplicates, or silently skips a selected pair.",
+    "The result must fail if the wrapper attempts or permits an excluded pair.",
+    "The result must fail if artifact, cost, redaction, receipt, lifecycle, or metric destinations are missing.",
+    "The result must fail if provider calls, spend, cloud runner startup, GPU use, or Sentinel resource modification occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter50-provider-compatible-execution-wrapper-recovery-pass",
+  "sha256": "b8be385cec656911b58eeeb183b5b0623f3d5825f7c042b8358c81663cc38333",
+  "stated_goal": "Recover a zero-spend dry-run wrapper for exactly the two selected provider-compatible BattleSnake task-condition pairs.",
+  "status": "pass",
+  "task_id": "telos:iter50_provider_compatible_execution_wrapper_recovery@iter49"
+}
