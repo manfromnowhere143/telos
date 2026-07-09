@@ -457,6 +457,12 @@ jobs:
       - name: Provider-compatible expanded slice after adapter completion audit
         run: python3 scripts/audit_provider_compatible_expanded_slice_after_adapter_completion.py
 
+      - name: Provider-compatible expanded paid execution after slice refreeze receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof
+
+      - name: Provider-compatible expanded paid execution after slice refreeze audit
+        run: python3 scripts/audit_provider_compatible_expanded_paid_execution_after_slice_refreeze.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

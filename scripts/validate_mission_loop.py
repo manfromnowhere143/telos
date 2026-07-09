@@ -197,6 +197,8 @@ def main() -> int:
         "audit_provider_compatible_expanded_adapter_completion.py",
         "validate_receipts.py experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof",
         "audit_provider_compatible_expanded_slice_after_adapter_completion.py",
+        "validate_receipts.py experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof",
+        "audit_provider_compatible_expanded_paid_execution_after_slice_refreeze.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

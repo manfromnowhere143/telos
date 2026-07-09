@@ -1,0 +1,21 @@
+provider-compatible expanded paid execution after slice refreeze: blocked
+selected_pair_count=4
+executed_pair_count=4
+retained_battlesnake_rows_rerun=false
+provider_api_calls=17
+provider_call_ceiling=32
+provider_cost_usd=0.05764600
+provider_spend_ceiling_usd=10.00
+gpu_used=false
+cloud_runner_started=false
+sentinel_named_resources_modified=false
+dummy_baseline_verified_completion_evidence=false
+dummy_telos_verified_completion_evidence=false
+deterministic_edit_baseline_verified_completion_evidence=true
+deterministic_edit_telos_verified_completion_evidence=false
+blockers=provider_command_nonzero_returncode,telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml_receipt_not_valid,telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml_receipt_not_valid
+failures=
+baseline-agent-completion-evidence__configs-test-dummy-yaml: rc=1 calls=5 cost=0.01792800 receipt_required=false receipt_valid=false verified=false
+telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml: rc=1 calls=5 cost=0.01495800 receipt_required=true receipt_valid=false verified=false
+baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml: rc=0 calls=2 cost=0.00337800 receipt_required=false receipt_valid=false verified=true
+telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml: rc=0 calls=5 cost=0.02138200 receipt_required=true receipt_valid=false verified=false

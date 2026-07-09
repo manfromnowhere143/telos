@@ -238,11 +238,19 @@ and an adversarial review pass.
   executed BattleSnake rows and selecting four adapter-planned Dummy/deterministic-edit rows for a
   bounded future paid gate without cross-surface pooling or benchmark/model claims in
   [`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md).
-- Current gate: provider-compatible expanded paid execution after slice refreeze,
+- Provider-compatible expanded paid execution after slice refreeze: blocked after executing exactly
+  the four adapter-planned rows under the frozen ceiling; 17 provider calls and `$0.057646` cost
+  were recorded, the two retained BattleSnake rows were not rerun, deterministic-edit baseline
+  produced verified-completion evidence, and both receipt-enforced rows failed because their
+  receipt candidates were schema-incomplete; no GPU/cloud/Sentinel/live-domain mutation or
+  benchmark/model/SOTA claim occurred in
+  [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
+- Current gate: expanded receipt prompt recovery after paid block,
   pre-registered in
-  [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md).
+  [`experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block`](experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/HYPOTHESIS.md).
 - Benchmark result: none yet.
-- Provider-backed protocol-effect result: bounded two-row pilot only; not a benchmark result.
+- Provider-backed protocol-effect result: bounded two-row clean pilot plus a blocked four-row
+  adapter-validation extension; neither is a benchmark result.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
 Claim-boundary reviewer entry point:

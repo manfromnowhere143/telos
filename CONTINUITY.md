@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md`
+- `experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -348,11 +348,18 @@ Current claim:
   BattleSnake rows are retained as prior paid evidence and four adapter-planned
   Dummy/deterministic-edit rows are selected for a bounded future paid gate. Cross-surface pooling,
   benchmark claims, model claims, and state-of-the-art claims remain forbidden.
+- `iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze` blocked after executing
+  exactly the four adapter-planned rows under the frozen ceiling. It recorded `17` provider calls
+  and `$0.057646` CodeClash metadata cost under the `32` call and `$10.00` ceilings. The two
+  retained BattleSnake rows were not rerun. Deterministic-edit baseline verified-completion
+  evidence was `true`; Dummy baseline, Dummy Telos, and deterministic-edit Telos verified
+  completion evidence were `false`. Both receipt-required rows produced parseable but
+  schema-incomplete receipt candidates, so the result blocks without a quality failure.
 - No model or benchmark result is claimed yet.
-- The next gate may only execute the four adapter-planned rows selected by `iter71` under the
-  frozen `32` provider-invocation and `$10.00` spend ceilings. It must not rerun the two retained
-  BattleSnake rows, execute excluded rows, use GPU or cloud runner, mutate Sentinel resources,
-  change production/live-domain behavior, or make benchmark/model claims.
+- The next gate may only classify the iter72 receipt-schema failures and recover expanded
+  receipt-enforced prompts locally. It must use zero provider calls, zero spend, no row execution,
+  no GPU or cloud runner, mutate no Sentinel resource, change no production/live-domain behavior,
+  and make no benchmark/model claim.
 
 ## Required Verification
 
@@ -501,6 +508,8 @@ python3 scripts/validate_receipts.py experiments/iter70_provider_compatible_expa
 python3 scripts/audit_provider_compatible_expanded_adapter_completion.py
 python3 scripts/validate_receipts.py experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof
 python3 scripts/audit_provider_compatible_expanded_slice_after_adapter_completion.py
+python3 scripts/validate_receipts.py experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof
+python3 scripts/audit_provider_compatible_expanded_paid_execution_after_slice_refreeze.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

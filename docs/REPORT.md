@@ -271,6 +271,18 @@ Current evidence:
   mutation, and no benchmark/model/state-of-the-art claim occurred.
 - `experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md`
   pre-registers the next bounded paid gate for only the four adapter-planned rows.
+- `experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`
+  blocks that paid gate honestly after executing exactly the four selected adapter-planned rows.
+  The run used `17` provider calls and `$0.057646` CodeClash metadata cost under the frozen `32`
+  call and `$10.00` ceilings. The two existing BattleSnake rows were retained and not rerun.
+  Deterministic-edit baseline verified-completion evidence was `true`, but Dummy baseline,
+  Dummy Telos, and deterministic-edit Telos verified-completion evidence were `false`. Both
+  receipt-required rows produced parseable but schema-incomplete receipt candidates, so the result
+  blocks with no quality failure. No GPU, cloud runner, Sentinel mutation, production/live-domain
+  change, benchmark claim, model claim, or state-of-the-art claim occurred.
+- `experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/HYPOTHESIS.md`
+  pre-registers the next zero-spend recovery gate: classify the two iter72 receipt-schema failures
+  and recover expanded receipt-enforced prompts locally before any paid retry or larger budget.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

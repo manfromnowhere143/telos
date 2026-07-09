@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "Iter71 passed and selected exactly four adapter-planned rows.",
+    "Only those four rows execute; the two BattleSnake rows are retained as prior evidence.",
+    "Provider calls stay at or below 32 and provider spend at or below $10.00.",
+    "Every receipt-enforced row has a valid Telos receipt before verified completion is accepted.",
+    "Raw artifacts, metadata, costs, receipts, redaction scans, and teardown evidence are committed.",
+    "No GPU, cloud runner, Sentinel mutation, live-domain mutation, or benchmark/model claim occurs."
+  ],
+  "agent_id": "codex-local-expanded-adapter-row-paid-runner",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records exact row execution, provider calls, costs, receipts, and claim boundary.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/raw/",
+      "kind": "artifact",
+      "notes": "Raw packet contains command transcripts and copied CodeClash artifacts.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the stratified no-benchmark/no-model boundary.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter71 proof or selected-row hashes are invalid.",
+    "The result must fail if any unselected row executes.",
+    "The result must fail if provider calls or spend exceed the frozen ceiling.",
+    "The result must block if receipt-required rows lack valid receipts.",
+    "The result must fail if credential, token, project, or service-account residue is committed.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter72-provider-compatible-expanded-paid-execution-blocked",
+  "sha256": "e8d2cb012051fa8fd1fb177ee4229be220ff2fd8a48486e0c04258752a6e9bbc",
+  "stated_goal": "Execute only the four iter71-selected adapter-planned rows under the frozen provider-compatible expanded-slice boundary.",
+  "status": "blocked",
+  "task_id": "telos:iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze@iter71"
+}

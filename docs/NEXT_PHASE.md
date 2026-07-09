@@ -240,20 +240,23 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   `iter70` passed zero-spend provider-compatible expanded adapter completion with four planned
   rows. `iter71` passed zero-spend expanded-slice refreeze as a stratified six-row plan and
   pre-registered `iter72` for only the four adapter-planned rows under `32` provider invocations
-  and `$10.00`.
+  and `$10.00`. `iter72` executed exactly those four rows and blocked under ceiling: 17 provider
+  calls, `$0.057646` cost, no retained BattleSnake rerun, deterministic-edit baseline verified
+  completion evidence only, and both receipt-required expanded rows rejected because their receipt
+  candidates were schema-incomplete.
 
-## During Provider-Compatible Expanded Paid Execution
+## During Expanded Receipt Prompt Recovery
 
 If the gate runs:
 
-1. Revalidate the iter71 expanded-slice decision and selected row hashes.
-2. Execute only the four adapter-planned rows named by iter71.
-3. Record exact provider/API calls, spend, artifacts, costs, receipt validation, redaction, and
-   teardown evidence.
-4. Keep the analysis stratified by task surface and forbid pooled benchmark/model claims.
+1. Revalidate the iter72 blocked proof, receipt, and audit.
+2. Classify the two invalid receipt candidates and record exact missing fields.
+3. Recover only the expanded receipt-enforced prompt/schema overlays needed for Dummy and
+   deterministic-edit rows.
+4. Prove the recovered receipt shape with local positive and malformed fixtures.
 
 If the gate blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific command, provider, cost, redaction, receipt, teardown, or metric gap.
+2. Correct only the specific receipt prompt/schema, redaction, or validation gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.
