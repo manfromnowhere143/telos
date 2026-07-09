@@ -1,0 +1,48 @@
+{
+  "acceptance_criteria": [
+    "Iter66 receipt validation and audit evidence are rechecked locally.",
+    "The committed task-condition candidate universe is surveyed.",
+    "Every existing selected row keeps a command, receipt, redaction, cost, and artifact plan.",
+    "Every non-selected candidate has an explicit compatibility reason.",
+    "Provider calls, spend, row execution, GPU use, cloud runner startup, and Sentinel mutation remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-expanded-slice-refreeze-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/expanded_slice_decision.json",
+      "kind": "test",
+      "notes": "Machine-readable no-expansion decision and named blockers.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/task_surface_survey.json",
+      "kind": "artifact",
+      "notes": "Survey of committed candidate task surfaces and compatibility status.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records why expansion is blocked rather than overstated.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if no additional condition-balanced provider-compatible task rows exist.",
+    "The result must fail if any provider call, spend, row execution, GPU, cloud runner startup, Sentinel mutation, or live-domain mutation occurs.",
+    "The result must fail if excluded candidates are hidden or selected without command, receipt, cost, redaction, and artifact plans.",
+    "The result must fail if it claims benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art evidence."
+  ],
+  "receipt_id": "iter67-provider-compatible-expanded-slice-refreeze-blocked",
+  "sha256": "0436704db4d61c976c76588fe591c616ec43a8dcf765f14527e0f8d514d45969",
+  "stated_goal": "Decide whether the iter66 two-row provider-backed pilot justifies a larger provider-compatible protocol-effect slice before any additional spend.",
+  "status": "blocked",
+  "task_id": "telos:iter67_provider_compatible_expanded_slice_refreeze@iter66"
+}

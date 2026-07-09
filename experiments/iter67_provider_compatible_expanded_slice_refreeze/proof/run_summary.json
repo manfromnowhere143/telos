@@ -1,0 +1,60 @@
+{
+  "artifact_hashes": {
+    "command_output.txt": "68c892824fc7bffc77436a0bdc7ae1a4a1665aa575e388ed66592b0fb84d0ee1",
+    "expanded_slice_decision.json": "caa27a6c7706216816ca05e4fe57c3e2841259b4e3fca4d438ace024334ecd13",
+    "review.md": "5597569e2c4f33bec14cdb6bb6a4da04f6e5caf55e65b4840de7488e71bf2267",
+    "task_surface_survey.json": "9519353f855cc8be9d74130ee59c6ad68c78085c9af0e2da88eb63626eb3853a",
+    "valid/receipt_provider_compatible_expanded_slice_refreeze.json": "e5d21809d3d2defc67b54320812bfddf3e660c278f24342e90973700dedcb64e"
+  },
+  "benchmark_result_claimed": false,
+  "blocked_result": true,
+  "blockers": [
+    "expanded_task_surface_adapter_missing",
+    "no_candidate_pair_beyond_existing_two_has_provider_ready_binding"
+  ],
+  "candidate_pair_count": 6,
+  "candidate_public_config_count": 3,
+  "clean_pass": false,
+  "cloud_runner_started": false,
+  "excluded_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "expanded_slice_decision": "no_expanded_slice_currently_justified",
+  "experiment_id": "iter67_provider_compatible_expanded_slice_refreeze",
+  "failures": [],
+  "gpu_used": false,
+  "incompatible_pair_count": 4,
+  "iter66_audit_returncode": 0,
+  "iter66_primary_metric": {
+    "baseline_verified_completion_evidence": true,
+    "telos_verified_completion_evidence": true,
+    "verified_completion_evidence_delta_telos_minus_baseline": 0
+  },
+  "iter66_provider_api_calls": 8,
+  "iter66_provider_cost_usd": 0.059378,
+  "iter66_receipt_validation_returncode": 0,
+  "iter66_status": "pass",
+  "leaderboard_or_swebench_result_claimed": false,
+  "model_superiority_claimed": false,
+  "next_gate": "experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md",
+  "production_or_live_domain_changed": false,
+  "proposed_expanded_slice_pair_ids": [],
+  "provider_api_calls": 0,
+  "provider_ready_pair_count": 2,
+  "provider_spend_usd": 0.0,
+  "quality_failure": false,
+  "redaction_findings": [],
+  "redaction_scan_passed": true,
+  "retained_existing_two_row_slice_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml"
+  ],
+  "row_execution_allowed": false,
+  "schema_version": "telos.provider_compatible_expanded_slice_refreeze.summary.v1",
+  "sentinel_named_resources_modified": false,
+  "state_of_the_art_result_claimed": false,
+  "status": "blocked"
+}

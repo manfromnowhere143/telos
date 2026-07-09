@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter67_provider_compatible_expanded_slice_refreeze` exactly as
+Run `iter68_provider_compatible_task_surface_adapter_recovery` exactly as
 frozen in
-[`../experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md`](../experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md).
+[`../experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md`](../experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -13,8 +13,10 @@ Telos verified-completion evidence was `false`, and the Telos row failed because
 candidate did not match the Telos proof schema. `iter65` recovered that receipt schema/prompt
 alignment locally with zero provider calls. `iter66` retried the same two frozen rows: both
 baseline and Telos had verified-completion evidence, the Telos receipt validated, and the primary
-delta was `0`. The target of `iter67` is to freeze the smallest justified expanded
-provider-compatible slice before any further paid execution.
+delta was `0`. `iter67` then blocked the expanded-slice refreeze with zero provider calls because
+the committed universe still has no condition-balanced provider-compatible rows beyond the two
+BattleSnake rows already executed. The target of `iter68` is to recover or reject adapters for
+the excluded task surfaces before any larger paid execution is even considered.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -93,6 +95,10 @@ provider-compatible slice before any further paid execution.
   [`../experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml`](../experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml),
 - use the passed iter66 paid retry from
   [`../experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/run_summary.json`](../experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/run_summary.json),
+- use the blocked iter67 expanded-slice decision from
+  [`../experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/run_summary.json`](../experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/run_summary.json),
+- use the iter67 task-surface survey from
+  [`../experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/task_surface_survey.json`](../experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/task_surface_survey.json),
 - execute no row and no excluded pair,
 - keep all prior exclusions visible with reasons,
 - keep provider model calls at `0`,
@@ -200,18 +206,20 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   malformed fixtures. `iter66` passed the bounded paid retry of the same two
   provider-compatible BattleSnake rows with that recovered overlay: baseline and Telos both had
   verified-completion evidence, the Telos receipt validated, 8 provider calls and `$0.059378`
-  CodeClash metadata cost were recorded, and the primary delta was `0`. `iter67` authorizes only a
-  zero-spend expanded-slice freeze or no-expansion decision before further paid execution.
+  CodeClash metadata cost were recorded, and the primary delta was `0`. `iter67` blocked the
+  expanded-slice refreeze because no additional condition-balanced provider-compatible rows exist
+  in committed evidence. `iter68` authorizes only zero-spend task-surface adapter recovery or
+  residual rejection for those excluded rows before further paid execution.
 
-## During Provider-Compatible Expanded Slice Refreeze
+## During Provider-Compatible Task-Surface Adapter Recovery
 
 If the gate runs:
 
-1. Revalidate iter66 receipt and audit evidence.
-2. Survey available CodeClash task surfaces and prior exclusions.
-3. Freeze selected rows and command plans, or publish a no-expansion decision.
-4. Record provider ceilings, receipt/audit plans, redaction plans, and exclusion reasons before
-   any further paid execution.
+1. Revalidate the iter67 blocked decision and its task-surface survey.
+2. Read the committed source task surfaces for Dummy and deterministic edit.
+3. Create condition-separated adapter plans only if they preserve task semantics.
+4. Record exact future commands, receipt/audit plans, redaction plans, and residual rejection
+   reasons before any further paid execution.
 
 If the gate blocks, fails, or produces ambiguous evidence:
 

@@ -11,7 +11,7 @@
     ".github/workflows/codeclash-agent-behavior.yml",
     ".github/workflows/codeclash-deterministic-edit.yml"
   ],
-  "active_gate": "experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md",
+  "active_gate": "experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md",
   "loop": [
     {
       "phase": "pre_register",
@@ -217,6 +217,8 @@
     "python3 scripts/audit_receipt_schema_prompt_alignment.py",
     "python3 scripts/validate_receipts.py experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof",
     "python3 scripts/audit_provider_compatible_paid_execution_after_receipt_prompt_alignment.py",
+    "python3 scripts/validate_receipts.py experiments/iter67_provider_compatible_expanded_slice_refreeze/proof",
+    "python3 scripts/audit_provider_compatible_expanded_slice_refreeze.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_handoff.py"
   ]

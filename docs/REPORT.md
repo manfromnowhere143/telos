@@ -235,6 +235,14 @@ Current evidence:
   occurred.
 - `experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md` pre-registers a
   zero-spend expanded-slice freeze or no-expansion decision before any further paid execution.
+- `experiments/iter67_provider_compatible_expanded_slice_refreeze/RESULT.md` blocks that
+  expanded-slice refreeze honestly. Iter66 receipt validation and audit pass, but the committed
+  candidate universe still has only two provider-ready BattleSnake rows and four incompatible
+  Dummy/deterministic-edit rows. Zero provider calls, zero spend, no row execution, no GPU, no
+  cloud runner, no Sentinel mutation, and no benchmark/model/state-of-the-art claim occurred.
+- `experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md`
+  pre-registers the named blocker recovery: locally recover or reject provider-compatible adapters
+  for the excluded task surfaces before any larger paid run.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -120,7 +120,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter64_provider_compatible_paid_execution_after_access_path_recovery` | pass | the first bounded two-row provider-backed protocol-effect pilot measured baseline verified-completion evidence as true and Telos verified-completion evidence as false because the Telos receipt candidate failed schema validation | recover receipt-schema prompt alignment locally before any paid retry or slice expansion |
 | `iter65_receipt_schema_prompt_alignment` | pass | the iter64 Telos receipt failure was a prompt/schema alignment gap: the receipt-like JSON omitted eight required Telos proof fields and the canonical sha256 rule | retry the same two frozen provider-compatible rows with the recovered receipt prompt overlay |
 | `iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment` | pass | the receipt-prompt-aligned paid retry made the Telos receipt valid and both baseline and Telos rows had verified-completion evidence, giving a two-row primary delta of 0 | freeze the smallest justified expanded provider-compatible slice before further paid execution |
+| `iter67_provider_compatible_expanded_slice_refreeze` | blocked | the committed candidate universe still has no condition-balanced provider-compatible task rows beyond the two BattleSnake rows already executed in iter66 | recover provider-compatible task-surface adapters for the excluded public rows before attempting any larger paid protocol-effect run |
 
-The next experiment may only freeze an expanded provider-compatible slice or publish a no-expansion
-decision. It must use zero provider calls, zero spend, no row execution, no GPU, no cloud runner,
+The next experiment may only recover or reject provider-compatible adapters for the excluded task
+surfaces. It must use zero provider calls, zero spend, no row execution, no GPU, no cloud runner,
 no Sentinel mutation, and the existing no-benchmark/no-model-result claim boundary.

@@ -1,0 +1,188 @@
+{
+  "blocked_not_quality_failure": true,
+  "blockers": [
+    "expanded_task_surface_adapter_missing",
+    "no_candidate_pair_beyond_existing_two_has_provider_ready_binding"
+  ],
+  "claim_boundary": {
+    "benchmark_result_claimed": false,
+    "leaderboard_or_swebench_result_claimed": false,
+    "model_superiority_claimed": false,
+    "production_or_live_domain_changed": false,
+    "state_of_the_art_result_claimed": false
+  },
+  "cloud_runner_startup_allowed": false,
+  "decision": "no_expanded_slice_currently_justified",
+  "decision_reason": "Iter66 fixed Telos receipt validity on the existing two-row BattleSnake slice, but the committed candidate universe still has no additional condition-balanced provider-compatible task rows beyond the two already executed rows.",
+  "excluded_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "excluded_pairs": [
+    {
+      "condition_id": "baseline_agent_completion_evidence",
+      "exclusion_reason": "existing provider overlay is a BattleSnake game config; binding it to dummy.yaml would change the public Dummy task surface",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "task_id": "codeclash:configs/test/dummy.yaml"
+    },
+    {
+      "condition_id": "baseline_agent_completion_evidence",
+      "exclusion_reason": "existing provider overlay lacks the deterministic edit marker overlay and prompt semantics required by telos_battlesnake_edit_test.yaml",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "task_id": "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+    },
+    {
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "exclusion_reason": "existing provider overlay is a BattleSnake game config; binding it to dummy.yaml would change the public Dummy task surface",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "task_id": "codeclash:configs/test/dummy.yaml"
+    },
+    {
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "exclusion_reason": "existing provider overlay lacks the deterministic edit marker overlay and prompt semantics required by telos_battlesnake_edit_test.yaml",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "task_id": "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+    }
+  ],
+  "existing_two_row_command_plan": [
+    {
+      "condition_id": "baseline_agent_completion_evidence",
+      "cost_capture_plan": {
+        "missing_cost_blocks_result": true,
+        "primary_source": "metadata.json agents[].agent_stats",
+        "required": true,
+        "secondary_source": "p1 trajectory response/cost fields when present"
+      },
+      "future_artifact_plan": {
+        "binary_archives_committed": false,
+        "optional_text_artifacts": [
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p1/p1_r1.traj.json",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p1/changes_r1.json",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p2/changes_r1.json"
+        ],
+        "pair_summary": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/pairs/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml.json",
+        "raw_root": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+        "required_text_artifacts": [
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/codeclash_run.log",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/metadata.json",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/redaction_scan.json"
+        ]
+      },
+      "future_execution_command": "uv run codeclash run experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_baseline.yaml -o /tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "future_execution_command_without_output_root": "uv run codeclash run experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_baseline.yaml",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "provider_agent_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+      "provider_model_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+      "provider_overlay_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_baseline.yaml",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "receipt_validation_plan": {
+        "acceptance_rule": "Raw logs, trajectory when available, diff scope, arena/test result, cost data, and post-hoc adversarial review are interpretable without a Telos receipt.",
+        "raw_pair_proof_root": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+        "receipt_dir": null,
+        "receipt_path": null,
+        "required_before_acceptance": false,
+        "validation_command": null,
+        "verified_completion_requires_receipt_validation": false
+      },
+      "redaction_plan": {
+        "forbidden_residue": [
+          "credential material",
+          "access tokens",
+          "service-account email",
+          "project identifier",
+          "unredacted provider-specific private fields"
+        ],
+        "scan_required": true,
+        "scan_scope": [
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/pairs/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml.json"
+        ]
+      },
+      "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml"
+    },
+    {
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "cost_capture_plan": {
+        "missing_cost_blocks_result": true,
+        "primary_source": "metadata.json agents[].agent_stats",
+        "required": true,
+        "secondary_source": "p1 trajectory response/cost fields when present"
+      },
+      "future_artifact_plan": {
+        "binary_archives_committed": false,
+        "optional_text_artifacts": [
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p1/p1_r1.traj.json",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p1/changes_r1.json",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/players/p2/changes_r1.json"
+        ],
+        "pair_summary": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/pairs/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml.json",
+        "raw_root": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+        "required_text_artifacts": [
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/codeclash_run.log",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/metadata.json",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/redaction_scan.json"
+        ]
+      },
+      "future_execution_command": "uv run codeclash run experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml -o /tmp/telos-codeclash-protocol-effect-condition-separated/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "future_execution_command_without_output_root": "uv run codeclash run experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "provider_agent_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+      "provider_model_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+      "provider_overlay_config": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "receipt_validation_plan": {
+        "acceptance_rule": "Verified completion cannot become true until a Telos receipt exists under the raw pair proof directory and python3 scripts/validate_receipts.py exits 0 for that directory.",
+        "raw_pair_proof_root": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+        "receipt_dir": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/valid",
+        "receipt_path": "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/valid/receipt_telos_completion.json",
+        "required_before_acceptance": true,
+        "validation_command": "python3 scripts/validate_receipts.py experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+        "verified_completion_requires_receipt_validation": true
+      },
+      "redaction_plan": {
+        "forbidden_residue": [
+          "credential material",
+          "access tokens",
+          "service-account email",
+          "project identifier",
+          "unredacted provider-specific private fields"
+        ],
+        "scan_required": true,
+        "scan_scope": [
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+          "experiments/iter53_provider_compatible_protocol_effect_execution_after_condition_recovery/proof/pairs/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml.json"
+        ]
+      },
+      "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml"
+    }
+  ],
+  "failures": [],
+  "gpu_allowed": false,
+  "iter66_interpretation": "The pilot is real provider-backed evidence that Telos receipt validation can pass, not evidence that Telos outperforms baseline; the measured delta is zero.",
+  "iter66_primary_metric": {
+    "baseline_verified_completion_evidence": true,
+    "telos_verified_completion_evidence": true,
+    "verified_completion_evidence_delta_telos_minus_baseline": 0
+  },
+  "next_paid_gate_authorized": false,
+  "next_recovery_gate": "experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md",
+  "next_recovery_goal": "Recover local provider-compatible task adapters for the excluded public task surfaces, or explicitly prove that each remains invalid, before any larger paid run.",
+  "production_or_live_domain_change_allowed": false,
+  "proposed_expanded_slice_pair_ids": [],
+  "provider_api_call_ceiling_for_iter67": 0,
+  "provider_spend_ceiling_usd_for_iter67": 0.0,
+  "retained_existing_two_row_slice_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml"
+  ],
+  "row_execution_allowed_in_iter67": false,
+  "schema_version": "telos.provider_compatible_expanded_slice_refreeze.decision.v1",
+  "sentinel_named_resources_must_not_change": true,
+  "status": "blocked"
+}
