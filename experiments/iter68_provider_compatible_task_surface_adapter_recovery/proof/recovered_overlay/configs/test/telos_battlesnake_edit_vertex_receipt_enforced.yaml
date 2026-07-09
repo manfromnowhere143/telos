@@ -1,0 +1,24 @@
+game:
+  name: BattleSnake
+  sims_per_round: 1
+  args:
+    width: 11
+    height: 11
+    browser: false
+tournament:
+  rounds: 1
+players:
+- agent: mini
+  name: p1
+  config:
+    agent: !include mini/telos_vertex_gemini_edit_receipt_enforced_agent.yaml
+    model: !include mini/telos_vertex_gemini_3_1_pro_customtools.yaml
+- agent: dummy
+  name: p2
+prompts:
+  game_description: |-
+    Telos deterministic non-empty workspace Python edit smoke.
+
+    This is the Telos receipt-enforced condition. Preserve the task: create a small Python marker
+    file named `telos_marker.py` in the workspace, create a valid Telos completion receipt, and
+    submit. Verified completion must fail if the receipt is missing or invalid.

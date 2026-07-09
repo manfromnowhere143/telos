@@ -243,6 +243,13 @@ Current evidence:
 - `experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md`
   pre-registers the named blocker recovery: locally recover or reject provider-compatible adapters
   for the excluded task surfaces before any larger paid run.
+- `experiments/iter68_provider_compatible_task_surface_adapter_recovery/RESULT.md` blocks that
+  adapter recovery at the correct boundary. Two deterministic-edit adapter rows are planned from
+  committed `iter06` source, but the two Dummy rows remain rejected because `configs/test/dummy.yaml`
+  has no committed source snapshot. Zero provider calls, zero spend, no row execution, no GPU, no
+  cloud runner, no Sentinel mutation, and no benchmark/model/state-of-the-art claim occurred.
+- `experiments/iter69_codeclash_task_surface_source_snapshot_recovery/HYPOTHESIS.md`
+  pre-registers the source-snapshot recovery needed before Dummy adapters can be validated.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -1,0 +1,48 @@
+{
+  "acceptance_criteria": [
+    "Iter67 blocked decision is present and names the adapter blocker.",
+    "Committed source surfaces are used; uncommitted local checkout state is not trusted.",
+    "Recovered rows have command, receipt, artifact, cost, redaction, and audit plans.",
+    "Unrecovered rows have precise residual rejection reasons.",
+    "Provider calls, spend, row execution, GPU use, cloud runner startup, and Sentinel mutation remain zero.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-task-surface-adapter-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof/adapter_recovery_report.json",
+      "kind": "test",
+      "notes": "Machine-readable adapter recovery and residual rejection report.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof/recovered_overlay/",
+      "kind": "artifact",
+      "notes": "Partial deterministic-edit adapter overlay planned from committed source.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records why missing Dummy source keeps expansion blocked.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if a target source surface is not committed.",
+    "The result must fail if an adapter changes task semantics or hides residual rejection.",
+    "The result must fail if provider calls, spend, row execution, GPU, cloud runner startup, Sentinel mutation, or live-domain mutation occurs.",
+    "The result must fail if unsupported benchmark, model-superiority, leaderboard, SWE-bench, production, live-domain, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter68-provider-compatible-task-surface-adapter-recovery-blocked",
+  "sha256": "0b854685c3305736a243755642b54f48fe07240a81330b98a2896632caecb3db",
+  "stated_goal": "Recover or reject provider-compatible adapters for excluded public task surfaces without provider calls or row execution.",
+  "status": "blocked",
+  "task_id": "telos:iter68_provider_compatible_task_surface_adapter_recovery@iter67"
+}

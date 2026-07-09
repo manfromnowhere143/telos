@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter68_provider_compatible_task_surface_adapter_recovery` exactly as
+Run `iter69_codeclash_task_surface_source_snapshot_recovery` exactly as
 frozen in
-[`../experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md`](../experiments/iter68_provider_compatible_task_surface_adapter_recovery/HYPOTHESIS.md).
+[`../experiments/iter69_codeclash_task_surface_source_snapshot_recovery/HYPOTHESIS.md`](../experiments/iter69_codeclash_task_surface_source_snapshot_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -13,10 +13,12 @@ Telos verified-completion evidence was `false`, and the Telos row failed because
 candidate did not match the Telos proof schema. `iter65` recovered that receipt schema/prompt
 alignment locally with zero provider calls. `iter66` retried the same two frozen rows: both
 baseline and Telos had verified-completion evidence, the Telos receipt validated, and the primary
-delta was `0`. `iter67` then blocked the expanded-slice refreeze with zero provider calls because
+delta was `0`. `iter67` blocked the expanded-slice refreeze with zero provider calls because
 the committed universe still has no condition-balanced provider-compatible rows beyond the two
-BattleSnake rows already executed. The target of `iter68` is to recover or reject adapters for
-the excluded task surfaces before any larger paid execution is even considered.
+BattleSnake rows already executed. `iter68` planned two deterministic-edit adapter rows from
+committed source but blocked because `configs/test/dummy.yaml` is not committed as source
+evidence. The target of `iter69` is to snapshot required CodeClash task-source files before any
+adapter completion or larger paid execution is considered.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -99,6 +101,10 @@ the excluded task surfaces before any larger paid execution is even considered.
   [`../experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/run_summary.json`](../experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/run_summary.json),
 - use the iter67 task-surface survey from
   [`../experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/task_surface_survey.json`](../experiments/iter67_provider_compatible_expanded_slice_refreeze/proof/task_surface_survey.json),
+- use the blocked iter68 adapter recovery from
+  [`../experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof/run_summary.json`](../experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof/run_summary.json),
+- use the iter68 adapter recovery report from
+  [`../experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof/adapter_recovery_report.json`](../experiments/iter68_provider_compatible_task_surface_adapter_recovery/proof/adapter_recovery_report.json),
 - execute no row and no excluded pair,
 - keep all prior exclusions visible with reasons,
 - keep provider model calls at `0`,
@@ -208,18 +214,18 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   verified-completion evidence, the Telos receipt validated, 8 provider calls and `$0.059378`
   CodeClash metadata cost were recorded, and the primary delta was `0`. `iter67` blocked the
   expanded-slice refreeze because no additional condition-balanced provider-compatible rows exist
-  in committed evidence. `iter68` authorizes only zero-spend task-surface adapter recovery or
-  residual rejection for those excluded rows before further paid execution.
+  in committed evidence. `iter68` planned deterministic-edit adapter rows but blocked on missing
+  committed Dummy source content. `iter69` authorizes only zero-spend CodeClash source snapshot
+  recovery before further adapter completion or paid execution.
 
-## During Provider-Compatible Task-Surface Adapter Recovery
+## During CodeClash Task-Surface Source Snapshot Recovery
 
 If the gate runs:
 
-1. Revalidate the iter67 blocked decision and its task-surface survey.
-2. Read the committed source task surfaces for Dummy and deterministic edit.
-3. Create condition-separated adapter plans only if they preserve task semantics.
-4. Record exact future commands, receipt/audit plans, redaction plans, and residual rejection
-   reasons before any further paid execution.
+1. Revalidate the iter68 blocked decision and adapter recovery report.
+2. Read the pinned CodeClash checkout and record the commit or publish a precise blocker.
+3. Copy `configs/test/dummy.yaml` into committed proof snapshots only if source/copy hashes match.
+4. Record redaction, hash, and claim-boundary proof before any adapter completion or paid run.
 
 If the gate blocks, fails, or produces ambiguous evidence:
 
