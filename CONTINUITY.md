@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/HYPOTHESIS.md`
+- `experiments/iter52_provider_condition_runtime_separation_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -238,10 +238,16 @@ Current claim:
   and metric destinations for the future paid retry. Zero provider model calls occurred, zero spend
   occurred, no cloud runner started, no GPU was used, no Sentinel-named resources were modified, and
   no benchmark/model result is claimed.
+- `iter51_provider_compatible_protocol_effect_execution_with_wrapper` blocked before provider
+  execution: the iter50 wrapper remained dry-run-only, the recovered provider harness still
+  disabled full task-condition execution, and the baseline/Telos rows shared the same runtime
+  command, overlay, and agent prompt apart from output directory. Two pairs remained planned, zero
+  started, zero provider model calls occurred, zero spend occurred, no cloud runner started, no GPU
+  was used, no Sentinel-named resources were modified, and no benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate may run only the two selected provider-compatible BattleSnake pairs under the
-  frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
-  excluded-pair execution, and benchmark/model overclaims remain forbidden.
+- The next gate may recover only condition-separated provider-wrapper readiness at zero spend.
+  Provider calls, cloud runner startup, GPU use, Sentinel resource modification, excluded-pair
+  execution, and benchmark/model overclaims remain forbidden.
 
 ## Required Verification
 
@@ -348,6 +354,8 @@ python3 scripts/validate_receipts.py experiments/iter49_provider_compatible_prot
 python3 scripts/audit_provider_compatible_protocol_effect_execution_retry.py
 python3 scripts/validate_receipts.py experiments/iter50_provider_compatible_execution_wrapper_recovery/proof
 python3 scripts/audit_provider_compatible_execution_wrapper_recovery.py
+python3 scripts/validate_receipts.py experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof
+python3 scripts/audit_provider_compatible_protocol_effect_execution_with_wrapper.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

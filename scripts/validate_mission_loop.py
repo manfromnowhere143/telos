@@ -155,6 +155,8 @@ def main() -> int:
         "audit_provider_compatible_protocol_effect_execution_retry.py",
         "validate_receipts.py experiments/iter50_provider_compatible_execution_wrapper_recovery/proof",
         "audit_provider_compatible_execution_wrapper_recovery.py",
+        "validate_receipts.py experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof",
+        "audit_provider_compatible_protocol_effect_execution_with_wrapper.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

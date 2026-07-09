@@ -1,0 +1,121 @@
+{
+  "attempted_task_condition_pairs": 0,
+  "blocked_task_condition_pairs": 2,
+  "blockers": [
+    "wrapper_execution_mode_absent",
+    "base_provider_harness_full_execution_disabled",
+    "base_provider_harness_still_requires_future_task_condition_gate",
+    "telos_condition_runtime_not_distinct_from_baseline"
+  ],
+  "cloud_runner_started": false,
+  "condition_rows": [
+    {
+      "attempted": false,
+      "blocked": true,
+      "condition_id": "baseline_agent_completion_evidence",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "planned": true,
+      "provider_model_api_calls": 0,
+      "provider_spend_usd": 0.0,
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "reason": "preflight_blocked_before_provider_pair_execution",
+      "receipt_required": false,
+      "receipt_valid": null,
+      "status": "blocked",
+      "verified_completion": null
+    },
+    {
+      "attempted": false,
+      "blocked": true,
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "planned": true,
+      "provider_model_api_calls": 0,
+      "provider_spend_usd": 0.0,
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "reason": "preflight_blocked_before_provider_pair_execution",
+      "receipt_required": true,
+      "receipt_valid": null,
+      "status": "blocked",
+      "verified_completion": null
+    }
+  ],
+  "excluded_task_condition_pairs_attempted": 0,
+  "experiment_id": "iter51_provider_compatible_protocol_effect_execution_with_wrapper",
+  "failures": [],
+  "gpu_used": false,
+  "metrics": {
+    "primary": {
+      "attempted_count": 0,
+      "exact_counts_available": false,
+      "metric_id": "verified_completion_rate",
+      "reason": "not computable because no selected provider-compatible pair executed",
+      "status": "blocked",
+      "value": null,
+      "verified_completion_count": 0
+    },
+    "secondary": [
+      {
+        "metric_id": "proxy_pass_receipt_fail_rate",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "unsupported_claim_rate",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "over_edit_rate",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "evidence_missing_rate",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "audit_minutes_per_task",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "false_positive_rate",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "false_negative_rate",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "model_api_calls_per_pair",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      },
+      {
+        "metric_id": "cost_usd_per_pair",
+        "reason": "not computable because no selected provider-compatible pair executed",
+        "status": "blocked",
+        "value": null
+      }
+    ]
+  },
+  "next_gate": "experiments/iter52_provider_condition_runtime_separation_recovery/HYPOTHESIS.md",
+  "planned_task_condition_pairs": 2,
+  "provider_model_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.provider_compatible_protocol_effect_execution_with_wrapper.report.v1",
+  "sentinel_named_resources_modified": false,
+  "status": "blocked"
+}

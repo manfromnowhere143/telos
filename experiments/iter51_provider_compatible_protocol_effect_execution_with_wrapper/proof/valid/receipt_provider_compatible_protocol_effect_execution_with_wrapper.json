@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "The iter50 wrapper recovery proof is validated before execution.",
+    "Exactly two selected BattleSnake pairs are planned and all four excluded historical pairs remain unattempted.",
+    "Provider calls do not start unless wrapper execution mode and baseline/Telos runtime separation are proven.",
+    "Provider model invocations remain at or below 16 and provider spend remains at or below $10.00.",
+    "No GPU is requested or used, no Sentinel-named resource is modified, and no production or live-domain behavior changes.",
+    "No benchmark, leaderboard, SWE-bench, production, live-domain, model-superiority, or state-of-the-art result is claimed."
+  ],
+  "agent_id": "codex-local-provider-compatible-wrapper-preflight",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/preflight.json",
+      "kind": "test",
+      "notes": "Preflight blocks before provider calls when execution mode or condition separation is missing.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/execution_report.json",
+      "kind": "artifact",
+      "notes": "Execution report publishes the blocked rows and zero-spend boundary.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records why the paid run was not started.",
+      "status": "blocked"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the wrapper is still dry-run-only.",
+    "The result must block if baseline and Telos runtime conditions are not distinct before provider calls.",
+    "The result must fail if any excluded pair is attempted.",
+    "The result must fail if provider calls, spend, cloud runner startup, GPU use, or Sentinel resource modification occurs after a blocking preflight.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter51-provider-compatible-protocol-effect-execution-with-wrapper-blocked",
+  "sha256": "a2e2adc4f46b45fbbd52d5f8960da6c692411a89e8654e4a0fea8f142f03cbfd",
+  "stated_goal": "Execute the two provider-compatible BattleSnake condition pairs only if the committed wrapper proves execution mode, condition separation, cost capture, artifact retention, redaction, receipt validation, and runner lifecycle controls before provider calls.",
+  "status": "blocked",
+  "task_id": "telos:iter51_provider_compatible_protocol_effect_execution_with_wrapper@iter50"
+}

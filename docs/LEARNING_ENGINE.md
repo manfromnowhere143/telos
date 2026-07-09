@@ -104,7 +104,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter48_provider_compatible_protocol_effect_slice_refreeze` | pass | the next honest provider-compatible execution slice is the two-pair BattleSnake PvP baseline/Telos comparison; four historical pairs remain excluded until compatible overlays exist | run the bounded provider-compatible execution retry only for the two selected BattleSnake pairs under the frozen budget and claim boundary |
 | `iter49_provider_compatible_protocol_effect_execution_retry` | blocked | the two-pair provider-compatible slice is ready, but paid execution must still block until a committed wrapper can run exactly those pairs and preserve cost, raw artifact, receipt, redaction, and lifecycle evidence | recover a zero-spend provider-compatible execution wrapper before retrying the two-pair provider run |
 | `iter50_provider_compatible_execution_wrapper_recovery` | pass | a committed zero-spend wrapper can dry-run exactly the two provider-compatible BattleSnake pair plans and reject all four excluded historical pairs | run the bounded two-pair provider execution retry only under the wrapper, frozen budget, raw-artifact, receipt, redaction, lifecycle, and claim-boundary controls |
+| `iter51_provider_compatible_protocol_effect_execution_with_wrapper` | blocked | the wrapper is still dry-run-only and the Telos row is not a distinct runtime condition from baseline, so a paid run would not produce strong protocol-effect evidence | recover a condition-separated provider wrapper with explicit execution mode before any paid two-pair protocol-effect retry |
 
-The next experiment may run only the two selected provider-compatible BattleSnake pairs under the
-frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource modification,
-excluded-pair execution, and unsupported benchmark/model claims remain forbidden.
+The next experiment may recover only zero-spend condition-separated provider-wrapper readiness.
+Provider calls, cloud runner startup, GPU use, Sentinel resource modification, excluded-pair
+execution, and unsupported benchmark/model claims remain forbidden.

@@ -117,8 +117,12 @@ Current evidence:
 - `experiments/iter50_provider_compatible_execution_wrapper_recovery/RESULT.md` passes the
   zero-spend wrapper-recovery gate: two selected BattleSnake pair plans, four rejected exclusions,
   zero provider calls, zero spend, no cloud runner, no GPU, and no Sentinel modification.
-- `experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/HYPOTHESIS.md`
-  freezes the bounded two-pair paid execution retry using the recovered wrapper.
+- `experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/RESULT.md`
+  blocks before provider execution because the wrapper remains dry-run-only and the baseline/Telos
+  runtime conditions are not distinct beyond output directory. Zero provider calls, zero spend, no
+  cloud runner, no GPU, and no Sentinel modification occurred.
+- `experiments/iter52_provider_condition_runtime_separation_recovery/HYPOTHESIS.md` freezes the
+  zero-spend recovery gate for condition-separated provider-wrapper readiness.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

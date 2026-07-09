@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/preflight.json",
+    "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/execution_report.json",
+    "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/harness_dry_run_report.json",
+    "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/command_output.txt",
+    "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/review.md",
+    "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/run_summary.json",
+    "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/proof/valid/receipt_provider_compatible_protocol_effect_execution_with_wrapper.json"
+  ],
+  "experiment_id": "iter51_provider_compatible_protocol_effect_execution_with_wrapper",
+  "insight": "The provider-compatible two-pair retry still cannot produce strong protocol-effect evidence because the wrapper is dry-run-only and the Telos row is not a distinct runtime condition from baseline.",
+  "next_action": "recover a condition-separated provider wrapper with explicit execution mode before any paid two-pair protocol-effect retry",
+  "result_path": "experiments/iter51_provider_compatible_protocol_effect_execution_with_wrapper/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}
