@@ -226,6 +226,15 @@ Current evidence:
   pre-registers the next bounded paid retry: exactly the same two provider-compatible BattleSnake
   rows, the recovered iter65 Telos receipt overlay, the `16` call and `$10.00` ceilings, no
   excluded pairs, no GPU/cloud runner/Sentinel mutation, and no benchmark/model claim.
+- `experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/RESULT.md`
+  passes that bounded paid retry. Both selected rows executed with return code `0`; baseline
+  verified-completion evidence was `true`; Telos verified-completion evidence was `true`; the
+  Telos receipt validated; the primary Telos-minus-baseline delta was `0`; provider calls were
+  `8`; CodeClash metadata cost was `$0.059378`; no excluded pair, GPU, cloud runner, Sentinel
+  mutation, production/live-domain change, benchmark claim, model claim, or state-of-the-art claim
+  occurred.
+- `experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md` pre-registers a
+  zero-spend expanded-slice freeze or no-expansion decision before any further paid execution.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

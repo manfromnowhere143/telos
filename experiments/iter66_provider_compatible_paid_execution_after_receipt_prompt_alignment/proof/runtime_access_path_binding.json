@@ -1,0 +1,28 @@
+{
+  "actual_config_committed": false,
+  "codeclash_tmp_config_path": "/tmp/telos-codeclash/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+  "credential_material_committed": false,
+  "mechanism": "runtime_tmp_config_with_env_acquired_bearer_token_and_project",
+  "model_kwargs_template": {
+    "extra_headers": {
+      "Authorization": "Bearer ${TELOS_VERTEX_BEARER_TOKEN}",
+      "X-Goog-User-Project": "${TELOS_VERTEX_QUOTA_PROJECT}"
+    },
+    "max_tokens": 4096,
+    "temperature": 0.2,
+    "vertex_location": "global",
+    "vertex_project": "${TELOS_VERTEX_PROJECT}"
+  },
+  "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+  "project_identifier_committed": false,
+  "public_template_path": "runtime_access_path_model_config.yaml",
+  "public_template_sha256": "b537dcec09e3b39d8aae616a9e2282e4a1b7f0b034e24a58191fcf46e8d10506",
+  "runtime_env_values_committed": false,
+  "runtime_env_vars": [
+    "TELOS_VERTEX_PROJECT",
+    "TELOS_VERTEX_BEARER_TOKEN",
+    "TELOS_VERTEX_QUOTA_PROJECT"
+  ],
+  "schema_version": "telos.provider_compatible_paid_execution.runtime_access_path_binding.v1",
+  "token_committed": false
+}

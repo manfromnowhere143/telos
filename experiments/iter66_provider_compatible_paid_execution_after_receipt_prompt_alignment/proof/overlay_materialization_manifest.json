@@ -1,0 +1,85 @@
+{
+  "all_materialized": true,
+  "codeclash_dir": "/tmp/telos-codeclash",
+  "copied_file_count": 7,
+  "copied_hashes_match": true,
+  "copies": [
+    {
+      "copied_or_written": true,
+      "destination": "configs/mini/telos_litellm_cost_registry_entry.json",
+      "destination_sha256": "87c7bc166a35101d5c8750517c73c231ba62b84cc373c18ec241b19bb5f8657c",
+      "hash_match": true,
+      "materialization": "copied_frozen_overlay",
+      "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+      "source_override_reason": null,
+      "source_sha256": "87c7bc166a35101d5c8750517c73c231ba62b84cc373c18ec241b19bb5f8657c"
+    },
+    {
+      "copied_or_written": true,
+      "destination": "configs/mini/litellm_custom_model_config.yaml",
+      "destination_sha256": "87c7bc166a35101d5c8750517c73c231ba62b84cc373c18ec241b19bb5f8657c",
+      "hash_match": true,
+      "materialization": "runtime_litellm_registry_path_from_telos_entry",
+      "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_litellm_cost_registry_entry.json",
+      "source_sha256": "87c7bc166a35101d5c8750517c73c231ba62b84cc373c18ec241b19bb5f8657c"
+    },
+    {
+      "actual_config_committed": false,
+      "actual_config_hash_committed": false,
+      "actual_config_written_to_codeclash_tmp": true,
+      "actual_secret_values_present_in_tmp_config": true,
+      "copied_or_written": true,
+      "destination": "configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+      "materialization": "runtime_secret_values_in_tmp_only",
+      "public_template_matches_shape": true,
+      "public_template_path": "runtime_access_path_model_config.yaml",
+      "public_template_sha256": "b537dcec09e3b39d8aae616a9e2282e4a1b7f0b034e24a58191fcf46e8d10506",
+      "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml"
+    },
+    {
+      "copied_or_written": true,
+      "destination": "configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+      "destination_sha256": "d8587dab4faef836c39c26f6ad4186f0fb66a90f0e295152dcb64852b0652279",
+      "hash_match": true,
+      "materialization": "copied_frozen_overlay",
+      "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+      "source_override_reason": null,
+      "source_sha256": "d8587dab4faef836c39c26f6ad4186f0fb66a90f0e295152dcb64852b0652279"
+    },
+    {
+      "copied_or_written": true,
+      "destination": "configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+      "destination_sha256": "60c98a4603aa8a812624b7f6ee57d572ffb8a9a87adc732aa925101a3e1501b0",
+      "hash_match": true,
+      "materialization": "copied_iter65_recovered_overlay",
+      "source": "experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+      "source_override_reason": "iter65_receipt_schema_prompt_alignment",
+      "source_sha256": "60c98a4603aa8a812624b7f6ee57d572ffb8a9a87adc732aa925101a3e1501b0"
+    },
+    {
+      "copied_or_written": true,
+      "destination": "configs/test/telos_battlesnake_vertex_gemini_baseline.yaml",
+      "destination_sha256": "fb0d6534322044db1e5ddaafe3dd798f9af2483d070d04f78f7d876e85269db5",
+      "hash_match": true,
+      "materialization": "copied_frozen_overlay",
+      "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_baseline.yaml",
+      "source_override_reason": null,
+      "source_sha256": "fb0d6534322044db1e5ddaafe3dd798f9af2483d070d04f78f7d876e85269db5"
+    },
+    {
+      "copied_or_written": true,
+      "destination": "configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml",
+      "destination_sha256": "fe71a2874696891715cfaed83b7f26a3d25c65faa3fd5683125c99885d24e4e5",
+      "hash_match": true,
+      "materialization": "copied_frozen_overlay",
+      "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml",
+      "source_override_reason": null,
+      "source_sha256": "fe71a2874696891715cfaed83b7f26a3d25c65faa3fd5683125c99885d24e4e5"
+    }
+  ],
+  "errors": [],
+  "runtime_access_path_binding_path": "runtime_access_path_binding.json",
+  "runtime_model_config_has_secret_values_only_in_tmp": true,
+  "runtime_model_config_materialized": true,
+  "schema_version": "telos.provider_compatible_paid_execution.overlay_materialization.v1"
+}

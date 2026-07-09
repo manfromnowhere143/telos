@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-09T16:54:59Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-09T17:07:14Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -82,11 +82,12 @@ clean
 - experiments/iter63_vertex_access_path_parity_recheck: RESULT PUBLISHED
 - experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery: RESULT PUBLISHED
 - experiments/iter65_receipt_schema_prompt_alignment: RESULT PUBLISHED
-- experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment: PRE-REGISTERED, result pending
+- experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment: RESULT PUBLISHED
+- experiments/iter67_provider_compatible_expanded_slice_refreeze: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md`.
+- Active gate: `experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -226,6 +227,8 @@ python3 scripts/validate_receipts.py experiments/iter64_provider_compatible_paid
 python3 scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py
 python3 scripts/validate_receipts.py experiments/iter65_receipt_schema_prompt_alignment/proof
 python3 scripts/audit_receipt_schema_prompt_alignment.py
+python3 scripts/validate_receipts.py experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof
+python3 scripts/audit_provider_compatible_paid_execution_after_receipt_prompt_alignment.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

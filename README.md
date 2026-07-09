@@ -211,9 +211,15 @@ and an adversarial review pass.
   receipt-enforced prompt overlay; the iter64 Telos receipt candidate was classified as
   schema-incomplete because it omitted eight required Telos proof fields in
   [`experiments/iter65_receipt_schema_prompt_alignment`](experiments/iter65_receipt_schema_prompt_alignment/RESULT.md).
-- Current gate: provider-compatible paid execution after receipt prompt alignment,
+- Provider-compatible paid execution after receipt prompt alignment: passed as a bounded two-row
+  paid retry using the recovered iter65 overlay; both baseline and Telos rows had verified
+  completion evidence, the Telos receipt validated, the primary delta was `0`, 8 provider calls
+  and `$0.059378` CodeClash metadata cost were recorded, no excluded pairs/GPU/cloud/Sentinel
+  resource were used, and no benchmark/model claim is made in
+  [`experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment`](experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/RESULT.md).
+- Current gate: provider-compatible expanded slice refreeze,
   pre-registered in
-  [`experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment`](experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md).
+  [`experiments/iter67_provider_compatible_expanded_slice_refreeze`](experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row pilot only; not a benchmark result.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
@@ -324,21 +330,23 @@ Provider-compatible paid execution after access-path recovery:
 Receipt-schema prompt alignment:
 [`experiments/iter65_receipt_schema_prompt_alignment/RESULT.md`](experiments/iter65_receipt_schema_prompt_alignment/RESULT.md).
 Provider-compatible paid execution after receipt prompt alignment:
-[`experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md`](experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md) (next gate).
+[`experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/RESULT.md`](experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/RESULT.md).
+Provider-compatible expanded slice refreeze:
+[`experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md`](experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md) (next gate).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21 o"]-->I22["22 m"]-->I23["23 n"]-->I24["24 c"]-->I25["25 n"]-->I26["26 o"]-->I27["27 m"]-->I28["28 p"]-->I29["29 n"]-->I30["30 s"]-->I31["31 m"]-->I32["32 mn"]-->I33["33 s"]-->I34["34 sn"]-->I35["35 cv"]-->I36["36 cn"]-->I37["37 s"]-->I38["38 sn"]-->I39["39 s"]-->I40["40 b"]-->I41["41 r"]-->I42["42 b"]-->I43["43 h"]-->I44["44 b"]-->I45["45 pl"]-->I46["46 b"]-->I47["47 bd"]-->I48["48 s"]-->I49["49 b"]-->I50["50 wr"]-->I51["51 b"]-->I52["52 cd"]-->I53["53 b"]-->I54["54 ex"]-->I55["55 b"]-->I56["56 au"]-->I57["57 b"]-->I58["58 d"]-->I59["59 b"]-->I60["60 b"]-->I61["61 b"]-->I62["62 b"]-->I63["63 a"]-->I64["64 m"]-->I65["65 s"]-->I66["66 p"]
+  I21["21 o"]-->I22["22 m"]-->I23["23 n"]-->I24["24 c"]-->I25["25 n"]-->I26["26 o"]-->I27["27 m"]-->I28["28 p"]-->I29["29 n"]-->I30["30 s"]-->I31["31 m"]-->I32["32 mn"]-->I33["33 s"]-->I34["34 sn"]-->I35["35 cv"]-->I36["36 cn"]-->I37["37 s"]-->I38["38 sn"]-->I39["39 s"]-->I40["40 b"]-->I41["41 r"]-->I42["42 b"]-->I43["43 h"]-->I44["44 b"]-->I45["45p"]-->I46["46 b"]-->I47["47 bd"]-->I48["48 s"]-->I49["49 b"]-->I50["50 wr"]-->I51["51 b"]-->I52["52 cd"]-->I53["53 b"]-->I54["54 ex"]-->I55["55 b"]-->I56["56 au"]-->I57["57 b"]-->I58["58 d"]-->I59["59 b"]-->I60["60 b"]-->I61["61 b"]-->I62["62 b"]-->I63["63 a"]-->I64["64 m"]-->I65["65 s"]-->I66["66 p"]-->I67["67x"]
   classDef p fill:#efe,stroke:#272,color:#000;
   classDef n fill:#fee,stroke:#c22,color:#000;
   classDef b fill:#ffd,stroke:#861,color:#000;
   classDef a fill:#eef,stroke:#17e,color:#000;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58,I63,I64,I65 p;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58,I63,I64,I65,I66 p;
   class I23,I25 n;
   class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57,I59,I60,I61,I62 b;
-  class I66 a;
+  class I67 a;
 ```
 
 ## Candidate Target Families
@@ -528,6 +536,8 @@ python3 scripts/validate_receipts.py experiments/iter64_provider_compatible_paid
 python3 scripts/audit_provider_compatible_paid_execution_after_access_path_recovery.py
 python3 scripts/validate_receipts.py experiments/iter65_receipt_schema_prompt_alignment/proof
 python3 scripts/audit_receipt_schema_prompt_alignment.py
+python3 scripts/validate_receipts.py experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof
+python3 scripts/audit_provider_compatible_paid_execution_after_receipt_prompt_alignment.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

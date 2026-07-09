@@ -421,6 +421,12 @@ jobs:
       - name: Receipt schema prompt alignment audit
         run: python3 scripts/audit_receipt_schema_prompt_alignment.py
 
+      - name: Provider-compatible paid execution after receipt prompt alignment receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof
+
+      - name: Provider-compatible paid execution after receipt prompt alignment audit
+        run: python3 scripts/audit_provider_compatible_paid_execution_after_receipt_prompt_alignment.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

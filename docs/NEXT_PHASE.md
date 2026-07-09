@@ -2,17 +2,19 @@
 
 ## Current Action
 
-Run `iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment` exactly as
+Run `iter67_provider_compatible_expanded_slice_refreeze` exactly as
 frozen in
-[`../experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md`](../experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/HYPOTHESIS.md).
+[`../experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md`](../experiments/iter67_provider_compatible_expanded_slice_refreeze/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
 provider-backed protocol-effect measurement: baseline verified-completion evidence was `true`,
 Telos verified-completion evidence was `false`, and the Telos row failed because its receipt
 candidate did not match the Telos proof schema. `iter65` recovered that receipt schema/prompt
-alignment locally with zero provider calls. The target of `iter66` is to retry only the same two
-frozen provider-compatible BattleSnake rows using the recovered receipt prompt overlay.
+alignment locally with zero provider calls. `iter66` retried the same two frozen rows: both
+baseline and Telos had verified-completion evidence, the Telos receipt validated, and the primary
+delta was `0`. The target of `iter67` is to freeze the smallest justified expanded
+provider-compatible slice before any further paid execution.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -89,11 +91,12 @@ frozen provider-compatible BattleSnake rows using the recovered receipt prompt o
   [`../experiments/iter65_receipt_schema_prompt_alignment/proof/run_summary.json`](../experiments/iter65_receipt_schema_prompt_alignment/proof/run_summary.json),
 - use the recovered iter65 Telos receipt overlay from
   [`../experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml`](../experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml),
-- execute only the two selected provider-compatible BattleSnake rows,
-- execute no excluded pair,
-- keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
-- keep provider model calls at or below `16`,
-- keep provider spend at or below `$10.00`,
+- use the passed iter66 paid retry from
+  [`../experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/run_summary.json`](../experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/run_summary.json),
+- execute no row and no excluded pair,
+- keep all prior exclusions visible with reasons,
+- keep provider model calls at `0`,
+- keep provider spend at `$0.00`,
 - start no cloud runner,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
@@ -194,22 +197,24 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   receipt-schema prompt alignment with zero provider calls, zero spend, no GPU, no cloud runner,
   no Sentinel modification, and no benchmark/model overclaim. It classified the iter64 receipt
   candidate as schema-incomplete, recovered the prompt overlay, and validated local positive and
-  malformed fixtures. `iter66` authorizes only a bounded retry of the same two
-  provider-compatible BattleSnake rows with that recovered overlay under the existing `16` call
-  and `$10.00` ceilings.
+  malformed fixtures. `iter66` passed the bounded paid retry of the same two
+  provider-compatible BattleSnake rows with that recovered overlay: baseline and Telos both had
+  verified-completion evidence, the Telos receipt validated, 8 provider calls and `$0.059378`
+  CodeClash metadata cost were recorded, and the primary delta was `0`. `iter67` authorizes only a
+  zero-spend expanded-slice freeze or no-expansion decision before further paid execution.
 
-## During Provider-Compatible Paid Execution After Receipt Prompt Alignment
+## During Provider-Compatible Expanded Slice Refreeze
 
 If the gate runs:
 
-1. Revalidate iter64 and iter65 receipts and audits before execution.
-2. Materialize the recovered iter65 Telos receipt overlay into the runtime CodeClash checkout.
-3. Execute only the two selected provider-compatible BattleSnake rows.
-4. Parse provider calls, metadata cost, raw artifacts, Telos receipt validation, redaction scan,
-   metrics, and adversarial review before interpretation.
+1. Revalidate iter66 receipt and audit evidence.
+2. Survey available CodeClash task surfaces and prior exclusions.
+3. Freeze selected rows and command plans, or publish a no-expansion decision.
+4. Record provider ceilings, receipt/audit plans, redaction plans, and exclusion reasons before
+   any further paid execution.
 
 If the gate blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific runtime, overlay, cost, redaction, receipt, or metric gap.
+2. Correct only the specific slice, command, compatibility, redaction, receipt, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.
