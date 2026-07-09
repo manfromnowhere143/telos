@@ -403,6 +403,12 @@ jobs:
       - name: Vertex bearer-token path recovery audit
         run: python3 scripts/audit_vertex_bearer_token_path_recovery.py
 
+      - name: Vertex access-path parity recheck receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter63_vertex_access_path_parity_recheck/proof
+
+      - name: Vertex access-path parity recheck audit
+        run: python3 scripts/audit_vertex_access_path_parity_recheck.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

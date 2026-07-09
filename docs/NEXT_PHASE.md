@@ -2,15 +2,16 @@
 
 ## Current Action
 
-Run `iter63_vertex_access_path_parity_recheck` exactly as
+Run `iter64_provider_compatible_paid_execution_after_access_path_recovery` exactly as
 frozen in
-[`../experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md`](../experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md).
+[`../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md`](../experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
-model-superiority result, or state-of-the-art claim. It is a narrow Vertex access-path parity
-recheck after `iter62` proved custom Authorization headers can override LiteLLM defaults but still
-blocked on redacted `CONSUMER_INVALID` evidence. The target is to distinguish stale provider
-access from a LiteLLM-specific parity gap, not to claim protocol effect.
+model-superiority result, or state-of-the-art claim. It is the bounded two-row
+provider-compatible protocol-effect retry after `iter63` proved current direct REST and LiteLLM
+access paths both reach the selected Vertex global model. The target is to produce exact
+baseline-versus-Telos evidence counts on the frozen BattleSnake slice, not to claim a benchmark
+result.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -77,13 +78,15 @@ access from a LiteLLM-specific parity gap, not to claim protocol effect.
   [`../experiments/iter61_vertex_quota_project_binding_recovery/proof/run_summary.json`](../experiments/iter61_vertex_quota_project_binding_recovery/proof/run_summary.json),
 - use the blocked iter62 bearer-token path evidence from
   [`../experiments/iter62_vertex_bearer_token_path_recovery/proof/run_summary.json`](../experiments/iter62_vertex_bearer_token_path_recovery/proof/run_summary.json),
-- recheck only current direct REST versus LiteLLM access-path parity for the same selected Vertex
-  global model,
-- execute no BattleSnake row in this recovery gate,
+- use the passed iter63 access-path parity evidence from
+  [`../experiments/iter63_vertex_access_path_parity_recheck/proof/run_summary.json`](../experiments/iter63_vertex_access_path_parity_recheck/proof/run_summary.json),
+- execute only the two selected BattleSnake rows from the iter54 command manifest,
+- inject the runtime Vertex project, bearer token, and quota project only through environment
+  variables under the iter63-proven LiteLLM access path,
 - preserve the Telos receipt-validation path for the next two-row retry,
 - keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
-- keep provider model calls at or below `2`,
-- keep provider spend at or below `$0.05`,
+- keep provider model calls at or below `16`,
+- keep provider spend at or below `$10.00`,
 - start no cloud runner,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
@@ -172,22 +175,27 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   `iter61` proved `extra_headers` can pass through Mini-SWE-Agent into LiteLLM, but the bounded
   quota-header probe still returned redacted `CONSUMER_INVALID` evidence. `iter62` proved custom
   Authorization headers can override LiteLLM defaults, but a runtime bearer-token plus
-  quota-project probe still returned redacted `CONSUMER_INVALID` evidence. `iter63` authorizes only
-  current direct REST versus LiteLLM parity checking under a `2` invocation and `$0.05` spend
-  ceiling, with no BattleSnake row execution.
+  quota-project probe still returned redacted `CONSUMER_INVALID` evidence. `iter63` passed the
+  access-path parity recheck: current direct REST and LiteLLM probes both reached the selected
+  Vertex global model with two provider calls, `$0.000014` observed LiteLLM cost, no BattleSnake
+  row execution, no excluded pair, no GPU, no cloud runner, no Sentinel modification, and no
+  benchmark/model claim. `iter64` authorizes only the exact two-row paid provider-compatible
+  BattleSnake retry under the recovered access path, `16` invocation and `$10.00` spend ceilings,
+  with excluded pairs, GPU use, Sentinel modification, production/live-domain changes, and
+  benchmark/model overclaims still forbidden.
 
-## During Access-Path Parity Recheck
+## During Paid Two-Row Retry
 
-If the recovery runs:
+If the retry runs:
 
-1. Run the current direct REST probe with suppressed ADC bearer token and `X-Goog-User-Project`.
-2. Run at most one matching LiteLLM probe if needed to classify the blocker.
-3. Record before/after binding mechanics, provider call and cost counts, redaction, and
-   adversarial review before interpretation.
+1. Materialize the iter63-proven LiteLLM access path with runtime-only env credentials.
+2. Run exactly the baseline and Telos selected BattleSnake rows.
+3. Commit raw logs, metadata, trajectories when available, diff scope, cost/call counts, receipt
+   validation, redaction scan, metrics, and adversarial review before interpretation.
 
-If the recovery blocks, fails, or produces ambiguous evidence:
+If the retry blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific provider-access, LiteLLM-parity, credential, config, cost, redaction,
-   or metric gap.
+2. Correct only the specific access-path, credential, runner, config, cost, redaction, receipt, or
+   metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

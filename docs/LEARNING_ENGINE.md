@@ -116,8 +116,10 @@ python3 scripts/validate_learning_ledger.py
 | `iter60_provider_model_binding_recovery` | blocked | adding `vertex_location: global` moved the LiteLLM provider path past the prior model-location error but exposed a redacted `CONSUMER_INVALID` quota-project response; no BattleSnake row, excluded pair, GPU, cloud runner, or Sentinel resource was used | recover the LiteLLM Vertex quota-project/header path before retrying the exact two-row paid pilot |
 | `iter61_vertex_quota_project_binding_recovery` | blocked | Mini-SWE-Agent passes `model_kwargs` into LiteLLM and LiteLLM accepts `extra_headers`, but a bounded probe with `X-Goog-User-Project` still returned redacted `CONSUMER_INVALID` evidence | recover the LiteLLM Vertex bearer-token/header path before retrying the exact two-row paid pilot |
 | `iter62_vertex_bearer_token_path_recovery` | blocked | LiteLLM custom headers can override the default Authorization header, but a bounded runtime bearer-token plus quota-project probe still returned redacted `CONSUMER_INVALID` evidence | recheck current direct REST versus LiteLLM access-path parity before retrying the two-row paid pilot |
+| `iter63_vertex_access_path_parity_recheck` | pass | current direct REST and LiteLLM access paths both reach the selected Vertex global model through secret-safe runtime credentials | pre-register the exact two-row paid pilot retry using the recovered access path |
 
-The next experiment may only recheck current direct REST versus LiteLLM access-path parity under a
-`2` call / `$0.05` spend ceiling. Executing BattleSnake rows, executing excluded pairs, using GPU,
-modifying Sentinel resources, changing production/live domains, and making unsupported
-benchmark/model claims remain forbidden.
+The next experiment may only retry the exact two selected provider-compatible BattleSnake rows
+under the recovered access path, a `16` call / `$10.00` spend ceiling, raw artifact/cost/receipt/
+redaction evidence, and the existing no-benchmark/no-model-result claim boundary. Executing
+excluded pairs, using GPU, modifying Sentinel resources, changing production/live domains, and
+making unsupported benchmark/model claims remain forbidden.

@@ -195,9 +195,14 @@ and an adversarial review pass.
   quota-project headers still returned redacted `CONSUMER_INVALID`, with no row execution, no
   excluded pairs, no GPU, no cloud runner, no Sentinel mutation, and no benchmark/model claim in
   [`experiments/iter62_vertex_bearer_token_path_recovery`](experiments/iter62_vertex_bearer_token_path_recovery/RESULT.md).
-- Current gate: Vertex access path parity recheck,
+- Vertex access path parity recheck: passed after current direct REST and LiteLLM probes both
+  reached the selected Vertex global model using secret-safe runtime credentials; two provider
+  calls occurred, observed LiteLLM cost was `$0.000014`, no BattleSnake row or excluded pair ran,
+  no GPU, cloud runner, or Sentinel mutation occurred, and no benchmark/model claim is made in
+  [`experiments/iter63_vertex_access_path_parity_recheck`](experiments/iter63_vertex_access_path_parity_recheck/RESULT.md).
+- Current gate: provider-compatible paid execution after access-path recovery,
   pre-registered in
-  [`experiments/iter63_vertex_access_path_parity_recheck`](experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md).
+  [`experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery`](experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
@@ -302,21 +307,23 @@ Provider-compatible paid execution after dependency recovery: [`experiments/iter
 Provider model binding recovery: [`experiments/iter60_provider_model_binding_recovery/RESULT.md`](experiments/iter60_provider_model_binding_recovery/RESULT.md).
 Vertex quota-project binding recovery: [`experiments/iter61_vertex_quota_project_binding_recovery/RESULT.md`](experiments/iter61_vertex_quota_project_binding_recovery/RESULT.md).
 Vertex bearer token path recovery: [`experiments/iter62_vertex_bearer_token_path_recovery/RESULT.md`](experiments/iter62_vertex_bearer_token_path_recovery/RESULT.md).
-Vertex access path parity recheck: [`experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md`](experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md).
+Vertex access path parity recheck: [`experiments/iter63_vertex_access_path_parity_recheck/RESULT.md`](experiments/iter63_vertex_access_path_parity_recheck/RESULT.md).
+Provider-compatible paid execution after access-path recovery:
+[`experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md`](experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21 o"]-->I22["22 m"]-->I23["23 n"]-->I24["24 c"]-->I25["25 n"]-->I26["26 own"]-->I27["27 mat"]-->I28["28 pr"]-->I29["29 neg"]-->I30["30 sch"]-->I31["31 man"]-->I32["32 mn"]-->I33["33 s"]-->I34["34 sn"]-->I35["35 cov"]-->I36["36 cn"]-->I37["37 s"]-->I38["38 sn"]-->I39["39 slc"]-->I40["40 b"]-->I41["41 run"]-->I42["42 b"]-->I43["43 hrn"]-->I44["44 b"]-->I45["45 plan"]-->I46["46 b"]-->I47["47 bind"]-->I48["48 slc"]-->I49["49 b"]-->I50["50 wrap"]-->I51["51 b"]-->I52["52 cd"]-->I53["53 b"]-->I54["54 exec"]-->I55["55 b"]-->I56["56 au"]-->I57["57 b"]-->I58["58 dep"]-->I59["59 b"]-->I60["60 b"]-->I61["61 b"]-->I62["62 b"]-->I63["63 cmp"]
+  I21["21 o"]-->I22["22 m"]-->I23["23 n"]-->I24["24 c"]-->I25["25 n"]-->I26["26 own"]-->I27["27 mat"]-->I28["28 pr"]-->I29["29 neg"]-->I30["30 sch"]-->I31["31 man"]-->I32["32 mn"]-->I33["33 s"]-->I34["34 sn"]-->I35["35 cov"]-->I36["36 cn"]-->I37["37 s"]-->I38["38 sn"]-->I39["39 slc"]-->I40["40 b"]-->I41["41 run"]-->I42["42 b"]-->I43["43 hrn"]-->I44["44 b"]-->I45["45 plan"]-->I46["46 b"]-->I47["47 bind"]-->I48["48 slc"]-->I49["49 b"]-->I50["50 wrap"]-->I51["51 b"]-->I52["52 cd"]-->I53["53 b"]-->I54["54 exec"]-->I55["55 b"]-->I56["56 au"]-->I57["57 b"]-->I58["58 dep"]-->I59["59 b"]-->I60["60 b"]-->I61["61 b"]-->I62["62 b"]-->I63["63 acc"]-->I64["64 run"]
   classDef p fill:#efe,stroke:#272,color:#000;
   classDef n fill:#fee,stroke:#c22,color:#000;
   classDef b fill:#ffd,stroke:#861,color:#000;
   classDef a fill:#eef,stroke:#17e,color:#000;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58 p;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58,I63 p;
   class I23,I25 n;
   class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57,I59,I60,I61,I62 b;
-  class I63 a;
+  class I64 a;
 ```
 
 ## Candidate Target Families

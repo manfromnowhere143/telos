@@ -196,9 +196,15 @@ Current evidence:
   plus quota-project probe still returned a redacted `CONSUMER_INVALID` response. One provider
   call occurred, no BattleSnake row or excluded pair ran, no GPU or cloud runner was used, no
   Sentinel resource was modified, and no benchmark/model claim is made.
-- `experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md` pre-registers the next
-  blocker-only gate: recheck current direct REST versus LiteLLM access-path parity under a `2`
-  call and `$0.05` ceiling without executing any BattleSnake row.
+- `experiments/iter63_vertex_access_path_parity_recheck/RESULT.md` passes after current direct
+  REST and LiteLLM probes both reach the selected Vertex global model using secret-safe runtime
+  credentials. Two provider calls occurred, observed LiteLLM cost was `$0.000014`, no BattleSnake
+  row or excluded pair ran, no GPU or cloud runner was used, no Sentinel resource was modified,
+  and no benchmark/model claim is made.
+- `experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md`
+  pre-registers the next execution gate: retry exactly the two frozen provider-compatible
+  BattleSnake rows under the recovered access path, the `16` call and `$10.00` ceilings, full raw
+  artifact/cost/receipt/redaction evidence, and no benchmark/model claim.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

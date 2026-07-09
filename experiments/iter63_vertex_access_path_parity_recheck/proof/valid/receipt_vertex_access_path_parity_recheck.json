@@ -1,0 +1,42 @@
+{
+  "acceptance_criteria": [
+    "Iter62 is a clean blocked result with redacted CONSUMER_INVALID evidence.",
+    "A current direct REST Vertex probe is attempted with token output suppressed.",
+    "At most one matching LiteLLM probe is run only when the direct REST path passes.",
+    "At most two provider probes and at most $0.05 bounded spend occur.",
+    "No BattleSnake row, excluded pair, GPU, Sentinel mutation, cloud runner, or overclaim occurs."
+  ],
+  "agent_id": "codex-local-vertex-access-path-parity-recheck",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter63_vertex_access_path_parity_recheck/proof/access_path_parity_report.json",
+      "kind": "test",
+      "notes": "Records direct REST and LiteLLM parity status, classification, calls, cost, and no-row controls.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter63_vertex_access_path_parity_recheck/proof/direct_rest_probe.json",
+      "kind": "artifact",
+      "notes": "Redacted current direct REST Vertex probe evidence.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter63_vertex_access_path_parity_recheck/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the access-parity-only claim boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter62 does not show the named bearer-token path blocker.",
+    "The result must block if current direct REST access no longer passes.",
+    "The result must block if direct REST passes but LiteLLM still blocks.",
+    "The result must fail if any row, excluded pair, GPU, Sentinel mutation, cloud runner, overclaim, or secret leak occurs."
+  ],
+  "receipt_id": "iter63-vertex-access-path-parity-recheck-pass",
+  "sha256": "09091ff95408510c68241bb049a57430a898e694376d7861298acdd783abe446",
+  "stated_goal": "Classify whether the Vertex blocker is stale direct REST provider access or a LiteLLM-specific request-path parity gap.",
+  "status": "pass",
+  "task_id": "telos:iter63_vertex_access_path_parity_recheck@iter62"
+}

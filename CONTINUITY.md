@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter63_vertex_access_path_parity_recheck/HYPOTHESIS.md`
+- `experiments/iter64_provider_compatible_paid_execution_after_access_path_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -303,11 +303,17 @@ Current claim:
   and quota-project headers still returned redacted `CONSUMER_INVALID` evidence. One provider call
   occurred, no BattleSnake row or excluded pair executed, no GPU or cloud runner was used, and no
   Sentinel-named resource was modified.
+- `iter63_vertex_access_path_parity_recheck` passed after current direct REST and LiteLLM probes
+  both reached the selected Vertex global model through the recovered runtime credential/header
+  path. Two provider calls occurred, observed LiteLLM cost was `$0.000014`, no BattleSnake row or
+  excluded pair executed, no GPU or cloud runner was used, and no Sentinel-named resource was
+  modified.
 - No model or benchmark result is claimed yet.
-- The next gate may only recheck current direct REST versus LiteLLM access-path parity under a `2`
-  invocation and `$0.05` spend ceiling. BattleSnake row execution, excluded-pair execution, GPU
-  use, Sentinel resource modification, production/live-domain changes, and benchmark/model
-  overclaims remain forbidden.
+- The next gate may only retry the exact two selected provider-compatible BattleSnake rows under
+  the recovered access path, a `16` invocation and `$10.00` spend ceiling, raw artifact/cost/
+  receipt/redaction evidence, and the existing no-benchmark/no-model-result claim boundary.
+  Excluded-pair execution, GPU use, Sentinel resource modification, production/live-domain
+  changes, and benchmark/model overclaims remain forbidden.
 
 ## Required Verification
 
@@ -438,6 +444,8 @@ python3 scripts/validate_receipts.py experiments/iter61_vertex_quota_project_bin
 python3 scripts/audit_vertex_quota_project_binding_recovery.py
 python3 scripts/validate_receipts.py experiments/iter62_vertex_bearer_token_path_recovery/proof
 python3 scripts/audit_vertex_bearer_token_path_recovery.py
+python3 scripts/validate_receipts.py experiments/iter63_vertex_access_path_parity_recheck/proof
+python3 scripts/audit_vertex_access_path_parity_recheck.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
