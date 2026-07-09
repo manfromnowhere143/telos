@@ -1,0 +1,40 @@
+{
+  "acceptance_criteria": [
+    "Iter57 is a clean blocked result caused by the missing google.auth dependency.",
+    "The local CodeClash virtualenv imports google.auth after recovery.",
+    "The pinned CodeClash commit, frozen configs, and iter54 command manifest remain unchanged.",
+    "No provider model call, provider spend, GPU use, Sentinel mutation, cloud runner, or overclaim occurs."
+  ],
+  "agent_id": "codex-local-codeclash-dependency-recovery",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter58_codeclash_vertex_dependency_recovery/proof/dependency_recovery_report.json",
+      "kind": "test",
+      "notes": "Dependency recovery report records import status, package version, hashes, and zero-spend controls.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter58_codeclash_vertex_dependency_recovery/proof/install_command.json",
+      "kind": "artifact",
+      "notes": "Install command records the exact zero-provider dependency repair action.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter58_codeclash_vertex_dependency_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the dependency-only claim boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if google.auth still cannot import.",
+    "The result must fail if any paid row, provider model call, provider spend, GPU use, Sentinel mutation, or overclaim occurs.",
+    "The result must fail if the pinned CodeClash source checkout or frozen configs change."
+  ],
+  "receipt_id": "iter58-codeclash-vertex-dependency-recovery-pass",
+  "sha256": "be0400b01363533141bfc18e1f81eec63ae873e9c6e59454f6814e616de3b8f3",
+  "stated_goal": "Recover the local CodeClash Vertex auth dependency that blocked iter57 without executing any paid BattleSnake row.",
+  "status": "pass",
+  "task_id": "telos:iter58_codeclash_vertex_dependency_recovery@iter57"
+}

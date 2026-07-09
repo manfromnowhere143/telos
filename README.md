@@ -169,9 +169,14 @@ and an adversarial review pass.
   attempt reached round-0 raw evidence, the Telos row and all excluded rows remained unattempted,
   and committed metadata shows zero provider calls and zero cost in
   [`experiments/iter57_provider_compatible_paid_execution_after_auth_recovery`](experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/RESULT.md).
-- Current gate: CodeClash Vertex dependency recovery,
+- CodeClash Vertex dependency recovery: passed as a zero-spend local dependency gate; the
+  CodeClash virtualenv now imports `google.auth`, the pinned commit and frozen provider configs
+  stayed unchanged, and no paid row, provider model call, GPU, cloud runner, or Sentinel resource
+  was used in
+  [`experiments/iter58_codeclash_vertex_dependency_recovery`](experiments/iter58_codeclash_vertex_dependency_recovery/RESULT.md).
+- Current gate: provider-compatible paid execution after dependency recovery,
   pre-registered in
-  [`experiments/iter58_codeclash_vertex_dependency_recovery`](experiments/iter58_codeclash_vertex_dependency_recovery/HYPOTHESIS.md).
+  [`experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery`](experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
@@ -271,21 +276,22 @@ Provider pair executor recovery: [`experiments/iter54_provider_pair_executor_rec
 Provider-compatible paid execution after executor recovery: [`experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/RESULT.md`](experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/RESULT.md).
 Provider auth recovery for paid protocol effect: [`experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/RESULT.md`](experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/RESULT.md).
 Provider-compatible paid execution after auth recovery: [`experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/RESULT.md`](experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/RESULT.md).
-CodeClash Vertex dependency recovery: [`experiments/iter58_codeclash_vertex_dependency_recovery/HYPOTHESIS.md`](experiments/iter58_codeclash_vertex_dependency_recovery/HYPOTHESIS.md).
+CodeClash Vertex dependency recovery: [`experiments/iter58_codeclash_vertex_dependency_recovery/RESULT.md`](experiments/iter58_codeclash_vertex_dependency_recovery/RESULT.md).
+Provider-compatible paid execution after dependency recovery: [`experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md`](experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["21 opp"]-->I22["22 mut"]-->I23["23 tail null"]-->I24["24 cand"]-->I25["25 mut null"]-->I26["26 compound"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 block"]-->I41["41 runner"]-->I42["42 block"]-->I43["43 harness"]-->I44["44 block"]-->I45["45 plan"]-->I46["46 block"]-->I47["47 bind"]-->I48["48 slice"]-->I49["49 block"]-->I50["50 wrap"]-->I51["51 block"]-->I52["52 cond"]-->I53["53 block"]-->I54["54 exec"]-->I55["55 block"]-->I56["56 auth"]-->I57["57 block"]-->I58["58 dep"]
+  I21["21 opp"]-->I22["22 mut"]-->I23["23 null"]-->I24["24 cand"]-->I25["25 null"]-->I26["26 own"]-->I27["27 matrix"]-->I28["28 prose"]-->I29["29 neg"]-->I30["30 schema"]-->I31["31 manifest"]-->I32["32 m-neg"]-->I33["33 sync"]-->I34["34 s-neg"]-->I35["35 cover"]-->I36["36 c-neg"]-->I37["37 sync"]-->I38["38 s-neg"]-->I39["39 slice"]-->I40["40 block"]-->I41["41 runner"]-->I42["42 block"]-->I43["43 harness"]-->I44["44 block"]-->I45["45 plan"]-->I46["46 block"]-->I47["47 bind"]-->I48["48 slice"]-->I49["49 block"]-->I50["50 wrap"]-->I51["51 block"]-->I52["52 cond"]-->I53["53 block"]-->I54["54 exec"]-->I55["55 block"]-->I56["56 auth"]-->I57["57 block"]-->I58["58 dep"]-->I59["59 retry"]
   classDef p fill:#efe,stroke:#272,color:#000;
   classDef n fill:#fee,stroke:#c22,color:#000;
   classDef b fill:#ffd,stroke:#861,color:#000;
   classDef a fill:#eef,stroke:#17e,color:#000;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56 p;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58 p;
   class I23,I25 n;
   class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57 b;
-  class I58 a;
+  class I59 a;
 ```
 
 ## Candidate Target Families
@@ -459,6 +465,8 @@ python3 scripts/validate_receipts.py experiments/iter56_provider_auth_recovery_f
 python3 scripts/audit_provider_auth_recovery_for_paid_protocol_effect.py
 python3 scripts/validate_receipts.py experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof
 python3 scripts/audit_provider_compatible_paid_execution_after_auth_recovery.py
+python3 scripts/validate_receipts.py experiments/iter58_codeclash_vertex_dependency_recovery/proof
+python3 scripts/audit_codeclash_vertex_dependency_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

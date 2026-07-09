@@ -1,0 +1,110 @@
+# Iteration 59 - Provider-Compatible Paid Execution After Dependency Recovery
+
+Status: pre-registered, result pending.
+
+## Purpose
+
+Retry the exact two-row provider-compatible protocol-effect pilot only after `iter58` proves the
+local CodeClash Vertex dependency is recovered.
+
+The question remains:
+
+> On the frozen provider-compatible BattleSnake PvP slice, does the Telos receipt-enforced condition
+> change verified-completion evidence relative to the baseline raw-evidence condition?
+
+This is not a leaderboard run, not a SWE-bench score, not a production/live-domain result, not a
+model-superiority result, and not a state-of-the-art claim.
+
+## Frozen Input
+
+- Iter58 dependency recovery summary:
+  `experiments/iter58_codeclash_vertex_dependency_recovery/proof/run_summary.json`.
+- Iter57 blocked dependency evidence:
+  `experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/dependency_block_evidence.json`.
+- Iter54 command manifest:
+  `experiments/iter54_provider_pair_executor_recovery/proof/command_manifest.json`.
+- Iter54 overlay-copy manifest:
+  `experiments/iter54_provider_pair_executor_recovery/proof/overlay_copy_manifest.json`.
+- Refrozen provider-compatible slice:
+  `experiments/iter48_provider_compatible_protocol_effect_slice_refreeze/proof/provider_compatible_slice.json`.
+
+## Execution Envelope
+
+The gate may execute only the two selected BattleSnake PvP condition rows:
+
+- `baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml`,
+- `telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml`.
+
+All four historical Dummy/deterministic-edit pairs remain rejected and unattempted.
+
+Hard ceilings:
+
+- provider model invocations: `<= 16`,
+- provider spend: `<= $10.00`,
+- GPU use: forbidden,
+- Sentinel-named resource mutation: forbidden,
+- production/live-domain mutation: forbidden,
+- cloud runner: not needed for the local ADC-backed retry unless a preflight records a separate
+  Telos-named non-GPU runner with teardown proof.
+
+## Required Evidence
+
+The proof packet must include:
+
+1. preflight showing iter58 passed, `google.auth` imports, and no excluded pair is selected,
+2. exact commands for both condition rows,
+3. raw logs, metadata, trajectory when available, diff scope, and arena/test result for each row,
+4. provider call and cost counts from committed CodeClash metadata,
+5. redaction scan over all committed raw artifacts,
+6. Telos receipt artifact and successful `python3 scripts/validate_receipts.py` output for the
+   Telos row before verified completion is accepted,
+7. teardown proof for any Telos cloud runner created by the gate,
+8. exact primary and secondary metric counts,
+9. human-readable adversarial review,
+10. machine-readable run summary with artifact hashes.
+
+## Clean-Pass Bar
+
+The gate can publish a clean pass only if all hold:
+
+- iter58 is a clean pass,
+- exactly two selected BattleSnake condition rows execute,
+- zero excluded pairs execute,
+- provider calls are `<= 16`,
+- provider spend is `<= $10.00`,
+- no GPU is requested or used,
+- no Sentinel-named resource is modified,
+- every committed artifact passes redaction,
+- the Telos row has a valid receipt before verified completion is accepted,
+- any cloud runner started by this gate is torn down and recorded,
+- metrics are exact counts, not prose-only interpretation,
+- claim boundary forbids benchmark, leaderboard, SWE-bench, production/live-domain,
+  model-superiority, and state-of-the-art claims.
+
+## Falsifiers
+
+Publish blocked/null evidence if:
+
+- iter58 proof is missing, blocked, failed, or not validated,
+- provider credentials, Docker readiness, or CodeClash dependency readiness regresses before
+  execution,
+- exact cost/call capture cannot be committed safely,
+- redaction cannot prove artifacts are secret-safe,
+- Telos receipt validation cannot run before completion acceptance.
+
+Publish a quality failure if:
+
+- any excluded historical pair is attempted,
+- provider calls exceed `16`,
+- provider spend exceeds `$10.00`,
+- any GPU is used,
+- any Sentinel-named resource is modified,
+- committed artifacts contain credential, account, project, service-account, VM, or zone residue,
+- unsupported benchmark, leaderboard, SWE-bench, production/live-domain, model-superiority, or
+  state-of-the-art claims appear.
+
+## Claim Boundary
+
+If successful, this gate may claim only a bounded two-row provider-compatible protocol-effect pilot
+with exact evidence counts. It may not claim a benchmark result, SWE-bench score, leaderboard
+position, production/live-domain behavior, model superiority, or state-of-the-art result.

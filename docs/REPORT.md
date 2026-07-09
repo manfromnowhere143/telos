@@ -159,6 +159,13 @@ Current evidence:
 - `experiments/iter58_codeclash_vertex_dependency_recovery/HYPOTHESIS.md` pre-registers the
   zero-spend recovery gate for that missing CodeClash Vertex dependency. It forbids paid rows,
   provider calls, provider spend, GPU use, Sentinel mutation, and benchmark/model claims.
+- `experiments/iter58_codeclash_vertex_dependency_recovery/RESULT.md` passes dependency recovery:
+  the local CodeClash virtualenv now imports `google.auth`, the pinned CodeClash commit and frozen
+  provider configs remained unchanged, and no paid row, provider model call, provider spend, GPU,
+  cloud runner, Sentinel mutation, or benchmark/model claim occurred.
+- `experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md`
+  pre-registers the exact two-row paid retry after dependency recovery, preserving the `16`
+  provider-call and `$10.00` spend ceilings and the same no-overclaim boundary.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -1,0 +1,97 @@
+{
+  "adc_access_token_available": true,
+  "adc_token_output_suppressed": true,
+  "after_import": {
+    "available": true,
+    "error_class": "none",
+    "version": "2.55.2"
+  },
+  "before_import": {
+    "available": false,
+    "error_class": "google_auth_module_missing",
+    "version": null
+  },
+  "benchmark_result_claimed": false,
+  "blockers": [],
+  "cloud_runner_started": false,
+  "codeclash_actual_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+  "codeclash_checkout_path": "/tmp/telos-codeclash",
+  "codeclash_commit_matches_expected": true,
+  "codeclash_expected_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+  "docker_ready": true,
+  "excluded_pair_executed": false,
+  "experiment_id": "iter58_codeclash_vertex_dependency_recovery",
+  "failures": [],
+  "frozen_overlay_hashes": {
+    "all_hashes_match": true,
+    "entries": [
+      {
+        "actual_sha256": "87c7bc166a35101d5c8750517c73c231ba62b84cc373c18ec241b19bb5f8657c",
+        "destination": "configs/mini/telos_litellm_cost_registry_entry.json",
+        "expected_sha256": "87c7bc166a35101d5c8750517c73c231ba62b84cc373c18ec241b19bb5f8657c",
+        "hash_match": true
+      },
+      {
+        "actual_sha256": "c7dc99e86b0a42ea6e83cd1413f9a2d3a044e1be253844b77411c21086f663f6",
+        "destination": "configs/mini/telos_vertex_gemini_3_1_pro_customtools.yaml",
+        "expected_sha256": "c7dc99e86b0a42ea6e83cd1413f9a2d3a044e1be253844b77411c21086f663f6",
+        "hash_match": true
+      },
+      {
+        "actual_sha256": "d8587dab4faef836c39c26f6ad4186f0fb66a90f0e295152dcb64852b0652279",
+        "destination": "configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+        "expected_sha256": "d8587dab4faef836c39c26f6ad4186f0fb66a90f0e295152dcb64852b0652279",
+        "hash_match": true
+      },
+      {
+        "actual_sha256": "79a95e0ae1202369fcb33540f575f58739092fd358a835d94438a133661c27c1",
+        "destination": "configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+        "expected_sha256": "79a95e0ae1202369fcb33540f575f58739092fd358a835d94438a133661c27c1",
+        "hash_match": true
+      },
+      {
+        "actual_sha256": "fb0d6534322044db1e5ddaafe3dd798f9af2483d070d04f78f7d876e85269db5",
+        "destination": "configs/test/telos_battlesnake_vertex_gemini_baseline.yaml",
+        "expected_sha256": "fb0d6534322044db1e5ddaafe3dd798f9af2483d070d04f78f7d876e85269db5",
+        "hash_match": true
+      },
+      {
+        "actual_sha256": "fe71a2874696891715cfaed83b7f26a3d25c65faa3fd5683125c99885d24e4e5",
+        "destination": "configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml",
+        "expected_sha256": "fe71a2874696891715cfaed83b7f26a3d25c65faa3fd5683125c99885d24e4e5",
+        "hash_match": true
+      }
+    ]
+  },
+  "gpu_used": false,
+  "install": {
+    "command": "uv pip install --python /tmp/telos-codeclash/.venv/bin/python google-auth",
+    "elapsed_seconds": 1.939,
+    "returncode": 0,
+    "stderr_logged": true,
+    "stdout_logged": true,
+    "timed_out": false
+  },
+  "iter54_command_manifest_path": "experiments/iter54_provider_pair_executor_recovery/proof/command_manifest.json",
+  "iter54_command_manifest_unchanged": true,
+  "iter57_blockers": [
+    "codeclash_vertex_google_auth_dependency_missing"
+  ],
+  "iter57_status": "blocked",
+  "leaderboard_or_swebench_result_claimed": false,
+  "missing_dependency": "google.auth",
+  "model_superiority_claimed": false,
+  "next_gate": "experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md",
+  "paid_battlesnake_command_executed": false,
+  "production_or_live_domain_changed": false,
+  "provider_model_calls": 0,
+  "provider_spend_usd": 0.0,
+  "redaction_findings": [],
+  "redaction_scan_passed": true,
+  "schema_version": "telos.codeclash_vertex_dependency_recovery.report.v1",
+  "sentinel_named_resources_modified": false,
+  "source_iter57_dependency_path": "experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/dependency_block_evidence.json",
+  "source_iter57_summary_path": "experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/run_summary.json",
+  "state_of_the_art_result_claimed": false,
+  "status": "pass"
+}
