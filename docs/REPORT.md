@@ -152,6 +152,13 @@ Current evidence:
 - `experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/HYPOTHESIS.md`
   pre-registers the exact two-row paid retry after auth recovery, preserving the `16` provider-call
   and `$10.00` spend ceilings and the same no-overclaim boundary.
+- `experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/RESULT.md` blocks
+  before provider model calls because the pinned CodeClash virtualenv cannot import `google.auth`.
+  One selected baseline-row attempt reached round-0 raw evidence, the Telos row and all excluded
+  rows remained unattempted, and committed metadata records zero provider calls and zero cost.
+- `experiments/iter58_codeclash_vertex_dependency_recovery/HYPOTHESIS.md` pre-registers the
+  zero-spend recovery gate for that missing CodeClash Vertex dependency. It forbids paid rows,
+  provider calls, provider spend, GPU use, Sentinel mutation, and benchmark/model claims.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

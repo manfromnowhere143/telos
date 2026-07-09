@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/HYPOTHESIS.md`
+- `experiments/iter58_codeclash_vertex_dependency_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -273,11 +273,16 @@ Current claim:
   metadata under a `$0.01` spend bound. No paid BattleSnake row ran, no excluded pair ran, no cloud
   runner started, no GPU was used, no Sentinel-named resources were modified, and no
   benchmark/model result is claimed.
+- `iter57_provider_compatible_paid_execution_after_auth_recovery` blocked before provider model
+  calls: one selected baseline-row attempt reached round-0 raw evidence, but LiteLLM could not
+  import `google.auth` from the pinned CodeClash virtualenv. The Telos row and all excluded rows
+  remained unattempted, committed metadata records zero provider calls and zero cost, no cloud
+  runner started, no GPU was used, no Sentinel-named resources were modified, and no
+  benchmark/model result is claimed.
 - No model or benchmark result is claimed yet.
-- The next gate may execute only the two selected provider-compatible BattleSnake condition rows
-  under the frozen `16` invocation and `$10.00` spend ceilings. GPU use, Sentinel resource
-  modification, excluded-pair execution, production/live-domain changes, and benchmark/model
-  overclaims remain forbidden.
+- The next gate may only recover the missing CodeClash Vertex dependency at zero provider spend.
+  Selected-row execution, excluded-pair execution, GPU use, Sentinel resource modification,
+  production/live-domain changes, and benchmark/model overclaims remain forbidden.
 
 ## Required Verification
 
@@ -396,6 +401,8 @@ python3 scripts/validate_receipts.py experiments/iter55_provider_compatible_paid
 python3 scripts/audit_provider_compatible_paid_execution_after_executor_recovery.py
 python3 scripts/validate_receipts.py experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/proof
 python3 scripts/audit_provider_auth_recovery_for_paid_protocol_effect.py
+python3 scripts/validate_receipts.py experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof
+python3 scripts/audit_provider_compatible_paid_execution_after_auth_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

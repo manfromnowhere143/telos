@@ -367,6 +367,12 @@ jobs:
       - name: Provider auth recovery for paid protocol effect audit
         run: python3 scripts/audit_provider_auth_recovery_for_paid_protocol_effect.py
 
+      - name: Provider-compatible paid execution after auth recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof
+
+      - name: Provider-compatible paid execution after auth recovery audit
+        run: python3 scripts/audit_provider_compatible_paid_execution_after_auth_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

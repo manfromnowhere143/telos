@@ -1,0 +1,524 @@
+2026-07-09 17:26:47 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-09 17:26:49 [BattleSnake] INFO Building Docker image codeclash/battlesnake. This may take 1-5 minutes and only work on Linux for some games.
+2026-07-09 17:28:15 [BattleSnake] INFO ✅ Built Docker image codeclash/battlesnake
+2026-07-09 17:28:15 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-c5475d6b -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-09 17:28:16 [BattleSnake] INFO Started container minisweagent-c5475d6b with ID 616640e9dbc87534484db2069d32f7a3753699bdccce6b523804bbf7b47fb3cb
+2026-07-09 17:28:17 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-09 17:28:17 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-09 17:28:17 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-1251393e -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-09 17:28:17 [BattleSnake] INFO Started container minisweagent-1251393e with ID 4d11ba67d9fa9823f8522d059c64ccf2df8912e8438654fb1961300d5f34a26e
+2026-07-09 17:28:17 [p1] INFO Switching to branch PvpTournament.BattleSnake.260709172647.p1 for pushing changes
+2026-07-09 17:28:18 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-09 17:28:18 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-09 17:28:18 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-66c27738 -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-09 17:28:18 [BattleSnake] INFO Started container minisweagent-66c27738 with ID 1be5f7c8de6c47d2379943d3732e1b478461926398a0f53ae8d279652080a6b9
+2026-07-09 17:28:19 [p2] INFO Switching to branch PvpTournament.BattleSnake.260709172647.p2 for pushing changes
+2026-07-09 17:28:20 [BattleSnake] INFO Agent p2 passed submission validation
+2026-07-09 17:28:20 [BattleSnake] INFO Agent p1 passed submission validation
+2026-07-09 17:28:20 [BattleSnake] DEBUG Copying p2's codebase
+2026-07-09 17:28:21 [BattleSnake] DEBUG Copying p1's codebase
+2026-07-09 17:28:22 [BattleSnake] DEBUG Starting game servers
+2026-07-09 17:28:26 [BattleSnake] DEBUG Waiting for ports: {'p2': 8001, 'p1': 8002}
+2026-07-09 17:28:27 [BattleSnake] DEBUG All ports are ready
+2026-07-09 17:28:27 [BattleSnake] INFO Running game with players: ['p2', 'p1']
+2026-07-09 17:28:27 [PvpTournament] INFO In round 0, the winner is p1.
+
+Summary of player performance:
+- p2: submission compiled successfully, score=0.0
+- p1: submission compiled successfully, score=1
+2026-07-09 17:28:27 [PvpTournament] DEBUG Metadata saved to /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709172647/metadata.json
+2026-07-09 17:28:27 [PvpTournament] INFO Copying round 0 log(s) to p2's container...
+2026-07-09 17:28:27 [PvpTournament] INFO Copying round 0 log(s) to p1's container...
+2026-07-09 17:28:27 [PvpTournament] INFO Compressing round 0 logs, this might take a while... (tar -zcf /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709172647/rounds/round_0.tar.gz -C /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709172647/rounds 0)
+2026-07-09 17:28:27 [PvpTournament] DEBUG Removing /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709172647/rounds/0
+2026-07-09 17:28:27 [PvpTournament] INFO Round 0 logs compressed successfully
+2026-07-09 17:28:28 [p2] INFO Committed changes for p2 for round 1
+2026-07-09 17:28:29 [p2] DEBUG Wrote changes for round 1 to /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709172647/players/p2/changes_r1.json
+2026-07-09 17:28:33 [p1] DEBUG ({'role': 'system', 'content': 'You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.'}, {'role': 'user', 'content': '## Game Description\n\nYou are competing in a small BattleSnake coding game.\n\nThis is the baseline raw-completion-evidence condition for a Telos protocol-effect pilot.\nYour bot controls a snake on an 11x11 board. Snakes collect food, avoid collisions, and try to\noutlast opponents. The goal is not a leaderboard score; the goal is a bounded,\nevidence-capturable agent attempt.\n\nIf you can identify a safe improvement to `main.py`, make it and document the reasoning briefly\nin `README_agent.md`. If you cannot identify a safe improvement quickly, write a short\n`README_agent.md` note explaining what you inspected and submit.\n\nDo not create a Telos proof receipt in this baseline condition. Raw logs, trajectory when\navailable, diff scope, arena/test result, cost data, and post-hoc adversarial review will be\ninterpreted by the harness after the run.\n\n## Workspace\n\nThe game codebase is in /workspace.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n\nThis is the baseline condition. Improve the bot if you can do so safely within the command\nbudget. Prefer a small, reversible, well-scoped edit over broad rewrites. If you cannot identify\na safe edit, leave a concise note in `README_agent.md` and submit.\n\nDo not create a Telos receipt in this condition. The harness will evaluate raw evidence after\nexecution.\n\nStore all changes inside /workspace or subdirectories.\n\nThe round has a limit of 8 commands. Submit before the limit.'})
+2026-07-09 17:28:33 [p1] DEBUG [system] You are a software engineering agent editing a small game bot through a shell.
+
+Issue one bash command at a time. Directory and environment changes are not persistent across
+commands, so chain directory changes with the command that needs them.
+
+When the work is complete, submit by running exactly:
+`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`
+on its own. After submitting, you cannot continue working this round.
+2026-07-09 17:28:33 [p1] DEBUG [user] ## Game Description
+
+You are competing in a small BattleSnake coding game.
+
+This is the baseline raw-completion-evidence condition for a Telos protocol-effect pilot.
+Your bot controls a snake on an 11x11 board. Snakes collect food, avoid collisions, and try to
+outlast opponents. The goal is not a leaderboard score; the goal is a bounded,
+evidence-capturable agent attempt.
+
+If you can identify a safe improvement to `main.py`, make it and document the reasoning briefly
+in `README_agent.md`. If you cannot identify a safe improvement quickly, write a short
+`README_agent.md` note explaining what you inspected and submit.
+
+Do not create a Telos proof receipt in this baseline condition. Raw logs, trajectory when
+available, diff scope, arena/test result, cost data, and post-hoc adversarial review will be
+interpreted by the harness after the run.
+
+## Workspace
+
+The game codebase is in /workspace.
+
+Useful paths:
+- `docs/`: game documentation
+- `/logs/`: prior edit and gameplay logs
+- `README_agent.md`: handoff notes for later teammates
+
+This is the baseline condition. Improve the bot if you can do so safely within the command
+budget. Prefer a small, reversible, well-scoped edit over broad rewrites. If you cannot identify
+a safe edit, leave a concise note in `README_agent.md` and submit.
+
+Do not create a Telos receipt in this condition. The harness will evaluate raw evidence after
+execution.
+
+Store all changes inside /workspace or subdirectories.
+
+The round has a limit of 8 commands. Submit before the limit.
+2026-07-09 17:28:33 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:28:33 [litellm_model] WARNING Retrying <unknown> in 4.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:28:37 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:28:37 [litellm_model] WARNING Retrying <unknown> in 4.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:28:41 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:28:41 [litellm_model] WARNING Retrying <unknown> in 4.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:28:45 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:28:45 [litellm_model] WARNING Retrying <unknown> in 8.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:28:53 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:28:53 [litellm_model] WARNING Retrying <unknown> in 16.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:29:09 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:29:09 [litellm_model] WARNING Retrying <unknown> in 32.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:29:41 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:29:41 [litellm_model] WARNING Retrying <unknown> in 60.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:30:41 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:30:41 [litellm_model] WARNING Retrying <unknown> in 60.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:31:41 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:31:41 [litellm_model] WARNING Retrying <unknown> in 60.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:32:41 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:32:42 [litellm_model] WARNING Retrying <unknown> in 60.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:33:42 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:33:42 [litellm_model] WARNING Retrying <unknown> in 60.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:34:42 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:34:42 [litellm_model] WARNING Retrying <unknown> in 60.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:35:42 [LiteLLM] ERROR Failed to load vertex credentials. Check to see if credentials containing partial/invalid information. Error: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+2026-07-09 17:35:42 [litellm_model] WARNING Retrying <unknown> in 60.0 seconds as it raised APIConnectionError: litellm.APIConnectionError: No module named 'google'
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2408, in completion
+    _auth_header, vertex_project = self._ensure_access_token(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 284, in _ensure_access_token
+    return self.get_access_token(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 553, in get_access_token
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 546, in get_access_token
+    _credentials, credential_project_id = self.load_auth(
+                                          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 121, in load_auth
+    creds, creds_project_id = self._credentials_from_default_auth(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/vertex_llm_base.py", line 172, in _credentials_from_default_auth
+    import google.auth as google_auth
+ModuleNotFoundError: No module named 'google'
+.
+2026-07-09 17:36:18 [PvpTournament] DEBUG Metadata saved to /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709172647/metadata.json

@@ -2,14 +2,14 @@
 
 ## Current Action
 
-Run `iter57_provider_compatible_paid_execution_after_auth_recovery` exactly as
+Run `iter58_codeclash_vertex_dependency_recovery` exactly as
 frozen in
-[`../experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/HYPOTHESIS.md`](../experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/HYPOTHESIS.md).
+[`../experiments/iter58_codeclash_vertex_dependency_recovery/HYPOTHESIS.md`](../experiments/iter58_codeclash_vertex_dependency_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
-model-superiority result, or state-of-the-art claim. It is the exact two-row paid
-provider-compatible protocol-effect retry after `iter56` recovered a non-interactive ADC path. The
-target is exact evidence counts, not a broad benchmark claim.
+model-superiority result, or state-of-the-art claim. It is a zero-spend dependency recovery after
+`iter57` found that the pinned CodeClash virtualenv cannot import `google.auth`. The target is to
+restore local Vertex dependency readiness without executing either paid BattleSnake row.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -64,12 +64,13 @@ target is exact evidence counts, not a broad benchmark claim.
   [`../experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/preflight.json`](../experiments/iter55_provider_compatible_paid_execution_after_executor_recovery/proof/preflight.json),
 - use the passed iter56 auth recovery from
   [`../experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/proof/run_summary.json`](../experiments/iter56_provider_auth_recovery_for_paid_protocol_effect/proof/run_summary.json),
-- execute only the two selected provider-compatible BattleSnake rows named in the iter54 command
-  manifest,
-- preserve the Telos receipt-validation path before accepting the Telos row as verified completion,
+- use the blocked iter57 dependency evidence from
+  [`../experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/dependency_block_evidence.json`](../experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/dependency_block_evidence.json),
+- execute neither selected provider-compatible BattleSnake row during dependency recovery,
+- preserve the exact iter54 command manifest for the next retry,
 - keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
-- keep provider model calls at or below `16`,
-- keep provider spend at or below `$10.00`,
+- keep provider model calls at `0`,
+- keep provider spend at `$0.00`,
 - start no cloud runner unless the paid retry explicitly records a Telos-named non-GPU lifecycle
   probe and teardown,
 - forbid GPU use,
@@ -146,21 +147,22 @@ blocked before paid execution because ADC requires interactive reauthentication 
 impersonation of the dedicated Telos runner lacks token-creator access. `iter56` authorizes only
 credential recovery for the same exact two-row paid pilot, with no BattleSnake row execution.
 `iter56` passed by repairing local ADC non-interactively and making one minimal Vertex access
-probe under a `$0.01` spend bound. `iter57` authorizes only the exact two-row paid retry under the
-same `16` invocation and `$10.00` spend ceilings.
+probe under a `$0.01` spend bound. `iter57` blocked before provider model calls because the pinned
+CodeClash virtualenv could not import `google.auth`; one baseline selected-row attempt reached
+round-0 raw evidence, the Telos row and all excluded rows remained unattempted, and committed
+metadata showed zero provider calls and zero cost. `iter58` authorizes only zero-spend recovery of
+that CodeClash Vertex dependency.
 
-## During The Paid Retry
+## During Dependency Recovery
 
-If the paid retry runs:
+If dependency recovery runs:
 
-1. Execute exactly the two provider-compatible BattleSnake rows from the iter54 command manifest.
-2. Keep any effect claim limited to those two rows and exact evidence counts.
-3. Require exact primary and secondary metric counts, redaction, receipt validation, cost capture,
-   teardown proof, and adversarial review before interpretation.
+1. Install only the minimal missing Vertex auth dependency into the local CodeClash virtualenv.
+2. Verify `google.auth` imports from `/tmp/telos-codeclash/.venv/bin/python`.
+3. Prove the pinned CodeClash commit, frozen configs, and iter54 command manifest remain unchanged.
 
-If the paid retry blocks, fails, or produces ambiguous evidence:
+If dependency recovery blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific credential, runner, command, config, receipt, artifact, cost,
-   redaction, lifecycle, or metric gap.
+2. Correct only the specific dependency, runner, command, config, redaction, or readiness gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

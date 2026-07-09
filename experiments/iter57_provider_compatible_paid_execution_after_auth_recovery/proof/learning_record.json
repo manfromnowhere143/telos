@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/run_summary.json",
+    "experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/protocol_effect_report.json",
+    "experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/command_output.txt",
+    "experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/valid/receipt_provider_compatible_paid_execution_after_auth_recovery.json"
+  ],
+  "experiment_id": "iter57_provider_compatible_paid_execution_after_auth_recovery",
+  "insight": "The paid retry blocked before provider model calls because the pinned CodeClash virtualenv could not import google.auth; committed metadata shows zero provider calls and zero cost.",
+  "next_action": "recover the CodeClash Vertex dependency without spend before retrying the exact two-row paid pilot",
+  "result_path": "experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}
