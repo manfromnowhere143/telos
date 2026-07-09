@@ -82,8 +82,11 @@ Current evidence:
   public-sync guard for self-coverage prose.
 - `experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/RESULT.md` passes
   a negative-fixture guard for self-coverage public prose.
-- `experiments/iter39_public_task_protocol_effect_slice/HYPOTHESIS.md` freezes a public-task
-  protocol-effect slice for comparing baseline and Telos-enforced completion evidence.
+- `experiments/iter39_public_task_protocol_effect_slice/RESULT.md` passes a public-task
+  protocol-effect slice-selection gate for comparing baseline and Telos-enforced completion
+  evidence.
+- `experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md` freezes the execution
+  gate with provider, cost, artifact, and claim-boundary controls.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

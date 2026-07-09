@@ -2,10 +2,10 @@
 
 ## Current Action
 
-Run `iter39_public_task_protocol_effect_slice` exactly as frozen in
-[`../experiments/iter39_public_task_protocol_effect_slice/HYPOTHESIS.md`](../experiments/iter39_public_task_protocol_effect_slice/HYPOTHESIS.md).
+Run `iter40_public_task_protocol_effect_execution` exactly as frozen in
+[`../experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md`](../experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md).
 
-The output is not a leaderboard score. It is a public-task protocol-effect slice-selection gate:
+The output is not a leaderboard score. It is a bounded public-task protocol-effect execution gate:
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -19,9 +19,13 @@ The output is not a leaderboard score. It is a public-task protocol-effect slice
 - keep the changed `iter24` candidate separate from original `iter21` provider logic,
 - keep the `iter35` self-coverage report visible,
 - keep the `iter36` self-coverage negative guard visible,
-- freeze public task identifiers, baseline and Telos-instrumented conditions, and before-data
-  metrics for a future execution gate,
-- do not call a provider model, run CodeClash, or make production/live-domain claims.
+- use only the frozen task identifiers, baseline and Telos-instrumented conditions, and before-data
+  metrics from
+  [`../experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json`](../experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json),
+- stop and publish blocked/null evidence if provider, runner, artifact, or cost controls are
+  unavailable,
+- do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
+  state-of-the-art claims.
 
 ## Infrastructure Discipline
 
@@ -52,19 +56,20 @@ manifest. `iter32` passed the release-manifest negative guard. `iter33` passed t
 guard. `iter34` passed the public-sync negative guard. `iter35` passed the release-manifest
 self-coverage guard. `iter36` passed the self-coverage negative guard. `iter37` passed the
 self-coverage public-sync guard. `iter38` passed the self-coverage public-sync negative guard.
-`iter39` does not authorize provider, GPU, cloud, CodeClash execution, leaderboard, SWE-bench
-result, production, or live-domain behavior.
+`iter39` passed the public-task protocol-effect slice-selection gate. `iter40` authorizes only the
+frozen bounded execution and does not authorize GPU, leaderboard, SWE-bench result, production,
+live-domain behavior, model-superiority, or state-of-the-art claims.
 
-## After The Public Task Protocol-Effect Slice
+## After The Public Task Protocol-Effect Execution
 
-If the slice-selection gate passes:
+If the execution gate passes:
 
-1. Publish the frozen public task slice, conditions, metrics, and cost boundary.
-2. Pre-register an execution gate that compares baseline and Telos-enforced completion evidence.
-3. Do not claim a provider, leaderboard, SWE-bench, or production result until execution evidence exists.
+1. Publish exact counts before percentages for baseline and Telos-enforced conditions.
+2. Publish all raw artifacts, receipts, blocked/null rows, costs, and audit notes.
+3. Decide whether the evidence supports a broader public benchmark run.
 
-If the slice-selection gate fails:
+If the execution gate blocks or fails:
 
-1. Publish the quality failure.
-2. Correct only the slice-selection harness or task metadata gap.
+1. Publish the blocked/null or quality-failure result.
+2. Correct only the specific provider, runner, artifact, cost, or harness gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

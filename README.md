@@ -97,8 +97,10 @@ and an adversarial review pass.
   [`experiments/iter37_release_manifest_self_coverage_public_sync_guard`](experiments/iter37_release_manifest_self_coverage_public_sync_guard/RESULT.md).
 - Release manifest self-coverage public sync negative guard: passed with six malformed public-prose fixtures in
   [`experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard`](experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/RESULT.md).
-- Current gate: public task protocol-effect slice, pre-registered in
-  [`experiments/iter39_public_task_protocol_effect_slice`](experiments/iter39_public_task_protocol_effect_slice/HYPOTHESIS.md).
+- Public task protocol-effect slice: passed with three executable task surfaces, two conditions, and before-data metrics in
+  [`experiments/iter39_public_task_protocol_effect_slice`](experiments/iter39_public_task_protocol_effect_slice/RESULT.md).
+- Current gate: public task protocol-effect execution, pre-registered in
+  [`experiments/iter40_public_task_protocol_effect_execution`](experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
@@ -178,13 +180,14 @@ Release manifest self-coverage guard: [`experiments/iter35_release_manifest_self
 Release manifest self-coverage negative guard: [`experiments/iter36_release_manifest_self_coverage_negative_guard/RESULT.md`](experiments/iter36_release_manifest_self_coverage_negative_guard/RESULT.md).
 Release manifest self-coverage public sync guard: [`experiments/iter37_release_manifest_self_coverage_public_sync_guard/RESULT.md`](experiments/iter37_release_manifest_self_coverage_public_sync_guard/RESULT.md).
 Release manifest self-coverage public sync negative guard: [`experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/RESULT.md`](experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/RESULT.md).
-Public task protocol-effect slice: [`experiments/iter39_public_task_protocol_effect_slice/HYPOTHESIS.md`](experiments/iter39_public_task_protocol_effect_slice/HYPOTHESIS.md).
+Public task protocol-effect slice: [`experiments/iter39_public_task_protocol_effect_slice/RESULT.md`](experiments/iter39_public_task_protocol_effect_slice/RESULT.md).
+Public task protocol-effect execution: [`experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md`](experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
 ```mermaid
 flowchart LR
-  I21["iter21<br/>opp pass<br/>tail caveat"] --> I22["iter22<br/>mut pass"]
+  I21["iter21<br/>opp pass"] --> I22["iter22<br/>mut pass"]
   I22 --> I23["iter23<br/>tail fail"]
   I23 --> I24["iter24<br/>cand pass"]
   I24 --> I25["iter25<br/>mut miss"]
@@ -193,21 +196,22 @@ flowchart LR
   I27 --> I28["iter28<br/>prose pass"]
   I28 --> I29["iter29<br/>neg pass"]
   I29 --> I30["iter30<br/>schema pass"]
-  I30 --> I31["iter31<br/>manifest pass"]
-  I31 --> I32["iter32<br/>manifest neg pass"]
+  I30 --> I31["iter31<br/>man pass"]
+  I31 --> I32["iter32<br/>man neg pass"]
   I32 --> I33["iter33<br/>sync pass"]
   I33 --> I34["iter34<br/>sync neg pass"]
   I34 --> I35["iter35<br/>coverage pass"]
   I35 --> I36["iter36<br/>cov neg pass"]
   I36 --> I37["iter37<br/>sync pass"]
   I37 --> I38["iter38<br/>sync neg pass"]
-  I38 --> I39["iter39<br/>slice pending"]
+  I38 --> I39["iter39<br/>slice pass"]
+  I39 --> I40["iter40<br/>exec pending"]
   classDef pass fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   classDef fail fill:#fde8e8,stroke:#c62828,color:#3b0d0d;
   classDef pending fill:#fff4d6,stroke:#8a6d1d,color:#382900;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38 pass;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39 pass;
   class I23,I25 fail;
-  class I39 pending;
+  class I40 pending;
 ```
 
 ## Candidate Target Families
@@ -343,6 +347,8 @@ python3 scripts/validate_receipts.py experiments/iter37_release_manifest_self_co
 python3 scripts/audit_release_manifest_self_coverage_public_sync_guard.py
 python3 scripts/validate_receipts.py experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof
 python3 scripts/audit_release_manifest_self_coverage_public_sync_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter39_public_task_protocol_effect_slice/proof
+python3 scripts/audit_public_task_protocol_effect_slice.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs in this slice-selection gate.",
+    "The selected public task slice is frozen with exact identifiers.",
+    "Baseline and Telos-instrumented conditions are both specified.",
+    "Primary and secondary metrics are specified before execution.",
+    "Unsupported claims, hidden nulls, and benchmark overclaims are explicitly forbidden.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority result is claimed."
+  ],
+  "agent_id": "codex-local-public-task-protocol-effect-selector",
+  "benchmark_id": "telos_codeclash_swebench_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json",
+      "kind": "artifact",
+      "notes": "Frozen task identifiers, conditions, metrics, and execution boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter39_public_task_protocol_effect_slice/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Local validation of the slice-selection contract.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter39_public_task_protocol_effect_slice/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records claim boundaries and next-gate authorization.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if no suitable public task slice can be frozen.",
+    "The result must fail if baseline or Telos-enforced conditions are missing.",
+    "The result must fail if metrics are omitted or chosen after execution.",
+    "The result must fail if failed/null outcomes are excluded from reporting.",
+    "The result must not claim a provider, leaderboard, SWE-bench, production, live-domain, or model-superiority result."
+  ],
+  "receipt_id": "iter39-public-task-protocol-effect-slice-pass",
+  "sha256": "3ee7b2fbfe504d77d6e6dba5e2a5962ccff91cfd1b0d59258734df46887fcd64",
+  "stated_goal": "Freeze a public task protocol-effect slice for comparing baseline and Telos-enforced completion evidence.",
+  "status": "pass",
+  "task_id": "telos:iter39_public_task_protocol_effect_slice@iter00_iter38"
+}

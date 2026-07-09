@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter39_public_task_protocol_effect_slice/HYPOTHESIS.md`
+- `experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -176,9 +176,13 @@ Current claim:
 - `iter38_release_manifest_self_coverage_public_sync_negative_guard` passed: real public prose
   still passed, and six malformed public-prose fixtures failed for expected reasons. No provider,
   API, GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
+- `iter39_public_task_protocol_effect_slice` passed: a public task protocol-effect slice froze
+  three executable CodeClash task surfaces, one SWE-bench Verified receipt anchor, baseline and
+  Telos-enforced conditions, before-data metrics, and a bounded provider execution gate. No
+  provider, API, GPU, cloud runner, production change, leaderboard run, or SWE-bench run occurred.
 - No model or benchmark result is claimed yet.
-- The next gate must freeze a public-task protocol-effect slice before any external-task execution
-  claim is made.
+- The next gate must execute only the frozen public-task protocol-effect slice and must block if
+  provider, runner, artifact, or cost controls are unavailable.
 
 ## Required Verification
 
@@ -261,6 +265,8 @@ python3 scripts/validate_receipts.py experiments/iter37_release_manifest_self_co
 python3 scripts/audit_release_manifest_self_coverage_public_sync_guard.py
 python3 scripts/validate_receipts.py experiments/iter38_release_manifest_self_coverage_public_sync_negative_guard/proof
 python3 scripts/audit_release_manifest_self_coverage_public_sync_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter39_public_task_protocol_effect_slice/proof
+python3 scripts/audit_public_task_protocol_effect_slice.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

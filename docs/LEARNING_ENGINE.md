@@ -92,6 +92,7 @@ python3 scripts/validate_learning_ledger.py
 | `iter36_release_manifest_self_coverage_negative_guard` | pass | the self-coverage guard rejects malformed reports that remove self-verification gates, stale hashes, hide failed/null gates, conflate candidate/original logic, or add forbidden benchmark claims | pre-register a public-sync guard so README, report, next-phase, and continuity prose surface the self-coverage report without bypassing claim boundaries |
 | `iter37_release_manifest_self_coverage_public_sync_guard` | pass | public prose can surface the self-coverage report and negative guard while keeping the release manifest as the claim-boundary reviewer entry point | pre-register negative public-sync fixtures so prose that hides self-coverage or bypasses the release manifest is rejected |
 | `iter38_release_manifest_self_coverage_public_sync_negative_guard` | pass | the self-coverage public-sync guard catches malformed prose that hides the release manifest, hides self-coverage evidence, hides failed/null gates, conflates changed candidate logic with original provider logic, or adds forbidden claims | pre-register a public-task protocol-effect slice so baseline and Telos-enforced completion evidence can be compared on frozen external tasks |
+| `iter39_public_task_protocol_effect_slice` | pass | a public task protocol-effect slice can be frozen before execution with exact task identifiers, baseline and Telos-enforced conditions, before-data metrics, and a bounded provider execution gate | execute the frozen protocol-effect slice only under the recorded provider, cost, artifact, and claim-boundary controls |
 
-The next experiment must not run CodeClash or call a provider model. It should publish a local
-public-task protocol-effect slice with frozen tasks, conditions, and metrics.
+The next experiment may run only the frozen execution gate and must block if provider, runner,
+artifact, or cost controls are unavailable.

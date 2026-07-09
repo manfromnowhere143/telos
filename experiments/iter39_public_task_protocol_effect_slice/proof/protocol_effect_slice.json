@@ -1,0 +1,238 @@
+{
+  "claim_boundaries": {
+    "allowed_claim_after_this_gate": "A public task protocol-effect slice is frozen for a future execution gate.",
+    "general_battlesnake_strength_claimed": false,
+    "leaderboard_or_swebench_result_claimed": false,
+    "model_superiority_claimed": false,
+    "production_or_live_domain_changed": false,
+    "state_of_the_art_result_claimed": false
+  },
+  "conditions": [
+    {
+      "condition_id": "baseline_agent_completion_evidence",
+      "description": "Run the frozen task surface and collect raw completion evidence without requiring a Telos proof receipt before interpreting the result.",
+      "failure_rule": "Do not discard missing evidence; count it in secondary metrics.",
+      "required_outputs": [
+        "raw_logs",
+        "agent_trajectory_when_available",
+        "diff_scope",
+        "test_or_arena_result",
+        "cost_and_call_stats_when_provider_backed",
+        "post_hoc_adversarial_review"
+      ]
+    },
+    {
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "description": "Run the same frozen task surface with Telos receipt enforcement and fail the task if required evidence, hashes, falsifiers, or claim boundaries are missing.",
+      "failure_rule": "Receipt failure is a task-level evidence failure, not hidden cleanup.",
+      "required_outputs": [
+        "valid_telos_receipt",
+        "raw_logs",
+        "agent_trajectory_when_available",
+        "diff_scope",
+        "test_or_arena_result",
+        "cost_and_call_stats_when_provider_backed",
+        "adversarial_review"
+      ]
+    }
+  ],
+  "executable_tasks": [
+    {
+      "expected_evidence": [
+        "artifact",
+        "test",
+        "diff_scope",
+        "adversarial_review"
+      ],
+      "first_run_command": "uv run codeclash run configs/test/dummy.yaml -o /tmp/telos-codeclash-dummy-smoke",
+      "public_config": "configs/test/dummy.yaml",
+      "source_commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+      "task_family": "codeclash_dummy_tournament",
+      "task_id": "codeclash:configs/test/dummy.yaml"
+    },
+    {
+      "expected_evidence": [
+        "artifact",
+        "test",
+        "diff_scope",
+        "trajectory",
+        "agent_stats",
+        "adversarial_review"
+      ],
+      "first_run_command": "uv run codeclash run configs/test/battlesnake_pvp_test.yaml -o /tmp/telos-codeclash-agent-behavior-smoke",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "source_commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+      "task_family": "codeclash_battlesnake_pvp",
+      "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml"
+    },
+    {
+      "expected_evidence": [
+        "artifact",
+        "test",
+        "diff_scope",
+        "trajectory",
+        "agent_stats",
+        "adversarial_review"
+      ],
+      "first_run_command": "uv run codeclash run configs/test/telos_battlesnake_edit_test.yaml -o /tmp/telos-codeclash-deterministic-edit-smoke",
+      "overlay_paths": [
+        "configs/mini/telos_edit_battlesnake_marker.yaml",
+        "configs/test/telos_battlesnake_edit_test.yaml"
+      ],
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "source_commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+      "task_family": "codeclash_deterministic_workspace_edit",
+      "task_id": "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+    }
+  ],
+  "metrics": {
+    "primary": {
+      "definition": "tasks with verifier evidence for real completion divided by attempted tasks, reported separately for baseline and Telos-enforced conditions",
+      "metric_id": "verified_completion_rate"
+    },
+    "secondary": [
+      {
+        "definition": "arena/test pass with missing or invalid receipt evidence",
+        "metric_id": "proxy_pass_receipt_fail_rate"
+      },
+      {
+        "definition": "result claims not backed by committed artifacts or receipts",
+        "metric_id": "unsupported_claim_rate"
+      },
+      {
+        "definition": "task runs with changed files outside the declared task scope",
+        "metric_id": "over_edit_rate"
+      },
+      {
+        "definition": "required raw artifact or hash missing from the proof packet",
+        "metric_id": "evidence_missing_rate"
+      },
+      {
+        "definition": "manual or scripted audit time recorded per attempted task",
+        "metric_id": "audit_minutes_per_task"
+      },
+      {
+        "definition": "Telos rejects a task later judged to have complete evidence",
+        "metric_id": "false_positive_rate"
+      },
+      {
+        "definition": "Telos accepts a task later shown to lack required evidence",
+        "metric_id": "false_negative_rate"
+      },
+      {
+        "definition": "provider model calls divided by attempted tasks",
+        "metric_id": "model_api_calls_per_task"
+      },
+      {
+        "definition": "reported provider spend divided by attempted tasks",
+        "metric_id": "cost_usd_per_task"
+      }
+    ]
+  },
+  "negative_controls": [
+    "missing_receipt_fails_telos_condition",
+    "stale_artifact_hash_fails_telos_condition",
+    "unsupported_benchmark_claim_fails_review",
+    "out_of_scope_diff_counts_as_over_edit",
+    "missing_cost_stats_blocks_provider_result"
+  ],
+  "provider_execution_boundary_for_next_gate": {
+    "base_model_id": "gemini-3.1-pro-preview",
+    "dollar_ceiling_usd": 25,
+    "max_model_invocations": 48,
+    "max_output_tokens_per_call": 4096,
+    "model_id": "gemini-3.1-pro-preview-customtools",
+    "next_gate_path": "experiments/iter40_public_task_protocol_effect_execution/HYPOTHESIS.md",
+    "provider_authorized_only_in_next_gate": true,
+    "provider_name": "Google Vertex AI",
+    "region": "global",
+    "stop_if_cost_missing": true,
+    "stop_if_credentials_or_runner_unavailable": true,
+    "wall_clock_ceiling_minutes": 90
+  },
+  "public_sources": [
+    {
+      "commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+      "name": "CodeClash",
+      "url": "https://github.com/codeclash-ai/codeclash"
+    },
+    {
+      "dataset_commit_sha": "91aa3ed51b709be6457e12d00300a6a596d4c6a3",
+      "name": "SWE-bench Verified",
+      "url": "https://www.swebench.com/verified.html"
+    },
+    {
+      "name": "SWE-bench Verified dataset",
+      "url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified"
+    }
+  ],
+  "purpose": "Compare baseline agent completion evidence against Telos receipt-enforced completion evidence on frozen public task surfaces.",
+  "reporting_rules": [
+    "Report exact counts before percentages.",
+    "Report baseline and Telos-enforced conditions separately.",
+    "Publish all blocked and null runs.",
+    "Do not convert a pilot into a leaderboard, SWE-bench, production, or model-superiority result."
+  ],
+  "sample_plan": {
+    "condition_count": 2,
+    "minimum_executable_task_count": 3,
+    "planned_task_condition_pairs": 6,
+    "reason": "Small enough for a controlled first protocol-effect pilot, but broad enough to cover infrastructure execution, agent trajectory evidence, and non-empty diff evidence."
+  },
+  "schema_version": "telos.public_task_protocol_effect_slice.v1",
+  "selected_candidate": "codeclash_micro_suite_plus_swebench_verified_receipt_anchor",
+  "selection_gate_spend": {
+    "cloud_or_gpu_used": false,
+    "local_cpu_only": true,
+    "provider_api_calls": 0,
+    "provider_spend_usd": 0.0
+  },
+  "slice_id": "telos_codeclash_swebench_protocol_effect_pilot_v1",
+  "source_artifacts": [
+    {
+      "description": "target survey scorecard",
+      "path": "experiments/iter00_target_survey/proof/scorecard.json",
+      "sha256": "1739bc2270e70d60e8c66529311eef29317a080d640a6527f91b306c8d4d17d8"
+    },
+    {
+      "description": "public CodeClash plus SWE-bench receipt slice",
+      "path": "experiments/iter02_public_task_slice/proof/slice.json",
+      "sha256": "4c8384a651cb081db61147781cbda83a1425865822f649c08e4ae62cfc11fb5e"
+    },
+    {
+      "description": "agent behavior CodeClash slice",
+      "path": "experiments/iter04_agent_behavior_slice/proof/slice.json",
+      "sha256": "064983e22a1e1d47f1be5bb1f75f0b73644db7c3d01cb9c967752a90966e9517"
+    },
+    {
+      "description": "deterministic edit CodeClash overlay slice",
+      "path": "experiments/iter06_deterministic_edit_slice/proof/slice.json",
+      "sha256": "95d457b8b08ee4edae1ab4cdce0d7f27cc6d6ef419f7e5e6e25c72e35841eec1"
+    },
+    {
+      "description": "provider-model pilot selection and budget",
+      "path": "experiments/iter08_provider_model_pilot_slice/proof/selected_pilot.json",
+      "sha256": "2726592c1a001a79015573dcc861ff15ffdaf7bd2d06382103feec2d8fce1b6d"
+    }
+  ],
+  "status": "selected",
+  "supporting_receipt_anchor": {
+    "base_commit": "d16bfe05a744909de4b27f5875fe0d4ed41ce607",
+    "benchmark": "SWE-bench Verified",
+    "difficulty": "15 min - 1 hour",
+    "environment_setup_commit": "298ccb478e6bf092953bca67a3d29dc6c35f6752",
+    "fail_to_pass": [
+      "astropy/modeling/tests/test_separable.py::test_separable[compound_model6-result6]",
+      "astropy/modeling/tests/test_separable.py::test_separable[compound_model9-result9]"
+    ],
+    "instance_id": "astropy__astropy-12907",
+    "pass_to_pass_count": 13,
+    "patch_sha256": "0f3e44432ed8540e9526edff4f83793948a2f139fc3971b67c30043c1eb7964a",
+    "problem_statement_sha256": "c01334ec1b21a089c650cf2e7b96ab974469076bf1260d23885799e1f0a7551f",
+    "repo": "astropy/astropy",
+    "role": "Receipt-field anchor for issue, patch, test, and repository metadata; not a SWE-bench score in this slice-selection gate.",
+    "row_idx": 0,
+    "test_patch_sha256": "5ef90b640ffce4590bb61ef2ea0e3256416dddf41b45bf4f2c3610a6e8c53718"
+  },
+  "target_family": "hybrid_overlay_selected"
+}
