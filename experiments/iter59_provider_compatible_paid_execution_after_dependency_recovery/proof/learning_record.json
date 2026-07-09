@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof/run_summary.json",
+    "experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof/protocol_effect_report.json",
+    "experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof/command_output.txt",
+    "experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof/valid/receipt_provider_compatible_paid_execution_after_dependency_recovery.json"
+  ],
+  "experiment_id": "iter59_provider_compatible_paid_execution_after_dependency_recovery",
+  "insight": "Both selected provider-compatible BattleSnake rows executed, but each provider call returned a redacted Vertex model-not-found-or-access-denied response before verified completion evidence could be accepted.",
+  "next_action": "recover an accessible provider model binding before retrying the same frozen two-row gate",
+  "result_path": "experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}

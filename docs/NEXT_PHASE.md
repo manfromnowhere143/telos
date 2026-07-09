@@ -2,14 +2,15 @@
 
 ## Current Action
 
-Run `iter59_provider_compatible_paid_execution_after_dependency_recovery` exactly as
+Run `iter60_provider_model_binding_recovery` exactly as
 frozen in
-[`../experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md`](../experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md).
+[`../experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md`](../experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
-model-superiority result, or state-of-the-art claim. It is the exact two-row paid
-provider-compatible protocol-effect retry after `iter58` recovered the local CodeClash Vertex
-dependency. The target is exact evidence counts, not a broad benchmark claim.
+model-superiority result, or state-of-the-art claim. It is a narrow provider model-binding
+recovery gate after `iter59` executed both selected rows and blocked on a redacted
+`vertex_model_not_found_or_access_denied` provider response. The target is to recover one concrete
+configuration blocker, not to claim protocol effect.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -68,14 +69,16 @@ dependency. The target is exact evidence counts, not a broad benchmark claim.
   [`../experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/dependency_block_evidence.json`](../experiments/iter57_provider_compatible_paid_execution_after_auth_recovery/proof/dependency_block_evidence.json),
 - use the passed iter58 dependency recovery from
   [`../experiments/iter58_codeclash_vertex_dependency_recovery/proof/run_summary.json`](../experiments/iter58_codeclash_vertex_dependency_recovery/proof/run_summary.json),
-- execute only the two selected provider-compatible BattleSnake rows named in the iter54 command
-  manifest,
-- preserve the Telos receipt-validation path before accepting the Telos row as verified completion,
+- use the blocked iter59 paid retry evidence from
+  [`../experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof/run_summary.json`](../experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof/run_summary.json),
+- recover only the provider model binding that produced
+  `vertex_model_not_found_or_access_denied`,
+- execute no BattleSnake row in this recovery gate,
+- preserve the Telos receipt-validation path for the next two-row retry,
 - keep all four excluded Dummy/deterministic-edit pairs visible and unattempted,
-- keep provider model calls at or below `16`,
-- keep provider spend at or below `$10.00`,
-- start no cloud runner unless the paid retry explicitly records a Telos-named non-GPU lifecycle
-  probe and teardown,
+- keep provider model calls at or below `2`,
+- keep provider spend at or below `$0.05`,
+- start no cloud runner,
 - forbid GPU use,
 - do not modify, stop, start, delete, or reuse Sentinel-named resources,
 - do not make production/live-domain, leaderboard, SWE-bench, model-superiority, or
@@ -155,21 +158,24 @@ CodeClash virtualenv could not import `google.auth`; one baseline selected-row a
 round-0 raw evidence, the Telos row and all excluded rows remained unattempted, and committed
 metadata showed zero provider calls and zero cost. `iter58` passed zero-spend dependency recovery:
 the local CodeClash virtualenv now imports `google.auth`, the pinned commit and frozen configs
-remained unchanged, and no paid row executed. `iter59` authorizes only the exact two-row paid retry
-under the same `16` invocation and `$10.00` spend ceilings.
+  remained unchanged, and no paid row executed. `iter59` executed both selected rows and blocked:
+  both rows made one provider call, recorded zero cost in CodeClash metadata, and returned the
+  same redacted Vertex model-not-found-or-access-denied provider response before verified
+  completion evidence could be accepted. `iter60` authorizes only model-binding recovery under a
+  `2` invocation and `$0.05` spend ceiling, with no BattleSnake row execution.
 
-## During The Paid Retry
+## During Model-Binding Recovery
 
-If the paid retry runs:
+If the recovery runs:
 
-1. Execute exactly the two provider-compatible BattleSnake rows from the iter54 command manifest.
-2. Keep any effect claim limited to those two rows and exact evidence counts.
-3. Require exact primary and secondary metric counts, redaction, receipt validation, cost capture,
-   teardown proof, and adversarial review before interpretation.
+1. Inspect the pinned provider configs and recovered overlays.
+2. Identify and freeze one accessible provider model binding, using at most two minimal provider
+   probes if needed.
+3. Record before/after binding values, provider call and cost counts, redaction, and adversarial
+   review before interpretation.
 
-If the paid retry blocks, fails, or produces ambiguous evidence:
+If the recovery blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific credential, dependency, runner, command, config, receipt, artifact,
-   cost, redaction, lifecycle, or metric gap.
+2. Correct only the specific model-binding, credential, config, cost, redaction, or metric gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

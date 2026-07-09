@@ -166,6 +166,14 @@ Current evidence:
 - `experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md`
   pre-registers the exact two-row paid retry after dependency recovery, preserving the `16`
   provider-call and `$10.00` spend ceilings and the same no-overclaim boundary.
+- `experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/RESULT.md`
+  blocks after executing both selected BattleSnake rows: each row made one provider call, recorded
+  zero cost in CodeClash metadata, returned a redacted Vertex model-not-found-or-access-denied
+  provider response, produced no verified-completion evidence, executed no excluded pairs, used no
+  GPU, touched no Sentinel resource, and makes no benchmark/model claim.
+- `experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md` pre-registers the next
+  blocker-only recovery gate: recover an accessible provider model binding under a `2` call and
+  `$0.05` ceiling without executing any BattleSnake row.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

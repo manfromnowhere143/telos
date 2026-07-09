@@ -1,0 +1,379 @@
+2026-07-09 18:02:27 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-09 18:02:27 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-09 18:02:27 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-3172a793 -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-09 18:02:28 [BattleSnake] INFO Started container minisweagent-3172a793 with ID 8d01c8ac127b5b0bdf34003232058a9a57f43651e416689b371070aa846cdee1
+2026-07-09 18:02:28 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-09 18:02:28 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-09 18:02:28 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-093e5a01 -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-09 18:02:28 [BattleSnake] INFO Started container minisweagent-093e5a01 with ID fcb4dd0a7e7392e55481d092a86fbbf9903770e7ba7cb5f95bed4b29471337ec
+2026-07-09 18:02:29 [p1] INFO Switching to branch PvpTournament.BattleSnake.260709180227.p1 for pushing changes
+2026-07-09 18:02:30 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-09 18:02:30 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-09 18:02:30 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-bdc1da4b -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-09 18:02:30 [BattleSnake] INFO Started container minisweagent-bdc1da4b with ID 0672b3c66c7303e6ea0f7ce1236272a4778159bf285d5784a5abcba164c4bdc0
+2026-07-09 18:02:31 [p2] INFO Switching to branch PvpTournament.BattleSnake.260709180227.p2 for pushing changes
+2026-07-09 18:02:32 [BattleSnake] INFO Agent p2 passed submission validation
+2026-07-09 18:02:32 [BattleSnake] INFO Agent p1 passed submission validation
+2026-07-09 18:02:32 [BattleSnake] DEBUG Copying p2's codebase
+2026-07-09 18:02:33 [BattleSnake] DEBUG Copying p1's codebase
+2026-07-09 18:02:34 [BattleSnake] DEBUG Starting game servers
+2026-07-09 18:02:38 [BattleSnake] DEBUG Waiting for ports: {'p2': 8001, 'p1': 8002}
+2026-07-09 18:02:38 [BattleSnake] DEBUG All ports are ready
+2026-07-09 18:02:38 [BattleSnake] INFO Running game with players: ['p2', 'p1']
+2026-07-09 18:02:39 [PvpTournament] INFO In round 0, the winner is Tie.
+
+Summary of player performance:
+- p2: submission compiled successfully, score=0.0
+- p1: submission compiled successfully, score=0.0
+2026-07-09 18:02:39 [PvpTournament] DEBUG Metadata saved to /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709180227/metadata.json
+2026-07-09 18:02:39 [PvpTournament] INFO Copying round 0 log(s) to p2's container...
+2026-07-09 18:02:39 [PvpTournament] INFO Copying round 0 log(s) to p1's container...
+2026-07-09 18:02:39 [PvpTournament] INFO Compressing round 0 logs, this might take a while... (tar -zcf /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709180227/rounds/round_0.tar.gz -C /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709180227/rounds 0)
+2026-07-09 18:02:39 [PvpTournament] DEBUG Removing /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709180227/rounds/0
+2026-07-09 18:02:39 [PvpTournament] INFO Round 0 logs compressed successfully
+2026-07-09 18:02:39 [p2] INFO Committed changes for p2 for round 1
+2026-07-09 18:02:39 [p2] DEBUG Wrote changes for round 1 to /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709180227/players/p2/changes_r1.json
+2026-07-09 18:02:41 [p1] DEBUG ({'role': 'system', 'content': 'You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.'}, {'role': 'user', 'content': '## Game Description\n\nYou are competing in a small BattleSnake coding game.\n\nThis is the baseline raw-completion-evidence condition for a Telos protocol-effect pilot.\nYour bot controls a snake on an 11x11 board. Snakes collect food, avoid collisions, and try to\noutlast opponents. The goal is not a leaderboard score; the goal is a bounded,\nevidence-capturable agent attempt.\n\nIf you can identify a safe improvement to `main.py`, make it and document the reasoning briefly\nin `README_agent.md`. If you cannot identify a safe improvement quickly, write a short\n`README_agent.md` note explaining what you inspected and submit.\n\nDo not create a Telos proof receipt in this baseline condition. Raw logs, trajectory when\navailable, diff scope, arena/test result, cost data, and post-hoc adversarial review will be\ninterpreted by the harness after the run.\n\n## Workspace\n\nThe game codebase is in /workspace.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n\nThis is the baseline condition. Improve the bot if you can do so safely within the command\nbudget. Prefer a small, reversible, well-scoped edit over broad rewrites. If you cannot identify\na safe edit, leave a concise note in `README_agent.md` and submit.\n\nDo not create a Telos receipt in this condition. The harness will evaluate raw evidence after\nexecution.\n\nStore all changes inside /workspace or subdirectories.\n\nThe round has a limit of 8 commands. Submit before the limit.'})
+2026-07-09 18:02:41 [p1] DEBUG [system] You are a software engineering agent editing a small game bot through a shell.
+
+Issue one bash command at a time. Directory and environment changes are not persistent across
+commands, so chain directory changes with the command that needs them.
+
+When the work is complete, submit by running exactly:
+`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`
+on its own. After submitting, you cannot continue working this round.
+2026-07-09 18:02:41 [p1] DEBUG [user] ## Game Description
+
+You are competing in a small BattleSnake coding game.
+
+This is the baseline raw-completion-evidence condition for a Telos protocol-effect pilot.
+Your bot controls a snake on an 11x11 board. Snakes collect food, avoid collisions, and try to
+outlast opponents. The goal is not a leaderboard score; the goal is a bounded,
+evidence-capturable agent attempt.
+
+If you can identify a safe improvement to `main.py`, make it and document the reasoning briefly
+in `README_agent.md`. If you cannot identify a safe improvement quickly, write a short
+`README_agent.md` note explaining what you inspected and submit.
+
+Do not create a Telos proof receipt in this baseline condition. Raw logs, trajectory when
+available, diff scope, arena/test result, cost data, and post-hoc adversarial review will be
+interpreted by the harness after the run.
+
+## Workspace
+
+The game codebase is in /workspace.
+
+Useful paths:
+- `docs/`: game documentation
+- `/logs/`: prior edit and gameplay logs
+- `README_agent.md`: handoff notes for later teammates
+
+This is the baseline condition. Improve the bot if you can do so safely within the command
+budget. Prefer a small, reversible, well-scoped edit over broad rewrites. If you cannot identify
+a safe edit, leave a concise note in `README_agent.md` and submit.
+
+Do not create a Telos receipt in this condition. The harness will evaluate raw evidence after
+execution.
+
+Store all changes inside /workspace or subdirectories.
+
+The round has a limit of 8 commands. Submit before the limit.
+2026-07-09 18:02:43 [p1] DEBUG ({'role': 'exit', 'content': 'litellm.NotFoundError: Vertex_aiException - {\n  "error": {\n    "code": 404,\n    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",\n    "status": "NOT_FOUND"\n  }\n}\n', 'extra': {'exit_status': 'NotFoundError', 'submission': '', 'exception_str': 'litellm.NotFoundError: Vertex_aiException - {\n  "error": {\n    "code": 404,\n    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",\n    "status": "NOT_FOUND"\n  }\n}\n', 'traceback': 'Traceback (most recent call last):\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2496, in completion\n    response = client.post(url=url, headers=headers, json=data, logging_obj=logging_obj)  # type: ignore\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 950, in post\n    raise e\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 932, in post\n    response.raise_for_status()\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status\n    raise HTTPStatusError(message, request=request, response=self)\nhttpx.HTTPStatusError: Client error \'404 Not Found\' for url \'https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools:generateContent\'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion\n    model_response = vertex_chat_completion.completion(  # type: ignore\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2500, in completion\n    raise VertexAIError(\nlitellm.llms.vertex_ai.common_utils.VertexAIError: {\n  "error": {\n    "code": 404,\n    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",\n    "status": "NOT_FOUND"\n  }\n}\n\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 98, in run\n    self.step()\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 126, in step\n    return self.execute_actions(self.query())\n                                ^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 147, in query\n    message = self.model.query(self.messages)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 82, in query\n    for attempt in retry(logger=logger, abort_exceptions=self.abort_exceptions):\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 445, in __iter__\n    do = self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter\n    result = action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 400, in <lambda>\n    self._add_action_func(lambda rs: rs.outcome.result())\n                                     ^^^^^^^^^^^^^^^^^^^\n  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result\n    raise self._exception\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 84, in query\n    response = self._query(self._prepare_messages_for_api(messages), **kwargs)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 66, in _query\n    return litellm.completion(\n           ^^^^^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1382, in wrapper\n    raise e\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1251, in wrapper\n    result = original_function(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3973, in completion\n    raise exception_type(\n          ^^^^^^^^^^^^^^^\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2329, in exception_type\n    raise e\n  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1384, in exception_type\n    raise NotFoundError(\nlitellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_aiException - {\n  "error": {\n    "code": 404,\n    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",\n    "status": "NOT_FOUND"\n  }\n}\n\n'}},)
+2026-07-09 18:02:43 [p1] DEBUG [exit] litellm.NotFoundError: Vertex_aiException - {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+
+2026-07-09 18:02:43 [p1] CRITICAL Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2496, in completion
+    response = client.post(url=url, headers=headers, json=data, logging_obj=logging_obj)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 950, in post
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 932, in post
+    response.raise_for_status()
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools:generateContent'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2500, in completion
+    raise VertexAIError(
+litellm.llms.vertex_ai.common_utils.VertexAIError: {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 61, in run
+    result = self.agent.run(task="", **self.game_context.to_template_vars())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 98, in run
+    self.step()
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 126, in step
+    return self.execute_actions(self.query())
+                                ^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 147, in query
+    message = self.model.query(self.messages)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 82, in query
+    for attempt in retry(logger=logger, abort_exceptions=self.abort_exceptions):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 445, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 84, in query
+    response = self._query(self._prepare_messages_for_api(messages), **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 66, in _query
+    return litellm.completion(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1382, in wrapper
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1251, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3973, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2329, in exception_type
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1384, in exception_type
+    raise NotFoundError(
+litellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_aiException - {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+
+
+2026-07-09 18:02:43 [PvpTournament] CRITICAL Agent execution failed: Agent p1 failed with exit status: litellm.NotFoundError: Vertex_aiException - {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+ and exception: Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2496, in completion
+    response = client.post(url=url, headers=headers, json=data, logging_obj=logging_obj)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 950, in post
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 932, in post
+    response.raise_for_status()
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools:generateContent'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2500, in completion
+    raise VertexAIError(
+litellm.llms.vertex_ai.common_utils.VertexAIError: {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 61, in run
+    result = self.agent.run(task="", **self.game_context.to_template_vars())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 98, in run
+    self.step()
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 126, in step
+    return self.execute_actions(self.query())
+                                ^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 147, in query
+    message = self.model.query(self.messages)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 82, in query
+    for attempt in retry(logger=logger, abort_exceptions=self.abort_exceptions):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 445, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 84, in query
+    response = self._query(self._prepare_messages_for_api(messages), **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 66, in _query
+    return litellm.completion(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1382, in wrapper
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1251, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3973, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2329, in exception_type
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1384, in exception_type
+    raise NotFoundError(
+litellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_aiException - {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/codeclash/tournaments/pvp.py", line 147, in run_edit_phase
+    future.result()
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/codeclash/tournaments/pvp.py", line 158, in run_agent
+    agent.run()
+  File "/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 86, in run
+    raise RuntimeError(f"Agent {self.name} failed with exit status: {exit_status} and exception: {exc_message}")
+RuntimeError: Agent p1 failed with exit status: litellm.NotFoundError: Vertex_aiException - {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+ and exception: Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2496, in completion
+    response = client.post(url=url, headers=headers, json=data, logging_obj=logging_obj)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 950, in post
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/custom_httpx/http_handler.py", line 932, in post
+    response.raise_for_status()
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/httpx/_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '404 Not Found' for url 'https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools:generateContent'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3138, in completion
+    model_response = vertex_chat_completion.completion(  # type: ignore
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/llms/vertex_ai/gemini/vertex_and_google_ai_studio_gemini.py", line 2500, in completion
+    raise VertexAIError(
+litellm.llms.vertex_ai.common_utils.VertexAIError: {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 61, in run
+    result = self.agent.run(task="", **self.game_context.to_template_vars())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 98, in run
+    self.step()
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 126, in step
+    return self.execute_actions(self.query())
+                                ^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/agents/default.py", line 147, in query
+    message = self.model.query(self.messages)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 82, in query
+    for attempt in retry(logger=logger, abort_exceptions=self.abort_exceptions):
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 445, in __iter__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/tenacity/__init__.py", line 400, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+                                     ^^^^^^^^^^^^^^^^^^^
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 84, in query
+    response = self._query(self._prepare_messages_for_api(messages), **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/models/litellm_model.py", line 66, in _query
+    return litellm.completion(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1382, in wrapper
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/utils.py", line 1251, in wrapper
+    result = original_function(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/main.py", line 3973, in completion
+    raise exception_type(
+          ^^^^^^^^^^^^^^^
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 2329, in exception_type
+    raise e
+  File "/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/litellm/litellm_core_utils/exception_mapping_utils.py", line 1384, in exception_type
+    raise NotFoundError(
+litellm.exceptions.NotFoundError: litellm.NotFoundError: Vertex_aiException - {
+  "error": {
+    "code": 404,
+    "message": "Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.",
+    "status": "NOT_FOUND"
+  }
+}
+
+
+2026-07-09 18:02:43 [PvpTournament] DEBUG Metadata saved to /private/tmp/telos-codeclash-protocol-effect-condition-separated/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260709180227/metadata.json

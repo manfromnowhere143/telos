@@ -1,0 +1,141 @@
+{
+  "name": "PvpTournament",
+  "tournament_id": "PvpTournament.BattleSnake.260709180244",
+  "config": {
+    "game": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "tournament": {
+      "rounds": 1
+    },
+    "players": [
+      {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n- `telos_completion_receipt.json`: required completion receipt for this condition\n\nThis is the Telos receipt-enforced condition. Improve the bot if you can do so safely within the\ncommand budget. Prefer a small, reversible, well-scoped edit over broad rewrites. If you cannot\nidentify a safe edit, leave a concise note in `README_agent.md`.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. The future wrapper\nwill copy it to the raw proof directory and run `python3 scripts/validate_receipts.py` on that\ndirectory before accepting verified completion. Missing or invalid receipt means task-level\nevidence failure.\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 8,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096
+            }
+          }
+        }
+      },
+      {
+        "agent": "dummy",
+        "name": "p2"
+      }
+    ],
+    "prompts": {
+      "game_description": "You are competing in a small BattleSnake coding game.\n\nThis is the Telos receipt-enforced condition for a protocol-effect pilot. Your bot controls a\nsnake on an 11x11 board. Snakes collect food, avoid collisions, and try to outlast opponents.\nThe goal is not a leaderboard score; the goal is a bounded, evidence-capturable agent attempt\nwhose completion can be accepted only with a valid Telos receipt.\n\nIf you can identify a safe improvement to `main.py`, make it and document the reasoning briefly\nin `README_agent.md`. If you cannot identify a safe improvement quickly, write a short\n`README_agent.md` note explaining what you inspected.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. It must describe\nthe stated goal, acceptance criteria, evidence artifacts, falsifiers, and the exact files you\nchanged or intentionally left unchanged. The future Telos wrapper will copy this into the raw\nproof packet and will reject verified completion unless the receipt validates."
+    }
+  },
+  "created_timestamp": 1783609364,
+  "aws": {},
+  "round_stats": {
+    "0": {
+      "round_num": 0,
+      "winner": "p2",
+      "details": [],
+      "scores": {
+        "p1": 0.0,
+        "p2": 1
+      },
+      "player_stats": {
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 1,
+          "valid_submit": true
+        },
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 0.0,
+          "valid_submit": true
+        }
+      }
+    }
+  },
+  "game": {
+    "name": "BattleSnake",
+    "config": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "game_id": "PvpTournament.BattleSnake.260709180244",
+    "created_timestamp": 1783609364
+  },
+  "agents": [
+    {
+      "name": "p2",
+      "player_unique_id": "5b2629af-7fd1-4da8-9148-b4fc9495cd86",
+      "created_timestamp": 1783609367,
+      "config": {
+        "agent": "dummy",
+        "name": "p2"
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260709180244.p2",
+      "round_tags": {
+        "0": "5b2629af-7fd1-4da8-9148-b4fc9495cd86-round-0",
+        "1": "5b2629af-7fd1-4da8-9148-b4fc9495cd86-round-1"
+      },
+      "agent_stats": {}
+    },
+    {
+      "name": "p1",
+      "player_unique_id": "8bdfb847-0428-41b4-9272-b04de49a39bc",
+      "created_timestamp": 1783609365,
+      "config": {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n- `telos_completion_receipt.json`: required completion receipt for this condition\n\nThis is the Telos receipt-enforced condition. Improve the bot if you can do so safely within the\ncommand budget. Prefer a small, reversible, well-scoped edit over broad rewrites. If you cannot\nidentify a safe edit, leave a concise note in `README_agent.md`.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. The future wrapper\nwill copy it to the raw proof directory and run `python3 scripts/validate_receipts.py` on that\ndirectory before accepting verified completion. Missing or invalid receipt means task-level\nevidence failure.\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 8,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096
+            }
+          }
+        }
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260709180244.p1",
+      "round_tags": {
+        "0": "8bdfb847-0428-41b4-9272-b04de49a39bc-round-0"
+      },
+      "agent_stats": {
+        "1": {
+          "exit_status": "litellm.NotFoundError: Vertex_aiException - {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"Publisher model `projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-3.1-pro-preview-customtools` was not found or your project does not have access to it. Ensure you are using a valid model name and that the model is available in the specified region. For more information, see: https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations.\",\n    \"status\": \"NOT_FOUND\"\n  }\n}\n",
+          "cost": 0.0,
+          "api_calls": 1
+        }
+      }
+    }
+  ]
+}

@@ -112,8 +112,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter56_provider_auth_recovery_for_paid_protocol_effect` | pass | local ADC can be repaired non-interactively and the selected Vertex endpoint answers a minimal access probe without executing either paid BattleSnake row | retry the exact two-row paid pilot under the recovered ADC path |
 | `iter57_provider_compatible_paid_execution_after_auth_recovery` | blocked | the retry reached a selected baseline row but made zero provider calls because the pinned CodeClash venv cannot import `google.auth`; the Telos row and all excluded rows remained unattempted | recover the CodeClash Vertex dependency without spend before retrying the exact two-row paid pilot |
 | `iter58_codeclash_vertex_dependency_recovery` | pass | the local CodeClash virtualenv can now import `google.auth` while the pinned checkout and frozen provider configs remain unchanged | retry the exact two-row paid pilot after dependency recovery |
+| `iter59_provider_compatible_paid_execution_after_dependency_recovery` | blocked | both selected BattleSnake rows executed, but each provider call returned a redacted Vertex model-not-found-or-access-denied response before verified-completion evidence could be accepted; excluded pairs, GPU, cloud runner, and Sentinel resources remained untouched | recover the provider model binding before retrying the same two-row pilot |
 
-The next experiment may execute only the two selected provider-compatible BattleSnake rows under
-the frozen `16` call / `$10.00` spend ceilings. Executing excluded pairs, GPU use, Sentinel
-resource modification, production/live-domain changes, and unsupported benchmark/model claims
-remain forbidden.
+The next experiment may recover only the provider model binding under a `2` call / `$0.05` spend
+ceiling. Executing BattleSnake rows, executing excluded pairs, using GPU, modifying Sentinel
+resources, changing production/live domains, and making unsupported benchmark/model claims remain
+forbidden.

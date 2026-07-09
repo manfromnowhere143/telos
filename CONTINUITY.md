@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/HYPOTHESIS.md`
+- `experiments/iter60_provider_model_binding_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -283,11 +283,15 @@ Current claim:
   `google.auth`, the pinned CodeClash commit and frozen provider configs remained unchanged, no
   paid BattleSnake row ran, no excluded pair ran, no provider model call or spend occurred, no GPU
   was used, no Sentinel-named resources were modified, and no benchmark/model result is claimed.
+- `iter59_provider_compatible_paid_execution_after_dependency_recovery` blocked after executing
+  both selected BattleSnake rows: both rows made one provider call, recorded zero cost in
+  CodeClash metadata, returned a redacted `vertex_model_not_found_or_access_denied` provider
+  response, produced no verified-completion evidence, executed no excluded pairs, used no GPU, and
+  modified no Sentinel-named resources.
 - No model or benchmark result is claimed yet.
-- The next gate may execute only the two selected provider-compatible BattleSnake condition rows
-  under the frozen `16` invocation and `$10.00` spend ceilings. Excluded-pair execution, GPU use,
-  Sentinel resource modification, production/live-domain changes, and benchmark/model overclaims
-  remain forbidden.
+- The next gate may recover only the provider model binding under a `2` invocation and `$0.05`
+  spend ceiling. BattleSnake row execution, excluded-pair execution, GPU use, Sentinel resource
+  modification, production/live-domain changes, and benchmark/model overclaims remain forbidden.
 
 ## Required Verification
 
@@ -410,6 +414,8 @@ python3 scripts/validate_receipts.py experiments/iter57_provider_compatible_paid
 python3 scripts/audit_provider_compatible_paid_execution_after_auth_recovery.py
 python3 scripts/validate_receipts.py experiments/iter58_codeclash_vertex_dependency_recovery/proof
 python3 scripts/audit_codeclash_vertex_dependency_recovery.py
+python3 scripts/validate_receipts.py experiments/iter59_provider_compatible_paid_execution_after_dependency_recovery/proof
+python3 scripts/audit_provider_compatible_paid_execution_after_dependency_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
