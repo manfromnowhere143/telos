@@ -63,10 +63,41 @@ and an adversarial review pass.
   [`experiments/iter21_opponent_collision_control`](experiments/iter21_opponent_collision_control/RESULT.md).
 - Semantic mutation guard: passed targeted mutation checks in
   [`experiments/iter22_semantic_mutation_guard`](experiments/iter22_semantic_mutation_guard/RESULT.md).
-- Current gate: tail semantics falsification, pre-registered in
-  [`experiments/iter23_tail_semantics_falsification`](experiments/iter23_tail_semantics_falsification/HYPOTHESIS.md).
+- Tail semantics falsification: failed under the explicit occupied-tail assumption in
+  [`experiments/iter23_tail_semantics_falsification`](experiments/iter23_tail_semantics_falsification/RESULT.md).
+- Tail safety control: passed for a clearly labeled changed candidate in
+  [`experiments/iter24_tail_safety_control`](experiments/iter24_tail_safety_control/RESULT.md).
+- Tail safety mutation guard: failed because the own-tail mutant did not remove the redundant
+  self-snake fallback path in
+  [`experiments/iter25_tail_safety_mutation_guard`](experiments/iter25_tail_safety_mutation_guard/RESULT.md).
+- Own-tail redundancy mutation guard: passed with a compound own-tail mutant in
+  [`experiments/iter26_own_tail_redundancy_mutation_guard`](experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md).
+- Semantic claim boundary matrix: passed with original/candidate/failure/verifier rows separated in
+  [`experiments/iter27_semantic_claim_boundary_matrix`](experiments/iter27_semantic_claim_boundary_matrix/RESULT.md).
+- Public claim surface guard: passed against README/report/next-phase/continuity prose in
+  [`experiments/iter28_public_claim_surface_guard`](experiments/iter28_public_claim_surface_guard/RESULT.md).
+- Public claim surface negative guard: passed with four generated overclaim fixtures in
+  [`experiments/iter29_public_claim_surface_negative_guard`](experiments/iter29_public_claim_surface_negative_guard/RESULT.md).
+- Boundary matrix schema guard: passed with five malformed matrix fixtures in
+  [`experiments/iter30_boundary_matrix_schema_guard`](experiments/iter30_boundary_matrix_schema_guard/RESULT.md).
+- Claim boundary release manifest: passed with a 33-artifact hash-checked proof packet in
+  [`experiments/iter31_claim_boundary_release_manifest`](experiments/iter31_claim_boundary_release_manifest/RESULT.md).
+- Claim boundary release manifest negative guard: passed with five malformed manifest fixtures in
+  [`experiments/iter32_claim_boundary_release_manifest_negative_guard`](experiments/iter32_claim_boundary_release_manifest_negative_guard/RESULT.md).
+- Release manifest public sync guard: passed against README/report/next-phase/continuity prose in
+  [`experiments/iter33_release_manifest_public_sync_guard`](experiments/iter33_release_manifest_public_sync_guard/RESULT.md).
+- Release manifest public sync negative guard: passed with five malformed public-prose fixtures in
+  [`experiments/iter34_release_manifest_public_sync_negative_guard`](experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md).
+- Current gate: release manifest self-coverage guard, pre-registered in
+  [`experiments/iter35_release_manifest_self_coverage_guard`](experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
+
+Claim-boundary reviewer entry point:
+[`experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json).
+It indexes the current claim-boundary proof packet and keeps failed/null rows, changed candidates,
+and no-claim exclusions visible. It is not a leaderboard, SWE-bench, production, live-domain, or
+model-superiority result.
 
 This repo deliberately separates the research line from Sentinel. Sentinel proved a standard:
 frozen bars, public baselines, nulls published, raw evidence committed, corrections on the record.
@@ -115,7 +146,45 @@ Provider final inspection control: [`experiments/iter19_provider_final_inspectio
 Behavior semantic verification: [`experiments/iter20_behavior_semantic_verification/RESULT.md`](experiments/iter20_behavior_semantic_verification/RESULT.md).
 Opponent collision control: [`experiments/iter21_opponent_collision_control/RESULT.md`](experiments/iter21_opponent_collision_control/RESULT.md).
 Semantic mutation guard: [`experiments/iter22_semantic_mutation_guard/RESULT.md`](experiments/iter22_semantic_mutation_guard/RESULT.md).
-Tail semantics falsification: [`experiments/iter23_tail_semantics_falsification/HYPOTHESIS.md`](experiments/iter23_tail_semantics_falsification/HYPOTHESIS.md).
+Tail semantics falsification: [`experiments/iter23_tail_semantics_falsification/RESULT.md`](experiments/iter23_tail_semantics_falsification/RESULT.md).
+Tail safety control: [`experiments/iter24_tail_safety_control/RESULT.md`](experiments/iter24_tail_safety_control/RESULT.md).
+Tail safety mutation guard: [`experiments/iter25_tail_safety_mutation_guard/RESULT.md`](experiments/iter25_tail_safety_mutation_guard/RESULT.md).
+Own-tail redundancy mutation guard: [`experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md`](experiments/iter26_own_tail_redundancy_mutation_guard/RESULT.md).
+Semantic claim boundary matrix: [`experiments/iter27_semantic_claim_boundary_matrix/RESULT.md`](experiments/iter27_semantic_claim_boundary_matrix/RESULT.md).
+Public claim surface guard: [`experiments/iter28_public_claim_surface_guard/RESULT.md`](experiments/iter28_public_claim_surface_guard/RESULT.md).
+Public claim surface negative guard: [`experiments/iter29_public_claim_surface_negative_guard/RESULT.md`](experiments/iter29_public_claim_surface_negative_guard/RESULT.md).
+Boundary matrix schema guard: [`experiments/iter30_boundary_matrix_schema_guard/RESULT.md`](experiments/iter30_boundary_matrix_schema_guard/RESULT.md).
+Claim boundary release manifest: [`experiments/iter31_claim_boundary_release_manifest/RESULT.md`](experiments/iter31_claim_boundary_release_manifest/RESULT.md).
+Claim boundary release manifest negative guard: [`experiments/iter32_claim_boundary_release_manifest_negative_guard/RESULT.md`](experiments/iter32_claim_boundary_release_manifest_negative_guard/RESULT.md).
+Release manifest public sync guard: [`experiments/iter33_release_manifest_public_sync_guard/RESULT.md`](experiments/iter33_release_manifest_public_sync_guard/RESULT.md).
+Release manifest public sync negative guard: [`experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md`](experiments/iter34_release_manifest_public_sync_negative_guard/RESULT.md).
+Release manifest self-coverage guard: [`experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md`](experiments/iter35_release_manifest_self_coverage_guard/HYPOTHESIS.md).
+
+## Current Evidence Arc
+
+```mermaid
+flowchart LR
+  I21["iter21<br/>opponent-body pass<br/>tail caveat"] --> I22["iter22<br/>mutation guard pass"]
+  I22 --> I23["iter23<br/>occupied-tail failure"]
+  I23 --> I24["iter24<br/>changed candidate pass"]
+  I24 --> I25["iter25<br/>own-tail mutant missed"]
+  I25 --> I26["iter26<br/>compound guard pass"]
+  I26 --> I27["iter27<br/>claim matrix pass"]
+  I27 --> I28["iter28<br/>public prose guard pass"]
+  I28 --> I29["iter29<br/>negative guard pass"]
+  I29 --> I30["iter30<br/>schema guard pass"]
+  I30 --> I31["iter31<br/>release manifest pass"]
+  I31 --> I32["iter32<br/>manifest negative guard pass"]
+  I32 --> I33["iter33<br/>public sync pass"]
+  I33 --> I34["iter34<br/>public sync negative guard pass"]
+  I34 --> I35["iter35<br/>self-coverage pending"]
+  classDef pass fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
+  classDef fail fill:#fde8e8,stroke:#c62828,color:#3b0d0d;
+  classDef pending fill:#fff4d6,stroke:#8a6d1d,color:#382900;
+  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34 pass;
+  class I23,I25 fail;
+  class I35 pending;
+```
 
 ## Candidate Target Families
 
@@ -218,6 +287,30 @@ python3 scripts/validate_receipts.py experiments/iter21_opponent_collision_contr
 python3 scripts/audit_opponent_collision_control.py
 python3 scripts/validate_receipts.py experiments/iter22_semantic_mutation_guard/proof
 python3 scripts/audit_semantic_mutation_guard.py
+python3 scripts/validate_receipts.py experiments/iter23_tail_semantics_falsification/proof
+python3 scripts/audit_tail_semantics_falsification.py
+python3 scripts/validate_receipts.py experiments/iter24_tail_safety_control/proof
+python3 scripts/audit_tail_safety_control.py
+python3 scripts/validate_receipts.py experiments/iter25_tail_safety_mutation_guard/proof
+python3 scripts/audit_tail_safety_mutation_guard.py
+python3 scripts/validate_receipts.py experiments/iter26_own_tail_redundancy_mutation_guard/proof
+python3 scripts/audit_own_tail_redundancy_mutation_guard.py
+python3 scripts/validate_receipts.py experiments/iter27_semantic_claim_boundary_matrix/proof
+python3 scripts/audit_semantic_claim_boundary_matrix.py
+python3 scripts/validate_receipts.py experiments/iter28_public_claim_surface_guard/proof
+python3 scripts/audit_public_claim_surface_guard.py
+python3 scripts/validate_receipts.py experiments/iter29_public_claim_surface_negative_guard/proof
+python3 scripts/audit_public_claim_surface_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter30_boundary_matrix_schema_guard/proof
+python3 scripts/audit_boundary_matrix_schema_guard.py
+python3 scripts/validate_receipts.py experiments/iter31_claim_boundary_release_manifest/proof
+python3 scripts/audit_claim_boundary_release_manifest.py
+python3 scripts/validate_receipts.py experiments/iter32_claim_boundary_release_manifest_negative_guard/proof
+python3 scripts/audit_claim_boundary_release_manifest_negative_guard.py
+python3 scripts/validate_receipts.py experiments/iter33_release_manifest_public_sync_guard/proof
+python3 scripts/audit_release_manifest_public_sync_guard.py
+python3 scripts/validate_receipts.py experiments/iter34_release_manifest_public_sync_negative_guard/proof
+python3 scripts/audit_release_manifest_public_sync_negative_guard.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

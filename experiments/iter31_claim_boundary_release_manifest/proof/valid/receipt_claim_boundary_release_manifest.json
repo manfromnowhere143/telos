@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The release manifest validates against committed proof artifacts.",
+    "The manifest includes explicit failed/null gates.",
+    "All artifact hashes match.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-claim-boundary-release-manifest",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json",
+      "kind": "artifact",
+      "notes": "Reviewer-facing manifest with artifact hashes and claim boundaries.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter31_claim_boundary_release_manifest/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records manifest validation and claim-boundary invariants.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter31_claim_boundary_release_manifest/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the manifest boundary and no-overclaim constraints.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if required source proof artifacts cannot be loaded.",
+    "The result must fail if any referenced artifact hash is stale.",
+    "The result must fail if failed/null gates are hidden.",
+    "The result must fail if original provider logic and changed candidate logic are conflated.",
+    "The result must not widen into benchmark, production, live-domain, or model-superiority claims."
+  ],
+  "receipt_id": "iter31-claim-boundary-release-manifest-pass",
+  "sha256": "2965aefc0a4dfcd9907d19842d1d4f5c4bdd780c685ed142312c94eb64552acf",
+  "stated_goal": "Publish a reviewer-facing manifest for the claim-boundary proof packet.",
+  "status": "pass",
+  "task_id": "telos:iter31_claim_boundary_release_manifest@iter27_iter30_claim_boundary"
+}

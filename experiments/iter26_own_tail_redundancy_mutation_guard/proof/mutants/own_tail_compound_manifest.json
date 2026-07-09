@@ -1,0 +1,18 @@
+{
+  "compound_mutant": true,
+  "patches": [
+    {
+      "needle": "if next_pos in my_body:",
+      "patch_id": "direct_own_tail_exclusion",
+      "replacement": "if next_pos in my_body[:-1]:"
+    },
+    {
+      "needle": "opponents = game_state['board']['snakes']",
+      "patch_id": "self_snake_fallback_removed",
+      "replacement": "opponents = [snake for snake in game_state['board']['snakes'] if snake.get('id') != game_state['you'].get('id')]"
+    }
+  ],
+  "schema_version": "telos.own_tail_redundancy_mutation.v1",
+  "source_candidate_path": "experiments/iter24_tail_safety_control/proof/candidate/main.py",
+  "tail_occupancy_assumption": "tail_remains_occupied"
+}

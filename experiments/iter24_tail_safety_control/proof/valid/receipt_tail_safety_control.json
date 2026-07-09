@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The verifier records whether original or changed candidate logic is under test.",
+    "The verifier records the exact tail-occupancy assumption.",
+    "The changed candidate blocks occupied tail moves when safer alternatives exist.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-tail-safety-verifier",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter24_tail_safety_control/proof/tail_safety_report.json",
+      "kind": "test",
+      "notes": "Same four iter23 cases run against original logic and changed candidate logic.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter24_tail_safety_control/proof/candidate/main.py",
+      "kind": "artifact",
+      "notes": "Changed candidate source, not the original iter21 submission.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter24_tail_safety_control/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the original/candidate boundary and tail assumption.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if either source under test cannot be loaded locally.",
+    "The result must fail if the changed candidate is presented as the original iter21 bot.",
+    "The result must fail if an occupied tail move remains in the candidate safe-move list.",
+    "The result must fail if the tail-occupancy assumption is hidden.",
+    "The result must not treat provider game score as verifier evidence."
+  ],
+  "receipt_id": "iter24-tail-safety-control-pass",
+  "sha256": "ffbd5e4429082eb6170638e0ecd085b3717025979d640d37eda1a695a90d303d",
+  "stated_goal": "Test a clearly labeled changed candidate that treats own and opponent tails as occupied under an explicit tail-remains-occupied assumption.",
+  "status": "pass",
+  "task_id": "telos:iter24_tail_safety_control@iter23_tail_semantics_falsification"
+}

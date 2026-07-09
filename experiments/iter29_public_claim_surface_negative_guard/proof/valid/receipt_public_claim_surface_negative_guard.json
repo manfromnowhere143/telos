@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The real public prose still passes the guard.",
+    "Every negative fixture fails for the expected reason.",
+    "The guard records the exact overclaim detected for each fixture.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-public-claim-negative-fixtures",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter29_public_claim_surface_negative_guard/proof/negative_guard_report.json",
+      "kind": "test",
+      "notes": "Real public prose plus known overclaim fixtures evaluated by the guard.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter29_public_claim_surface_negative_guard/proof/fixtures/",
+      "kind": "artifact",
+      "notes": "Generated fixture prose; real public prose is not mutated.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter29_public_claim_surface_negative_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records fixture coverage and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the iter28 report or iter27 matrix cannot be loaded.",
+    "The result must fail if real public prose no longer passes.",
+    "The result must fail if any overclaim fixture passes.",
+    "The result must fail if fixture prose mutates real public prose.",
+    "The result must not widen into benchmark or production claims."
+  ],
+  "receipt_id": "iter29-public-claim-surface-negative-guard-pass",
+  "sha256": "d697abae1c4beeafc1098b83e1875ddb0ab51b01021398143be8319647af9ff4",
+  "stated_goal": "Prove the public-claim guard catches known overclaim fixtures.",
+  "status": "pass",
+  "task_id": "telos:iter29_public_claim_surface_negative_guard@iter28_public_claim_surface_guard"
+}

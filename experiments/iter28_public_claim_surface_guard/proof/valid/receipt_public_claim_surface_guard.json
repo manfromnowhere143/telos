@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The guard reads the committed iter27 matrix.",
+    "Every checked public prose file exists.",
+    "Failed/null gates remain visible in public prose.",
+    "Original provider logic and changed candidate logic are not conflated in public prose.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-public-claim-surface-guard",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter28_public_claim_surface_guard/proof/public_claim_surface_report.json",
+      "kind": "test",
+      "notes": "Public prose checks against the iter27 claim-boundary matrix.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter27_semantic_claim_boundary_matrix/proof/claim_boundary_matrix.json",
+      "kind": "artifact",
+      "notes": "Machine-readable boundary used as the source of truth.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter28_public_claim_surface_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review states public-surface claim boundaries.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the claim matrix cannot be loaded.",
+    "The result must block if required public prose files are missing.",
+    "The result must fail if public prose hides failed/null gates.",
+    "The result must fail if public prose implies original iter21 occupied-tail safety.",
+    "The result must fail if public prose widens into benchmark or production claims."
+  ],
+  "receipt_id": "iter28-public-claim-surface-guard-pass",
+  "sha256": "f805477e67bee23449a03f26401dac4596182c16b34f5377acec84e72d65f9f1",
+  "stated_goal": "Audit README and report prose against the semantic claim-boundary matrix without widening into benchmark, production, or model claims.",
+  "status": "pass",
+  "task_id": "telos:iter28_public_claim_surface_guard@iter27_semantic_claim_boundary_matrix"
+}

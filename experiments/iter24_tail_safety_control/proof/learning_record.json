@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter24_tail_safety_control/proof/run_summary.json",
+    "experiments/iter24_tail_safety_control/proof/tail_safety_report.json",
+    "experiments/iter24_tail_safety_control/proof/command_output.txt",
+    "experiments/iter24_tail_safety_control/proof/review.md",
+    "experiments/iter24_tail_safety_control/proof/candidate/main.py",
+    "experiments/iter24_tail_safety_control/proof/valid/receipt_tail_safety_control.json"
+  ],
+  "experiment_id": "iter24_tail_safety_control",
+  "insight": "Separating original submitted logic from a changed candidate preserves the iter23 failure while proving a local occupied-tail control can pass under tail_remains_occupied.",
+  "next_action": "pre-register a tail-safety mutation guard that proves the occupied-tail verifier fails when the candidate reverts to tail-excluding checks",
+  "result_path": "experiments/iter24_tail_safety_control/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

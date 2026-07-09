@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The clean iter24 candidate imports locally and passes the four frozen cases.",
+    "The compound own-tail mutant fails the own occupied-tail case.",
+    "The compound own-tail mutant leaves the non-tail controls passing.",
+    "The verifier records the exact tail-occupancy assumption.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-own-tail-redundancy-mutator",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter26_own_tail_redundancy_mutation_guard/proof/redundancy_report.json",
+      "kind": "test",
+      "notes": "Clean candidate and compound own-tail mutant run against frozen cases.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter26_own_tail_redundancy_mutation_guard/proof/mutants/own_tail_compound_exclusion.py",
+      "kind": "artifact",
+      "notes": "Compound mutant removes direct own-tail and self-snake fallback protection.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter26_own_tail_redundancy_mutation_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the compound mutation and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the clean candidate cannot be loaded locally.",
+    "The result must fail if the clean candidate no longer passes the frozen cases.",
+    "The result must fail if the compound own-tail mutant escapes the own occupied-tail target case.",
+    "The result must fail if the compound mutation is hidden.",
+    "The result must not treat provider game score as verifier evidence."
+  ],
+  "receipt_id": "iter26-own-tail-redundancy-mutation-guard-pass",
+  "sha256": "8e6cb8b11f9e0ec8809f443cf2b4902f40c39ae7b70fa0c41a172b1de7626903",
+  "stated_goal": "Create a compound own-tail mutant that removes both direct own-tail checking and the self-snake fallback path, then verify the occupied-tail case detects it.",
+  "status": "pass",
+  "task_id": "telos:iter26_own_tail_redundancy_mutation_guard@iter25_tail_safety_mutation_guard"
+}

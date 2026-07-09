@@ -1,0 +1,72 @@
+{
+  "required_exclusions": [
+    "no_codeclash_leaderboard_claim",
+    "no_model_superiority_claim",
+    "no_production_or_live_domain_claim",
+    "no_provider_game_score_as_verifier_evidence",
+    "no_swebench_claim"
+  ],
+  "required_invariants": [
+    "row_count_equals_rows_length",
+    "included_experiments_exactly_iter20_through_iter26",
+    "evidence_paths_exist",
+    "original_provider_logic_and_changed_candidate_are_disjoint",
+    "failed_or_null_rows_are_listed_and_failure_visible",
+    "original_iter21_occupied_tail_safety_claimed_is_false",
+    "failed_null_gates_hidden_is_false",
+    "no_leaderboard_swebench_production_live_domain_model_superiority_claim",
+    "no_provider_game_score_used_as_verifier_evidence"
+  ],
+  "root_required_fields": [
+    "changed_candidate_claim_ids",
+    "cloud_or_gpu_used",
+    "experiment_id",
+    "failed_null_gates_hidden",
+    "failed_or_null_claim_ids",
+    "included_experiments",
+    "leaderboard_or_swebench_claimed",
+    "local_cpu_only",
+    "original_iter21_occupied_tail_safety_claimed",
+    "original_provider_logic_claim_ids",
+    "production_or_live_domain_changed",
+    "provider_api_calls",
+    "provider_game_score_used_as_verifier_evidence",
+    "provider_spend_usd",
+    "row_count",
+    "rows",
+    "schema_version",
+    "status",
+    "verifier_strength_claim_ids"
+  ],
+  "row_required_fields": [
+    "boundary",
+    "changed_candidate",
+    "claim",
+    "claim_id",
+    "does_not_claim",
+    "evidence_paths",
+    "experiment_id",
+    "failure_visible",
+    "original_provider_logic",
+    "source_summary_clean_pass",
+    "source_summary_status",
+    "status",
+    "subject_id",
+    "subject_type",
+    "verifier_strength_evidence"
+  ],
+  "schema_version": "telos.boundary_matrix_schema_guard.schema.v1",
+  "valid_root_statuses": [
+    "blocked",
+    "fail",
+    "pass"
+  ],
+  "valid_row_statuses": [
+    "blocked",
+    "null",
+    "pass",
+    "pending"
+  ],
+  "validated_schema": "telos.semantic_claim_boundary_matrix.v1",
+  "validator": "scripts/verify_boundary_matrix_schema_guard.py"
+}

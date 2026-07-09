@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "No provider, API, GPU, or cloud spend occurs.",
+    "The real release manifest still passes its audit.",
+    "Every malformed manifest fixture fails for the expected reason.",
+    "Fixture files remain separate from the real manifest.",
+    "Command output and proof artifacts are committed.",
+    "No leaderboard, SWE-bench, production, live-domain, or model-superiority claim is made."
+  ],
+  "agent_id": "codex-local-release-manifest-negative-fixtures",
+  "benchmark_id": "telos_codeclash_battlesnake_semantic_slice",
+  "evidence": [
+    {
+      "artifact": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/negative_guard_report.json",
+      "kind": "test",
+      "notes": "Real manifest audit plus malformed manifest fixtures.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/fixtures/",
+      "kind": "artifact",
+      "notes": "Generated malformed fixture manifests; real manifest is not mutated.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records fixture coverage and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "kind": "live_check",
+      "notes": "No production or live-domain behavior changed.",
+      "status": "not_applicable"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if the iter31 release manifest cannot be loaded.",
+    "The result must fail if the real release manifest no longer passes its audit.",
+    "The result must fail if any malformed manifest fixture passes.",
+    "The result must fail if fixtures mutate the real manifest.",
+    "The result must not widen into benchmark or production claims."
+  ],
+  "receipt_id": "iter32-claim-boundary-release-manifest-negative-guard-pass",
+  "sha256": "9d805dc79eaecfaad3bd25afcf5b5fb409a0a09da3faf1668aec5856903eec3a",
+  "stated_goal": "Prove the release-manifest audit rejects malformed manifest fixtures.",
+  "status": "pass",
+  "task_id": "telos:iter32_claim_boundary_release_manifest_negative_guard@iter31_release_manifest"
+}

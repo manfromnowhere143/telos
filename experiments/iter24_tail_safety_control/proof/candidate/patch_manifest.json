@@ -1,0 +1,20 @@
+{
+  "candidate_not_original_submission": true,
+  "patches": [
+    {
+      "description": "Treat the own tail as occupied under tail_remains_occupied.",
+      "needle": "if next_pos in my_body[:-1]:",
+      "patch_id": "own_body_include_tail",
+      "replacement": "if next_pos in my_body:"
+    },
+    {
+      "description": "Treat opponent tails as occupied under tail_remains_occupied.",
+      "needle": "if next_pos in snake['body'][:-1]:",
+      "patch_id": "snake_body_include_tail",
+      "replacement": "if next_pos in snake['body']:"
+    }
+  ],
+  "schema_version": "telos.tail_safety_control.candidate_patch.v1",
+  "source_main_path": "experiments/iter21_opponent_collision_control/proof/reconstructed/main.py",
+  "tail_occupancy_assumption": "tail_remains_occupied"
+}

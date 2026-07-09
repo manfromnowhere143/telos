@@ -1,0 +1,217 @@
+{
+  "candidate": {
+    "case_count": 4,
+    "cases": [
+      {
+        "case_family": "own_tail",
+        "case_id": "own-tail-left-occupied-risk",
+        "expected_safe_moves": [
+          "up",
+          "right"
+        ],
+        "forbidden_move": "left",
+        "forbidden_move_observed_safe": false,
+        "forbidden_move_selected": false,
+        "observed_safe_moves": [
+          "up",
+          "right"
+        ],
+        "passed": true,
+        "selected_move": "up",
+        "stdout_lines": [
+          "MOVE 24: up"
+        ],
+        "tail_occupancy_assumption": "tail_remains_occupied"
+      },
+      {
+        "case_family": "opponent_tail",
+        "case_id": "opponent-tail-left-occupied-risk",
+        "expected_safe_moves": [
+          "up",
+          "right"
+        ],
+        "forbidden_move": "left",
+        "forbidden_move_observed_safe": false,
+        "forbidden_move_selected": false,
+        "observed_safe_moves": [
+          "up",
+          "right"
+        ],
+        "passed": true,
+        "selected_move": "up",
+        "stdout_lines": [
+          "MOVE 24: up"
+        ],
+        "tail_occupancy_assumption": "tail_remains_occupied"
+      },
+      {
+        "case_family": "control_non_tail",
+        "case_id": "own-non-tail-left-control",
+        "expected_safe_moves": [
+          "up",
+          "right"
+        ],
+        "forbidden_move": "left",
+        "forbidden_move_observed_safe": false,
+        "forbidden_move_selected": false,
+        "observed_safe_moves": [
+          "up",
+          "right"
+        ],
+        "passed": true,
+        "selected_move": "up",
+        "stdout_lines": [
+          "MOVE 24: up"
+        ],
+        "tail_occupancy_assumption": "tail_remains_occupied"
+      },
+      {
+        "case_family": "control_non_tail",
+        "case_id": "opponent-non-tail-left-control",
+        "expected_safe_moves": [
+          "up",
+          "right"
+        ],
+        "forbidden_move": "left",
+        "forbidden_move_observed_safe": false,
+        "forbidden_move_selected": false,
+        "observed_safe_moves": [
+          "up",
+          "right"
+        ],
+        "passed": true,
+        "selected_move": "up",
+        "stdout_lines": [
+          "MOVE 24: up"
+        ],
+        "tail_occupancy_assumption": "tail_remains_occupied"
+      }
+    ],
+    "control_cases_passed": true,
+    "failed_case_count": 0,
+    "failed_case_ids": [],
+    "forbidden_tail_move_observed_safe": false,
+    "logic_id": "changed_candidate_tail_occupied",
+    "passed_case_count": 4,
+    "source_path": "experiments/iter24_tail_safety_control/proof/candidate/main.py",
+    "source_sha256": "2f0e306fbef5b4fbf3675168e3e14b599c86377443dd6fddf59ce433f97edd06",
+    "tail_cases_passed": true
+  },
+  "candidate_clean_pass": true,
+  "candidate_logic_changed": true,
+  "candidate_patch_manifest_path": "experiments/iter24_tail_safety_control/proof/candidate/patch_manifest.json",
+  "changed_candidate_not_presented_as_original": true,
+  "cloud_or_gpu_used": false,
+  "local_cpu_only": true,
+  "original": {
+    "case_count": 4,
+    "cases": [
+      {
+        "case_family": "own_tail",
+        "case_id": "own-tail-left-occupied-risk",
+        "expected_safe_moves": [
+          "up",
+          "right"
+        ],
+        "forbidden_move": "left",
+        "forbidden_move_observed_safe": true,
+        "forbidden_move_selected": false,
+        "observed_safe_moves": [
+          "up",
+          "left",
+          "right"
+        ],
+        "passed": false,
+        "selected_move": "up",
+        "stdout_lines": [
+          "MOVE 24: up"
+        ],
+        "tail_occupancy_assumption": "tail_remains_occupied"
+      },
+      {
+        "case_family": "opponent_tail",
+        "case_id": "opponent-tail-left-occupied-risk",
+        "expected_safe_moves": [
+          "up",
+          "right"
+        ],
+        "forbidden_move": "left",
+        "forbidden_move_observed_safe": true,
+        "forbidden_move_selected": false,
+        "observed_safe_moves": [
+          "up",
+          "left",
+          "right"
+        ],
+        "passed": false,
+        "selected_move": "up",
+        "stdout_lines": [
+          "MOVE 24: up"
+        ],
+        "tail_occupancy_assumption": "tail_remains_occupied"
+      },
+      {
+        "case_family": "control_non_tail",
+        "case_id": "own-non-tail-left-control",
+        "expected_safe_moves": [
+          "up",
+          "right"
+        ],
+        "forbidden_move": "left",
+        "forbidden_move_observed_safe": false,
+        "forbidden_move_selected": false,
+        "observed_safe_moves": [
+          "up",
+          "right"
+        ],
+        "passed": true,
+        "selected_move": "up",
+        "stdout_lines": [
+          "MOVE 24: up"
+        ],
+        "tail_occupancy_assumption": "tail_remains_occupied"
+      },
+      {
+        "case_family": "control_non_tail",
+        "case_id": "opponent-non-tail-left-control",
+        "expected_safe_moves": [
+          "up",
+          "right"
+        ],
+        "forbidden_move": "left",
+        "forbidden_move_observed_safe": false,
+        "forbidden_move_selected": false,
+        "observed_safe_moves": [
+          "up",
+          "right"
+        ],
+        "passed": true,
+        "selected_move": "up",
+        "stdout_lines": [
+          "MOVE 24: up"
+        ],
+        "tail_occupancy_assumption": "tail_remains_occupied"
+      }
+    ],
+    "control_cases_passed": true,
+    "failed_case_count": 2,
+    "failed_case_ids": [
+      "own-tail-left-occupied-risk",
+      "opponent-tail-left-occupied-risk"
+    ],
+    "forbidden_tail_move_observed_safe": true,
+    "logic_id": "original_iter21",
+    "passed_case_count": 2,
+    "source_path": "experiments/iter21_opponent_collision_control/proof/reconstructed/main.py",
+    "source_sha256": "82c0dc71f794795968f0b0d93268bcb2b0a55f0e8e28a8094952b8ab07f1d5a2",
+    "tail_cases_passed": false
+  },
+  "original_submitted_logic_mutated": false,
+  "original_tail_failure_preserved": true,
+  "provider_api_calls": 0,
+  "provider_spend_usd": 0.0,
+  "schema_version": "telos.tail_safety_control.report.v1",
+  "source_tail_report_path": "experiments/iter23_tail_semantics_falsification/proof/tail_semantics_report.json",
+  "status": "pass",
+  "tail_occupancy_assumption": "tail_remains_occupied"
+}

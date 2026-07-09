@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter25_tail_safety_mutation_guard/proof/run_summary.json",
+    "experiments/iter25_tail_safety_mutation_guard/proof/mutation_report.json",
+    "experiments/iter25_tail_safety_mutation_guard/proof/command_output.txt",
+    "experiments/iter25_tail_safety_mutation_guard/proof/review.md",
+    "experiments/iter25_tail_safety_mutation_guard/proof/valid/receipt_tail_safety_mutation_guard.json"
+  ],
+  "experiment_id": "iter25_tail_safety_mutation_guard",
+  "insight": "The opponent-tail exclusion mutant is detected, but the own-tail exclusion mutant still passes because the candidate also checks our own snake in the later snake loop.",
+  "next_action": "pre-register an own-tail redundancy mutation guard that removes both direct own-tail checking and the later self-snake fallback path",
+  "result_path": "experiments/iter25_tail_safety_mutation_guard/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

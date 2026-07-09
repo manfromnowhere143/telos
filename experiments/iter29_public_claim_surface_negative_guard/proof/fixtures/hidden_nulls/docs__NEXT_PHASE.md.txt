@@ -1,0 +1,54 @@
+# Next Phase
+
+## Current Action
+
+Run `iter30_boundary_matrix_schema_guard` exactly as frozen in
+[`../experiments/iter30_boundary_matrix_schema_guard/HYPOTHESIS.md`](../experiments/iter30_boundary_matrix_schema_guard/HYPOTHESIS.md).
+
+The output is not a leaderboard score. It is a matrix schema guard:
+
+- validate the current `iter27` claim-boundary matrix,
+- evaluate malformed matrix fixtures,
+- prove original/candidate conflation and hidden null rows fail validation,
+- do not call a provider model, run CodeClash, or make production/live-domain claims.
+
+## Infrastructure Discipline
+
+Available cloud and sandbox resources are escalation tools, not default proof. The order is:
+
+1. local receipt validation,
+2. local or GitHub-runner CodeClash smoke under Docker,
+3. deterministic Mini-SWE-Agent behavior smoke,
+4. deterministic edit-agent slice,
+5. provider-model pilot selection with exact spend and evidence bars,
+6. E2B or sandboxed execution only when isolation is needed and the gate records it,
+7. GPU or provider model cloud only when a frozen gate names the spend and expected evidence.
+
+No GPU or provider model run is authorized by `iter00`, `iter01`, `iter02`, `iter03`, `iter04`, or
+`iter05`. `iter06`, `iter07`, and `iter08` also forbid provider model calls and GPU runs. `iter09`
+authorized only the single frozen paid smoke, but it stopped before spend because preflight failed.
+`iter10` restored the credential path without calling a model. `iter11` authorized only the same
+single frozen paid smoke under the original `$25` ceiling; it blocked on Vertex predict permission.
+`iter12` authorized a minimal access probe. `iter13` through `iter19` stayed inside their frozen
+provider-smoke and quality-control gates. `iter20` through `iter23` returned to local semantic
+verification. `iter23` failed locally under the explicit `tail_remains_occupied` assumption.
+`iter24` passed locally for a changed candidate under the same assumption. `iter25` failed the full
+mutation-guard bar because a single own-tail mutation left the self-snake fallback path intact.
+`iter26` passed the compound own-tail mutation guard. `iter27` passed the claim-boundary matrix.
+`iter28` passed the public claim-surface guard. `iter29` passed the negative public-claim fixture
+guard. `iter30` does not authorize provider, GPU, cloud, CodeClash, leaderboard, SWE-bench,
+production, or live-domain behavior.
+
+## After The Boundary Matrix Schema Guard
+
+If the schema guard passes:
+
+1. Publish proof that the current matrix and schema/validator align.
+2. Keep malformed matrix fixtures separate from the real matrix.
+3. Do not expand to provider, leaderboard, SWE-bench, or production claims.
+
+If any malformed fixture passes:
+
+1. Publish the quality failure.
+2. Tighten the matrix schema/validator before widening scope.
+3. Keep the real matrix unchanged unless the evidence identifies a real structural gap.

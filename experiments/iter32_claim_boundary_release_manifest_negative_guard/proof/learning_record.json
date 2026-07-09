@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/run_summary.json",
+    "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/negative_guard_report.json",
+    "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/command_output.txt",
+    "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/review.md",
+    "experiments/iter32_claim_boundary_release_manifest_negative_guard/proof/valid/receipt_claim_boundary_release_manifest_negative_guard.json"
+  ],
+  "experiment_id": "iter32_claim_boundary_release_manifest_negative_guard",
+  "insight": "The release-manifest audit rejects malformed manifest fixtures for stale hashes, hidden failed/null rows, candidate/original conflation, forbidden claims, and missing source artifacts.",
+  "next_action": "pre-register a public-sync guard so README, report, next-phase, and continuity prose use the release manifest without bypassing its boundaries",
+  "result_path": "experiments/iter32_claim_boundary_release_manifest_negative_guard/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
