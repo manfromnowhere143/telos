@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter90_stability_replication_adjudication_after_same_slice_run/HYPOTHESIS.md`
+- `experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -429,10 +429,16 @@ Current claim:
   replication. It executed exactly the frozen rows, used `19` provider calls and `$0.11636200`,
   computed fresh score-share deltas of Dummy `-0.02075000`, BattleSnake `0.00000000`, and
   deterministic-edit `-0.50000000`, and classified stability as `unstable`.
+- `iter90_stability_replication_adjudication_after_same_slice_run` passed with zero provider calls,
+  zero spend, and zero row execution. It validated iter89, locked the unstable stability evidence,
+  rejected immediate benchmark/SOTA escalation and another paid same-slice replication for now, and
+  selected empirical validation suite design as the next defensible scientific milestone.
 - No model or benchmark result is claimed yet.
-- The next gate may only adjudicate iter89 stability evidence from committed artifacts. It must use
-  zero provider calls, zero spend, zero row execution, no GPU or cloud runner, mutate no Sentinel
-  resources, change no production/live-domain behavior, and make no benchmark/model/SOTA claims.
+- The next gate may only design a controlled empirical validation suite from committed evidence. It
+  must compare Telos against simpler completion-verification baselines, define quantitative
+  endpoints before execution, use zero provider calls, zero spend, zero row execution, no GPU or
+  cloud runner, mutate no Sentinel resources, change no production/live-domain behavior, and make
+  no benchmark/model/SOTA claims.
 
 ## Required Verification
 
@@ -617,6 +623,8 @@ python3 scripts/validate_receipts.py experiments/iter88_external_benchmark_readi
 python3 scripts/audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py
 python3 scripts/validate_receipts.py experiments/iter89_same_slice_discriminating_metric_stability_replication/proof
 python3 scripts/audit_same_slice_discriminating_metric_stability_replication.py
+python3 scripts/validate_receipts.py experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof
+python3 scripts/audit_stability_replication_adjudication_after_same_slice_run.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

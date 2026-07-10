@@ -1,0 +1,56 @@
+{
+  "accepted_path": {
+    "case_family_count": 7,
+    "comparison_strategies": [
+      "agent_self_report",
+      "execution_tests_only",
+      "llm_judge",
+      "external_verifier",
+      "complete_telos_protocol"
+    ],
+    "future_provider_calls_authorized_by_iter90": 0,
+    "future_provider_spend_authorized_by_iter90_usd": "0.00000000",
+    "kind": "empirical_validation_suite_design",
+    "quantitative_endpoint_count": 6,
+    "target_scientific_claim": "External verification materially improves autonomous software-agent reliability by reducing false completion while preserving legitimate completion.",
+    "why": "A falsifiable suite design is the smallest next step that makes the underlying scientific claim more defensible without claiming results before data exists."
+  },
+  "decision": "design_empirical_validation_suite",
+  "decision_options": [
+    "scale_to_external_benchmark_design",
+    "repeat_same_slice_replication",
+    "recover_metric_or_task_surface",
+    "stop_benchmark_facing_path",
+    "design_empirical_validation_suite"
+  ],
+  "decision_rationale": "Iter89 is a clean run, but its unstable task directions make benchmark or SOTA escalation scientifically premature. The next defensible milestone is a controlled empirical validation suite that compares Telos against simpler completion-verification baselines on failure modes where conventional checks can be fooled.",
+  "experiment_id": "iter90_stability_replication_adjudication_after_same_slice_run",
+  "next_gate": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md",
+  "next_gate_pre_registered": true,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "rejected_paths": [
+    {
+      "kind": "scale_to_external_benchmark_design",
+      "why_rejected_now": "iter89 stability is unstable and does not justify benchmark scaling"
+    },
+    {
+      "kind": "repeat_same_slice_replication",
+      "why_rejected_now": "another paid same-slice run may deepen internal evidence but does not yet define the external scientific target or baselines"
+    },
+    {
+      "kind": "recover_metric_or_task_surface",
+      "why_rejected_now": "the metric remains computable and diagnostic; recovery should be driven by empirical validation outcomes rather than protocol expansion"
+    },
+    {
+      "kind": "stop_benchmark_facing_path",
+      "why_rejected_now": "the unstable evidence is informative and motivates a more defensible controlled validation design"
+    }
+  ],
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.stability_replication_adjudication.next_step_decision.v1",
+  "source_iter89_matches_iter86_direction_count": 0,
+  "source_iter89_matches_iter87_direction_count": 2,
+  "source_stability_classification": "unstable",
+  "source_stability_subclassification": "iter89_mixed_against_prior_directions"
+}

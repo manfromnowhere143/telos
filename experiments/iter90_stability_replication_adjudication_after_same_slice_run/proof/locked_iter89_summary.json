@@ -1,0 +1,116 @@
+{
+  "benchmark_result_claimed": false,
+  "executed_pair_count": 6,
+  "executed_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "execution_blockers_after_metric_redefinition": [],
+  "execution_failures": [],
+  "experiment_id": "iter90_stability_replication_adjudication_after_same_slice_run",
+  "external_benchmark_design_authorized_by_iter89": false,
+  "fresh_metric_rows_parsed": 6,
+  "fresh_task_deltas_computed": 3,
+  "iter89_matches_iter86_direction_count": 0,
+  "iter89_matches_iter87_direction_count": 2,
+  "metric_id": "task_native_score_share_delta_with_receipt_gates",
+  "metric_non_saturated": true,
+  "mixed_direction_signal": false,
+  "model_superiority_claimed": false,
+  "provider_api_calls": 19,
+  "provider_call_ceiling": 96,
+  "provider_cost_usd": "0.11636200",
+  "provider_spend_ceiling_usd": "10.00000000",
+  "schema_version": "telos.stability_replication_adjudication.locked_iter89_summary.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "source_execution_accounting": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/execution_accounting_report.json",
+  "source_execution_accounting_sha256": "0f1513700a01ac1796c92923af9f924787c25f88427984216fea16befd4e0171",
+  "source_iteration": "iter89_same_slice_discriminating_metric_stability_replication",
+  "source_metric_extraction": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/fresh_metric_extraction.json",
+  "source_metric_extraction_sha256": "ad4288bc12ea47a9b29fcc426e97cef07ed52efb76416d6054145fc5df018e27",
+  "source_stability_report": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/stability_report.json",
+  "source_stability_report_sha256": "0a160b7b50b5b67b61fcee159ce83e7e3a3d4e36ee93fa3a2a5ea0ceebbd0897",
+  "source_summary": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/run_summary.json",
+  "source_summary_sha256": "af4c490ead3e4938f40712ec4a8405adc50a035caef0a582709ec672a1e15c9e",
+  "stability_classification": "unstable",
+  "stability_subclassification": "iter89_mixed_against_prior_directions",
+  "state_of_the_art_result_claimed": false,
+  "task_comparisons": [
+    {
+      "iter86_delta_telos_minus_baseline": "0.00575000",
+      "iter86_direction": "positive",
+      "iter87_delta_telos_minus_baseline": "-0.01575000",
+      "iter87_direction": "negative",
+      "iter89_delta_telos_minus_baseline": "-0.02075000",
+      "iter89_direction": "negative",
+      "iter89_matches_iter86_direction": false,
+      "iter89_matches_iter87_direction": true,
+      "task_surface": "dummy"
+    },
+    {
+      "iter86_delta_telos_minus_baseline": "-1.00000000",
+      "iter86_direction": "negative",
+      "iter87_delta_telos_minus_baseline": "0.50000000",
+      "iter87_direction": "positive",
+      "iter89_delta_telos_minus_baseline": "0.00000000",
+      "iter89_direction": "zero",
+      "iter89_matches_iter86_direction": false,
+      "iter89_matches_iter87_direction": false,
+      "task_surface": "battlesnake"
+    },
+    {
+      "iter86_delta_telos_minus_baseline": "0.50000000",
+      "iter86_direction": "positive",
+      "iter87_delta_telos_minus_baseline": "-0.50000000",
+      "iter87_direction": "negative",
+      "iter89_delta_telos_minus_baseline": "-0.50000000",
+      "iter89_direction": "negative",
+      "iter89_matches_iter86_direction": false,
+      "iter89_matches_iter87_direction": true,
+      "task_surface": "deterministic_edit"
+    }
+  ],
+  "task_deltas": [
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "baseline_score_share": "0.51175000",
+      "delta_telos_minus_baseline": "-0.02075000",
+      "direction": "negative",
+      "public_config": "configs/test/dummy.yaml",
+      "task_surface": "dummy",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "telos_score_share": "0.49100000"
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "baseline_score_share": "0.50000000",
+      "delta_telos_minus_baseline": "0.00000000",
+      "direction": "zero",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "task_surface": "battlesnake",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "telos_score_share": "0.50000000"
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "baseline_score_share": "0.50000000",
+      "delta_telos_minus_baseline": "-0.50000000",
+      "direction": "negative",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "task_surface": "deterministic_edit",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "telos_score_share": "0.00000000"
+    }
+  ]
+}

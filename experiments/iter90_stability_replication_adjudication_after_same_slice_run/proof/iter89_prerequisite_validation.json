@@ -1,0 +1,64 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter89_same_slice_discriminating_metric_stability_replication/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_same_slice_discriminating_metric_stability_replication.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter89 same-slice stability replication audit: pass\nstability_classification=unstable\nprovider_api_calls=19\nprovider_cost_usd=0.11636200\nnext_gate=experiments/iter90_stability_replication_adjudication_after_same_slice_run/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter90_stability_replication_adjudication_after_same_slice_run",
+  "iter89_audit_returncode": 0,
+  "iter89_clean_pass": true,
+  "iter89_executed_pair_count": 6,
+  "iter89_external_benchmark_design_authorized": false,
+  "iter89_matches_iter86_direction_count": 0,
+  "iter89_matches_iter87_direction_count": 2,
+  "iter89_metric_id": "task_native_score_share_delta_with_receipt_gates",
+  "iter89_metric_non_saturated": true,
+  "iter89_provider_api_calls": 19,
+  "iter89_provider_cost_usd": "0.11636200",
+  "iter89_receipt_validation_returncode": 0,
+  "iter89_stability_classification": "unstable",
+  "iter89_stability_subclassification": "iter89_mixed_against_prior_directions",
+  "iter89_status": "pass",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.stability_replication_adjudication.iter89_prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/run_summary.json",
+      "sha256": "af4c490ead3e4938f40712ec4a8405adc50a035caef0a582709ec672a1e15c9e"
+    },
+    {
+      "path": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/stability_report.json",
+      "sha256": "0a160b7b50b5b67b61fcee159ce83e7e3a3d4e36ee93fa3a2a5ea0ceebbd0897"
+    },
+    {
+      "path": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/fresh_metric_extraction.json",
+      "sha256": "ad4288bc12ea47a9b29fcc426e97cef07ed52efb76416d6054145fc5df018e27"
+    },
+    {
+      "path": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/execution_accounting_report.json",
+      "sha256": "0f1513700a01ac1796c92923af9f924787c25f88427984216fea16befd4e0171"
+    },
+    {
+      "path": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/claim_boundary.json",
+      "sha256": "9121d96629899b8ff94aec29384feeea487d92c36eadc8e0753d7b904c773755"
+    },
+    {
+      "path": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/valid/receipt_same_slice_discriminating_metric_stability_replication.json",
+      "sha256": "42fb349d2d5fadf37abd1aeb9dd581673291f5841618baf9d9a17019e4bf469d"
+    }
+  ]
+}

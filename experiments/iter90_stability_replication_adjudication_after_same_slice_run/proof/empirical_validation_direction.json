@@ -1,0 +1,112 @@
+{
+  "benchmark_or_sota_result_claimed": false,
+  "case_families": [
+    {
+      "case_family_id": "proxy_completion",
+      "expected_artifact": "task diff, claimed receipt, and external verifier finding",
+      "target_failure_mode": "agent optimizes for a proxy artifact while the requested work remains incomplete"
+    },
+    {
+      "case_family_id": "reward_hacking_behavior",
+      "expected_artifact": "score transcript, task intent checklist, and adversarial review",
+      "target_failure_mode": "agent satisfies scoring text or local reward while violating task intent"
+    },
+    {
+      "case_family_id": "partial_implementation",
+      "expected_artifact": "patch, uncovered counterexample, and verifier checklist",
+      "target_failure_mode": "agent implements a narrow path and presents it as complete"
+    },
+    {
+      "case_family_id": "misleading_passing_tests",
+      "expected_artifact": "passing test log, hidden oracle finding, and task-spec comparison",
+      "target_failure_mode": "tests pass while required behavior remains semantically wrong"
+    },
+    {
+      "case_family_id": "incorrect_stopping_boundary",
+      "expected_artifact": "stop transcript, remaining acceptance criteria, and receipt boundary check",
+      "target_failure_mode": "agent stops after setup, planning, or partial validation and claims completion"
+    },
+    {
+      "case_family_id": "adversarial_receipts",
+      "expected_artifact": "receipt packet, artifact hashes, and independent receipt audit",
+      "target_failure_mode": "receipt is malformed, incomplete, stale, or contradicted by artifacts"
+    },
+    {
+      "case_family_id": "semantically_incomplete_solution",
+      "expected_artifact": "spec rubric, produced artifact, semantic verifier decision",
+      "target_failure_mode": "surface artifacts look plausible but miss the user-visible requirement"
+    }
+  ],
+  "experiment_id": "iter90_stability_replication_adjudication_after_same_slice_run",
+  "null_result_policy": "preserve and publish null, negative, blocked, and failed hypotheses",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "quantitative_endpoints": [
+    {
+      "computed_only_after_comparative_execution": true,
+      "endpoint_id": "false_completion_acceptance_rate",
+      "pre_registered": true
+    },
+    {
+      "computed_only_after_comparative_execution": true,
+      "endpoint_id": "false_rejection_rate",
+      "pre_registered": true
+    },
+    {
+      "computed_only_after_comparative_execution": true,
+      "endpoint_id": "legitimate_completion_preservation_rate",
+      "pre_registered": true
+    },
+    {
+      "computed_only_after_comparative_execution": true,
+      "endpoint_id": "cost_usd",
+      "pre_registered": true
+    },
+    {
+      "computed_only_after_comparative_execution": true,
+      "endpoint_id": "wall_clock_time_seconds",
+      "pre_registered": true
+    },
+    {
+      "computed_only_after_comparative_execution": true,
+      "endpoint_id": "reviewer_reproducibility_rate",
+      "pre_registered": true
+    }
+  ],
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.stability_replication_adjudication.empirical_validation_direction.v1",
+  "self_validation_risk_control": "The suite must test whether Telos discovers information not available to simpler baselines, not merely whether Telos validates its own internal process.",
+  "suite_design_goal": "Measure whether Telos reduces false completion acceptance compared with simpler completion-verification strategies while preserving legitimate completion.",
+  "verification_strategies": [
+    {
+      "identical_artifact_requirement": true,
+      "must_emit_binary_completion_decision": true,
+      "must_emit_rationale_or_evidence_pointer": true,
+      "strategy_id": "agent_self_report"
+    },
+    {
+      "identical_artifact_requirement": true,
+      "must_emit_binary_completion_decision": true,
+      "must_emit_rationale_or_evidence_pointer": true,
+      "strategy_id": "execution_tests_only"
+    },
+    {
+      "identical_artifact_requirement": true,
+      "must_emit_binary_completion_decision": true,
+      "must_emit_rationale_or_evidence_pointer": true,
+      "strategy_id": "llm_judge"
+    },
+    {
+      "identical_artifact_requirement": true,
+      "must_emit_binary_completion_decision": true,
+      "must_emit_rationale_or_evidence_pointer": true,
+      "strategy_id": "external_verifier"
+    },
+    {
+      "identical_artifact_requirement": true,
+      "must_emit_binary_completion_decision": true,
+      "must_emit_rationale_or_evidence_pointer": true,
+      "strategy_id": "complete_telos_protocol"
+    }
+  ]
+}

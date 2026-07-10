@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter90_stability_replication_adjudication_after_same_slice_run` exactly as
+Run `iter91_empirical_validation_suite_design_for_completion_verification` exactly as
 frozen in
-[`../experiments/iter90_stability_replication_adjudication_after_same_slice_run/HYPOTHESIS.md`](../experiments/iter90_stability_replication_adjudication_after_same_slice_run/HYPOTHESIS.md).
+[`../experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md`](../experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -74,9 +74,14 @@ six frozen rows under the `96` call, `$10.00` total spend, `16` per-row call, an
 spend ceilings, without any benchmark/model/SOTA claim. `iter89` passed as a bounded replication:
 it executed exactly those six rows, used `19` provider calls and `$0.11636200`, computed fresh
 score-share deltas of Dummy `-0.02075000`, BattleSnake `0.00000000`, and deterministic-edit
-`-0.50000000`, and classified stability as `unstable`. The next honest move is the zero-spend
-iter90 adjudication: decide whether this unstable evidence supports external benchmark design,
-another bounded replication, recovery, or stop, without any benchmark/model/SOTA claim.
+`-0.50000000`, and classified stability as `unstable`. `iter90` then passed with zero provider
+calls, zero spend, and zero row execution: it validated iter89, locked the unstable evidence,
+rejected immediate benchmark/SOTA escalation and another paid same-slice replication for now, and
+selected empirical validation suite design as the next defensible milestone. The next honest move
+is the zero-spend iter91 suite-design gate: define controlled false-completion case families,
+compare agent self-report, execution tests, LLM judge, external verifier, and complete Telos under
+identical artifacts, and pre-register quantitative endpoints before any comparative execution or
+benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

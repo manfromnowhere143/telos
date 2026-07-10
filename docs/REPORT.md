@@ -439,6 +439,15 @@ Current evidence:
   pre-registers the next zero-spend adjudication gate. It may only decide whether iter89 unstable
   stability evidence supports external benchmark design, another bounded replication, recovery, or
   stop.
+- `experiments/iter90_stability_replication_adjudication_after_same_slice_run/RESULT.md` passes
+  that zero-spend adjudication gate. It validated iter89, locked the six-row run at `19` provider
+  calls and `$0.11636200`, preserved the `unstable` stability classification, rejected immediate
+  benchmark/SOTA escalation, selected empirical validation suite design as the next step, and made
+  no benchmark/model/state-of-the-art claim.
+- `experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md`
+  pre-registers the next zero-spend suite-design gate. It may only freeze a falsifiable empirical
+  validation design comparing agent self-report, execution tests, LLM judge, external verifier,
+  and complete Telos protocol on controlled false-completion failure modes.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

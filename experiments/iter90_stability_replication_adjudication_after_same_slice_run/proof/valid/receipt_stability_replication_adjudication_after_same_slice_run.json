@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "Iter89 receipt and audit validation pass.",
+    "Iter89 rows, calls, cost, metric deltas, and stability classification are locked with source hashes.",
+    "Iter86, iter87, and iter89 task directions are compared from committed artifacts.",
+    "The next decision is explicit and includes rejected paths.",
+    "No provider calls, spend, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, leaderboard, SWE-bench, model-superiority, empirical-superiority, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-stability-replication-adjudicator",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records zero-spend adjudication and next gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof/direction_evidence_review.json",
+      "kind": "artifact",
+      "notes": "Direction comparison from iter86, iter87, and iter89 artifacts.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof/empirical_validation_direction.json",
+      "kind": "artifact",
+      "notes": "Frozen target for the next empirical validation suite design gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records why benchmark/SOTA escalation is rejected now.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter89 validation fails.",
+    "The result must block if iter89 evidence cannot support a precise next decision.",
+    "The result must fail if provider calls, spend, or row execution occur in iter90.",
+    "The result must fail if unstable same-slice evidence is described as benchmark superiority.",
+    "The result must fail if unsupported benchmark, model-superiority, empirical-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter90-stability-replication-adjudication-pass",
+  "sha256": "e7d6b10d701345bd39f0003002ba8dfb56188fd42e1bb834a65b9ece6ccee555",
+  "stated_goal": "Adjudicate iter89 same-slice stability evidence and freeze the next defensible scientific decision before any larger benchmark-facing execution.",
+  "status": "pass",
+  "task_id": "telos:iter90_stability_replication_adjudication_after_same_slice_run@iter89"
+}

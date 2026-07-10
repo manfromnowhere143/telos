@@ -336,8 +336,13 @@ and an adversarial review pass.
   replication. It executed exactly the frozen rows, used `19` provider calls and `$0.11636200`,
   classified stability as `unstable`, and made no benchmark/model/SOTA claim in
   [`experiments/iter89_same_slice_discriminating_metric_stability_replication`](experiments/iter89_same_slice_discriminating_metric_stability_replication/RESULT.md).
-- Current gate: stability replication adjudication after same-slice run, pre-registered in
-  [`experiments/iter90_stability_replication_adjudication_after_same_slice_run`](experiments/iter90_stability_replication_adjudication_after_same_slice_run/HYPOTHESIS.md).
+- Stability replication adjudication after same-slice run: passed with zero provider calls, zero
+  spend, and zero row execution. It locked iter89 as clean but unstable evidence, rejected immediate
+  benchmark/SOTA escalation, selected empirical validation suite design as the next step, and made
+  no benchmark/model/SOTA claim in
+  [`experiments/iter90_stability_replication_adjudication_after_same_slice_run`](experiments/iter90_stability_replication_adjudication_after_same_slice_run/RESULT.md).
+- Current gate: empirical validation suite design for completion verification, pre-registered in
+  [`experiments/iter91_empirical_validation_suite_design_for_completion_verification`](experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row

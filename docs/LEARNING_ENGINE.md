@@ -143,7 +143,10 @@ python3 scripts/validate_learning_ledger.py
 | `iter87_benchmark_facing_discriminating_metric_execution_pilot` | pass | the bounded six-row paid pilot executed exactly the frozen rows, used 21 provider calls and $0.12498400, validated receipt-required rows, and produced fresh mixed-direction score-share deltas without any benchmark claim | adjudicate whether the mixed-direction pilot justifies a larger external benchmark design, same-slice replication, recovery, or stop decision |
 | `iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot` | pass | committed iter87 evidence is valid, but all three task directions flipped against iter86, so external benchmark design is premature | run one bounded same-slice stability replication before any larger benchmark design |
 | `iter89_same_slice_discriminating_metric_stability_replication` | pass | the same six frozen rows executed with 19 provider calls and $0.11636200, but stability classified as unstable because BattleSnake moved to zero while Dummy and deterministic-edit matched iter87 | adjudicate the unstable stability evidence before any larger benchmark design |
+| `iter90_stability_replication_adjudication_after_same_slice_run` | pass | iter89 is clean but unstable evidence, so immediate benchmark/SOTA escalation and another paid same-slice replication are premature | design a controlled empirical validation suite comparing Telos with simpler completion-verification baselines |
 
-The next experiment may only adjudicate iter89 stability evidence from committed artifacts. It must
-use zero provider calls, zero spend, zero row execution, no cloud runner, no GPU, no Sentinel
-mutation, no production/live-domain mutation, and no benchmark/model/SOTA claim.
+The next experiment may only design a controlled empirical validation suite from committed
+evidence. It must compare Telos with simpler completion-verification baselines, define quantitative
+endpoints before execution, use zero provider calls, zero spend, zero row execution, no cloud
+runner, no GPU, no Sentinel mutation, no production/live-domain mutation, and no benchmark/model/SOTA
+claim.
