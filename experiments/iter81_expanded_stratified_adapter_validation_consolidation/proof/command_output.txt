@@ -1,0 +1,39 @@
+iter81 expanded stratified adapter-validation consolidation
+
+Source validation commands:
+$ python3 scripts/validate_receipts.py experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof
+returncode=0 timed_out=False
+stdout:
+receipt validation: 1 valid receipts passed
+
+$ python3 scripts/audit_provider_compatible_paid_execution_after_receipt_prompt_alignment.py
+returncode=0 timed_out=False
+stdout:
+iter66 provider-compatible paid execution after receipt prompt alignment audit: clean artifact packet
+
+$ python3 scripts/validate_receipts.py experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof
+returncode=0 timed_out=False
+stdout:
+receipt validation: 1 valid receipts passed
+
+$ python3 scripts/audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py
+returncode=0 timed_out=False
+stdout:
+iter78 provider-compatible expanded paid retry audit: clean artifact packet
+
+$ python3 scripts/validate_receipts.py experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof
+returncode=0 timed_out=False
+stdout:
+receipt validation: 1 valid receipts passed
+
+$ python3 scripts/audit_dummy_call_ceiling_bounded_paid_retry_after_recovery.py
+returncode=0 timed_out=False
+stdout:
+iter80 Dummy call-ceiling bounded paid retry audit: clean artifact packet
+
+Local iter81 activity:
+- adapter rows executed: 0
+- provider model invocations: 0
+- provider spend: $0.00
+- GPU/cloud/Sentinel/live-domain mutation: false
+- benchmark/model/SOTA claim: false

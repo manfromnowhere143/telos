@@ -288,9 +288,16 @@ and an adversarial review pass.
   `$0.02840000`; both Dummy baseline and Dummy Telos rows verified, deterministic-edit and
   BattleSnake rows were not rerun, and no benchmark/model/SOTA claim occurred in
   [`experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery`](experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/RESULT.md).
-- Current gate: expanded stratified adapter-validation consolidation,
+- Expanded stratified adapter-validation consolidation: passed with zero provider calls, zero
+  spend, and zero row execution in the gate. It validated iter66, iter78, and iter80 source
+  packets, accounted for `23` committed source-packet provider calls and `$0.12765400`, preserved
+  six successful rows as separated BattleSnake/deterministic-edit/Dummy adapter-validation strata,
+  retained two iter78 Dummy rows as diagnostic blocked evidence, and made no benchmark/model/SOTA
+  claim in
+  [`experiments/iter81_expanded_stratified_adapter_validation_consolidation`](experiments/iter81_expanded_stratified_adapter_validation_consolidation/RESULT.md).
+- Current gate: benchmark-facing protocol-effect slice design,
   pre-registered in
-  [`experiments/iter81_expanded_stratified_adapter_validation_consolidation`](experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md).
+  [`experiments/iter82_benchmark_facing_protocol_effect_slice_design`](experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot plus stratified
   adapter-validation rows; neither is a benchmark result.

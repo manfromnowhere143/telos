@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md`
+- `experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -391,11 +391,18 @@ Current claim:
   adapter rows executed under the recovered `16` call per-row ceiling. Provider usage was `6` calls
   and `$0.02840000`. Dummy baseline and Dummy Telos both had verified-completion evidence;
   deterministic-edit and BattleSnake rows were not rerun.
+- `iter81_expanded_stratified_adapter_validation_consolidation` passed with zero provider calls,
+  zero spend, and zero row execution in the gate. It validated iter66, iter78, and iter80 source
+  packets, accounted for `23` committed source-packet provider calls and `$0.12765400`, preserved
+  six successful rows as separated BattleSnake/deterministic-edit/Dummy adapter-validation strata,
+  and retained two iter78 Dummy rows only as diagnostic blocked evidence.
 - No model or benchmark result is claimed yet.
-- The next gate may only consolidate committed iter66, iter78, and iter80 evidence with zero
-  provider calls, zero spend, and zero row execution. It must keep task surfaces stratified, commit
-  no credential material, use no GPU or cloud runner, mutate no Sentinel resources, change no
-  production/live-domain behavior, and make no benchmark/model claims.
+- The next gate may only design a benchmark-facing protocol-effect slice with zero provider calls,
+  zero spend, and zero row execution. It must freeze eligibility rules, conditions, receipt and
+  raw-artifact requirements, future paid ceilings, and pass/null/fail semantics before any
+  execution, while committing no credential material, using no GPU or cloud runner, mutating no
+  Sentinel resources, changing no production/live-domain behavior, and making no benchmark/model
+  claims.
 
 ## Required Verification
 
@@ -562,6 +569,8 @@ python3 scripts/validate_receipts.py experiments/iter79_dummy_row_call_ceiling_r
 python3 scripts/audit_dummy_row_call_ceiling_recovery_after_paid_retry_block.py
 python3 scripts/validate_receipts.py experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof
 python3 scripts/audit_dummy_call_ceiling_bounded_paid_retry_after_recovery.py
+python3 scripts/validate_receipts.py experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof
+python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

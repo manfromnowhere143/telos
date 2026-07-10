@@ -1,0 +1,145 @@
+{
+  "all_source_packets_valid": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof",
+      "returncode": 0,
+      "source_iteration": "iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment",
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_provider_compatible_paid_execution_after_receipt_prompt_alignment.py",
+      "returncode": 0,
+      "source_iteration": "iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment",
+      "stderr": "",
+      "stdout": "iter66 provider-compatible paid execution after receipt prompt alignment audit: clean artifact packet",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof",
+      "returncode": 0,
+      "source_iteration": "iter78_provider_compatible_expanded_paid_retry_after_adc_recovery",
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py",
+      "returncode": 0,
+      "source_iteration": "iter78_provider_compatible_expanded_paid_retry_after_adc_recovery",
+      "stderr": "",
+      "stdout": "iter78 provider-compatible expanded paid retry audit: clean artifact packet",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof",
+      "returncode": 0,
+      "source_iteration": "iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery",
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_dummy_call_ceiling_bounded_paid_retry_after_recovery.py",
+      "returncode": 0,
+      "source_iteration": "iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery",
+      "stderr": "",
+      "stdout": "iter80 Dummy call-ceiling bounded paid retry audit: clean artifact packet",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter81_expanded_stratified_adapter_validation_consolidation",
+  "schema_version": "telos.expanded_stratified_adapter_validation.source_validation.v1",
+  "source_packets": [
+    {
+      "audit_returncode": 0,
+      "blocked_result": false,
+      "blockers": [],
+      "clean_for_consolidation": true,
+      "clean_pass": true,
+      "executed_pair_count": 2,
+      "executed_pair_ids": [
+        "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+        "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml"
+      ],
+      "expected_status": "pass",
+      "failures": [],
+      "observed_status": "pass",
+      "provider_api_calls": 8,
+      "provider_cost_usd": "0.05937800",
+      "provider_spend_ceiling_usd": "10.00000000",
+      "quality_failure": false,
+      "receipt_validation_returncode": 0,
+      "role": "retained_battlesnake_prior_paid_evidence",
+      "source_iteration": "iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment",
+      "source_receipt": "experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/valid/receipt_provider_compatible_paid_execution_after_receipt_prompt_alignment.json",
+      "source_receipt_sha256": "4164ebfbe6f37e7658c9a9f1db3daba67f76800b1f1eb7ae8315983e108ec6c9",
+      "source_report": "experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/protocol_effect_report.json",
+      "source_report_sha256": "370fb6f0d5c7dff6d44e7d58367b491a7b9f745647a7dc46a501fe2ee7893226",
+      "source_summary": "experiments/iter66_provider_compatible_paid_execution_after_receipt_prompt_alignment/proof/run_summary.json",
+      "source_summary_sha256": "e8a92724b40c537c1f9f6a747e4dc87f5afde2f7901ef21bdfdfd6c051769872"
+    },
+    {
+      "audit_returncode": 0,
+      "blocked_result": true,
+      "blockers": [
+        "provider_command_nonzero_returncode"
+      ],
+      "clean_for_consolidation": true,
+      "clean_pass": false,
+      "executed_pair_count": 4,
+      "executed_pair_ids": [
+        "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+        "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+        "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+        "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+      ],
+      "expected_status": "blocked",
+      "failures": [],
+      "observed_status": "blocked",
+      "provider_api_calls": 9,
+      "provider_cost_usd": "0.03987600",
+      "provider_spend_ceiling_usd": "10.00000000",
+      "quality_failure": false,
+      "receipt_validation_returncode": 0,
+      "role": "deterministic_edit_verified_and_dummy_call_ceiling_diagnostic",
+      "source_iteration": "iter78_provider_compatible_expanded_paid_retry_after_adc_recovery",
+      "source_receipt": "experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/valid/receipt_provider_compatible_expanded_paid_retry_after_adc_recovery.json",
+      "source_receipt_sha256": "645fbf7bea4b33b06e5ba4cf6286f70862cfdbfa62030e2b41362dd1d5388e39",
+      "source_report": "experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/protocol_effect_report.json",
+      "source_report_sha256": "1ca20cf6f2c169c560b290812c06440809048163b1bb8d2e5b7f4f4709abcd48",
+      "source_summary": "experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/run_summary.json",
+      "source_summary_sha256": "94c0de77c24345618bca82d475bbae254f985f4c4d7d1b1372865ee295e804bf"
+    },
+    {
+      "audit_returncode": 0,
+      "blocked_result": false,
+      "blockers": [],
+      "clean_for_consolidation": true,
+      "clean_pass": true,
+      "executed_pair_count": 2,
+      "executed_pair_ids": [
+        "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+        "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+      ],
+      "expected_status": "pass",
+      "failures": [],
+      "observed_status": "pass",
+      "provider_api_calls": 6,
+      "provider_cost_usd": "0.02840000",
+      "provider_spend_ceiling_usd": "5.00000000",
+      "quality_failure": false,
+      "receipt_validation_returncode": 0,
+      "role": "dummy_verified_after_recovered_call_ceiling",
+      "source_iteration": "iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery",
+      "source_receipt": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/valid/receipt_dummy_call_ceiling_bounded_paid_retry_after_recovery.json",
+      "source_receipt_sha256": "99285063f5a000100fa3a5c253c491d6e40affa93771ea30cc99a17a13f3f442",
+      "source_report": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/protocol_effect_report.json",
+      "source_report_sha256": "520d216def6d0417c40c066b1d4245fd1949afba812d98733a46597afcf59cb4",
+      "source_summary": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/run_summary.json",
+      "source_summary_sha256": "c8c784ad5d792db185d00a9cdfbe4fb2fc91609e4cb2d776f9ef13e6c11b214f"
+    }
+  ]
+}

@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter81_expanded_stratified_adapter_validation_consolidation` exactly as
+Run `iter82_benchmark_facing_protocol_effect_slice_design` exactly as
 frozen in
-[`../experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md`](../experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md).
+[`../experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md`](../experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -45,9 +45,12 @@ is the bounded Dummy-only paid retry in iter80: execute exactly two Dummy rows, 
 call ceiling to `16`, keep total provider calls at or below `32`, keep total spend at or below
 `$5.00`, and make no benchmark/model/SOTA claim. `iter80` passed: it executed exactly those two
 Dummy rows, used 6 provider calls and `$0.02840000`, and both Dummy baseline and Dummy Telos rows
-verified. The next honest move is the zero-spend iter81 consolidation gate: account for retained
-BattleSnake, deterministic-edit, and Dummy evidence as stratified adapter-validation evidence
-before any benchmark-facing claim or larger paid run.
+verified. `iter81` passed the zero-spend consolidation gate: it validated iter66, iter78, and
+iter80 source packets, accounted for `23` committed source-packet provider calls and `$0.12765400`,
+preserved six successful rows as separated BattleSnake/deterministic-edit/Dummy strata, and kept
+two iter78 Dummy rows as diagnostic blocked evidence only. The next honest move is the zero-spend
+iter82 slice-design gate: freeze benchmark-facing eligibility rules, conditions, artifacts, future
+paid ceilings, and pass/null/fail semantics before any broader paid execution or benchmark claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

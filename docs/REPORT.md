@@ -362,6 +362,16 @@ Current evidence:
   pre-registers the next zero-spend consolidation gate. It may only account for committed iter66,
   iter78, and iter80 evidence as stratified adapter-validation evidence before any
   benchmark-facing claim or larger paid run.
+- `experiments/iter81_expanded_stratified_adapter_validation_consolidation/RESULT.md` passes that
+  zero-spend consolidation gate. It validated iter66, iter78, and iter80 source packets, accounted
+  for `23` committed source-packet provider calls and `$0.12765400`, preserved six successful rows
+  as separated BattleSnake/deterministic-edit/Dummy adapter-validation strata, retained two iter78
+  Dummy rows only as diagnostic blocked evidence, and made no benchmark/model/state-of-the-art
+  claim.
+- `experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md`
+  pre-registers the next zero-spend benchmark-facing slice-design gate. It may only freeze task
+  eligibility, conditions, receipt/raw-artifact requirements, future paid ceilings, and
+  pass/null/fail semantics before any broader paid execution or benchmark claim.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

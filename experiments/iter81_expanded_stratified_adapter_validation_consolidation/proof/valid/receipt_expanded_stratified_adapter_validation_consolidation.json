@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "Iter66, iter78, and iter80 receipts and audits validate.",
+    "BattleSnake, deterministic-edit, and Dummy rows remain stratified.",
+    "Exact provider-call and spend totals are reported from committed source packets.",
+    "No provider calls, spend, row execution, GPU, cloud runner, Sentinel mutation, or live-domain mutation occur.",
+    "No benchmark, leaderboard, SWE-bench, model-superiority, production, live-domain, or state-of-the-art claim is made.",
+    "A redaction scan over consolidation artifacts passes.",
+    "The next gate recommendation is bounded and pre-registered."
+  ],
+  "agent_id": "codex-local-stratified-adapter-validation-consolidator",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records status, source validation, row accounting, totals, and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof/stratified_row_accounting.json",
+      "kind": "artifact",
+      "notes": "Rows are accounted by task surface and condition without cross-surface pooling.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof/provider_totals.json",
+      "kind": "artifact",
+      "notes": "Exact committed source-packet provider calls and costs are preserved.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-benchmark/no-model/no-SOTA boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if any required source packet receipt validation or audit fails.",
+    "The result must block if row accounting cannot reconcile committed source packets.",
+    "The result must fail if any provider row executes or provider call/spend occurs in iter81.",
+    "The result must fail if credential, token, project, or service-account residue is committed.",
+    "The result must fail if task surfaces are pooled into a benchmark/model/SOTA claim.",
+    "The result must fail if the next recommendation requires unbounded calls or spend."
+  ],
+  "receipt_id": "iter81-expanded-stratified-adapter-validation-consolidation-pass",
+  "sha256": "44be4663f9a7c7e276f31bb793823d73310ac63178ce45be139a58111e64c475",
+  "stated_goal": "Consolidate committed iter66, iter78, and iter80 adapter-validation evidence while preserving stratified claim boundaries.",
+  "status": "pass",
+  "task_id": "telos:iter81_expanded_stratified_adapter_validation_consolidation@iter80"
+}
