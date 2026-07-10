@@ -138,7 +138,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter82_benchmark_facing_protocol_effect_slice_design` | pass | the future benchmark-facing pilot is frozen as six CodeClash public task-condition rows with 96 provider calls, $10.00 total spend, $2.00 per-row spend, and SWE-bench Verified retained only as a receipt-field anchor | run the bounded paid execution pilot exactly as pre-registered or publish the blocking evidence |
 | `iter83_benchmark_facing_protocol_effect_execution_pilot` | blocked/null | the six frozen rows executed under budget with 21 provider calls and $0.11319400 spend, but Dummy, BattleSnake, and deterministic-edit Telos-minus-baseline deltas were all 0 | adjudicate the null/no-signal result before any broader paid execution or benchmark claim |
 | `iter84_benchmark_facing_null_signal_adjudication` | pass | the iter83 null/no-signal result was classified as verified-completion metric saturation and task/metric redesign was selected with zero provider calls, zero spend, and zero row execution | redesign the task and metric contract before any further paid execution or benchmark claim |
+| `iter85_discriminating_task_metric_redesign` | pass | the saturated verified-completion boolean was demoted to an admissibility gate and the task-native score-share delta metric was frozen for zero-spend backtest with no paid execution authorized | backtest the discriminating metric on committed iter83 artifacts before any further paid execution or benchmark claim |
 
-The next experiment may only redesign the task/metric contract from committed iter83/iter84
-evidence. It must use zero provider calls, zero spend, no row execution, no cloud runner, no GPU,
-no Sentinel mutation, no production/live-domain mutation, and no benchmark/model/SOTA claim.
+The next experiment may only backtest the candidate metric on committed iter83 artifacts. It must
+use zero provider calls, zero spend, no row execution, no cloud runner, no GPU, no Sentinel
+mutation, no production/live-domain mutation, and no benchmark/model/SOTA claim.

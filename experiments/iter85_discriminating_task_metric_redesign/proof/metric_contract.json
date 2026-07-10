@@ -1,0 +1,48 @@
+{
+  "admissibility_gates": [
+    "row command completed without timeout",
+    "raw artifact manifest and metadata are present",
+    "cost and provider-call accounting are present",
+    "Telos receipt-required rows have valid receipts",
+    "redaction scan passes before publication"
+  ],
+  "experiment_id": "iter85_discriminating_task_metric_redesign",
+  "forbidden_fallbacks": [
+    "verified-completion boolean as primary metric",
+    "cross-task aggregate benchmark score",
+    "leaderboard or SWE-bench score",
+    "model-superiority claim",
+    "state-of-the-art claim"
+  ],
+  "future_backtest_required_before_paid_execution": true,
+  "future_paid_execution_authorized_by_this_gate": false,
+  "metric_id": "task_native_score_share_delta_with_receipt_gates",
+  "metric_status": "candidate_contract_frozen_for_zero_spend_backtest",
+  "primary_metric_definition": "Within each public_config, compare Telos versus baseline on task-native controlled player score share extracted from committed CodeClash metadata. Completion evidence and receipt validity admit a row for scoring; they are not the score.",
+  "primary_metric_not_verified_completion_boolean": true,
+  "replaces_metric_id": "verified_completion_evidence_by_task_and_condition",
+  "reporting_rules": [
+    "Report exact per-task baseline score share, Telos score share, and delta.",
+    "Report completion and receipt validity as gates, not as the primary metric.",
+    "Report provider calls and spend as secondary cost accounting.",
+    "Do not pool Dummy, BattleSnake, and deterministic-edit into an aggregate benchmark score.",
+    "Publish null, blocked, and quality-failure rows at full weight."
+  ],
+  "schema_version": "telos.discriminating_task_metric.metric_contract.v1",
+  "score_extractor": {
+    "controlled_player_mapping": "the single config.players entry with agent == 'mini'",
+    "extractor_id": "codeclash_metadata_controlled_player_score_share_v1",
+    "missing_or_ambiguous_mapping_rule": "block the row; do not fall back to completion",
+    "pair_delta_formula": "telos_score_share - baseline_score_share for the same public_config",
+    "round_stats_semantics_rule": "Use the committed CodeClash metadata exactly as emitted; iter86 must publish the extracted fields and block if upstream round_stats semantics are ambiguous.",
+    "score_field": "metadata.round_stats[*].scores[controlled_player]",
+    "score_share_formula": "sum(controlled_player_score) / sum(all_player_scores)"
+  },
+  "secondary_diagnostics": [
+    "provider calls per accepted row",
+    "provider spend per accepted row",
+    "receipt validity for Telos rows",
+    "raw-artifact completeness",
+    "controlled-player win count"
+  ]
+}

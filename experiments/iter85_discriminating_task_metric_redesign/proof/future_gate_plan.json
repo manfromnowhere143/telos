@@ -1,0 +1,28 @@
+{
+  "experiment_id": "iter85_discriminating_task_metric_redesign",
+  "future_paid_execution_pre_registered": false,
+  "future_paid_run_ceiling_authorized": false,
+  "future_paid_run_ceiling_reason": "No paid execution gate is registered yet; iter86 must backtest the metric on committed artifacts before any paid ceiling can be frozen.",
+  "iter86_decision_options": [
+    "pre-register a bounded paid execution only if the metric is computable and non-saturated",
+    "redesign the metric again if field semantics are ambiguous",
+    "stop/review if no discriminating task-native metric can be justified"
+  ],
+  "iter86_hard_ceilings": {
+    "benchmark_model_sota_claim": "forbidden",
+    "cloud_runner_startup": "forbidden",
+    "codeclash_row_execution": 0,
+    "gpu_use": "forbidden",
+    "production_or_live_domain_mutation": "forbidden",
+    "provider_model_invocations": 0,
+    "provider_spend_usd": "0.00000000",
+    "sentinel_named_resource_mutation": "forbidden"
+  },
+  "next_gate": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md",
+  "next_gate_pre_registered": true,
+  "next_gate_type": "zero_spend_metric_backtest",
+  "provider_calls_in_iter85": 0,
+  "provider_spend_in_iter85_usd": "0.00000000",
+  "row_execution_in_iter85": 0,
+  "schema_version": "telos.discriminating_task_metric.future_gate_plan.v1"
+}

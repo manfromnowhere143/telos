@@ -1,0 +1,320 @@
+{
+  "all_metadata_present": true,
+  "candidate_metric_field_available_for_all_rows": true,
+  "candidate_metric_nonconstant_on_source_fields": true,
+  "controlled_player_mapping": "config.players[agent == 'mini'].name",
+  "expected_row_count": 6,
+  "experiment_id": "iter85_discriminating_task_metric_redesign",
+  "paired_task_preview": [
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "baseline_score_share": "0.49400000",
+      "candidate_delta_telos_minus_baseline": "0.00575000",
+      "claim_boundary": "design-time field inventory only; not a protocol-effect result",
+      "public_config": "configs/test/dummy.yaml",
+      "task_surface": "dummy",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "telos_score_share": "0.49975000",
+      "verified_completion_delta_remained_zero": true
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "baseline_score_share": "1.00000000",
+      "candidate_delta_telos_minus_baseline": "-1.00000000",
+      "claim_boundary": "design-time field inventory only; not a protocol-effect result",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "task_surface": "battlesnake",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "telos_score_share": "0.00000000",
+      "verified_completion_delta_remained_zero": true
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "baseline_score_share": "0.00000000",
+      "candidate_delta_telos_minus_baseline": "0.50000000",
+      "claim_boundary": "design-time field inventory only; not a protocol-effect result",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "task_surface": "deterministic_edit",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "telos_score_share": "0.50000000",
+      "verified_completion_delta_remained_zero": true
+    }
+  ],
+  "preview_is_not_a_benchmark_result": true,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_count": 6,
+  "row_execution_in_this_gate": 0,
+  "rows": [
+    {
+      "all_player_score_total": "4000.00000000",
+      "condition_label": "baseline",
+      "controlled_player": "p1",
+      "controlled_player_agent": "mini",
+      "controlled_player_score_share": "0.49400000",
+      "controlled_player_score_total": "1976.00000000",
+      "controlled_player_win_count": 2,
+      "game_name": "Dummy",
+      "metadata_path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml/metadata.json",
+      "metadata_sha256": "005e97d13edd7252337cf920d4f489af1c57861258b89a87e9ca0db6cc2e2a88",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "parsed_rounds": [
+        {
+          "controlled_player_score": "485.00000000",
+          "round_key": "0",
+          "total_score": "1000.00000000",
+          "winner": "p2"
+        },
+        {
+          "controlled_player_score": "508.00000000",
+          "round_key": "1",
+          "total_score": "1000.00000000",
+          "winner": "p1"
+        },
+        {
+          "controlled_player_score": "474.00000000",
+          "round_key": "2",
+          "total_score": "1000.00000000",
+          "winner": "p2"
+        },
+        {
+          "controlled_player_score": "509.00000000",
+          "round_key": "3",
+          "total_score": "1000.00000000",
+          "winner": "p1"
+        }
+      ],
+      "provider_api_calls": 5,
+      "provider_cost_usd": "0.01083400",
+      "public_config": "configs/test/dummy.yaml",
+      "raw_evidence_present": true,
+      "receipt_required": false,
+      "receipt_valid": false,
+      "reference_players": [
+        "p2"
+      ],
+      "report_round_1_winner": "p1",
+      "round_stats_entry_count": 4,
+      "task_surface": "dummy",
+      "verified_completion_evidence": true
+    },
+    {
+      "all_player_score_total": "2.00000000",
+      "condition_label": "baseline",
+      "controlled_player": "p1",
+      "controlled_player_agent": "mini",
+      "controlled_player_score_share": "1.00000000",
+      "controlled_player_score_total": "2.00000000",
+      "controlled_player_win_count": 2,
+      "game_name": "BattleSnake",
+      "metadata_path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/raw/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml/metadata.json",
+      "metadata_sha256": "e4c1b62ea37e5a73fc0f7fc573482e1477593ed7d52a8201e583c3f40780855d",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "parsed_rounds": [
+        {
+          "controlled_player_score": "1.00000000",
+          "round_key": "0",
+          "total_score": "1.00000000",
+          "winner": "p1"
+        },
+        {
+          "controlled_player_score": "1.00000000",
+          "round_key": "1",
+          "total_score": "1.00000000",
+          "winner": "p1"
+        }
+      ],
+      "provider_api_calls": 4,
+      "provider_cost_usd": "0.02179000",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "raw_evidence_present": true,
+      "receipt_required": false,
+      "receipt_valid": false,
+      "reference_players": [
+        "p2"
+      ],
+      "report_round_1_winner": "p1",
+      "round_stats_entry_count": 2,
+      "task_surface": "battlesnake",
+      "verified_completion_evidence": true
+    },
+    {
+      "all_player_score_total": "2.00000000",
+      "condition_label": "baseline",
+      "controlled_player": "p1",
+      "controlled_player_agent": "mini",
+      "controlled_player_score_share": "0.00000000",
+      "controlled_player_score_total": "0.00000000",
+      "controlled_player_win_count": 0,
+      "game_name": "BattleSnake",
+      "metadata_path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/raw/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/metadata.json",
+      "metadata_sha256": "ee4d4d0f6773f058fa0a8ecde4bdf05655b199365edab979d85e3236fedd5d89",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "parsed_rounds": [
+        {
+          "controlled_player_score": "0.00000000",
+          "round_key": "0",
+          "total_score": "1.00000000",
+          "winner": "p2"
+        },
+        {
+          "controlled_player_score": "0.00000000",
+          "round_key": "1",
+          "total_score": "1.00000000",
+          "winner": "p2"
+        }
+      ],
+      "provider_api_calls": 2,
+      "provider_cost_usd": "0.00375600",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "raw_evidence_present": true,
+      "receipt_required": false,
+      "receipt_valid": false,
+      "reference_players": [
+        "p2"
+      ],
+      "report_round_1_winner": "p2",
+      "round_stats_entry_count": 2,
+      "task_surface": "deterministic_edit",
+      "verified_completion_evidence": true
+    },
+    {
+      "all_player_score_total": "4000.00000000",
+      "condition_label": "telos",
+      "controlled_player": "p1",
+      "controlled_player_agent": "mini",
+      "controlled_player_score_share": "0.49975000",
+      "controlled_player_score_total": "1999.00000000",
+      "controlled_player_win_count": 1,
+      "game_name": "Dummy",
+      "metadata_path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/metadata.json",
+      "metadata_sha256": "dd5e321b571f5fcbea8b26c44953965c3baabe8b015461929c9b2feffd73a53e",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "parsed_rounds": [
+        {
+          "controlled_player_score": "497.00000000",
+          "round_key": "0",
+          "total_score": "1000.00000000",
+          "winner": "p2"
+        },
+        {
+          "controlled_player_score": "525.00000000",
+          "round_key": "1",
+          "total_score": "1000.00000000",
+          "winner": "p1"
+        },
+        {
+          "controlled_player_score": "483.00000000",
+          "round_key": "2",
+          "total_score": "1000.00000000",
+          "winner": "p2"
+        },
+        {
+          "controlled_player_score": "494.00000000",
+          "round_key": "3",
+          "total_score": "1000.00000000",
+          "winner": "p2"
+        }
+      ],
+      "provider_api_calls": 3,
+      "provider_cost_usd": "0.01763200",
+      "public_config": "configs/test/dummy.yaml",
+      "raw_evidence_present": true,
+      "receipt_required": true,
+      "receipt_valid": true,
+      "reference_players": [
+        "p2"
+      ],
+      "report_round_1_winner": "p1",
+      "round_stats_entry_count": 4,
+      "task_surface": "dummy",
+      "verified_completion_evidence": true
+    },
+    {
+      "all_player_score_total": "2.00000000",
+      "condition_label": "telos",
+      "controlled_player": "p1",
+      "controlled_player_agent": "mini",
+      "controlled_player_score_share": "0.00000000",
+      "controlled_player_score_total": "0.00000000",
+      "controlled_player_win_count": 0,
+      "game_name": "BattleSnake",
+      "metadata_path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml/metadata.json",
+      "metadata_sha256": "d21b83e48239f1be973d84cbf4c993e40f6f3b950074698790b41d6592897ce7",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "parsed_rounds": [
+        {
+          "controlled_player_score": "0.00000000",
+          "round_key": "0",
+          "total_score": "1.00000000",
+          "winner": "p2"
+        },
+        {
+          "controlled_player_score": "0.00000000",
+          "round_key": "1",
+          "total_score": "1.00000000",
+          "winner": "p2"
+        }
+      ],
+      "provider_api_calls": 5,
+      "provider_cost_usd": "0.04476400",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "raw_evidence_present": true,
+      "receipt_required": true,
+      "receipt_valid": true,
+      "reference_players": [
+        "p2"
+      ],
+      "report_round_1_winner": "p2",
+      "round_stats_entry_count": 2,
+      "task_surface": "battlesnake",
+      "verified_completion_evidence": true
+    },
+    {
+      "all_player_score_total": "2.00000000",
+      "condition_label": "telos",
+      "controlled_player": "p1",
+      "controlled_player_agent": "mini",
+      "controlled_player_score_share": "0.50000000",
+      "controlled_player_score_total": "1.00000000",
+      "controlled_player_win_count": 1,
+      "game_name": "BattleSnake",
+      "metadata_path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/metadata.json",
+      "metadata_sha256": "2810a2306a5a8993c436371c8cee0b0243f6e42eff507cb20fb9b815ee061db4",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "parsed_rounds": [
+        {
+          "controlled_player_score": "0.00000000",
+          "round_key": "0",
+          "total_score": "1.00000000",
+          "winner": "p2"
+        },
+        {
+          "controlled_player_score": "1.00000000",
+          "round_key": "1",
+          "total_score": "1.00000000",
+          "winner": "p1"
+        }
+      ],
+      "provider_api_calls": 2,
+      "provider_cost_usd": "0.01441800",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "raw_evidence_present": true,
+      "receipt_required": true,
+      "receipt_valid": true,
+      "reference_players": [
+        "p2"
+      ],
+      "report_round_1_winner": "p1",
+      "round_stats_entry_count": 2,
+      "task_surface": "deterministic_edit",
+      "verified_completion_evidence": true
+    }
+  ],
+  "schema_version": "telos.discriminating_task_metric.source_field_inventory.v1",
+  "score_field_path": "metadata.round_stats[*].scores[controlled_player]",
+  "score_share_formula": "sum(controlled_player_score) / sum(all_player_scores)",
+  "source_iteration": "iter83_benchmark_facing_protocol_effect_execution_pilot",
+  "source_report": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/protocol_effect_report.json",
+  "source_report_sha256": "a3bd158f09d61ccdaa83cc47977b5d251c862456696fd95fd73eb2b59311ec50"
+}

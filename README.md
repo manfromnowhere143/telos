@@ -312,9 +312,14 @@ and an adversarial review pass.
   `verified_completion_metric_saturated`, selected `redesign_task_metric` as the next step, and
   made no benchmark/model/SOTA claim in
   [`experiments/iter84_benchmark_facing_null_signal_adjudication`](experiments/iter84_benchmark_facing_null_signal_adjudication/RESULT.md).
-- Current gate: discriminating task/metric redesign,
+- Discriminating task/metric redesign: passed with zero provider calls, zero spend, and zero row
+  execution. It froze `task_native_score_share_delta_with_receipt_gates` as a candidate metric for
+  zero-spend backtest, kept future paid execution unauthorized, and made no benchmark/model/SOTA
+  claim in
+  [`experiments/iter85_discriminating_task_metric_redesign`](experiments/iter85_discriminating_task_metric_redesign/RESULT.md).
+- Current gate: discriminating metric backtest on committed artifacts,
   pre-registered in
-  [`experiments/iter85_discriminating_task_metric_redesign`](experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md).
+  [`experiments/iter86_discriminating_metric_backtest_on_committed_artifacts`](experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, and one bounded six-row null/no-signal pilot; none is a benchmark result.

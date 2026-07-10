@@ -244,6 +244,8 @@ python3 scripts/validate_receipts.py experiments/iter83_benchmark_facing_protoco
 python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py
 python3 scripts/validate_receipts.py experiments/iter84_benchmark_facing_null_signal_adjudication/proof
 python3 scripts/audit_benchmark_facing_null_signal_adjudication.py
+python3 scripts/validate_receipts.py experiments/iter85_discriminating_task_metric_redesign/proof
+python3 scripts/audit_discriminating_task_metric_redesign.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

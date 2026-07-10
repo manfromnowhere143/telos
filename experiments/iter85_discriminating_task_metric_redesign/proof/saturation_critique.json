@@ -1,0 +1,23 @@
+{
+  "classification_source": "verified_completion_metric_saturated",
+  "experiment_id": "iter85_discriminating_task_metric_redesign",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "required_redesign_properties": [
+    "Verified completion and receipt validity must become row-admissibility gates.",
+    "The primary metric must read task-native outcome fields from raw artifacts.",
+    "Baseline and Telos must be compared only within the same public_config.",
+    "Missing or ambiguous task-native outcome fields must block the row instead of falling back to completion.",
+    "No cross-task aggregate benchmark score may be reported from this gate."
+  ],
+  "row_execution_in_this_gate": 0,
+  "saturated_metric_id": "verified_completion_evidence_by_task_and_condition",
+  "schema_version": "telos.discriminating_task_metric.saturation_critique.v1",
+  "why_saturated": [
+    "The iter83 primary metric was a boolean admissibility/completion flag.",
+    "Baseline and Telos rows all had raw evidence and valid completion evidence.",
+    "Receipt-required Telos rows all validated, so receipt validity did not separate task performance.",
+    "The metric ignored task-native outcome fields and score fields emitted by CodeClash metadata.",
+    "The metric ignored within-task score magnitude and winner/score changes."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "aggregate_benchmark_metric_authorized": false,
+  "benchmark_result_authorized": false,
+  "cross_task_surface_pooling_authorized": false,
+  "eligibility_rules": [
+    "Task source and raw metadata must be committed and hashable.",
+    "Both baseline and Telos conditions must exist for the same public_config.",
+    "The controlled player must be mapped deterministically from metadata.",
+    "Task-native score fields must be present for every row.",
+    "Receipt validity remains required for Telos row admissibility.",
+    "Future paid execution requires a separate pre-registered gate."
+  ],
+  "exclusions": [
+    {
+      "candidate": "SWE-bench execution row",
+      "eligibility_status": "excluded",
+      "reason": "no SWE-bench execution harness or leaderboard boundary is registered"
+    },
+    {
+      "candidate": "uncommitted or live-domain task surfaces",
+      "eligibility_status": "excluded",
+      "reason": "source, raw artifacts, and score extraction must be committed first"
+    },
+    {
+      "candidate": "cross-task aggregate score",
+      "eligibility_status": "excluded",
+      "reason": "iter85 authorizes only per-task diagnostic deltas"
+    }
+  ],
+  "experiment_id": "iter85_discriminating_task_metric_redesign",
+  "future_paid_execution_authorized_by_this_gate": false,
+  "schema_version": "telos.discriminating_task_metric.task_eligibility.v1",
+  "selected_task_count": 3,
+  "selected_tasks": [
+    {
+      "eligibility_status": "eligible_for_zero_spend_metric_backtest",
+      "future_paid_execution_status": "not_authorized_by_iter85",
+      "public_config": "configs/test/dummy.yaml",
+      "selection_reason": "iter83 has committed metadata, raw evidence, receipt accounting, and task-native score fields for both baseline and Telos conditions",
+      "task_surface": "dummy"
+    },
+    {
+      "eligibility_status": "eligible_for_zero_spend_metric_backtest",
+      "future_paid_execution_status": "not_authorized_by_iter85",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "selection_reason": "iter83 has committed metadata, raw evidence, receipt accounting, and task-native score fields for both baseline and Telos conditions",
+      "task_surface": "battlesnake"
+    },
+    {
+      "eligibility_status": "eligible_for_zero_spend_metric_backtest",
+      "future_paid_execution_status": "not_authorized_by_iter85",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "selection_reason": "iter83 has committed metadata, raw evidence, receipt accounting, and task-native score fields for both baseline and Telos conditions",
+      "task_surface": "deterministic_edit"
+    }
+  ],
+  "swebench_result_authorized": false
+}

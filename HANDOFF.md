@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-10T12:21:39Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-10T12:36:02Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -101,11 +101,12 @@ clean
 - experiments/iter82_benchmark_facing_protocol_effect_slice_design: RESULT PUBLISHED
 - experiments/iter83_benchmark_facing_protocol_effect_execution_pilot: RESULT PUBLISHED
 - experiments/iter84_benchmark_facing_null_signal_adjudication: RESULT PUBLISHED
-- experiments/iter85_discriminating_task_metric_redesign: PRE-REGISTERED, result pending
+- experiments/iter85_discriminating_task_metric_redesign: RESULT PUBLISHED
+- experiments/iter86_discriminating_metric_backtest_on_committed_artifacts: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md`.
+- Active gate: `experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -283,6 +284,8 @@ python3 scripts/validate_receipts.py experiments/iter83_benchmark_facing_protoco
 python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py
 python3 scripts/validate_receipts.py experiments/iter84_benchmark_facing_null_signal_adjudication/proof
 python3 scripts/audit_benchmark_facing_null_signal_adjudication.py
+python3 scripts/validate_receipts.py experiments/iter85_discriminating_task_metric_redesign/proof
+python3 scripts/audit_discriminating_task_metric_redesign.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

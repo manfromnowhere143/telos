@@ -1,0 +1,56 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter84_benchmark_facing_null_signal_adjudication/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_benchmark_facing_null_signal_adjudication.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter84 benchmark-facing null-signal adjudication audit: clean pass",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter85_discriminating_task_metric_redesign",
+  "iter84_all_task_surface_deltas_zero": true,
+  "iter84_audit_returncode": 0,
+  "iter84_classification": "verified_completion_metric_saturated",
+  "iter84_clean_pass": true,
+  "iter84_next_step_decision": "redesign_task_metric",
+  "iter84_provider_api_calls": 0,
+  "iter84_provider_cost_usd": "0.00000000",
+  "iter84_receipt_validation_returncode": 0,
+  "iter84_row_execution_in_gate": 0,
+  "iter84_status": "pass",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.discriminating_task_metric.prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/run_summary.json",
+      "sha256": "6ae06f5ff44d35c185d47475888fdf0c442f6aeb84fc11b5d62088527d1a931a"
+    },
+    {
+      "path": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/null_signal_classification.json",
+      "sha256": "c8acf4fbb5b299bf68695962017fe6a53b28f57cc179e343281612b266d0ce3e"
+    },
+    {
+      "path": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/next_step_decision.json",
+      "sha256": "6631f19c0820aa3125b80d67c23e36b9330b78e22be0fa9b15f444b762b16175"
+    },
+    {
+      "path": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/row_accounting.json",
+      "sha256": "f14bec1e7ca2d1cd681f56c22666835fa8933feb2adb4d57ce03ebb7490ece97"
+    },
+    {
+      "path": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/valid/receipt_benchmark_facing_null_signal_adjudication.json",
+      "sha256": "9d80763c2a6a996f7b7f4a1d3e57ae04cf71c42581ea328e08024e1fbfaf6ca1"
+    }
+  ]
+}

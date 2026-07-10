@@ -396,6 +396,14 @@ Current evidence:
 - `experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md`
   pre-registers the next zero-spend design gate. It may only redesign the task/metric contract
   from committed iter83/iter84 evidence before any further paid execution or benchmark claim.
+- `experiments/iter85_discriminating_task_metric_redesign/RESULT.md` passes that zero-spend
+  design gate. It froze `task_native_score_share_delta_with_receipt_gates` as the candidate
+  metric contract, demoted verified completion to an admissibility gate, made zero provider calls,
+  spent `$0.00`, executed zero rows, authorized no paid execution, and made no
+  benchmark/model/state-of-the-art claim.
+- `experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md`
+  pre-registers the next zero-spend backtest gate. It may only compute the candidate metric from
+  committed iter83 artifacts before any further paid execution or benchmark claim.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

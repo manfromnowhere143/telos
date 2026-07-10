@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "Iter84 receipt and audit validation pass.",
+    "The iter83/iter84 null and saturation evidence remains visible.",
+    "The proposed metric is not the saturated verified-completion boolean.",
+    "Task eligibility and score extraction rules are explicit.",
+    "Future paid execution is not authorized by this gate.",
+    "No provider calls, spend, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, leaderboard, SWE-bench, model-superiority, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-metric-redesign-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter85_discriminating_task_metric_redesign/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records the redesigned metric contract and no-claim boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter85_discriminating_task_metric_redesign/proof/metric_contract.json",
+      "kind": "artifact",
+      "notes": "Candidate task-native score-share metric contract.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter85_discriminating_task_metric_redesign/proof/source_field_inventory.json",
+      "kind": "artifact",
+      "notes": "Committed iter83 fields available for the next backtest.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter85_discriminating_task_metric_redesign/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records why completion evidence saturated and why paid execution is deferred.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter84 validation fails.",
+    "The result must fail if provider calls, spend, or row execution occur in iter85.",
+    "The result must fail if the metric remains the verified-completion boolean.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter85-discriminating-task-metric-redesign-pass",
+  "sha256": "2ce044f205b6762633312bf633705e26a098a82aa9bd0d7e75d5826b63700932",
+  "stated_goal": "Redesign the saturated verified-completion metric into a discriminating task-native metric contract without provider calls or benchmark/model/SOTA claims.",
+  "status": "pass",
+  "task_id": "telos:iter85_discriminating_task_metric_redesign@iter84"
+}

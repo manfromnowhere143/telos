@@ -535,6 +535,12 @@ jobs:
       - name: Benchmark-facing null-signal adjudication audit
         run: python3 scripts/audit_benchmark_facing_null_signal_adjudication.py
 
+      - name: Discriminating task metric redesign receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter85_discriminating_task_metric_redesign/proof
+
+      - name: Discriminating task metric redesign audit
+        run: python3 scripts/audit_discriminating_task_metric_redesign.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 
