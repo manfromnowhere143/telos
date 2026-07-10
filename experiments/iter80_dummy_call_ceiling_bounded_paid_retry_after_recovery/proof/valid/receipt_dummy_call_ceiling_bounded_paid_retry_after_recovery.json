@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "Iter79 validates as a clean recovery packet.",
+    "Exactly the two selected Dummy rows execute.",
+    "No deterministic-edit or BattleSnake rows rerun.",
+    "Each row uses a 16-call per-row ceiling; total calls stay at or below 32.",
+    "Total provider spend stays at or below $5.00.",
+    "Receipt-required rows have valid Telos receipts before verified completion is accepted.",
+    "No GPU, cloud runner, Sentinel mutation, live-domain mutation, or benchmark/model claim occurs."
+  ],
+  "agent_id": "codex-local-dummy-only-bounded-paid-retry-runner",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records row execution, calls, costs, receipts, blockers, and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/raw/",
+      "kind": "artifact",
+      "notes": "Raw packet contains command transcripts and copied CodeClash artifacts.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/call_ceiling_overlay_binding.json",
+      "kind": "artifact",
+      "notes": "Binding proves the Dummy agent overlays used the recovered 16-call ceiling.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-benchmark/no-model boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter79 validation fails.",
+    "The result must fail if any unselected row executes.",
+    "The result must fail if provider calls or spend exceed the frozen ceiling.",
+    "The result must block if receipt-required rows lack valid receipts.",
+    "The result must fail if credential, token, project, or service-account residue is committed.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter80-dummy-call-ceiling-bounded-paid-retry-pass",
+  "sha256": "864bdbaa950eb9f4659cda52aed3f9e367ad5d828308d5bc715e9002fecbd3a2",
+  "stated_goal": "Execute only the two Dummy adapter rows under the iter79 call-ceiling recovery plan.",
+  "status": "pass",
+  "task_id": "telos:iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery@iter79"
+}

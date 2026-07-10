@@ -11,7 +11,7 @@
     ".github/workflows/codeclash-agent-behavior.yml",
     ".github/workflows/codeclash-deterministic-edit.yml"
   ],
-  "active_gate": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md",
+  "active_gate": "experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md",
   "loop": [
     {
       "phase": "pre_register",
@@ -243,6 +243,8 @@
     "python3 scripts/audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py",
     "python3 scripts/validate_receipts.py experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof",
     "python3 scripts/audit_dummy_row_call_ceiling_recovery_after_paid_retry_block.py",
+    "python3 scripts/validate_receipts.py experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof",
+    "python3 scripts/audit_dummy_call_ceiling_bounded_paid_retry_after_recovery.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_handoff.py"
   ]

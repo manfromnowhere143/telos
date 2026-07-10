@@ -1,0 +1,9 @@
+{
+  "round": 1,
+  "full_diff": "diff --git a/main.py b/main.py\nindex 08dcdcd..870b508 100644\n--- a/main.py\n+++ b/main.py\n@@ -3,7 +3,7 @@\n import random\n \n def make_guess():\n-    return random.randint(1, 100)\n+    return 50\n \n if __name__ == \"__main__\":\n     print(\"This is a simple bot that makes random guesses between 1-100\")\n",
+  "incremental_diff": "diff --git a/main.py b/main.py\nindex 08dcdcd..870b508 100644\n--- a/main.py\n+++ b/main.py\n@@ -3,7 +3,7 @@\n import random\n \n def make_guess():\n-    return random.randint(1, 100)\n+    return 50\n \n if __name__ == \"__main__\":\n     print(\"This is a simple bot that makes random guesses between 1-100\")\n",
+  "modified_files": {
+    "main.py": "#!/usr/bin/env python3\n\nimport random\n\ndef make_guess():\n    return 50\n\nif __name__ == \"__main__\":\n    print(\"This is a simple bot that makes random guesses between 1-100\")\n    print(\"To run the game, use: python engine.py main.py main.py\")\n    print(\"(or create other bot files and compete them against each other)\")\n    \n    print(f\"Example guess: {make_guess()}\")"
+  },
+  "timestamp": 1783676340
+}

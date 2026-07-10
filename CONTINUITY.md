@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md`
+- `experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -387,12 +387,15 @@ Current claim:
   zero spend, and zero row execution. Both iter78 Dummy failures are classified from committed raw
   artifacts as per-row global call-ceiling blockers at the frozen `8` call ceiling;
   deterministic-edit evidence remains retained and not rerun.
+- `iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery` passed after exactly two Dummy
+  adapter rows executed under the recovered `16` call per-row ceiling. Provider usage was `6` calls
+  and `$0.02840000`. Dummy baseline and Dummy Telos both had verified-completion evidence;
+  deterministic-edit and BattleSnake rows were not rerun.
 - No model or benchmark result is claimed yet.
-- The next gate may only execute the two Dummy adapter rows under the iter79 recovery plan. It must
-  not rerun deterministic-edit or BattleSnake rows; total provider calls must remain at or below
-  `32` and total spend at or below `$5.00`; it must commit no credential material, use no GPU or
-  cloud runner, mutate no Sentinel resources, change no production/live-domain behavior, and make
-  no benchmark/model claims.
+- The next gate may only consolidate committed iter66, iter78, and iter80 evidence with zero
+  provider calls, zero spend, and zero row execution. It must keep task surfaces stratified, commit
+  no credential material, use no GPU or cloud runner, mutate no Sentinel resources, change no
+  production/live-domain behavior, and make no benchmark/model claims.
 
 ## Required Verification
 
@@ -557,6 +560,8 @@ python3 scripts/validate_receipts.py experiments/iter78_provider_compatible_expa
 python3 scripts/audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py
 python3 scripts/validate_receipts.py experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof
 python3 scripts/audit_dummy_row_call_ceiling_recovery_after_paid_retry_block.py
+python3 scripts/validate_receipts.py experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof
+python3 scripts/audit_dummy_call_ceiling_bounded_paid_retry_after_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

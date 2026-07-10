@@ -133,8 +133,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter77_runtime_adc_recheck_after_application_default_login` | pass | Application Default Credentials now refresh non-interactively with project and token output suppressed, while CodeClash pinning, Docker, and `google.auth` readiness remain intact | pre-register the bounded four-row paid retry under the frozen provider/API and spend ceilings |
 | `iter78_provider_compatible_expanded_paid_retry_after_adc_recovery` | blocked | the four selected adapter rows executed under ceiling with 9 provider calls and $0.03987600 spend; deterministic-edit baseline and Telos both verified, but both Dummy rows hit the per-row global call ceiling | classify and recover the Dummy per-row call ceiling before any further paid retry |
 | `iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block` | pass | both iter78 Dummy failures are classified from committed raw artifacts as per-row global call-ceiling blockers at the frozen 8-call ceiling, while deterministic-edit evidence remains retained and not rerun | pre-register the Dummy-only bounded paid retry with a 16-call per-row ceiling |
+| `iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery` | pass | the Dummy-only paid retry executed exactly two rows with a 16-call per-row ceiling, used 6 provider calls and $0.02840000, and both Dummy baseline and Telos rows verified | consolidate expanded stratified adapter-validation evidence before any benchmark claim |
 
-The next experiment may only execute the two Dummy adapter rows under the iter79 recovery plan. It
-must not rerun deterministic-edit or BattleSnake rows; total provider calls must remain at or below
-32 and total spend at or below $5.00; it must commit no credential material, use no GPU or cloud
-runner, mutate no Sentinel resources, and make no benchmark/model result claims.
+The next experiment may only consolidate committed iter66, iter78, and iter80 evidence with zero
+provider calls, zero spend, and zero row execution. It must keep task surfaces stratified, commit no
+credential material, use no GPU or cloud runner, mutate no Sentinel resources, and make no
+benchmark/model result claims.

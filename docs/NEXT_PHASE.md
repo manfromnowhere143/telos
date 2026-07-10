@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery` exactly as
+Run `iter81_expanded_stratified_adapter_validation_consolidation` exactly as
 frozen in
-[`../experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md`](../experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md).
+[`../experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md`](../experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -43,7 +43,11 @@ failures from committed raw artifacts as per-row global call-ceiling blockers at
 `8` call ceiling, while retaining deterministic-edit evidence without rerun. The next honest move
 is the bounded Dummy-only paid retry in iter80: execute exactly two Dummy rows, raise the per-row
 call ceiling to `16`, keep total provider calls at or below `32`, keep total spend at or below
-`$5.00`, and make no benchmark/model/SOTA claim.
+`$5.00`, and make no benchmark/model/SOTA claim. `iter80` passed: it executed exactly those two
+Dummy rows, used 6 provider calls and `$0.02840000`, and both Dummy baseline and Dummy Telos rows
+verified. The next honest move is the zero-spend iter81 consolidation gate: account for retained
+BattleSnake, deterministic-edit, and Dummy evidence as stratified adapter-validation evidence
+before any benchmark-facing claim or larger paid run.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

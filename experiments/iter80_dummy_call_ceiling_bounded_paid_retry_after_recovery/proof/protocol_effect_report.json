@@ -1,0 +1,232 @@
+{
+  "aggregate_benchmark_or_model_claim_authorized": false,
+  "benchmark_result_claimed": false,
+  "blocked_result": false,
+  "blockers": [],
+  "call_ceiling_overlay_binding": {
+    "all_required_call_ceiling_overlays_materialized": true,
+    "bindings": [
+      {
+        "copied_or_written": true,
+        "destination": "configs/mini/telos_vertex_gemini_dummy_baseline_agent.yaml",
+        "destination_sha256": "1c3a5b2a786a7cd2c42359df6672b9327314ca6049090ccd76fa899d9c8c2b3f",
+        "hash_match": true,
+        "materialization": "copied_iter80_call_ceiling_recovered_dummy_overlay",
+        "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+        "previous_step_limit": 8,
+        "recovered_step_limit": 16,
+        "source": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_baseline_agent.yaml",
+        "source_sha256": "1c3a5b2a786a7cd2c42359df6672b9327314ca6049090ccd76fa899d9c8c2b3f"
+      },
+      {
+        "copied_or_written": true,
+        "destination": "configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+        "destination_sha256": "4eb7de70c10d0767c4afa87f7f52a2d1a3801eb5f9d54acc85f8b0591922160c",
+        "hash_match": true,
+        "materialization": "copied_iter80_call_ceiling_recovered_dummy_overlay",
+        "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+        "previous_step_limit": 8,
+        "recovered_step_limit": 16,
+        "source": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+        "source_sha256": "4eb7de70c10d0767c4afa87f7f52a2d1a3801eb5f9d54acc85f8b0591922160c"
+      }
+    ],
+    "experiment_id": "iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery",
+    "schema_version": "telos.dummy_call_ceiling_bounded_paid_retry.call_ceiling_overlay_binding.v1",
+    "source_iteration": "iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block"
+  },
+  "clean_pass": true,
+  "cloud_runner_started": false,
+  "cross_task_surface_pooling_authorized": false,
+  "deterministic_edit_pair_ids_retained_not_rerun": [
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "executed_pair_count": 2,
+  "executed_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+  ],
+  "experiment_id": "iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery",
+  "failures": [],
+  "gpu_used": false,
+  "leaderboard_or_swebench_result_claimed": false,
+  "model_superiority_claimed": false,
+  "per_row_call_limit": 16,
+  "per_row_spend_limit_usd": 2.5,
+  "preflight": {
+    "adc_access_token_available": true,
+    "adc_token_output_suppressed": true,
+    "call_ceiling_overlays_all_materialized": true,
+    "cloud_runner_started": false,
+    "codeclash_actual_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "codeclash_commit_matches_expected": true,
+    "codeclash_expected_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "codeclash_google_auth_import_ready": true,
+    "deterministic_edit_pair_ids_retained_not_rerun": [
+      "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+    ],
+    "docker_ready": true,
+    "docker_server_version_present": true,
+    "expected_selected_pair_ids": [
+      "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+    ],
+    "experiment_id": "iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery",
+    "gpu_used": false,
+    "iter79_audit_returncode": 0,
+    "iter79_clean_pass": true,
+    "iter79_receipt_validation_returncode": 0,
+    "iter79_status": "pass",
+    "per_row_call_limit": 16,
+    "per_row_spend_limit_usd": 2.5,
+    "provider_call_ceiling": 32,
+    "provider_spend_ceiling_usd": 5.0,
+    "retained_battlesnake_pair_ids_not_rerun": [
+      "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml"
+    ],
+    "runtime_env_values_committed": false,
+    "runtime_model_config_has_secret_values_only_in_tmp": true,
+    "runtime_model_config_materialized": true,
+    "runtime_overlay_all_materialized": true,
+    "runtime_overlay_copied_hashes_match": true,
+    "runtime_project_available": true,
+    "schema_version": "telos.dummy_call_ceiling_bounded_paid_retry.preflight.v1",
+    "selected_pair_ids": [
+      "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+    ],
+    "sentinel_named_resources_modified": false
+  },
+  "prerequisite_validation": {
+    "clean_prerequisites": true,
+    "experiment_id": "iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery",
+    "iter79_audit_returncode": 0,
+    "iter79_clean_pass": true,
+    "iter79_dummy_rows_classified": true,
+    "iter79_next_gate": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md",
+    "iter79_receipt_validation_returncode": 0,
+    "iter79_recovery_plan_per_row_call_limit": 16,
+    "iter79_recovery_plan_provider_call_ceiling": 32,
+    "iter79_recovery_plan_provider_spend_ceiling_usd": 5.0,
+    "iter79_recovery_plan_selected_pair_ids": [
+      "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+    ],
+    "iter79_status": "pass",
+    "paid_execution_allowed": true,
+    "schema_version": "telos.dummy_call_ceiling_bounded_paid_retry.prerequisite_validation.v1",
+    "source_iter79_recovery_plan": "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/recovery_plan.json",
+    "source_iter79_recovery_plan_sha256": "94ddfa9899d409f733eb0f4a1d70ed0032602f60fb53696e0d54d217e1f6618f",
+    "source_iter79_summary": "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/run_summary.json",
+    "source_iter79_summary_sha256": "08f379309493088ef57027d35962b7eafaf90d7f95a8cab5c26695119692dd3f"
+  },
+  "primary_metric": {
+    "deterministic_edit_rows_retained_not_rerun": true,
+    "dummy_baseline_verified_completion_evidence": true,
+    "dummy_delta_telos_minus_baseline": 0,
+    "dummy_telos_verified_completion_evidence": true
+  },
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 6,
+  "provider_call_ceiling": 32,
+  "provider_cost_usd": 0.0284,
+  "provider_spend_ceiling_usd": 5.0,
+  "quality_failure": false,
+  "recovered_agent_overlay_manifest": {
+    "all_recovered_step_limits_written": true,
+    "experiment_id": "iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery",
+    "generated": [
+      {
+        "destination": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_baseline_agent.yaml",
+        "destination_sha256": "1c3a5b2a786a7cd2c42359df6672b9327314ca6049090ccd76fa899d9c8c2b3f",
+        "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+        "previous_step_limit": 8,
+        "recovered_step_limit": 16,
+        "source": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_baseline_agent.yaml",
+        "source_sha256": "c557b5aa2a1a1ad1c52a997f88c14f6ba22038a27b6caec130425b43d870f528"
+      },
+      {
+        "destination": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+        "destination_sha256": "4eb7de70c10d0767c4afa87f7f52a2d1a3801eb5f9d54acc85f8b0591922160c",
+        "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+        "previous_step_limit": 8,
+        "recovered_step_limit": 16,
+        "source": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+        "source_sha256": "3225388320fe88c2fb502234bf24337b1a70dc3a1afdef66106def0dcbdc9495"
+      }
+    ],
+    "schema_version": "telos.dummy_call_ceiling_bounded_paid_retry.recovered_agent_overlays.v1",
+    "source_recovery_iteration": "iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block"
+  },
+  "redaction_findings": [],
+  "redaction_scan_passed": true,
+  "retained_battlesnake_pair_ids_not_rerun": [
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml"
+  ],
+  "row_results": [
+    {
+      "agent_exit_status": "Submitted",
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_dummy_vertex_baseline.yaml -o /tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "command_returncode": 0,
+      "command_timed_out": false,
+      "condition_id": "baseline_agent_completion_evidence",
+      "elapsed_seconds": 50.888,
+      "output_dir": "/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-completion-evidence__configs-test-dummy-yaml/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260710123835",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "provider_api_calls": 4,
+      "provider_cost_usd": 0.012714,
+      "public_config": "configs/test/dummy.yaml",
+      "raw_artifact_count": 12,
+      "raw_evidence_present": true,
+      "receipt_candidate_found": false,
+      "receipt_candidate_json_parseable": false,
+      "receipt_required": false,
+      "receipt_valid": false,
+      "receipt_validation_reason": "receipt_not_required_for_baseline",
+      "receipt_validation_returncode": null,
+      "receipt_validation_stderr": "",
+      "receipt_validation_stdout": "",
+      "round_1_winner": "p1",
+      "verified_completion_evidence": true
+    },
+    {
+      "agent_exit_status": "Submitted",
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_dummy_vertex_receipt_enforced.yaml -o /tmp/telos-codeclash-protocol-effect-expanded-slice/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "command_returncode": 0,
+      "command_timed_out": false,
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "elapsed_seconds": 46.585,
+      "output_dir": "/tmp/telos-codeclash-protocol-effect-expanded-slice/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/PvpTournament.Dummy.r3.s1000.p2.p1.p2.260710123925",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "provider_api_calls": 2,
+      "provider_cost_usd": 0.015686,
+      "public_config": "configs/test/dummy.yaml",
+      "raw_artifact_count": 12,
+      "raw_evidence_present": true,
+      "receipt_candidate_found": true,
+      "receipt_candidate_json_parseable": true,
+      "receipt_required": true,
+      "receipt_valid": true,
+      "receipt_validation_reason": null,
+      "receipt_validation_returncode": 0,
+      "receipt_validation_stderr": "",
+      "receipt_validation_stdout": "receipt validation: 1 valid receipts passed",
+      "round_1_winner": "p2",
+      "verified_completion_evidence": true
+    }
+  ],
+  "schema_version": "telos.dummy_call_ceiling_bounded_paid_retry.report.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+  ],
+  "sentinel_named_resources_modified": false,
+  "state_of_the_art_result_claimed": false,
+  "status": "pass"
+}

@@ -354,6 +354,14 @@ Current evidence:
   pre-registers the next bounded paid retry: execute only the two Dummy rows with a `16` call
   per-row ceiling, total calls at or below `32`, total spend at or below `$5.00`, no
   deterministic-edit/BattleSnake rerun, and no benchmark/model/state-of-the-art claim.
+- `experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/RESULT.md` passes that
+  bounded paid retry. Exactly two Dummy rows executed, provider usage was `6` calls and
+  `$0.02840000`, both Dummy baseline and Dummy Telos verified, deterministic-edit and BattleSnake
+  rows were not rerun, and no benchmark/model/state-of-the-art claim occurred.
+- `experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md`
+  pre-registers the next zero-spend consolidation gate. It may only account for committed iter66,
+  iter78, and iter80 evidence as stratified adapter-validation evidence before any
+  benchmark-facing claim or larger paid run.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

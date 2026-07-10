@@ -283,12 +283,17 @@ and an adversarial review pass.
   deterministic-edit evidence was retained and not rerun. No credential material or
   benchmark/model/SOTA claim occurred in
   [`experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block`](experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/RESULT.md).
-- Current gate: Dummy call-ceiling bounded paid retry after recovery,
+- Dummy call-ceiling bounded paid retry after recovery: passed after executing exactly the two
+  Dummy adapter rows with a `16` call per-row ceiling. Provider usage was `6` calls and
+  `$0.02840000`; both Dummy baseline and Dummy Telos rows verified, deterministic-edit and
+  BattleSnake rows were not rerun, and no benchmark/model/SOTA claim occurred in
+  [`experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery`](experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/RESULT.md).
+- Current gate: expanded stratified adapter-validation consolidation,
   pre-registered in
-  [`experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery`](experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md).
+  [`experiments/iter81_expanded_stratified_adapter_validation_consolidation`](experiments/iter81_expanded_stratified_adapter_validation_consolidation/HYPOTHESIS.md).
 - Benchmark result: none yet.
-- Provider-backed protocol-effect result: bounded two-row clean pilot plus a blocked four-row
-  adapter-validation extension; neither is a benchmark result.
+- Provider-backed protocol-effect result: bounded two-row clean pilot plus stratified
+  adapter-validation rows; neither is a benchmark result.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
 Claim-boundary reviewer entry point:
