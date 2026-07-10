@@ -11,7 +11,7 @@
     ".github/workflows/codeclash-agent-behavior.yml",
     ".github/workflows/codeclash-deterministic-edit.yml"
   ],
-  "active_gate": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md",
+  "active_gate": "experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md",
   "loop": [
     {
       "phase": "pre_register",
@@ -249,6 +249,8 @@
     "python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py",
     "python3 scripts/validate_receipts.py experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof",
     "python3 scripts/audit_benchmark_facing_protocol_effect_slice_design.py",
+    "python3 scripts/validate_receipts.py experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof",
+    "python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_handoff.py"
   ]

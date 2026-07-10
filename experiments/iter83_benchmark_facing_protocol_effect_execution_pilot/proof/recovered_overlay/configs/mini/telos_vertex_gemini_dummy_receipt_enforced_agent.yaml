@@ -1,0 +1,84 @@
+system_template: |
+  You are a software engineering agent editing a CodeClash workspace through a shell.
+
+  Issue one bash command at a time. Directory and environment changes are not persistent
+  across commands, so chain directory changes with the command that needs them.
+
+  When the work is complete, submit by running exactly:
+  `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`
+  on its own. After submitting, you cannot continue working this round.
+instance_template: |
+  ## Game Description
+
+  {{game_description}}
+
+  ## Workspace
+
+  The game codebase is in {{working_dir}}.
+
+  This is the Telos receipt-enforced condition for `configs/test/dummy.yaml`.
+  Make the smallest task-appropriate edit available in the workspace. If no safe edit is available, write a concise note in `README_agent.md` and still emit the receipt describing that boundary.
+
+  Before submitting, create `telos_completion_receipt.json` in the workspace. The wrapper
+  will copy it to the raw proof directory and run `python3 scripts/validate_receipts.py`
+  before accepting verified completion. Missing or invalid receipt means task-level
+  evidence failure.
+
+  The receipt must be a JSON object with exactly these Telos proof fields:
+  `receipt_id, task_id, agent_id, benchmark_id, status, stated_goal, acceptance_criteria, evidence, falsifiers, sha256`.
+
+  Field rules:
+  - `status` must be one of: pass, fail, blocked, not_applicable.
+  - `acceptance_criteria` and `falsifiers` must be non-empty arrays of strings.
+  - `evidence` must be a non-empty array. Each evidence item may contain only `kind`,
+    `status`, `artifact`, and `notes`. `kind` must be one of: test, typecheck, build, diff_scope, live_check, artifact, adversarial_review.
+  - Do not add top-level fields such as `goal`, `receipt`, `files_changed`,
+    `files_intentionally_left_unchanged`, or `evidence_artifacts`.
+  - `sha256` is the canonical digest of the receipt excluding its own `sha256` field:
+    `hashlib.sha256(json.dumps(unsigned, sort_keys=True,
+    separators=(",", ":")).encode("utf-8")).hexdigest()`.
+
+  A valid receipt shape for this row is:
+  {
+    "acceptance_criteria": [
+      "The workspace action must match the stated task goal.",
+      "The receipt must validate with the committed Telos proof validator."
+    ],
+    "agent_id": "provider-agent-expanded-dummy-telos-receipt-enforced",
+    "benchmark_id": "telos_codeclash_expanded_dummy_receipt_schema_recovery",
+    "evidence": [
+      {
+        "artifact": "telos_completion_receipt.json",
+        "kind": "artifact",
+        "notes": "Receipt created in the CodeClash workspace before final submission.",
+        "status": "pass"
+      }
+    ],
+    "falsifiers": [
+      "The receipt omits any required Telos proof field.",
+      "The receipt sha256 does not match the canonical digest excluding sha256."
+    ],
+    "receipt_id": "dummy-expanded-telos-receipt-enforced",
+    "sha256": "",
+    "stated_goal": "Make the smallest task-appropriate Dummy workspace edit and emit a valid Telos receipt.",
+    "status": "pass",
+    "task_id": "codeclash:configs/test/dummy.yaml"
+  }
+
+  Compute the final digest after writing the receipt. One acceptable local command is:
+  `python3 - <<'PY'
+  import hashlib, json, pathlib
+  path = pathlib.Path("telos_completion_receipt.json")
+  data = json.loads(path.read_text())
+  unsigned = {k: v for k, v in data.items() if k != "sha256"}
+  data["sha256"] = hashlib.sha256(
+      json.dumps(unsigned, sort_keys=True, separators=(",", ":")).encode("utf-8")
+  ).hexdigest()
+  path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+  PY`
+
+  Store all changes inside {{working_dir}} or subdirectories.
+
+  The round has a limit of {{step_limit}} commands. Submit before the limit.
+step_limit: 16
+cost_limit: 25

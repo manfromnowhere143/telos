@@ -523,6 +523,12 @@ jobs:
       - name: Benchmark-facing protocol-effect slice design audit
         run: python3 scripts/audit_benchmark_facing_protocol_effect_slice_design.py
 
+      - name: Benchmark-facing protocol-effect execution pilot receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof
+
+      - name: Benchmark-facing protocol-effect execution pilot audit
+        run: python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

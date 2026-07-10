@@ -1,0 +1,71 @@
+{
+  "expected_selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "experiment_id": "iter83_benchmark_facing_protocol_effect_execution_pilot",
+  "row_count": 6,
+  "rows": [
+    {
+      "condition_label": "baseline",
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_dummy_vertex_baseline.yaml -o /tmp/telos-codeclash-protocol-effect-benchmark-facing-pilot/baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "provider_agent_config": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_baseline_agent.yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "task_surface": "dummy"
+    },
+    {
+      "condition_label": "baseline",
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_battlesnake_vertex_gemini_baseline.yaml -o /tmp/telos-codeclash-protocol-effect-benchmark-facing-pilot/baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "provider_agent_config": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/recovered_overlay/configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "task_surface": "battlesnake"
+    },
+    {
+      "condition_label": "baseline",
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_battlesnake_edit_vertex_baseline.yaml -o /tmp/telos-codeclash-protocol-effect-benchmark-facing-pilot/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "provider_agent_config": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_baseline_agent.yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "task_surface": "deterministic_edit"
+    },
+    {
+      "condition_label": "telos",
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_dummy_vertex_receipt_enforced.yaml -o /tmp/telos-codeclash-protocol-effect-benchmark-facing-pilot/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "provider_agent_config": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+      "public_config": "configs/test/dummy.yaml",
+      "task_surface": "dummy"
+    },
+    {
+      "condition_label": "telos",
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_battlesnake_vertex_gemini_receipt_enforced.yaml -o /tmp/telos-codeclash-protocol-effect-benchmark-facing-pilot/telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "provider_agent_config": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "task_surface": "battlesnake"
+    },
+    {
+      "condition_label": "telos",
+      "future_execution_command": "cd /tmp/telos-codeclash && uv run codeclash run configs/test/telos_battlesnake_edit_vertex_receipt_enforced.yaml -o /tmp/telos-codeclash-protocol-effect-benchmark-facing-pilot/telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "provider_agent_config": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_receipt_enforced_agent.yaml",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "task_surface": "deterministic_edit"
+    }
+  ],
+  "schema_version": "telos.benchmark_facing_protocol_effect_execution.selected_row_plan.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "name": "PvpTournament",
+  "tournament_id": "PvpTournament.BattleSnake.260710143346",
+  "config": {
+    "game": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "tournament": {
+      "rounds": 1
+    },
+    "players": [
+      {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent\nacross commands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n- `telos_completion_receipt.json`: required completion receipt for this condition\n\nThis is the Telos receipt-enforced condition. Improve the bot if you can do so safely\nwithin the command budget. Prefer a small, reversible, well-scoped edit over broad\nrewrites. If you cannot identify a safe edit, leave a concise note in `README_agent.md`.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. The wrapper\nwill copy it to the raw proof directory and run `python3 scripts/validate_receipts.py`\nbefore accepting verified completion. Missing or invalid receipt means task-level\nevidence failure.\n\nThe receipt must be a JSON object with exactly these Telos proof fields:\n`receipt_id, task_id, agent_id, benchmark_id, status, stated_goal, acceptance_criteria, evidence, falsifiers, sha256`.\n\nField rules:\n- `status` must be one of: pass, fail, blocked, not_applicable.\n- `acceptance_criteria` and `falsifiers` must be non-empty arrays of strings.\n- `evidence` must be a non-empty array. Each evidence item may contain only `kind`,\n  `status`, `artifact`, and `notes`. `kind` must be one of: test, typecheck, build, diff_scope, live_check, artifact, adversarial_review.\n- Do not add top-level fields such as `goal`, `files_changed`, or `evidence_artifacts`.\n- `sha256` is the canonical digest of the receipt excluding its own `sha256` field:\n  `hashlib.sha256(json.dumps(unsigned, sort_keys=True,\n  separators=(\",\", \":\")).encode(\"utf-8\")).hexdigest()`.\n\nA valid minimal receipt shape is:\n{\n  \"receipt_id\": \"codeclash-battlesnake-pvp-telos-receipt-enforced\",\n  \"task_id\": \"codeclash:configs/test/battlesnake_pvp_test.yaml\",\n  \"agent_id\": \"provider-agent-telos-receipt-enforced\",\n  \"benchmark_id\": \"telos_codeclash_battlesnake_pvp_two_row_protocol_effect\",\n  \"status\": \"pass\",\n  \"stated_goal\": \"Improve the Battlesnake bot safely within the command budget.\",\n  \"acceptance_criteria\": [\n    \"The bot should not move out of bounds.\",\n    \"The changes should be safe and well-scoped.\"\n  ],\n  \"evidence\": [\n    {\n      \"kind\": \"artifact\",\n      \"status\": \"pass\",\n      \"artifact\": \"main.py\",\n      \"notes\": \"Primary game-bot file inspected or changed.\"\n    }\n  ],\n  \"falsifiers\": [\n    \"The bot moves out of bounds.\",\n    \"The bot crashes due to syntax errors.\"\n  ],\n  \"sha256\": \"\"\n}\n\nCompute the final digest after writing the receipt. One acceptable local command is:\n`python3 - <<'PY'\nimport hashlib, json, pathlib\npath = pathlib.Path(\"telos_completion_receipt.json\")\ndata = json.loads(path.read_text())\nunsigned = {k: v for k, v in data.items() if k != \"sha256\"}\ndata[\"sha256\"] = hashlib.sha256(\n    json.dumps(unsigned, sort_keys=True, separators=(\",\", \":\")).encode(\"utf-8\")\n).hexdigest()\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \"\\n\")\nPY`\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 16,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global",
+              "vertex_project": "[REDACTED_GCP_PROJECT]",
+              "extra_headers": {
+                "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+                "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+              }
+            }
+          }
+        }
+      },
+      {
+        "agent": "dummy",
+        "name": "p2"
+      }
+    ],
+    "prompts": {
+      "game_description": "You are competing in a small BattleSnake coding game.\n\nThis is the Telos receipt-enforced condition for a protocol-effect pilot. Your bot controls a\nsnake on an 11x11 board. Snakes collect food, avoid collisions, and try to outlast opponents.\nThe goal is not a leaderboard score; the goal is a bounded, evidence-capturable agent attempt\nwhose completion can be accepted only with a valid Telos receipt.\n\nIf you can identify a safe improvement to `main.py`, make it and document the reasoning briefly\nin `README_agent.md`. If you cannot identify a safe improvement quickly, write a short\n`README_agent.md` note explaining what you inspected.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. It must describe\nthe stated goal, acceptance criteria, evidence artifacts, falsifiers, and the exact files you\nchanged or intentionally left unchanged. The future Telos wrapper will copy this into the raw\nproof packet and will reject verified completion unless the receipt validates."
+    }
+  },
+  "created_timestamp": 1783683226,
+  "aws": {},
+  "round_stats": {
+    "0": {
+      "round_num": 0,
+      "winner": "p2",
+      "details": [],
+      "scores": {
+        "p2": 1,
+        "p1": 0.0
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 0.0,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 1,
+          "valid_submit": true
+        }
+      }
+    },
+    "1": {
+      "round_num": 1,
+      "winner": "p2",
+      "details": [],
+      "scores": {
+        "p2": 1,
+        "p1": 0.0
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 0.0,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 1,
+          "valid_submit": true
+        }
+      }
+    }
+  },
+  "game": {
+    "name": "BattleSnake",
+    "config": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "game_id": "PvpTournament.BattleSnake.260710143346",
+    "created_timestamp": 1783683226
+  },
+  "agents": [
+    {
+      "name": "p1",
+      "player_unique_id": "e1f14aa5-db3f-42ef-8c18-5f4c88c0dedc",
+      "created_timestamp": 1783683227,
+      "config": {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small game bot through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent\nacross commands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nUseful paths:\n- `docs/`: game documentation\n- `/logs/`: prior edit and gameplay logs\n- `README_agent.md`: handoff notes for later teammates\n- `telos_completion_receipt.json`: required completion receipt for this condition\n\nThis is the Telos receipt-enforced condition. Improve the bot if you can do so safely\nwithin the command budget. Prefer a small, reversible, well-scoped edit over broad\nrewrites. If you cannot identify a safe edit, leave a concise note in `README_agent.md`.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. The wrapper\nwill copy it to the raw proof directory and run `python3 scripts/validate_receipts.py`\nbefore accepting verified completion. Missing or invalid receipt means task-level\nevidence failure.\n\nThe receipt must be a JSON object with exactly these Telos proof fields:\n`receipt_id, task_id, agent_id, benchmark_id, status, stated_goal, acceptance_criteria, evidence, falsifiers, sha256`.\n\nField rules:\n- `status` must be one of: pass, fail, blocked, not_applicable.\n- `acceptance_criteria` and `falsifiers` must be non-empty arrays of strings.\n- `evidence` must be a non-empty array. Each evidence item may contain only `kind`,\n  `status`, `artifact`, and `notes`. `kind` must be one of: test, typecheck, build, diff_scope, live_check, artifact, adversarial_review.\n- Do not add top-level fields such as `goal`, `files_changed`, or `evidence_artifacts`.\n- `sha256` is the canonical digest of the receipt excluding its own `sha256` field:\n  `hashlib.sha256(json.dumps(unsigned, sort_keys=True,\n  separators=(\",\", \":\")).encode(\"utf-8\")).hexdigest()`.\n\nA valid minimal receipt shape is:\n{\n  \"receipt_id\": \"codeclash-battlesnake-pvp-telos-receipt-enforced\",\n  \"task_id\": \"codeclash:configs/test/battlesnake_pvp_test.yaml\",\n  \"agent_id\": \"provider-agent-telos-receipt-enforced\",\n  \"benchmark_id\": \"telos_codeclash_battlesnake_pvp_two_row_protocol_effect\",\n  \"status\": \"pass\",\n  \"stated_goal\": \"Improve the Battlesnake bot safely within the command budget.\",\n  \"acceptance_criteria\": [\n    \"The bot should not move out of bounds.\",\n    \"The changes should be safe and well-scoped.\"\n  ],\n  \"evidence\": [\n    {\n      \"kind\": \"artifact\",\n      \"status\": \"pass\",\n      \"artifact\": \"main.py\",\n      \"notes\": \"Primary game-bot file inspected or changed.\"\n    }\n  ],\n  \"falsifiers\": [\n    \"The bot moves out of bounds.\",\n    \"The bot crashes due to syntax errors.\"\n  ],\n  \"sha256\": \"\"\n}\n\nCompute the final digest after writing the receipt. One acceptable local command is:\n`python3 - <<'PY'\nimport hashlib, json, pathlib\npath = pathlib.Path(\"telos_completion_receipt.json\")\ndata = json.loads(path.read_text())\nunsigned = {k: v for k, v in data.items() if k != \"sha256\"}\ndata[\"sha256\"] = hashlib.sha256(\n    json.dumps(unsigned, sort_keys=True, separators=(\",\", \":\")).encode(\"utf-8\")\n).hexdigest()\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \"\\n\")\nPY`\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 16,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global",
+              "vertex_project": "[REDACTED_GCP_PROJECT]",
+              "extra_headers": {
+                "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+                "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+              }
+            }
+          }
+        }
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260710143346.p1",
+      "round_tags": {
+        "0": "e1f14aa5-db3f-42ef-8c18-5f4c88c0dedc-round-0",
+        "1": "e1f14aa5-db3f-42ef-8c18-5f4c88c0dedc-round-1"
+      },
+      "agent_stats": {
+        "1": {
+          "exit_status": "Submitted",
+          "cost": 0.044764000000000005,
+          "api_calls": 5
+        }
+      }
+    },
+    {
+      "name": "p2",
+      "player_unique_id": "5a6ff02d-e6c4-496a-a841-fe4f26210e9a",
+      "created_timestamp": 1783683230,
+      "config": {
+        "agent": "dummy",
+        "name": "p2"
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260710143346.p2",
+      "round_tags": {
+        "0": "5a6ff02d-e6c4-496a-a841-fe4f26210e9a-round-0",
+        "1": "5a6ff02d-e6c4-496a-a841-fe4f26210e9a-round-1"
+      },
+      "agent_stats": {}
+    }
+  ]
+}

@@ -380,6 +380,14 @@ Current evidence:
 - `experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md`
   pre-registers the next bounded paid execution pilot. It may only execute the six selected
   CodeClash task-condition rows under the frozen call/spend ceilings, or publish the blocker.
+- `experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/RESULT.md` publishes
+  bounded blocked/null evidence. The gate executed exactly the six selected rows, used `21`
+  provider calls and `$0.11319400`, kept all artifacts under the frozen ceilings, and found no
+  interpretable Telos-minus-baseline protocol-effect signal because all three task-surface deltas
+  were `0`.
+- `experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md`
+  pre-registers the next zero-spend adjudication gate. It may only classify the iter83 null signal
+  and freeze a replication, task/metric redesign, or stop/review decision from committed evidence.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

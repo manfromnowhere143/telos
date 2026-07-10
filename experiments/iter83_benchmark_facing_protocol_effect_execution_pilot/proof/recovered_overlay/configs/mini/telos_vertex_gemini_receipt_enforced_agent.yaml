@@ -1,0 +1,90 @@
+system_template: |
+  You are a software engineering agent editing a small game bot through a shell.
+
+  Issue one bash command at a time. Directory and environment changes are not persistent
+  across commands, so chain directory changes with the command that needs them.
+
+  When the work is complete, submit by running exactly:
+  `echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`
+  on its own. After submitting, you cannot continue working this round.
+instance_template: |
+  ## Game Description
+
+  {{game_description}}
+
+  ## Workspace
+
+  The game codebase is in {{working_dir}}.
+
+  Useful paths:
+  - `docs/`: game documentation
+  - `/logs/`: prior edit and gameplay logs
+  - `README_agent.md`: handoff notes for later teammates
+  - `telos_completion_receipt.json`: required completion receipt for this condition
+
+  This is the Telos receipt-enforced condition. Improve the bot if you can do so safely
+  within the command budget. Prefer a small, reversible, well-scoped edit over broad
+  rewrites. If you cannot identify a safe edit, leave a concise note in `README_agent.md`.
+
+  Before submitting, create `telos_completion_receipt.json` in the workspace. The wrapper
+  will copy it to the raw proof directory and run `python3 scripts/validate_receipts.py`
+  before accepting verified completion. Missing or invalid receipt means task-level
+  evidence failure.
+
+  The receipt must be a JSON object with exactly these Telos proof fields:
+  `receipt_id, task_id, agent_id, benchmark_id, status, stated_goal, acceptance_criteria, evidence, falsifiers, sha256`.
+
+  Field rules:
+  - `status` must be one of: pass, fail, blocked, not_applicable.
+  - `acceptance_criteria` and `falsifiers` must be non-empty arrays of strings.
+  - `evidence` must be a non-empty array. Each evidence item may contain only `kind`,
+    `status`, `artifact`, and `notes`. `kind` must be one of: test, typecheck, build, diff_scope, live_check, artifact, adversarial_review.
+  - Do not add top-level fields such as `goal`, `files_changed`, or `evidence_artifacts`.
+  - `sha256` is the canonical digest of the receipt excluding its own `sha256` field:
+    `hashlib.sha256(json.dumps(unsigned, sort_keys=True,
+    separators=(",", ":")).encode("utf-8")).hexdigest()`.
+
+  A valid minimal receipt shape is:
+  {
+    "receipt_id": "codeclash-battlesnake-pvp-telos-receipt-enforced",
+    "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml",
+    "agent_id": "provider-agent-telos-receipt-enforced",
+    "benchmark_id": "telos_codeclash_battlesnake_pvp_two_row_protocol_effect",
+    "status": "pass",
+    "stated_goal": "Improve the Battlesnake bot safely within the command budget.",
+    "acceptance_criteria": [
+      "The bot should not move out of bounds.",
+      "The changes should be safe and well-scoped."
+    ],
+    "evidence": [
+      {
+        "kind": "artifact",
+        "status": "pass",
+        "artifact": "main.py",
+        "notes": "Primary game-bot file inspected or changed."
+      }
+    ],
+    "falsifiers": [
+      "The bot moves out of bounds.",
+      "The bot crashes due to syntax errors."
+    ],
+    "sha256": ""
+  }
+
+  Compute the final digest after writing the receipt. One acceptable local command is:
+  `python3 - <<'PY'
+  import hashlib, json, pathlib
+  path = pathlib.Path("telos_completion_receipt.json")
+  data = json.loads(path.read_text())
+  unsigned = {k: v for k, v in data.items() if k != "sha256"}
+  data["sha256"] = hashlib.sha256(
+      json.dumps(unsigned, sort_keys=True, separators=(",", ":")).encode("utf-8")
+  ).hexdigest()
+  path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+  PY`
+
+  Store all changes inside {{working_dir}} or subdirectories.
+
+  The round has a limit of {{step_limit}} commands. Submit before the limit.
+step_limit: 16
+cost_limit: 25

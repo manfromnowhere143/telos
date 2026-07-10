@@ -301,12 +301,18 @@ and an adversarial review pass.
   cloud runner/GPU/Sentinel/live-domain mutation, SWE-bench Verified kept as receipt-field anchor
   only, and no benchmark/model/SOTA claim in
   [`experiments/iter82_benchmark_facing_protocol_effect_slice_design`](experiments/iter82_benchmark_facing_protocol_effect_slice_design/RESULT.md).
-- Current gate: benchmark-facing protocol-effect execution pilot,
+- Benchmark-facing protocol-effect execution pilot: published blocked/null evidence after executing
+  exactly the six frozen CodeClash public task-condition rows. Provider usage was `21` calls and
+  `$0.11319400`, all row receipts/artifacts stayed under the `96` call and `$10.00` ceilings, and
+  all three Telos-minus-baseline verified-completion deltas were `0`; no benchmark/model/SOTA claim
+  occurred in
+  [`experiments/iter83_benchmark_facing_protocol_effect_execution_pilot`](experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/RESULT.md).
+- Current gate: benchmark-facing null-signal adjudication,
   pre-registered in
-  [`experiments/iter83_benchmark_facing_protocol_effect_execution_pilot`](experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md).
+  [`experiments/iter84_benchmark_facing_null_signal_adjudication`](experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md).
 - Benchmark result: none yet.
-- Provider-backed protocol-effect result: bounded two-row clean pilot plus stratified
-  adapter-validation rows; neither is a benchmark result.
+- Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
+  adapter-validation rows, and one bounded six-row null/no-signal pilot; none is a benchmark result.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
 Claim-boundary reviewer entry point:

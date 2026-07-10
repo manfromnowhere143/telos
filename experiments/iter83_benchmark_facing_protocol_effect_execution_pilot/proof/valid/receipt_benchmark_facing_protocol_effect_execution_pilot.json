@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter82 validates as a clean slice-design packet.",
+    "Exactly six selected rows execute and zero unselected rows execute.",
+    "Provider calls stay at or below 96 and provider spend stays at or below $10.00.",
+    "Every completed row has raw artifacts, cost/call accounting, and redaction evidence.",
+    "Receipt-enforced rows require a valid Telos receipt before verified completion is accepted.",
+    "No GPU, cloud runner, Sentinel mutation, live-domain mutation, benchmark claim, model-superiority claim, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-benchmark-facing-protocol-effect-pilot-runner",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records row execution, calls, costs, receipts, blockers, and claim boundary.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/raw/",
+      "kind": "artifact",
+      "notes": "Raw packet contains command transcripts and copied CodeClash artifacts.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/recovered_agent_overlay_manifest.json",
+      "kind": "artifact",
+      "notes": "Recovered overlay manifest binds all six selected rows to the frozen 16-call ceiling.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-benchmark/no-model/no-SOTA boundary and null-signal handling.",
+      "status": "blocked"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter82 validation fails.",
+    "The result must fail if any unselected row executes.",
+    "The result must fail if provider calls or spend exceed the frozen ceiling.",
+    "The result must block/null if the executed rows show no interpretable Telos-minus-baseline protocol-effect signal.",
+    "The result must fail if credential, token, project, or service-account residue is committed.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter83-benchmark-facing-protocol-effect-execution-pilot-blocked",
+  "sha256": "01ba863436312c9e75f11991e915eccc50e604b658a1bd174f89850c4a31d492",
+  "stated_goal": "Execute exactly the six iter82-selected CodeClash public task-condition rows under the frozen benchmark-facing protocol-effect envelope.",
+  "status": "blocked",
+  "task_id": "telos:iter83_benchmark_facing_protocol_effect_execution_pilot@iter82"
+}

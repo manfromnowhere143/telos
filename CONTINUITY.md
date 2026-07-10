@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md`
+- `experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -401,11 +401,16 @@ Current claim:
   pilot with a `96` provider-call ceiling, `$10.00` total spend ceiling, `$2.00` per-row spend
   ceiling, no cloud runner/GPU/Sentinel/live-domain mutation, and SWE-bench Verified retained only
   as a receipt-field anchor.
+- `iter83_benchmark_facing_protocol_effect_execution_pilot` published blocked/null evidence after
+  executing exactly the six frozen CodeClash public task-condition rows. Provider usage was `21`
+  calls and `$0.11319400`, all row artifacts and receipts stayed under the `96` call and `$10.00`
+  ceilings, and Dummy, BattleSnake, and deterministic-edit Telos-minus-baseline deltas were all
+  `0`.
 - No model or benchmark result is claimed yet.
-- The next gate may only execute the six pre-registered CodeClash public task-condition rows under
-  the frozen `96` call and `$10.00` spend ceilings, or publish the exact blocker. It must commit no
-  credential material, use no GPU or cloud runner, mutate no Sentinel resources, change no
-  production/live-domain behavior, and make no benchmark/model claims.
+- The next gate may only adjudicate the iter83 null/no-signal result from committed evidence. It
+  must use zero provider calls, zero spend, no row execution, no GPU or cloud runner, mutate no
+  Sentinel resources, change no production/live-domain behavior, and make no benchmark/model/SOTA
+  claims.
 
 ## Required Verification
 
@@ -576,6 +581,8 @@ python3 scripts/validate_receipts.py experiments/iter81_expanded_stratified_adap
 python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py
 python3 scripts/validate_receipts.py experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof
 python3 scripts/audit_benchmark_facing_protocol_effect_slice_design.py
+python3 scripts/validate_receipts.py experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof
+python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

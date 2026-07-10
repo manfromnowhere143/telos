@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter83_benchmark_facing_protocol_effect_execution_pilot` exactly as
+Run `iter84_benchmark_facing_null_signal_adjudication` exactly as
 frozen in
-[`../experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md`](../experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md).
+[`../experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md`](../experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -51,9 +51,11 @@ preserved six successful rows as separated BattleSnake/deterministic-edit/Dummy 
 two iter78 Dummy rows as diagnostic blocked evidence only. `iter82` passed the zero-spend
 slice-design gate: it froze a six-row CodeClash public task-condition paid pilot with a `96`
 provider-call ceiling, `$10.00` total spend ceiling, `$2.00` per-row spend ceiling, and
-SWE-bench Verified retained only as a receipt-field anchor. The next honest move is the bounded
-iter83 paid execution pilot, or the exact blocker if execution cannot preserve those ceilings and
-claim boundaries.
+SWE-bench Verified retained only as a receipt-field anchor. `iter83` then executed exactly those
+six selected rows, used 21 provider calls and `$0.11319400`, and published blocked/null evidence:
+Dummy, BattleSnake, and deterministic-edit Telos-minus-baseline verified-completion deltas were
+all `0`. The next honest move is the zero-spend iter84 adjudication gate: classify the null signal
+from committed artifacts and freeze a replication, task/metric redesign, or stop/review decision.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
