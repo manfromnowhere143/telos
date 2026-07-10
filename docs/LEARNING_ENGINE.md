@@ -130,9 +130,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery` | blocked | the retry prerequisites validated cleanly, but Google ADC refresh failed non-interactively before runtime overlay materialization or adapter-row execution | recover runtime ADC readiness with zero provider calls and zero spend before retrying paid rows |
 | `iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block` | blocked | CodeClash pinning, Docker readiness, `google.auth` import, and gcloud project availability were ready, but ADC still required interactive reauthentication | restore ADC non-interactive refresh before any paid retry |
 | `iter76_runtime_adc_recheck_after_operator_refresh` | blocked | the operator refresh did not restore Application Default Credentials; CodeClash pinning, Docker, `google.auth`, and gcloud project availability remained ready, but ADC still returned `interactive_reauthentication_required` | refresh Application Default Credentials before any paid retry |
+| `iter77_runtime_adc_recheck_after_application_default_login` | pass | Application Default Credentials now refresh non-interactively with project and token output suppressed, while CodeClash pinning, Docker, and `google.auth` readiness remain intact | pre-register the bounded four-row paid retry under the frozen provider/API and spend ceilings |
 
-The next experiment may only recheck runtime ADC after Application Default Credentials are refreshed
-outside the non-interactive proof runner, for example with `gcloud auth application-default login`.
-It must use zero provider calls, zero spend, and zero row execution; suppress project/token output;
-commit no credential material; use no GPU or cloud runner; mutate no Sentinel resources; and make no
-benchmark/model result claims.
+The next experiment may only retry the four adapter-planned provider-compatible rows selected by
+iter71, using the iter73 recovered receipt prompts and iter77-ready ADC path. It must keep provider
+calls at or below `32`, spend at or below `$10.00`, commit no credential material, use no GPU or
+cloud runner, mutate no Sentinel resources, and make no benchmark/model result claims.

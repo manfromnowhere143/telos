@@ -1,0 +1,43 @@
+{
+  "acceptance_criteria": [
+    "Iter76 validates as a clean blocked artifact packet.",
+    "CodeClash checkout, Docker readiness, google.auth import, gcloud project availability, and ADC refresh readiness are checked.",
+    "Access-token stdout and project identifier output are suppressed and not committed.",
+    "Zero provider calls, zero spend, zero row execution, no GPU, and no cloud runner startup occur.",
+    "No Sentinel, production/live-domain, benchmark, model, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-runtime-adc-recheck-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter77_runtime_adc_recheck_after_application_default_login/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records runtime readiness checks, blockers, costs, and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter77_runtime_adc_recheck_after_application_default_login/proof/runtime_adc_recheck_report.json",
+      "kind": "artifact",
+      "notes": "Report records token-suppressed ADC recheck classification.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter77_runtime_adc_recheck_after_application_default_login/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the zero-spend no-benchmark boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter76 receipt validation or audit fails.",
+    "The result must block if ADC still cannot refresh non-interactively.",
+    "The result must fail if any provider row executes or any provider spend occurs.",
+    "The result must fail if token, project identifier, service-account, or credential material is committed.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter77-runtime-adc-recheck-after-application-default-login-pass",
+  "sha256": "23ea1aeb1a968b92c7e049bf506471d79e96ba07d15ddf82685e1677ffbe491b",
+  "stated_goal": "Recheck non-interactive ADC refresh after Application Default Credentials login before any paid adapter-row retry.",
+  "status": "pass",
+  "task_id": "telos:iter77_runtime_adc_recheck_after_application_default_login@iter76"
+}

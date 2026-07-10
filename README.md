@@ -266,9 +266,14 @@ and an adversarial review pass.
   but ADC still required `interactive_reauthentication_required`; no credential material was
   committed in
   [`experiments/iter76_runtime_adc_recheck_after_operator_refresh`](experiments/iter76_runtime_adc_recheck_after_operator_refresh/RESULT.md).
-- Current gate: runtime ADC recheck after Application Default Credentials login,
+- Runtime ADC recheck after Application Default Credentials login: passed with zero provider calls,
+  zero spend, and zero row execution. Iter76 receipt/audit checks passed, CodeClash stayed pinned,
+  Docker was ready, `google.auth` imported, gcloud project availability was proven with stdout
+  suppressed, ADC token output was suppressed, and no credential material was committed in
+  [`experiments/iter77_runtime_adc_recheck_after_application_default_login`](experiments/iter77_runtime_adc_recheck_after_application_default_login/RESULT.md).
+- Current gate: provider-compatible expanded paid retry after ADC recovery,
   pre-registered in
-  [`experiments/iter77_runtime_adc_recheck_after_application_default_login`](experiments/iter77_runtime_adc_recheck_after_application_default_login/HYPOTHESIS.md).
+  [`experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery`](experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot plus a blocked four-row
   adapter-validation extension; neither is a benchmark result.

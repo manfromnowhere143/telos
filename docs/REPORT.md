@@ -325,6 +325,17 @@ Current evidence:
   pre-registers the next zero-spend ADC recheck after Application Default Credentials refresh; it
   still forbids provider rows, provider spend, GPU, cloud runner, Sentinel mutation,
   production/live-domain changes, and benchmark/model/state-of-the-art claims.
+- `experiments/iter77_runtime_adc_recheck_after_application_default_login/RESULT.md` passes with
+  zero provider calls, zero spend, and zero row execution. Iter76 receipt validation and audit
+  passed; the CodeClash checkout stayed pinned, Docker was ready, `google.auth` imported, gcloud
+  project availability was proven with stdout suppressed, ADC token output was suppressed, no
+  credential material was committed, and no GPU, cloud runner, Sentinel mutation,
+  production/live-domain change, benchmark claim, model claim, or state-of-the-art claim occurred.
+- `experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/HYPOTHESIS.md`
+  pre-registers the bounded four-row provider-compatible paid retry after ADC recovery. It keeps the
+  frozen iter71 row selection, iter73 recovered receipt prompts, `$10.00` spend ceiling, `32`
+  provider-call ceiling, no GPU/cloud/Sentinel/prod mutation boundary, and no
+  benchmark/model/state-of-the-art claim boundary.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

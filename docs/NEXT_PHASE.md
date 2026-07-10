@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter77_runtime_adc_recheck_after_application_default_login` exactly as
+Run `iter78_provider_compatible_expanded_paid_retry_after_adc_recovery` exactly as
 frozen in
-[`../experiments/iter77_runtime_adc_recheck_after_application_default_login/HYPOTHESIS.md`](../experiments/iter77_runtime_adc_recheck_after_application_default_login/HYPOTHESIS.md).
+[`../experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/HYPOTHESIS.md`](../experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -32,8 +32,11 @@ failed non-interactively. `iter75` proved the runtime dependencies were ready bu
 interactive reauthentication. `iter76` rechecked after operator refresh and blocked again:
 CodeClash stayed pinned, Docker was ready, `google.auth` imported, and gcloud project availability
 was proven with stdout suppressed, but ADC still returned `interactive_reauthentication_required`.
-The next honest move is to refresh Application Default Credentials outside the proof runner, for
+The prior honest move was to refresh Application Default Credentials outside the proof runner, for
 example with `gcloud auth application-default login`, then run the zero-spend iter77 recheck.
+`iter77` passed: ADC now refreshes non-interactively with project and token output suppressed. The
+next honest move is the bounded iter78 paid retry of the same four adapter-planned rows, using the
+iter73 recovered receipt prompts and preserving the `$10.00`/`32` provider-call ceilings.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -142,7 +145,8 @@ example with `gcloud auth application-default login`, then run the zero-spend it
   [`../experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof/run_summary.json`](../experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof/run_summary.json),
 - use the blocked iter76 runtime ADC recheck evidence from
   [`../experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof/run_summary.json`](../experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof/run_summary.json),
-- run no adapter-planned rows until the iter77 ADC recheck passes,
+- use the passed iter77 runtime ADC recheck evidence from
+  [`../experiments/iter77_runtime_adc_recheck_after_application_default_login/proof/run_summary.json`](../experiments/iter77_runtime_adc_recheck_after_application_default_login/proof/run_summary.json),
 - execute only the four adapter-planned rows selected by iter71,
 - do not rerun the two retained BattleSnake rows unless a later gate explicitly requires it,
 - execute no excluded pair,
