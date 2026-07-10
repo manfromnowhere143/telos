@@ -294,6 +294,15 @@ Current evidence:
 - `experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/HYPOTHESIS.md`
   pre-registers the next bounded paid retry for the same four adapter-planned rows using the
   recovered iter73 receipt prompts under the same `32` provider-invocation and `$10.00` ceilings.
+- `experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/RESULT.md`
+  blocks before adapter-row execution. Iter72 receipt validation/audit and iter73 receipt
+  validation/audit passed, but `gcloud auth application-default print-access-token --quiet` failed
+  non-interactively, so runtime overlays were not materialized, no rows executed, zero provider
+  calls and zero spend occurred, and no GPU, cloud runner, Sentinel mutation,
+  production/live-domain change, benchmark claim, model claim, or state-of-the-art claim occurred.
+- `experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/HYPOTHESIS.md`
+  pre-registers the next zero-spend recovery gate: prove non-interactive ADC refresh and runtime
+  access readiness before any further paid adapter-row retry.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -250,9 +250,14 @@ and an adversarial review pass.
   recovered receipt-enforced prompt overlays were produced, local valid fixtures passed, and a
   malformed fixture failed closed in
   [`experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block`](experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/RESULT.md).
-- Current gate: provider-compatible expanded paid retry after receipt prompt recovery,
+- Provider-compatible expanded paid retry after receipt prompt recovery: blocked before adapter-row
+  execution because Google ADC refresh failed non-interactively. Iter72 and iter73 prerequisite
+  packets validated cleanly, but zero provider calls, zero spend, and zero row execution occurred;
+  no GPU/cloud/Sentinel/live-domain mutation or benchmark/model/SOTA claim occurred in
+  [`experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery`](experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/RESULT.md).
+- Current gate: provider-compatible runtime ADC recovery after paid retry block,
   pre-registered in
-  [`experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery`](experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/HYPOTHESIS.md).
+  [`experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block`](experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot plus a blocked four-row
   adapter-validation extension; neither is a benchmark result.

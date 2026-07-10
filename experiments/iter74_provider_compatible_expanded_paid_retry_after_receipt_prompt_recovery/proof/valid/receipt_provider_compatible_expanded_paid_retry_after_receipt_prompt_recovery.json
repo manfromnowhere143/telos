@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter72 validates as a clean blocked packet and iter73 validates as a clean recovery pass.",
+    "Exactly four adapter-planned rows execute and the two retained BattleSnake rows are not rerun.",
+    "The two receipt-enforced rows use the iter73 recovered prompt overlays.",
+    "Provider calls stay at or below 32 and provider spend at or below $10.00.",
+    "Every receipt-enforced row has a valid Telos receipt before verified completion is accepted.",
+    "No GPU, cloud runner, Sentinel mutation, live-domain mutation, or benchmark/model claim occurs."
+  ],
+  "agent_id": "codex-local-expanded-adapter-row-paid-retry-runner",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records row execution, prerequisite validation, provider calls, costs, receipts, and claim boundary.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof/recovered_prompt_overlay_binding.json",
+      "kind": "artifact",
+      "notes": "Binding proves the receipt-enforced rows used iter73 recovered prompt overlays.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof/protocol_effect_report.json",
+      "kind": "artifact",
+      "notes": "Report records prerequisite validation, row execution count, provider calls, costs, blockers, and claim boundary.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the stratified no-benchmark/no-model boundary.",
+      "status": "blocked"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter72 or iter73 validation fails.",
+    "The result must fail if any unselected row executes.",
+    "The result must fail if provider calls or spend exceed the frozen ceiling.",
+    "The result must block if receipt-required rows lack valid receipts.",
+    "The result must fail if the recovered iter73 prompt overlays are not materialized.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter74-provider-compatible-expanded-paid-retry-blocked",
+  "sha256": "e0b4f746edf9a674d5b3160d8dc663916cfe6bf109e2e8217a4583c3b7919c32",
+  "stated_goal": "Retry only the four iter71-selected adapter rows after iter73 receipt prompt recovery, using the recovered iter73 prompts for receipt-enforced rows.",
+  "status": "blocked",
+  "task_id": "telos:iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery@iter73"
+}

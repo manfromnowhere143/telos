@@ -1,0 +1,146 @@
+{
+  "aggregate_benchmark_or_model_claim_authorized": false,
+  "analysis_boundary": {
+    "aggregate_primary_metric_authorized": false,
+    "cross_task_surface_pooling_authorized": false,
+    "slice_type": "stratified_provider_compatible_protocol_effect_slice",
+    "task_surface_strata": [
+      {
+        "analysis_stratum": "battlesnake_pvp_existing_paid_evidence",
+        "interpretation": "prior two-row provider-backed pilot only",
+        "public_config": "configs/test/battlesnake_pvp_test.yaml",
+        "status": "retained_existing_iter66_evidence"
+      },
+      {
+        "analysis_stratum": "dummy_minimal_adapter_validation",
+        "interpretation": "minimal CodeClash task surface; adapter-validation evidence only unless a later gate proves a stronger interpretation",
+        "public_config": "configs/test/dummy.yaml",
+        "status": "selected_pending_adapter_row_execution"
+      },
+      {
+        "analysis_stratum": "deterministic_edit_small_workspace_edit",
+        "interpretation": "small deterministic workspace edit target; not benchmark-quality or model-quality evidence by itself",
+        "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+        "status": "selected_pending_adapter_row_execution"
+      }
+    ],
+    "within_stratum_baseline_vs_telos_comparison_after_execution": true
+  },
+  "artifact_hashes": {
+    "command_output.txt": "724727e25133886cb3a40d82e962c0fc567a11e5e108293c27da6d007b6e1cdb",
+    "learning_record.json": "fc152b9803ac5d25d472af8e5a767a31044c8f8bc57a5b2ae0709ee31a0139a1",
+    "overlay_materialization_manifest.json": "49a89a696c9587db40495f3c6a220c9b5228f46fd9375219d8913271196b2743",
+    "preflight.json": "0ae376a06a193bfd4a9af48b64af0245d888eee4ae9d89f300c02b7f1916322d",
+    "prerequisite_validation.json": "ca7354a6387de8b6e9033fe83bee79b26796dbda7808f9f0930e25ff47907c4d",
+    "protocol_effect_report.json": "ac7305fa7e28fa5ae978c5724b66651471dbc3e7a9ba3e5e30c3631f2eb174e1",
+    "recovered_prompt_overlay_binding.json": "ae1031aeec4167317053c36e38723f8ec930e0301dc2d193e4bd774cedd8e8e7",
+    "review.md": "757d1ddddaf73848effb84109144911a775f567fc8cb915d44eee133abeb13c9",
+    "runtime_access_path_binding.json": "7f46649b9501e36c8a0d4f0ed9bfc4e35c03c233b989b2619c5a52bae7c983b3",
+    "runtime_access_path_model_config.yaml": "b537dcec09e3b39d8aae616a9e2282e4a1b7f0b034e24a58191fcf46e8d10506",
+    "valid/receipt_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery.json": "f7f3815712d8c7e7aa1bf6559f292d40591afb08016f1395bc69e8bf63694a2b"
+  },
+  "benchmark_result_claimed": false,
+  "blocked_result": true,
+  "blockers": [
+    "adc_auth_unavailable",
+    "iter73_recovered_prompt_overlay_not_materialized",
+    "runtime_model_config_secret_boundary_not_proven",
+    "runtime_overlay_hash_mismatch",
+    "runtime_overlay_not_materialized"
+  ],
+  "clean_pass": false,
+  "cloud_runner_started": false,
+  "cross_task_surface_pooling_authorized": false,
+  "executed_pair_count": 0,
+  "executed_pair_ids": [],
+  "experiment_id": "iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery",
+  "failures": [],
+  "gpu_used": false,
+  "iter71_audit_returncode": 0,
+  "iter71_clean_pass": true,
+  "iter71_receipt_validation_returncode": 0,
+  "iter71_status": "pass",
+  "iter72_audit_returncode": 0,
+  "iter72_blocked_result": true,
+  "iter72_receipt_validation_returncode": 0,
+  "iter72_status": "blocked",
+  "iter73_audit_returncode": 0,
+  "iter73_clean_pass": true,
+  "iter73_receipt_validation_returncode": 0,
+  "iter73_recovered_prompt_overlay_binding_path": "recovered_prompt_overlay_binding.json",
+  "iter73_recovered_prompt_overlays_all_materialized": false,
+  "iter73_status": "pass",
+  "leaderboard_or_swebench_result_claimed": false,
+  "model_superiority_claimed": false,
+  "per_row_call_limit": 8,
+  "per_row_spend_limit_usd": 2.5,
+  "prerequisite_validation_path": "prerequisite_validation.json",
+  "primary_metric": {
+    "deterministic_edit_baseline_verified_completion_evidence": false,
+    "deterministic_edit_delta_telos_minus_baseline": 0,
+    "deterministic_edit_telos_verified_completion_evidence": false,
+    "dummy_baseline_verified_completion_evidence": false,
+    "dummy_delta_telos_minus_baseline": 0,
+    "dummy_telos_verified_completion_evidence": false
+  },
+  "production_or_live_domain_changed": false,
+  "provider_api_calls": 0,
+  "provider_call_ceiling": 32,
+  "provider_cost_usd": 0,
+  "provider_spend_ceiling_usd": 10.0,
+  "quality_failure": false,
+  "receipt_enforced_rows_used_iter73_recovered_overlays": false,
+  "recovered_prompt_overlay_binding": {
+    "all_required_recovered_overlays_materialized": false,
+    "bindings": [
+      {
+        "blocked_before_materialization_reason": "runtime_project_or_adc_token_unavailable",
+        "copied_or_written": false,
+        "destination": null,
+        "destination_sha256": null,
+        "hash_match": false,
+        "materialization": "not_materialized",
+        "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+        "source": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+        "source_sha256": "3225388320fe88c2fb502234bf24337b1a70dc3a1afdef66106def0dcbdc9495"
+      },
+      {
+        "blocked_before_materialization_reason": "runtime_project_or_adc_token_unavailable",
+        "copied_or_written": false,
+        "destination": null,
+        "destination_sha256": null,
+        "hash_match": false,
+        "materialization": "not_materialized",
+        "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+        "source": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_receipt_enforced_agent.yaml",
+        "source_sha256": "e07335e9fd03bfd3cf51fe0644da0a9c958ef97ba7a6b003f2ea301b03a51b86"
+      }
+    ],
+    "blocked_before_materialization_reason": "runtime_project_or_adc_token_unavailable",
+    "required_pair_count": 2,
+    "schema_version": "telos.provider_compatible_expanded_paid_retry.recovered_prompt_overlay_binding.v1",
+    "source_iteration": "iter73_expanded_receipt_prompt_recovery_after_paid_block"
+  },
+  "redaction_findings": [],
+  "redaction_scan_passed": true,
+  "retained_battlesnake_rows_rerun": false,
+  "retained_existing_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml"
+  ],
+  "runtime_env_values_committed": false,
+  "runtime_model_config_has_secret_values_only_in_tmp": false,
+  "runtime_model_config_materialized": false,
+  "runtime_overlay_all_materialized": false,
+  "runtime_overlay_copied_hashes_match": false,
+  "schema_version": "telos.provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery.summary.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "sentinel_named_resources_modified": false,
+  "state_of_the_art_result_claimed": false,
+  "status": "blocked"
+}

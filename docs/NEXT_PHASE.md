@@ -248,19 +248,18 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   receipt-enforced prompt overlays were produced, local valid fixtures passed, and one malformed
   fixture failed closed.
 
-## During Expanded Paid Retry After Receipt Prompt Recovery
+## During Runtime ADC Recovery After Paid Retry Block
 
 If the gate runs:
 
-1. Revalidate the iter72 blocked proof and iter73 receipt-prompt recovery proof.
-2. Materialize only the four iter71 adapter-planned row commands.
-3. Use the recovered iter73 prompt overlays for the two receipt-enforced rows.
-4. Record exact provider/API calls, spend, artifacts, costs, receipt validation, redaction, and
-   teardown evidence.
-5. Keep the analysis stratified by task surface and forbid pooled benchmark/model claims.
+1. Revalidate the iter74 blocked proof.
+2. Prove the pinned CodeClash checkout, Docker readiness, and `google.auth` import readiness.
+3. Prove non-interactive ADC refresh with access-token stdout suppressed.
+4. Commit no token, project identifier, service-account, or credential material.
+5. Use zero provider calls, zero spend, and zero row execution.
 
 If the gate blocks, fails, or produces ambiguous evidence:
 
 1. Publish the blocked/null or quality-failure result without softening the bar.
-2. Correct only the specific command, provider, cost, redaction, receipt, teardown, or metric gap.
+2. Correct only the specific runtime access, redaction, or credential-boundary gap.
 3. Keep prior proof artifacts unchanged unless the evidence identifies a real structural gap.

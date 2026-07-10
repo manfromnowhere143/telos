@@ -1,0 +1,30 @@
+{
+  "clean_prerequisites": true,
+  "iter72_audit_returncode": 0,
+  "iter72_blocked_result": true,
+  "iter72_provider_api_calls": 17,
+  "iter72_provider_cost_usd": 0.057646,
+  "iter72_receipt_validation_returncode": 0,
+  "iter72_status": "blocked",
+  "iter73_audit_returncode": 0,
+  "iter73_clean_pass": true,
+  "iter73_receipt_validation_returncode": 0,
+  "iter73_recovered_prompt_count": 2,
+  "iter73_recovered_prompt_overlays": [
+    {
+      "exists": true,
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "sha256": "3225388320fe88c2fb502234bf24337b1a70dc3a1afdef66106def0dcbdc9495",
+      "source": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml"
+    },
+    {
+      "exists": true,
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "sha256": "e07335e9fd03bfd3cf51fe0644da0a9c958ef97ba7a6b003f2ea301b03a51b86",
+      "source": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_receipt_enforced_agent.yaml"
+    }
+  ],
+  "iter73_status": "pass",
+  "paid_execution_allowed": true,
+  "schema_version": "telos.provider_compatible_expanded_paid_retry.prerequisite_validation.v1"
+}

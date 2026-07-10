@@ -127,8 +127,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter71_provider_compatible_expanded_slice_after_adapter_completion` | pass | the expanded provider-compatible slice can be frozen only as a stratified six-row plan, retaining two already executed BattleSnake rows and selecting four adapter-planned rows without cross-surface pooling | run only the pre-registered four-row adapter-planned paid gate under the frozen provider/API and spend ceilings |
 | `iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze` | blocked | the four adapter-planned rows executed under ceiling, but both receipt-required expanded rows emitted schema-incomplete receipt candidates and therefore could not count as verified completion evidence | recover expanded receipt-enforced prompt/schema alignment locally before any paid retry or higher-budget gate |
 | `iter73_expanded_receipt_prompt_recovery_after_paid_block` | pass | the two expanded receipt failures were local prompt/schema alignment gaps, and recovered receipt-enforced prompts now name all required fields and digest rules with local valid/malformed fixture proof | retry the same four adapter-planned rows under the recovered prompts and frozen paid ceiling |
+| `iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery` | blocked | the retry prerequisites validated cleanly, but Google ADC refresh failed non-interactively before runtime overlay materialization or adapter-row execution | recover runtime ADC readiness with zero provider calls and zero spend before retrying paid rows |
 
-The next experiment may only retry the same four adapter-planned rows under the recovered iter73
-receipt prompts and the frozen `32` provider-invocation and `$10.00` spend ceilings. It must not
-rerun the retained BattleSnake rows, use GPU or cloud runner, mutate Sentinel resources, pool
-cross-surface metrics, or make benchmark/model-result claims.
+The next experiment may only recover the runtime ADC access path with zero provider calls, zero
+spend, and zero row execution. It must suppress token output, commit no credential material, use no
+GPU or cloud runner, mutate no Sentinel resources, and make no benchmark/model-result claims.
