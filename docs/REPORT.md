@@ -314,6 +314,17 @@ Current evidence:
   next zero-spend ADC recheck after interactive credential refresh; it still forbids provider rows,
   provider spend, GPU, cloud runner, Sentinel mutation, production/live-domain changes, and
   benchmark/model/state-of-the-art claims.
+- `experiments/iter76_runtime_adc_recheck_after_operator_refresh/RESULT.md` blocks with zero
+  provider calls, zero spend, and zero row execution. Iter75 receipt validation and audit passed; the
+  CodeClash checkout stayed pinned, Docker was ready, `google.auth` imported, and gcloud project
+  availability was proven with stdout suppressed. ADC refresh still failed as
+  `interactive_reauthentication_required`, no credential material was committed, and no GPU, cloud
+  runner, Sentinel mutation, production/live-domain change, benchmark claim, model claim, or
+  state-of-the-art claim occurred.
+- `experiments/iter77_runtime_adc_recheck_after_application_default_login/HYPOTHESIS.md`
+  pre-registers the next zero-spend ADC recheck after Application Default Credentials refresh; it
+  still forbids provider rows, provider spend, GPU, cloud runner, Sentinel mutation,
+  production/live-domain changes, and benchmark/model/state-of-the-art claims.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

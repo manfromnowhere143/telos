@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze` exactly as
+Run `iter77_runtime_adc_recheck_after_application_default_login` exactly as
 frozen in
-[`../experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md`](../experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md).
+[`../experiments/iter77_runtime_adc_recheck_after_application_default_login/HYPOTHESIS.md`](../experiments/iter77_runtime_adc_recheck_after_application_default_login/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -26,6 +26,14 @@ slice is frozen as six stratified rows, with two already executed BattleSnake ro
 four adapter-planned Dummy/deterministic-edit rows selected for the next bounded paid gate. The
 target of `iter72` is to execute only those four adapter-planned rows under the frozen provider/API
 and spend ceilings, if run.
+`iter72` then blocked because the expanded receipt candidates were schema-incomplete. `iter73`
+recovered those receipt prompts locally. `iter74` blocked before adapter-row execution because ADC
+failed non-interactively. `iter75` proved the runtime dependencies were ready but ADC still required
+interactive reauthentication. `iter76` rechecked after operator refresh and blocked again:
+CodeClash stayed pinned, Docker was ready, `google.auth` imported, and gcloud project availability
+was proven with stdout suppressed, but ADC still returned `interactive_reauthentication_required`.
+The next honest move is to refresh Application Default Credentials outside the proof runner, for
+example with `gcloud auth application-default login`, then run the zero-spend iter77 recheck.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -124,6 +132,17 @@ and spend ceilings, if run.
   [`../experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/`](../experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/),
 - use the passed iter71 expanded-slice decision from
   [`../experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof/expanded_slice_decision.json`](../experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof/expanded_slice_decision.json),
+- use the blocked iter72 paid execution evidence from
+  [`../experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/run_summary.json`](../experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof/run_summary.json),
+- use the passed iter73 receipt-prompt recovery evidence from
+  [`../experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/run_summary.json`](../experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/run_summary.json),
+- use the blocked iter74 paid-retry auth evidence from
+  [`../experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof/run_summary.json`](../experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof/run_summary.json),
+- use the blocked iter75 runtime ADC recovery evidence from
+  [`../experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof/run_summary.json`](../experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof/run_summary.json),
+- use the blocked iter76 runtime ADC recheck evidence from
+  [`../experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof/run_summary.json`](../experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof/run_summary.json),
+- run no adapter-planned rows until the iter77 ADC recheck passes,
 - execute only the four adapter-planned rows selected by iter71,
 - do not rerun the two retained BattleSnake rows unless a later gate explicitly requires it,
 - execute no excluded pair,

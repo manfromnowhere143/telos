@@ -481,6 +481,12 @@ jobs:
       - name: Provider-compatible runtime ADC recovery after paid retry block audit
         run: python3 scripts/audit_provider_compatible_runtime_adc_recovery_after_paid_retry_block.py
 
+      - name: Runtime ADC recheck after operator refresh receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof
+
+      - name: Runtime ADC recheck after operator refresh audit
+        run: python3 scripts/audit_runtime_adc_recheck_after_operator_refresh.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

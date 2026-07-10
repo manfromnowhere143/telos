@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter76_runtime_adc_recheck_after_operator_refresh/HYPOTHESIS.md`
+- `experiments/iter77_runtime_adc_recheck_after_application_default_login/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -370,11 +370,16 @@ Current claim:
   was pinned, Docker was ready, `google.auth` imported, and gcloud project availability was proven
   with stdout suppressed, but ADC refresh still required interactive reauthentication. No credential
   material was committed.
+- `iter76_runtime_adc_recheck_after_operator_refresh` blocked with zero provider calls, zero spend,
+  and zero row execution. Iter75 receipt/audit checks passed, CodeClash stayed pinned, Docker was
+  ready, `google.auth` imported, and gcloud project availability was proven with stdout suppressed,
+  but ADC still required `interactive_reauthentication_required`. No credential material was
+  committed.
 - No model or benchmark result is claimed yet.
-- The next gate may only recheck runtime ADC after an operator refresh with zero provider calls,
-  zero spend, and zero row execution. It must suppress token/project output, commit no credential
-  material, use no GPU or cloud runner, mutate no Sentinel resources, change no production/live-domain
-  behavior, and make no benchmark/model claims.
+- The next gate may only recheck runtime ADC after Application Default Credentials refresh with zero
+  provider calls, zero spend, and zero row execution. It must suppress token/project output, commit
+  no credential material, use no GPU or cloud runner, mutate no Sentinel resources, change no
+  production/live-domain behavior, and make no benchmark/model claims.
 
 ## Required Verification
 
@@ -531,6 +536,8 @@ python3 scripts/validate_receipts.py experiments/iter74_provider_compatible_expa
 python3 scripts/audit_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery.py
 python3 scripts/validate_receipts.py experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof
 python3 scripts/audit_provider_compatible_runtime_adc_recovery_after_paid_retry_block.py
+python3 scripts/validate_receipts.py experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof
+python3 scripts/audit_runtime_adc_recheck_after_operator_refresh.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

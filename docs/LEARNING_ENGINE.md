@@ -129,8 +129,10 @@ python3 scripts/validate_learning_ledger.py
 | `iter73_expanded_receipt_prompt_recovery_after_paid_block` | pass | the two expanded receipt failures were local prompt/schema alignment gaps, and recovered receipt-enforced prompts now name all required fields and digest rules with local valid/malformed fixture proof | retry the same four adapter-planned rows under the recovered prompts and frozen paid ceiling |
 | `iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery` | blocked | the retry prerequisites validated cleanly, but Google ADC refresh failed non-interactively before runtime overlay materialization or adapter-row execution | recover runtime ADC readiness with zero provider calls and zero spend before retrying paid rows |
 | `iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block` | blocked | CodeClash pinning, Docker readiness, `google.auth` import, and gcloud project availability were ready, but ADC still required interactive reauthentication | restore ADC non-interactive refresh before any paid retry |
+| `iter76_runtime_adc_recheck_after_operator_refresh` | blocked | the operator refresh did not restore Application Default Credentials; CodeClash pinning, Docker, `google.auth`, and gcloud project availability remained ready, but ADC still returned `interactive_reauthentication_required` | refresh Application Default Credentials before any paid retry |
 
-The next experiment may only recheck runtime ADC after an operator refresh with zero provider calls,
-zero spend, and zero row execution. It must suppress project/token output, commit no credential
-material, use no GPU or cloud runner, mutate no Sentinel resources, and make no benchmark/model
-result claims.
+The next experiment may only recheck runtime ADC after Application Default Credentials are refreshed
+outside the non-interactive proof runner, for example with `gcloud auth application-default login`.
+It must use zero provider calls, zero spend, and zero row execution; suppress project/token output;
+commit no credential material; use no GPU or cloud runner; mutate no Sentinel resources; and make no
+benchmark/model result claims.
