@@ -1,0 +1,49 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter88 external benchmark readiness audit: pass\ndecision=replicate_same_slice\nsign_flip_count=3\nprovider_calls_in_iter88=0\nprovider_spend_in_iter88_usd=0.00000000\nnext_gate=experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter89_same_slice_discriminating_metric_stability_replication",
+  "iter88_audit_returncode": 0,
+  "iter88_clean_pass": true,
+  "iter88_future_provider_call_ceiling": 96,
+  "iter88_future_provider_spend_ceiling_usd": "10.00000000",
+  "iter88_next_step_decision": "replicate_same_slice",
+  "iter88_receipt_validation_returncode": 0,
+  "iter88_same_slice_replication_supported": true,
+  "iter88_sign_flip_count": 3,
+  "iter88_status": "pass",
+  "paid_execution_authorized_by_iter88": true,
+  "schema_version": "telos.same_slice_discriminating_metric_stability_replication.iter88_prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof/run_summary.json",
+      "sha256": "123e5167682b2bf001b902b9d61a47aee11997ded39ba4cc49b476c22da63a5c"
+    },
+    {
+      "path": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof/mixed_direction_adjudication.json",
+      "sha256": "08795b4ed553c504fa514b54586c5c1b0d47e0b8519eda8f99a20924a1409e95"
+    },
+    {
+      "path": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof/next_step_decision.json",
+      "sha256": "4c6623bb607293aa5ca9472ed4fbdbf1a13e9e32740e069eacbad0ce8913872b"
+    },
+    {
+      "path": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof/valid/receipt_external_benchmark_readiness_adjudication_after_discriminating_pilot.json",
+      "sha256": "62076f602adf1bf1cb9a64aea208ce59d9749e466aedb1b67ecd1dfd0901cff1"
+    }
+  ]
+}

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md`
+- `experiments/iter90_stability_replication_adjudication_after_same_slice_run/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -425,11 +425,14 @@ Current claim:
   provider calls, zero spend, and zero row execution. It found three task-direction flips between
   iter86 and iter87, rejected larger external benchmark design for now, and selected one bounded
   same-slice stability replication.
+- `iter89_same_slice_discriminating_metric_stability_replication` passed as a bounded six-row paid
+  replication. It executed exactly the frozen rows, used `19` provider calls and `$0.11636200`,
+  computed fresh score-share deltas of Dummy `-0.02075000`, BattleSnake `0.00000000`, and
+  deterministic-edit `-0.50000000`, and classified stability as `unstable`.
 - No model or benchmark result is claimed yet.
-- The next gate may only run one same-slice stability replication of the six frozen rows. It must
-  stay under `96` provider calls, `$10.00` total spend, `16` calls per row, and `$2.00` per row;
-  use no GPU or cloud runner; mutate no Sentinel resources; change no production/live-domain
-  behavior; and make no benchmark/model/SOTA claims.
+- The next gate may only adjudicate iter89 stability evidence from committed artifacts. It must use
+  zero provider calls, zero spend, zero row execution, no GPU or cloud runner, mutate no Sentinel
+  resources, change no production/live-domain behavior, and make no benchmark/model/SOTA claims.
 
 ## Required Verification
 
@@ -612,6 +615,8 @@ python3 scripts/validate_receipts.py experiments/iter87_benchmark_facing_discrim
 python3 scripts/audit_benchmark_facing_discriminating_metric_execution_pilot.py
 python3 scripts/validate_receipts.py experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof
 python3 scripts/audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py
+python3 scripts/validate_receipts.py experiments/iter89_same_slice_discriminating_metric_stability_replication/proof
+python3 scripts/audit_same_slice_discriminating_metric_stability_replication.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

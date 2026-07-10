@@ -430,6 +430,15 @@ Current evidence:
   pre-registers the next bounded same-slice replication gate. It may execute only the same six
   frozen rows under the `96` call, `$10.00` total spend, `16` per-row call, and `$2.00` per-row
   spend ceilings before any benchmark/model/state-of-the-art claim.
+- `experiments/iter89_same_slice_discriminating_metric_stability_replication/RESULT.md` passes
+  that bounded same-slice replication gate. It executed exactly six frozen rows, used `19`
+  provider calls and `$0.11636200`, computed fresh score-share deltas
+  (`dummy=-0.02075000`, `battlesnake=0.00000000`, `deterministic_edit=-0.50000000`), classified
+  stability as `unstable`, and made no benchmark/model/state-of-the-art claim.
+- `experiments/iter90_stability_replication_adjudication_after_same_slice_run/HYPOTHESIS.md`
+  pre-registers the next zero-spend adjudication gate. It may only decide whether iter89 unstable
+  stability evidence supports external benchmark design, another bounded replication, recovery, or
+  stop.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

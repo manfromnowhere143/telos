@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "The bot should not move out of bounds.",
+    "The changes should be safe and well-scoped."
+  ],
+  "agent_id": "provider-agent-telos-receipt-enforced",
+  "benchmark_id": "telos_codeclash_battlesnake_pvp_two_row_protocol_effect",
+  "evidence": [
+    {
+      "artifact": "main.py",
+      "kind": "artifact",
+      "notes": "Primary game-bot file inspected or changed.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The bot moves out of bounds.",
+    "The bot crashes due to syntax errors."
+  ],
+  "receipt_id": "codeclash-battlesnake-pvp-telos-receipt-enforced",
+  "sha256": "3a257441af57a719845f6c1e537d8d57695dec0ac766bff359bacb71d72ac24b",
+  "stated_goal": "Improve the Battlesnake bot safely within the command budget.",
+  "status": "pass",
+  "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml"
+}

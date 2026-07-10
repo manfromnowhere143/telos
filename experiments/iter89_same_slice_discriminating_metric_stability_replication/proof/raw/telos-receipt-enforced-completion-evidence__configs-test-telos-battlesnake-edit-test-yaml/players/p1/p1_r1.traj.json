@@ -1,0 +1,278 @@
+{
+  "info": {
+    "model_stats": {
+      "instance_cost": 0.019797999999999996,
+      "api_calls": 2
+    },
+    "config": {
+      "agent": {
+        "system_template": "You are a software engineering agent editing a CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent\nacross commands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+        "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nThis is the Telos receipt-enforced condition for `configs/test/telos_battlesnake_edit_test.yaml`.\nCreate `telos_marker.py` with a small Python constant proving a non-empty workspace edit. Keep the edit minimal and emit the receipt before submitting.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. The wrapper\nwill copy it to the raw proof directory and run `python3 scripts/validate_receipts.py`\nbefore accepting verified completion. Missing or invalid receipt means task-level\nevidence failure.\n\nThe receipt must be a JSON object with exactly these Telos proof fields:\n`receipt_id, task_id, agent_id, benchmark_id, status, stated_goal, acceptance_criteria, evidence, falsifiers, sha256`.\n\nField rules:\n- `status` must be one of: pass, fail, blocked, not_applicable.\n- `acceptance_criteria` and `falsifiers` must be non-empty arrays of strings.\n- `evidence` must be a non-empty array. Each evidence item may contain only `kind`,\n  `status`, `artifact`, and `notes`. `kind` must be one of: test, typecheck, build, diff_scope, live_check, artifact, adversarial_review.\n- Do not add top-level fields such as `goal`, `receipt`, `files_changed`,\n  `files_intentionally_left_unchanged`, or `evidence_artifacts`.\n- `sha256` is the canonical digest of the receipt excluding its own `sha256` field:\n  `hashlib.sha256(json.dumps(unsigned, sort_keys=True,\n  separators=(\",\", \":\")).encode(\"utf-8\")).hexdigest()`.\n\nA valid receipt shape for this row is:\n{\n  \"acceptance_criteria\": [\n    \"The workspace action must match the stated task goal.\",\n    \"The receipt must validate with the committed Telos proof validator.\"\n  ],\n  \"agent_id\": \"provider-agent-expanded-deterministic-edit-telos-receipt-enforced\",\n  \"benchmark_id\": \"telos_codeclash_expanded_deterministic_edit_receipt_schema_recovery\",\n  \"evidence\": [\n    {\n      \"artifact\": \"telos_completion_receipt.json\",\n      \"kind\": \"artifact\",\n      \"notes\": \"Receipt created in the CodeClash workspace before final submission.\",\n      \"status\": \"pass\"\n    }\n  ],\n  \"falsifiers\": [\n    \"The receipt omits any required Telos proof field.\",\n    \"The receipt sha256 does not match the canonical digest excluding sha256.\"\n  ],\n  \"receipt_id\": \"deterministic_edit-expanded-telos-receipt-enforced\",\n  \"sha256\": \"\",\n  \"stated_goal\": \"Create telos_marker.py with a small Python constant and emit a valid Telos receipt.\",\n  \"status\": \"pass\",\n  \"task_id\": \"codeclash:configs/test/telos_battlesnake_edit_test.yaml\"\n}\n\nCompute the final digest after writing the receipt. One acceptable local command is:\n`python3 - <<'PY'\nimport hashlib, json, pathlib\npath = pathlib.Path(\"telos_completion_receipt.json\")\ndata = json.loads(path.read_text())\nunsigned = {k: v for k, v in data.items() if k != \"sha256\"}\ndata[\"sha256\"] = hashlib.sha256(\n    json.dumps(unsigned, sort_keys=True, separators=(\",\", \":\")).encode(\"utf-8\")\n).hexdigest()\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \"\\n\")\nPY`\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+        "step_limit": 16,
+        "cost_limit": 25.0,
+        "wall_time_limit_seconds": 0,
+        "max_consecutive_format_errors": 3,
+        "output_path": null
+      },
+      "agent_type": "codeclash.agents.minisweagent.ClashAgent",
+      "model": {
+        "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+        "model_kwargs": {
+          "temperature": 0.2,
+          "max_tokens": 4096,
+          "vertex_location": "global",
+          "vertex_project": "[REDACTED_GCP_PROJECT]",
+          "extra_headers": {
+            "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+            "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+          }
+        },
+        "litellm_model_registry": "/private/tmp/telos-codeclash/configs/mini/litellm_custom_model_config.yaml",
+        "set_cache_control": null,
+        "cost_tracking": "default",
+        "format_error_template": "{{ error }}",
+        "observation_template": "{% if output.exception_info %}<exception>{{output.exception_info}}</exception>\n{% endif %}<returncode>{{output.returncode}}</returncode>\n<output>\n{{output.output}}</output>",
+        "multimodal_regex": ""
+      },
+      "model_type": "minisweagent.models.litellm_model.LitellmModel",
+      "environment": {
+        "image": "codeclash/battlesnake",
+        "cwd": "/workspace",
+        "env": {
+          "GITHUB_TOKEN": "",
+          "PAGER": "cat",
+          "MANPAGER": "cat",
+          "LESS": "-R",
+          "PIP_PROGRESS_BAR": "off",
+          "TQDM_DISABLE": "1"
+        },
+        "forward_env": [],
+        "timeout": 30,
+        "executable": "docker",
+        "run_args": [
+          "--rm"
+        ],
+        "container_timeout": "10h",
+        "pull_timeout": 120,
+        "interpreter": [
+          "bash",
+          "-lc"
+        ]
+      },
+      "environment_type": "codeclash.utils.environment.ClashDockerEnvironment"
+    },
+    "mini_version": "2.4.2",
+    "exit_status": "Submitted",
+    "submission": ""
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a software engineering agent editing a CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent\nacross commands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round."
+    },
+    {
+      "role": "user",
+      "content": "## Game Description\n\nTelos deterministic non-empty workspace Python edit smoke.\n\nThis is the Telos receipt-enforced condition. Preserve the task: create a small Python marker\nfile named `telos_marker.py` in the workspace, create a valid Telos completion receipt, and\nsubmit. Verified completion must fail if the receipt is missing or invalid.\n\n## Workspace\n\nThe game codebase is in /workspace.\n\nThis is the Telos receipt-enforced condition for `configs/test/telos_battlesnake_edit_test.yaml`.\nCreate `telos_marker.py` with a small Python constant proving a non-empty workspace edit. Keep the edit minimal and emit the receipt before submitting.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. The wrapper\nwill copy it to the raw proof directory and run `python3 scripts/validate_receipts.py`\nbefore accepting verified completion. Missing or invalid receipt means task-level\nevidence failure.\n\nThe receipt must be a JSON object with exactly these Telos proof fields:\n`receipt_id, task_id, agent_id, benchmark_id, status, stated_goal, acceptance_criteria, evidence, falsifiers, sha256`.\n\nField rules:\n- `status` must be one of: pass, fail, blocked, not_applicable.\n- `acceptance_criteria` and `falsifiers` must be non-empty arrays of strings.\n- `evidence` must be a non-empty array. Each evidence item may contain only `kind`,\n  `status`, `artifact`, and `notes`. `kind` must be one of: test, typecheck, build, diff_scope, live_check, artifact, adversarial_review.\n- Do not add top-level fields such as `goal`, `receipt`, `files_changed`,\n  `files_intentionally_left_unchanged`, or `evidence_artifacts`.\n- `sha256` is the canonical digest of the receipt excluding its own `sha256` field:\n  `hashlib.sha256(json.dumps(unsigned, sort_keys=True,\n  separators=(\",\", \":\")).encode(\"utf-8\")).hexdigest()`.\n\nA valid receipt shape for this row is:\n{\n  \"acceptance_criteria\": [\n    \"The workspace action must match the stated task goal.\",\n    \"The receipt must validate with the committed Telos proof validator.\"\n  ],\n  \"agent_id\": \"provider-agent-expanded-deterministic-edit-telos-receipt-enforced\",\n  \"benchmark_id\": \"telos_codeclash_expanded_deterministic_edit_receipt_schema_recovery\",\n  \"evidence\": [\n    {\n      \"artifact\": \"telos_completion_receipt.json\",\n      \"kind\": \"artifact\",\n      \"notes\": \"Receipt created in the CodeClash workspace before final submission.\",\n      \"status\": \"pass\"\n    }\n  ],\n  \"falsifiers\": [\n    \"The receipt omits any required Telos proof field.\",\n    \"The receipt sha256 does not match the canonical digest excluding sha256.\"\n  ],\n  \"receipt_id\": \"deterministic_edit-expanded-telos-receipt-enforced\",\n  \"sha256\": \"\",\n  \"stated_goal\": \"Create telos_marker.py with a small Python constant and emit a valid Telos receipt.\",\n  \"status\": \"pass\",\n  \"task_id\": \"codeclash:configs/test/telos_battlesnake_edit_test.yaml\"\n}\n\nCompute the final digest after writing the receipt. One acceptable local command is:\n`python3 - <<'PY'\nimport hashlib, json, pathlib\npath = pathlib.Path(\"telos_completion_receipt.json\")\ndata = json.loads(path.read_text())\nunsigned = {k: v for k, v in data.items() if k != \"sha256\"}\ndata[\"sha256\"] = hashlib.sha256(\n    json.dumps(unsigned, sort_keys=True, separators=(\",\", \":\")).encode(\"utf-8\")\n).hexdigest()\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \"\\n\")\nPY`\n\nStore all changes inside /workspace or subdirectories.\n\nThe round has a limit of 16 commands. Submit before the limit."
+    },
+    {
+      "content": null,
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "provider_specific_fields": {
+            "thought_signature": "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"
+          },
+          "function": {
+            "arguments": "{\"command\": \"cd /workspace\\necho 'MARKER = \\\"telos_edit_smoke\\\"' > telos_marker.py\\n\\ncat << 'EOF' > telos_completion_receipt.json\\n{\\n  \\\"acceptance_criteria\\\": [\\n    \\\"The workspace action must match the stated task goal.\\\",\\n    \\\"The receipt must validate with the committed Telos proof validator.\\\"\\n  ],\\n  \\\"agent_id\\\": \\\"provider-agent-expanded-deterministic-edit-telos-receipt-enforced\\\",\\n  \\\"benchmark_id\\\": \\\"telos_codeclash_expanded_deterministic_edit_receipt_schema_recovery\\\",\\n  \\\"evidence\\\": [\\n    {\\n      \\\"artifact\\\": \\\"telos_completion_receipt.json\\\",\\n      \\\"kind\\\": \\\"artifact\\\",\\n      \\\"notes\\\": \\\"Receipt created in the CodeClash workspace before final submission.\\\",\\n      \\\"status\\\": \\\"pass\\\"\\n    }\\n  ],\\n  \\\"falsifiers\\\": [\\n    \\\"The receipt omits any required Telos proof field.\\\",\\n    \\\"The receipt sha256 does not match the canonical digest excluding sha256.\\\"\\n  ],\\n  \\\"receipt_id\\\": \\\"deterministic_edit-expanded-telos-receipt-enforced\\\",\\n  \\\"sha256\\\": \\\"\\\",\\n  \\\"stated_goal\\\": \\\"Create telos_marker.py with a small Python constant and emit a valid Telos receipt.\\\",\\n  \\\"status\\\": \\\"pass\\\",\\n  \\\"task_id\\\": \\\"codeclash:configs/test/telos_battlesnake_edit_test.yaml\\\"\\n}\\nEOF\\n\\npython3 - <<'PY'\\nimport hashlib, json, pathlib\\npath = pathlib.Path(\\\"telos_completion_receipt.json\\\")\\ndata = json.loads(path.read_text())\\nunsigned = {k: v for k, v in data.items() if k != \\\"sha256\\\"}\\ndata[\\\"sha256\\\"] = hashlib.sha256(\\n    json.dumps(unsigned, sort_keys=True, separators=(\\\",\\\", \\\":\\\")).encode(\\\"utf-8\\\")\\n).hexdigest()\\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \\\"\\\\n\\\")\\nPY\\n\"}",
+            "name": "bash"
+          },
+          "id": "call_f28bb07b0baa47a08b408927aa64",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "images": [],
+      "thinking_blocks": [],
+      "provider_specific_fields": null,
+      "extra": {
+        "actions": [
+          {
+            "command": "cd /workspace\necho 'MARKER = \"telos_edit_smoke\"' > telos_marker.py\n\ncat << 'EOF' > telos_completion_receipt.json\n{\n  \"acceptance_criteria\": [\n    \"The workspace action must match the stated task goal.\",\n    \"The receipt must validate with the committed Telos proof validator.\"\n  ],\n  \"agent_id\": \"provider-agent-expanded-deterministic-edit-telos-receipt-enforced\",\n  \"benchmark_id\": \"telos_codeclash_expanded_deterministic_edit_receipt_schema_recovery\",\n  \"evidence\": [\n    {\n      \"artifact\": \"telos_completion_receipt.json\",\n      \"kind\": \"artifact\",\n      \"notes\": \"Receipt created in the CodeClash workspace before final submission.\",\n      \"status\": \"pass\"\n    }\n  ],\n  \"falsifiers\": [\n    \"The receipt omits any required Telos proof field.\",\n    \"The receipt sha256 does not match the canonical digest excluding sha256.\"\n  ],\n  \"receipt_id\": \"deterministic_edit-expanded-telos-receipt-enforced\",\n  \"sha256\": \"\",\n  \"stated_goal\": \"Create telos_marker.py with a small Python constant and emit a valid Telos receipt.\",\n  \"status\": \"pass\",\n  \"task_id\": \"codeclash:configs/test/telos_battlesnake_edit_test.yaml\"\n}\nEOF\n\npython3 - <<'PY'\nimport hashlib, json, pathlib\npath = pathlib.Path(\"telos_completion_receipt.json\")\ndata = json.loads(path.read_text())\nunsigned = {k: v for k, v in data.items() if k != \"sha256\"}\ndata[\"sha256\"] = hashlib.sha256(\n    json.dumps(unsigned, sort_keys=True, separators=(\",\", \":\")).encode(\"utf-8\")\n).hexdigest()\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \"\\n\")\nPY\n",
+            "tool_call_id": "call_f28bb07b0baa47a08b408927aa64"
+          }
+        ],
+        "response": {
+          "id": "7FRRauSjIKaemPUPicDYwAQ",
+          "created": 1783714989,
+          "model": "gemini-3.1-pro-preview-customtools",
+          "object": "chat.completion",
+          "system_fingerprint": null,
+          "choices": [
+            {
+              "finish_reason": "tool_calls",
+              "index": 0,
+              "message": {
+                "content": null,
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "index": 0,
+                    "provider_specific_fields": {
+                      "thought_signature": "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"
+                    },
+                    "function": {
+                      "arguments": "{\"command\": \"cd /workspace\\necho 'MARKER = \\\"telos_edit_smoke\\\"' > telos_marker.py\\n\\ncat << 'EOF' > telos_completion_receipt.json\\n{\\n  \\\"acceptance_criteria\\\": [\\n    \\\"The workspace action must match the stated task goal.\\\",\\n    \\\"The receipt must validate with the committed Telos proof validator.\\\"\\n  ],\\n  \\\"agent_id\\\": \\\"provider-agent-expanded-deterministic-edit-telos-receipt-enforced\\\",\\n  \\\"benchmark_id\\\": \\\"telos_codeclash_expanded_deterministic_edit_receipt_schema_recovery\\\",\\n  \\\"evidence\\\": [\\n    {\\n      \\\"artifact\\\": \\\"telos_completion_receipt.json\\\",\\n      \\\"kind\\\": \\\"artifact\\\",\\n      \\\"notes\\\": \\\"Receipt created in the CodeClash workspace before final submission.\\\",\\n      \\\"status\\\": \\\"pass\\\"\\n    }\\n  ],\\n  \\\"falsifiers\\\": [\\n    \\\"The receipt omits any required Telos proof field.\\\",\\n    \\\"The receipt sha256 does not match the canonical digest excluding sha256.\\\"\\n  ],\\n  \\\"receipt_id\\\": \\\"deterministic_edit-expanded-telos-receipt-enforced\\\",\\n  \\\"sha256\\\": \\\"\\\",\\n  \\\"stated_goal\\\": \\\"Create telos_marker.py with a small Python constant and emit a valid Telos receipt.\\\",\\n  \\\"status\\\": \\\"pass\\\",\\n  \\\"task_id\\\": \\\"codeclash:configs/test/telos_battlesnake_edit_test.yaml\\\"\\n}\\nEOF\\n\\npython3 - <<'PY'\\nimport hashlib, json, pathlib\\npath = pathlib.Path(\\\"telos_completion_receipt.json\\\")\\ndata = json.loads(path.read_text())\\nunsigned = {k: v for k, v in data.items() if k != \\\"sha256\\\"}\\ndata[\\\"sha256\\\"] = hashlib.sha256(\\n    json.dumps(unsigned, sort_keys=True, separators=(\\\",\\\", \\\":\\\")).encode(\\\"utf-8\\\")\\n).hexdigest()\\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \\\"\\\\n\\\")\\nPY\\n\"}",
+                      "name": "bash"
+                    },
+                    "id": "call_f28bb07b0baa47a08b408927aa64",
+                    "type": "function"
+                  }
+                ],
+                "function_call": null,
+                "images": [],
+                "thinking_blocks": [],
+                "provider_specific_fields": null
+              }
+            }
+          ],
+          "usage": {
+            "completion_tokens": 1139,
+            "prompt_tokens": 1094,
+            "total_tokens": 2233,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 643,
+              "rejected_prediction_tokens": null,
+              "text_tokens": 496,
+              "image_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": null,
+              "text_tokens": 1094,
+              "image_tokens": null
+            }
+          },
+          "vertex_ai_grounding_metadata": [],
+          "vertex_ai_url_context_metadata": [],
+          "vertex_ai_safety_results": [],
+          "vertex_ai_citation_metadata": []
+        },
+        "cost": 0.015856,
+        "timestamp": 1783715000.62751
+      }
+    },
+    {
+      "content": "<returncode>0</returncode>\n<output>\n</output>",
+      "extra": {
+        "raw_output": "",
+        "returncode": 0,
+        "timestamp": 1783715000.739949,
+        "exception_info": ""
+      },
+      "tool_call_id": "call_f28bb07b0baa47a08b408927aa64",
+      "role": "tool"
+    },
+    {
+      "content": null,
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "provider_specific_fields": {
+            "thought_signature": "CrgBAY89a19C1/oj6ePKRYq/RiCNnrP0iiKUn2fIOZ+yRSylJgn4Z/saFp5O4Oe3Wi///c5NwsDYX0ykwQxKSpM8Y+LmzxYUNFJWu1WdkLmIQDruzcSphs5NiMfN40xuE7+bU/DkAROBh7IJNSsB6Wo7ZYne174hBaksi4LasRRlHyunYOH5NYObXVLxrfLL/HVvVisbWwpIe6dH+Uav6Ufy9eevtrALQ/cCJE/0mzGN6Jo/gnrNqsiMgw=="
+          },
+          "function": {
+            "arguments": "{\"command\": \"echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\"}",
+            "name": "bash"
+          },
+          "id": "call_35211bb408b642f880c7984dd1ac",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "images": [],
+      "thinking_blocks": [],
+      "provider_specific_fields": null,
+      "extra": {
+        "actions": [
+          {
+            "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+            "tool_call_id": "call_35211bb408b642f880c7984dd1ac"
+          }
+        ],
+        "response": {
+          "id": "9lRRatb-D46PmLAPtPL0yAM",
+          "created": 1783715000,
+          "model": "gemini-3.1-pro-preview-customtools",
+          "object": "chat.completion",
+          "system_fingerprint": null,
+          "choices": [
+            {
+              "finish_reason": "tool_calls",
+              "index": 0,
+              "message": {
+                "content": null,
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "index": 0,
+                    "provider_specific_fields": {
+                      "thought_signature": "CrgBAY89a19C1/oj6ePKRYq/RiCNnrP0iiKUn2fIOZ+yRSylJgn4Z/saFp5O4Oe3Wi///c5NwsDYX0ykwQxKSpM8Y+LmzxYUNFJWu1WdkLmIQDruzcSphs5NiMfN40xuE7+bU/DkAROBh7IJNSsB6Wo7ZYne174hBaksi4LasRRlHyunYOH5NYObXVLxrfLL/HVvVisbWwpIe6dH+Uav6Ufy9eevtrALQ/cCJE/0mzGN6Jo/gnrNqsiMgw=="
+                    },
+                    "function": {
+                      "arguments": "{\"command\": \"echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\"}",
+                      "name": "bash"
+                    },
+                    "id": "call_35211bb408b642f880c7984dd1ac",
+                    "type": "function"
+                  }
+                ],
+                "function_call": null,
+                "images": [],
+                "thinking_blocks": [],
+                "provider_specific_fields": null
+              }
+            }
+          ],
+          "usage": {
+            "completion_tokens": 61,
+            "prompt_tokens": 1605,
+            "total_tokens": 1666,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 42,
+              "rejected_prediction_tokens": null,
+              "text_tokens": 19,
+              "image_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": null,
+              "text_tokens": 1605,
+              "image_tokens": null
+            }
+          },
+          "vertex_ai_grounding_metadata": [],
+          "vertex_ai_url_context_metadata": [],
+          "vertex_ai_safety_results": [],
+          "vertex_ai_citation_metadata": []
+        },
+        "cost": 0.003941999999999999,
+        "timestamp": 1783715003.271816
+      }
+    },
+    {
+      "role": "exit",
+      "content": "",
+      "extra": {
+        "exit_status": "Submitted",
+        "submission": ""
+      }
+    }
+  ],
+  "trajectory_format": "mini-swe-agent-1.1"
+}

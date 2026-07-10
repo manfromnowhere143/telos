@@ -1,0 +1,87 @@
+{
+  "all_recovered_step_limits_written": true,
+  "experiment_id": "iter89_same_slice_discriminating_metric_stability_replication",
+  "generated": [
+    {
+      "condition": "baseline",
+      "destination": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_baseline_agent.yaml",
+      "destination_sha256": "1c3a5b2a786a7cd2c42359df6672b9327314ca6049090ccd76fa899d9c8c2b3f",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "previous_step_limit": 16,
+      "recovered_step_limit": 16,
+      "source": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_baseline_agent.yaml",
+      "source_recovery": "iter80_dummy_call_ceiling_recovered_overlay",
+      "source_sha256": "1c3a5b2a786a7cd2c42359df6672b9327314ca6049090ccd76fa899d9c8c2b3f",
+      "task_surface": "dummy"
+    },
+    {
+      "condition": "baseline",
+      "destination": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/recovered_overlay/configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+      "destination_sha256": "ed52799ed0acc47cc4834846c0dd4cc9cef0e6dd1f1cef5bf5b017e29574beeb",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "previous_step_limit": 8,
+      "recovered_step_limit": 16,
+      "source": "experiments/iter52_provider_condition_runtime_separation_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_baseline_agent.yaml",
+      "source_recovery": "iter52_battlesnake_baseline_overlay_step_limit_recovery",
+      "source_sha256": "d8587dab4faef836c39c26f6ad4186f0fb66a90f0e295152dcb64852b0652279",
+      "task_surface": "battlesnake"
+    },
+    {
+      "condition": "baseline",
+      "destination": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_baseline_agent.yaml",
+      "destination_sha256": "49b9390f61ca8a4e33b8c4115edf72e5fa37ffbca40c34f4c91fef8e25632a0d",
+      "pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "previous_step_limit": 8,
+      "recovered_step_limit": 16,
+      "source": "experiments/iter70_provider_compatible_expanded_adapter_completion/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_baseline_agent.yaml",
+      "source_recovery": "iter70_deterministic_edit_baseline_overlay_step_limit_recovery",
+      "source_sha256": "0ffc48137fe63aedb7576b208ca157a3af8b5d6741bb45eaf8d2898f912f643b",
+      "task_surface": "deterministic_edit"
+    },
+    {
+      "condition": "telos",
+      "destination": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+      "destination_sha256": "4eb7de70c10d0767c4afa87f7f52a2d1a3801eb5f9d54acc85f8b0591922160c",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "previous_step_limit": 16,
+      "recovered_step_limit": 16,
+      "source": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof/recovered_overlay/configs/mini/telos_vertex_gemini_dummy_receipt_enforced_agent.yaml",
+      "source_recovery": "iter80_dummy_call_ceiling_recovered_receipt_overlay",
+      "source_sha256": "4eb7de70c10d0767c4afa87f7f52a2d1a3801eb5f9d54acc85f8b0591922160c",
+      "task_surface": "dummy"
+    },
+    {
+      "condition": "telos",
+      "destination": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+      "destination_sha256": "ceefc4314c76f759717cf08ab6200ac3780895c0dc3ab76f8e436fe6f6152f33",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "previous_step_limit": 8,
+      "recovered_step_limit": 16,
+      "source": "experiments/iter65_receipt_schema_prompt_alignment/proof/recovered_overlay/configs/mini/telos_vertex_gemini_receipt_enforced_agent.yaml",
+      "source_recovery": "iter65_battlesnake_receipt_schema_overlay_step_limit_recovery",
+      "source_sha256": "60c98a4603aa8a812624b7f6ee57d572ffb8a9a87adc732aa925101a3e1501b0",
+      "task_surface": "battlesnake"
+    },
+    {
+      "condition": "telos",
+      "destination": "experiments/iter89_same_slice_discriminating_metric_stability_replication/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_receipt_enforced_agent.yaml",
+      "destination_sha256": "b2ddfcc5b1f5f030f88ca9efa7d75d62eb9eb8e735b3f86395f72632fc06fb87",
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "previous_step_limit": 8,
+      "recovered_step_limit": 16,
+      "source": "experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof/recovered_overlay/configs/mini/telos_vertex_gemini_edit_receipt_enforced_agent.yaml",
+      "source_recovery": "iter73_deterministic_edit_receipt_schema_overlay_step_limit_recovery",
+      "source_sha256": "e07335e9fd03bfd3cf51fe0644da0a9c958ef97ba7a6b003f2ea301b03a51b86",
+      "task_surface": "deterministic_edit"
+    }
+  ],
+  "schema_version": "telos.benchmark_facing_protocol_effect_execution.recovered_agent_overlays.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ]
+}

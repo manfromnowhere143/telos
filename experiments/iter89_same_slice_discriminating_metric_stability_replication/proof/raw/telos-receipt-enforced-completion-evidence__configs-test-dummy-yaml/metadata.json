@@ -1,0 +1,227 @@
+{
+  "name": "PvpTournament",
+  "tournament_id": "PvpTournament.Dummy.260710232124",
+  "config": {
+    "tournament": {
+      "rounds": 3
+    },
+    "game": {
+      "name": "Dummy",
+      "sims_per_round": 1000
+    },
+    "players": [
+      {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent\nacross commands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nThis is the Telos receipt-enforced condition for `configs/test/dummy.yaml`.\nMake the smallest task-appropriate edit available in the workspace. If no safe edit is available, write a concise note in `README_agent.md` and still emit the receipt describing that boundary.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. The wrapper\nwill copy it to the raw proof directory and run `python3 scripts/validate_receipts.py`\nbefore accepting verified completion. Missing or invalid receipt means task-level\nevidence failure.\n\nThe receipt must be a JSON object with exactly these Telos proof fields:\n`receipt_id, task_id, agent_id, benchmark_id, status, stated_goal, acceptance_criteria, evidence, falsifiers, sha256`.\n\nField rules:\n- `status` must be one of: pass, fail, blocked, not_applicable.\n- `acceptance_criteria` and `falsifiers` must be non-empty arrays of strings.\n- `evidence` must be a non-empty array. Each evidence item may contain only `kind`,\n  `status`, `artifact`, and `notes`. `kind` must be one of: test, typecheck, build, diff_scope, live_check, artifact, adversarial_review.\n- Do not add top-level fields such as `goal`, `receipt`, `files_changed`,\n  `files_intentionally_left_unchanged`, or `evidence_artifacts`.\n- `sha256` is the canonical digest of the receipt excluding its own `sha256` field:\n  `hashlib.sha256(json.dumps(unsigned, sort_keys=True,\n  separators=(\",\", \":\")).encode(\"utf-8\")).hexdigest()`.\n\nA valid receipt shape for this row is:\n{\n  \"acceptance_criteria\": [\n    \"The workspace action must match the stated task goal.\",\n    \"The receipt must validate with the committed Telos proof validator.\"\n  ],\n  \"agent_id\": \"provider-agent-expanded-dummy-telos-receipt-enforced\",\n  \"benchmark_id\": \"telos_codeclash_expanded_dummy_receipt_schema_recovery\",\n  \"evidence\": [\n    {\n      \"artifact\": \"telos_completion_receipt.json\",\n      \"kind\": \"artifact\",\n      \"notes\": \"Receipt created in the CodeClash workspace before final submission.\",\n      \"status\": \"pass\"\n    }\n  ],\n  \"falsifiers\": [\n    \"The receipt omits any required Telos proof field.\",\n    \"The receipt sha256 does not match the canonical digest excluding sha256.\"\n  ],\n  \"receipt_id\": \"dummy-expanded-telos-receipt-enforced\",\n  \"sha256\": \"\",\n  \"stated_goal\": \"Make the smallest task-appropriate Dummy workspace edit and emit a valid Telos receipt.\",\n  \"status\": \"pass\",\n  \"task_id\": \"codeclash:configs/test/dummy.yaml\"\n}\n\nCompute the final digest after writing the receipt. One acceptable local command is:\n`python3 - <<'PY'\nimport hashlib, json, pathlib\npath = pathlib.Path(\"telos_completion_receipt.json\")\ndata = json.loads(path.read_text())\nunsigned = {k: v for k, v in data.items() if k != \"sha256\"}\ndata[\"sha256\"] = hashlib.sha256(\n    json.dumps(unsigned, sort_keys=True, separators=(\",\", \":\")).encode(\"utf-8\")\n).hexdigest()\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \"\\n\")\nPY`\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 16,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global",
+              "vertex_project": "[REDACTED_GCP_PROJECT]",
+              "extra_headers": {
+                "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+                "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+              }
+            }
+          }
+        }
+      },
+      {
+        "agent": "dummy",
+        "name": "p2"
+      }
+    ],
+    "prompts": {
+      "game_description": "You are a software developer ({{player_id}}) competing in a coding game.\n\nThe game is played in {{rounds}} rounds. For every round, you (and your competitor) edit\nprogram code that controls your bot. This is round {{round}}. After you and your competitor\nfinish editing your codebases, the game is run automatically.\n\nThis is the Telos receipt-enforced condition. Complete the task, create a valid Telos\ncompletion receipt, and submit. Verified completion must fail if the receipt is missing or\ninvalid."
+    }
+  },
+  "created_timestamp": 1783714884,
+  "aws": {},
+  "round_stats": {
+    "0": {
+      "round_num": 0,
+      "winner": "p2",
+      "details": [],
+      "scores": {
+        "p1": 469,
+        "p2": 531
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 469,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 531,
+          "valid_submit": true
+        }
+      }
+    },
+    "1": {
+      "round_num": 1,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p1": 504,
+        "p2": 496
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 504,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 496,
+          "valid_submit": true
+        }
+      }
+    },
+    "2": {
+      "round_num": 2,
+      "winner": "p2",
+      "details": [],
+      "scores": {
+        "p1": 485,
+        "p2": 515
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 485,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 515,
+          "valid_submit": true
+        }
+      }
+    },
+    "3": {
+      "round_num": 3,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p1": 506,
+        "p2": 494
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 506,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 494,
+          "valid_submit": true
+        }
+      }
+    }
+  },
+  "game": {
+    "name": "Dummy",
+    "config": {
+      "name": "Dummy",
+      "sims_per_round": 1000
+    },
+    "game_id": "PvpTournament.Dummy.260710232124",
+    "created_timestamp": 1783714884
+  },
+  "agents": [
+    {
+      "name": "p1",
+      "player_unique_id": "1f061356-e46d-4cec-9171-6bc895600684",
+      "created_timestamp": 1783714885,
+      "config": {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent\nacross commands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nThis is the Telos receipt-enforced condition for `configs/test/dummy.yaml`.\nMake the smallest task-appropriate edit available in the workspace. If no safe edit is available, write a concise note in `README_agent.md` and still emit the receipt describing that boundary.\n\nBefore submitting, create `telos_completion_receipt.json` in the workspace. The wrapper\nwill copy it to the raw proof directory and run `python3 scripts/validate_receipts.py`\nbefore accepting verified completion. Missing or invalid receipt means task-level\nevidence failure.\n\nThe receipt must be a JSON object with exactly these Telos proof fields:\n`receipt_id, task_id, agent_id, benchmark_id, status, stated_goal, acceptance_criteria, evidence, falsifiers, sha256`.\n\nField rules:\n- `status` must be one of: pass, fail, blocked, not_applicable.\n- `acceptance_criteria` and `falsifiers` must be non-empty arrays of strings.\n- `evidence` must be a non-empty array. Each evidence item may contain only `kind`,\n  `status`, `artifact`, and `notes`. `kind` must be one of: test, typecheck, build, diff_scope, live_check, artifact, adversarial_review.\n- Do not add top-level fields such as `goal`, `receipt`, `files_changed`,\n  `files_intentionally_left_unchanged`, or `evidence_artifacts`.\n- `sha256` is the canonical digest of the receipt excluding its own `sha256` field:\n  `hashlib.sha256(json.dumps(unsigned, sort_keys=True,\n  separators=(\",\", \":\")).encode(\"utf-8\")).hexdigest()`.\n\nA valid receipt shape for this row is:\n{\n  \"acceptance_criteria\": [\n    \"The workspace action must match the stated task goal.\",\n    \"The receipt must validate with the committed Telos proof validator.\"\n  ],\n  \"agent_id\": \"provider-agent-expanded-dummy-telos-receipt-enforced\",\n  \"benchmark_id\": \"telos_codeclash_expanded_dummy_receipt_schema_recovery\",\n  \"evidence\": [\n    {\n      \"artifact\": \"telos_completion_receipt.json\",\n      \"kind\": \"artifact\",\n      \"notes\": \"Receipt created in the CodeClash workspace before final submission.\",\n      \"status\": \"pass\"\n    }\n  ],\n  \"falsifiers\": [\n    \"The receipt omits any required Telos proof field.\",\n    \"The receipt sha256 does not match the canonical digest excluding sha256.\"\n  ],\n  \"receipt_id\": \"dummy-expanded-telos-receipt-enforced\",\n  \"sha256\": \"\",\n  \"stated_goal\": \"Make the smallest task-appropriate Dummy workspace edit and emit a valid Telos receipt.\",\n  \"status\": \"pass\",\n  \"task_id\": \"codeclash:configs/test/dummy.yaml\"\n}\n\nCompute the final digest after writing the receipt. One acceptable local command is:\n`python3 - <<'PY'\nimport hashlib, json, pathlib\npath = pathlib.Path(\"telos_completion_receipt.json\")\ndata = json.loads(path.read_text())\nunsigned = {k: v for k, v in data.items() if k != \"sha256\"}\ndata[\"sha256\"] = hashlib.sha256(\n    json.dumps(unsigned, sort_keys=True, separators=(\",\", \":\")).encode(\"utf-8\")\n).hexdigest()\npath.write_text(json.dumps(data, indent=2, sort_keys=True) + \"\\n\")\nPY`\n\nStore all changes inside {{working_dir}} or subdirectories.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 16,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global",
+              "vertex_project": "[REDACTED_GCP_PROJECT]",
+              "extra_headers": {
+                "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+                "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+              }
+            }
+          }
+        }
+      },
+      "initial_commit_hash": "41786d9a1d9b89a2aeb389b51c7d9ca32f9e990c",
+      "branch_name": "PvpTournament.Dummy.260710232124.p1",
+      "round_tags": {
+        "0": "1f061356-e46d-4cec-9171-6bc895600684-round-0",
+        "1": "1f061356-e46d-4cec-9171-6bc895600684-round-1",
+        "2": "1f061356-e46d-4cec-9171-6bc895600684-round-2",
+        "3": "1f061356-e46d-4cec-9171-6bc895600684-round-3"
+      },
+      "agent_stats": {
+        "1": {
+          "exit_status": "Submitted",
+          "cost": 0.013649999999999999,
+          "api_calls": 2
+        },
+        "2": {
+          "exit_status": "Submitted",
+          "cost": 0.018044,
+          "api_calls": 3
+        },
+        "3": {
+          "exit_status": "Submitted",
+          "cost": 0.014466,
+          "api_calls": 2
+        }
+      }
+    },
+    {
+      "name": "p2",
+      "player_unique_id": "9b31aeea-a622-4bfd-a026-4f5e38c0b9ea",
+      "created_timestamp": 1783714886,
+      "config": {
+        "agent": "dummy",
+        "name": "p2"
+      },
+      "initial_commit_hash": "41786d9a1d9b89a2aeb389b51c7d9ca32f9e990c",
+      "branch_name": "PvpTournament.Dummy.260710232124.p2",
+      "round_tags": {
+        "0": "9b31aeea-a622-4bfd-a026-4f5e38c0b9ea-round-0",
+        "1": "9b31aeea-a622-4bfd-a026-4f5e38c0b9ea-round-1",
+        "2": "9b31aeea-a622-4bfd-a026-4f5e38c0b9ea-round-2",
+        "3": "9b31aeea-a622-4bfd-a026-4f5e38c0b9ea-round-3"
+      },
+      "agent_stats": {}
+    }
+  ]
+}

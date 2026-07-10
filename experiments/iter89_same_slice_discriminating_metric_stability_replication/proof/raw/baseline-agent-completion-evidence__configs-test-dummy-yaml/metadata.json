@@ -1,0 +1,227 @@
+{
+  "name": "PvpTournament",
+  "tournament_id": "PvpTournament.Dummy.260710231911",
+  "config": {
+    "tournament": {
+      "rounds": 3
+    },
+    "game": {
+      "name": "Dummy",
+      "sims_per_round": 1000
+    },
+    "players": [
+      {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nThis is the baseline condition. Make the smallest task-appropriate edit available in the\nworkspace, then submit. Do not create a Telos receipt in this condition.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 16,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global",
+              "vertex_project": "[REDACTED_GCP_PROJECT]",
+              "extra_headers": {
+                "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+                "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+              }
+            }
+          }
+        }
+      },
+      {
+        "agent": "dummy",
+        "name": "p2"
+      }
+    ],
+    "prompts": {
+      "game_description": "You are a software developer ({{player_id}}) competing in a coding game.\n\nThe game is played in {{rounds}} rounds. For every round, you (and your competitor) edit\nprogram code that controls your bot. This is round {{round}}. After you and your competitor\nfinish editing your codebases, the game is run automatically.\n\nThis is the baseline raw-completion-evidence condition. Complete the task and submit without\ncreating a Telos receipt."
+    }
+  },
+  "created_timestamp": 1783714751,
+  "aws": {},
+  "round_stats": {
+    "0": {
+      "round_num": 0,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p1": 500,
+        "p2": 500
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 500,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 500,
+          "valid_submit": true
+        }
+      }
+    },
+    "1": {
+      "round_num": 1,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p1": 515,
+        "p2": 485
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 515,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 485,
+          "valid_submit": true
+        }
+      }
+    },
+    "2": {
+      "round_num": 2,
+      "winner": "p2",
+      "details": [],
+      "scores": {
+        "p1": 499,
+        "p2": 501
+      },
+      "player_stats": {
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 501,
+          "valid_submit": true
+        },
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 499,
+          "valid_submit": true
+        }
+      }
+    },
+    "3": {
+      "round_num": 3,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p1": 533,
+        "p2": 467
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 533,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 467,
+          "valid_submit": true
+        }
+      }
+    }
+  },
+  "game": {
+    "name": "Dummy",
+    "config": {
+      "name": "Dummy",
+      "sims_per_round": 1000
+    },
+    "game_id": "PvpTournament.Dummy.260710231911",
+    "created_timestamp": 1783714751
+  },
+  "agents": [
+    {
+      "name": "p1",
+      "player_unique_id": "c4e41daa-19ba-4847-8433-d91527ce0fc3",
+      "created_timestamp": 1783714754,
+      "config": {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nThis is the baseline condition. Make the smallest task-appropriate edit available in the\nworkspace, then submit. Do not create a Telos receipt in this condition.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 16,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global",
+              "vertex_project": "[REDACTED_GCP_PROJECT]",
+              "extra_headers": {
+                "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+                "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+              }
+            }
+          }
+        }
+      },
+      "initial_commit_hash": "41786d9a1d9b89a2aeb389b51c7d9ca32f9e990c",
+      "branch_name": "PvpTournament.Dummy.260710231911.p1",
+      "round_tags": {
+        "0": "c4e41daa-19ba-4847-8433-d91527ce0fc3-round-0",
+        "1": "c4e41daa-19ba-4847-8433-d91527ce0fc3-round-1",
+        "2": "c4e41daa-19ba-4847-8433-d91527ce0fc3-round-2",
+        "3": "c4e41daa-19ba-4847-8433-d91527ce0fc3-round-3"
+      },
+      "agent_stats": {
+        "1": {
+          "exit_status": "Submitted",
+          "cost": 0.012752,
+          "api_calls": 4
+        },
+        "2": {
+          "exit_status": "Submitted",
+          "cost": 0.012343999999999999,
+          "api_calls": 4
+        },
+        "3": {
+          "exit_status": "Submitted",
+          "cost": 0.008285999999999998,
+          "api_calls": 4
+        }
+      }
+    },
+    {
+      "name": "p2",
+      "player_unique_id": "6731a503-c0e6-4d53-8740-88d89e27b6dd",
+      "created_timestamp": 1783714756,
+      "config": {
+        "agent": "dummy",
+        "name": "p2"
+      },
+      "initial_commit_hash": "41786d9a1d9b89a2aeb389b51c7d9ca32f9e990c",
+      "branch_name": "PvpTournament.Dummy.260710231911.p2",
+      "round_tags": {
+        "0": "6731a503-c0e6-4d53-8740-88d89e27b6dd-round-0",
+        "1": "6731a503-c0e6-4d53-8740-88d89e27b6dd-round-1",
+        "2": "6731a503-c0e6-4d53-8740-88d89e27b6dd-round-2",
+        "3": "6731a503-c0e6-4d53-8740-88d89e27b6dd-round-3"
+      },
+      "agent_stats": {}
+    }
+  ]
+}

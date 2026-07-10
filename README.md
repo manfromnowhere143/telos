@@ -332,12 +332,17 @@ and an adversarial review pass.
   directions flipped, rejected larger external benchmark design for now, selected one same-slice
   stability replication as the next step, and made no benchmark/model/SOTA claim in
   [`experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot`](experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/RESULT.md).
-- Current gate: same-slice discriminating metric stability replication, pre-registered in
-  [`experiments/iter89_same_slice_discriminating_metric_stability_replication`](experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md).
+- Same-slice discriminating metric stability replication: passed as a bounded six-row paid
+  replication. It executed exactly the frozen rows, used `19` provider calls and `$0.11636200`,
+  classified stability as `unstable`, and made no benchmark/model/SOTA claim in
+  [`experiments/iter89_same_slice_discriminating_metric_stability_replication`](experiments/iter89_same_slice_discriminating_metric_stability_replication/RESULT.md).
+- Current gate: stability replication adjudication after same-slice run, pre-registered in
+  [`experiments/iter90_stability_replication_adjudication_after_same_slice_run`](experiments/iter90_stability_replication_adjudication_after_same_slice_run/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
-  adapter-validation rows, one bounded six-row null/no-signal pilot, and one bounded six-row
-  discriminating-metric pilot; none is a benchmark result.
+  adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
+  discriminating-metric pilot, and one bounded six-row unstable stability replication; none is a
+  benchmark result.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
 Claim-boundary reviewer entry point:

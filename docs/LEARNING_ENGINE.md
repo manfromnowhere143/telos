@@ -142,8 +142,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter86_discriminating_metric_backtest_on_committed_artifacts` | pass | the score-share metric was computable on all six committed iter83 rows and non-saturated, but the diagnostic signal was mixed-direction and not a benchmark result | run the smallest bounded paid replication under the discriminating metric before any benchmark claim |
 | `iter87_benchmark_facing_discriminating_metric_execution_pilot` | pass | the bounded six-row paid pilot executed exactly the frozen rows, used 21 provider calls and $0.12498400, validated receipt-required rows, and produced fresh mixed-direction score-share deltas without any benchmark claim | adjudicate whether the mixed-direction pilot justifies a larger external benchmark design, same-slice replication, recovery, or stop decision |
 | `iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot` | pass | committed iter87 evidence is valid, but all three task directions flipped against iter86, so external benchmark design is premature | run one bounded same-slice stability replication before any larger benchmark design |
+| `iter89_same_slice_discriminating_metric_stability_replication` | pass | the same six frozen rows executed with 19 provider calls and $0.11636200, but stability classified as unstable because BattleSnake moved to zero while Dummy and deterministic-edit matched iter87 | adjudicate the unstable stability evidence before any larger benchmark design |
 
-The next experiment may only run one same-slice stability replication of the six frozen rows. It
-must stay under `96` provider calls, `$10.00` total spend, `16` calls per row, and `$2.00` per row;
-use no cloud runner or GPU; mutate no Sentinel resource; change no production/live-domain
-behavior; and make no benchmark/model/SOTA claim.
+The next experiment may only adjudicate iter89 stability evidence from committed artifacts. It must
+use zero provider calls, zero spend, zero row execution, no cloud runner, no GPU, no Sentinel
+mutation, no production/live-domain mutation, and no benchmark/model/SOTA claim.

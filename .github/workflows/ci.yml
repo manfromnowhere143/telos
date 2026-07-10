@@ -559,6 +559,12 @@ jobs:
       - name: External benchmark readiness adjudication audit
         run: python3 scripts/audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py
 
+      - name: Same-slice stability replication receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter89_same_slice_discriminating_metric_stability_replication/proof
+
+      - name: Same-slice stability replication audit
+        run: python3 scripts/audit_same_slice_discriminating_metric_stability_replication.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

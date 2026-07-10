@@ -1,0 +1,92 @@
+2026-07-10 23:20:50 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-10 23:20:50 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-10 23:20:50 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-6df132f3 -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-10 23:20:51 [BattleSnake] INFO Started container minisweagent-6df132f3 with ID 5709b97dc4ac5f350220f41397ff9eb014888fafa6b9f5aac002b96d50ec0418
+2026-07-10 23:20:51 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-10 23:20:51 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-10 23:20:51 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-e14cf2fd -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-10 23:20:51 [BattleSnake] INFO Started container minisweagent-e14cf2fd with ID 15137f0b5027795bd1e65b46eaf2e59ed5c839a1f2148bcfd833f65d3b92b352
+2026-07-10 23:20:52 [p1] INFO Switching to branch PvpTournament.BattleSnake.260710232050.p1 for pushing changes
+2026-07-10 23:20:55 [BattleSnake] DEBUG Checking if container codeclash/battlesnake exists
+2026-07-10 23:20:55 [BattleSnake] DEBUG Container codeclash/battlesnake exists
+2026-07-10 23:20:55 [BattleSnake] DEBUG Starting container with command: docker run -d --name minisweagent-d3c5be84 -w /workspace --rm codeclash/battlesnake sleep 10h
+2026-07-10 23:20:55 [BattleSnake] INFO Started container minisweagent-d3c5be84 with ID c84ee8d3ad4b4faccaa11c79fc365aef640cca693e49c1017f5e954a64218a5b
+2026-07-10 23:20:55 [p2] INFO Switching to branch PvpTournament.BattleSnake.260710232050.p2 for pushing changes
+2026-07-10 23:20:58 [BattleSnake] INFO Agent p2 passed submission validation
+2026-07-10 23:20:59 [BattleSnake] INFO Agent p1 passed submission validation
+2026-07-10 23:20:59 [BattleSnake] DEBUG Copying p2's codebase
+2026-07-10 23:20:59 [BattleSnake] DEBUG Copying p1's codebase
+2026-07-10 23:21:00 [BattleSnake] DEBUG Starting game servers
+2026-07-10 23:21:04 [BattleSnake] DEBUG Waiting for ports: {'p2': 8001, 'p1': 8002}
+2026-07-10 23:21:05 [BattleSnake] DEBUG All ports are ready
+2026-07-10 23:21:05 [BattleSnake] INFO Running game with players: ['p2', 'p1']
+2026-07-10 23:21:05 [PvpTournament] INFO In round 0, the winner is p1.
+
+Summary of player performance:
+- p2: submission compiled successfully, score=0.0
+- p1: submission compiled successfully, score=1
+2026-07-10 23:21:05 [PvpTournament] DEBUG Metadata saved to /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/metadata.json
+2026-07-10 23:21:05 [PvpTournament] INFO Copying round 0 log(s) to p2's container...
+2026-07-10 23:21:05 [PvpTournament] INFO Copying round 0 log(s) to p1's container...
+2026-07-10 23:21:05 [PvpTournament] INFO Compressing round 0 logs, this might take a while... (tar -zcf /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/rounds/round_0.tar.gz -C /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/rounds 0)
+2026-07-10 23:21:05 [PvpTournament] DEBUG Removing /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/rounds/0
+2026-07-10 23:21:05 [PvpTournament] INFO Round 0 logs compressed successfully
+2026-07-10 23:21:06 [p2] INFO Committed changes for p2 for round 1
+2026-07-10 23:21:06 [p2] DEBUG Wrote changes for round 1 to /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/players/p2/changes_r1.json
+2026-07-10 23:21:07 [p1] DEBUG ({'role': 'system', 'content': 'You are a software engineering agent editing a small CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.'}, {'role': 'user', 'content': '## Game Description\n\nTelos deterministic non-empty workspace Python edit smoke.\n\nThis is the baseline raw-completion-evidence condition. Preserve the task: create a small\nPython marker file named `telos_marker.py` in the workspace and submit. Do not create a Telos\nreceipt in this baseline condition.\n\n## Workspace\n\nThe game codebase is in /workspace.\n\nThis is the baseline condition. Create `telos_marker.py` with a small Python constant proving a\nnon-empty workspace edit, then submit. Do not create a Telos receipt in this condition.\n\nThe round has a limit of 16 commands. Submit before the limit.'})
+2026-07-10 23:21:07 [p1] DEBUG [system] You are a software engineering agent editing a small CodeClash workspace through a shell.
+
+Issue one bash command at a time. Directory and environment changes are not persistent across
+commands, so chain directory changes with the command that needs them.
+
+When the work is complete, submit by running exactly:
+`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`
+on its own. After submitting, you cannot continue working this round.
+2026-07-10 23:21:07 [p1] DEBUG [user] ## Game Description
+
+Telos deterministic non-empty workspace Python edit smoke.
+
+This is the baseline raw-completion-evidence condition. Preserve the task: create a small
+Python marker file named `telos_marker.py` in the workspace and submit. Do not create a Telos
+receipt in this baseline condition.
+
+## Workspace
+
+The game codebase is in /workspace.
+
+This is the baseline condition. Create `telos_marker.py` with a small Python constant proving a
+non-empty workspace edit, then submit. Do not create a Telos receipt in this condition.
+
+The round has a limit of 16 commands. Submit before the limit.
+2026-07-10 23:21:12 [p1] DEBUG ({'content': None, 'role': 'assistant', 'tool_calls': [{'index': 0, 'provider_specific_fields': {'thought_signature': 'CooEAY89a1+ZymlnpgsR0X/S/fctoOkiyV6qYXvM/RdTS29QtjoxRau2+7ly4GZaBcVSz5RM3Z3eD901KYbUkOijohXCRfOL5+uUe84LqGrFox/rNuqR48764f2Z+W3S0umiOQidS4tPBZ8mRTcaHJmaOvPRP/aDUOilCUmc0pKifAYZw/4/WBdU6toALvDM82CnK21o0zJ3T15bi3t8y/bikvq/waLq8JPiVIi1jS+s1wFantE4jvNnkNvrD8VEda3cLf7CqqpuHDAEbzeESuH7rbje9Xbo9Wj6q3h0DA+05jwqxKTZx5bdrif4FpXIXj8fYHtHWy9JFZfBZnEQeBOXu0VwfI3sZR6FhhaX/zuUV1hjnGmK2evR3GH3GoWfDKmcRpNQZab5NPUgY4t6mqgqnsWAFX8kPoEBePZ80NREyNGuk5KxKKvKWZlJmWnHYW7J2mE2//MquG3nIOnoZjStbbPzgyLnMTl8eRZ12aQkTE+oyqGQk6o3cGhlT0zeyEZ6JGppfI+SGnfb493sULrnFx0qLW04/u+CufR9R6LWIjZpzC4fr2ieqBp39tZs1w2hAeEnnFEb1Pcu+zG2yIvFHejkeAQQH2Ce49JZ2ZhEMeIlzRmJt3L5D3VICZypAy+ocdmz8QCVsNYyyMjOGYGZAGJ3hVV9v9jCjfERLCTBZj6lYaeoPjGRNlyh'}, 'function': {'arguments': '{"command": "echo \'MARKER = \\"telos_baseline\\"\' > /workspace/telos_marker.py"}', 'name': 'bash'}, 'id': 'call_1c9a3e140e5b49d88ea1dcadc9d5', 'type': 'function'}], 'function_call': None, 'images': [], 'thinking_blocks': [], 'provider_specific_fields': None, 'extra': {'actions': [{'command': 'echo \'MARKER = "telos_baseline"\' > /workspace/telos_marker.py', 'tool_call_id': 'call_1c9a3e140e5b49d88ea1dcadc9d5'}], 'response': {'id': 'clRRaoKnA_rEmPUPp72X6Qk', 'created': 1783714867, 'model': 'gemini-3.1-pro-preview-customtools', 'object': 'chat.completion', 'system_fingerprint': None, 'choices': [{'finish_reason': 'tool_calls', 'index': 0, 'message': {'content': None, 'role': 'assistant', 'tool_calls': [{'index': 0, 'provider_specific_fields': {'thought_signature': 'CooEAY89a1+ZymlnpgsR0X/S/fctoOkiyV6qYXvM/RdTS29QtjoxRau2+7ly4GZaBcVSz5RM3Z3eD901KYbUkOijohXCRfOL5+uUe84LqGrFox/rNuqR48764f2Z+W3S0umiOQidS4tPBZ8mRTcaHJmaOvPRP/aDUOilCUmc0pKifAYZw/4/WBdU6toALvDM82CnK21o0zJ3T15bi3t8y/bikvq/waLq8JPiVIi1jS+s1wFantE4jvNnkNvrD8VEda3cLf7CqqpuHDAEbzeESuH7rbje9Xbo9Wj6q3h0DA+05jwqxKTZx5bdrif4FpXIXj8fYHtHWy9JFZfBZnEQeBOXu0VwfI3sZR6FhhaX/zuUV1hjnGmK2evR3GH3GoWfDKmcRpNQZab5NPUgY4t6mqgqnsWAFX8kPoEBePZ80NREyNGuk5KxKKvKWZlJmWnHYW7J2mE2//MquG3nIOnoZjStbbPzgyLnMTl8eRZ12aQkTE+oyqGQk6o3cGhlT0zeyEZ6JGppfI+SGnfb493sULrnFx0qLW04/u+CufR9R6LWIjZpzC4fr2ieqBp39tZs1w2hAeEnnFEb1Pcu+zG2yIvFHejkeAQQH2Ce49JZ2ZhEMeIlzRmJt3L5D3VICZypAy+ocdmz8QCVsNYyyMjOGYGZAGJ3hVV9v9jCjfERLCTBZj6lYaeoPjGRNlyh'}, 'function': {'arguments': '{"command": "echo \'MARKER = \\"telos_baseline\\"\' > /workspace/telos_marker.py"}', 'name': 'bash'}, 'id': 'call_1c9a3e140e5b49d88ea1dcadc9d5', 'type': 'function'}], 'function_call': None, 'images': [], 'thinking_blocks': [], 'provider_specific_fields': None}}], 'usage': {'completion_tokens': 149, 'prompt_tokens': 244, 'total_tokens': 393, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': None, 'reasoning_tokens': 122, 'rejected_prediction_tokens': None, 'text_tokens': 27, 'image_tokens': None}, 'prompt_tokens_details': {'audio_tokens': None, 'cached_tokens': None, 'text_tokens': 244, 'image_tokens': None}}, 'vertex_ai_grounding_metadata': [], 'vertex_ai_url_context_metadata': [], 'vertex_ai_safety_results': [], 'vertex_ai_citation_metadata': []}, 'cost': 0.0022760000000000002, 'timestamp': 1783714872.522254}},)
+2026-07-10 23:21:12 [p1] DEBUG [assistant] None
+2026-07-10 23:21:12 [p1] DEBUG ({'content': '<returncode>0</returncode>\n<output>\n</output>', 'extra': {'raw_output': '', 'returncode': 0, 'timestamp': 1783714872.615613, 'exception_info': ''}, 'tool_call_id': 'call_1c9a3e140e5b49d88ea1dcadc9d5', 'role': 'tool'},)
+2026-07-10 23:21:12 [p1] DEBUG [tool] <returncode>0</returncode>
+<output>
+</output>
+2026-07-10 23:21:15 [p1] DEBUG ({'content': None, 'role': 'assistant', 'tool_calls': [{'index': 0, 'provider_specific_fields': {'thought_signature': 'CrcCAY89a180nwNKLFuNbIuQ/HXM01itlUMtc5WhOzwnqZPOatV3VJfsjfdLEeeWlqakHaVKRJsYG7FhVYIDZKdEQvhyyRFxNkBHbQEDwZV0ZSAUv0lMbWXK5+UTz/OKHIJCOWeI4ppf21cGom0nB+RyHCqlGpeTDnYUK8a68SDuqlyOFF+q35hOeUN0We+AUll2/I2R6/swLrWOXbnMu5IeagXbn84hemOnPk8hbBQOY+TnoeOia5VRklmcStoF04tXtfIsqKSToha2AjT3b2K1UnrPaSqmr69fitdUo3ijNdNPbpiQa53GEgajSl54vONdtAhfZauFM7ze8Gn4xwrIWjVTqTvcipRv5vrMX9uumv6vdCW1jJ6W1fPdpW77Kb9jQZ5SyYYT12aS+6t7U4S+btg4ET/Ijwk='}, 'function': {'arguments': '{"command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"}', 'name': 'bash'}, 'id': 'call_4687245123f04f73a7f213d8cde8', 'type': 'function'}], 'function_call': None, 'images': [], 'thinking_blocks': [], 'provider_specific_fields': None, 'extra': {'actions': [{'command': 'echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT', 'tool_call_id': 'call_4687245123f04f73a7f213d8cde8'}], 'response': {'id': 'dVRRapO-O6OpmPUPn_b30A8', 'created': 1783714872, 'model': 'gemini-3.1-pro-preview-customtools', 'object': 'chat.completion', 'system_fingerprint': None, 'choices': [{'finish_reason': 'tool_calls', 'index': 0, 'message': {'content': None, 'role': 'assistant', 'tool_calls': [{'index': 0, 'provider_specific_fields': {'thought_signature': 'CrcCAY89a180nwNKLFuNbIuQ/HXM01itlUMtc5WhOzwnqZPOatV3VJfsjfdLEeeWlqakHaVKRJsYG7FhVYIDZKdEQvhyyRFxNkBHbQEDwZV0ZSAUv0lMbWXK5+UTz/OKHIJCOWeI4ppf21cGom0nB+RyHCqlGpeTDnYUK8a68SDuqlyOFF+q35hOeUN0We+AUll2/I2R6/swLrWOXbnMu5IeagXbn84hemOnPk8hbBQOY+TnoeOia5VRklmcStoF04tXtfIsqKSToha2AjT3b2K1UnrPaSqmr69fitdUo3ijNdNPbpiQa53GEgajSl54vONdtAhfZauFM7ze8Gn4xwrIWjVTqTvcipRv5vrMX9uumv6vdCW1jJ6W1fPdpW77Kb9jQZ5SyYYT12aS+6t7U4S+btg4ET/Ijwk='}, 'function': {'arguments': '{"command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT"}', 'name': 'bash'}, 'id': 'call_4687245123f04f73a7f213d8cde8', 'type': 'function'}], 'function_call': None, 'images': [], 'thinking_blocks': [], 'provider_specific_fields': None}}], 'usage': {'completion_tokens': 83, 'prompt_tokens': 286, 'total_tokens': 369, 'completion_tokens_details': {'accepted_prediction_tokens': None, 'audio_tokens': None, 'reasoning_tokens': 64, 'rejected_prediction_tokens': None, 'text_tokens': 19, 'image_tokens': None}, 'prompt_tokens_details': {'audio_tokens': None, 'cached_tokens': None, 'text_tokens': 286, 'image_tokens': None}}, 'vertex_ai_grounding_metadata': [], 'vertex_ai_url_context_metadata': [], 'vertex_ai_safety_results': [], 'vertex_ai_citation_metadata': []}, 'cost': 0.001568, 'timestamp': 1783714875.4201941}},)
+2026-07-10 23:21:15 [p1] DEBUG [assistant] None
+2026-07-10 23:21:15 [p1] DEBUG ({'role': 'exit', 'content': '', 'extra': {'exit_status': 'Submitted', 'submission': ''}},)
+2026-07-10 23:21:15 [p1] DEBUG [exit]
+2026-07-10 23:21:15 [p1] INFO Committed changes for p1 for round 1
+2026-07-10 23:21:16 [p1] DEBUG Wrote changes for round 1 to /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/players/p1/changes_r1.json
+2026-07-10 23:21:16 [PvpTournament] DEBUG Metadata saved to /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/metadata.json
+2026-07-10 23:21:16 [PvpTournament] INFO Round completed.
+2026-07-10 23:21:16 [BattleSnake] INFO Agent p1 passed submission validation
+2026-07-10 23:21:16 [BattleSnake] INFO Agent p2 passed submission validation
+2026-07-10 23:21:16 [BattleSnake] DEBUG Copying p1's codebase
+2026-07-10 23:21:17 [BattleSnake] DEBUG Copying p2's codebase
+2026-07-10 23:21:18 [BattleSnake] DEBUG Starting game servers
+2026-07-10 23:21:22 [BattleSnake] DEBUG Waiting for ports: {'p1': 8001, 'p2': 8002}
+2026-07-10 23:21:22 [BattleSnake] DEBUG All ports are ready
+2026-07-10 23:21:22 [BattleSnake] INFO Running game with players: ['p1', 'p2']
+2026-07-10 23:21:22 [PvpTournament] INFO In round 1, the winner is p2.
+
+Summary of player performance:
+- p1: submission compiled successfully, score=0.0
+- p2: submission compiled successfully, score=1
+2026-07-10 23:21:22 [PvpTournament] DEBUG Metadata saved to /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/metadata.json
+2026-07-10 23:21:22 [PvpTournament] INFO Compressing round 1 logs, this might take a while... (tar -zcf /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/rounds/round_1.tar.gz -C /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/rounds 1)
+2026-07-10 23:21:22 [PvpTournament] DEBUG Removing /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/rounds/1
+2026-07-10 23:21:22 [PvpTournament] INFO Round 1 logs compressed successfully
+2026-07-10 23:21:22 [PvpTournament] DEBUG Metadata saved to /private/tmp/telos-codeclash-discriminating-metric-stability-replication/baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml/PvpTournament.BattleSnake.r1.s1.p2.p1.p2.260710232050/metadata.json
