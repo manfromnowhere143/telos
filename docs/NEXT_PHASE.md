@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter86_discriminating_metric_backtest_on_committed_artifacts` exactly as
+Run `iter87_benchmark_facing_discriminating_metric_execution_pilot` exactly as
 frozen in
-[`../experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md`](../experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md).
+[`../experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md`](../experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -59,8 +59,11 @@ result as `verified_completion_metric_saturated` and selecting `redesign_task_me
 step. `iter85` then passed the zero-spend redesign gate by freezing
 `task_native_score_share_delta_with_receipt_gates` as a candidate metric, demoting verified
 completion to an admissibility gate, and keeping paid execution unauthorized. The next honest move
-is the zero-spend iter86 backtest gate: compute the candidate metric from committed iter83 artifacts
-before any further paid execution or benchmark claim.
+was the zero-spend iter86 backtest gate. `iter86` passed: the metric was computable on all six
+committed rows, did not collapse to the saturated completion boolean, and produced mixed-direction
+diagnostic deltas. The next honest move is the bounded iter87 paid replication: execute exactly the
+six frozen rows under the `96` call and `$10.00` ceilings, then compute the discriminating metric
+without any benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

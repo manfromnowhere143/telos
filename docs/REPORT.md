@@ -404,6 +404,15 @@ Current evidence:
 - `experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md`
   pre-registers the next zero-spend backtest gate. It may only compute the candidate metric from
   committed iter83 artifacts before any further paid execution or benchmark claim.
+- `experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/RESULT.md` passes that
+  zero-spend backtest gate. It computed three score-share deltas from committed iter83 metadata,
+  found `task_native_score_share_delta_with_receipt_gates` computable and non-saturated, recorded a
+  mixed-direction diagnostic signal, made zero provider calls, spent `$0.00`, executed zero rows,
+  and made no benchmark/model/state-of-the-art claim.
+- `experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md`
+  pre-registers the next bounded paid execution pilot. It may only execute the six frozen
+  CodeClash task-condition rows under the `96` call and `$10.00` spend ceilings, then compute the
+  discriminating metric without benchmark/model/state-of-the-art claims.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

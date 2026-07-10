@@ -317,9 +317,14 @@ and an adversarial review pass.
   zero-spend backtest, kept future paid execution unauthorized, and made no benchmark/model/SOTA
   claim in
   [`experiments/iter85_discriminating_task_metric_redesign`](experiments/iter85_discriminating_task_metric_redesign/RESULT.md).
-- Current gate: discriminating metric backtest on committed artifacts,
+- Discriminating metric backtest on committed artifacts: passed with zero provider calls, zero
+  spend, and zero row execution. It computed three task-native score-share deltas from committed
+  iter83 metadata, found a non-saturated mixed-direction diagnostic signal, pre-registered a
+  bounded paid replication, and made no benchmark/model/SOTA claim in
+  [`experiments/iter86_discriminating_metric_backtest_on_committed_artifacts`](experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/RESULT.md).
+- Current gate: benchmark-facing discriminating metric execution pilot,
   pre-registered in
-  [`experiments/iter86_discriminating_metric_backtest_on_committed_artifacts`](experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md).
+  [`experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot`](experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, and one bounded six-row null/no-signal pilot; none is a benchmark result.

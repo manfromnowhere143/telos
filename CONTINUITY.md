@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/HYPOTHESIS.md`
+- `experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -413,10 +413,15 @@ Current claim:
 - `iter85_discriminating_task_metric_redesign` passed with zero provider calls, zero spend, and
   zero row execution. It froze `task_native_score_share_delta_with_receipt_gates` as the candidate
   metric contract for a zero-spend backtest and did not authorize future paid execution.
+- `iter86_discriminating_metric_backtest_on_committed_artifacts` passed with zero provider calls,
+  zero spend, and zero row execution. It computed three score-share deltas from committed iter83
+  metadata, found the metric computable and non-saturated but mixed-direction, and pre-registered a
+  bounded six-row paid replication gate.
 - No model or benchmark result is claimed yet.
-- The next gate may only backtest the candidate metric on committed iter83 artifacts. It must use
-  zero provider calls, zero spend, no row execution, no GPU or cloud runner, mutate no Sentinel
-  resources, change no production/live-domain behavior, and make no benchmark/model/SOTA claims.
+- The next gate may only execute the six frozen CodeClash task-condition rows under the iter87
+  paid ceilings and discriminating metric. It must stay under `96` provider calls, `$10.00` total
+  spend, `16` calls per row, and `$2.00` per row; mutate no Sentinel resources; change no
+  production/live-domain behavior; and make no benchmark/model/SOTA claims.
 
 ## Required Verification
 
@@ -593,6 +598,8 @@ python3 scripts/validate_receipts.py experiments/iter84_benchmark_facing_null_si
 python3 scripts/audit_benchmark_facing_null_signal_adjudication.py
 python3 scripts/validate_receipts.py experiments/iter85_discriminating_task_metric_redesign/proof
 python3 scripts/audit_discriminating_task_metric_redesign.py
+python3 scripts/validate_receipts.py experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof
+python3 scripts/audit_discriminating_metric_backtest_on_committed_artifacts.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

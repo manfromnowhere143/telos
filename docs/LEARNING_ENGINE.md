@@ -139,7 +139,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter83_benchmark_facing_protocol_effect_execution_pilot` | blocked/null | the six frozen rows executed under budget with 21 provider calls and $0.11319400 spend, but Dummy, BattleSnake, and deterministic-edit Telos-minus-baseline deltas were all 0 | adjudicate the null/no-signal result before any broader paid execution or benchmark claim |
 | `iter84_benchmark_facing_null_signal_adjudication` | pass | the iter83 null/no-signal result was classified as verified-completion metric saturation and task/metric redesign was selected with zero provider calls, zero spend, and zero row execution | redesign the task and metric contract before any further paid execution or benchmark claim |
 | `iter85_discriminating_task_metric_redesign` | pass | the saturated verified-completion boolean was demoted to an admissibility gate and the task-native score-share delta metric was frozen for zero-spend backtest with no paid execution authorized | backtest the discriminating metric on committed iter83 artifacts before any further paid execution or benchmark claim |
+| `iter86_discriminating_metric_backtest_on_committed_artifacts` | pass | the score-share metric was computable on all six committed iter83 rows and non-saturated, but the diagnostic signal was mixed-direction and not a benchmark result | run the smallest bounded paid replication under the discriminating metric before any benchmark claim |
 
-The next experiment may only backtest the candidate metric on committed iter83 artifacts. It must
-use zero provider calls, zero spend, no row execution, no cloud runner, no GPU, no Sentinel
-mutation, no production/live-domain mutation, and no benchmark/model/SOTA claim.
+The next experiment may only execute the six frozen rows under the iter87 paid ceilings and
+discriminating metric. It must stay under 96 provider calls, $10.00 total spend, 16 calls per row,
+$2.00 per row, no cloud runner, no GPU, no Sentinel mutation, no production/live-domain mutation,
+and no benchmark/model/SOTA claim.

@@ -1,0 +1,56 @@
+{
+  "claim_boundary": [
+    "not a benchmark result",
+    "not a leaderboard result",
+    "not a SWE-bench result",
+    "not a model-superiority result",
+    "not a state-of-the-art result"
+  ],
+  "experiment_id": "iter86_discriminating_metric_backtest_on_committed_artifacts",
+  "interpretation": "The candidate metric is computable and no longer saturates on committed iter83 artifacts, but the signal is mixed-direction and diagnostic only.",
+  "metric_computable": true,
+  "metric_id": "task_native_score_share_delta_with_receipt_gates",
+  "metric_non_saturated": true,
+  "mixed_direction_signal": true,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.discriminating_metric_backtest.report.v1",
+  "source_iteration": "iter83_benchmark_facing_protocol_effect_execution_pilot",
+  "status": "diagnostic_backtest_only",
+  "task_deltas": [
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "baseline_score_share": "0.49400000",
+      "completion_delta_was_zero_in_iter83": true,
+      "delta_telos_minus_baseline": "0.00575000",
+      "direction": "positive",
+      "public_config": "configs/test/dummy.yaml",
+      "task_surface": "dummy",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "telos_score_share": "0.49975000"
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "baseline_score_share": "1.00000000",
+      "completion_delta_was_zero_in_iter83": true,
+      "delta_telos_minus_baseline": "-1.00000000",
+      "direction": "negative",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "task_surface": "battlesnake",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "telos_score_share": "0.00000000"
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "baseline_score_share": "0.00000000",
+      "completion_delta_was_zero_in_iter83": true,
+      "delta_telos_minus_baseline": "0.50000000",
+      "direction": "positive",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "task_surface": "deterministic_edit",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "telos_score_share": "0.50000000"
+    }
+  ]
+}

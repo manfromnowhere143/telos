@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "Iter85 receipt and audit validation pass.",
+    "All six iter83 raw metadata rows are parsed from committed artifacts.",
+    "Per-task score-share deltas are computed under the iter85 metric contract.",
+    "Missing or ambiguous fields are reported as blockers.",
+    "Future paid execution remains separately pre-registered.",
+    "No provider calls, spend, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, leaderboard, SWE-bench, model-superiority, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-metric-backtest-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records metric computability and next gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof/raw_metric_extraction.json",
+      "kind": "artifact",
+      "notes": "Deterministic score-share extraction from committed iter83 metadata.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof/backtest_report.json",
+      "kind": "artifact",
+      "notes": "Per-task diagnostic deltas under the new metric.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-claim boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter85 validation fails.",
+    "The result must block if any iter83 metadata row is missing or ambiguous.",
+    "The result must fail if provider calls, spend, or row execution occur in iter86.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter86-discriminating-metric-backtest-pass",
+  "sha256": "e252306cbf78ca1a5b894a41dce37a009b45eada149fe857a2ffc44e9dc5fc47",
+  "stated_goal": "Backtest the iter85 discriminating metric on committed iter83 artifacts without provider calls, row execution, or benchmark/model/SOTA claims.",
+  "status": "pass",
+  "task_id": "telos:iter86_discriminating_metric_backtest_on_committed_artifacts@iter85"
+}

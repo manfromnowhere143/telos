@@ -1,0 +1,48 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter85_discriminating_task_metric_redesign/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_discriminating_task_metric_redesign.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter85 discriminating task/metric redesign audit: clean pass",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter86_discriminating_metric_backtest_on_committed_artifacts",
+  "iter85_audit_returncode": 0,
+  "iter85_candidate_metric_id": "task_native_score_share_delta_with_receipt_gates",
+  "iter85_clean_pass": true,
+  "iter85_receipt_validation_returncode": 0,
+  "iter85_source_rows_inventoried": 6,
+  "iter85_status": "pass",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.discriminating_metric_backtest.prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter85_discriminating_task_metric_redesign/proof/run_summary.json",
+      "sha256": "4597bcaaa65b741b54dde07d06dc55584349f6fcf496dead32d31d0ac6695a42"
+    },
+    {
+      "path": "experiments/iter85_discriminating_task_metric_redesign/proof/metric_contract.json",
+      "sha256": "aef18761392215adb4fb5c75767f9d14c87208e6caf5cbfff52e350498ef3efd"
+    },
+    {
+      "path": "experiments/iter85_discriminating_task_metric_redesign/proof/source_field_inventory.json",
+      "sha256": "448cbd87edbcba6b0bbbcf88a30f4f798df6ecfbee98d63eaf40a3c1d203137c"
+    },
+    {
+      "path": "experiments/iter85_discriminating_task_metric_redesign/proof/valid/receipt_discriminating_task_metric_redesign.json",
+      "sha256": "15a3b78a041a24a122008631a2953630bee3a6aba65048b8748f6595f2d0b273"
+    }
+  ]
+}
