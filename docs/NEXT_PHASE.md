@@ -248,11 +248,11 @@ the local CodeClash virtualenv now imports `google.auth`, the pinned commit and 
   receipt-enforced prompt overlays were produced, local valid fixtures passed, and one malformed
   fixture failed closed.
 
-## During Runtime ADC Recovery After Paid Retry Block
+## During Runtime ADC Recheck After Operator Refresh
 
 If the gate runs:
 
-1. Revalidate the iter74 blocked proof.
+1. Revalidate the iter75 blocked proof.
 2. Prove the pinned CodeClash checkout, Docker readiness, and `google.auth` import readiness.
 3. Prove non-interactive ADC refresh with access-token stdout suppressed.
 4. Commit no token, project identifier, service-account, or credential material.

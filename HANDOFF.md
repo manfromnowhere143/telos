@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-10T02:02:54Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-10T02:42:58Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -91,11 +91,12 @@ clean
 - experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze: RESULT PUBLISHED
 - experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block: RESULT PUBLISHED
 - experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery: RESULT PUBLISHED
-- experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block: PRE-REGISTERED, result pending
+- experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block: RESULT PUBLISHED
+- experiments/iter76_runtime_adc_recheck_after_operator_refresh: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/HYPOTHESIS.md`.
+- Active gate: `experiments/iter76_runtime_adc_recheck_after_operator_refresh/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -253,6 +254,8 @@ python3 scripts/validate_receipts.py experiments/iter73_expanded_receipt_prompt_
 python3 scripts/audit_expanded_receipt_prompt_recovery_after_paid_block.py
 python3 scripts/validate_receipts.py experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof
 python3 scripts/audit_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery.py
+python3 scripts/validate_receipts.py experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof
+python3 scripts/audit_provider_compatible_runtime_adc_recovery_after_paid_retry_block.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

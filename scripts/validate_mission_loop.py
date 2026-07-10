@@ -203,6 +203,8 @@ def main() -> int:
         "audit_expanded_receipt_prompt_recovery_after_paid_block.py",
         "validate_receipts.py experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof",
         "audit_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery.py",
+        "validate_receipts.py experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof",
+        "audit_provider_compatible_runtime_adc_recovery_after_paid_retry_block.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

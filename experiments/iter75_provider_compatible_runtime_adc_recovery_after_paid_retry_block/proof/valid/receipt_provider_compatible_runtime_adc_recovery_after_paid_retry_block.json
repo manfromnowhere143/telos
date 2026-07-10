@@ -1,0 +1,43 @@
+{
+  "acceptance_criteria": [
+    "Iter74 validates as a clean blocked artifact packet.",
+    "CodeClash checkout, Docker readiness, google.auth import, gcloud project availability, and ADC refresh readiness are checked.",
+    "Access-token stdout and project identifier output are suppressed and not committed.",
+    "Zero provider calls, zero spend, zero row execution, no GPU, and no cloud runner startup occur.",
+    "No Sentinel, production/live-domain, benchmark, model, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-runtime-access-readiness-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records runtime readiness checks, blockers, costs, and claim boundary.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof/runtime_adc_readiness_report.json",
+      "kind": "artifact",
+      "notes": "Report records token-suppressed ADC readiness classification.",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the zero-spend no-benchmark boundary.",
+      "status": "blocked"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter74 receipt validation or audit fails.",
+    "The result must block if ADC cannot refresh non-interactively.",
+    "The result must fail if any provider row executes or any provider spend occurs.",
+    "The result must fail if token, project identifier, service-account, or credential material is committed.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter75-provider-compatible-runtime-adc-recovery-blocked",
+  "sha256": "41834593b36dbeeb05aca34808b5c9488e4eeba6f973a4136a0a0482f526de0c",
+  "stated_goal": "Recover or precisely classify the non-interactive ADC refresh blocker before any further paid adapter-row retry.",
+  "status": "blocked",
+  "task_id": "telos:iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block@iter74"
+}

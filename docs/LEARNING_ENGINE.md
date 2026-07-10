@@ -128,7 +128,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze` | blocked | the four adapter-planned rows executed under ceiling, but both receipt-required expanded rows emitted schema-incomplete receipt candidates and therefore could not count as verified completion evidence | recover expanded receipt-enforced prompt/schema alignment locally before any paid retry or higher-budget gate |
 | `iter73_expanded_receipt_prompt_recovery_after_paid_block` | pass | the two expanded receipt failures were local prompt/schema alignment gaps, and recovered receipt-enforced prompts now name all required fields and digest rules with local valid/malformed fixture proof | retry the same four adapter-planned rows under the recovered prompts and frozen paid ceiling |
 | `iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery` | blocked | the retry prerequisites validated cleanly, but Google ADC refresh failed non-interactively before runtime overlay materialization or adapter-row execution | recover runtime ADC readiness with zero provider calls and zero spend before retrying paid rows |
+| `iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block` | blocked | CodeClash pinning, Docker readiness, `google.auth` import, and gcloud project availability were ready, but ADC still required interactive reauthentication | restore ADC non-interactive refresh before any paid retry |
 
-The next experiment may only recover the runtime ADC access path with zero provider calls, zero
-spend, and zero row execution. It must suppress token output, commit no credential material, use no
-GPU or cloud runner, mutate no Sentinel resources, and make no benchmark/model-result claims.
+The next experiment may only recheck runtime ADC after an operator refresh with zero provider calls,
+zero spend, and zero row execution. It must suppress project/token output, commit no credential
+material, use no GPU or cloud runner, mutate no Sentinel resources, and make no benchmark/model
+result claims.

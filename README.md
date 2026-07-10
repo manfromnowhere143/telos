@@ -255,9 +255,14 @@ and an adversarial review pass.
   packets validated cleanly, but zero provider calls, zero spend, and zero row execution occurred;
   no GPU/cloud/Sentinel/live-domain mutation or benchmark/model/SOTA claim occurred in
   [`experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery`](experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/RESULT.md).
-- Current gate: provider-compatible runtime ADC recovery after paid retry block,
+- Provider-compatible runtime ADC recovery after paid retry block: blocked with zero provider calls,
+  zero spend, and zero row execution because ADC still required interactive reauthentication. The
+  CodeClash checkout was pinned, Docker was ready, `google.auth` imported, gcloud project
+  availability was proven with stdout suppressed, and no credential material was committed in
+  [`experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block`](experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/RESULT.md).
+- Current gate: runtime ADC recheck after operator refresh,
   pre-registered in
-  [`experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block`](experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/HYPOTHESIS.md).
+  [`experiments/iter76_runtime_adc_recheck_after_operator_refresh`](experiments/iter76_runtime_adc_recheck_after_operator_refresh/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot plus a blocked four-row
   adapter-validation extension; neither is a benchmark result.

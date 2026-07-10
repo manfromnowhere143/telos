@@ -303,6 +303,17 @@ Current evidence:
 - `experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/HYPOTHESIS.md`
   pre-registers the next zero-spend recovery gate: prove non-interactive ADC refresh and runtime
   access readiness before any further paid adapter-row retry.
+- `experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/RESULT.md`
+  blocks with zero provider calls, zero spend, and zero row execution. Iter74 receipt validation and
+  audit passed; the CodeClash checkout was pinned, Docker was ready, `google.auth` imported, and
+  gcloud project availability was proven with stdout suppressed. ADC refresh still failed as
+  `interactive_reauthentication_required`, no credential material was committed, and no GPU, cloud
+  runner, Sentinel mutation, production/live-domain change, benchmark claim, model claim, or
+  state-of-the-art claim occurred.
+- `experiments/iter76_runtime_adc_recheck_after_operator_refresh/HYPOTHESIS.md` pre-registers the
+  next zero-spend ADC recheck after interactive credential refresh; it still forbids provider rows,
+  provider spend, GPU, cloud runner, Sentinel mutation, production/live-domain changes, and
+  benchmark/model/state-of-the-art claims.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
