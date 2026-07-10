@@ -336,6 +336,15 @@ Current evidence:
   frozen iter71 row selection, iter73 recovered receipt prompts, `$10.00` spend ceiling, `32`
   provider-call ceiling, no GPU/cloud/Sentinel/prod mutation boundary, and no
   benchmark/model/state-of-the-art claim boundary.
+- `experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/RESULT.md` blocks
+  after exactly four selected adapter-planned rows execute under ceiling. Provider usage was `9`
+  calls and `$0.03987600`. Both deterministic-edit rows had verified-completion evidence and both
+  Dummy rows hit the per-row global call ceiling before verified-completion evidence could be
+  accepted. No GPU, cloud runner, Sentinel mutation, production/live-domain change, benchmark claim,
+  model claim, or state-of-the-art claim occurred.
+- `experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md`
+  pre-registers a zero-spend recovery gate to classify the iter78 Dummy row call-ceiling blocker
+  from committed artifacts before any further paid retry.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

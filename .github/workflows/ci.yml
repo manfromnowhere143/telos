@@ -493,6 +493,12 @@ jobs:
       - name: Runtime ADC recheck after Application Default Login audit
         run: python3 scripts/audit_runtime_adc_recheck_after_application_default_login.py
 
+      - name: Provider-compatible expanded paid retry after ADC recovery receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof
+
+      - name: Provider-compatible expanded paid retry after ADC recovery audit
+        run: python3 scripts/audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

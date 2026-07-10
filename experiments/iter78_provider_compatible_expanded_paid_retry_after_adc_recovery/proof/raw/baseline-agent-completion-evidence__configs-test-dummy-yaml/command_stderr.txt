@@ -1,0 +1,433 @@
+🏓 INFO [Dummy] Started container minisweagent-60d19316 with ID
+f8c8e6c735b5e83ceac02dd6c1553c7038ebed86af165047f451a884987161ca
+🏓 INFO [Dummy] Started container minisweagent-dc2b2553 with ID
+d94ac19a368eb5d3d8f2bcd4cdedae6acb34198a88d9eb7d601ba3ce09f413e8
+👤 INFO [p1] Switching to branch PvpTournament.Dummy.260710062602.p1 for pushing
+changes
+🏓 INFO [Dummy] Started container minisweagent-f0959b2d with ID
+85dac4aa1d8a2d1d7183521e061790219beef45fc6e5e51d7bc061900f071b62
+👤 INFO [p2] Switching to branch PvpTournament.Dummy.260710062602.p2 for pushing
+changes
+🏓 INFO [Dummy] Agent p1 passed submission validation
+🏓 INFO [Dummy] Agent p2 passed submission validation
+🏓 INFO [Dummy] Running game: python engine.py /p1/main.py /p2/main.py -r 1000 >
+/logs/result.log;
+🏆 INFO [PvpTournament] In round 0, the winner is p1.
+
+                       Summary of player performance:
+                       - p1: submission compiled successfully, score=522
+                       - p2: submission compiled successfully, score=478
+🏆 INFO [PvpTournament] Copying round 0 log(s) to p1's container...
+🏆 INFO [PvpTournament] Copying round 0 log(s) to p2's container...
+🏆 INFO [PvpTournament] Compressing round 0 logs, this might take a while...
+(tar -zcf
+/private/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-compl
+etion-evidence__configs-test-dummy-yaml/PvpTournament.Dummy.r3.s1000.p2.p1.p2.26
+0710062602/rounds/round_0.tar.gz -C
+/private/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-compl
+etion-evidence__configs-test-dummy-yaml/PvpTournament.Dummy.r3.s1000.p2.p1.p2.26
+0710062602/rounds 0)
+🏆 INFO [PvpTournament] Round 0 logs compressed successfully
+👤 INFO [p2] Committed changes for p2 for round 1
+👤 INFO [p1] Committed changes for p1 for round 1
+🏆 INFO [PvpTournament] Round completed.
+🏓 INFO [Dummy] Agent p2 passed submission validation
+🏓 INFO [Dummy] Agent p1 passed submission validation
+🏓 INFO [Dummy] Running game: python engine.py /p2/main.py /p1/main.py -r 1000 >
+/logs/result.log;
+🏆 INFO [PvpTournament] In round 1, the winner is p2.
+
+                       Summary of player performance:
+                       - p2: submission compiled successfully, score=508
+                       - p1: submission compiled successfully, score=492
+🏆 INFO [PvpTournament] Copying round 1 log(s) to p2's container...
+🏆 INFO [PvpTournament] Copying round 1 log(s) to p1's container...
+🏆 INFO [PvpTournament] Compressing round 1 logs, this might take a while...
+(tar -zcf
+/private/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-compl
+etion-evidence__configs-test-dummy-yaml/PvpTournament.Dummy.r3.s1000.p2.p1.p2.26
+0710062602/rounds/round_1.tar.gz -C
+/private/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-compl
+etion-evidence__configs-test-dummy-yaml/PvpTournament.Dummy.r3.s1000.p2.p1.p2.26
+0710062602/rounds 1)
+🏆 INFO [PvpTournament] Round 1 logs compressed successfully
+👤 INFO [p2] Committed changes for p2 for round 2
+👤 INFO [p1] Committed changes for p1 for round 2
+🏆 INFO [PvpTournament] Round completed.
+🏓 INFO [Dummy] Agent p1 passed submission validation
+🏓 INFO [Dummy] Agent p2 passed submission validation
+🏓 INFO [Dummy] Running game: python engine.py /p1/main.py /p2/main.py -r 1000 >
+/logs/result.log;
+🏆 INFO [PvpTournament] In round 2, the winner is p1.
+
+                       Summary of player performance:
+                       - p1: submission compiled successfully, score=506
+                       - p2: submission compiled successfully, score=494
+🏆 INFO [PvpTournament] Copying round 2 log(s) to p1's container...
+🏆 INFO [PvpTournament] Copying round 2 log(s) to p2's container...
+🏆 INFO [PvpTournament] Compressing round 2 logs, this might take a while...
+(tar -zcf
+/private/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-compl
+etion-evidence__configs-test-dummy-yaml/PvpTournament.Dummy.r3.s1000.p2.p1.p2.26
+0710062602/rounds/round_2.tar.gz -C
+/private/tmp/telos-codeclash-protocol-effect-expanded-slice/baseline-agent-compl
+etion-evidence__configs-test-dummy-yaml/PvpTournament.Dummy.r3.s1000.p2.p1.p2.26
+0710062602/rounds 2)
+🏆 INFO [PvpTournament] Round 2 logs compressed successfully
+👤 INFO [p2] Committed changes for p2 for round 3
+👤 CRITICAL [p1] Traceback (most recent call last):
+                  File
+"/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 61, in run
+                    result = self.agent.run(task="",
+**self.game_context.to_template_vars())
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
+                  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 98, in run
+                    self.step()
+                  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 126, in step
+                    return self.execute_actions(self.query())
+                                                ^^^^^^^^^^^^
+                  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 147, in query
+                    message = self.model.query(self.messages)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/mo
+dels/litellm_model.py", line 86, in query
+                    GLOBAL_MODEL_STATS.add(cost_output["cost"])
+                  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/mo
+dels/__init__.py", line 31, in add
+                    raise RuntimeError(f"Global cost/call limit exceeded:
+${self._cost:.4f} / {self._n_calls}")
+                RuntimeError: Global cost/call limit exceeded: $0.0187 / 8
+🏆 CRITICAL [PvpTournament] Agent execution failed: Agent p1 failed with exit
+status: Global cost/call limit exceeded: $0.0187 / 8 and exception: Traceback
+(most recent call last):
+                             File
+"/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 61, in run
+                               result = self.agent.run(task="",
+**self.game_context.to_template_vars())
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 98, in run
+                               self.step()
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 126, in step
+                               return self.execute_actions(self.query())
+                                                           ^^^^^^^^^^^^
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 147, in query
+                               message = self.model.query(self.messages)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/mo
+dels/litellm_model.py", line 86, in query
+                               GLOBAL_MODEL_STATS.add(cost_output["cost"])
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/mo
+dels/__init__.py", line 31, in add
+                               raise RuntimeError(f"Global cost/call limit
+exceeded: ${self._cost:.4f} / {self._n_calls}")
+                           RuntimeError: Global cost/call limit exceeded:
+$0.0187 / 8
+
+Traceback (most recent call last):
+                             File
+"/private/tmp/telos-codeclash/codeclash/tournaments/pvp.py", line 147, in
+run_edit_phase
+                               future.result()
+                             File
+"/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/
+lib/python3.11/concurrent/futures/_base.py", line 456, in result
+                               return self.__get_result()
+                                      ^^^^^^^^^^^^^^^^^^^
+                             File
+"/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/
+lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+                               raise self._exception
+                             File
+"/Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-none/
+lib/python3.11/concurrent/futures/thread.py", line 58, in run
+                               result = self.fn(*self.args, **self.kwargs)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                             File
+"/private/tmp/telos-codeclash/codeclash/tournaments/pvp.py", line 158, in
+run_agent
+                               agent.run()
+                             File
+"/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 86, in run
+                               raise RuntimeError(f"Agent {self.name} failed
+with exit status: {exit_status} and exception: {exc_message}")
+                           RuntimeError: Agent p1 failed with exit status:
+Global cost/call limit exceeded: $0.0187 / 8 and exception: Traceback (most
+recent call last):
+                             File
+"/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 61, in run
+                               result = self.agent.run(task="",
+**self.game_context.to_template_vars())
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 98, in run
+                               self.step()
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 126, in step
+                               return self.execute_actions(self.query())
+                                                           ^^^^^^^^^^^^
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 147, in query
+                               message = self.model.query(self.messages)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/mo
+dels/litellm_model.py", line 86, in query
+                               GLOBAL_MODEL_STATS.add(cost_output["cost"])
+                             File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/mo
+dels/__init__.py", line 31, in add
+                               raise RuntimeError(f"Global cost/call limit
+exceeded: ${self._cost:.4f} / {self._n_calls}")
+                           RuntimeError: Global cost/call limit exceeded:
+$0.0187 / 8
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /private/tmp/telos-codeclash/codeclash/cli/app.py:93 in run                  │
+│                                                                              │
+│    90 │                                                                      │
+│    91 │   full_output_dir = get_output_path()                                │
+│    92 │   tournament = PvpTournament(config, output_dir=full_output_dir, cle │
+│ ❱  93 │   tournament.run()                                                   │
+│    94                                                                        │
+│    95                                                                        │
+│    96 def main() -> None:                                                    │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │           cleanup = False                                                │ │
+│ │            config = {                                                    │ │
+│ │                     │   'tournament': {'rounds': 3},                     │ │
+│ │                     │   'game': {                                        │ │
+│ │                     │   │   'name': 'Dummy',                             │ │
+│ │                     │   │   'sims_per_round': 1000                       │ │
+│ │                     │   },                                               │ │
+│ │                     │   'players': [                                     │ │
+│ │                     │   │   {                                            │ │
+│ │                     │   │   │   'agent': 'mini',                         │ │
+│ │                     │   │   │   'name': 'p1',                            │ │
+│ │                     │   │   │   'config': {                              │ │
+│ │                     │   │   │   │   'agent': {                           │ │
+│ │                     │   │   │   │   │   'system_template': 'You are a    │ │
+│ │                     software engineering agent editing a CodeClash       │ │
+│ │                     workspace through a she'+340,                        │ │
+│ │                     │   │   │   │   │   'instance_template': '## Game    │ │
+│ │                     Description\n\n{{game_description}}\n\n##            │ │
+│ │                     Workspace\n\nThe game codebase is in'+257,           │ │
+│ │                     │   │   │   │   │   'step_limit': 8,                 │ │
+│ │                     │   │   │   │   │   'cost_limit': 25                 │ │
+│ │                     │   │   │   │   },                                   │ │
+│ │                     │   │   │   │   'model': {                           │ │
+│ │                     │   │   │   │   │   'model_name':                    │ │
+│ │                     'vertex_ai/gemini-3.1-pro-preview-customtools',      │ │
+│ │                     │   │   │   │   │   'model_kwargs': {                │ │
+│ │                     │   │   │   │   │   │   'temperature': 0.2,          │ │
+│ │                     │   │   │   │   │   │   'max_tokens': 4096,          │ │
+│ │                     │   │   │   │   │   │   'vertex_location': 'global', │ │
+│ │                     │   │   │   │   │   │   'vertex_project':            │ │
+│ │                     '[REDACTED_GCP_PROJECT]',                           │ │
+│ │                     │   │   │   │   │   │   'extra_headers': {           │ │
+│ │                     │   │   │   │   │   │   │   'Authorization': 'Bearer [REDACTED_BEARER_TOKEN] │
+│ │                     [REDACTED_ADC_TOKEN]… │ │
+│ │                     │   │   │   │   │   │   │   'X-Goog-User-Project':   │ │
+│ │                     '[REDACTED_GCP_PROJECT]'                            │ │
+│ │                     │   │   │   │   │   │   }                            │ │
+│ │                     │   │   │   │   │   }                                │ │
+│ │                     │   │   │   │   }                                    │ │
+│ │                     │   │   │   }                                        │ │
+│ │                     │   │   },                                           │ │
+│ │                     │   │   {'agent': 'dummy', 'name': 'p2'}             │ │
+│ │                     │   ],                                               │ │
+│ │                     │   'prompts': {                                     │ │
+│ │                     │   │   'game_description': 'You are a software      │ │
+│ │                     developer ({{player_id}}) competing in a coding      │ │
+│ │                     game.\n\nThe ga'+356                                 │ │
+│ │                     │   }                                                │ │
+│ │                     }                                                    │ │
+│ │       config_path = PosixPath('configs/test/telos_dummy_vertex_baseline… │ │
+│ │   full_output_dir = PosixPath('/tmp/telos-codeclash-protocol-effect-exp… │ │
+│ │   keep_containers = False                                                │ │
+│ │        output_dir = PosixPath('/tmp/telos-codeclash-protocol-effect-exp… │ │
+│ │ preprocessed_yaml = 'tournament:\n  rounds: 3\ngame:\n  name: Dummy\n    │ │
+│ │                     sims_per_round: 1000\nplayers:\n- ag'+2103           │ │
+│ │            suffix = ''                                                   │ │
+│ │        tournament = <codeclash.tournaments.pvp.PvpTournament object at   │ │
+│ │                     0x11394f6d0>                                         │ │
+│ │      yaml_content = 'tournament:\n  rounds: 3\ngame:\n  name: Dummy\n    │ │
+│ │                     sims_per_round: 1000\nplayers:\n- ag'+691            │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /private/tmp/telos-codeclash/codeclash/tournaments/pvp.py:92 in run          │
+│                                                                              │
+│    89 │   │   try:                                                           │
+│    90 │   │   │   self.run_competition_phase(0)  # Initial round with identi │
+│    91 │   │   │   for round_num in range(1, self.rounds + 1):                │
+│ ❱  92 │   │   │   │   self.run_edit_phase(round_num)                         │
+│    93 │   │   │   │   self.run_competition_phase(round_num)                  │
+│    94 │   │   │   # Need to separately compress the last round, because      │
+│    95 │   │   │   # in run_edit_phase we always only compress the previous r │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │ round_num = 3                                                            │ │
+│ │      self = <codeclash.tournaments.pvp.PvpTournament object at           │ │
+│ │             0x11394f6d0>                                                 │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /private/tmp/telos-codeclash/codeclash/tournaments/pvp.py:147 in             │
+│ run_edit_phase                                                               │
+│                                                                              │
+│   144 │   │   │   futures = [executor.submit(self.run_agent, agent, round_nu │
+│   145 │   │   │   for future in futures:                                     │
+│   146 │   │   │   │   try:                                                   │
+│ ❱ 147 │   │   │   │   │   future.result()                                    │
+│   148 │   │   │   │   except Exception as e:                                 │
+│   149 │   │   │   │   │   self.logger.critical(f"Agent execution failed: {e} │
+│   150 │   │   │   │   │   raise                                              │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │     agent = <codeclash.agents.dummy_agent.Dummy object at 0x114ed6850>   │ │
+│ │  executor = <concurrent.futures.thread.ThreadPoolExecutor object at      │ │
+│ │             0x126597c10>                                                 │ │
+│ │    future = <Future at 0x114ee8b50 state=finished raised RuntimeError>   │ │
+│ │   futures = [                                                            │ │
+│ │             │   <Future at 0x114ee8b50 state=finished raised             │ │
+│ │             RuntimeError>,                                               │ │
+│ │             │   <Future at 0x126594e50 state=finished returned NoneType> │ │
+│ │             ]                                                            │ │
+│ │ round_num = 3                                                            │ │
+│ │      self = <codeclash.tournaments.pvp.PvpTournament object at           │ │
+│ │             0x11394f6d0>                                                 │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-no │
+│ ne/lib/python3.11/concurrent/futures/_base.py:456 in result                  │
+│                                                                              │
+│   453 │   │   │   │   if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]: │
+│   454 │   │   │   │   │   raise CancelledError()                             │
+│   455 │   │   │   │   elif self._state == FINISHED:                          │
+│ ❱ 456 │   │   │   │   │   return self.__get_result()                         │
+│   457 │   │   │   │   else:                                                  │
+│   458 │   │   │   │   │   raise TimeoutError()                               │
+│   459 │   │   finally:                                                       │
+│                                                                              │
+│ ╭──── locals ────╮                                                           │
+│ │    self = None │                                                           │
+│ │ timeout = None │                                                           │
+│ ╰────────────────╯                                                           │
+│                                                                              │
+│ /Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-no │
+│ ne/lib/python3.11/concurrent/futures/_base.py:401 in __get_result            │
+│                                                                              │
+│   398 │   def __get_result(self):                                            │
+│   399 │   │   if self._exception:                                            │
+│   400 │   │   │   try:                                                       │
+│ ❱ 401 │   │   │   │   raise self._exception                                  │
+│   402 │   │   │   finally:                                                   │
+│   403 │   │   │   │   # Break a reference cycle with the exception in self._ │
+│   404 │   │   │   │   self = None                                            │
+│                                                                              │
+│ ╭── locals ───╮                                                              │
+│ │ self = None │                                                              │
+│ ╰─────────────╯                                                              │
+│                                                                              │
+│ /Users/danielwahnich/.local/share/uv/python/cpython-3.11.15-macos-aarch64-no │
+│ ne/lib/python3.11/concurrent/futures/thread.py:58 in run                     │
+│                                                                              │
+│    55 │   │   │   return                                                     │
+│    56 │   │                                                                  │
+│    57 │   │   try:                                                           │
+│ ❱  58 │   │   │   result = self.fn(*self.args, **self.kwargs)                │
+│    59 │   │   except BaseException as exc:                                   │
+│    60 │   │   │   self.future.set_exception(exc)                             │
+│    61 │   │   │   # Break a reference cycle with the exception 'exc'         │
+│                                                                              │
+│ ╭── locals ───╮                                                              │
+│ │ self = None │                                                              │
+│ ╰─────────────╯                                                              │
+│                                                                              │
+│ /private/tmp/telos-codeclash/codeclash/tournaments/pvp.py:158 in run_agent   │
+│                                                                              │
+│   155 │   def run_agent(self, agent: Player, round_num: int) -> None:        │
+│   156 │   │   """Run a single agent for the current round."""                │
+│   157 │   │   agent.pre_run_hook(new_round=round_num)                        │
+│ ❱ 158 │   │   agent.run()                                                    │
+│   159 │   │   agent.post_run_hook(round=round_num)                           │
+│   160 │                                                                      │
+│   161 │   def _save(self) -> None:                                           │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │     agent = <codeclash.agents.minisweagent.MiniSWEAgent object at        │ │
+│ │             0x114ed3d10>                                                 │ │
+│ │ round_num = 3                                                            │ │
+│ │      self = <codeclash.tournaments.pvp.PvpTournament object at           │ │
+│ │             0x11394f6d0>                                                 │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+│                                                                              │
+│ /private/tmp/telos-codeclash/codeclash/agents/minisweagent.py:86 in run      │
+│                                                                              │
+│   83 │   │   │   │   "api_calls": self.agent.n_calls,                        │
+│   84 │   │   │   }                                                           │
+│   85 │   │   if exit_status.lower().strip() not in ["", "submitted", "limits │
+│ ❱ 86 │   │   │   raise RuntimeError(f"Agent {self.name} failed with exit sta │
+│   87                                                                         │
+│                                                                              │
+│ ╭───────────────────────────────── locals ─────────────────────────────────╮ │
+│ │ exc_message = 'Traceback (most recent call last):\n  File                │ │
+│ │               "/private/tmp/telos-codeclash/codeclas'+1218               │ │
+│ │ exit_status = 'Global cost/call limit exceeded: $0.0187 / 8'             │ │
+│ │       model = <minisweagent.models.litellm_model.LitellmModel object at  │ │
+│ │               0x1265869d0>                                               │ │
+│ │        self = <codeclash.agents.minisweagent.MiniSWEAgent object at      │ │
+│ │               0x114ed3d10>                                               │ │
+│ │   traj_path = PosixPath('/private/tmp/telos-codeclash-protocol-effect-e… │ │
+│ ╰──────────────────────────────────────────────────────────────────────────╯ │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RuntimeError: Agent p1 failed with exit status: Global cost/call limit exceeded:
+$0.0187 / 8 and exception: Traceback (most recent call last):
+  File "/private/tmp/telos-codeclash/codeclash/agents/minisweagent.py", line 61,
+in run
+    result = self.agent.run(task="", **self.game_context.to_template_vars())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 98, in run
+    self.step()
+  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 126, in step
+    return self.execute_actions(self.query())
+                                ^^^^^^^^^^^^
+  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/ag
+ents/default.py", line 147, in query
+    message = self.model.query(self.messages)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/mo
+dels/litellm_model.py", line 86, in query
+    GLOBAL_MODEL_STATS.add(cost_output["cost"])
+  File
+"/private/tmp/telos-codeclash/.venv/lib/python3.11/site-packages/minisweagent/mo
+dels/__init__.py", line 31, in add
+    raise RuntimeError(f"Global cost/call limit exceeded: ${self._cost:.4f} /
+{self._n_calls}")
+RuntimeError: Global cost/call limit exceeded: $0.0187 / 8

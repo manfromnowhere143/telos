@@ -271,9 +271,15 @@ and an adversarial review pass.
   Docker was ready, `google.auth` imported, gcloud project availability was proven with stdout
   suppressed, ADC token output was suppressed, and no credential material was committed in
   [`experiments/iter77_runtime_adc_recheck_after_application_default_login`](experiments/iter77_runtime_adc_recheck_after_application_default_login/RESULT.md).
-- Current gate: provider-compatible expanded paid retry after ADC recovery,
+- Provider-compatible expanded paid retry after ADC recovery: blocked after exactly four selected
+  adapter-planned rows executed under ceiling. Provider usage was `9` calls and `$0.03987600`.
+  Both deterministic-edit rows verified; both Dummy rows hit the per-row global call ceiling before
+  verified-completion evidence could be accepted. No GPU/cloud/Sentinel/live-domain mutation or
+  benchmark/model/SOTA claim occurred in
+  [`experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery`](experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/RESULT.md).
+- Current gate: Dummy row call-ceiling recovery after paid retry block,
   pre-registered in
-  [`experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery`](experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/HYPOTHESIS.md).
+  [`experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block`](experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot plus a blocked four-row
   adapter-validation extension; neither is a benchmark result.

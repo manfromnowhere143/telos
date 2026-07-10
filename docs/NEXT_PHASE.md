@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter78_provider_compatible_expanded_paid_retry_after_adc_recovery` exactly as
+Run `iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block` exactly as
 frozen in
-[`../experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/HYPOTHESIS.md`](../experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/HYPOTHESIS.md).
+[`../experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md`](../experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -35,8 +35,10 @@ was proven with stdout suppressed, but ADC still returned `interactive_reauthent
 The prior honest move was to refresh Application Default Credentials outside the proof runner, for
 example with `gcloud auth application-default login`, then run the zero-spend iter77 recheck.
 `iter77` passed: ADC now refreshes non-interactively with project and token output suppressed. The
-next honest move is the bounded iter78 paid retry of the same four adapter-planned rows, using the
-iter73 recovered receipt prompts and preserving the `$10.00`/`32` provider-call ceilings.
+bounded iter78 paid retry then ran the same four adapter-planned rows under the iter73 recovered
+receipt prompts and iter77-ready ADC path. It blocked with 9 provider calls and `$0.03987600`
+spend: deterministic-edit baseline and Telos both verified, but both Dummy rows hit the per-row
+global call ceiling. The next honest move is the zero-spend iter79 recovery gate.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
@@ -147,7 +149,9 @@ iter73 recovered receipt prompts and preserving the `$10.00`/`32` provider-call 
   [`../experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof/run_summary.json`](../experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof/run_summary.json),
 - use the passed iter77 runtime ADC recheck evidence from
   [`../experiments/iter77_runtime_adc_recheck_after_application_default_login/proof/run_summary.json`](../experiments/iter77_runtime_adc_recheck_after_application_default_login/proof/run_summary.json),
-- execute only the four adapter-planned rows selected by iter71,
+- use the blocked iter78 paid retry evidence from
+  [`../experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/run_summary.json`](../experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/run_summary.json),
+- execute no adapter-planned rows during iter79,
 - do not rerun the two retained BattleSnake rows unless a later gate explicitly requires it,
 - execute no excluded pair,
 - keep all prior exclusions visible with reasons,

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/HYPOTHESIS.md`
+- `experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -379,12 +379,15 @@ Current claim:
   spend, and zero row execution. Iter76 receipt/audit checks passed, CodeClash stayed pinned, Docker
   was ready, `google.auth` imported, gcloud project availability was proven with stdout suppressed,
   ADC token output was suppressed, and no credential material was committed.
+- `iter78_provider_compatible_expanded_paid_retry_after_adc_recovery` blocked after exactly four
+  selected adapter-planned rows executed under ceiling. Provider usage was `9` calls and
+  `$0.03987600`. Both deterministic-edit rows had verified-completion evidence and both Dummy rows
+  hit the per-row global call ceiling before verified-completion evidence could be accepted.
 - No model or benchmark result is claimed yet.
-- The next gate may only retry the four adapter-planned provider-compatible rows selected by iter71,
-  using the iter73 recovered receipt prompts and iter77-ready ADC path. It must keep provider calls
-  at or below `32`, spend at or below `$10.00`, commit no credential material, use no GPU or cloud
-  runner, mutate no Sentinel resources, change no production/live-domain behavior, and make no
-  benchmark/model claims.
+- The next gate may only classify and recover the iter78 Dummy row call-ceiling blocker from
+  committed artifacts with zero provider calls, zero spend, and zero row execution. It must commit
+  no credential material, use no GPU or cloud runner, mutate no Sentinel resources, change no
+  production/live-domain behavior, and make no benchmark/model claims.
 
 ## Required Verification
 
@@ -545,6 +548,8 @@ python3 scripts/validate_receipts.py experiments/iter76_runtime_adc_recheck_afte
 python3 scripts/audit_runtime_adc_recheck_after_operator_refresh.py
 python3 scripts/validate_receipts.py experiments/iter77_runtime_adc_recheck_after_application_default_login/proof
 python3 scripts/audit_runtime_adc_recheck_after_application_default_login.py
+python3 scripts/validate_receipts.py experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof
+python3 scripts/audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

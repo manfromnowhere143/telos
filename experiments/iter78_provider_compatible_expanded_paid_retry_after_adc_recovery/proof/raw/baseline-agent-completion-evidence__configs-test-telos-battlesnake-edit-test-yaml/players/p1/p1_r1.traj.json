@@ -1,0 +1,278 @@
+{
+  "info": {
+    "model_stats": {
+      "instance_cost": 0.003652,
+      "api_calls": 2
+    },
+    "config": {
+      "agent": {
+        "system_template": "You are a software engineering agent editing a small CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+        "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nThis is the baseline condition. Create `telos_marker.py` with a small Python constant proving a\nnon-empty workspace edit, then submit. Do not create a Telos receipt in this condition.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+        "step_limit": 8,
+        "cost_limit": 25.0,
+        "wall_time_limit_seconds": 0,
+        "max_consecutive_format_errors": 3,
+        "output_path": null
+      },
+      "agent_type": "codeclash.agents.minisweagent.ClashAgent",
+      "model": {
+        "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+        "model_kwargs": {
+          "temperature": 0.2,
+          "max_tokens": 4096,
+          "vertex_location": "global",
+          "vertex_project": "[REDACTED_GCP_PROJECT]",
+          "extra_headers": {
+            "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+            "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+          }
+        },
+        "litellm_model_registry": "/private/tmp/telos-codeclash/configs/mini/litellm_custom_model_config.yaml",
+        "set_cache_control": null,
+        "cost_tracking": "default",
+        "format_error_template": "{{ error }}",
+        "observation_template": "{% if output.exception_info %}<exception>{{output.exception_info}}</exception>\n{% endif %}<returncode>{{output.returncode}}</returncode>\n<output>\n{{output.output}}</output>",
+        "multimodal_regex": ""
+      },
+      "model_type": "minisweagent.models.litellm_model.LitellmModel",
+      "environment": {
+        "image": "codeclash/battlesnake",
+        "cwd": "/workspace",
+        "env": {
+          "GITHUB_TOKEN": "",
+          "PAGER": "cat",
+          "MANPAGER": "cat",
+          "LESS": "-R",
+          "PIP_PROGRESS_BAR": "off",
+          "TQDM_DISABLE": "1"
+        },
+        "forward_env": [],
+        "timeout": 30,
+        "executable": "docker",
+        "run_args": [
+          "--rm"
+        ],
+        "container_timeout": "10h",
+        "pull_timeout": 120,
+        "interpreter": [
+          "bash",
+          "-lc"
+        ]
+      },
+      "environment_type": "codeclash.utils.environment.ClashDockerEnvironment"
+    },
+    "mini_version": "2.4.2",
+    "exit_status": "Submitted",
+    "submission": ""
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a software engineering agent editing a small CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round."
+    },
+    {
+      "role": "user",
+      "content": "## Game Description\n\nTelos deterministic non-empty workspace Python edit smoke.\n\nThis is the baseline raw-completion-evidence condition. Preserve the task: create a small\nPython marker file named `telos_marker.py` in the workspace and submit. Do not create a Telos\nreceipt in this baseline condition.\n\n## Workspace\n\nThe game codebase is in /workspace.\n\nThis is the baseline condition. Create `telos_marker.py` with a small Python constant proving a\nnon-empty workspace edit, then submit. Do not create a Telos receipt in this condition.\n\nThe round has a limit of 8 commands. Submit before the limit."
+    },
+    {
+      "content": null,
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "provider_specific_fields": {
+            "thought_signature": "Ct0DAY89a19/ceenz0vy0Gh9GE7yOghGup+VyIDqA5XoVmEmI9KVQxzPIiJHPjj6/bBSJJ/Gf9ZqiE1aYqDd38k7byl5ABt9BwiSTUFJ12qh+zYDDR7zZONb0gMIYwIS0FNEQF5XsqSPkQMoeMH4Oh//rYS2OVuxn865pSDDRIqz4pNNz7HMWeXoYjyB5Q8Lz/FFViYDQZzkVxSW/EA+MtV8zXAzCcLzyG4wAPuKSb+tdQtvUXEaiWQys+zGrjVSGvy3q6Lg9C7aTJuHV9lWi5BBpKE6/tame1yY8lwBzUk2UEhgmqqcQjm+suwEKtnz9llKG2SoZBGbJB6XhfnDIu1pfdahAGeApwfn/GYtHqychLkKuB6KOvq/+OcxSacGmhUbD9+MCWvET/BQMkWhGztGmvfSaiEG/RAVzjWGLxD/iFDeTJ/VnolYd2u4s37iINYErHM5KqQdlEujy5XX29DmriyR6gy+1sHmoTCI1cMGjj1QH7EQn4v57dkjGFVGKvm38s973oO4MWviXPvbdnXogkUHygS4B/gnwur2kmQGx45+Xkh2zWLpVtiwBmY8vCk55RHHFSoiVqdZkB4FxfNcdeh0W2k208mSRYnDdsrmx+BONQR5BHgPF3sG07uL"
+          },
+          "function": {
+            "arguments": "{\"command\": \"echo \\\"MARKER = True\\\" > /workspace/telos_marker.py\"}",
+            "name": "bash"
+          },
+          "id": "call_1460c61b0b7c4808accfac01b8d4",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "images": [],
+      "thinking_blocks": [],
+      "provider_specific_fields": null,
+      "extra": {
+        "actions": [
+          {
+            "command": "echo \"MARKER = True\" > /workspace/telos_marker.py",
+            "tool_call_id": "call_1460c61b0b7c4808accfac01b8d4"
+          }
+        ],
+        "response": {
+          "id": "5GZQaueHDYHltfAPjYGToQ4",
+          "created": 1783654053,
+          "model": "gemini-3.1-pro-preview-customtools",
+          "object": "chat.completion",
+          "system_fingerprint": null,
+          "choices": [
+            {
+              "finish_reason": "tool_calls",
+              "index": 0,
+              "message": {
+                "content": null,
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "index": 0,
+                    "provider_specific_fields": {
+                      "thought_signature": "Ct0DAY89a19/ceenz0vy0Gh9GE7yOghGup+VyIDqA5XoVmEmI9KVQxzPIiJHPjj6/bBSJJ/Gf9ZqiE1aYqDd38k7byl5ABt9BwiSTUFJ12qh+zYDDR7zZONb0gMIYwIS0FNEQF5XsqSPkQMoeMH4Oh//rYS2OVuxn865pSDDRIqz4pNNz7HMWeXoYjyB5Q8Lz/FFViYDQZzkVxSW/EA+MtV8zXAzCcLzyG4wAPuKSb+tdQtvUXEaiWQys+zGrjVSGvy3q6Lg9C7aTJuHV9lWi5BBpKE6/tame1yY8lwBzUk2UEhgmqqcQjm+suwEKtnz9llKG2SoZBGbJB6XhfnDIu1pfdahAGeApwfn/GYtHqychLkKuB6KOvq/+OcxSacGmhUbD9+MCWvET/BQMkWhGztGmvfSaiEG/RAVzjWGLxD/iFDeTJ/VnolYd2u4s37iINYErHM5KqQdlEujy5XX29DmriyR6gy+1sHmoTCI1cMGjj1QH7EQn4v57dkjGFVGKvm38s973oO4MWviXPvbdnXogkUHygS4B/gnwur2kmQGx45+Xkh2zWLpVtiwBmY8vCk55RHHFSoiVqdZkB4FxfNcdeh0W2k208mSRYnDdsrmx+BONQR5BHgPF3sG07uL"
+                    },
+                    "function": {
+                      "arguments": "{\"command\": \"echo \\\"MARKER = True\\\" > /workspace/telos_marker.py\"}",
+                      "name": "bash"
+                    },
+                    "id": "call_1460c61b0b7c4808accfac01b8d4",
+                    "type": "function"
+                  }
+                ],
+                "function_call": null,
+                "images": [],
+                "thinking_blocks": [],
+                "provider_specific_fields": null
+              }
+            }
+          ],
+          "usage": {
+            "completion_tokens": 137,
+            "prompt_tokens": 243,
+            "total_tokens": 380,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 114,
+              "rejected_prediction_tokens": null,
+              "text_tokens": 23,
+              "image_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": null,
+              "text_tokens": 243,
+              "image_tokens": null
+            }
+          },
+          "vertex_ai_grounding_metadata": [],
+          "vertex_ai_url_context_metadata": [],
+          "vertex_ai_safety_results": [],
+          "vertex_ai_citation_metadata": []
+        },
+        "cost": 0.00213,
+        "timestamp": 1783654057.113503
+      }
+    },
+    {
+      "content": "<returncode>0</returncode>\n<output>\n</output>",
+      "extra": {
+        "raw_output": "",
+        "returncode": 0,
+        "timestamp": 1783654057.1944242,
+        "exception_info": ""
+      },
+      "tool_call_id": "call_1460c61b0b7c4808accfac01b8d4",
+      "role": "tool"
+    },
+    {
+      "content": null,
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "index": 0,
+          "provider_specific_fields": {
+            "thought_signature": "CqgCAY89a18QpZFRtAmtuCgIMm52dYAfDcK06FQlvabV4LTsiXEl+S5Y6a6Ar4ekc3TKJ3Vam59WkIWPioSq6JE+63BrTGw8qGaqtzBs0TIzW3SE0K+ozQ4T4gmvSlKgNmOkm48GxOh8HUYbud9z4XLHC0xkuNLVSnWT9CxBsrnnpt4MLn68hkv9z8De8pg+LtWzckAc+7psRq5i2vYsKUiiXWeA9uHgwmv6oY3Stw7pXCO/n3SXZEOpbK6Ch35eX1TH0QEd8fMtCG5bJVOte44sK2U5YOXBoBS74I/QEuI7Duv1calZ9LvG1ZhfX7zZtEjH1Ch5qGCkpq0CVuqH6JhruGT1Ea/Ac8tJtSHUveFBC3XZ0XxdCNuzZWyPfil6nbinLO7Z/ZeRids="
+          },
+          "function": {
+            "arguments": "{\"command\": \"echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\"}",
+            "name": "bash"
+          },
+          "id": "call_69d9f2f1bcc64bbca3a18e208cff",
+          "type": "function"
+        }
+      ],
+      "function_call": null,
+      "images": [],
+      "thinking_blocks": [],
+      "provider_specific_fields": null,
+      "extra": {
+        "actions": [
+          {
+            "command": "echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT",
+            "tool_call_id": "call_69d9f2f1bcc64bbca3a18e208cff"
+          }
+        ],
+        "response": {
+          "id": "52ZQapaLCYfjtfAPpIrAyAg",
+          "created": 1783654057,
+          "model": "gemini-3.1-pro-preview-customtools",
+          "object": "chat.completion",
+          "system_fingerprint": null,
+          "choices": [
+            {
+              "finish_reason": "tool_calls",
+              "index": 0,
+              "message": {
+                "content": null,
+                "role": "assistant",
+                "tool_calls": [
+                  {
+                    "index": 0,
+                    "provider_specific_fields": {
+                      "thought_signature": "CqgCAY89a18QpZFRtAmtuCgIMm52dYAfDcK06FQlvabV4LTsiXEl+S5Y6a6Ar4ekc3TKJ3Vam59WkIWPioSq6JE+63BrTGw8qGaqtzBs0TIzW3SE0K+ozQ4T4gmvSlKgNmOkm48GxOh8HUYbud9z4XLHC0xkuNLVSnWT9CxBsrnnpt4MLn68hkv9z8De8pg+LtWzckAc+7psRq5i2vYsKUiiXWeA9uHgwmv6oY3Stw7pXCO/n3SXZEOpbK6Ch35eX1TH0QEd8fMtCG5bJVOte44sK2U5YOXBoBS74I/QEuI7Duv1calZ9LvG1ZhfX7zZtEjH1Ch5qGCkpq0CVuqH6JhruGT1Ea/Ac8tJtSHUveFBC3XZ0XxdCNuzZWyPfil6nbinLO7Z/ZeRids="
+                    },
+                    "function": {
+                      "arguments": "{\"command\": \"echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT\"}",
+                      "name": "bash"
+                    },
+                    "id": "call_69d9f2f1bcc64bbca3a18e208cff",
+                    "type": "function"
+                  }
+                ],
+                "function_call": null,
+                "images": [],
+                "thinking_blocks": [],
+                "provider_specific_fields": null
+              }
+            }
+          ],
+          "usage": {
+            "completion_tokens": 80,
+            "prompt_tokens": 281,
+            "total_tokens": 361,
+            "completion_tokens_details": {
+              "accepted_prediction_tokens": null,
+              "audio_tokens": null,
+              "reasoning_tokens": 61,
+              "rejected_prediction_tokens": null,
+              "text_tokens": 19,
+              "image_tokens": null
+            },
+            "prompt_tokens_details": {
+              "audio_tokens": null,
+              "cached_tokens": null,
+              "text_tokens": 281,
+              "image_tokens": null
+            }
+          },
+          "vertex_ai_grounding_metadata": [],
+          "vertex_ai_url_context_metadata": [],
+          "vertex_ai_safety_results": [],
+          "vertex_ai_citation_metadata": []
+        },
+        "cost": 0.001522,
+        "timestamp": 1783654059.852621
+      }
+    },
+    {
+      "role": "exit",
+      "content": "",
+      "extra": {
+        "exit_status": "Submitted",
+        "submission": ""
+      }
+    }
+  ],
+  "trajectory_format": "mini-swe-agent-1.1"
+}
