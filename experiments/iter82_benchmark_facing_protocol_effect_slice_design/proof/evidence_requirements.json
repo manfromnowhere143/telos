@@ -1,0 +1,77 @@
+{
+  "experiment_id": "iter82_benchmark_facing_protocol_effect_slice_design",
+  "future_gate": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md",
+  "missing_cost_or_call_stats_blocks_result": true,
+  "missing_raw_artifacts_blocks_row": true,
+  "per_pair_requirements": [
+    {
+      "cost_and_call_stats_required": true,
+      "metadata_required": true,
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "raw_logs_required": true,
+      "redaction_scan_required": true,
+      "telos_receipt_required_before_acceptance": false
+    },
+    {
+      "cost_and_call_stats_required": true,
+      "metadata_required": true,
+      "pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "raw_logs_required": true,
+      "redaction_scan_required": true,
+      "telos_receipt_required_before_acceptance": false
+    },
+    {
+      "cost_and_call_stats_required": true,
+      "metadata_required": true,
+      "pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "raw_logs_required": true,
+      "redaction_scan_required": true,
+      "telos_receipt_required_before_acceptance": false
+    },
+    {
+      "cost_and_call_stats_required": true,
+      "metadata_required": true,
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "raw_logs_required": true,
+      "redaction_scan_required": true,
+      "telos_receipt_required_before_acceptance": true
+    },
+    {
+      "cost_and_call_stats_required": true,
+      "metadata_required": true,
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "raw_logs_required": true,
+      "redaction_scan_required": true,
+      "telos_receipt_required_before_acceptance": true
+    },
+    {
+      "cost_and_call_stats_required": true,
+      "metadata_required": true,
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "raw_logs_required": true,
+      "redaction_scan_required": true,
+      "telos_receipt_required_before_acceptance": true
+    }
+  ],
+  "redaction_forbidden_residue": [
+    "credential material",
+    "access tokens",
+    "service-account email",
+    "project identifier",
+    "unredacted provider-specific private fields"
+  ],
+  "required_future_artifacts": [
+    "proof/preflight.json",
+    "proof/protocol_effect_report.json",
+    "proof/run_summary.json",
+    "proof/raw/<pair_id>/command_execution.json",
+    "proof/raw/<pair_id>/command_stdout.txt",
+    "proof/raw/<pair_id>/command_stderr.txt",
+    "proof/raw/<pair_id>/metadata.json",
+    "proof/raw/<pair_id>/redaction_scan.json",
+    "proof/command_output.txt",
+    "proof/review.md",
+    "proof/valid/receipt_benchmark_facing_protocol_effect_execution_pilot.json"
+  ],
+  "schema_version": "telos.benchmark_facing_slice_design.evidence_requirements.v1"
+}

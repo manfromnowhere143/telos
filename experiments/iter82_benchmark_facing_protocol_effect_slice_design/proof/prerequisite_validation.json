@@ -1,0 +1,43 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter81 expanded stratified adapter-validation consolidation audit: pass\nsource_packets=3\nconsolidated_success_pair_count=6\ndiagnostic_blocked_pair_count=2\nprovider_calls_in_this_gate=0\nprovider_spend_in_this_gate_usd=0.00000000\nnext_gate=experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter82_benchmark_facing_protocol_effect_slice_design",
+  "iter81_audit_returncode": 0,
+  "iter81_clean_pass": true,
+  "iter81_consolidated_success_pair_count": 6,
+  "iter81_diagnostic_blocked_pair_count": 2,
+  "iter81_receipt_validation_returncode": 0,
+  "iter81_source_packet_total_provider_api_calls": 23,
+  "iter81_source_packet_total_provider_cost_usd": "0.12765400",
+  "iter81_status": "pass",
+  "schema_version": "telos.benchmark_facing_slice_design.prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof/run_summary.json",
+      "sha256": "55ede88fc3c11a7b2912a097cca42b83d3410dbd9172737b07ee0d86ff94aabe"
+    },
+    {
+      "path": "experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof/stratified_row_accounting.json",
+      "sha256": "097a23caa1380dcea85c6ef176a0d9fe2a34135faa19c37f8bb6fced24bbfcfe"
+    },
+    {
+      "path": "experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof/valid/receipt_expanded_stratified_adapter_validation_consolidation.json",
+      "sha256": "37ace82523d74866829a60eceb43ed937d3ec05b414f24a0cef5afe1aaa099fb"
+    }
+  ]
+}

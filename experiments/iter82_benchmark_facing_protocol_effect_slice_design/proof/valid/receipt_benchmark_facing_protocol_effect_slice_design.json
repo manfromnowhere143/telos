@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "Iter81 validates as a clean consolidation packet.",
+    "Benchmark-facing task eligibility and exclusion rules are explicit.",
+    "Baseline and Telos condition contracts are frozen.",
+    "Future receipt, raw-artifact, redaction, cost, and failure-mode requirements are frozen.",
+    "Future provider-call and spend ceilings are exact and bounded.",
+    "No provider calls, spend, row execution, GPU, cloud runner, Sentinel mutation, or live-domain mutation occur in iter82.",
+    "No benchmark, leaderboard, SWE-bench, model-superiority, production, live-domain, or state-of-the-art claim is made."
+  ],
+  "agent_id": "codex-local-benchmark-facing-slice-designer",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records prerequisite validation, future ceilings, and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof/task_eligibility_rules.json",
+      "kind": "artifact",
+      "notes": "Eligibility and exclusion rules prevent pooling internal evidence into a benchmark claim.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof/future_paid_run_plan.json",
+      "kind": "artifact",
+      "notes": "The future paid pilot is bounded by row, call, spend, and mutation ceilings.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-benchmark/no-SOTA boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter81 validation fails.",
+    "The result must block if task eligibility cannot be stated without pooling internal strata.",
+    "The result must block if future pass/null/fail semantics cannot be frozen before execution.",
+    "The result must fail if any provider call, spend, or row execution occurs in iter82.",
+    "The result must fail if credential, token, project, or service-account residue is committed.",
+    "The result must fail if unsupported benchmark, leaderboard, SWE-bench, model-superiority, or SOTA claims appear."
+  ],
+  "receipt_id": "iter82-benchmark-facing-protocol-effect-slice-design-pass",
+  "sha256": "1ac8e908721fbb1501dda5c93a13fb3bed46f3c0e97ad2db847c0e2f652a3118",
+  "stated_goal": "Design a bounded benchmark-facing protocol-effect slice for a later paid execution gate without making execution or benchmark claims.",
+  "status": "pass",
+  "task_id": "telos:iter82_benchmark_facing_protocol_effect_slice_design@iter81"
+}

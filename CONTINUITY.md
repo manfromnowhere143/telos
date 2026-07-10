@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md`
+- `experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -396,13 +396,16 @@ Current claim:
   packets, accounted for `23` committed source-packet provider calls and `$0.12765400`, preserved
   six successful rows as separated BattleSnake/deterministic-edit/Dummy adapter-validation strata,
   and retained two iter78 Dummy rows only as diagnostic blocked evidence.
+- `iter82_benchmark_facing_protocol_effect_slice_design` passed with zero provider calls, zero
+  spend, and zero row execution. It froze a future six-row CodeClash public task-condition paid
+  pilot with a `96` provider-call ceiling, `$10.00` total spend ceiling, `$2.00` per-row spend
+  ceiling, no cloud runner/GPU/Sentinel/live-domain mutation, and SWE-bench Verified retained only
+  as a receipt-field anchor.
 - No model or benchmark result is claimed yet.
-- The next gate may only design a benchmark-facing protocol-effect slice with zero provider calls,
-  zero spend, and zero row execution. It must freeze eligibility rules, conditions, receipt and
-  raw-artifact requirements, future paid ceilings, and pass/null/fail semantics before any
-  execution, while committing no credential material, using no GPU or cloud runner, mutating no
-  Sentinel resources, changing no production/live-domain behavior, and making no benchmark/model
-  claims.
+- The next gate may only execute the six pre-registered CodeClash public task-condition rows under
+  the frozen `96` call and `$10.00` spend ceilings, or publish the exact blocker. It must commit no
+  credential material, use no GPU or cloud runner, mutate no Sentinel resources, change no
+  production/live-domain behavior, and make no benchmark/model claims.
 
 ## Required Verification
 
@@ -571,6 +574,8 @@ python3 scripts/validate_receipts.py experiments/iter80_dummy_call_ceiling_bound
 python3 scripts/audit_dummy_call_ceiling_bounded_paid_retry_after_recovery.py
 python3 scripts/validate_receipts.py experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof
 python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py
+python3 scripts/validate_receipts.py experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof
+python3 scripts/audit_benchmark_facing_protocol_effect_slice_design.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

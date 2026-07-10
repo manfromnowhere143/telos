@@ -135,8 +135,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block` | pass | both iter78 Dummy failures are classified from committed raw artifacts as per-row global call-ceiling blockers at the frozen 8-call ceiling, while deterministic-edit evidence remains retained and not rerun | pre-register the Dummy-only bounded paid retry with a 16-call per-row ceiling |
 | `iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery` | pass | the Dummy-only paid retry executed exactly two rows with a 16-call per-row ceiling, used 6 provider calls and $0.02840000, and both Dummy baseline and Telos rows verified | consolidate expanded stratified adapter-validation evidence before any benchmark claim |
 | `iter81_expanded_stratified_adapter_validation_consolidation` | pass | committed iter66, iter78, and iter80 evidence consolidates into six successful rows across separated BattleSnake, deterministic-edit, and Dummy strata, with two iter78 Dummy rows retained only as diagnostic blocked evidence | design a zero-spend benchmark-facing protocol-effect slice before any broader paid execution or benchmark claim |
+| `iter82_benchmark_facing_protocol_effect_slice_design` | pass | the future benchmark-facing pilot is frozen as six CodeClash public task-condition rows with 96 provider calls, $10.00 total spend, $2.00 per-row spend, and SWE-bench Verified retained only as a receipt-field anchor | run the bounded paid execution pilot exactly as pre-registered or publish the blocking evidence |
 
-The next experiment may only design a benchmark-facing protocol-effect slice with zero provider
-calls, zero spend, and zero row execution. It must freeze eligibility rules, conditions, receipt and
-raw-artifact requirements, future paid ceilings, and pass/null/fail semantics before any execution,
-while making no benchmark/model result claims.
+The next experiment may only execute the six pre-registered CodeClash public task-condition rows
+under the frozen `96` call and `$10.00` spend ceilings, or publish the exact blocker. It must make
+no benchmark/model result claims and may not start a cloud runner, use GPU, mutate Sentinel
+resources, or change production/live-domain behavior.

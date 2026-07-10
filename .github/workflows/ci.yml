@@ -517,6 +517,12 @@ jobs:
       - name: Expanded stratified adapter-validation consolidation audit
         run: python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py
 
+      - name: Benchmark-facing protocol-effect slice design receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof
+
+      - name: Benchmark-facing protocol-effect slice design audit
+        run: python3 scripts/audit_benchmark_facing_protocol_effect_slice_design.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

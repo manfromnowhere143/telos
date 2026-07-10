@@ -1,0 +1,75 @@
+{
+  "benchmark_result_authorized": false,
+  "cross_task_surface_pooling_authorized": false,
+  "eligibility_rules": [
+    "Task source and public config must be committed and hashable.",
+    "Both baseline and Telos receipt-enforced conditions must be defined before execution.",
+    "Provider-compatible execution must have a bounded call and spend envelope.",
+    "Prior adapter-validation rows may inform ceilings but may not be reused as benchmark results.",
+    "SWE-bench execution is excluded until a separate SWE-bench harness gate exists.",
+    "No task may require GPU, cloud-runner startup, Sentinel mutation, or live-domain mutation."
+  ],
+  "exclusions": [
+    {
+      "candidate": "SWE-bench Verified execution row",
+      "eligibility_status": "excluded_from_future_paid_pilot",
+      "reason": "retained only as a receipt-field anchor until a separate SWE-bench execution harness, cost contract, and leaderboard claim boundary are pre-registered"
+    },
+    {
+      "candidate": "prior iter66/iter78/iter80 provider outputs",
+      "eligibility_status": "excluded_as_new_benchmark_result",
+      "reason": "prior rows are calibration and adapter-validation evidence; the future gate must rerun the frozen rows if it wants execution evidence"
+    },
+    {
+      "candidate": "uncommitted or live-domain task surfaces",
+      "eligibility_status": "excluded",
+      "reason": "task source, raw artifacts, and failure semantics must be committed first"
+    }
+  ],
+  "experiment_id": "iter82_benchmark_facing_protocol_effect_slice_design",
+  "schema_version": "telos.benchmark_facing_slice_design.task_eligibility.v1",
+  "selected_pair_count": 6,
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "selected_task_count": 3,
+  "selected_tasks": [
+    {
+      "claim_boundary": "protocol-effect pilot row only; not a benchmark score",
+      "eligibility_status": "selected_for_future_paid_pilot",
+      "public_config": "configs/test/dummy.yaml",
+      "selection_reason": "committed public CodeClash task surface with frozen baseline and Telos receipt-enforced conditions plus provider-compatible adapter evidence",
+      "source_commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+      "task_family": "codeclash_dummy_tournament",
+      "task_id": "codeclash:configs/test/dummy.yaml"
+    },
+    {
+      "claim_boundary": "protocol-effect pilot row only; not a benchmark score",
+      "eligibility_status": "selected_for_future_paid_pilot",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "selection_reason": "committed public CodeClash task surface with frozen baseline and Telos receipt-enforced conditions plus provider-compatible adapter evidence",
+      "source_commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+      "task_family": "codeclash_battlesnake_pvp",
+      "task_id": "codeclash:configs/test/battlesnake_pvp_test.yaml"
+    },
+    {
+      "claim_boundary": "protocol-effect pilot row only; not a benchmark score",
+      "eligibility_status": "selected_for_future_paid_pilot",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "selection_reason": "committed public CodeClash task surface with frozen baseline and Telos receipt-enforced conditions plus provider-compatible adapter evidence",
+      "source_commit_sha": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+      "task_family": "codeclash_deterministic_workspace_edit",
+      "task_id": "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+    }
+  ],
+  "source_executor_manifest": "experiments/iter45_public_task_condition_executor_assembly/proof/executor_manifest.json",
+  "source_executor_manifest_sha256": "71cacdd2acc8f8a51fb8f098d39a7950f41b3e3d51c7ac3969ec90ad419a6ba3",
+  "source_protocol_slice": "experiments/iter39_public_task_protocol_effect_slice/proof/protocol_effect_slice.json",
+  "source_protocol_slice_sha256": "0b29b196e3fb0fcc70c564af36358873ce5b522508fffac42cc8b48be4036c83",
+  "swebench_result_authorized": false
+}

@@ -1,0 +1,25 @@
+iter82 benchmark-facing protocol-effect slice design
+
+Prerequisite validation commands:
+$ python3 scripts/validate_receipts.py experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof
+returncode=0 timed_out=False
+stdout:
+receipt validation: 1 valid receipts passed
+
+$ python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py
+returncode=0 timed_out=False
+stdout:
+iter81 expanded stratified adapter-validation consolidation audit: pass
+source_packets=3
+consolidated_success_pair_count=6
+diagnostic_blocked_pair_count=2
+provider_calls_in_this_gate=0
+provider_spend_in_this_gate_usd=0.00000000
+next_gate=experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md
+
+Local iter82 activity:
+- adapter rows executed: 0
+- provider model invocations: 0
+- provider spend: $0.00000000
+- GPU/cloud/Sentinel/live-domain mutation: false
+- benchmark/model/SOTA claim: false

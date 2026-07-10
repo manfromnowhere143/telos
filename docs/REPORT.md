@@ -372,6 +372,14 @@ Current evidence:
   pre-registers the next zero-spend benchmark-facing slice-design gate. It may only freeze task
   eligibility, conditions, receipt/raw-artifact requirements, future paid ceilings, and
   pass/null/fail semantics before any broader paid execution or benchmark claim.
+- `experiments/iter82_benchmark_facing_protocol_effect_slice_design/RESULT.md` passes that
+  zero-spend design gate. It froze a future six-row CodeClash public task-condition paid pilot
+  with a `96` provider-call ceiling, `$10.00` total spend ceiling, `$2.00` per-row spend ceiling,
+  no cloud runner/GPU/Sentinel/live-domain mutation, SWE-bench Verified retained only as a
+  receipt-field anchor, and no benchmark/model/state-of-the-art claim.
+- `experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md`
+  pre-registers the next bounded paid execution pilot. It may only execute the six selected
+  CodeClash task-condition rows under the frozen call/spend ceilings, or publish the blocker.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -1,0 +1,42 @@
+{
+  "adapter_rows_to_execute_in_iter82": 0,
+  "experiment_id": "iter82_benchmark_facing_protocol_effect_slice_design",
+  "future_adapter_rows_to_execute": 6,
+  "future_benchmark_model_or_sota_claim": "forbidden",
+  "future_cloud_runner_startup": "forbidden",
+  "future_execution_enabled_in_iter82": false,
+  "future_gate": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md",
+  "future_gpu_use": "forbidden",
+  "future_per_row_call_limit": 16,
+  "future_per_row_spend_limit_usd": "2.00000000",
+  "future_production_or_live_domain_mutation": "forbidden",
+  "future_provider_model_invocation_ceiling": 96,
+  "future_provider_spend_ceiling_usd": "10.00000000",
+  "future_selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "future_sentinel_named_resource_mutation": "forbidden",
+  "future_wall_clock_ceiling_minutes": 90,
+  "provider_model_invocations_in_iter82": 0,
+  "provider_spend_in_iter82_usd": "0.00000000",
+  "reporting_rules": [
+    "Report exact row counts before rates.",
+    "Report baseline and Telos conditions by task surface.",
+    "Publish pass, blocked, null, and fail rows at full weight.",
+    "Do not report a leaderboard, SWE-bench, model-superiority, production, or SOTA result."
+  ],
+  "schema_version": "telos.benchmark_facing_slice_design.future_paid_run_plan.v1",
+  "stop_rules": [
+    "Stop before execution if iter82 receipt or audit validation fails.",
+    "Stop before execution if ADC/provider readiness cannot be checked without printing secrets.",
+    "Stop if any unselected row would execute.",
+    "Stop if provider call or spend ceilings would be exceeded.",
+    "Stop if cost or call stats are missing from a completed provider-backed row.",
+    "Stop if redaction scan finds credential, token, project, or service-account residue."
+  ]
+}

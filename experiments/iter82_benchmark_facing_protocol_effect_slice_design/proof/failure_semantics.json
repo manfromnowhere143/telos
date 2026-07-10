@@ -1,0 +1,24 @@
+{
+  "blocked_semantics_for_future_gate": [
+    "Provider readiness, receipt validation, cost capture, or raw artifact capture blocks before a trustworthy row result can be interpreted.",
+    "One or more selected rows cannot run while preserving frozen scope and ceilings."
+  ],
+  "experiment_id": "iter82_benchmark_facing_protocol_effect_slice_design",
+  "null_semantics_for_future_gate": [
+    "Rows run but show no Telos-minus-baseline difference in verified-completion evidence.",
+    "Rows are too small or too noisy to support a stronger next step."
+  ],
+  "pass_semantics_for_future_gate": [
+    "All six selected rows execute under the frozen call and spend ceilings.",
+    "All required raw artifacts, cost/call stats, redaction scans, and receipts validate.",
+    "No unsupported benchmark/model/SOTA claim appears."
+  ],
+  "quality_failure_semantics_for_future_gate": [
+    "Any unselected row executes.",
+    "Provider calls or spend exceed the frozen ceilings.",
+    "Credential, token, project, or service-account residue is committed.",
+    "GPU, cloud runner, Sentinel mutation, production/live-domain mutation, or hidden task mutation occurs.",
+    "A benchmark, leaderboard, SWE-bench, model-superiority, or state-of-the-art claim is made."
+  ],
+  "schema_version": "telos.benchmark_facing_slice_design.failure_semantics.v1"
+}

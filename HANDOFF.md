@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-10T09:55:30Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-10T10:45:36Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -98,11 +98,12 @@ clean
 - experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block: RESULT PUBLISHED
 - experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery: RESULT PUBLISHED
 - experiments/iter81_expanded_stratified_adapter_validation_consolidation: RESULT PUBLISHED
-- experiments/iter82_benchmark_facing_protocol_effect_slice_design: PRE-REGISTERED, result pending
+- experiments/iter82_benchmark_facing_protocol_effect_slice_design: RESULT PUBLISHED
+- experiments/iter83_benchmark_facing_protocol_effect_execution_pilot: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md`.
+- Active gate: `experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -274,6 +275,8 @@ python3 scripts/validate_receipts.py experiments/iter80_dummy_call_ceiling_bound
 python3 scripts/audit_dummy_call_ceiling_bounded_paid_retry_after_recovery.py
 python3 scripts/validate_receipts.py experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof
 python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py
+python3 scripts/validate_receipts.py experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof
+python3 scripts/audit_benchmark_facing_protocol_effect_slice_design.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

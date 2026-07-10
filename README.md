@@ -295,9 +295,15 @@ and an adversarial review pass.
   retained two iter78 Dummy rows as diagnostic blocked evidence, and made no benchmark/model/SOTA
   claim in
   [`experiments/iter81_expanded_stratified_adapter_validation_consolidation`](experiments/iter81_expanded_stratified_adapter_validation_consolidation/RESULT.md).
-- Current gate: benchmark-facing protocol-effect slice design,
+- Benchmark-facing protocol-effect slice design: passed with zero provider calls, zero spend, and
+  zero row execution. It froze a six-row future CodeClash public task-condition paid pilot with a
+  `96` provider-call ceiling, `$10.00` total spend ceiling, `$2.00` per-row spend ceiling, no
+  cloud runner/GPU/Sentinel/live-domain mutation, SWE-bench Verified kept as receipt-field anchor
+  only, and no benchmark/model/SOTA claim in
+  [`experiments/iter82_benchmark_facing_protocol_effect_slice_design`](experiments/iter82_benchmark_facing_protocol_effect_slice_design/RESULT.md).
+- Current gate: benchmark-facing protocol-effect execution pilot,
   pre-registered in
-  [`experiments/iter82_benchmark_facing_protocol_effect_slice_design`](experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md).
+  [`experiments/iter83_benchmark_facing_protocol_effect_execution_pilot`](experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot plus stratified
   adapter-validation rows; neither is a benchmark result.

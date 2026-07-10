@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter82_benchmark_facing_protocol_effect_slice_design` exactly as
+Run `iter83_benchmark_facing_protocol_effect_execution_pilot` exactly as
 frozen in
-[`../experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md`](../experiments/iter82_benchmark_facing_protocol_effect_slice_design/HYPOTHESIS.md).
+[`../experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md`](../experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -48,9 +48,12 @@ Dummy rows, used 6 provider calls and `$0.02840000`, and both Dummy baseline and
 verified. `iter81` passed the zero-spend consolidation gate: it validated iter66, iter78, and
 iter80 source packets, accounted for `23` committed source-packet provider calls and `$0.12765400`,
 preserved six successful rows as separated BattleSnake/deterministic-edit/Dummy strata, and kept
-two iter78 Dummy rows as diagnostic blocked evidence only. The next honest move is the zero-spend
-iter82 slice-design gate: freeze benchmark-facing eligibility rules, conditions, artifacts, future
-paid ceilings, and pass/null/fail semantics before any broader paid execution or benchmark claim.
+two iter78 Dummy rows as diagnostic blocked evidence only. `iter82` passed the zero-spend
+slice-design gate: it froze a six-row CodeClash public task-condition paid pilot with a `96`
+provider-call ceiling, `$10.00` total spend ceiling, `$2.00` per-row spend ceiling, and
+SWE-bench Verified retained only as a receipt-field anchor. The next honest move is the bounded
+iter83 paid execution pilot, or the exact blocker if execution cannot preserve those ceilings and
+claim boundaries.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)
