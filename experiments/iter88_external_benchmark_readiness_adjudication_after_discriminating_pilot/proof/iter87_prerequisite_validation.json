@@ -1,0 +1,60 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_benchmark_facing_discriminating_metric_execution_pilot.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter87 benchmark-facing discriminating metric execution audit: clean artifact packet",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot",
+  "iter87_audit_returncode": 0,
+  "iter87_clean_pass": true,
+  "iter87_executed_pair_count": 6,
+  "iter87_metric_id": "task_native_score_share_delta_with_receipt_gates",
+  "iter87_metric_non_saturated": true,
+  "iter87_mixed_direction_signal": true,
+  "iter87_provider_api_calls": 21,
+  "iter87_provider_cost_usd": "0.12498400",
+  "iter87_receipt_validation_returncode": 0,
+  "iter87_selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "iter87_status": "pass",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.external_benchmark_readiness_adjudication.iter87_prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/run_summary.json",
+      "sha256": "d606de4f63bfcccf17276ace2118ba5248baa98f865a40e7b03ad4f0ca0a2c15"
+    },
+    {
+      "path": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/fresh_metric_extraction.json",
+      "sha256": "696ff542905f18cdc6336d1a6b5652d2ce38581564b2a16ad7068d27c8c16737"
+    },
+    {
+      "path": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/execution_accounting_report.json",
+      "sha256": "eb57d4a0245ff2bfb7bb63d857ec7a361ea76c40149d9c18a1561c8223a1c83d"
+    },
+    {
+      "path": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/valid/receipt_benchmark_facing_discriminating_metric_execution_pilot.json",
+      "sha256": "9b0683aec87d059ce55f311bae2842a1bcf158a36884466042330e158f802d95"
+    }
+  ]
+}

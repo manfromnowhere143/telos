@@ -421,6 +421,15 @@ Current evidence:
 - `experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md`
   pre-registers the next zero-spend adjudication gate. It may only decide whether iter87 evidence
   justifies a larger external benchmark design, same-slice replication, recovery, or stop decision.
+- `experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/RESULT.md`
+  passes that zero-spend adjudication gate. It validated iter87, found three iter86/iter87 task
+  direction flips, rejected larger external benchmark design for now, selected same-slice stability
+  replication as the next step, made zero provider calls, spent `$0.00`, executed zero rows, and
+  made no benchmark/model/state-of-the-art claim.
+- `experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md`
+  pre-registers the next bounded same-slice replication gate. It may execute only the same six
+  frozen rows under the `96` call, `$10.00` total spend, `16` per-row call, and `$2.00` per-row
+  spend ceilings before any benchmark/model/state-of-the-art claim.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

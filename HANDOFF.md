@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-10T13:13:12Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-10T19:26:31Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -104,11 +104,12 @@ clean
 - experiments/iter85_discriminating_task_metric_redesign: RESULT PUBLISHED
 - experiments/iter86_discriminating_metric_backtest_on_committed_artifacts: RESULT PUBLISHED
 - experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot: RESULT PUBLISHED
-- experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot: PRE-REGISTERED, result pending
+- experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot: RESULT PUBLISHED
+- experiments/iter89_same_slice_discriminating_metric_stability_replication: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md`.
+- Active gate: `experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -292,6 +293,8 @@ python3 scripts/validate_receipts.py experiments/iter86_discriminating_metric_ba
 python3 scripts/audit_discriminating_metric_backtest_on_committed_artifacts.py
 python3 scripts/validate_receipts.py experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof
 python3 scripts/audit_benchmark_facing_discriminating_metric_execution_pilot.py
+python3 scripts/validate_receipts.py experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof
+python3 scripts/audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,74 @@
+{
+  "benchmark_result_claimed": false,
+  "executed_pair_count": 6,
+  "executed_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "experiment_id": "iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot",
+  "fresh_metric_rows_parsed": 6,
+  "fresh_task_deltas_computed": 3,
+  "metric_id": "task_native_score_share_delta_with_receipt_gates",
+  "metric_non_saturated": true,
+  "mixed_direction_signal": true,
+  "model_superiority_claimed": false,
+  "provider_api_calls": 21,
+  "provider_call_ceiling": 96,
+  "provider_cost_usd": "0.12498400",
+  "provider_spend_ceiling_usd": "10.00000000",
+  "receipt_required_row_count": 3,
+  "receipt_required_rows_valid": true,
+  "schema_version": "telos.external_benchmark_readiness_adjudication.locked_iter87_summary.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "source_execution_accounting": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/execution_accounting_report.json",
+  "source_execution_accounting_sha256": "eb57d4a0245ff2bfb7bb63d857ec7a361ea76c40149d9c18a1561c8223a1c83d",
+  "source_extraction": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/fresh_metric_extraction.json",
+  "source_extraction_sha256": "696ff542905f18cdc6336d1a6b5652d2ce38581564b2a16ad7068d27c8c16737",
+  "source_iteration": "iter87_benchmark_facing_discriminating_metric_execution_pilot",
+  "source_summary": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/run_summary.json",
+  "source_summary_sha256": "d606de4f63bfcccf17276ace2118ba5248baa98f865a40e7b03ad4f0ca0a2c15",
+  "state_of_the_art_result_claimed": false,
+  "task_deltas": [
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "baseline_score_share": "0.51325000",
+      "delta_telos_minus_baseline": "-0.01575000",
+      "direction": "negative",
+      "public_config": "configs/test/dummy.yaml",
+      "task_surface": "dummy",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "telos_score_share": "0.49750000"
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "baseline_score_share": "0.50000000",
+      "delta_telos_minus_baseline": "0.50000000",
+      "direction": "positive",
+      "public_config": "configs/test/battlesnake_pvp_test.yaml",
+      "task_surface": "battlesnake",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "telos_score_share": "1.00000000"
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "baseline_score_share": "0.50000000",
+      "delta_telos_minus_baseline": "-0.50000000",
+      "direction": "negative",
+      "public_config": "configs/test/telos_battlesnake_edit_test.yaml",
+      "task_surface": "deterministic_edit",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "telos_score_share": "0.00000000"
+    }
+  ]
+}

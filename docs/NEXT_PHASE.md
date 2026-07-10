@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot` exactly as
+Run `iter89_same_slice_discriminating_metric_stability_replication` exactly as
 frozen in
-[`../experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md`](../experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md).
+[`../experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md`](../experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -66,7 +66,12 @@ frozen rows, used `21` provider calls and `$0.12498400`, validated all receipt-r
 computed fresh score-share deltas of Dummy `-0.01575000`, BattleSnake `0.50000000`, and
 deterministic-edit `-0.50000000`. The next honest move is the zero-spend iter88 adjudication:
 decide whether this mixed-direction evidence justifies a larger external benchmark design,
-same-slice replication, recovery, or stop decision, without any benchmark/model/SOTA claim.
+same-slice replication, recovery, or stop decision, without any benchmark/model/SOTA claim. `iter88`
+passed with zero provider calls, zero spend, and zero row execution: all three task directions
+flipped between iter86 and iter87, larger external benchmark design is premature, and the next
+honest move is the bounded same-slice iter89 stability replication. It may execute only the same
+six frozen rows under the `96` call, `$10.00` total spend, `16` per-row call, and `$2.00` per-row
+spend ceilings, without any benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

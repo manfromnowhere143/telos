@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md`
+- `experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -421,11 +421,15 @@ Current claim:
   paid pilot. It executed exactly the frozen rows, used `21` provider calls and `$0.12498400`,
   validated all receipt-required rows, and computed fresh mixed-direction score-share deltas:
   Dummy `-0.01575000`, BattleSnake `0.50000000`, deterministic-edit `-0.50000000`.
+- `iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot` passed with zero
+  provider calls, zero spend, and zero row execution. It found three task-direction flips between
+  iter86 and iter87, rejected larger external benchmark design for now, and selected one bounded
+  same-slice stability replication.
 - No model or benchmark result is claimed yet.
-- The next gate may only adjudicate whether iter87 evidence justifies a larger external benchmark
-  design, same-slice replication, recovery, or stop decision. It must use zero provider calls,
-  zero spend, zero row execution, no GPU or cloud runner, mutate no Sentinel resources, change no
-  production/live-domain behavior, and make no benchmark/model/SOTA claims.
+- The next gate may only run one same-slice stability replication of the six frozen rows. It must
+  stay under `96` provider calls, `$10.00` total spend, `16` calls per row, and `$2.00` per row;
+  use no GPU or cloud runner; mutate no Sentinel resources; change no production/live-domain
+  behavior; and make no benchmark/model/SOTA claims.
 
 ## Required Verification
 
@@ -606,6 +610,8 @@ python3 scripts/validate_receipts.py experiments/iter86_discriminating_metric_ba
 python3 scripts/audit_discriminating_metric_backtest_on_committed_artifacts.py
 python3 scripts/validate_receipts.py experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof
 python3 scripts/audit_benchmark_facing_discriminating_metric_execution_pilot.py
+python3 scripts/validate_receipts.py experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof
+python3 scripts/audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

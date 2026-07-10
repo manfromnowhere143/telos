@@ -1,0 +1,31 @@
+{
+  "benchmark_execution_authorized_by_iter88": false,
+  "design_kind": "same_slice_stability_replication",
+  "experiment_id": "iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot",
+  "external_benchmark_design_deferred": true,
+  "per_row_call_limit": 16,
+  "per_row_spend_limit_usd": "2.00000000",
+  "provider_call_ceiling": 96,
+  "provider_calls_in_iter88": 0,
+  "provider_spend_ceiling_usd": "10.00000000",
+  "provider_spend_in_iter88_usd": "0.00000000",
+  "row_execution_in_iter88": 0,
+  "schema_version": "telos.external_benchmark_readiness_adjudication.replication_design.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "selected_row_count": 6,
+  "stability_outputs_required": [
+    "fresh score-share deltas",
+    "direction comparison against iter86 and iter87",
+    "stable/unstable/blocked/fail classification",
+    "no benchmark/model/SOTA claim"
+  ],
+  "target_gate": "experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md",
+  "target_gate_pre_registered": true
+}

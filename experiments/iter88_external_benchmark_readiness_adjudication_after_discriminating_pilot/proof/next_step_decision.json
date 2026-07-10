@@ -1,0 +1,42 @@
+{
+  "accepted_path": {
+    "future_per_row_call_limit": 16,
+    "future_per_row_spend_limit_usd": "2.00000000",
+    "future_provider_call_ceiling": 96,
+    "future_provider_spend_ceiling_usd": "10.00000000",
+    "kind": "same_slice_stability_replication",
+    "selected_row_count": 6,
+    "why": "tests whether task-level directions are stable before larger benchmark design"
+  },
+  "decision": "replicate_same_slice",
+  "decision_options": [
+    "scale_to_external_benchmark_design",
+    "replicate_same_slice",
+    "recover_metric_or_task_surface",
+    "stop_for_null_or_negative_signal"
+  ],
+  "decision_rationale": "Iter87 is valid pilot evidence, but mixed-direction task deltas and direction flips against iter86 make external benchmark design premature. One same-slice replication is the smallest useful next spend.",
+  "experiment_id": "iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot",
+  "next_gate": "experiments/iter89_same_slice_discriminating_metric_stability_replication/HYPOTHESIS.md",
+  "next_gate_pre_registered": true,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "rejected_paths": [
+    {
+      "kind": "scale_to_external_benchmark_design",
+      "why_rejected_now": "mixed-direction single-pilot evidence with three task-direction flips is not stable enough for larger benchmark design"
+    },
+    {
+      "kind": "recover_metric_or_task_surface",
+      "why_rejected_now": "the metric is computable, non-saturated, and receipt/accounting evidence is clean"
+    },
+    {
+      "kind": "stop_for_null_or_negative_signal",
+      "why_rejected_now": "the signal is nonzero and diagnostically useful, even though it is not yet stable"
+    }
+  ],
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.external_benchmark_readiness_adjudication.next_step_decision.v1",
+  "source_direction_stability_classification": "unstable_mixed_direction_single_pilot",
+  "source_sign_flip_count": 3
+}

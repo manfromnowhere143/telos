@@ -553,6 +553,12 @@ jobs:
       - name: Benchmark-facing discriminating metric execution audit
         run: python3 scripts/audit_benchmark_facing_discriminating_metric_execution_pilot.py
 
+      - name: External benchmark readiness adjudication receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof
+
+      - name: External benchmark readiness adjudication audit
+        run: python3 scripts/audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

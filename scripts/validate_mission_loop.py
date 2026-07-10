@@ -229,6 +229,8 @@ def main() -> int:
         "audit_discriminating_metric_backtest_on_committed_artifacts.py",
         "validate_receipts.py experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof",
         "audit_benchmark_facing_discriminating_metric_execution_pilot.py",
+        "validate_receipts.py experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof",
+        "audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

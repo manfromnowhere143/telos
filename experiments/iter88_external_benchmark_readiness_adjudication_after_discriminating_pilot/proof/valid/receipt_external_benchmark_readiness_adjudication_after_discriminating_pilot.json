@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "Iter87 receipt and audit validation pass.",
+    "Iter87 calls, spend, row count, receipts, and task deltas are locked with source hashes.",
+    "Mixed-direction and direction-stability evidence is adjudicated from committed artifacts.",
+    "The next decision is explicit and falsifiable.",
+    "No provider calls, spend, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, leaderboard, SWE-bench, model-superiority, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-external-benchmark-readiness-adjudicator",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records zero-spend adjudication and selected next gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof/mixed_direction_adjudication.json",
+      "kind": "artifact",
+      "notes": "Direction stability comparison from iter86 and iter87 artifacts.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof/next_step_decision.json",
+      "kind": "artifact",
+      "notes": "Decision selects same-slice replication and rejects benchmark scaling now.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-benchmark/no-model/no-SOTA boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter87 validation fails.",
+    "The result must block if iter87 evidence cannot support a precise next decision.",
+    "The result must fail if provider calls, spend, or row execution occur in iter88.",
+    "The result must fail if mixed-direction pilot evidence is described as an aggregate benchmark win.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter88-external-benchmark-readiness-adjudication-pass",
+  "sha256": "e88ead461eb172733c3c57e42fca3bd9d81fc3fda6c6590d5371f37a15c56006",
+  "stated_goal": "Adjudicate whether iter87 discriminating-metric pilot evidence justifies larger external benchmark design, same-slice replication, recovery, or stop.",
+  "status": "pass",
+  "task_id": "telos:iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot@iter87"
+}
