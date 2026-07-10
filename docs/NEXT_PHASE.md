@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block` exactly as
+Run `iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery` exactly as
 frozen in
-[`../experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md`](../experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md).
+[`../experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md`](../experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -38,7 +38,12 @@ example with `gcloud auth application-default login`, then run the zero-spend it
 bounded iter78 paid retry then ran the same four adapter-planned rows under the iter73 recovered
 receipt prompts and iter77-ready ADC path. It blocked with 9 provider calls and `$0.03987600`
 spend: deterministic-edit baseline and Telos both verified, but both Dummy rows hit the per-row
-global call ceiling. The next honest move is the zero-spend iter79 recovery gate.
+global call ceiling. `iter79` passed the zero-spend recovery gate by classifying both Dummy
+failures from committed raw artifacts as per-row global call-ceiling blockers at the frozen
+`8` call ceiling, while retaining deterministic-edit evidence without rerun. The next honest move
+is the bounded Dummy-only paid retry in iter80: execute exactly two Dummy rows, raise the per-row
+call ceiling to `16`, keep total provider calls at or below `32`, keep total spend at or below
+`$5.00`, and make no benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

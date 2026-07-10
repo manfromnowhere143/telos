@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-10T03:31:18Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-10T09:29:17Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -95,11 +95,12 @@ clean
 - experiments/iter76_runtime_adc_recheck_after_operator_refresh: RESULT PUBLISHED
 - experiments/iter77_runtime_adc_recheck_after_application_default_login: RESULT PUBLISHED
 - experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery: RESULT PUBLISHED
-- experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block: PRE-REGISTERED, result pending
+- experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block: RESULT PUBLISHED
+- experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md`.
+- Active gate: `experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -265,6 +266,8 @@ python3 scripts/validate_receipts.py experiments/iter77_runtime_adc_recheck_afte
 python3 scripts/audit_runtime_adc_recheck_after_application_default_login.py
 python3 scripts/validate_receipts.py experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof
 python3 scripts/audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py
+python3 scripts/validate_receipts.py experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof
+python3 scripts/audit_dummy_row_call_ceiling_recovery_after_paid_retry_block.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

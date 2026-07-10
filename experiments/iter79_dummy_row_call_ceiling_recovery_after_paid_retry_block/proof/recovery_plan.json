@@ -1,0 +1,32 @@
+{
+  "adapter_rows_to_execute": 2,
+  "claim_boundary": "Dummy adapter-row recovery only; no benchmark, model-superiority, leaderboard, SWE-bench, production/live-domain, or state-of-the-art claim.",
+  "deterministic_edit_pair_ids_retained_not_rerun": [
+    "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml"
+  ],
+  "experiment_id": "iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block",
+  "next_gate": "experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md",
+  "paid_retry_scope": "dummy_only",
+  "per_row_spend_limit_usd": 2.5,
+  "preserves_or_tightens_total_ceiling": true,
+  "previous_per_row_call_limit": 8,
+  "previous_total_provider_call_ceiling": 32,
+  "previous_total_provider_spend_ceiling_usd": 10.0,
+  "provider_call_ceiling": 32,
+  "provider_calls_before_next_gate": 0,
+  "provider_spend_before_next_gate_usd": 0.0,
+  "provider_spend_ceiling_usd": 5.0,
+  "recommended_per_row_call_limit": 16,
+  "recommended_status": "pre_register_paid_retry",
+  "requires_cloud_runner": false,
+  "requires_gpu": false,
+  "requires_provider_calls_in_this_gate": false,
+  "requires_sentinel_mutation": false,
+  "retained_battlesnake_rows_rerun": false,
+  "schema_version": "telos.dummy_row_call_ceiling_recovery.recovery_plan.v1",
+  "selected_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+  ]
+}

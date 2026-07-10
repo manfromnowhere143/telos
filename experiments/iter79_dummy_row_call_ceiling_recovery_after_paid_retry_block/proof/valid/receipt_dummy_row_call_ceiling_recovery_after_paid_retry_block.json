@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "Iter78 receipt validation and audit both pass.",
+    "Both Dummy row failures are classified from committed raw artifacts as per-row global call-ceiling blockers.",
+    "Deterministic-edit rows remain retained verified evidence and are not rerun.",
+    "The next paid retry plan is bounded and preserves total provider-call and spend ceilings.",
+    "Zero provider calls, zero spend, zero row execution, no GPU, no cloud runner, and no Sentinel mutation occur.",
+    "No benchmark, model-superiority, leaderboard, SWE-bench, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-dummy-call-ceiling-recovery-verifier",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Run summary records zero-spend recovery status and claim boundary.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/dummy_call_ceiling_classification.json",
+      "kind": "artifact",
+      "notes": "Classifier records per-Dummy-row evidence paths, hashes, and excluded alternatives.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/recovery_plan.json",
+      "kind": "artifact",
+      "notes": "Recovery plan refreezes the next paid retry to Dummy-only rows under bounded ceilings.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records that no benchmark/model/SOTA claim is made.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter78 receipt validation or audit fails.",
+    "The result must block if either Dummy row cannot be classified from committed artifacts.",
+    "The result must fail if provider calls, spend, row execution, GPU, cloud runner startup, Sentinel mutation, or live-domain mutation occurs.",
+    "The result must fail if credential, token, project, service-account, or private identifier residue is committed.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter79-dummy-row-call-ceiling-recovery-pass",
+  "sha256": "caddeedad9202782d7a60f335627dc8b5f47c2819d9bc9af6c6b7bdb35a8e26b",
+  "stated_goal": "Classify the iter78 Dummy row nonzero-returncode blocker from committed artifacts and prepare a bounded paid-retry recovery plan.",
+  "status": "pass",
+  "task_id": "telos:iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block@iter78"
+}

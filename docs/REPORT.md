@@ -345,6 +345,15 @@ Current evidence:
 - `experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md`
   pre-registers a zero-spend recovery gate to classify the iter78 Dummy row call-ceiling blocker
   from committed artifacts before any further paid retry.
+- `experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/RESULT.md` passes the
+  zero-spend recovery gate. Both iter78 Dummy failures are classified from committed raw artifacts
+  as per-row global call-ceiling blockers at the frozen `8` call ceiling; deterministic-edit
+  evidence remains retained and not rerun. Zero provider calls, zero spend, zero row execution, no
+  GPU/cloud/Sentinel/live-domain mutation, and no benchmark/model/state-of-the-art claim occurred.
+- `experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md`
+  pre-registers the next bounded paid retry: execute only the two Dummy rows with a `16` call
+  per-row ceiling, total calls at or below `32`, total spend at or below `$5.00`, no
+  deterministic-edit/BattleSnake rerun, and no benchmark/model/state-of-the-art claim.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

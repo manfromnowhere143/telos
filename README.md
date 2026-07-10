@@ -277,9 +277,15 @@ and an adversarial review pass.
   verified-completion evidence could be accepted. No GPU/cloud/Sentinel/live-domain mutation or
   benchmark/model/SOTA claim occurred in
   [`experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery`](experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/RESULT.md).
-- Current gate: Dummy row call-ceiling recovery after paid retry block,
+- Dummy row call-ceiling recovery after paid retry block: passed with zero provider calls, zero
+  spend, and zero row execution. Both iter78 Dummy failures were classified from committed raw
+  artifacts as per-row global call-ceiling blockers at the frozen `8` call ceiling, while
+  deterministic-edit evidence was retained and not rerun. No credential material or
+  benchmark/model/SOTA claim occurred in
+  [`experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block`](experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/RESULT.md).
+- Current gate: Dummy call-ceiling bounded paid retry after recovery,
   pre-registered in
-  [`experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block`](experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/HYPOTHESIS.md).
+  [`experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery`](experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot plus a blocked four-row
   adapter-validation extension; neither is a benchmark result.

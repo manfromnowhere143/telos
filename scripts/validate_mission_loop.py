@@ -211,6 +211,8 @@ def main() -> int:
         "audit_runtime_adc_recheck_after_application_default_login.py",
         "validate_receipts.py experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof",
         "audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py",
+        "validate_receipts.py experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof",
+        "audit_dummy_row_call_ceiling_recovery_after_paid_retry_block.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

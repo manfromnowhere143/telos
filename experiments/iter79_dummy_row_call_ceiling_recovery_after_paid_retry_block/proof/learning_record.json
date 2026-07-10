@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/run_summary.json",
+    "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/dummy_call_ceiling_classification.json",
+    "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/recovery_plan.json",
+    "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof/valid/receipt_dummy_row_call_ceiling_recovery_after_paid_retry_block.json"
+  ],
+  "experiment_id": "iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block",
+  "insight": "The iter78 Dummy failures are per-row global call-ceiling blockers at the frozen 8-call limit, while deterministic-edit evidence remains verified and should not be rerun.",
+  "next_action": "pre-register a Dummy-only paid retry with a bounded 16-call per-row ceiling before any further provider execution",
+  "result_path": "experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

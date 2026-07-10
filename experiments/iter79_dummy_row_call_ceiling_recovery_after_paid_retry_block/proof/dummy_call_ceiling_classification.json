@@ -1,0 +1,72 @@
+{
+  "all_dummy_failures_classified": true,
+  "alternative_failure_modes_excluded": {
+    "adc_or_provider_access": true,
+    "overlay_materialization": true,
+    "receipt_schema": true
+  },
+  "classification": "per_row_global_call_ceiling",
+  "dummy_pair_ids": [
+    "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+    "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml"
+  ],
+  "experiment_id": "iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block",
+  "rows": [
+    {
+      "adc_or_provider_access_excluded": true,
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "classification": "per_row_global_call_ceiling",
+      "classified": true,
+      "command_returncode": 1,
+      "command_timed_out": false,
+      "condition_id": "baseline_agent_completion_evidence",
+      "global_limit_line": "Global cost/call limit exceeded: $0.0187 / 8",
+      "observed_global_call_limit": 8,
+      "overlay_materialization_excluded": true,
+      "pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "provider_api_calls_before_block": 3,
+      "provider_cost_usd_before_block": 0.007884,
+      "public_config": "configs/test/dummy.yaml",
+      "raw_evidence_present": true,
+      "receipt_or_overlay_marker_present": false,
+      "receipt_required": false,
+      "receipt_schema_excluded": true,
+      "receipt_valid": false,
+      "source_command_execution": "experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml/command_execution.json",
+      "source_command_execution_sha256": "17863d8aeb34422573609bcad3103a1058500c8b04a20e26ab4babff05473e2b",
+      "source_command_stderr": "experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/raw/baseline-agent-completion-evidence__configs-test-dummy-yaml/command_stderr.txt",
+      "source_command_stderr_sha256": "787392487ff1aadb2a33cab43ff80a9c7106da1a135127e1986fa422d4c20bce",
+      "stderr_contains_global_call_limit": true,
+      "verified_completion_evidence": false
+    },
+    {
+      "adc_or_provider_access_excluded": true,
+      "analysis_stratum": "dummy_minimal_adapter_validation",
+      "classification": "per_row_global_call_ceiling",
+      "classified": true,
+      "command_returncode": 1,
+      "command_timed_out": false,
+      "condition_id": "telos_receipt_enforced_completion_evidence",
+      "global_limit_line": "Global cost/call limit exceeded: $0.0511 / 8",
+      "observed_global_call_limit": 8,
+      "overlay_materialization_excluded": true,
+      "pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "provider_api_calls_before_block": 2,
+      "provider_cost_usd_before_block": 0.014426,
+      "public_config": "configs/test/dummy.yaml",
+      "raw_evidence_present": true,
+      "receipt_or_overlay_marker_present": false,
+      "receipt_required": true,
+      "receipt_schema_excluded": true,
+      "receipt_valid": true,
+      "source_command_execution": "experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/command_execution.json",
+      "source_command_execution_sha256": "541db7228feb59b6fb0d348474102ac133812b7065bbaac31d80e3572277e6e5",
+      "source_command_stderr": "experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof/raw/telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml/command_stderr.txt",
+      "source_command_stderr_sha256": "3445afb60ee4bb6e10053329bd3668954cfe7ad61a732ee7aa4544f0940a4cc2",
+      "stderr_contains_global_call_limit": true,
+      "verified_completion_evidence": false
+    }
+  ],
+  "schema_version": "telos.dummy_row_call_ceiling_recovery.classification.v1",
+  "source_iteration": "iter78_provider_compatible_expanded_paid_retry_after_adc_recovery"
+}
