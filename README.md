@@ -341,8 +341,14 @@ and an adversarial review pass.
   benchmark/SOTA escalation, selected empirical validation suite design as the next step, and made
   no benchmark/model/SOTA claim in
   [`experiments/iter90_stability_replication_adjudication_after_same_slice_run`](experiments/iter90_stability_replication_adjudication_after_same_slice_run/RESULT.md).
-- Current gate: empirical validation suite design for completion verification, pre-registered in
-  [`experiments/iter91_empirical_validation_suite_design_for_completion_verification`](experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md).
+- Empirical validation suite design for completion verification: passed with zero provider calls,
+  zero spend, zero strategy execution, and zero row execution. It froze seven false-completion trap
+  families, seven paired legitimate-completion controls, five comparison strategies, six
+  quantitative endpoints, and made no benchmark/model/SOTA claim in
+  [`experiments/iter91_empirical_validation_suite_design_for_completion_verification`](experiments/iter91_empirical_validation_suite_design_for_completion_verification/RESULT.md).
+- Current gate: empirical validation fixture materialization for completion verification,
+  pre-registered in
+  [`experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification`](experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row

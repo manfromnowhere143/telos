@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md`
+- `experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -433,12 +433,17 @@ Current claim:
   zero spend, and zero row execution. It validated iter89, locked the unstable stability evidence,
   rejected immediate benchmark/SOTA escalation and another paid same-slice replication for now, and
   selected empirical validation suite design as the next defensible scientific milestone.
+- `iter91_empirical_validation_suite_design_for_completion_verification` passed with zero provider
+  calls, zero spend, zero strategy execution, and zero row execution. It froze seven
+  false-completion trap families, seven paired legitimate-completion controls, five comparison
+  strategies, six quantitative endpoints, independent ground-truth rules, and identical-artifact
+  comparison requirements.
 - No model or benchmark result is claimed yet.
-- The next gate may only design a controlled empirical validation suite from committed evidence. It
-  must compare Telos against simpler completion-verification baselines, define quantitative
-  endpoints before execution, use zero provider calls, zero spend, zero row execution, no GPU or
-  cloud runner, mutate no Sentinel resources, change no production/live-domain behavior, and make
-  no benchmark/model/SOTA claims.
+- The next gate may only materialize the frozen iter91 suite design as static fixtures. It must
+  commit case specs, independent ground-truth labels, artifact manifests, and identical
+  strategy-input manifests before any strategy execution, use zero provider calls, zero spend, zero
+  row execution, no GPU or cloud runner, mutate no Sentinel resources, make no production/live-domain
+  behavior change, and make no benchmark/model/SOTA claims.
 
 ## Required Verification
 
@@ -625,6 +630,8 @@ python3 scripts/validate_receipts.py experiments/iter89_same_slice_discriminatin
 python3 scripts/audit_same_slice_discriminating_metric_stability_replication.py
 python3 scripts/validate_receipts.py experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof
 python3 scripts/audit_stability_replication_adjudication_after_same_slice_run.py
+python3 scripts/validate_receipts.py experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof
+python3 scripts/audit_empirical_validation_suite_design_for_completion_verification.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

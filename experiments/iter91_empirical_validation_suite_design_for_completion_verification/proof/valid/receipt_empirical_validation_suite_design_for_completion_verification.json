@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter90 receipt and audit validation pass.",
+    "The suite design includes false-completion traps and legitimate-completion controls.",
+    "All five verification strategies are compared under identical artifacts.",
+    "Quantitative endpoints are defined before execution.",
+    "Ground-truth labels are independent of Telos outputs.",
+    "No provider calls, spend, strategy execution, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, leaderboard, SWE-bench, model-superiority, empirical-superiority, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-empirical-validation-suite-designer",
+  "benchmark_id": "telos_completion_verification_empirical_suite_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records zero-spend suite design and next gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/case_catalog.json",
+      "kind": "artifact",
+      "notes": "Frozen false-completion traps and legitimate controls.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/strategy_comparison_plan.json",
+      "kind": "artifact",
+      "notes": "Five comparison strategies with identical artifact rules.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records no-result/no-superiority claim boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter90 validation fails.",
+    "The result must block if suite cases lack paired false-completion and legitimate-control labels.",
+    "The result must block if strategy inputs are not identical.",
+    "The result must fail if provider calls, spend, strategy execution, or row execution occur in iter91.",
+    "The result must fail if unsupported benchmark, model-superiority, empirical-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter91-empirical-validation-suite-design-pass",
+  "sha256": "b27fedcdf7878352e9d0c57eda7de05dbf43418b638b7c0e3bd0e84fe003b23d",
+  "stated_goal": "Design a controlled empirical validation suite comparing Telos against simpler completion-verification strategies under identical artifacts.",
+  "status": "pass",
+  "task_id": "telos:iter91_empirical_validation_suite_design_for_completion_verification@iter90"
+}

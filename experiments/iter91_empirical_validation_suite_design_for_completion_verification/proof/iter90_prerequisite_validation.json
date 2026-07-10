@@ -1,0 +1,51 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_stability_replication_adjudication_after_same_slice_run.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter90 stability replication adjudication audit: pass\nnext_step_decision=design_empirical_validation_suite\niter89_stability_classification=unstable\nprovider_calls_in_iter90=0\nprovider_spend_in_iter90_usd=0.00000000\nnext_gate=experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter91_empirical_validation_suite_design_for_completion_verification",
+  "iter90_audit_returncode": 0,
+  "iter90_case_family_count": 7,
+  "iter90_clean_pass": true,
+  "iter90_next_step_decision": "design_empirical_validation_suite",
+  "iter90_quantitative_endpoint_count": 6,
+  "iter90_receipt_validation_returncode": 0,
+  "iter90_stability_classification": "unstable",
+  "iter90_status": "pass",
+  "iter90_verification_strategy_count": 5,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.empirical_validation_suite_design.iter90_prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof/run_summary.json",
+      "sha256": "76feedb4a0806fdd87a64d3e316f63f1e8f5c8d443680f4ab68a93581db1cafa"
+    },
+    {
+      "path": "experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof/next_step_decision.json",
+      "sha256": "0c01ec606dc524e93a477526f790b779ee6a3f3b5600cc02a321806a587d3cb7"
+    },
+    {
+      "path": "experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof/empirical_validation_direction.json",
+      "sha256": "2fbf50685bcd61d14cd00c5f339d6931ca9311ad525b73dfd5977ebef74a7deb"
+    },
+    {
+      "path": "experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof/valid/receipt_stability_replication_adjudication_after_same_slice_run.json",
+      "sha256": "1207f3ca77a91bc0ad852510769a2d865cdf5aa48d641ba4e9a0dd0b5e1770c7"
+    }
+  ]
+}

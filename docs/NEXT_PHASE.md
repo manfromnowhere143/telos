@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter91_empirical_validation_suite_design_for_completion_verification` exactly as
+Run `iter92_empirical_validation_fixture_materialization_for_completion_verification` exactly as
 frozen in
-[`../experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md`](../experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md).
+[`../experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md`](../experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -78,10 +78,12 @@ score-share deltas of Dummy `-0.02075000`, BattleSnake `0.00000000`, and determi
 calls, zero spend, and zero row execution: it validated iter89, locked the unstable evidence,
 rejected immediate benchmark/SOTA escalation and another paid same-slice replication for now, and
 selected empirical validation suite design as the next defensible milestone. The next honest move
-is the zero-spend iter91 suite-design gate: define controlled false-completion case families,
-compare agent self-report, execution tests, LLM judge, external verifier, and complete Telos under
-identical artifacts, and pre-register quantitative endpoints before any comparative execution or
-benchmark/model/SOTA claim.
+was the zero-spend iter91 suite-design gate. `iter91` passed: it froze seven false-completion trap
+families, seven paired legitimate-completion controls, five comparison strategies, six quantitative
+endpoints, independent ground-truth rules, and identical-artifact comparison requirements. The next
+honest move is the zero-spend iter92 fixture-materialization gate: commit static fixture specs,
+ground-truth labels, artifact manifests, and strategy-input manifests before any comparative
+execution or benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

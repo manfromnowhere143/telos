@@ -11,7 +11,7 @@
     ".github/workflows/codeclash-agent-behavior.yml",
     ".github/workflows/codeclash-deterministic-edit.yml"
   ],
-  "active_gate": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md",
+  "active_gate": "experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md",
   "loop": [
     {
       "phase": "pre_register",
@@ -265,6 +265,8 @@
     "python3 scripts/audit_same_slice_discriminating_metric_stability_replication.py",
     "python3 scripts/validate_receipts.py experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof",
     "python3 scripts/audit_stability_replication_adjudication_after_same_slice_run.py",
+    "python3 scripts/validate_receipts.py experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof",
+    "python3 scripts/audit_empirical_validation_suite_design_for_completion_verification.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_handoff.py"
   ]

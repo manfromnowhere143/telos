@@ -448,6 +448,16 @@ Current evidence:
   pre-registers the next zero-spend suite-design gate. It may only freeze a falsifiable empirical
   validation design comparing agent self-report, execution tests, LLM judge, external verifier,
   and complete Telos protocol on controlled false-completion failure modes.
+- `experiments/iter91_empirical_validation_suite_design_for_completion_verification/RESULT.md`
+  passes that zero-spend suite-design gate. It froze seven false-completion trap families, seven
+  paired legitimate-completion controls, five comparison strategies, six quantitative endpoints,
+  independent ground-truth rules, and identical-artifact comparison requirements, with zero
+  provider calls, zero spend, zero strategy execution, zero row execution, and no
+  benchmark/model/state-of-the-art claim.
+- `experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md`
+  pre-registers the next zero-spend fixture-materialization gate. It may only materialize the
+  frozen iter91 design into static fixture specs, ground-truth labels, artifact manifests, and
+  strategy-input manifests before any comparative execution.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

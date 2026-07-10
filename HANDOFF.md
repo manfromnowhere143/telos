@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-10T20:55:07Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-10T21:10:32Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -107,11 +107,12 @@ clean
 - experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot: RESULT PUBLISHED
 - experiments/iter89_same_slice_discriminating_metric_stability_replication: RESULT PUBLISHED
 - experiments/iter90_stability_replication_adjudication_after_same_slice_run: RESULT PUBLISHED
-- experiments/iter91_empirical_validation_suite_design_for_completion_verification: PRE-REGISTERED, result pending
+- experiments/iter91_empirical_validation_suite_design_for_completion_verification: RESULT PUBLISHED
+- experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification: PRE-REGISTERED, result pending
 
 ## Current Gate
 
-- Active gate: `experiments/iter91_empirical_validation_suite_design_for_completion_verification/HYPOTHESIS.md`.
+- Active gate: `experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -301,6 +302,8 @@ python3 scripts/validate_receipts.py experiments/iter89_same_slice_discriminatin
 python3 scripts/audit_same_slice_discriminating_metric_stability_replication.py
 python3 scripts/validate_receipts.py experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof
 python3 scripts/audit_stability_replication_adjudication_after_same_slice_run.py
+python3 scripts/validate_receipts.py experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof
+python3 scripts/audit_empirical_validation_suite_design_for_completion_verification.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

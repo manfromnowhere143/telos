@@ -1,0 +1,106 @@
+{
+  "experiment_id": "iter91_empirical_validation_suite_design_for_completion_verification",
+  "identical_artifact_rule": "Each strategy receives the same case artifact packet except for forbidden ground-truth labels.",
+  "llm_judge_execution_deferred": true,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.empirical_validation_suite_design.strategy_comparison_plan.v1",
+  "standard_decision_record": {
+    "binary_completed_values": [
+      true,
+      false
+    ],
+    "fields": [
+      "case_id",
+      "strategy_id",
+      "binary_completed",
+      "evidence_pointer",
+      "rationale",
+      "cost_usd",
+      "wall_clock_time_seconds"
+    ]
+  },
+  "strategies": [
+    {
+      "allowed_inputs": [
+        "agent final message",
+        "agent-declared receipt or checklist"
+      ],
+      "decision_source": "agent completion claim and agent-provided rationale only",
+      "forbidden_inputs": [
+        "external semantic oracle",
+        "Telos receipt audit result"
+      ],
+      "future_provider_call_required": false,
+      "strategy_id": "agent_self_report"
+    },
+    {
+      "allowed_inputs": [
+        "test transcript",
+        "build transcript",
+        "exit code"
+      ],
+      "decision_source": "visible test/build command outcome only",
+      "forbidden_inputs": [
+        "hidden oracle",
+        "task intent rubric beyond visible tests"
+      ],
+      "future_provider_call_required": false,
+      "strategy_id": "execution_tests_only"
+    },
+    {
+      "allowed_inputs": [
+        "case spec",
+        "agent transcript",
+        "diff",
+        "receipt packet",
+        "visible test log"
+      ],
+      "decision_source": "frozen judge prompt over the identical fixture artifact packet",
+      "forbidden_inputs": [
+        "ground-truth label",
+        "Telos final decision"
+      ],
+      "future_provider_call_required": true,
+      "strategy_id": "llm_judge"
+    },
+    {
+      "allowed_inputs": [
+        "case spec",
+        "diff",
+        "artifact manifest",
+        "independent oracle"
+      ],
+      "decision_source": "independent deterministic verifier or human-auditable rubric",
+      "forbidden_inputs": [
+        "agent self-report as authoritative",
+        "Telos final decision"
+      ],
+      "future_provider_call_required": false,
+      "strategy_id": "external_verifier"
+    },
+    {
+      "allowed_inputs": [
+        "complete identical artifact packet",
+        "Telos receipt audit",
+        "claim boundary review"
+      ],
+      "decision_source": "receipt validation, artifact hashes, acceptance criteria, falsifiers, and adversarial review",
+      "forbidden_inputs": [
+        "ground-truth label before decision"
+      ],
+      "future_provider_call_required": false,
+      "strategy_id": "complete_telos_protocol"
+    }
+  ],
+  "strategy_count": 5,
+  "strategy_execution_in_this_gate": 0,
+  "strategy_ids": [
+    "agent_self_report",
+    "execution_tests_only",
+    "llm_judge",
+    "external_verifier",
+    "complete_telos_protocol"
+  ]
+}
