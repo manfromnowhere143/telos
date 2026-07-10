@@ -413,6 +413,14 @@ Current evidence:
   pre-registers the next bounded paid execution pilot. It may only execute the six frozen
   CodeClash task-condition rows under the `96` call and `$10.00` spend ceilings, then compute the
   discriminating metric without benchmark/model/state-of-the-art claims.
+- `experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/RESULT.md` passes
+  that bounded paid pilot. It executed exactly six frozen rows, used `21` provider calls and
+  `$0.12498400`, validated all receipt-required rows, computed fresh score-share deltas
+  (`dummy=-0.01575000`, `battlesnake=0.50000000`, `deterministic_edit=-0.50000000`), recorded a
+  mixed-direction signal, and made no benchmark/model/state-of-the-art claim.
+- `experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md`
+  pre-registers the next zero-spend adjudication gate. It may only decide whether iter87 evidence
+  justifies a larger external benchmark design, same-slice replication, recovery, or stop decision.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

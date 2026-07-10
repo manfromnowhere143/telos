@@ -322,12 +322,18 @@ and an adversarial review pass.
   iter83 metadata, found a non-saturated mixed-direction diagnostic signal, pre-registered a
   bounded paid replication, and made no benchmark/model/SOTA claim in
   [`experiments/iter86_discriminating_metric_backtest_on_committed_artifacts`](experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/RESULT.md).
-- Current gate: benchmark-facing discriminating metric execution pilot,
+- Benchmark-facing discriminating metric execution pilot: passed as a bounded six-row paid pilot.
+  It executed exactly the frozen CodeClash task-condition rows, used `21` provider calls and
+  `$0.12498400`, validated all receipt-required rows, computed fresh mixed-direction score-share
+  deltas, and made no benchmark/model/SOTA claim in
+  [`experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot`](experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/RESULT.md).
+- Current gate: external benchmark readiness adjudication after the discriminating pilot,
   pre-registered in
-  [`experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot`](experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md).
+  [`experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot`](experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
-  adapter-validation rows, and one bounded six-row null/no-signal pilot; none is a benchmark result.
+  adapter-validation rows, one bounded six-row null/no-signal pilot, and one bounded six-row
+  discriminating-metric pilot; none is a benchmark result.
 - Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
 Claim-boundary reviewer entry point:

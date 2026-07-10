@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter86 receipt and audit validation pass.",
+    "Exactly six frozen rows execute and no unselected row executes.",
+    "Provider calls stay at or below 96 and provider spend stays at or below $10.00.",
+    "Every row has raw artifacts, cost/call accounting, redaction evidence, and receipt validation where required.",
+    "The task-native score-share metric is computed from fresh committed metadata.",
+    "No GPU, cloud runner, Sentinel mutation, live-domain mutation, benchmark claim, model-superiority claim, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-benchmark-facing-discriminating-metric-pilot-runner",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records row execution, ceilings, fresh metric extraction, and claim boundaries.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/raw/",
+      "kind": "artifact",
+      "notes": "Raw packet contains command transcripts and copied CodeClash artifacts.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/fresh_metric_extraction.json",
+      "kind": "artifact",
+      "notes": "Task-native score-share deltas computed from fresh metadata.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-benchmark/no-model/no-SOTA boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter86 validation fails.",
+    "The result must fail if any unselected row executes.",
+    "The result must fail if provider calls or spend exceed a frozen ceiling.",
+    "The result must block if fresh score-share extraction is missing or ambiguous.",
+    "The result must fail if credential, token, project, or service-account residue is committed.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter87-benchmark-facing-discriminating-metric-execution-pilot-pass",
+  "sha256": "9e5f567feefa5d2b0a48195bbdd0323168d371bbea75cc609b01ad43c0f11167",
+  "stated_goal": "Execute the six frozen CodeClash task-condition rows under the iter87 envelope and evaluate the task-native score-share delta metric from fresh raw artifacts.",
+  "status": "pass",
+  "task_id": "telos:iter87_benchmark_facing_discriminating_metric_execution_pilot@iter86"
+}

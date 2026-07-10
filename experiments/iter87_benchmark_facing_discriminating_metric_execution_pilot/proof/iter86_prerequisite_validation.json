@@ -1,0 +1,48 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_discriminating_metric_backtest_on_committed_artifacts.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter86 discriminating metric backtest audit: clean pass",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter87_benchmark_facing_discriminating_metric_execution_pilot",
+  "iter86_audit_returncode": 0,
+  "iter86_clean_pass": true,
+  "iter86_metric_id": "task_native_score_share_delta_with_receipt_gates",
+  "iter86_metric_non_saturated": true,
+  "iter86_receipt_validation_returncode": 0,
+  "iter86_source_rows_parsed": 6,
+  "iter86_status": "pass",
+  "iter86_task_deltas_computed": 3,
+  "paid_execution_authorized_by_iter86": true,
+  "schema_version": "telos.benchmark_facing_discriminating_metric_execution.iter86_prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof/run_summary.json",
+      "sha256": "cbe630e97231339399a3a8b430c8d9350b6b8a62f9b21155f5526ef9fdd0b4ec"
+    },
+    {
+      "path": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof/raw_metric_extraction.json",
+      "sha256": "c5051c3bede27f856fb48b7b23c67fbb467d36ab6a7399f03a8931c2e7331b97"
+    },
+    {
+      "path": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof/backtest_report.json",
+      "sha256": "c53c61a1f0712e3e09d657f3e494b2747c2c712eefa6449eb76f40d5523e6dff"
+    },
+    {
+      "path": "experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof/valid/receipt_discriminating_metric_backtest_on_committed_artifacts.json",
+      "sha256": "eb524e3433c334c066542fd97c159fcc3696f4c711cafafd3a3db314f634cee8"
+    }
+  ]
+}

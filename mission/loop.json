@@ -11,7 +11,7 @@
     ".github/workflows/codeclash-agent-behavior.yml",
     ".github/workflows/codeclash-deterministic-edit.yml"
   ],
-  "active_gate": "experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md",
+  "active_gate": "experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md",
   "loop": [
     {
       "phase": "pre_register",
@@ -257,6 +257,8 @@
     "python3 scripts/audit_discriminating_task_metric_redesign.py",
     "python3 scripts/validate_receipts.py experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof",
     "python3 scripts/audit_discriminating_metric_backtest_on_committed_artifacts.py",
+    "python3 scripts/validate_receipts.py experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof",
+    "python3 scripts/audit_benchmark_facing_discriminating_metric_execution_pilot.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_handoff.py"
   ]

@@ -1,0 +1,177 @@
+{
+  "name": "PvpTournament",
+  "tournament_id": "PvpTournament.BattleSnake.260710160426",
+  "config": {
+    "game": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "tournament": {
+      "rounds": 1
+    },
+    "players": [
+      {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nThis is the baseline condition. Create `telos_marker.py` with a small Python constant proving a\nnon-empty workspace edit, then submit. Do not create a Telos receipt in this condition.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 16,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global",
+              "vertex_project": "[REDACTED_GCP_PROJECT]",
+              "extra_headers": {
+                "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+                "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+              }
+            }
+          }
+        }
+      },
+      {
+        "agent": "dummy",
+        "name": "p2"
+      }
+    ],
+    "prompts": {
+      "game_description": "Telos deterministic non-empty workspace Python edit smoke.\n\nThis is the baseline raw-completion-evidence condition. Preserve the task: create a small\nPython marker file named `telos_marker.py` in the workspace and submit. Do not create a Telos\nreceipt in this baseline condition."
+    }
+  },
+  "created_timestamp": 1783688666,
+  "aws": {},
+  "round_stats": {
+    "0": {
+      "round_num": 0,
+      "winner": "p1",
+      "details": [],
+      "scores": {
+        "p1": 1,
+        "p2": 0.0
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 1,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 0.0,
+          "valid_submit": true
+        }
+      }
+    },
+    "1": {
+      "round_num": 1,
+      "winner": "p2",
+      "details": [],
+      "scores": {
+        "p1": 0.0,
+        "p2": 1
+      },
+      "player_stats": {
+        "p1": {
+          "name": "p1",
+          "invalid_reason": "",
+          "score": 0.0,
+          "valid_submit": true
+        },
+        "p2": {
+          "name": "p2",
+          "invalid_reason": "",
+          "score": 1,
+          "valid_submit": true
+        }
+      }
+    }
+  },
+  "game": {
+    "name": "BattleSnake",
+    "config": {
+      "name": "BattleSnake",
+      "sims_per_round": 1,
+      "args": {
+        "width": 11,
+        "height": 11,
+        "browser": false
+      }
+    },
+    "game_id": "PvpTournament.BattleSnake.260710160426",
+    "created_timestamp": 1783688666
+  },
+  "agents": [
+    {
+      "name": "p1",
+      "player_unique_id": "38cd05b5-5d76-4581-a1a2-c8cfabcf7bae",
+      "created_timestamp": 1783688667,
+      "config": {
+        "agent": "mini",
+        "name": "p1",
+        "config": {
+          "agent": {
+            "system_template": "You are a software engineering agent editing a small CodeClash workspace through a shell.\n\nIssue one bash command at a time. Directory and environment changes are not persistent across\ncommands, so chain directory changes with the command that needs them.\n\nWhen the work is complete, submit by running exactly:\n`echo COMPLETE_TASK_AND_SUBMIT_FINAL_OUTPUT`\non its own. After submitting, you cannot continue working this round.\n",
+            "instance_template": "## Game Description\n\n{{game_description}}\n\n## Workspace\n\nThe game codebase is in {{working_dir}}.\n\nThis is the baseline condition. Create `telos_marker.py` with a small Python constant proving a\nnon-empty workspace edit, then submit. Do not create a Telos receipt in this condition.\n\nThe round has a limit of {{step_limit}} commands. Submit before the limit.\n",
+            "step_limit": 16,
+            "cost_limit": 25
+          },
+          "model": {
+            "model_name": "vertex_ai/gemini-3.1-pro-preview-customtools",
+            "model_kwargs": {
+              "temperature": 0.2,
+              "max_tokens": 4096,
+              "vertex_location": "global",
+              "vertex_project": "[REDACTED_GCP_PROJECT]",
+              "extra_headers": {
+                "Authorization": "Bearer [REDACTED_BEARER_TOKEN]",
+                "X-Goog-User-Project": "[REDACTED_GCP_PROJECT]"
+              }
+            }
+          }
+        }
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260710160426.p1",
+      "round_tags": {
+        "0": "38cd05b5-5d76-4581-a1a2-c8cfabcf7bae-round-0",
+        "1": "38cd05b5-5d76-4581-a1a2-c8cfabcf7bae-round-1"
+      },
+      "agent_stats": {
+        "1": {
+          "exit_status": "Submitted",
+          "cost": 0.004028,
+          "api_calls": 2
+        }
+      }
+    },
+    {
+      "name": "p2",
+      "player_unique_id": "641739b3-4347-43f7-b8bb-ef18db5584e5",
+      "created_timestamp": 1783688670,
+      "config": {
+        "agent": "dummy",
+        "name": "p2"
+      },
+      "initial_commit_hash": "aaf48003cfa5034a14d7053bb0ccc0bc6ae99cee",
+      "branch_name": "PvpTournament.BattleSnake.260710160426.p2",
+      "round_tags": {
+        "0": "641739b3-4347-43f7-b8bb-ef18db5584e5-round-0",
+        "1": "641739b3-4347-43f7-b8bb-ef18db5584e5-round-1"
+      },
+      "agent_stats": {}
+    }
+  ]
+}

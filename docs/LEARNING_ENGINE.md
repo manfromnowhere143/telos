@@ -140,8 +140,8 @@ python3 scripts/validate_learning_ledger.py
 | `iter84_benchmark_facing_null_signal_adjudication` | pass | the iter83 null/no-signal result was classified as verified-completion metric saturation and task/metric redesign was selected with zero provider calls, zero spend, and zero row execution | redesign the task and metric contract before any further paid execution or benchmark claim |
 | `iter85_discriminating_task_metric_redesign` | pass | the saturated verified-completion boolean was demoted to an admissibility gate and the task-native score-share delta metric was frozen for zero-spend backtest with no paid execution authorized | backtest the discriminating metric on committed iter83 artifacts before any further paid execution or benchmark claim |
 | `iter86_discriminating_metric_backtest_on_committed_artifacts` | pass | the score-share metric was computable on all six committed iter83 rows and non-saturated, but the diagnostic signal was mixed-direction and not a benchmark result | run the smallest bounded paid replication under the discriminating metric before any benchmark claim |
+| `iter87_benchmark_facing_discriminating_metric_execution_pilot` | pass | the bounded six-row paid pilot executed exactly the frozen rows, used 21 provider calls and $0.12498400, validated receipt-required rows, and produced fresh mixed-direction score-share deltas without any benchmark claim | adjudicate whether the mixed-direction pilot justifies a larger external benchmark design, same-slice replication, recovery, or stop decision |
 
-The next experiment may only execute the six frozen rows under the iter87 paid ceilings and
-discriminating metric. It must stay under 96 provider calls, $10.00 total spend, 16 calls per row,
-$2.00 per row, no cloud runner, no GPU, no Sentinel mutation, no production/live-domain mutation,
-and no benchmark/model/SOTA claim.
+The next experiment may only adjudicate iter87 benchmark readiness from committed evidence. It
+must use zero provider calls, zero spend, zero row execution, no cloud runner, no GPU, no Sentinel
+mutation, no production/live-domain mutation, and no benchmark/model/SOTA claim.

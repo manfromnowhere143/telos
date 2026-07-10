@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter87_benchmark_facing_discriminating_metric_execution_pilot` exactly as
+Run `iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot` exactly as
 frozen in
-[`../experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md`](../experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md).
+[`../experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md`](../experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -61,9 +61,12 @@ step. `iter85` then passed the zero-spend redesign gate by freezing
 completion to an admissibility gate, and keeping paid execution unauthorized. The next honest move
 was the zero-spend iter86 backtest gate. `iter86` passed: the metric was computable on all six
 committed rows, did not collapse to the saturated completion boolean, and produced mixed-direction
-diagnostic deltas. The next honest move is the bounded iter87 paid replication: execute exactly the
-six frozen rows under the `96` call and `$10.00` ceilings, then compute the discriminating metric
-without any benchmark/model/SOTA claim.
+diagnostic deltas. `iter87` then passed the bounded paid replication: it executed exactly the six
+frozen rows, used `21` provider calls and `$0.12498400`, validated all receipt-required rows, and
+computed fresh score-share deltas of Dummy `-0.01575000`, BattleSnake `0.50000000`, and
+deterministic-edit `-0.50000000`. The next honest move is the zero-spend iter88 adjudication:
+decide whether this mixed-direction evidence justifies a larger external benchmark design,
+same-slice replication, recovery, or stop decision, without any benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

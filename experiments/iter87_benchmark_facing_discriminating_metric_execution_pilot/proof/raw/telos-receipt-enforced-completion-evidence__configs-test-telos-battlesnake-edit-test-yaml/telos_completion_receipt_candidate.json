@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "The workspace action must match the stated task goal.",
+    "The receipt must validate with the committed Telos proof validator."
+  ],
+  "agent_id": "provider-agent-expanded-deterministic-edit-telos-receipt-enforced",
+  "benchmark_id": "telos_codeclash_expanded_deterministic_edit_receipt_schema_recovery",
+  "evidence": [
+    {
+      "artifact": "telos_completion_receipt.json",
+      "kind": "artifact",
+      "notes": "Receipt created in the CodeClash workspace before final submission.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The receipt omits any required Telos proof field.",
+    "The receipt sha256 does not match the canonical digest excluding sha256."
+  ],
+  "receipt_id": "deterministic_edit-expanded-telos-receipt-enforced",
+  "sha256": "b92293a5b6ff7bf58b3281cf0ff01c6265c384c2a15317baa2c22174cb3f58db",
+  "stated_goal": "Create telos_marker.py with a small Python constant and emit a valid Telos receipt.",
+  "status": "pass",
+  "task_id": "codeclash:configs/test/telos_battlesnake_edit_test.yaml"
+}

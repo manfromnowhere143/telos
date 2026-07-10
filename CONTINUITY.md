@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/HYPOTHESIS.md`
+- `experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -417,11 +417,15 @@ Current claim:
   zero spend, and zero row execution. It computed three score-share deltas from committed iter83
   metadata, found the metric computable and non-saturated but mixed-direction, and pre-registered a
   bounded six-row paid replication gate.
+- `iter87_benchmark_facing_discriminating_metric_execution_pilot` passed as a bounded six-row
+  paid pilot. It executed exactly the frozen rows, used `21` provider calls and `$0.12498400`,
+  validated all receipt-required rows, and computed fresh mixed-direction score-share deltas:
+  Dummy `-0.01575000`, BattleSnake `0.50000000`, deterministic-edit `-0.50000000`.
 - No model or benchmark result is claimed yet.
-- The next gate may only execute the six frozen CodeClash task-condition rows under the iter87
-  paid ceilings and discriminating metric. It must stay under `96` provider calls, `$10.00` total
-  spend, `16` calls per row, and `$2.00` per row; mutate no Sentinel resources; change no
-  production/live-domain behavior; and make no benchmark/model/SOTA claims.
+- The next gate may only adjudicate whether iter87 evidence justifies a larger external benchmark
+  design, same-slice replication, recovery, or stop decision. It must use zero provider calls,
+  zero spend, zero row execution, no GPU or cloud runner, mutate no Sentinel resources, change no
+  production/live-domain behavior, and make no benchmark/model/SOTA claims.
 
 ## Required Verification
 
@@ -600,6 +604,8 @@ python3 scripts/validate_receipts.py experiments/iter85_discriminating_task_metr
 python3 scripts/audit_discriminating_task_metric_redesign.py
 python3 scripts/validate_receipts.py experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof
 python3 scripts/audit_discriminating_metric_backtest_on_committed_artifacts.py
+python3 scripts/validate_receipts.py experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof
+python3 scripts/audit_benchmark_facing_discriminating_metric_execution_pilot.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
