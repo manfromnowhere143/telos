@@ -1,0 +1,46 @@
+{
+  "aggregate_benchmark_metric_authorized": false,
+  "all_task_surface_deltas_zero": true,
+  "deltas": [
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-dummy-yaml",
+      "baseline_provider_api_calls": 5,
+      "baseline_provider_cost_usd": "0.01083400",
+      "baseline_verified_completion_evidence": true,
+      "delta_telos_minus_baseline": 0,
+      "task_surface": "dummy",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-dummy-yaml",
+      "telos_provider_api_calls": 3,
+      "telos_provider_cost_usd": "0.01763200",
+      "telos_verified_completion_evidence": true
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "baseline_provider_api_calls": 4,
+      "baseline_provider_cost_usd": "0.02179000",
+      "baseline_verified_completion_evidence": true,
+      "delta_telos_minus_baseline": 0,
+      "task_surface": "battlesnake",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-battlesnake-pvp-test-yaml",
+      "telos_provider_api_calls": 5,
+      "telos_provider_cost_usd": "0.04476400",
+      "telos_verified_completion_evidence": true
+    },
+    {
+      "baseline_pair_id": "baseline-agent-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "baseline_provider_api_calls": 2,
+      "baseline_provider_cost_usd": "0.00375600",
+      "baseline_verified_completion_evidence": true,
+      "delta_telos_minus_baseline": 0,
+      "task_surface": "deterministic_edit",
+      "telos_pair_id": "telos-receipt-enforced-completion-evidence__configs-test-telos-battlesnake-edit-test-yaml",
+      "telos_provider_api_calls": 2,
+      "telos_provider_cost_usd": "0.01441800",
+      "telos_verified_completion_evidence": true
+    }
+  ],
+  "experiment_id": "iter84_benchmark_facing_null_signal_adjudication",
+  "interpretable_protocol_effect_signal": false,
+  "metric_id": "verified_completion_evidence_by_task_and_condition",
+  "schema_version": "telos.benchmark_facing_null_signal.delta_table.v1"
+}

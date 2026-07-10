@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md`
+- `experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -406,9 +406,13 @@ Current claim:
   calls and `$0.11319400`, all row artifacts and receipts stayed under the `96` call and `$10.00`
   ceilings, and Dummy, BattleSnake, and deterministic-edit Telos-minus-baseline deltas were all
   `0`.
+- `iter84_benchmark_facing_null_signal_adjudication` passed with zero provider calls, zero spend,
+  and zero row execution. It classified the iter83 null/no-signal result as
+  `verified_completion_metric_saturated`, selected `redesign_task_metric` as the next step, and
+  kept the null/no-signal blocker visible.
 - No model or benchmark result is claimed yet.
-- The next gate may only adjudicate the iter83 null/no-signal result from committed evidence. It
-  must use zero provider calls, zero spend, no row execution, no GPU or cloud runner, mutate no
+- The next gate may only redesign the task/metric contract from committed iter83/iter84 evidence.
+  It must use zero provider calls, zero spend, no row execution, no GPU or cloud runner, mutate no
   Sentinel resources, change no production/live-domain behavior, and make no benchmark/model/SOTA
   claims.
 
@@ -583,6 +587,8 @@ python3 scripts/validate_receipts.py experiments/iter82_benchmark_facing_protoco
 python3 scripts/audit_benchmark_facing_protocol_effect_slice_design.py
 python3 scripts/validate_receipts.py experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof
 python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py
+python3 scripts/validate_receipts.py experiments/iter84_benchmark_facing_null_signal_adjudication/proof
+python3 scripts/audit_benchmark_facing_null_signal_adjudication.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

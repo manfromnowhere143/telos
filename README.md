@@ -307,9 +307,14 @@ and an adversarial review pass.
   all three Telos-minus-baseline verified-completion deltas were `0`; no benchmark/model/SOTA claim
   occurred in
   [`experiments/iter83_benchmark_facing_protocol_effect_execution_pilot`](experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/RESULT.md).
-- Current gate: benchmark-facing null-signal adjudication,
+- Benchmark-facing null-signal adjudication: passed with zero provider calls, zero spend, and zero
+  row execution. It classified the iter83 null/no-signal result as
+  `verified_completion_metric_saturated`, selected `redesign_task_metric` as the next step, and
+  made no benchmark/model/SOTA claim in
+  [`experiments/iter84_benchmark_facing_null_signal_adjudication`](experiments/iter84_benchmark_facing_null_signal_adjudication/RESULT.md).
+- Current gate: discriminating task/metric redesign,
   pre-registered in
-  [`experiments/iter84_benchmark_facing_null_signal_adjudication`](experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md).
+  [`experiments/iter85_discriminating_task_metric_redesign`](experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, and one bounded six-row null/no-signal pilot; none is a benchmark result.

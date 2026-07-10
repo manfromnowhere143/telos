@@ -1,0 +1,30 @@
+{
+  "accepted_path": {
+    "kind": "task_metric_redesign",
+    "provider_calls": 0,
+    "provider_spend_usd": "0.00000000",
+    "row_execution": 0,
+    "why": "prevents another paid run against a non-discriminating saturated metric"
+  },
+  "classification_source": "verified_completion_metric_saturated",
+  "decision": "redesign_task_metric",
+  "decision_rationale": "The execution harness is working, but verified-completion evidence saturated across all three task surfaces. The next informative step is to redesign the task/metric contract before another paid run.",
+  "experiment_id": "iter84_benchmark_facing_null_signal_adjudication",
+  "next_gate": "experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md",
+  "next_gate_pre_registered": true,
+  "rejected_paths": [
+    {
+      "kind": "same_metric_replication",
+      "why_rejected_now": "replicating the saturated verified-completion boolean would likely add cost without addressing the diagnostic weakness"
+    },
+    {
+      "kind": "stop",
+      "why_rejected_now": "the local evidence loop and provider harness are working; the correct problem is task/metric discrimination, not mission completion"
+    },
+    {
+      "kind": "broader_paid_execution",
+      "why_rejected_now": "larger paid execution is unjustified until the metric can distinguish protocol effect from ordinary completion"
+    }
+  ],
+  "schema_version": "telos.benchmark_facing_null_signal.next_step_decision.v1"
+}

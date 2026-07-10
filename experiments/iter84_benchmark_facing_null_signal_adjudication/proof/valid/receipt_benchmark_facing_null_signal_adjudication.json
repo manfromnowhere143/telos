@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "Iter83 receipt and audit validation pass.",
+    "The iter83 no-signal blocker remains visible.",
+    "Exact iter83 row, call, cost, receipt, and raw-artifact accounting is reproduced.",
+    "The next step decision is justified from committed evidence.",
+    "No provider calls, spend, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, leaderboard, SWE-bench, model-superiority, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-null-signal-adjudicator",
+  "benchmark_id": "telos_codeclash_protocol_effect_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records iter83 validation, null classification, and next gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/delta_table.json",
+      "kind": "artifact",
+      "notes": "Per-task deltas preserve the all-zero signal.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/next_step_decision.json",
+      "kind": "artifact",
+      "notes": "Decision freezes task/metric redesign before further paid execution.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter84_benchmark_facing_null_signal_adjudication/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-claim boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter83 validation fails.",
+    "The result must fail if provider calls, spend, or row execution occur in iter84.",
+    "The result must fail if the iter83 null/no-signal blocker is hidden or rebranded as a win.",
+    "The result must fail if unsupported benchmark, model-superiority, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter84-benchmark-facing-null-signal-adjudication-pass",
+  "sha256": "8739a93e2bc3494acec79aa9adc56ad24247ccb008b042c0db63c50a7458c28d",
+  "stated_goal": "Adjudicate the iter83 six-row null/no-signal result without provider calls or benchmark/model/SOTA claims.",
+  "status": "pass",
+  "task_id": "telos:iter84_benchmark_facing_null_signal_adjudication@iter83"
+}

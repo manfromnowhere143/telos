@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter84_benchmark_facing_null_signal_adjudication` exactly as
+Run `iter85_discriminating_task_metric_redesign` exactly as
 frozen in
-[`../experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md`](../experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md).
+[`../experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md`](../experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -54,8 +54,10 @@ provider-call ceiling, `$10.00` total spend ceiling, `$2.00` per-row spend ceili
 SWE-bench Verified retained only as a receipt-field anchor. `iter83` then executed exactly those
 six selected rows, used 21 provider calls and `$0.11319400`, and published blocked/null evidence:
 Dummy, BattleSnake, and deterministic-edit Telos-minus-baseline verified-completion deltas were
-all `0`. The next honest move is the zero-spend iter84 adjudication gate: classify the null signal
-from committed artifacts and freeze a replication, task/metric redesign, or stop/review decision.
+all `0`. `iter84` then passed the zero-spend adjudication gate by classifying that null/no-signal
+result as `verified_completion_metric_saturated` and selecting `redesign_task_metric` as the next
+step. The next honest move is the zero-spend iter85 redesign gate: specify a more discriminating
+task/metric contract from committed evidence before any further paid execution or benchmark claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

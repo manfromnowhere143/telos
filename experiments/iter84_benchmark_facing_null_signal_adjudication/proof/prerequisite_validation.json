@@ -1,0 +1,50 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter83 benchmark-facing protocol-effect execution pilot audit: clean artifact packet",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter84_benchmark_facing_null_signal_adjudication",
+  "iter83_audit_returncode": 0,
+  "iter83_blocked_result": true,
+  "iter83_blockers": [
+    "no_interpretable_telos_minus_baseline_signal"
+  ],
+  "iter83_executed_pair_count": 6,
+  "iter83_failures": [],
+  "iter83_null_result": true,
+  "iter83_provider_api_calls": 21,
+  "iter83_provider_cost_usd": "0.11319400",
+  "iter83_receipt_validation_returncode": 0,
+  "iter83_status": "blocked",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.benchmark_facing_null_signal.prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/run_summary.json",
+      "sha256": "11a964bbf24ad221f0b92de779822da78498cc394671627031dff9dd23b2b810"
+    },
+    {
+      "path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/protocol_effect_report.json",
+      "sha256": "a3bd158f09d61ccdaa83cc47977b5d251c862456696fd95fd73eb2b59311ec50"
+    },
+    {
+      "path": "experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof/valid/receipt_benchmark_facing_protocol_effect_execution_pilot.json",
+      "sha256": "50db853ab8455beb9b30627c083554215fc387224d0b305e7993533352de4126"
+    }
+  ]
+}

@@ -388,6 +388,14 @@ Current evidence:
 - `experiments/iter84_benchmark_facing_null_signal_adjudication/HYPOTHESIS.md`
   pre-registers the next zero-spend adjudication gate. It may only classify the iter83 null signal
   and freeze a replication, task/metric redesign, or stop/review decision from committed evidence.
+- `experiments/iter84_benchmark_facing_null_signal_adjudication/RESULT.md` passes that zero-spend
+  adjudication gate. It classified the iter83 null/no-signal result as
+  `verified_completion_metric_saturated`, selected `redesign_task_metric` as the next step, made
+  zero provider calls, spent `$0.00`, executed zero rows, and made no
+  benchmark/model/state-of-the-art claim.
+- `experiments/iter85_discriminating_task_metric_redesign/HYPOTHESIS.md`
+  pre-registers the next zero-spend design gate. It may only redesign the task/metric contract
+  from committed iter83/iter84 evidence before any further paid execution or benchmark claim.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

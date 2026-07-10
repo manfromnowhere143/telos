@@ -529,6 +529,12 @@ jobs:
       - name: Benchmark-facing protocol-effect execution pilot audit
         run: python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py
 
+      - name: Benchmark-facing null-signal adjudication receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter84_benchmark_facing_null_signal_adjudication/proof
+
+      - name: Benchmark-facing null-signal adjudication audit
+        run: python3 scripts/audit_benchmark_facing_null_signal_adjudication.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 
