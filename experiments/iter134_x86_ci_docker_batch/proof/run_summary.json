@@ -1,0 +1,38 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "experiment_id": "iter134_x86_ci_docker_batch",
+    "finding": "on the native-x86 CI runner the Docker batch ran cleanly - all three natively-blocked old sympy instances resolved (base fails with the real bug, gold passes) in pinned environments, closing the operational item iter133 identified; the local arm64-emulation failure was an environment bound, not a method one",
+    "gold_resolution_count": 3,
+    "gold_resolution_rate": "1.00000000",
+    "instance_count": 3,
+    "per_instance": [
+      {
+        "base_fails": true,
+        "gold_passes": true,
+        "instance_id": "sympy__sympy-13480",
+        "pulled": true,
+        "resolved": true
+      },
+      {
+        "base_fails": true,
+        "gold_passes": true,
+        "instance_id": "sympy__sympy-13615",
+        "pulled": true,
+        "resolved": true
+      },
+      {
+        "base_fails": true,
+        "gold_passes": true,
+        "instance_id": "sympy__sympy-12481",
+        "pulled": true,
+        "resolved": true
+      }
+    ],
+    "runner": "GitHub Actions ubuntu-latest (native x86, no emulation)",
+    "schema_version": "telos.x86_ci_docker_batch.endpoints.v1"
+  },
+  "experiment_id": "iter134_x86_ci_docker_batch",
+  "schema_version": "telos.x86_ci_docker_batch.summary.v1",
+  "status": "pass"
+}

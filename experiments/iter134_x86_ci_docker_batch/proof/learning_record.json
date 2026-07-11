@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter134_x86_ci_docker_batch/proof/endpoint_results.json",
+    "experiments/iter134_x86_ci_docker_batch/proof/ci_batch_results.json"
+  ],
+  "experiment_id": "iter134_x86_ci_docker_batch",
+  "insight": "on the native-x86 CI runner the Docker batch resolved 3/3 natively-blocked old sympy instances (base fails, gold passes) in pinned environments, confirming the harness batches at cross-repo scale on the correct execution environment; the iter133 local-batch failure was an arm64-emulation bound, not a method one",
+  "next_action": "scale the x86 CI Docker batch to more environment-fidelity-blocked instances and run the property-layer harness inside the pinned containers to measure the property genuine-sound rate at full cross-repo scale",
+  "result_path": "experiments/iter134_x86_ci_docker_batch/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

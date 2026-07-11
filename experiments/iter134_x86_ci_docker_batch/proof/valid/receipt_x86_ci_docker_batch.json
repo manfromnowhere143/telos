@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "The x86 workflow pulled the official SWE-bench images.",
+    "Each blocked instance's hidden test fails on base and passes on gold in its pinned container.",
+    "The result is what the workflow actually produced, not a claimed rate."
+  ],
+  "agent_id": "codex-github-actions-x86-docker-batch",
+  "benchmark_id": "swebench_verified_x86_ci_docker_batch_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter134_x86_ci_docker_batch/proof/ci_batch_results.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter134_x86_ci_docker_batch/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record a runner-resource cause if the workflow fails, not a method failure.",
+    "Do not claim a gold-resolution count the workflow did not produce."
+  ],
+  "receipt_id": "iter134-x86-ci-docker-batch-pass",
+  "sha256": "c26899270241187d1c9ad82b92fcf4b72beb9273cbe892f91f8af4081cad74ba",
+  "stated_goal": "Run the SWE-bench Docker batch on a native-x86 CI runner and confirm gold resolution across blocked instances.",
+  "status": "pass",
+  "task_id": "telos:iter134_x86_ci_docker_batch"
+}
