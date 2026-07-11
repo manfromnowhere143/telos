@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "The property-based method holds on sympy math functions under real execution.",
+    "The bounds blocking instance-level cross-repo scale are recorded concretely.",
+    "A numeric-precision artifact is distinguished from a real property failure."
+  ],
+  "agent_id": "codex-local-cross-repo-widening-executor",
+  "benchmark_id": "swebench_verified_cross_repo_widening_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter130_cross_repo_widening/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter130_cross_repo_widening/proof/sympy_identity_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Distinguish a real identity failure from a numeric-precision artifact.",
+    "Name the concrete blocker rather than claim instance-level success."
+  ],
+  "receipt_id": "iter130-cross-repo-widening-pass",
+  "sha256": "196fb50b92ccf7519a94a682cc629f6001029103db85c787824fa7c6f0fd27cd",
+  "stated_goal": "Widen the property-based layer beyond django and record the bounds cross-repo widening hits.",
+  "status": "pass",
+  "task_id": "telos:iter130_cross_repo_widening"
+}

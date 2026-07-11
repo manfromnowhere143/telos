@@ -1,0 +1,12 @@
+{
+  "repo": "sympy/sympy",
+  "sympy_version": "1.12.dev",
+  "python": "3.11.15",
+  "execution": "real native execution on modern sympy",
+  "identities": [
+    {"name": "coth_odd", "property": "coth(-x) == -coth(x)", "function_type": "transform", "strategy": "contract_property", "violations": 0, "samples": 25, "sound": true},
+    {"name": "coth_reciprocal", "property": "coth(x)*tanh(x) == 1", "function_type": "transform", "strategy": "contract_property", "violations": 0, "samples": 25, "sound": true},
+    {"name": "cosh_even", "property": "cosh(-x) == cosh(x)", "function_type": "transform", "strategy": "contract_property", "violations": 0, "samples": 25, "sound": true},
+    {"name": "pythagorean", "property": "cosh(x)**2 - sinh(x)**2 == 1", "function_type": "transform", "strategy": "contract_property", "violations": 1, "samples": 24, "sound": false, "note": "float-precision false positive at a large argument; the identity is exact symbolically, so numeric property checking needs symbolic evaluation or per-function tolerance"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter130_cross_repo_widening/proof/endpoint_results.json",
+    "experiments/iter130_cross_repo_widening/proof/sympy_identity_results.json"
+  ],
+  "experiment_id": "iter130_cross_repo_widening",
+  "insight": "the property-based method generalizes cross-repo (3/4 sympy hyperbolic identities sound under real execution) but instance-level cross-repo scale hits a compound bound - environment fidelity (old instances need Python <=3.9), applicability (modern instances are edge-case fixes not clean functions), and numeric-vs-symbolic precision - which is exactly what the Docker harness and symbolic checking would resolve",
+  "next_action": "adopt symbolic property evaluation (exact equality) to remove numeric-precision artifacts, and scope the Docker harness as the path to full cross-repo instance coverage",
+  "result_path": "experiments/iter130_cross_repo_widening/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

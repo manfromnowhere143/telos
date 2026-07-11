@@ -1,0 +1,20 @@
+{
+  "benchmark_or_sota_claim": false,
+  "experiment_id": "iter130_cross_repo_widening",
+  "finding": "the property-based method generalizes to sympy math functions under real execution; instance-level cross-repo scale is bounded by a compound of environment fidelity, the single-function applicability criterion, and numeric-vs-symbolic precision - which is why the Docker harness is required for full dataset coverage",
+  "identities_sound": 3,
+  "identities_tested": 4,
+  "method_generality_rate": "0.75000000",
+  "numeric_precision_artifacts": [
+    "pythagorean"
+  ],
+  "repo": "sympy/sympy",
+  "scaling_bounds": {
+    "applicability": "modern sympy instances that do run are edge-case bug fixes, not clean single testable functions, so they fail the iter129 single-function applicability criterion",
+    "environment_fidelity": "clean single-function sympy instances are pre-3.10 and use removed stdlib (collections.Mapping); they need Python <= 3.9, which is unavailable, so only modern instances run natively - the same wall the official SWE-bench Docker harness solves with pinned per-instance Python",
+    "numeric_vs_symbolic": "numeric property checking produced one false positive on an exact identity at a large argument; sound numeric checking needs symbolic evaluation or per-function tolerance"
+  },
+  "schema_version": "telos.cross_repo_widening.endpoints.v1",
+  "strategy_all_contract_property": true,
+  "sympy_version": "1.12.dev"
+}
