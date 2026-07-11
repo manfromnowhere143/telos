@@ -2,7 +2,7 @@
 
 No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
 protocol-effect pilot result from `iter64` and a controlled completion-verification fixture suite
-through `iter97`; neither is a benchmark result and neither supports a model-superiority or
+through `iter98`; neither is a benchmark result and neither supports a model-superiority or
 state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -510,6 +510,12 @@ Current evidence:
 - `experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md`
   pre-registers the next zero-spend design gate: build a sharper suite targeting cases where
   external verifier and complete Telos should diverge.
+- `experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/RESULT.md`
+  passes that zero-spend design gate. It freezes `8` differential target families and `16` planned
+  fixtures for later materialization, with expected divergence recorded only as a hypothesis and no
+  benchmark/model/state-of-the-art claim.
+- `experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md`
+  pre-registers the next zero-spend materialization gate for the `16` planned fixtures.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

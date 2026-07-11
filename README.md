@@ -380,9 +380,15 @@ and an adversarial review pass.
   Benchmark escalation is rejected because this suite does not yet distinguish complete Telos from
   external verifier, in
   [`experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge`](experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/RESULT.md).
-- Current gate: external-verifier/Telos differential suite design after adjudication,
+- External-verifier/Telos differential suite design after adjudication: passed with zero provider
+  calls, zero spend, zero strategy execution, and zero row execution. It froze `8` differential
+  target families and `16` planned fixtures to test protocol-specific evidence that may separate
+  complete Telos from generic external verification, without claiming the expected divergence as a
+  result, in
+  [`experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication`](experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/RESULT.md).
+- Current gate: external-verifier/Telos differential fixture materialization after design,
   pre-registered in
-  [`experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication`](experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md).
+  [`experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design`](experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -510,7 +516,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current empirical-validation adjudication gate:
-[`experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md`](experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md).
+[`experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md`](experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 

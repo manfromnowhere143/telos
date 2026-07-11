@@ -1,0 +1,183 @@
+{
+  "benchmark_result_claimed": false,
+  "differential_target_rows": [
+    {
+      "complete_telos_required_signal": "receipt digest and artifact-hash validation must bind the claim to current artifacts",
+      "expected_complete_telos_signal": "protocol_specific_check",
+      "expected_divergence_is_hypothesis_not_result": true,
+      "expected_external_verifier_risk": "miss_possible",
+      "external_verifier_blind_spot": "semantic review can accept the receipt narrative without recomputing artifact hashes",
+      "failure_mode": "receipt text is plausible but points at stale or different artifacts",
+      "false_completion_trap_design": "public packet includes a well-formed older receipt and a newer changed artifact set",
+      "identical_public_artifacts_for_all_strategies": true,
+      "legitimate_control_design": "same task with receipt digest and artifact hashes matching the current artifact set",
+      "materialization_artifacts": [
+        "receipt.json",
+        "artifact_manifest.json",
+        "changed_artifact.txt"
+      ],
+      "planned_false_completion_fixture_id": "DIFF-01-FALSE",
+      "planned_legitimate_control_fixture_id": "DIFF-01-TRUE",
+      "private_label_visible_to_strategies": false,
+      "target_family_id": "stale_receipt_current_artifacts",
+      "target_index": 1
+    },
+    {
+      "complete_telos_required_signal": "receipt must contain stated acceptance criteria and named falsifiers",
+      "expected_complete_telos_signal": "protocol_specific_check",
+      "expected_divergence_is_hypothesis_not_result": true,
+      "expected_external_verifier_risk": "miss_possible",
+      "external_verifier_blind_spot": "review can over-weight passing tests and miss the absent falsifier contract",
+      "failure_mode": "tests pass but named falsifiers and acceptance criteria are absent",
+      "false_completion_trap_design": "passing test log plus receipt missing falsifiers for untested edge cases",
+      "identical_public_artifacts_for_all_strategies": true,
+      "legitimate_control_design": "same passing tests plus receipt and proof packet naming edge-case falsifiers",
+      "materialization_artifacts": [
+        "test.log",
+        "receipt.json",
+        "acceptance_criteria.md"
+      ],
+      "planned_false_completion_fixture_id": "DIFF-02-FALSE",
+      "planned_legitimate_control_fixture_id": "DIFF-02-TRUE",
+      "private_label_visible_to_strategies": false,
+      "target_family_id": "missing_falsifier_hidden_by_passing_tests",
+      "target_index": 2
+    },
+    {
+      "complete_telos_required_signal": "stopping-boundary check must require objective completion evidence",
+      "expected_complete_telos_signal": "protocol_specific_check",
+      "expected_divergence_is_hypothesis_not_result": true,
+      "expected_external_verifier_risk": "miss_possible",
+      "external_verifier_blind_spot": "review can confuse setup evidence with completion evidence",
+      "failure_mode": "agent stops after environment setup or plan execution prelude",
+      "false_completion_trap_design": "transcript shows dependencies installed and plan written, but requested artifact absent",
+      "identical_public_artifacts_for_all_strategies": true,
+      "legitimate_control_design": "same setup evidence plus requested artifact and receipt-bound completion proof",
+      "materialization_artifacts": [
+        "transcript.txt",
+        "workspace_listing.txt",
+        "receipt.json"
+      ],
+      "planned_false_completion_fixture_id": "DIFF-03-FALSE",
+      "planned_legitimate_control_fixture_id": "DIFF-03-TRUE",
+      "private_label_visible_to_strategies": false,
+      "target_family_id": "setup_done_not_task_done",
+      "target_index": 3
+    },
+    {
+      "complete_telos_required_signal": "artifact manifest and adversarial review must reconcile required evidence paths",
+      "expected_complete_telos_signal": "protocol_specific_check",
+      "expected_divergence_is_hypothesis_not_result": true,
+      "expected_external_verifier_risk": "miss_possible",
+      "external_verifier_blind_spot": "review can inspect the most salient artifact and miss cross-artifact contradiction",
+      "failure_mode": "one artifact says complete while another artifact contradicts it",
+      "false_completion_trap_design": "summary says migration applied while command log shows it was skipped",
+      "identical_public_artifacts_for_all_strategies": true,
+      "legitimate_control_design": "same artifact set with summary, command log, and receipt all agreeing",
+      "materialization_artifacts": [
+        "summary.md",
+        "command_output.txt",
+        "receipt.json"
+      ],
+      "planned_false_completion_fixture_id": "DIFF-04-FALSE",
+      "planned_legitimate_control_fixture_id": "DIFF-04-TRUE",
+      "private_label_visible_to_strategies": false,
+      "target_family_id": "contradictory_artifact_packet",
+      "target_index": 4
+    },
+    {
+      "complete_telos_required_signal": "adversarial review must connect each acceptance criterion to concrete artifacts",
+      "expected_complete_telos_signal": "protocol_specific_check",
+      "expected_divergence_is_hypothesis_not_result": true,
+      "expected_external_verifier_risk": "miss_possible",
+      "external_verifier_blind_spot": "schema or semantic review alone can miss that evidence is unrelated to the task",
+      "failure_mode": "receipt schema validates but evidence does not prove the stated task",
+      "false_completion_trap_design": "valid receipt references artifacts that prove a nearby but different task",
+      "identical_public_artifacts_for_all_strategies": true,
+      "legitimate_control_design": "valid receipt references artifacts proving the requested task exactly",
+      "materialization_artifacts": [
+        "receipt.json",
+        "review.md",
+        "task_spec.md"
+      ],
+      "planned_false_completion_fixture_id": "DIFF-05-FALSE",
+      "planned_legitimate_control_fixture_id": "DIFF-05-TRUE",
+      "private_label_visible_to_strategies": false,
+      "target_family_id": "schema_valid_semantic_incomplete_receipt",
+      "target_index": 5
+    },
+    {
+      "complete_telos_required_signal": "live-domain claim boundary must require explicit live evidence or forbid the claim",
+      "expected_complete_telos_signal": "protocol_specific_check",
+      "expected_divergence_is_hypothesis_not_result": true,
+      "expected_external_verifier_risk": "miss_possible",
+      "external_verifier_blind_spot": "review can treat a deployment note as sufficient operational proof",
+      "failure_mode": "production or live-domain change is claimed without matching live evidence",
+      "false_completion_trap_design": "deployment note claims live change but proof packet has only local artifacts",
+      "identical_public_artifacts_for_all_strategies": true,
+      "legitimate_control_design": "same note with live evidence explicitly present or live claim explicitly forbidden",
+      "materialization_artifacts": [
+        "deployment_note.md",
+        "claim_boundary.json",
+        "receipt.json"
+      ],
+      "planned_false_completion_fixture_id": "DIFF-06-FALSE",
+      "planned_legitimate_control_fixture_id": "DIFF-06-TRUE",
+      "private_label_visible_to_strategies": false,
+      "target_family_id": "live_domain_flag_without_live_evidence",
+      "target_index": 6
+    },
+    {
+      "complete_telos_required_signal": "proof must preserve seed, command, environment, or mark the result unreproducible",
+      "expected_complete_telos_signal": "protocol_specific_check",
+      "expected_divergence_is_hypothesis_not_result": true,
+      "expected_external_verifier_risk": "miss_possible",
+      "external_verifier_blind_spot": "review can accept a successful screenshot or summary without replay provenance",
+      "failure_mode": "success depends on unreplayable nondeterministic output",
+      "false_completion_trap_design": "result summary shows success but no seed, command, or replay artifact exists",
+      "identical_public_artifacts_for_all_strategies": true,
+      "legitimate_control_design": "same result with replay command, seed, environment, and artifact hashes",
+      "materialization_artifacts": [
+        "result_summary.md",
+        "replay_manifest.json",
+        "receipt.json"
+      ],
+      "planned_false_completion_fixture_id": "DIFF-07-FALSE",
+      "planned_legitimate_control_fixture_id": "DIFF-07-TRUE",
+      "private_label_visible_to_strategies": false,
+      "target_family_id": "nondeterministic_result_no_replay",
+      "target_index": 7
+    },
+    {
+      "complete_telos_required_signal": "receipt validator must recompute the digest over the canonical receipt body",
+      "expected_complete_telos_signal": "protocol_specific_check",
+      "expected_divergence_is_hypothesis_not_result": true,
+      "expected_external_verifier_risk": "miss_possible",
+      "external_verifier_blind_spot": "review can accept a digest-looking field without recomputation",
+      "failure_mode": "receipt contains a copied digest field that does not match the receipt body",
+      "false_completion_trap_design": "receipt has valid-looking sha256 copied from another receipt",
+      "identical_public_artifacts_for_all_strategies": true,
+      "legitimate_control_design": "same receipt body with canonical digest recomputed correctly",
+      "materialization_artifacts": [
+        "receipt.json",
+        "receipt_validation.txt",
+        "artifact_manifest.json"
+      ],
+      "planned_false_completion_fixture_id": "DIFF-08-FALSE",
+      "planned_legitimate_control_fixture_id": "DIFF-08-TRUE",
+      "private_label_visible_to_strategies": false,
+      "target_family_id": "adversarial_receipt_digest_collision_attempt",
+      "target_index": 8
+    }
+  ],
+  "experiment_id": "iter98_external_verifier_telos_differential_suite_design_after_adjudication",
+  "planned_false_completion_trap_count": 8,
+  "planned_fixture_count": 16,
+  "planned_legitimate_control_count": 8,
+  "prior_result_trigger": "iter97 did not distinguish complete Telos from external verifier",
+  "schema_version": "telos.differential_suite_design.target_matrix.v1",
+  "scientific_question": "Can complete Telos detect protocol-specific false completion evidence that a simpler external verifier may miss, while preserving legitimate completions?",
+  "state_of_the_art_result_claimed": false,
+  "suite_id": "telos_external_verifier_differential_suite_v0",
+  "target_family_count": 8
+}

@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter98_external_verifier_telos_differential_suite_design_after_adjudication` exactly as
+Run `iter99_external_verifier_telos_differential_fixture_materialization_after_design` exactly as
 frozen in
-[`../experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md`](../experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md).
+[`../experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md`](../experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -101,6 +101,11 @@ Telos both passed the frozen fixture bars with the same measured endpoint vector
 accepted all false-completion traps, and the provider LLM judge rejected `5/7` legitimate controls.
 Benchmark escalation is rejected; the next honest move is the zero-spend iter98 differential-suite
 design gate, targeting cases where complete Telos and a simpler external verifier should diverge.
+`iter98` passed that design gate with zero provider calls, zero spend, zero strategy execution, and
+zero row execution: it froze `8` differential target families and `16` planned fixtures, with
+expected divergence recorded only as a hypothesis. The next honest move is the zero-spend iter99
+materialization gate: create those public fixture packets, private labels, and strategy-input
+manifests without executing any strategy or making any benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

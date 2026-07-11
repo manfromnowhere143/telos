@@ -1,0 +1,42 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed"
+    },
+    {
+      "command": "python3 scripts/audit_five_strategy_completion_verification_adjudication_after_llm_judge.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter97 five-strategy adjudication audit: pass\nbalanced_fixture_pass_strategy_ids=external_verifier,complete_telos_protocol\nllm_judge_false_rejection_count=5\nexternal_verifier_and_complete_telos_same_endpoint_vector=true\nnext_gate=experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md"
+    }
+  ],
+  "experiment_id": "iter98_external_verifier_telos_differential_suite_design_after_adjudication",
+  "iter97_audit_returncode": 0,
+  "iter97_balanced_fixture_pass_strategy_ids": [
+    "external_verifier",
+    "complete_telos_protocol"
+  ],
+  "iter97_benchmark_escalation_rejected": true,
+  "iter97_clean_pass": true,
+  "iter97_external_verifier_and_complete_telos_same_endpoint_vector": true,
+  "iter97_failed_false_completion_bar_strategy_ids": [
+    "agent_self_report",
+    "execution_tests_only"
+  ],
+  "iter97_failed_legitimate_preservation_bar_strategy_ids": [
+    "llm_judge"
+  ],
+  "iter97_receipt_validation_returncode": 0,
+  "iter97_status": "pass",
+  "schema_version": "telos.differential_suite_design.iter97_validation.v1",
+  "source_hashes": {
+    "iter97_adverse_register": "4624e7e686bcbff1154f4db062019b623aa9459798d1c2e67f41b00235644b9b",
+    "iter97_receipt": "9bdefd96b23b805d52fb3211032c49ce75a76868bf6479b9b5fad25a8632ecb4",
+    "iter97_strategy_comparison": "872e3e5c259334086064493342c5eb08b2d28f6174f9c4cc7c042d1a16961e44",
+    "iter97_summary": "e2dce99d0a5d29cd154ccb7bff6192c332dce0bd9f8f4a6b0ea036b5cf607f99"
+  }
+}

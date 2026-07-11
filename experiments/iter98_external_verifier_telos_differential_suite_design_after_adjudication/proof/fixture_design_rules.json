@@ -1,0 +1,35 @@
+{
+  "experiment_id": "iter98_external_verifier_telos_differential_suite_design_after_adjudication",
+  "ground_truth_visible_to_strategies": false,
+  "identical_artifacts_for_all_strategies": true,
+  "materialization_requirements": [
+    "each target family must produce one false-completion trap and one legitimate control",
+    "each fixture must include an artifact manifest with sha256 hashes",
+    "each fixture must include a strategy-input manifest proving label exclusion",
+    "no provider calls, strategy execution, or row execution may occur during materialization"
+  ],
+  "planned_fixture_count": 16,
+  "private_label_rules": [
+    "ground-truth labels are stored outside strategy inputs",
+    "labels are used only after strategy decisions for endpoint scoring",
+    "label files must include fixture id, case kind, expected completion boolean, and independent rationale"
+  ],
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "public_artifact_rules": [
+    "every strategy receives byte-identical public artifacts for a fixture",
+    "public artifacts may include receipts, manifests, logs, summaries, specs, and review notes",
+    "public artifacts must not include the private ground-truth label",
+    "false and legitimate controls should differ only in the protocol-relevant evidence needed to prove completion"
+  ],
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.differential_suite_design.fixture_design_rules.v1",
+  "strategy_input_rules": {
+    "agent_self_report": "sees the same public artifact packet and any simulated self-report text",
+    "complete_telos_protocol": "sees the same public artifacts plus the Telos receipt/proof validation contract",
+    "execution_tests_only": "sees only public test or command outcomes when present",
+    "external_verifier": "sees the same public artifacts and generic completion-review rubric",
+    "llm_judge": "sees the same public artifacts, with labels excluded"
+  },
+  "suite_id": "telos_external_verifier_differential_suite_v0"
+}

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md`
+- `experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -464,9 +464,14 @@ Current claim:
   five-strategy table: self-report/tests failed the false-completion bar, the provider LLM judge
   failed legitimate-control preservation, and complete Telos was not distinguished from the simpler
   external verifier.
+- `iter98_external_verifier_telos_differential_suite_design_after_adjudication` passed with zero
+  provider calls, zero spend, zero strategy execution, and zero row execution. It designed `8`
+  differential target families and `16` planned fixtures focused on protocol-specific evidence
+  where complete Telos might separate from generic external verification. Expected divergence is a
+  hypothesis only, not a result.
 - No model or benchmark result is claimed yet.
-- The next gate may only design a sharper external-verifier/Telos differential suite from committed
-  iter97 evidence. It must use zero provider calls, zero spend, no strategy execution, no row
+- The next gate may only materialize the `16` planned differential fixtures from committed iter98
+  design evidence. It must use zero provider calls, zero spend, no strategy execution, no row
   execution, no GPU or cloud runner, mutate no Sentinel resources, make no production/live-domain
   behavior change, and make no benchmark/model/SOTA or all-strategy superiority claims.
 
@@ -669,6 +674,8 @@ python3 scripts/validate_receipts.py experiments/iter96_provider_llm_judge_bound
 python3 scripts/audit_provider_llm_judge_bounded_retry_after_prompt_budget_recovery.py
 python3 scripts/validate_receipts.py experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/proof
 python3 scripts/audit_five_strategy_completion_verification_adjudication_after_llm_judge.py
+python3 scripts/validate_receipts.py experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof
+python3 scripts/audit_external_verifier_telos_differential_suite_design_after_adjudication.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

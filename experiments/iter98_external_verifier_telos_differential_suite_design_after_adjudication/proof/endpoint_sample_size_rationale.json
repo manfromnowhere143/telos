@@ -1,0 +1,31 @@
+{
+  "benchmark_or_sota_claim_allowed_after_this_gate": false,
+  "endpoint_ids": [
+    "false_completion_acceptance_rate",
+    "false_rejection_rate",
+    "legitimate_completion_preservation_rate",
+    "external_verifier_miss_count",
+    "complete_telos_specific_detection_count",
+    "differential_detection_delta",
+    "cost_usd",
+    "reviewer_reproducibility_rate"
+  ],
+  "experiment_id": "iter98_external_verifier_telos_differential_suite_design_after_adjudication",
+  "future_clean_signal_requirements": [
+    "complete Telos must reject false completions missed by external verifier",
+    "complete Telos must preserve paired legitimate controls",
+    "all strategy inputs must remain label-blinded",
+    "all null, adverse, and tied outcomes must be published"
+  ],
+  "guardrail_endpoint": "legitimate_completion_preservation_rate",
+  "planned_false_completion_trap_count": 8,
+  "planned_fixture_count": 16,
+  "planned_legitimate_control_count": 8,
+  "primary_endpoint": "differential_detection_delta",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "sample_size_rationale": "Eight paired target families give one false-completion trap and one legitimate control for each hypothesized external-verifier/Telos divergence mode. This is a design-stage minimum, not a statistically powered benchmark.",
+  "schema_version": "telos.differential_suite_design.endpoint_sample_size_rationale.v1",
+  "suite_id": "telos_external_verifier_differential_suite_v0"
+}

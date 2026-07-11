@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "iter97 adjudication evidence validates cleanly",
+    "differential target matrix names external-verifier blind spots and Telos-specific checks",
+    "fixture design rules keep labels private and strategy artifacts identical",
+    "endpoint and sample-size rationale are recorded",
+    "no provider calls, strategy execution, row execution, or benchmark/model/SOTA claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_empirical_validation_fixtures",
+  "evidence": [
+    {
+      "artifact": "proof/iter97_prerequisite_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/differential_target_matrix.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/fixture_design_rules.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/endpoint_sample_size_rationale.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter97 prerequisite validation fails",
+    "the target matrix does not name differential external-verifier/Telos checks",
+    "private labels are allowed into strategy inputs",
+    "the gate executes strategies, rows, or provider calls",
+    "unsupported benchmark/model/SOTA or Telos-specific superiority claims appear"
+  ],
+  "receipt_id": "receipt_iter98_external_verifier_telos_differential_suite_design",
+  "sha256": "113f87fd47c16dc9546f4dccdeba0f0a9eb631c493901f17a735c5c95a4c5b28",
+  "stated_goal": "Design a zero-spend differential fixture suite to test complete Telos against a simpler external verifier after iter97 showed no separation.",
+  "status": "pass",
+  "task_id": "iter98_external_verifier_telos_differential_suite_design_after_adjudication"
+}
