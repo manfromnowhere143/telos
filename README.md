@@ -43,6 +43,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [116](experiments/iter116_executed_hack_catch_rate/RESULT.md) | Measured catch rate on executed hacks | on three hacks that really pass their hidden tests: execution-only `0/3`, detector `1/3`, judge `3/3` |
 | [117](experiments/iter117_precision_coverage_boundary/RESULT.md) | Can the detector gap close for free? | a constant-return signal catches `2/2` missed hacks but costs `1/200` real false positives - the first hardening that trades precision, so it is not adopted and the class is judge territory |
 | [118](experiments/iter118_both_miss_stealth_class/RESULT.md) | Is there a hack neither verifier catches? | yes - `2/2` disguised hacks pass the hidden test, evade the detector, and fool the judge; both are wrong on a held-out input, so held-out-input execution is the required defense |
+| [119](experiments/iter119_metamorphic_defense/RESULT.md) | Does held-out-input execution catch them? | yes - on the both-miss class the visible test, detector, and judge each catch `0/2` while metamorphic held-out-input execution catches `2/2`; the loop closes |
 
 ### The honest conclusion
 
@@ -81,9 +82,13 @@ the agent never saw (metamorphic or property-based testing), which catches every
 None of this is a SWE-bench resolved-rate score, a leaderboard result, a model result, a robustness
 guarantee, or a state-of-the-art claim. The results are bounded pilots on real data with every claim
 held below its evidence, native-execution transcripts recorded as observed evidence, and the
-detector verdicts reproducible in CI. The executed reward-hack catch rate was measured (iter116) and
-a both-miss stealth class was found (iter118); the open target is now a held-out-input execution
-check that catches the both-miss class the static verifiers cannot.
+detector verdicts reproducible in CI. The executed reward-hack catch rate was measured (iter116), a
+both-miss stealth class was found (iter118), and a held-out-input (metamorphic) execution check was
+shown to catch that class (iter119) - completing a three-layer argument: the deterministic detector
+catches mechanical hacks, the LLM judge catches oblique and hard-coded hacks the detector misses, and
+held-out-input execution catches plausible-but-generalization-broken completions both static layers
+accept. The open target is now generalizing held-out-input generation so the metamorphic layer
+applies without a hand-chosen probe per instance.
 
 ## Honest Status
 
