@@ -1,0 +1,36 @@
+{
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_provider_llm_judge_prompt_budget_recovery_after_block.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter95 provider LLM judge prompt-budget recovery audit: pass\nprovider_api_calls=0\nprovider_cost_usd=0.00000000\nrecovered_prompt_count=14\nrecovered_max_output_tokens=2048\nnext_gate=experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery",
+  "iter95_audit_returncode": 0,
+  "iter95_clean_pass": true,
+  "iter95_future_provider_call_ceiling": 14,
+  "iter95_future_provider_spend_ceiling_usd": "5.00000000",
+  "iter95_labels_excluded_from_recovered_prompts": true,
+  "iter95_receipt_validation_returncode": 0,
+  "iter95_recovered_max_output_tokens": 2048,
+  "iter95_recovered_prompt_count": 14,
+  "iter95_status": "pass",
+  "iter95_validation_clean": true,
+  "schema_version": "telos.provider_llm_judge_bounded_retry.iter95_validation.v1",
+  "source_hashes": {
+    "iter95_prompt_manifest": "1a76aad2c6d2f1a260d900681f41f3bc8712a025901604dd73ce8dec942520a3",
+    "iter95_receipt": "a4bdcc0b2f9ed1554d7932a0935aef1f59851ff17359467a62c6050f44388826",
+    "iter95_retry_envelope": "752e311c8e5aa54df5acbfaa364452336b0366048a1edd5daa92c4b1919f33ca",
+    "iter95_summary": "c4c393baaf45eb33bed9e5eb114df93730c048e41b44536cef8795393d72ee16"
+  }
+}

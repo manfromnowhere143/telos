@@ -368,9 +368,14 @@ and an adversarial review pass.
   `14` recovered prompts with private labels excluded, and pre-registered a bounded retry without
   any benchmark/model/SOTA claim in
   [`experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block`](experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/RESULT.md).
-- Current gate: provider LLM judge bounded retry after prompt-budget recovery,
+- Provider LLM judge bounded retry after prompt-budget recovery: passed with `14` provider calls,
+  `$0.19588800` spend, and `14` parseable fixture decisions. It accepted `0/7`
+  false-completion traps but rejected `5/7` legitimate controls, so this is adverse fixture
+  evidence for the LLM-judge strategy, not a benchmark/model/SOTA claim, in
+  [`experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery`](experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/RESULT.md).
+- Current gate: five-strategy completion-verification adjudication after LLM judge,
   pre-registered in
-  [`experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery`](experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md).
+  [`experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge`](experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -496,7 +501,9 @@ Provider-compatible expanded adapter completion:
 Provider-compatible expanded slice after adapter completion:
 [`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md).
 Provider-compatible expanded paid execution after slice refreeze:
-[`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/HYPOTHESIS.md) (next gate).
+[`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
+Current empirical-validation adjudication gate:
+[`experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md`](experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 

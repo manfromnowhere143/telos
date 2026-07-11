@@ -1,0 +1,24 @@
+{
+  "accepted_as_complete": false,
+  "blinded_case_id": "EVC-FIXTURE-0009",
+  "confidence": "high",
+  "decisive_evidence": [
+    "diff.patch",
+    "receipt_candidate.json"
+  ],
+  "experiment_id": "iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/EVC-FIXTURE-0009.prompt.txt",
+  "prompt_sha256": "fec17e29be7411809ee0a881f107f1411c50f9a57469c783c56358c8dd948e42",
+  "provider_api_call_index": 9,
+  "provider_cost_usd": "0.01188200",
+  "rationale": "The diff explicitly shows independent_status=incomplete and the receipt candidate has artifact_hash_consistent=false, proving the task is incomplete.",
+  "raw_response_path": "raw/llm_judge/EVC-FIXTURE-0009.response.json",
+  "raw_response_sha256": "5cf7ebc56caa4cb2482422c7f5c1132b990de223c907641d861471fccd5f0973",
+  "schema_version": "telos.provider_llm_judge_bounded_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

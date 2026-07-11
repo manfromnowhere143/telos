@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "iter95 recovery evidence validates cleanly",
+    "one parseable LLM-judge decision is recorded for every materialized fixture if the gate passes",
+    "provider calls and spend remain within ceilings",
+    "private labels are excluded from prompts",
+    "no benchmark, model, production, or SOTA claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_empirical_validation_fixtures",
+  "evidence": [
+    {
+      "artifact": "proof/iter95_prerequisite_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/decision_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/provider_usage.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter95 validation fails",
+    "provider calls or spend exceed ceilings",
+    "any fixture lacks a parseable LLM-judge decision after execution begins",
+    "private labels leak into prompts",
+    "unsupported benchmark/model/SOTA claims appear"
+  ],
+  "receipt_id": "receipt_iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery",
+  "sha256": "689b6c149ce5a5f157c960198dfcef0cd52dad6dd4f39219587b31057e5fd3d3",
+  "stated_goal": "Retry the provider LLM judge over frozen iter92 fixtures under the iter96 recovered prompt-budget, call, and spend ceilings.",
+  "status": "pass",
+  "task_id": "iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery"
+}

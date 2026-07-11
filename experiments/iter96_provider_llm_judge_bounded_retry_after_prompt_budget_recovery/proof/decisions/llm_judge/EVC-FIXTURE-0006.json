@@ -1,0 +1,24 @@
+{
+  "accepted_as_complete": false,
+  "blinded_case_id": "EVC-FIXTURE-0006",
+  "confidence": "high",
+  "decisive_evidence": [
+    "diff.patch",
+    "case_spec_sanitized.json"
+  ],
+  "experiment_id": "iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/EVC-FIXTURE-0006.prompt.txt",
+  "prompt_sha256": "1a9ad02005cead8c91e6d9626681ec0dbaa15b1c6452bd892031a303013ade3a",
+  "provider_api_call_index": 6,
+  "provider_cost_usd": "0.01393400",
+  "rationale": "The diff lacks the expected uncovered counterexample and verifier checklist, failing the acceptance criteria for complete artifacts.",
+  "raw_response_path": "raw/llm_judge/EVC-FIXTURE-0006.response.json",
+  "raw_response_sha256": "62a5bb5c3d121a9bd4cdbcf77c89bf71e45798ba8c1d27e3cc48c1c019d7fe0f",
+  "schema_version": "telos.provider_llm_judge_bounded_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

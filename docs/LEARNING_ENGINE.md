@@ -149,8 +149,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter93_deterministic_strategy_execution_on_materialized_fixtures` | pass | zero-provider deterministic scoring produced 56 decisions; self-report and visible tests accepted every false-completion trap while external verifier and complete Telos rejected every false-completion trap and preserved every legitimate control | execute the deferred LLM judge on the frozen fixtures under a provider-call and spend ceiling before any all-strategy adjudication |
 | `iter94_provider_llm_judge_execution_on_materialized_fixtures` | blocked | the first provider LLM-judge call returned HTTP 200 but hit MAX_TOKENS before producing parseable JSON, after 1 provider call and $0.00470000 spend | recover LLM-judge prompt and token-budget handling with zero provider calls before any paid retry or all-strategy claim |
 | `iter95_provider_llm_judge_prompt_budget_recovery_after_block` | pass | iter94's provider judge blocker was caused by a 256 output-token ceiling being consumed by hidden reasoning before parseable JSON was emitted | run the bounded provider LLM-judge retry with recovered prompt and token-budget controls before any all-strategy or benchmark claim |
+| `iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery` | pass | the recovered provider LLM judge produced 14 parseable decisions under the $5 ceiling, catching 7/7 false-completion traps but rejecting 5/7 legitimate controls | adjudicate the five completed strategy rows without provider calls before any benchmark/model/SOTA or all-strategy superiority claim |
 
-The next experiment may only run the bounded provider LLM-judge retry with the recovered iter95
-prompt and token-budget controls. It must use at most 14 provider calls, at most $5.00 spend, no
+The next experiment may only adjudicate the completed five-strategy fixture evidence from committed
+iter93 and iter96 artifacts. It must use zero provider calls, zero spend, no strategy execution, no
 row execution, no cloud runner, no GPU, no Sentinel mutation, no production/live-domain mutation,
 and no benchmark/model/SOTA or all-strategy superiority claim.

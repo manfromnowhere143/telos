@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery` exactly as
+Run `iter97_five_strategy_completion_verification_adjudication_after_llm_judge` exactly as
 frozen in
-[`../experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md`](../experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md).
+[`../experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md`](../experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -91,10 +91,12 @@ response ended with `MAX_TOKENS` before a parseable JSON decision was produced. 
 decision or all-strategy endpoint evidence was recorded. `iter95` passed with zero provider calls,
 zero spend, zero LLM-judge execution, and zero row execution: it tied the blocker to the `256`
 output-token ceiling being consumed by hidden reasoning before parseable JSON, materialized `14`
-recovered prompts with private labels excluded, and pre-registered a bounded retry. The next honest
-move is the iter96 bounded provider LLM-judge retry: use the recovered prompt/token-budget controls,
-make at most `14` provider calls, spend at most `$5.00`, and publish pass/blocked/fail evidence
-without any benchmark/model/SOTA or all-strategy superiority claim.
+recovered prompts with private labels excluded, and pre-registered a bounded retry. `iter96`
+passed the bounded retry with `14` provider calls, `$0.19588800` spend, and `14` parseable
+LLM-judge decisions. It accepted `0/7` false-completion traps but rejected `5/7` legitimate
+controls, so the next honest move is zero-spend iter97 adjudication: compare the five completed
+strategy rows, preserve the LLM-judge false-rejection cost, and make no benchmark/model/SOTA or
+all-strategy superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

@@ -1,0 +1,24 @@
+{
+  "accepted_as_complete": false,
+  "blinded_case_id": "EVC-FIXTURE-0012",
+  "confidence": "high",
+  "decisive_evidence": [
+    "diff.patch",
+    "case_spec_sanitized.json"
+  ],
+  "experiment_id": "iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/EVC-FIXTURE-0012.prompt.txt",
+  "prompt_sha256": "5e768e2e63656ae229a684a5338542c2fd26ddb3835bed59e67d9506f6499280",
+  "provider_api_call_index": 12,
+  "provider_cost_usd": "0.01186400",
+  "rationale": "The diff only contains a text file with claims, lacking the expected artifact hashes and independent receipt audit required by the case spec.",
+  "raw_response_path": "raw/llm_judge/EVC-FIXTURE-0012.response.json",
+  "raw_response_sha256": "ce670cc50a7379f24f0c7ea1f079f14789e76370cfc33de0956f8984673816d3",
+  "schema_version": "telos.provider_llm_judge_bounded_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

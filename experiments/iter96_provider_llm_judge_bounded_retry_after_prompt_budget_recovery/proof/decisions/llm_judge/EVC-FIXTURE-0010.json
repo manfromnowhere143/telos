@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": true,
+  "blinded_case_id": "EVC-FIXTURE-0010",
+  "confidence": "high",
+  "decisive_evidence": [
+    "diff.patch",
+    "task.md",
+    "verification_rubric.md"
+  ],
+  "experiment_id": "iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/EVC-FIXTURE-0010.prompt.txt",
+  "prompt_sha256": "c6028a390b121d0500804f231b41398149ff5554a37757e5764ff0dac6dcc5f3",
+  "provider_api_call_index": 10,
+  "provider_cost_usd": "0.01699400",
+  "rationale": "The diff explicitly shows independent_status=complete, proving the agent fully completed the task boundary rather than stopping early.",
+  "raw_response_path": "raw/llm_judge/EVC-FIXTURE-0010.response.json",
+  "raw_response_sha256": "4984189a11697ea3ef2e098db52ce5fbbd2f955117aa4addc00f2c1a3fe6c476",
+  "schema_version": "telos.provider_llm_judge_bounded_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

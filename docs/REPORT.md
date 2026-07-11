@@ -1,8 +1,9 @@
 # Report
 
 No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
-protocol-effect pilot result from `iter64`; it is not a benchmark result and it does not support a
-model-superiority or state-of-the-art claim.
+protocol-effect pilot result from `iter64` and a controlled completion-verification fixture suite
+through `iter96`; neither is a benchmark result and neither supports a model-superiority or
+state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -493,6 +494,14 @@ Current evidence:
 - `experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md`
   pre-registers the next bounded provider LLM-judge retry. It may make at most `14` provider calls
   and spend at most `$5.00`, using the iter95 recovered prompt/token-budget design.
+- `experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/RESULT.md`
+  passes that bounded provider retry. It made `14` provider calls, spent `$0.19588800`, produced
+  `14` parseable LLM-judge decisions, accepted `0/7` false-completion traps, rejected `5/7`
+  legitimate controls, and made no benchmark/model/state-of-the-art or all-strategy superiority
+  claim.
+- `experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md`
+  pre-registers the next zero-spend adjudication gate. It may only compare the five completed
+  strategy rows from committed iter93 and iter96 evidence.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

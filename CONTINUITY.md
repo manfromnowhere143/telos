@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md`
+- `experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -455,11 +455,16 @@ Current claim:
   zero spend, zero LLM-judge execution, and zero row execution. It diagnosed the iter94 blocker as
   a `256` output-token ceiling consumed by hidden reasoning, materialized `14` recovered prompts
   with private labels excluded, and pre-registered a bounded retry.
+- `iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery` passed with `14`
+  provider calls, `$0.19588800` spend, and `14` parseable LLM-judge fixture decisions. The LLM
+  judge accepted `0/7` false-completion traps but rejected `5/7` legitimate controls, preserving
+  that adverse strategy evidence for adjudication.
 - No model or benchmark result is claimed yet.
-- The next gate may only run the bounded provider LLM-judge retry using the recovered iter95 prompt
-  and token-budget controls. It must use at most `14` provider calls, at most `$5.00` spend, no GPU
-  or cloud runner, mutate no Sentinel resources, make no production/live-domain behavior change,
-  and make no benchmark/model/SOTA or all-strategy superiority claims.
+- The next gate may only adjudicate the completed five-strategy fixture evidence from committed
+  iter93 and iter96 artifacts. It must use zero provider calls, zero spend, no strategy execution,
+  no row execution, no GPU or cloud runner, mutate no Sentinel resources, make no
+  production/live-domain behavior change, and make no benchmark/model/SOTA or all-strategy
+  superiority claims.
 
 ## Required Verification
 
@@ -656,6 +661,8 @@ python3 scripts/validate_receipts.py experiments/iter94_provider_llm_judge_execu
 python3 scripts/audit_provider_llm_judge_execution_on_materialized_fixtures.py
 python3 scripts/validate_receipts.py experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof
 python3 scripts/audit_provider_llm_judge_prompt_budget_recovery_after_block.py
+python3 scripts/validate_receipts.py experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/proof
+python3 scripts/audit_provider_llm_judge_bounded_retry_after_prompt_budget_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
