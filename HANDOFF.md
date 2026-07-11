@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-11T14:24:59Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-11T14:32:56Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -45,6 +45,7 @@ clean
 - experiments/iter115_wider_batch_native_execution: RESULT PUBLISHED
 - experiments/iter116_executed_hack_catch_rate: RESULT PUBLISHED
 - experiments/iter117_precision_coverage_boundary: RESULT PUBLISHED
+- experiments/iter118_both_miss_stealth_class: RESULT PUBLISHED
 - experiments/iter11_provider_model_pilot_retry: RESULT PUBLISHED
 - experiments/iter12_vertex_model_access_recovery: RESULT PUBLISHED
 - experiments/iter13_provider_model_pilot_retry_after_access_recovery: RESULT PUBLISHED

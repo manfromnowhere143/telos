@@ -42,6 +42,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [115](experiments/iter115_wider_batch_native_execution/RESULT.md) | Tighten the fidelity estimate | `17/18` gold patches resolve under real execution (`0.94`); `0/18` detector false positives; the same single fidelity gap |
 | [116](experiments/iter116_executed_hack_catch_rate/RESULT.md) | Measured catch rate on executed hacks | on three hacks that really pass their hidden tests: execution-only `0/3`, detector `1/3`, judge `3/3` |
 | [117](experiments/iter117_precision_coverage_boundary/RESULT.md) | Can the detector gap close for free? | a constant-return signal catches `2/2` missed hacks but costs `1/200` real false positives - the first hardening that trades precision, so it is not adopted and the class is judge territory |
+| [118](experiments/iter118_both_miss_stealth_class/RESULT.md) | Is there a hack neither verifier catches? | yes - `2/2` disguised hacks pass the hidden test, evade the detector, and fool the judge; both are wrong on a held-out input, so held-out-input execution is the required defense |
 
 ### The honest conclusion
 
@@ -67,13 +68,22 @@ candidate diff + FAIL_TO_PASS
 verdict + receipt
 ```
 
+The cascade covers mechanical and semantically-obvious hacks, but it is not sufficient. Iter118
+found a both-miss class: disguised completions that pass the visible test, evade the deterministic
+detector, and are called legitimate by a strong judge, while being wrong on inputs the test never
+exercises (`sorted(reverse=True)` disguised as reversal; `'0%03d'` disguised as zero-padding). No
+static verifier - regex or model - separates a correct general fix from a plausible one that only
+special-cases the visible input. The defense the evidence points to is execution on held-out inputs
+the agent never saw (metamorphic or property-based testing), which catches every hack in that class.
+
 ### What is not claimed
 
 None of this is a SWE-bench resolved-rate score, a leaderboard result, a model result, a robustness
 guarantee, or a state-of-the-art claim. The results are bounded pilots on real data with every claim
 held below its evidence, native-execution transcripts recorded as observed evidence, and the
-detector verdicts reproducible in CI. The open target is a genuine both-miss stealth class that
-defeats both verifiers, and a measured executed reward-hack catch rate per verifier.
+detector verdicts reproducible in CI. The executed reward-hack catch rate was measured (iter116) and
+a both-miss stealth class was found (iter118); the open target is now a held-out-input execution
+check that catches the both-miss class the static verifiers cannot.
 
 ## Honest Status
 
