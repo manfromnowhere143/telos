@@ -775,6 +775,7 @@ completions the static layers accept - with the property strategy chosen by func
 property for pure transforms, an inverse round-trip for invertible parsers/formatters).
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter137), submission-shaped.
 Synthesis report: [`docs/COMPLETION_VERIFICATION_REPORT.md`](docs/COMPLETION_VERIFICATION_REPORT.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
 Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
