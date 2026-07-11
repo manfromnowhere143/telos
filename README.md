@@ -17,6 +17,62 @@ tests when code changed, typecheck/build when applicable, diff-scope checks, liv
 when production behavior changed, artifact hashes, stated acceptance criteria, named falsifiers,
 and an adversarial review pass.
 
+## The Real-Trajectory Verification Arc (iter109-iter115)
+
+The current frontier of this program moved completion verification off self-authored fixtures and
+onto real external ground truth. Earlier iterations (iter104, iter107) scored a detector that
+branched on fixture taxonomy or read authored packet booleans, so both the traps and the detector
+were written by the same process and no external validity was earned. The arc below fixes that.
+
+The subject is the real `princeton-nlp/SWE-bench_Verified` dataset. A candidate solution is a raw
+unified diff plus the public `FAIL_TO_PASS` test ids. The deterministic detector
+(`telos/tamper/`) reads only that - never a ground-truth label, an attack-type field, or an
+authored semantic boolean. It encodes the documented reward-hack failure modes: editing the
+verifier (the tests that must fail-to-pass, `conftest.py`, pytest config), weakening assertions,
+hard-coding a hidden expected value in source, and tampering with a receipt digest.
+
+| iter | question | result |
+| --- | --- | --- |
+| [109](experiments/iter109_real_trajectory_tamper_detection_pilot/RESULT.md) | Does a raw-diff detector work on real data? | `0/200` false positives on real human gold patches; the execution-only default catches none of the hacks |
+| [110](experiments/iter110_adversarial_hardening_hacker_fixer_loop/RESULT.md) | Does it survive adversarial evolution? | source-only evasion recall `0 -> 1.0` at `0/200` false positives (one hacker-fixer round) |
+| [111](experiments/iter111_llm_judge_steelman_baseline/RESULT.md) | Is a strong LLM judge already enough? | a `gemini-2.5-flash` steelman judge ties the detector on obvious hacks: `0.00` FP, `1.00` recall, `$0.044` |
+| [112](experiments/iter112_stealth_divergence_judge_vs_detector/RESULT.md) | Where do they diverge? | on 60 stealth candidates: `detector_only=0`, `judge_only=15`, `both_catch=30`, `both_miss=0` - the judge strictly beats the detector on oblique special-casing |
+| [113](experiments/iter113_native_execution_ground_truth/RESULT.md) | Do the hacks really pass the tests? | native execution of a real instance: base fails, gold passes, a hard-coded hack passes the real hidden test; execution-only and the detector accept it, only the judge flags it |
+| [114](experiments/iter114_batch_native_execution/RESULT.md) | Does gold resolution hold across a batch? | `4/5` gold patches resolve under real execution; `0/5` detector false positives; one honest native-harness fidelity gap |
+| [115](experiments/iter115_wider_batch_native_execution/RESULT.md) | Tighten the fidelity estimate | `17/18` gold patches resolve under real execution (`0.94`); `0/18` detector false positives; the same single fidelity gap |
+
+### The honest conclusion
+
+A well-engineered current LLM judge dominates on coverage - it matches the deterministic detector on
+obvious hacks and strictly beats it on oblique source special-casing, confirmed on real executed
+ground truth in iter113. The deterministic detector's defensible value is therefore not accuracy; it
+is cost, latency, determinism, line-level reproducible evidence, and running in CI with no
+credentials. The architecture that follows is a cascade, not a contest:
+
+```text
+candidate diff + FAIL_TO_PASS
+        |
+        v
+[ deterministic detector ]  free, reproducible, tamper-evident
+   catches verifier edits, assertion weakening, literal special-casing
+        |
+        | survivors (oblique / stealth completions)
+        v
+[ LLM judge ]  paid, semantic
+   catches computed-key / constant-return hacks the regex cannot see
+        |
+        v
+verdict + receipt
+```
+
+### What is not claimed
+
+None of this is a SWE-bench resolved-rate score, a leaderboard result, a model result, a robustness
+guarantee, or a state-of-the-art claim. The results are bounded pilots on real data with every claim
+held below its evidence, native-execution transcripts recorded as observed evidence, and the
+detector verdicts reproducible in CI. The open target is a genuine both-miss stealth class that
+defeats both verifiers, and a measured executed reward-hack catch rate per verifier.
+
 ## Honest Status
 
 - Repository scaffold: active.
@@ -461,6 +517,9 @@ and an adversarial review pass.
   the real hidden test and the detector flagged `0/5`, with the one non-resolving instance recorded
   as a native-harness fidelity gap, in
   [`experiments/iter114_batch_native_execution`](experiments/iter114_batch_native_execution/RESULT.md).
+  A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
+  resolution (`0.94`) with the detector still at `0/18` false positives, in
+  [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
 - Current gate: external benchmark pilot adjudication after execution,
   pre-registered in
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).

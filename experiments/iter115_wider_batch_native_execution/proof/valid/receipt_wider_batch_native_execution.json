@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Gold resolution rate under real execution is at least 0.90.",
+    "The detector flags zero of the real gold patches.",
+    "Non-resolving instances are enumerated as native-harness fidelity gaps."
+  ],
+  "agent_id": "codex-local-wider-batch-native-execution-executor",
+  "benchmark_id": "swebench_verified_wider_batch_native_execution_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter115_wider_batch_native_execution/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter115_wider_batch_native_execution/proof/native_execution_transcript.txt",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Null if gold resolution rate is below 0.90.",
+    "Weaken the false-positive claim if the detector flags any real gold patch."
+  ],
+  "receipt_id": "iter115-wider-batch-native-execution-pass",
+  "sha256": "5702447dce3a6133b7473e2be4d851559b003bfa7de116bb8c7c207d028f8ee8",
+  "stated_goal": "Tighten the native-harness fidelity estimate on a wider Django batch and re-confirm zero detector false positives on real executed gold.",
+  "status": "pass",
+  "task_id": "telos:iter115_wider_batch_native_execution"
+}
