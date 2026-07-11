@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/proof/five_strategy_endpoint_table.json",
+    "experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/proof/strategy_comparison.json",
+    "experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/proof/adverse_result_register.json",
+    "experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/proof/next_step_decision.json"
+  ],
+  "experiment_id": "iter97_five_strategy_completion_verification_adjudication_after_llm_judge",
+  "insight": "the first completion-verification suite separates self-report/tests and LLM judge failure modes, but does not separate complete Telos from external verifier",
+  "next_action": "design a differential suite targeting external-verifier versus complete-Telos separation before any benchmark claim",
+  "result_path": "experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

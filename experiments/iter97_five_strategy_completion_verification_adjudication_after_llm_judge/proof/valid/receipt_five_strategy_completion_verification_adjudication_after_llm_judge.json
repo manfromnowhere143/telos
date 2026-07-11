@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "iter96 evidence validates cleanly",
+    "five-strategy endpoint evidence is complete",
+    "comparisons are recomputed from committed endpoint rows",
+    "adverse and null results are preserved",
+    "no benchmark, model, production, SOTA, or all-strategy superiority claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_empirical_validation_fixtures",
+  "evidence": [
+    {
+      "artifact": "proof/iter96_prerequisite_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/five_strategy_endpoint_table.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/strategy_comparison.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/adverse_result_register.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter96 prerequisite validation fails",
+    "five-strategy endpoint evidence is incomplete",
+    "deterministic endpoint rows no longer match iter93",
+    "provider calls, spend, strategy execution, or row execution occur in this gate",
+    "unsupported benchmark/model/SOTA or all-strategy superiority claims appear"
+  ],
+  "receipt_id": "receipt_iter97_five_strategy_completion_verification_adjudication",
+  "sha256": "87fc53010cf48a190b197577a5fef3c925ea35bee3b6b626b2f8fe794dfabe18",
+  "stated_goal": "Adjudicate the completed five-strategy completion-verification fixture evidence without additional execution or provider spend.",
+  "status": "pass",
+  "task_id": "iter97_five_strategy_completion_verification_adjudication_after_llm_judge"
+}

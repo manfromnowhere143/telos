@@ -1,0 +1,32 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed"
+    },
+    {
+      "command": "python3 scripts/audit_provider_llm_judge_bounded_retry_after_prompt_budget_recovery.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter96 provider LLM judge bounded retry audit: pass\nprovider_api_calls=14\nprovider_cost_usd=0.19588800\nllm_judge_decision_count=14\nall_strategy_endpoint_evidence_complete=true\nnext_gate=experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md"
+    }
+  ],
+  "experiment_id": "iter97_five_strategy_completion_verification_adjudication_after_llm_judge",
+  "iter96_all_strategy_endpoint_evidence_complete": true,
+  "iter96_audit_returncode": 0,
+  "iter96_clean_pass": true,
+  "iter96_llm_judge_decision_count": 14,
+  "iter96_provider_api_calls": 14,
+  "iter96_provider_cost_usd": "0.19588800",
+  "iter96_receipt_validation_returncode": 0,
+  "iter96_status": "pass",
+  "schema_version": "telos.five_strategy_adjudication.iter96_validation.v1",
+  "source_hashes": {
+    "iter96_endpoint_results": "78f5218ea437910effd9fc9bee0b03e9e45123f4686d0907e43e765aaf5a8885",
+    "iter96_receipt": "7f46c744baf4b20a17188b06749fd6898d78a58a46a07ba233a8b0e55360078d",
+    "iter96_summary": "95a1769ff2f0edf416fa256b9e3cd9dd06b8a19bcc0a03d6f926bbfd6dbffaea"
+  }
+}

@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter97_five_strategy_completion_verification_adjudication_after_llm_judge` exactly as
+Run `iter98_external_verifier_telos_differential_suite_design_after_adjudication` exactly as
 frozen in
-[`../experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md`](../experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md).
+[`../experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md`](../experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -96,7 +96,11 @@ passed the bounded retry with `14` provider calls, `$0.19588800` spend, and `14`
 LLM-judge decisions. It accepted `0/7` false-completion traps but rejected `5/7` legitimate
 controls, so the next honest move is zero-spend iter97 adjudication: compare the five completed
 strategy rows, preserve the LLM-judge false-rejection cost, and make no benchmark/model/SOTA or
-all-strategy superiority claim.
+all-strategy superiority claim. `iter97` passed that adjudication: external verifier and complete
+Telos both passed the frozen fixture bars with the same measured endpoint vector, self-report/tests
+accepted all false-completion traps, and the provider LLM judge rejected `5/7` legitimate controls.
+Benchmark escalation is rejected; the next honest move is the zero-spend iter98 differential-suite
+design gate, targeting cases where complete Telos and a simpler external verifier should diverge.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

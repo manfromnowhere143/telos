@@ -1,0 +1,35 @@
+{
+  "adverse_results": [
+    {
+      "finding": "agent self-report accepted 7/7 false-completion traps",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "self_report_accepts_all_false_completion_traps",
+      "strategy_id": "agent_self_report"
+    },
+    {
+      "finding": "execution-tests-only accepted 7/7 false-completion traps",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "execution_tests_accept_all_false_completion_traps",
+      "strategy_id": "execution_tests_only"
+    },
+    {
+      "finding": "provider LLM judge rejected 5/7 legitimate controls",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "llm_judge_high_false_rejection",
+      "strategy_id": "llm_judge"
+    },
+    {
+      "finding": "complete Telos and external verifier have identical endpoint vectors on this fixture suite",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "complete_telos_not_distinguished_from_external_verifier",
+      "strategy_id": "complete_telos_protocol"
+    }
+  ],
+  "benchmark_escalation_rejected": true,
+  "claim_not_supported_now": "No benchmark result, model result, state-of-the-art result, or Telos-specific superiority over external verifier is supported.",
+  "claim_supported_now": "On the frozen 14-fixture suite, external verification strategies reduced false completion acceptance relative to self-report and visible tests, while the LLM judge showed high false rejection.",
+  "comparison_source_hash": "0e5f384ddd8a40d1384fe2bc27c47730e1e7d5db0e644d5d4fd48b7d805fd05f",
+  "experiment_id": "iter97_five_strategy_completion_verification_adjudication_after_llm_judge",
+  "reason_benchmark_escalation_rejected": "the suite is small, synthetic, and does not yet distinguish complete Telos from the simpler external verifier strategy",
+  "schema_version": "telos.five_strategy_adjudication.adverse_result_register.v1"
+}

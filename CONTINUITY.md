@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md`
+- `experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -459,12 +459,16 @@ Current claim:
   provider calls, `$0.19588800` spend, and `14` parseable LLM-judge fixture decisions. The LLM
   judge accepted `0/7` false-completion traps but rejected `5/7` legitimate controls, preserving
   that adverse strategy evidence for adjudication.
+- `iter97_five_strategy_completion_verification_adjudication_after_llm_judge` passed with zero
+  provider calls, zero spend, zero strategy execution, and zero row execution. It adjudicated the
+  five-strategy table: self-report/tests failed the false-completion bar, the provider LLM judge
+  failed legitimate-control preservation, and complete Telos was not distinguished from the simpler
+  external verifier.
 - No model or benchmark result is claimed yet.
-- The next gate may only adjudicate the completed five-strategy fixture evidence from committed
-  iter93 and iter96 artifacts. It must use zero provider calls, zero spend, no strategy execution,
-  no row execution, no GPU or cloud runner, mutate no Sentinel resources, make no
-  production/live-domain behavior change, and make no benchmark/model/SOTA or all-strategy
-  superiority claims.
+- The next gate may only design a sharper external-verifier/Telos differential suite from committed
+  iter97 evidence. It must use zero provider calls, zero spend, no strategy execution, no row
+  execution, no GPU or cloud runner, mutate no Sentinel resources, make no production/live-domain
+  behavior change, and make no benchmark/model/SOTA or all-strategy superiority claims.
 
 ## Required Verification
 
@@ -663,6 +667,8 @@ python3 scripts/validate_receipts.py experiments/iter95_provider_llm_judge_promp
 python3 scripts/audit_provider_llm_judge_prompt_budget_recovery_after_block.py
 python3 scripts/validate_receipts.py experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/proof
 python3 scripts/audit_provider_llm_judge_bounded_retry_after_prompt_budget_recovery.py
+python3 scripts/validate_receipts.py experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/proof
+python3 scripts/audit_five_strategy_completion_verification_adjudication_after_llm_judge.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

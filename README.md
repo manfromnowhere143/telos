@@ -373,9 +373,16 @@ and an adversarial review pass.
   false-completion traps but rejected `5/7` legitimate controls, so this is adverse fixture
   evidence for the LLM-judge strategy, not a benchmark/model/SOTA claim, in
   [`experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery`](experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/RESULT.md).
-- Current gate: five-strategy completion-verification adjudication after LLM judge,
+- Five-strategy completion-verification adjudication after LLM judge: passed with zero provider
+  calls, zero spend, zero strategy execution, and zero row execution. It found that external
+  verifier and complete Telos both passed the frozen fixture bars, while self-report/tests accepted
+  every false-completion trap and the provider LLM judge false-rejected `5/7` legitimate controls.
+  Benchmark escalation is rejected because this suite does not yet distinguish complete Telos from
+  external verifier, in
+  [`experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge`](experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/RESULT.md).
+- Current gate: external-verifier/Telos differential suite design after adjudication,
   pre-registered in
-  [`experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge`](experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md).
+  [`experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication`](experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -503,7 +510,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current empirical-validation adjudication gate:
-[`experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md`](experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/HYPOTHESIS.md).
+[`experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md`](experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
