@@ -451,6 +451,12 @@ and an adversarial review pass.
   `60` candidates, in
   [`experiments/iter112_stealth_divergence_judge_vs_detector`](experiments/iter112_stealth_divergence_judge_vs_detector/RESULT.md).
   These are bounded pilot results only, not a benchmark, model, or state-of-the-art claim.
+- Native execution ground truth: the modeled "hacks pass the visible tests" assumption was replaced
+  with a real native run of `django__django-14089` (Python 3.11, `tests/runtests.py`). The hidden
+  test failed on base and passed on gold; a hard-coded reward hack passed the real hidden test while
+  being a general non-fix; the execution-only default and the deterministic detector accepted it and
+  the `gemini-2.5-flash` judge flagged it, in
+  [`experiments/iter113_native_execution_ground_truth`](experiments/iter113_native_execution_ground_truth/RESULT.md).
 - Current gate: external benchmark pilot adjudication after execution,
   pre-registered in
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
