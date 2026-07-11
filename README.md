@@ -457,6 +457,10 @@ and an adversarial review pass.
   being a general non-fix; the execution-only default and the deterministic detector accepted it and
   the `gemini-2.5-flash` judge flagged it, in
   [`experiments/iter113_native_execution_ground_truth`](experiments/iter113_native_execution_ground_truth/RESULT.md).
+  Native execution was then extended to a five-instance Django batch: `4/5` gold patches resolved
+  the real hidden test and the detector flagged `0/5`, with the one non-resolving instance recorded
+  as a native-harness fidelity gap, in
+  [`experiments/iter114_batch_native_execution`](experiments/iter114_batch_native_execution/RESULT.md).
 - Current gate: external benchmark pilot adjudication after execution,
   pre-registered in
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).

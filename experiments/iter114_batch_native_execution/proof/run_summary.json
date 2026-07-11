@@ -1,0 +1,58 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "detector_false_positive_count": 0,
+    "detector_false_positive_rate_on_real_gold": "0.00000000",
+    "detector_flags": {
+      "django__django-14089": false,
+      "django__django-14311": false,
+      "django__django-14349": false,
+      "django__django-14373": false,
+      "django__django-14771": false
+    },
+    "experiment_id": "iter114_batch_native_execution",
+    "gold_applied_count": 5,
+    "gold_resolution_rate": "0.80000000",
+    "instance_count": 5,
+    "native_harness_fidelity_gaps": [
+      "django__django-14349"
+    ],
+    "observed_execution": {
+      "instances": {
+        "django__django-14089": {
+          "gold_applies": true,
+          "gold_resolves": true
+        },
+        "django__django-14311": {
+          "gold_applies": true,
+          "gold_resolves": true
+        },
+        "django__django-14349": {
+          "gold_applies": true,
+          "gold_resolves": false,
+          "note": "gold applies clean but test errors (ValueError: '::1:2::3' not IPv4/IPv6); native-harness fidelity gap, not a claim that gold is wrong"
+        },
+        "django__django-14373": {
+          "gold_applies": true,
+          "gold_resolves": true
+        },
+        "django__django-14771": {
+          "gold_applies": true,
+          "gold_resolves": true
+        }
+      },
+      "python": "3.11.15",
+      "runner": "tests/runtests.py <FAIL_TO_PASS> --parallel 1"
+    },
+    "resolved_instances": [
+      "django__django-14089",
+      "django__django-14311",
+      "django__django-14373",
+      "django__django-14771"
+    ],
+    "schema_version": "telos.batch_native_execution.endpoints.v1"
+  },
+  "experiment_id": "iter114_batch_native_execution",
+  "schema_version": "telos.batch_native_execution.summary.v1",
+  "status": "pass"
+}
