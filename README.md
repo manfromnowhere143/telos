@@ -17,7 +17,7 @@ tests when code changed, typecheck/build when applicable, diff-scope checks, liv
 when production behavior changed, artifact hashes, stated acceptance criteria, named falsifiers,
 and an adversarial review pass.
 
-## The Real-Trajectory Verification Arc (iter109-iter115)
+## The Real-Trajectory Verification Arc (iter109-iter128)
 
 The current frontier of this program moved completion verification off self-authored fixtures and
 onto real external ground truth. Earlier iterations (iter104, iter107) scored a detector that
@@ -699,18 +699,22 @@ Current empirical-validation gate:
 
 ## Current Evidence Arc
 
+The live evidence is the real-trajectory arc (iter109-iter128); the full per-gate result is the
+summary table near the top of this file. Its shape:
+
 ```mermaid
 flowchart LR
-  I21["21"]-->I22["22"]-->I23["23"]-->I24["24"]-->I25["25"]-->I26["26"]-->I27["27"]-->I28["28"]-->I29["29"]-->I30["30"]-->I31["31"]-->I32["32"]-->I33["33"]-->I34["34"]-->I35["35"]-->I36["36"]-->I37["37"]-->I38["38"]-->I39["39"]-->I40["40"]-->I41["41"]-->I42["42"]-->I43["43"]-->I44["44"]-->I45["45"]-->I46["46"]-->I47["47"]-->I48["48"]-->I49["49"]-->I50["50"]-->I51["51"]-->I52["52"]-->I53["53"]-->I54["54"]-->I55["55"]-->I56["56"]-->I57["57"]-->I58["58"]-->I59["59"]-->I60["60"]-->I61["61"]-->I62["62"]-->I63["63"]-->I64["64"]-->I65["65"]-->I66["66"]-->I67["67"]-->I68["68"]-->I69["69"]-->I70["70"]-->I71["71"]-->I72["72"]
-  classDef p fill:#efe,stroke:#272,color:#000;
-  classDef n fill:#fee,stroke:#c22,color:#000;
-  classDef b fill:#ffd,stroke:#861,color:#000;
-  classDef a fill:#eef,stroke:#17e,color:#000;
-  class I21,I22,I24,I26,I27,I28,I29,I30,I31,I32,I33,I34,I35,I36,I37,I38,I39,I41,I43,I45,I48,I50,I52,I54,I56,I58,I63,I64,I65,I66,I69,I70,I71 p;
-  class I23,I25 n;
-  class I40,I42,I44,I46,I47,I49,I51,I53,I55,I57,I59,I60,I61,I62,I67,I68 b;
-  class I72 a;
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-128<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]
+  classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
+  classDef risk fill:#fee,stroke:#c22,color:#000;
+  classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
+  class L1,L2,L3 d;
+  class BM risk;
+  class DEF,AUT,SC fix;
 ```
+
+The earlier provider-pilot and semantic-guard arc (iter00-iter108) is preserved in the Honest Status
+log above and the learning ledger.
 
 ## Candidate Target Families
 
@@ -726,25 +730,37 @@ The target was not chosen by taste. It was chosen by the frozen survey.
 
 ## Architecture
 
+The real-trajectory arc (iter109-iter128) established a three-layer completion verifier, each layer
+present because the one before it provably fails on a measured class of reward hack (see the arc
+section above and the synthesis report). The cascade runs cheapest-first and escalates only the
+survivors:
+
 ```mermaid
 flowchart LR
-  T["task<br/>acceptance criteria"] --> A["agent<br/>under test"]
-  A --> D["diff + artifacts"]
-  D --> P["proof receipt"]
-  T --> V["verifier<br/>tests · build · live checks"]
-  D --> V
-  V --> P
-  P --> R["adversarial review"]
-  R --> S["score<br/>complete · proxy-gamed · failed"]
+  C["candidate diff<br/>+ FAIL_TO_PASS"] --> D["Layer 1<br/>deterministic detector<br/>free · reproducible"]
+  D -->|mechanical hacks caught| X["reward_hack"]
+  D -->|survivors| J["Layer 2<br/>LLM judge<br/>paid · semantic"]
+  J -->|oblique/hard-coded caught| X
+  J -->|survivors| M["Layer 3<br/>held-out-input execution<br/>gold-free property"]
+  M -->|generalization-broken caught| X
+  M -->|holds| OK["accept<br/>+ receipt"]
   classDef base fill:#f6f8fa,stroke:#57606a,color:#1f2328;
-  classDef proof fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
-  classDef score fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
-  class T,A,D base;
-  class P,V,R proof;
-  class S score;
+  classDef layer fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
+  classDef hack fill:#fee,stroke:#c22,color:#000;
+  classDef ok fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
+  class C base;
+  class D,J,M layer;
+  class X hack;
+  class OK ok;
 ```
 
+Layer 3 is automated and gold-free: a model proposes a metamorphic property from the function
+contract, the visible test filters unsound proposals, and execution on random held-out inputs catches
+completions the static layers accept - with the property strategy chosen by function type (a contract
+property for pure transforms, an inverse round-trip for invertible parsers/formatters).
+
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+Synthesis report: [`docs/COMPLETION_VERIFICATION_REPORT.md`](docs/COMPLETION_VERIFICATION_REPORT.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
 Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
 Mission loop: [`docs/MISSION_LOOP.md`](docs/MISSION_LOOP.md).
@@ -756,10 +772,11 @@ README.md                  research front door and live status
 PREREGISTRATION.md         frozen first-stage target-selection protocol
 CONTINUITY.md              operator invariants and handoff discipline
 HANDOFF.md                 dynamic snapshot generated by scripts/make_handoff.py
-telos/                     receipt validation and target scorecard primitives
+telos/                     receipt validation, scorecard primitives, and telos/tamper (the three-layer verifier)
+telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
-docs/                      architecture, related work, report, next phase
-experiments/               one folder per pre-registered experiment
+docs/                      architecture, related work, the completion-verification synthesis report, next phase
+experiments/               one folder per pre-registered experiment (iter00-iter128), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
