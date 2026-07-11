@@ -1,0 +1,45 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "experiment_id": "iter127_structured_input_residuals",
+    "genuine_sound_after_ids": [
+      "django__django-11206",
+      "django__django-11848",
+      "django__django-13670",
+      "django__django-14089",
+      "django__django-14373"
+    ],
+    "genuine_sound_rate_after": "0.71428571",
+    "honest_residual": {
+      "django__django-10999": "model generated an unsound property (rejected gold-free by the anchor)",
+      "django__django-11276": "mis-targetable task (test in admin_docs, fix in html.py)"
+    },
+    "newly_closed": [
+      "django__django-11206"
+    ],
+    "per_instance": [
+      {
+        "check": "('.' in out) and (len(out.split('.')[-1]) == inp[1])",
+        "genuine_sound": true,
+        "instance_id": "django__django-11206",
+        "nontrivial": true,
+        "sound": true,
+        "soundness": "0/25"
+      },
+      {
+        "check": "out == inp",
+        "genuine_sound": true,
+        "instance_id": "django__django-11848",
+        "nontrivial": true,
+        "sound": true,
+        "soundness": "0/25"
+      }
+    ],
+    "prior_genuine_sound_rate": "0.57142857",
+    "schema_version": "telos.structured_input_residuals.endpoints.v1",
+    "technique": "seed the input generator from the test's example input shape and use a non-pathological input format (RFC1123 four-digit year) to avoid cases that need mocking"
+  },
+  "experiment_id": "iter127_structured_input_residuals",
+  "schema_version": "telos.structured_input_residuals.summary.v1",
+  "status": "pass"
+}

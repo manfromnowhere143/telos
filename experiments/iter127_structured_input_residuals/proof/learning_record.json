@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter127_structured_input_residuals/proof/endpoint_results.json",
+    "experiments/iter127_structured_input_residuals/proof/structured_harness_results.json"
+  ],
+  "experiment_id": "iter127_structured_input_residuals",
+  "insight": "seeding the input generator from the test's example shape and using a non-pathological format closed both residuals, raising the genuine-sound rate to 5/7; the remaining two are an unsound generated property and a mis-targetable task, not input-domain failures",
+  "next_action": "retry generation on 10999 with the anchor as feedback to obtain a sound property, and resolve 11276 targeting from the test's actual assertions",
+  "result_path": "experiments/iter127_structured_input_residuals/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

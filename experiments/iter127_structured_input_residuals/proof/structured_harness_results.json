@@ -1,0 +1,18 @@
+{
+  "django__django-11206": {
+    "soundness": "0/25",
+    "make_input": "(f'{rng.randint(0,9999)}.{rng.randint(0,999999):06d}', rng.randint(1,4))",
+    "check": "('.' in out) and (len(out.split('.')[-1]) == inp[1])",
+    "call": "numberformat.format(inp[0], '.', inp[1])",
+    "class": "sound",
+    "stderr": ""
+  },
+  "django__django-11848": {
+    "soundness": "0/25",
+    "make_input": "datetime(rng.randint(1200,2100), rng.randint(1,12), rng.randint(1,28), rng.randint(0,23), rng.randint(0,59), rng.randint(0,59))",
+    "check": "out == inp",
+    "call": "datetime.utcfromtimestamp(parse_http_date(inp.strftime('%a, %d %b %Y %H:%M:%S GMT')))",
+    "class": "sound",
+    "stderr": ""
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Both residual harnesses are sound (>= 10 valid inputs, 0 violations on gold) and non-trivial.",
+    "The genuine-sound rate rises above the iter125 4/7.",
+    "The remaining residual is recorded as non-input-domain (unsound generated property, mis-targetable task)."
+  ],
+  "agent_id": "codex-local-structured-input-residuals-executor",
+  "benchmark_id": "swebench_verified_structured_input_residuals_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter127_structured_input_residuals/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter127_structured_input_residuals/proof/structured_harness_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record a miss if a residual harness is not sound.",
+    "A sound harness that ignores the input is vacuous and does not count."
+  ],
+  "receipt_id": "iter127-structured-input-residuals-pass",
+  "sha256": "f4b0b88e7f0d7b3144c1c768848f72d1ab385d8e912d673f6e61575cb68af32e",
+  "stated_goal": "Close the 11206 and 11848 residuals with structured input generators seeded from the test example.",
+  "status": "pass",
+  "task_id": "telos:iter127_structured_input_residuals"
+}
