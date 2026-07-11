@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-11T09:43:36Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-11T13:37:03Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -35,7 +35,11 @@ clean
 - experiments/iter106_external_benchmark_pilot_materialization_after_design: RESULT PUBLISHED
 - experiments/iter107_external_benchmark_pilot_execution_after_materialization: RESULT PUBLISHED
 - experiments/iter108_external_benchmark_pilot_adjudication_after_execution: PRE-REGISTERED, result pending
+- experiments/iter109_real_trajectory_tamper_detection_pilot: RESULT PUBLISHED
 - experiments/iter10_provider_auth_recovery: RESULT PUBLISHED
+- experiments/iter110_adversarial_hardening_hacker_fixer_loop: RESULT PUBLISHED
+- experiments/iter111_llm_judge_steelman_baseline: RESULT PUBLISHED
+- experiments/iter112_stealth_divergence_judge_vs_detector: RESULT PUBLISHED
 - experiments/iter11_provider_model_pilot_retry: RESULT PUBLISHED
 - experiments/iter12_vertex_model_access_recovery: RESULT PUBLISHED
 - experiments/iter13_provider_model_pilot_retry_after_access_recovery: RESULT PUBLISHED

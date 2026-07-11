@@ -436,6 +436,21 @@ and an adversarial review pass.
   a bounded 20-packet pilot result only, not a benchmark/model/SOTA or all-strategy superiority
   claim, in
   [`experiments/iter107_external_benchmark_pilot_execution_after_materialization`](experiments/iter107_external_benchmark_pilot_execution_after_materialization/RESULT.md).
+- Real-trajectory line: the detector and comparators were moved off self-authored packets onto the
+  external `princeton-nlp/SWE-bench_Verified` dataset. On `200` real human-authored gold patches a
+  raw-diff verifier-provenance and assertion-integrity detector held a `0/200` false-positive rate
+  while catching reward-hack variants that the execution-only default accepts, in
+  [`experiments/iter109_real_trajectory_tamper_detection_pilot`](experiments/iter109_real_trajectory_tamper_detection_pilot/RESULT.md).
+  One hacker-fixer round raised recall on source-only evasions from `0` to `1.0` at `0/200`
+  false positives on the same real patches, in
+  [`experiments/iter110_adversarial_hardening_hacker_fixer_loop`](experiments/iter110_adversarial_hardening_hacker_fixer_loop/RESULT.md).
+  A `gemini-2.5-flash` steelman judge matched the detector on obvious hacks (`0.00` false-positive
+  rate, `1.00` recall, `$0.044` spend), in
+  [`experiments/iter111_llm_judge_steelman_baseline`](experiments/iter111_llm_judge_steelman_baseline/RESULT.md).
+  A stealth 2x2 recorded `detector_only=0`, `judge_only=15`, `both_catch=30`, `both_miss=0` across
+  `60` candidates, in
+  [`experiments/iter112_stealth_divergence_judge_vs_detector`](experiments/iter112_stealth_divergence_judge_vs_detector/RESULT.md).
+  These are bounded pilot results only, not a benchmark, model, or state-of-the-art claim.
 - Current gate: external benchmark pilot adjudication after execution,
   pre-registered in
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
