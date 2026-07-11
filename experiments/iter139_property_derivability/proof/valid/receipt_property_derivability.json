@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Every verified property-sound instance falls in the property-rich domain.",
+    "The estimate is presented as a domain heuristic, not a verified rate.",
+    "The estimate sharpens the 0.81 structural upper bound downward."
+  ],
+  "agent_id": "codex-local-property-derivability-analyst",
+  "benchmark_id": "swebench_verified_property_derivability_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter139_property_derivability/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter139_property_derivability/proof/derivability.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record it if a verified property-sound instance is not in the property-rich domain.",
+    "Do not present the estimate as a verified property genuine-sound rate."
+  ],
+  "receipt_id": "iter139-property-derivability-pass",
+  "sha256": "777b478964a06d0811f6afe3801c2366ee27f887f64597c204ac23c8af3676cb",
+  "stated_goal": "Estimate property-derivability within sympy to sharpen the iter138 applicability upper bound.",
+  "status": "pass",
+  "task_id": "telos:iter139_property_derivability"
+}

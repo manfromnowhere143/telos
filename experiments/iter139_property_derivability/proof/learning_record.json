@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter139_property_derivability/proof/endpoint_results.json",
+    "experiments/iter139_property_derivability/proof/derivability.json"
+  ],
+  "experiment_id": "iter139_property_derivability",
+  "insight": "structural applicability is broad (0.81) but property-derivability is narrow: even in sympy only 7/67 = 0.1045 of applicable instances are in a property-rich domain, and all three verified instances fall there; Layer 3's natural domain is math-identity functions while Layers 1-2 (detector, judge) apply universally - the honest three-layer division of labour",
+  "next_action": "record the narrow-derivability finding in docs/PAPER.md limitations, and treat Layers 1-2 as the universal coverage with Layer 3 as the math-domain specialist",
+  "result_path": "experiments/iter139_property_derivability/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

@@ -97,14 +97,18 @@ is the paper's transferable claim, independent of the specific benchmark.
 
 ## 8. Limitations
 
-The empirical scope is a set of bounded pilots, not a distributional result. The property-based layer
-applies to instances that expose a single testable function; cross-cutting refactors and integration
-tests are outside it and remain the domain of the first two layers. Clean metamorphic properties are
-abundant in mathematical libraries and rarer in application libraries, which bounds the natural domain
-of Layer 3. The property genuine-sound rates (`6/6`, `3/3`) are on small hand-curated subsets. The
-native execution harness has a measured fidelity gap that the Docker harness closes at the cost of
-per-instance images. None of the results is a SWE-bench resolved-rate score or a comparison against a
-model leaderboard.
+The empirical scope is a set of bounded pilots, not a distributional result. Layer 3's reach is bounded
+twice over. Structurally it is broad: the single-testable-function criterion is met by `405/500` =
+`0.81` of the dataset. But property-derivability within that is narrow: even in sympy, the most
+math-heavy repo, only `~0.10` of applicable instances live in a property-rich domain (elementary and
+special functions, geometry, arithmetic). So Layer 3's natural domain is math-identity functions, and
+the structural and algorithmic majority stays with Layers 1-2. This is the honest three-layer division
+of labour rather than a defect: the deterministic detector and the LLM judge apply universally to any
+diff, and the gold-free property layer is the specialist that recovers the both-miss class precisely
+where a function admits a checkable identity. The property genuine-sound rates (`6/6`, `3/3`) are on
+small hand-curated subsets within that domain. The native execution harness has a measured fidelity gap
+that the Docker harness closes at the cost of per-instance images. None of the results is a SWE-bench
+resolved-rate score or a comparison against a model leaderboard.
 
 ## 9. Related work
 

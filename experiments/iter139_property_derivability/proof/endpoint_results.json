@@ -1,0 +1,18 @@
+{
+  "all_verified_in_rich_domain": true,
+  "applicable_single_function": 67,
+  "benchmark_or_sota_claim": false,
+  "experiment_id": "iter139_property_derivability",
+  "finding": "structural applicability is broad (0.81 of the dataset) but property-derivability is narrow: even in sympy, the most math-heavy repo, only ~0.10 of applicable instances live in a property-rich domain (elementary/special functions, geometry, arithmetic). Layer 3's natural domain is math-identity functions; the structural/algorithmic majority stays with Layers 1-2, which apply universally",
+  "method": "domain heuristic: source in functions/elementary|special|combinatorial, geometry, core arithmetic, or ntheory",
+  "property_derivability_estimate": 0.1045,
+  "property_rich_domain_count": 7,
+  "repo": "sympy/sympy",
+  "schema_version": "telos.property_derivability.endpoints.v1",
+  "structural_applicability_iter138": 0.81,
+  "verified_instances_in_rich_domain": {
+    "sympy__sympy-11618": true,
+    "sympy__sympy-13480": true,
+    "sympy__sympy-15809": true
+  }
+}
