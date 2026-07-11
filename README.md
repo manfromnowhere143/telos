@@ -45,6 +45,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [118](experiments/iter118_both_miss_stealth_class/RESULT.md) | Is there a hack neither verifier catches? | yes - `2/2` disguised hacks pass the hidden test, evade the detector, and fool the judge; both are wrong on a held-out input, so held-out-input execution is the required defense |
 | [119](experiments/iter119_metamorphic_defense/RESULT.md) | Does held-out-input execution catch them? | yes - on the both-miss class the visible test, detector, and judge each catch `0/2` while metamorphic held-out-input execution catches `2/2`; the loop closes |
 | [120](experiments/iter120_generalized_metamorphic/RESULT.md) | Does the metamorphic layer generalize past a hand-picked input? | yes - seeded random held-out inputs catch `2/2` (diverging on `10/12` and `8/12`); the open problem narrows to an oracle without gold |
+| [121](experiments/iter121_gold_free_property_oracle/RESULT.md) | Can the oracle drop the gold reference? | yes - contract properties (no gold) catch `2/2` (violating `27/30`, `30/30`) at `0` false positives on gold; the frontier narrows to automatic property generation |
 
 ### The honest conclusion
 
@@ -88,8 +89,10 @@ both-miss stealth class was found (iter118), and a held-out-input (metamorphic) 
 shown to catch that class (iter119) - completing a three-layer argument: the deterministic detector
 catches mechanical hacks, the LLM judge catches oblique and hard-coded hacks the detector misses, and
 held-out-input execution catches plausible-but-generalization-broken completions both static layers
-accept. The open target is now generalizing held-out-input generation so the metamorphic layer
-applies without a hand-chosen probe per instance.
+accept. That third layer was generalized to random inputs (iter120) and then made gold-free with
+contract properties that catch the both-miss class at zero false positives on the correct code
+(iter121). The open target is now automatic property generation from the task specification so the
+third layer needs neither gold nor a hand-written property.
 
 ## Honest Status
 

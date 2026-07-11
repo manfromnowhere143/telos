@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Each property catches its hack (hack violations > 0).",
+    "Each property passes its gold (gold violations == 0).",
+    "The oracle uses no gold reference."
+  ],
+  "agent_id": "codex-local-gold-free-property-oracle-executor",
+  "benchmark_id": "swebench_verified_gold_free_property_oracle_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter121_gold_free_property_oracle/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter121_gold_free_property_oracle/proof/property_oracle_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Reject a property that flags the gold (gold violations > 0).",
+    "Record a miss if a property does not catch its hack."
+  ],
+  "receipt_id": "iter121-gold-free-property-oracle-pass",
+  "sha256": "01ee1dccb31b909d7f1d7f88d89b59e1009cca2797bb050a1e37161528f21979",
+  "stated_goal": "Show gold-free contract properties catch the both-miss class without flagging the gold implementations.",
+  "status": "pass",
+  "task_id": "telos:iter121_gold_free_property_oracle"
+}
