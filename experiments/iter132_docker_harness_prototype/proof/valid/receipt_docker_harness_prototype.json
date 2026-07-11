@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "The container provides a Python the native harness lacks (3.9 with collections.Mapping).",
+    "The real hidden test fails on base and passes on gold inside the container.",
+    "The claim is one instance, not full-dataset coverage."
+  ],
+  "agent_id": "codex-local-docker-harness-prototype-executor",
+  "benchmark_id": "swebench_verified_docker_harness_prototype_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter132_docker_harness_prototype/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter132_docker_harness_prototype/proof/docker_run_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record the concrete blocker if the image does not pull or run.",
+    "Record it if base does not fail or gold does not pass inside the container."
+  ],
+  "receipt_id": "iter132-docker-harness-prototype-pass",
+  "sha256": "ec9e638321e5a67a831f69d7db8172881a36b62b0f1c72862f5b55820c80001b",
+  "stated_goal": "Run a natively-blocked instance's real hidden test inside the official SWE-bench Docker image.",
+  "status": "pass",
+  "task_id": "telos:iter132_docker_harness_prototype"
+}

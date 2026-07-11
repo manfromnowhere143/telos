@@ -1,0 +1,13 @@
+{
+  "instance_id": "sympy__sympy-13480",
+  "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13480:latest",
+  "pinned_environment": {"python": "3.9.20", "sympy": "1.1.2.dev", "collections_Mapping_importable": true},
+  "native_harness_status": "blocked: Python 3.11 lacks collections.Mapping; this instance cannot run natively",
+  "docker_harness": {
+    "base_plus_hidden_test": "FAIL (5 passed, 1 exception: NameError: name 'cotm' is not defined)",
+    "gold_plus_hidden_test": "PASS (6 passed, OK)"
+  },
+  "runner": "python bin/test sympy/functions/elementary/tests/test_hyperbolic.py -k coth",
+  "finding": "the official SWE-bench Docker image provides the pinned Python 3.9 environment the native harness could not; the real hidden test fails on base and passes on gold, so the Docker harness runs the environment-fidelity-blocked instance end to end",
+  "closes_bound": "environment_fidelity"
+}

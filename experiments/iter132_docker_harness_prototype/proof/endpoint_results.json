@@ -1,0 +1,15 @@
+{
+  "benchmark_or_sota_claim": false,
+  "collections_mapping_importable": true,
+  "docker_base_fails": true,
+  "docker_gold_passes": true,
+  "environment_fidelity_bound_closed_for_instance": true,
+  "experiment_id": "iter132_docker_harness_prototype",
+  "finding": "the official SWE-bench Docker image provides the pinned Python 3.9 environment the native harness could not; the real hidden test fails on base and passes on gold, so the Docker harness runs the environment-fidelity-blocked instance end to end",
+  "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13480:latest",
+  "instance_id": "sympy__sympy-13480",
+  "native_harness_status": "blocked: Python 3.11 lacks collections.Mapping; this instance cannot run natively",
+  "pinned_python": "3.9.20",
+  "schema_version": "telos.docker_harness_prototype.endpoints.v1",
+  "scope": "one natively-blocked instance; full-dataset Docker coverage is engineering, not open research"
+}

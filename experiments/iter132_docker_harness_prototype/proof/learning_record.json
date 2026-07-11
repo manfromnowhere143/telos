@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter132_docker_harness_prototype/proof/endpoint_results.json",
+    "experiments/iter132_docker_harness_prototype/proof/docker_run_results.json"
+  ],
+  "experiment_id": "iter132_docker_harness_prototype",
+  "insight": "the official SWE-bench Docker image ran a natively-blocked instance's real hidden test in a pinned Python 3.9 environment (base fails with the real bug, gold passes), closing the environment-fidelity bound in practice for this instance; full-dataset coverage is now engineering, not open research",
+  "next_action": "batch the Docker harness across the environment-fidelity-blocked instances and route symbolic-capable functions to symbolic property evaluation, to re-measure the property layer at full cross-repo scale",
+  "result_path": "experiments/iter132_docker_harness_prototype/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
