@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "The survey covers all 500 instances.",
+    "The overall and per-repo applicability rates are recorded.",
+    "The rate is framed as an upper bound, not the property genuine-sound rate."
+  ],
+  "agent_id": "codex-local-applicability-survey-analyst",
+  "benchmark_id": "swebench_verified_applicability_survey_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter138_applicability_survey/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter138_applicability_survey/proof/applicability_survey.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Do not present the structural criterion as the property genuine-sound rate.",
+    "Report low-applicability repos as-is."
+  ],
+  "receipt_id": "iter138-applicability-survey-pass",
+  "sha256": "300dfaaf3f80b3cf16c0843dfd1fa45455a2f2463f8535df4b47e1f39d8abb6a",
+  "stated_goal": "Measure the property-layer structural applicability across the full dataset by repo, as an upper bound on its reach.",
+  "status": "pass",
+  "task_id": "telos:iter138_applicability_survey"
+}

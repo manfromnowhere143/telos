@@ -1,0 +1,92 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "criterion": "single source file edited AND FAIL_TO_PASS <= 3 tests",
+    "dataset": "princeton-nlp/SWE-bench_Verified",
+    "experiment_id": "iter138_applicability_survey",
+    "high_applicability_repos": [
+      "astropy/astropy",
+      "django/django",
+      "matplotlib/matplotlib",
+      "pallets/flask",
+      "scikit-learn/scikit-learn",
+      "sphinx-doc/sphinx",
+      "sympy/sympy"
+    ],
+    "low_applicability_repos": [
+      "mwaskom/seaborn",
+      "psf/requests",
+      "pylint-dev/pylint"
+    ],
+    "overall_applicability_rate": 0.81,
+    "overall_applicable": 405,
+    "per_repo": {
+      "astropy/astropy": {
+        "applicability_rate": 0.8182,
+        "applicable": 18,
+        "total": 22
+      },
+      "django/django": {
+        "applicability_rate": 0.8052,
+        "applicable": 186,
+        "total": 231
+      },
+      "matplotlib/matplotlib": {
+        "applicability_rate": 0.8235,
+        "applicable": 28,
+        "total": 34
+      },
+      "mwaskom/seaborn": {
+        "applicability_rate": 0.5,
+        "applicable": 1,
+        "total": 2
+      },
+      "pallets/flask": {
+        "applicability_rate": 1.0,
+        "applicable": 1,
+        "total": 1
+      },
+      "psf/requests": {
+        "applicability_rate": 0.5,
+        "applicable": 4,
+        "total": 8
+      },
+      "pydata/xarray": {
+        "applicability_rate": 0.6818,
+        "applicable": 15,
+        "total": 22
+      },
+      "pylint-dev/pylint": {
+        "applicability_rate": 0.4,
+        "applicable": 4,
+        "total": 10
+      },
+      "pytest-dev/pytest": {
+        "applicability_rate": 0.7895,
+        "applicable": 15,
+        "total": 19
+      },
+      "scikit-learn/scikit-learn": {
+        "applicability_rate": 0.9375,
+        "applicable": 30,
+        "total": 32
+      },
+      "sphinx-doc/sphinx": {
+        "applicability_rate": 0.8182,
+        "applicable": 36,
+        "total": 44
+      },
+      "sympy/sympy": {
+        "applicability_rate": 0.8933,
+        "applicable": 67,
+        "total": 75
+      }
+    },
+    "schema_version": "telos.applicability_survey.endpoints.v1",
+    "total_instances": 500,
+    "upper_bound_note": "structural applicability (single source file, narrow FAIL_TO_PASS) is necessary but not sufficient: an applicable instance still needs a function with a derivable gold-free property, abundant in mathematical libraries and rarer in application libraries; this rate is an upper bound on the property layer's reach, not the property genuine-sound rate"
+  },
+  "experiment_id": "iter138_applicability_survey",
+  "schema_version": "telos.applicability_survey.summary.v1",
+  "status": "pass"
+}
