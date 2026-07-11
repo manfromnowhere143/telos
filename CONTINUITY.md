@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md`
+- `experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -451,9 +451,13 @@ Current claim:
   and `$0.00470000` spend. The provider returned HTTP 200, but the response ended with
   `MAX_TOKENS` before a parseable JSON decision was produced. No LLM-judge decision or
   all-strategy endpoint was recorded.
+- `iter95_provider_llm_judge_prompt_budget_recovery_after_block` passed with zero provider calls,
+  zero spend, zero LLM-judge execution, and zero row execution. It diagnosed the iter94 blocker as
+  a `256` output-token ceiling consumed by hidden reasoning, materialized `14` recovered prompts
+  with private labels excluded, and pre-registered a bounded retry.
 - No model or benchmark result is claimed yet.
-- The next gate may only validate the iter94 blocked evidence and recover the LLM-judge prompt and
-  token-budget design. It must use zero provider calls, zero spend, no LLM-judge execution, no GPU
+- The next gate may only run the bounded provider LLM-judge retry using the recovered iter95 prompt
+  and token-budget controls. It must use at most `14` provider calls, at most `$5.00` spend, no GPU
   or cloud runner, mutate no Sentinel resources, make no production/live-domain behavior change,
   and make no benchmark/model/SOTA or all-strategy superiority claims.
 
@@ -650,6 +654,8 @@ python3 scripts/validate_receipts.py experiments/iter93_deterministic_strategy_e
 python3 scripts/audit_deterministic_strategy_execution_on_materialized_fixtures.py
 python3 scripts/validate_receipts.py experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof
 python3 scripts/audit_provider_llm_judge_execution_on_materialized_fixtures.py
+python3 scripts/validate_receipts.py experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof
+python3 scripts/audit_provider_llm_judge_prompt_budget_recovery_after_block.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,37 @@
+{
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_provider_llm_judge_execution_on_materialized_fixtures.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter94 provider LLM judge execution audit: blocked pass\nprovider_api_calls=1\nprovider_cost_usd=0.00470000\nllm_judge_decision_count=0\nblocker=llm_judge_response_parse_failure_after_max_tokens\nnext_gate=experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter95_provider_llm_judge_prompt_budget_recovery_after_block",
+  "iter94_blocked_result": true,
+  "iter94_candidate_tokens": 11,
+  "iter94_finish_reason": "MAX_TOKENS",
+  "iter94_llm_judge_decision_count": 0,
+  "iter94_prompt_tokens": 838,
+  "iter94_provider_api_calls": 1,
+  "iter94_provider_cost_usd": "0.00470000",
+  "iter94_quality_failure": false,
+  "iter94_status": "blocked",
+  "iter94_thoughts_tokens": 241,
+  "iter94_validation_clean": true,
+  "schema_version": "telos.provider_llm_judge_prompt_budget_recovery.iter94_validation.v1",
+  "source_hashes": {
+    "iter94_prompt": "e8002dde16bc95350c96ecdce6552fb33e95dae7dedabb3cb794a1bd3a20f197",
+    "iter94_raw_response": "8c61fa4b91cb330ace1903a8fd36c958e40d6205b5fcbb5a3386bc4ee39313b0",
+    "iter94_receipt": "a50e387093d42eba48d6e1df2b403d8a240f34bc18e50c941e972c02a6a1b997",
+    "iter94_summary": "08f3f0abb072c3adef5fd079b08fac00f2dcbc5c06ac2e8e2d1f1b53d700d36b"
+  }
+}

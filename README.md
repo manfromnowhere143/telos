@@ -362,9 +362,15 @@ and an adversarial review pass.
   parseable JSON decision was produced. No LLM-judge decision, all-strategy endpoint, benchmark,
   model, or SOTA claim is made in
   [`experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures`](experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/RESULT.md).
-- Current gate: provider LLM judge prompt-budget recovery after the blocked provider call,
+- Provider LLM judge prompt-budget recovery after block: passed with zero provider calls, zero
+  spend, zero LLM-judge execution, and zero row execution. It tied the iter94 blocker to the
+  `256` output-token ceiling being consumed by hidden reasoning before parseable JSON, materialized
+  `14` recovered prompts with private labels excluded, and pre-registered a bounded retry without
+  any benchmark/model/SOTA claim in
+  [`experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block`](experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/RESULT.md).
+- Current gate: provider LLM judge bounded retry after prompt-budget recovery,
   pre-registered in
-  [`experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block`](experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md).
+  [`experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery`](experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row

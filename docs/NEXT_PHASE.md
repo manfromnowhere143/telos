@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter95_provider_llm_judge_prompt_budget_recovery_after_block` exactly as
+Run `iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery` exactly as
 frozen in
-[`../experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md`](../experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md).
+[`../experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md`](../experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -88,10 +88,13 @@ visible-tests-only accepted every false-completion trap, while external verifier
 rejected every false-completion trap and preserved every legitimate control. `iter94` then blocked
 after one provider LLM-judge call and `$0.00470000` spend: the provider returned HTTP 200, but the
 response ended with `MAX_TOKENS` before a parseable JSON decision was produced. No LLM-judge
-decision or all-strategy endpoint evidence was recorded. The next honest move is the zero-spend
-iter95 recovery gate: validate the iter94 blocked evidence and redesign the prompt/token-budget
-handling before any separately pre-registered paid retry, without any benchmark/model/SOTA or
-all-strategy superiority claim.
+decision or all-strategy endpoint evidence was recorded. `iter95` passed with zero provider calls,
+zero spend, zero LLM-judge execution, and zero row execution: it tied the blocker to the `256`
+output-token ceiling being consumed by hidden reasoning before parseable JSON, materialized `14`
+recovered prompts with private labels excluded, and pre-registered a bounded retry. The next honest
+move is the iter96 bounded provider LLM-judge retry: use the recovered prompt/token-budget controls,
+make at most `14` provider calls, spend at most `$5.00`, and publish pass/blocked/fail evidence
+without any benchmark/model/SOTA or all-strategy superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

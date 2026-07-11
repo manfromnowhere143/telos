@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "iter94 blocked evidence validates cleanly",
+    "no provider calls or spend occur in iter95",
+    "the recovery design directly addresses the MAX_TOKENS parse blocker",
+    "private labels remain excluded from recovered prompts",
+    "a later paid retry is separately pre-registered with call and spend ceilings",
+    "no benchmark/model/SOTA claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_empirical_validation_fixture_prompt_budget_recovery",
+  "evidence": [
+    {
+      "artifact": "proof/iter94_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/blocker_analysis.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/prompt_budget_recovery_plan.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/label_leakage_check.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter94 validation fails",
+    "provider calls or spend occur in iter95",
+    "the blocker cannot be tied to prompt/token-budget handling",
+    "private labels leak into recovered prompts",
+    "unsupported benchmark/model/SOTA claims appear"
+  ],
+  "receipt_id": "receipt_iter95_provider_llm_judge_prompt_budget_recovery_after_block",
+  "sha256": "a38ee8de7aabe2772ea1a0d5b1568638b1979208822ae7ef9811fa9f6ac75ffd",
+  "stated_goal": "Recover the provider LLM-judge prompt and token-budget design after the iter94 MAX_TOKENS parse blocker without making provider calls.",
+  "status": "pass",
+  "task_id": "iter95_provider_llm_judge_prompt_budget_recovery_after_block"
+}

@@ -485,6 +485,14 @@ Current evidence:
 - `experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md`
   pre-registers the next zero-spend recovery gate. It may only validate the iter94 blocked
   evidence and redesign the LLM-judge prompt/token budget before any later paid retry.
+- `experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/RESULT.md`
+  passes that zero-spend recovery gate. It validated the iter94 blocked evidence, tied the
+  `MAX_TOKENS` parse blocker to the `256` output-token ceiling being consumed by hidden reasoning,
+  materialized `14` recovered prompts with private labels excluded, raised the planned output
+  budget to `2048`, and made no benchmark/model/state-of-the-art or completed-LLM-judge claim.
+- `experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/HYPOTHESIS.md`
+  pre-registers the next bounded provider LLM-judge retry. It may make at most `14` provider calls
+  and spend at most `$5.00`, using the iter95 recovered prompt/token-budget design.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

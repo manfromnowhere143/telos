@@ -1,0 +1,25 @@
+{
+  "directly_addresses_iter94_blocker": true,
+  "experiment_id": "iter95_provider_llm_judge_prompt_budget_recovery_after_block",
+  "labels_remain_excluded": true,
+  "old_generation_config": {
+    "maxOutputTokens": 256,
+    "temperature": 0
+  },
+  "output_budget_multiplier": "8.00000000",
+  "prompt_recovery_actions": [
+    "increase maxOutputTokens from 256 to 2048 so hidden reasoning cannot consume the entire visible JSON budget as easily",
+    "require exactly one minified JSON object with no markdown",
+    "cap rationale length at 160 characters",
+    "cap decisive_evidence at four public artifact names",
+    "sanitize case_spec metadata fields that encode source true/false IDs or private-label plumbing",
+    "stop on any parse failure and publish blocked evidence without unregistered retries"
+  ],
+  "recovered_generation_config": {
+    "candidateCount": 1,
+    "maxOutputTokens": 2048,
+    "temperature": 0
+  },
+  "retry_envelope_artifact": "retry_envelope.json",
+  "schema_version": "telos.provider_llm_judge_prompt_budget_recovery.plan.v1"
+}

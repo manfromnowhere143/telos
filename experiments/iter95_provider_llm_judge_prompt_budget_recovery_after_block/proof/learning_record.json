@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof/iter94_validation.json",
+    "experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof/blocker_analysis.json",
+    "experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof/prompt_budget_recovery_plan.json",
+    "experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof/label_leakage_check.json",
+    "experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof/retry_envelope.json",
+    "experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof/run_summary.json",
+    "experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof/valid/receipt_provider_llm_judge_prompt_budget_recovery_after_block.json"
+  ],
+  "experiment_id": "iter95_provider_llm_judge_prompt_budget_recovery_after_block",
+  "insight": "iter94's provider judge blocker was caused by a 256 output-token ceiling being consumed by hidden reasoning before parseable JSON was emitted",
+  "next_action": "run the bounded provider LLM-judge retry with recovered prompt and token-budget controls before any all-strategy or benchmark claim",
+  "result_path": "experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/RESULT.md",
+  "status": "pass"
+}

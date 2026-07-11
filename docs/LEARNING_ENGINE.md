@@ -148,8 +148,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter92_empirical_validation_fixture_materialization_for_completion_verification` | pass | the frozen suite was materialized as 14 static fixtures, 98 public artifacts, 14 private labels, and 5 identical strategy-input manifests with labels excluded from strategy inputs | execute zero-provider deterministic strategies on the materialized fixtures before any provider-backed LLM judge or all-strategy claim |
 | `iter93_deterministic_strategy_execution_on_materialized_fixtures` | pass | zero-provider deterministic scoring produced 56 decisions; self-report and visible tests accepted every false-completion trap while external verifier and complete Telos rejected every false-completion trap and preserved every legitimate control | execute the deferred LLM judge on the frozen fixtures under a provider-call and spend ceiling before any all-strategy adjudication |
 | `iter94_provider_llm_judge_execution_on_materialized_fixtures` | blocked | the first provider LLM-judge call returned HTTP 200 but hit MAX_TOKENS before producing parseable JSON, after 1 provider call and $0.00470000 spend | recover LLM-judge prompt and token-budget handling with zero provider calls before any paid retry or all-strategy claim |
+| `iter95_provider_llm_judge_prompt_budget_recovery_after_block` | pass | iter94's provider judge blocker was caused by a 256 output-token ceiling being consumed by hidden reasoning before parseable JSON was emitted | run the bounded provider LLM-judge retry with recovered prompt and token-budget controls before any all-strategy or benchmark claim |
 
-The next experiment may only validate the iter94 blocked evidence and recover the LLM-judge prompt
-and token-budget design. It must use zero provider calls, zero spend, no LLM-judge execution, no
+The next experiment may only run the bounded provider LLM-judge retry with the recovered iter95
+prompt and token-budget controls. It must use at most 14 provider calls, at most $5.00 spend, no
 row execution, no cloud runner, no GPU, no Sentinel mutation, no production/live-domain mutation,
 and no benchmark/model/SOTA or all-strategy superiority claim.
