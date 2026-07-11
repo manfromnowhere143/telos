@@ -1,0 +1,66 @@
+{
+ "django__django-10999": {
+  "class": "unsound",
+  "valid_inputs": 20,
+  "soundness": "1/25",
+  "harness": {
+   "call": "parse_duration(inp)",
+   "make_input": "str(rng.randint(-100, 100)) + ' ' + str(rng.randint(-23, 23)) + ':' + str(rng.randint(-59, 59)) + ':' + str(rng.randint(-59, 59))",
+   "check": "(lambda inp, out: (out is None and '-' in inp and ':' in inp and (inp.count(':') == 1 and int(inp.split(':')[1]) < 0 or inp.count(':') == 2 and int(inp.split(':')[1]) < 0 or inp.count(':') == 2 and int(inp.split(':')[2]) < 0)) or (out is not None and (out.days == int(inp.split(' ')[0]) if ' ' in inp else 0) and (out.seconds == (int(inp.split(':')[0]) * 3600 + int(inp.split(':')[1]) * 60 + (int(inp.split(':')[2].split('.')[0]) if '.' in inp.split(':')[2] else int(inp.split(':')[2]))) if ':' in inp else int(inp)) * (1 if '-' not in inp else -1) and (out.microseconds == (int(inp.split('.')[1]) * 1000) if '.' in inp else 0))) (inp, out)"
+  }
+ },
+ "django__django-11206": {
+  "class": "synthesis_failed",
+  "last_error": "only 0/20 inputs valid; "
+ },
+ "django__django-11276": {
+  "class": "sound",
+  "valid_inputs": 20,
+  "soundness": "0/25",
+  "harness": {
+   "call": "html.format_html(\"{}{}\", 'a', 'b')",
+   "make_input": "(\"{}{}\", 'a', 'b')",
+   "check": "out == 'ab'"
+  }
+ },
+ "django__django-11848": {
+  "class": "sound",
+  "valid_inputs": 20,
+  "soundness": "0/25",
+  "harness": {
+   "call": "parse_http_date(inp[1])",
+   "make_input": "(datetime(rng.randint(1970, 2050), rng.randint(1, 12), rng.randint(1, 28), rng.randint(0, 23), rng.randint(0, 59), rng.randint(0, 59)), dateformat.format(datetime(rng.randint(1970, 2050), rng.randint(1, 12), rng.randint(1, 28), rng.randint(0, 23), rng.randint(0, 59), rng.randint(0, 59)), 'l, d-M-y H:i:s \\G\\M\\T'))",
+   "check": "out is None or (out.year == inp[2].year and out.month == inp[2].month and out.day == inp[2].day and out.hour == inp[2].hour and out.minute == inp[2].minute and out.second == inp[2].second)"
+  }
+ },
+ "django__django-13670": {
+  "class": "sound",
+  "valid_inputs": 20,
+  "soundness": "0/25",
+  "harness": {
+   "call": "dateformat.format(datetime(inp[0], 9, 8, 5, 0), 'y')",
+   "make_input": "(rng.randint(1, 999),)",
+   "check": "out == str(inp[0])[-2:].zfill(2)"
+  }
+ },
+ "django__django-14089": {
+  "class": "sound",
+  "valid_inputs": 20,
+  "soundness": "0/25",
+  "harness": {
+   "call": "list(reversed(OrderedSet(inp)))",
+   "make_input": "rng.sample(range(100), k=rng.randint(0, 10))",
+   "check": "out == list(reversed(inp))"
+  }
+ },
+ "django__django-14373": {
+  "class": "sound",
+  "valid_inputs": 20,
+  "soundness": "0/25",
+  "harness": {
+   "call": "dateformat.format(inp[0], 'Y')",
+   "make_input": "(datetime(rng.randint(1, 9999), rng.randint(1, 12), rng.randint(1, 28)),)",
+   "check": "out == str(inp[0].year).zfill(4)"
+  }
+ }
+}

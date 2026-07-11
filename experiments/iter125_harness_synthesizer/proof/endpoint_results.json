@@ -1,0 +1,81 @@
+{
+  "benchmark_or_sota_claim": false,
+  "experiment_id": "iter125_harness_synthesizer",
+  "finding": "test-source targeting, input validation, and retry roughly doubled the clean-sound rate (2/7 -> 4/7); but a raw soundness classification accepts vacuous harnesses (a constant check ignoring the input), so a non-triviality filter is required and catches them",
+  "genuine_sound_ids": [
+    "django__django-11848",
+    "django__django-13670",
+    "django__django-14089",
+    "django__django-14373"
+  ],
+  "instance_count": 7,
+  "iter124_baseline_clean_sound_rate": "0.28571429",
+  "per_instance": [
+    {
+      "call": "parse_duration(inp)",
+      "check": "(lambda inp, out: (out is None and '-' in inp and ':' in inp and (inp.count(':') == 1 and int(inp.split(':')[1]) < 0 or inp.count(':') == 2 and int(inp.split(':')[1]) < 0 or inp.count(':') == 2 and int(inp.split(':')[2]) < 0)) or (out is not None and (out.days == int(inp.split(' ')[0]) if ' ' in inp else 0) and (out.seconds == (int(inp.split(':')[0]) * 3600 + int(inp.split(':')[1]) * 60 + (int(inp.split(':')[2].split('.')[0]) if '.' in inp.split(':')[2] else int(inp.split(':')[2]))) if ':' in inp else int(inp)) * (1 if '-' not in inp else -1) and (out.microseconds == (int(inp.split('.')[1]) * 1000) if '.' in inp else 0))) (inp, out)",
+      "genuine_sound": false,
+      "instance_id": "django__django-10999",
+      "nontrivial": true,
+      "raw_class": "unsound"
+    },
+    {
+      "call": null,
+      "check": null,
+      "genuine_sound": false,
+      "instance_id": "django__django-11206",
+      "nontrivial": false,
+      "raw_class": "synthesis_failed"
+    },
+    {
+      "call": "html.format_html(\"{}{}\", 'a', 'b')",
+      "check": "out == 'ab'",
+      "genuine_sound": false,
+      "instance_id": "django__django-11276",
+      "nontrivial": false,
+      "raw_class": "sound"
+    },
+    {
+      "call": "parse_http_date(inp[1])",
+      "check": "out is None or (out.year == inp[2].year and out.month == inp[2].month and out.day == inp[2].day and out.hour == inp[2].hour and out.minute == inp[2].minute and out.second == inp[2].second)",
+      "genuine_sound": true,
+      "instance_id": "django__django-11848",
+      "nontrivial": true,
+      "raw_class": "sound"
+    },
+    {
+      "call": "dateformat.format(datetime(inp[0], 9, 8, 5, 0), 'y')",
+      "check": "out == str(inp[0])[-2:].zfill(2)",
+      "genuine_sound": true,
+      "instance_id": "django__django-13670",
+      "nontrivial": true,
+      "raw_class": "sound"
+    },
+    {
+      "call": "list(reversed(OrderedSet(inp)))",
+      "check": "out == list(reversed(inp))",
+      "genuine_sound": true,
+      "instance_id": "django__django-14089",
+      "nontrivial": true,
+      "raw_class": "sound"
+    },
+    {
+      "call": "dateformat.format(inp[0], 'Y')",
+      "check": "out == str(inp[0].year).zfill(4)",
+      "genuine_sound": true,
+      "instance_id": "django__django-14373",
+      "nontrivial": true,
+      "raw_class": "sound"
+    }
+  ],
+  "raw_class_taxonomy": {
+    "sound": 5,
+    "synthesis_failed": 1,
+    "unsound": 1
+  },
+  "schema_version": "telos.harness_synthesizer.endpoints.v1",
+  "synthesizer_genuine_sound_rate": "0.57142857",
+  "vacuous_harness_ids": [
+    "django__django-11276"
+  ]
+}

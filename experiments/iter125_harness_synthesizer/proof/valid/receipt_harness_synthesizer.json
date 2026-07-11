@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "The synthesizer result per instance is recorded from real native execution.",
+    "A non-triviality filter reclassifies vacuous harnesses out of the genuine-sound set.",
+    "The genuine-sound rate is compared to the iter124 baseline of 2/7."
+  ],
+  "agent_id": "codex-local-harness-synthesizer-analyst",
+  "benchmark_id": "swebench_verified_harness_synthesizer_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter125_harness_synthesizer/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter125_harness_synthesizer/proof/synthesizer_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "A raw sound classification is not genuine; vacuous harnesses are excluded by the non-triviality filter.",
+    "The rate is reported whether or not it improved over baseline."
+  ],
+  "receipt_id": "iter125-harness-synthesizer-pass",
+  "sha256": "d1ba990351a4ac3fd0311ca20184f369ab3daa50c0bf279d7dee14ade413cf3b",
+  "stated_goal": "Re-measure the clean-sound rate with a validated synthesizer and a non-triviality filter.",
+  "status": "pass",
+  "task_id": "telos:iter125_harness_synthesizer"
+}

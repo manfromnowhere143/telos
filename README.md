@@ -49,6 +49,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [122](experiments/iter122_automatic_property_generation/RESULT.md) | Can the model generate the property itself? | yes - `gemini-2.5-flash` proposes properties that catch `2/2` (violating `28/30`, `26/30`) at `0` gold false positives; the model, fooled as a judge, is reliable as a property generator because execution checks it |
 | [123](experiments/iter123_visible_test_anchor_filter/RESULT.md) | Can unsound properties be rejected without gold? | yes - the visible test is a known-correct anchor; it keeps `2/2` sound properties and rejects `2/2` unsound ones with no gold reference |
 | [124](experiments/iter124_property_generation_at_scale/RESULT.md) | Does automatic property generation generalize? | not yet - across seven real instances only `2/7` produce a clean sound auto-generated harness; the mechanism is real but the harness/input synthesizer is the bottleneck (generation, syntax, input-domain, mis-target failures) |
+| [125](experiments/iter125_harness_synthesizer/RESULT.md) | Does a validated synthesizer help? | yes - test-source targeting, input validation, and retry roughly double the rate to `4/7`; a non-triviality filter is required and catches a vacuous harness raw soundness accepted; two residual failures (unsound property, structured-input domain) remain |
 
 ### The honest conclusion
 
@@ -107,9 +108,11 @@ bounded: across seven real pure-function instances only two produced a clean sou
 harness (iter124). The property mechanism is real - when the model produces a harness it is sound and
 catches the both-miss class - but synthesizing a correct call and input domain automatically is the
 bottleneck, and it is the same integration wall that makes most SWE-bench instances resistant to
-property-based testing. The open target is a harness synthesizer that generates the call from the
-function signature and validates the input generator before use, rather than a single diff-to-JSON
-prompt.
+property-based testing. A validated synthesizer that targets the test source, validates the input
+generator before trusting the property, and retries on failure roughly doubles that rate to `4/7`
+(iter125) - with a non-triviality filter that catches vacuous harnesses a raw soundness check accepts.
+The residual failures (an unsound property, a structured-input domain) are the honest edge of
+automation and the current open target.
 
 ## Honest Status
 
