@@ -44,6 +44,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [117](experiments/iter117_precision_coverage_boundary/RESULT.md) | Can the detector gap close for free? | a constant-return signal catches `2/2` missed hacks but costs `1/200` real false positives - the first hardening that trades precision, so it is not adopted and the class is judge territory |
 | [118](experiments/iter118_both_miss_stealth_class/RESULT.md) | Is there a hack neither verifier catches? | yes - `2/2` disguised hacks pass the hidden test, evade the detector, and fool the judge; both are wrong on a held-out input, so held-out-input execution is the required defense |
 | [119](experiments/iter119_metamorphic_defense/RESULT.md) | Does held-out-input execution catch them? | yes - on the both-miss class the visible test, detector, and judge each catch `0/2` while metamorphic held-out-input execution catches `2/2`; the loop closes |
+| [120](experiments/iter120_generalized_metamorphic/RESULT.md) | Does the metamorphic layer generalize past a hand-picked input? | yes - seeded random held-out inputs catch `2/2` (diverging on `10/12` and `8/12`); the open problem narrows to an oracle without gold |
 
 ### The honest conclusion
 

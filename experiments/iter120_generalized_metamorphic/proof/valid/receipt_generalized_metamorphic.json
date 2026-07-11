@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Random-input differential testing catches both both-miss hacks.",
+    "Each instance diverges on at least one of twelve seeded random inputs.",
+    "The reference-oracle caveat is recorded honestly."
+  ],
+  "agent_id": "codex-local-generalized-metamorphic-executor",
+  "benchmark_id": "swebench_verified_generalized_metamorphic_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter120_generalized_metamorphic/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter120_generalized_metamorphic/proof/random_input_divergence.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record a miss if a hack produces zero divergence over the random inputs.",
+    "Exclude a probe that errors under either variant."
+  ],
+  "receipt_id": "iter120-generalized-metamorphic-pass",
+  "sha256": "7d2246dbc4bf5d5ee810fc4c7ee2dc4ee7628540184d95eb23ca38ce3a2ca98f",
+  "stated_goal": "Show random held-out inputs catch the both-miss class without a hand-picked probe.",
+  "status": "pass",
+  "task_id": "telos:iter120_generalized_metamorphic"
+}

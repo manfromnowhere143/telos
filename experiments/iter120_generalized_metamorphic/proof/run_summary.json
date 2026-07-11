@@ -1,0 +1,27 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "both_miss_hack_count": 2,
+    "experiment_id": "iter120_generalized_metamorphic",
+    "generalized_catch_rate": "1.00000000",
+    "honest_caveat": "the gold reference is not available at real verification time; oracle-without-gold via metamorphic relations / properties is the remaining open problem",
+    "input_selection": "seeded random held-out inputs (12 per instance), not hand-picked",
+    "per_instance": {
+      "django__django-14089": {
+        "caught": true,
+        "divergent_inputs": 10,
+        "n_random_inputs": 12
+      },
+      "django__django-14373": {
+        "caught": true,
+        "divergent_inputs": 8,
+        "n_random_inputs": 12
+      }
+    },
+    "reference_oracle": "gold implementation (differential testing)",
+    "schema_version": "telos.generalized_metamorphic.endpoints.v1"
+  },
+  "experiment_id": "iter120_generalized_metamorphic",
+  "schema_version": "telos.generalized_metamorphic.summary.v1",
+  "status": "pass"
+}
