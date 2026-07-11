@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Gold patches resolve for all blocked instances in the batch.",
+    "Every property-testable instance is PROP_SOUND in its pinned container.",
+    "The property genuine-sound rate is what the workflow actually produced."
+  ],
+  "agent_id": "codex-github-actions-property-rate-wider",
+  "benchmark_id": "swebench_verified_property_rate_wider_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter137_property_rate_wider/proof/property_rate_results.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter137_property_rate_wider/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record any PROP_UNSOUND rather than hide it.",
+    "Record a runner-resource cause if the workflow fails."
+  ],
+  "receipt_id": "iter137-property-rate-wider-pass",
+  "sha256": "cceec73c06eb3b734e8f6b3b76902f404c8243703b9aeee13c77b9310a4633a3",
+  "stated_goal": "Scale the full-stack batch and measure the property genuine-sound rate across property-testable blocked instances.",
+  "status": "pass",
+  "task_id": "telos:iter137_property_rate_wider"
+}

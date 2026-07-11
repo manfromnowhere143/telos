@@ -1,0 +1,60 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "experiment_id": "iter137_property_rate_wider",
+    "finding": "the property genuine-sound rate held wider on native-x86 CI: gold resolved for all five blocked instances, and all three property-testable ones (coth, Min, Point.distance) were PROP_SOUND in their pinned containers - a 3/3 property genuine-sound rate on the property-testable subset, with the gold-free metamorphic property running inside the same pinned environment as the hidden test",
+    "gold_resolution_count": 5,
+    "gold_resolution_rate": "1.00000000",
+    "instance_count": 5,
+    "per_instance": [
+      {
+        "instance_id": "sympy__sympy-13480",
+        "property": "PROP_SOUND",
+        "property_applicable": true,
+        "property_sound": true,
+        "resolved": true
+      },
+      {
+        "instance_id": "sympy__sympy-13615",
+        "property": "NO_PROPERTY",
+        "property_applicable": false,
+        "property_sound": false,
+        "resolved": true
+      },
+      {
+        "instance_id": "sympy__sympy-12481",
+        "property": "NO_PROPERTY",
+        "property_applicable": false,
+        "property_sound": false,
+        "resolved": true
+      },
+      {
+        "instance_id": "sympy__sympy-15809",
+        "property": "PROP_SOUND",
+        "property_applicable": true,
+        "property_sound": true,
+        "resolved": true
+      },
+      {
+        "instance_id": "sympy__sympy-11618",
+        "property": "PROP_SOUND",
+        "property_applicable": true,
+        "property_sound": true,
+        "resolved": true
+      }
+    ],
+    "property_genuine_sound_count": 3,
+    "property_genuine_sound_rate": "1.00000000",
+    "property_testable_count": 3,
+    "property_testable_instances": [
+      "sympy__sympy-13480",
+      "sympy__sympy-15809",
+      "sympy__sympy-11618"
+    ],
+    "runner": "GitHub Actions ubuntu-latest (native x86, no emulation)",
+    "schema_version": "telos.property_rate_wider.endpoints.v1"
+  },
+  "experiment_id": "iter137_property_rate_wider",
+  "schema_version": "telos.property_rate_wider.summary.v1",
+  "status": "pass"
+}
