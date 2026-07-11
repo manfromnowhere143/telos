@@ -1,0 +1,55 @@
+{
+  "benchmark_or_sota_claim": false,
+  "clean_sound_ids": [
+    "django__django-14089",
+    "django__django-14373"
+  ],
+  "clean_sound_rate": "0.28571429",
+  "experiment_id": "iter124_property_generation_at_scale",
+  "failure_taxonomy": {
+    "generation_failed": 1,
+    "harness_error": 1,
+    "sound": 3,
+    "too_few_valid_inputs": 2
+  },
+  "finding": "full-auto property-harness generation does not reliably generalize across diverse pure functions; it succeeds when the contract and input domain are simple and fails on generation truncation, syntax, unsynthesizable input domains, and call-target mis-inference",
+  "instance_count": 7,
+  "per_instance": {
+    "django__django-10999": {
+      "class": "harness_error",
+      "detail": "SyntaxError: invalid syntax"
+    },
+    "django__django-11206": {
+      "class": "too_few_valid_inputs",
+      "gold_violations": 0,
+      "valid_inputs": 0
+    },
+    "django__django-11276": {
+      "class": "sound",
+      "gold_violations": 0,
+      "valid_inputs": 25
+    },
+    "django__django-11848": {
+      "class": "generation_failed"
+    },
+    "django__django-13670": {
+      "class": "too_few_valid_inputs",
+      "gold_violations": 0,
+      "valid_inputs": 0
+    },
+    "django__django-14089": {
+      "class": "sound",
+      "gold_violations": 0,
+      "valid_inputs": 25
+    },
+    "django__django-14373": {
+      "class": "sound",
+      "gold_violations": 0,
+      "valid_inputs": 25
+    }
+  },
+  "schema_version": "telos.property_generation_at_scale.endpoints.v1",
+  "sound_but_mis_targeted": {
+    "django__django-11276": "call target inferred as html.escape, but the task concerns the make_list filter"
+  }
+}

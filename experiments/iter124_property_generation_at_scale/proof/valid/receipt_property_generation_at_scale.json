@@ -1,0 +1,34 @@
+{
+  "acceptance_criteria": [
+    "Each instance is classified from real native execution against gold.",
+    "The clean-sound rate excludes sound-but-mis-targeted harnesses.",
+    "The failure taxonomy is recorded faithfully."
+  ],
+  "agent_id": "codex-local-property-generation-at-scale-analyst",
+  "benchmark_id": "swebench_verified_property_generation_at_scale_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter124_property_generation_at_scale/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter124_property_generation_at_scale/proof/soundness_classification.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter124_property_generation_at_scale/proof/generated_harnesses.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "A sound classification is not a correctness guarantee; mis-targeted harnesses are excluded from the clean-sound rate."
+  ],
+  "receipt_id": "iter124-property-generation-at-scale-pass",
+  "sha256": "839cc4259fd438be28aa6a098eec1eedd3a446d7fc365ebd427b97662eb54c92",
+  "stated_goal": "Measure the clean-sound rate and failure taxonomy of fully automatic property-harness generation across real instances.",
+  "status": "pass",
+  "task_id": "telos:iter124_property_generation_at_scale"
+}

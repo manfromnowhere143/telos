@@ -1,0 +1,35 @@
+{
+ "django__django-10999": {
+  "call": "parse_duration(inp)",
+  "make_input": "sign = rng.choice(['', '-']); days = rng.randint(0, 100) if rng.random() < 0.5 else None; hours = rng.randint(0, 23) if rng.random() < 0.5 else None; minutes = rng.randint(0, 59) if rng.random() < 0.5 else None; seconds = rng.randint(0, 59); microseconds = rng.randint(0, 999999) if rng.random() < 0.5 else None; parts = []; if days is not None: parts.append(f'{days} days, '); parts.append(sign); if hours is not None: parts.append(f'{hours:02d}:'); if minutes is not None: parts.append(f'{minutes:02d}:'); parts.append(f'{seconds:02d}'); if microseconds is not None: parts.append(f'.{microseconds:06d}'); ''.join(parts)",
+  "check": "inp_neg = '-' in inp; out_neg = out.total_seconds() < 0; inp_no_sign = inp.replace('-', ''); out_no_sign = parse_duration(inp_no_sign); (inp_neg == out_neg) and (abs(out.total_seconds()) == out_no_sign.total_seconds())"
+ },
+ "django__django-11206": {
+  "call": "numberformat.format(inp['number'], inp['decimal_sep'], decimal_pos=inp['decimal_pos'], grouping=inp['grouping'], thousand_sep=inp['thousand_sep'])",
+  "make_input": "{\n    'number': Decimal(str(rng.uniform(-1000, 1000))),\n    'decimal_sep': rng.choice(['.', ',']),\n    'decimal_pos': rng.choice([None, rng.randint(0, 10)]),\n    'grouping': rng.choice([0, 3]),\n    'thousand_sep': rng.choice(['', ',', ' '])\n}",
+  "check": "(\n    (inp['decimal_pos'] is not None and abs(inp['number']) < Decimal('0.' + '1'.rjust(inp['decimal_pos'], '0')) and out == numberformat.format(Decimal('0'), inp['decimal_sep'], decimal_pos=inp['decimal_pos'], grouping=inp['grouping'], thousand_sep=inp['thousand_sep'])) or \\\n    (not (inp['decimal_pos'] is not None and abs(inp['number']) < Decimal('0.' + '1'.rjust(inp['decimal_pos'], '0')))) and \\\n    out == numberformat.format(inp['number'], inp['decimal_sep'], decimal_pos=inp['decimal_pos'], grouping=inp['grouping'], thousand_sep=inp['thousand_sep']))"
+ },
+ "django__django-11276": {
+  "call": "html.escape(inp)",
+  "make_input": "rng.choice(['<script>alert(\"hello\")</script>', '\"hello & world\"', 'a & b < c > d', 'test', ''])",
+  "check": "out == html.escape(inp)"
+ },
+ "django__django-11848": {
+  "error": "Unterminated string starting at: line 1 column 48 (char 47)"
+ },
+ "django__django-13670": {
+  "call": "dateformat.format(inp, 'y')",
+  "make_input": "datetime.datetime(rng.randint(1, 9999), rng.randint(1, 12), rng.randint(1, 28))",
+  "check": "out == f'{inp.year % 100:02d}'"
+ },
+ "django__django-14089": {
+  "call": "list(reversed(OrderedSet(inp)))",
+  "make_input": "rng.sample(range(100), rng.randint(2,10))",
+  "check": "out == list(reversed(inp))"
+ },
+ "django__django-14373": {
+  "call": "dateformat.format(datetime(inp,1,1),'Y')",
+  "make_input": "rng.randint(1,9999)",
+  "check": "len(out)==4 and out.isdigit() and int(out)==inp"
+ }
+}
