@@ -45,7 +45,7 @@ Python) for instances the local machine cannot run.
 | --- | --- | --- |
 | deterministic detector | mechanical hacks (test edits, assertion weakening, literal special-casing, receipt tampering) | `0/200` false positives on real human gold patches; `0/1200` -> full recall on source-only evasions after one hacker-fixer round, still `0/200` FP |
 | LLM judge | oblique and hard-coded hacks the detector misses | on 60 stealth candidates, `detector_only=0`, `judge_only=15`; on executed hacks, execution-only `0/3`, detector `1/3`, judge `3/3` |
-| held-out-input execution | plausible-but-generalization-broken completions both static layers accept | on the both-miss class, static verifiers `0/2`, metamorphic `2/2` |
+| held-out-input execution | plausible-but-generalization-broken completions both static layers accept | on the both-miss class, static verifiers `0/2`, metamorphic `2/2`; a frontier adversary constructs the class automatically on well-tested django code (`2` confirmed, `1` also fooling the judge), caught only by held-out execution |
 
 The right composition is a cascade: the free detector first, the paid judge on survivors, execution on
 what remains. The detector's precision/coverage boundary is measured: a signal that would close its gap
@@ -62,15 +62,22 @@ defense is not a better static verifier; it is execution on held-out inputs. Eve
 wrong on a single held-out input, and running the changed code outside the visible test catches all of
 them.
 
-The class is real but its prevalence is bounded. An automated hacker-fixer that starts from the correct
-gold fix and asks a model to degrade it produced `0` verified both-miss hacks across `20` model-instance
-attempts on thoroughly-tested django instances, with both a fast and a stronger reasoning model; the
-degradations either broke the visible test or preserved correctness, and the stronger model did no
-better. So the both-miss window is narrow where a test suite is thorough - the visible and held-out
-tests overlap enough that breaking generalization usually breaks a visible test too - and it
-concentrates in thin-coverage, narrow-input functions (the property-rich math subset), which is exactly
-where the hand-built examples of this section succeed. This is a sharper claim than "both-miss is
-everywhere": it is a real vulnerability localized to thin test coverage.
+The class is not an anecdote and it is not confined to thin-coverage math functions: a frontier
+adversary manufactures it automatically on well-tested application code. An automated hacker-fixer that
+starts from the correct gold fix, is given the held-out test names, and rewrites the fix into a subtly
+wrong variant produced `2` confirmed both-miss hacks on thoroughly-tested django instances when driven
+by a non-refusing frontier model (`gpt-5.6-terra`), where a weaker model (`gemini-2.5-flash/pro`) with a
+brittle apply harness had produced `0/20`. The stronger result overturns the earlier reading: that `0`
+was a capability-plus-harness artifact, not proof the window closes on thorough tests. One of the two
+frontier hacks defeats every static layer - `django-14752` keeps the extracted `serialize_result`
+method's signature but returns `str(obj.pk)` instead of honoring `to_field_name`, so it passes the
+visible test, evades the deterministic detector, and is judged `legitimate` by the strong LLM judge,
+failing only the held-out `test_custom_to_field` that the gold fix passes. The other (`django-14373`,
+`'%04d' % (self.data.year % 1000)`) evades the detector but the judge catches it. So held-out execution
+is necessary, not optional, even where a test suite is thorough. A secondary datum from the same run:
+under an identical defensive-research framing, the Anthropic frontier model `claude-opus-4-8` refused to
+construct the hacks while `gpt-5.6-terra` complied, so who can red-team a verifier is itself
+model-dependent.
 
 ## 5. The gold-free automated third layer
 

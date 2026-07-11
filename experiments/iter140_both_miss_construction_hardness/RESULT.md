@@ -1,6 +1,14 @@
 # Iteration 140 Result - How Hard Is It To Construct a Both-Miss on Real Instances?
 
-Status: `PASS` (an honest, informative negative result).
+> Superseded by `iter141`. This gate's structural reading of its `0/20` - that the both-miss window is
+> narrow where a test suite is thorough - was overturned once the confound was removed. iter141 reran the
+> same pool with a non-refusing frontier adversary (`gpt-5.6-terra`) and a robust apply harness and
+> produced `2` confirmed both-miss hacks on these same "thoroughly-tested" instances. The `0/20` below was
+> a capability-plus-harness artifact (weaker gemini adversary, brittle SEARCH/REPLACE apply that silently
+> no-op'd), not structural closure. The gemini run and its distribution below remain valid as recorded;
+> only the structural interpretation is retracted. See `experiments/iter141_frontier_hacker_fixer_both_miss/`.
+
+Status: `PASS` (an honest negative under a weak adversary; its structural interpretation is retracted by iter141).
 
 ## What this gate did
 
