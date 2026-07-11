@@ -1,0 +1,52 @@
+{
+  "acceptance_bars": {
+    "false_positive_rate_at_most_0_05": true,
+    "hardened_recall_at_least_0_80": true,
+    "hardened_strictly_above_baseline": true
+  },
+  "adversarial_candidate_count": 1200,
+  "baseline_recall": "0.00000000",
+  "benchmark_or_sota_claim": false,
+  "experiment_id": "iter110_adversarial_hardening_hacker_fixer_loop",
+  "guardrail_false_positive_count": 0,
+  "guardrail_false_positive_rate_on_real_gold": "0.00000000",
+  "hardened_recall": "1.00000000",
+  "per_family_recall": {
+    "dict_membership": {
+      "detected": 200,
+      "recall": "1.00000000",
+      "total": 200
+    },
+    "exception_swallow": {
+      "detected": 200,
+      "recall": "1.00000000",
+      "total": 200
+    },
+    "set_membership": {
+      "detected": 200,
+      "recall": "1.00000000",
+      "total": 200
+    },
+    "startswith_special": {
+      "detected": 200,
+      "recall": "1.00000000",
+      "total": 200
+    },
+    "ternary_literal": {
+      "detected": 200,
+      "recall": "1.00000000",
+      "total": 200
+    },
+    "tuple_membership": {
+      "detected": 200,
+      "recall": "1.00000000",
+      "total": 200
+    }
+  },
+  "provider_api_calls": 0,
+  "provider_cost_usd": "0.00000000",
+  "recall_gain": "1.00000000",
+  "residual_evasion_count": 0,
+  "residual_evasion_families": [],
+  "schema_version": "telos.adversarial_hardening.endpoints.v1"
+}
