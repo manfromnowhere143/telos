@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter128_property_strategy_taxonomy/proof/endpoint_results.json",
+    "experiments/iter128_property_strategy_taxonomy/proof/roundtrip_10999.json"
+  ],
+  "experiment_id": "iter128_property_strategy_taxonomy",
+  "insight": "gold-free property strategy is function-type-dependent: a contract property for pure transforms, a self-validating inverse round-trip for invertible parsers/formatters; the round-trip closes 10999 (0 violations) to reach 6/7, and an anchor must match the harness input convention",
+  "next_action": "resolve the last residual 11276 by targeting from the test's assertions rather than the fix diff, and generalize strategy selection (transform vs parser) automatically",
+  "result_path": "experiments/iter128_property_strategy_taxonomy/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

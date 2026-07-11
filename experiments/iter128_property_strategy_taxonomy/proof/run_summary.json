@@ -1,0 +1,42 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "experiment_id": "iter128_property_strategy_taxonomy",
+    "genuine_sound_ids": [
+      "django__django-10999",
+      "django__django-11206",
+      "django__django-11848",
+      "django__django-13670",
+      "django__django-14089",
+      "django__django-14373"
+    ],
+    "genuine_sound_rate_after": "0.85714286",
+    "honest_residual": {
+      "django__django-11276": "mis-targetable task (FAIL_TO_PASS test in admin_docs, fix in html.py); needs targeting from the test's assertions"
+    },
+    "mid_gate_correction": "the first anchor-in-the-loop attempt failed due to a harness bug (string anchors forced onto a timedelta-input round-trip harness), not a model failure; recorded transparently",
+    "prior_genuine_sound_rate": "0.71428571",
+    "property_strategy_taxonomy": {
+      "invertible_parser_or_formatter": "an inverse round-trip f(f_inverse(x)) == x, self-validating and needing no external anchor",
+      "pure_transform": "a contract property relating out to inp (e.g. reversed == forward reversed; four-digit year == str(year))",
+      "soundness_anchor": "the visible-test known-correct pair, valid only when it matches the harness input convention"
+    },
+    "roundtrip_evidence": {
+      "function": "django.utils.dateparse.parse_duration",
+      "gold_free": true,
+      "gold_violations": 0,
+      "instance_id": "django__django-10999",
+      "note": "the inverse round-trip needs no external anchor; it validates the parser against its own formatter",
+      "property": "parse_duration(duration_string(td)) == td for random timedelta td",
+      "samples": 30,
+      "self_validating": true,
+      "sound": true,
+      "strategy": "inverse_round_trip"
+    },
+    "roundtrip_sound": true,
+    "schema_version": "telos.property_strategy_taxonomy.endpoints.v1"
+  },
+  "experiment_id": "iter128_property_strategy_taxonomy",
+  "schema_version": "telos.property_strategy_taxonomy.summary.v1",
+  "status": "pass"
+}

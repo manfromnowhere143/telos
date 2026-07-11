@@ -52,6 +52,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [125](experiments/iter125_harness_synthesizer/RESULT.md) | Does a validated synthesizer help? | yes - test-source targeting, input validation, and retry roughly double the rate to `4/7`; a non-triviality filter is required and catches a vacuous harness raw soundness accepted; two residual failures (unsound property, structured-input domain) remain |
 | [126](experiments/iter126_gold_free_soundness_gate/RESULT.md) | Can the soundness decision drop gold too? | yes - non-triviality plus the visible-test anchor keeps the `3` genuine-sound harnesses, rejects the unsound `10999` property gold was needed for, and rejects the vacuous `11276`; the pipeline is gold-free at every step |
 | [127](experiments/iter127_structured_input_residuals/RESULT.md) | Can structured inputs close the residuals? | yes - seeding the generator from the test example and using a non-pathological format make `11206` and `11848` sound, raising the genuine-sound rate to `5/7`; the remaining two are an unsound generated property and a mis-targetable task, not input-domain failures |
+| [128](experiments/iter128_property_strategy_taxonomy/RESULT.md) | Which gold-free property fits which function? | an inverse round-trip closes the `10999` parser (`0/30`, self-validating) to reach `6/7`; strategy is function-type-dependent (contract property for transforms, round-trip for invertible parsers), and an anchor must match the harness input convention |
 
 ### The honest conclusion
 

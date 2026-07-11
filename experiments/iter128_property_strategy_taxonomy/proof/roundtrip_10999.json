@@ -1,0 +1,12 @@
+{
+  "instance_id": "django__django-10999",
+  "function": "django.utils.dateparse.parse_duration",
+  "strategy": "inverse_round_trip",
+  "property": "parse_duration(duration_string(td)) == td for random timedelta td",
+  "gold_violations": 0,
+  "samples": 30,
+  "sound": true,
+  "gold_free": true,
+  "self_validating": true,
+  "note": "the inverse round-trip needs no external anchor; it validates the parser against its own formatter"
+}

@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "The inverse round-trip is sound on gold over random inputs.",
+    "The genuine-sound rate rises to 6/7.",
+    "The mid-gate harness-bug correction is recorded transparently."
+  ],
+  "agent_id": "codex-local-property-strategy-taxonomy-executor",
+  "benchmark_id": "swebench_verified_property_strategy_taxonomy_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter128_property_strategy_taxonomy/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter128_property_strategy_taxonomy/proof/roundtrip_10999.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record the violations if the inverse round-trip is not sound.",
+    "The harness-bug correction is disclosed rather than hidden."
+  ],
+  "receipt_id": "iter128-property-strategy-taxonomy-pass",
+  "sha256": "39e1175c3fe028cd9fecb3a9676160ebee9b48b8306e99aa34998aad645c784d",
+  "stated_goal": "Close 10999 with an inverse round-trip and record the function-type property-strategy taxonomy.",
+  "status": "pass",
+  "task_id": "telos:iter128_property_strategy_taxonomy"
+}
