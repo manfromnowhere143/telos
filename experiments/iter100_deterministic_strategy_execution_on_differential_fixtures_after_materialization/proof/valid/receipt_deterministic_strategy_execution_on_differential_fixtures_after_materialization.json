@@ -1,0 +1,44 @@
+{
+  "acceptance_criteria": [
+    "Iter99 receipt and audit validation pass.",
+    "Four deterministic strategies produce one decision per materialized fixture.",
+    "Private labels are excluded from decisions and used only for endpoint scoring.",
+    "Provider-backed LLM judge execution remains zero and deferred.",
+    "No provider calls, spend, benchmark, model, live-domain, or SOTA claim occurs."
+  ],
+  "agent_id": "codex-local-differential-deterministic-executor",
+  "benchmark_id": "telos_external_verifier_differential_suite_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof/run_summary.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof/decision_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter99 validation fails.",
+    "The result must fail if any deterministic decision is missing.",
+    "The result must fail if labels are used for decisions.",
+    "The result must fail if provider calls, LLM judge execution, spend, benchmark, model, live-domain, or SOTA claims occur."
+  ],
+  "receipt_id": "iter100-differential-deterministic-execution-pass",
+  "sha256": "27b2950c80c326730a30b96335d7a18d1bb1c77f67f683f08d84e8ac0d2cdcb0",
+  "stated_goal": "Run zero-provider deterministic strategies on iter99 differential fixtures.",
+  "status": "pass",
+  "task_id": "telos:iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization@iter99"
+}

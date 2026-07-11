@@ -36,3 +36,14 @@ def test_latest_next_action_uses_newest_completed_record() -> None:
     second = validate_learning_record(second_data)
 
     assert latest_next_action([second, first]) == "run public task smoke"
+
+
+def test_latest_next_action_orders_iteration_numbers_numerically() -> None:
+    older_data = record("iter99_external_verifier_telos_differential_fixture_materialization_after_design")
+    older_data["next_action"] = "execute zero-provider deterministic strategies"
+    older = validate_learning_record(older_data)
+    newer_data = record("iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization")
+    newer_data["next_action"] = "run deferred provider-backed LLM judge"
+    newer = validate_learning_record(newer_data)
+
+    assert latest_next_action([newer, older]) == "run deferred provider-backed LLM judge"

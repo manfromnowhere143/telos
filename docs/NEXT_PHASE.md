@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization`
+Run `iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic`
 exactly as frozen in
-[`../experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md`](../experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md).
+[`../experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md`](../experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -109,7 +109,12 @@ manifests without executing any strategy or making any benchmark/model/SOTA clai
 that materialization gate with `16` blinded fixtures, `96` public artifacts, `16` private labels,
 and `5` identical strategy-input manifests. The next honest move is iter100: execute only
 zero-provider deterministic strategies on those frozen public packets, keeping the provider-backed
-LLM judge deferred and making no benchmark/model/SOTA or all-strategy superiority claim.
+LLM judge deferred and making no benchmark/model/SOTA or all-strategy superiority claim. `iter100`
+passed with `64` deterministic decisions and a limited fixture differential: external verifier
+accepted `4/8` false-completion traps while complete Telos accepted `0/8`; legitimate controls were
+preserved. The next honest move is iter101: run only the deferred provider-backed LLM judge on the
+same frozen fixtures under the `16` call and `$5.00` ceilings, keeping private labels excluded and
+making no benchmark/model/SOTA or all-strategy superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md`
+- `experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -473,11 +473,16 @@ Current claim:
   zero provider calls, zero spend, zero strategy execution, and zero row execution. It materialized
   `16` blinded fixtures, `96` public artifacts, `16` private labels, and `5` identical
   strategy-input manifests with labels excluded from every strategy input.
+- `iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization` passed
+  with zero provider calls, zero spend, no provider-backed strategy execution, and `64`
+  deterministic decisions. External verifier accepted `4/8` false-completion traps while complete
+  Telos accepted `0/8`; all deterministic strategies preserved `8/8` legitimate controls.
 - No model or benchmark result is claimed yet.
-- The next gate may only execute zero-provider deterministic strategies on committed iter99
-  fixtures. It must use zero provider calls, zero spend, no provider-backed LLM judge, no GPU or
-  cloud runner, mutate no Sentinel resources, make no production/live-domain behavior change, and
-  make no benchmark/model/SOTA or all-strategy superiority claims.
+- The next gate may only run the deferred provider-backed LLM judge on committed iter99 fixtures
+  after validating iter100. It must stay within the frozen `16` provider-call and `$5.00` spend
+  ceilings, keep private labels excluded from prompts, use no GPU or cloud runner, mutate no
+  Sentinel resources, make no production/live-domain behavior change, and make no benchmark/model/
+  SOTA or all-strategy superiority claims.
 
 ## Required Verification
 
@@ -682,6 +687,8 @@ python3 scripts/validate_receipts.py experiments/iter98_external_verifier_telos_
 python3 scripts/audit_external_verifier_telos_differential_suite_design_after_adjudication.py
 python3 scripts/validate_receipts.py experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof
 python3 scripts/audit_external_verifier_telos_differential_fixture_materialization_after_design.py
+python3 scripts/validate_receipts.py experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof
+python3 scripts/audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

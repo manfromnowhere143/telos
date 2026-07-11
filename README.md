@@ -392,9 +392,14 @@ and an adversarial review pass.
   identical strategy-input manifests with labels excluded, without claiming a differential result,
   in
   [`experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design`](experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/RESULT.md).
-- Current gate: deterministic strategy execution on differential fixtures after materialization,
+- Deterministic strategy execution on differential fixtures after materialization: passed with zero
+  provider calls and `64` deterministic decisions. External verifier accepted `4/8`
+  false-completion traps while complete Telos accepted `0/8`, producing a limited deterministic
+  fixture delta of `0.50000000` without claiming a benchmark or broad superiority result, in
+  [`experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization`](experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/RESULT.md).
+- Current gate: provider LLM judge execution on differential fixtures after deterministic,
   pre-registered in
-  [`experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization`](experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md).
+  [`experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic`](experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -522,7 +527,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current empirical-validation adjudication gate:
-[`experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md`](experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md).
+[`experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md`](experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 

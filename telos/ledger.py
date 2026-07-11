@@ -9,6 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 from pathlib import Path
+import re
 from typing import Any
 
 
@@ -87,10 +88,17 @@ def load_learning_record(path: str | Path, root: Path | None = None) -> Learning
     return validate_learning_record(data, root=root)
 
 
+def _experiment_sort_key(record: LearningRecord) -> tuple[int, int | str, str]:
+    match = re.match(r"^iter(\d+)(?:_|$)", record.experiment_id)
+    if match:
+        return (1, int(match.group(1)), record.experiment_id)
+    return (0, record.experiment_id, record.experiment_id)
+
+
 def latest_next_action(records: list[LearningRecord]) -> str:
     """Return the newest non-pending next action by experiment id."""
 
     completed = [record for record in records if record.status != "pending"]
     if not completed:
         raise LedgerValidationError("no completed learning records")
-    return sorted(completed, key=lambda record: record.experiment_id)[-1].next_action
+    return sorted(completed, key=_experiment_sort_key)[-1].next_action

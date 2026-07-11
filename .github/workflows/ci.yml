@@ -625,6 +625,12 @@ jobs:
       - name: External verifier/Telos differential fixture materialization audit
         run: python3 scripts/audit_external_verifier_telos_differential_fixture_materialization_after_design.py
 
+      - name: Differential deterministic strategy execution receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof
+
+      - name: Differential deterministic strategy execution audit
+        run: python3 scripts/audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

@@ -253,6 +253,8 @@ def main() -> int:
         "audit_external_verifier_telos_differential_suite_design_after_adjudication.py",
         "validate_receipts.py experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof",
         "audit_external_verifier_telos_differential_fixture_materialization_after_design.py",
+        "validate_receipts.py experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof",
+        "audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

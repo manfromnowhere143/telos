@@ -1,0 +1,55 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed"
+    },
+    {
+      "command": "python3 scripts/audit_external_verifier_telos_differential_fixture_materialization_after_design.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter99 differential fixture materialization audit: pass\ntarget_family_count=8\nfixture_count=16\npublic_artifact_count=96\nstrategy_execution_in_iter99=0\nprovider_spend_in_iter99_usd=0.00000000\nnext_gate=experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md"
+    }
+  ],
+  "experiment_id": "iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization",
+  "iter99_audit_returncode": 0,
+  "iter99_clean_pass": true,
+  "iter99_fixture_count": 16,
+  "iter99_ground_truth_label_count": 16,
+  "iter99_labels_excluded_from_strategy_inputs": true,
+  "iter99_public_artifact_count": 96,
+  "iter99_receipt_validation_returncode": 0,
+  "iter99_status": "pass",
+  "iter99_strategy_input_manifest_count": 5,
+  "iter99_target_family_count": 8,
+  "provider_backed_strategy_execution_in_this_gate": 0,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.differential_deterministic_execution.iter99_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/run_summary.json",
+      "sha256": "d04009cda24a5ea1611c373df9bbf63d96af7610212212980b068ecf065fd17e"
+    },
+    {
+      "path": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixture_manifest.json",
+      "sha256": "a088cb5b1dba8cdac460c6743270ed1fdf9d6080d08f1b82a8ea8dcc5b9063ed"
+    },
+    {
+      "path": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/ground_truth_labels.json",
+      "sha256": "59a135f5714c3a024d49141d70f137d6f0ce1670e44c671c3bcd2d14e52693c2"
+    },
+    {
+      "path": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/strategy_input_manifest.json",
+      "sha256": "3592688c87ff888ac01112aa1255ef5590ffbd671ad2e63c37025de002e5ae49"
+    },
+    {
+      "path": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/valid/receipt_external_verifier_telos_differential_fixture_materialization_after_design.json",
+      "sha256": "a15320da09c688cd26f3e196b3409bac6f943c0ef390ee55b71fa826573d8665"
+    }
+  ]
+}

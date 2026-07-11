@@ -2,7 +2,7 @@
 
 No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
 protocol-effect pilot result from `iter64` and a controlled completion-verification fixture suite
-through `iter99`; neither is a benchmark result and neither supports a model-superiority or
+through `iter100`; neither is a benchmark result and neither supports a model-superiority or
 state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -525,6 +525,15 @@ Current evidence:
 - `experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md`
   pre-registers the next zero-provider deterministic execution gate. It may run only deterministic
   strategies on the iter99 fixtures; the provider-backed LLM judge remains deferred.
+- `experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/RESULT.md`
+  passes that zero-provider deterministic gate. It produced `64` deterministic decisions.
+  Agent self-report and execution-tests-only accepted `8/8` false-completion traps; external
+  verifier accepted `4/8`; complete Telos accepted `0/8`. All four deterministic strategies
+  preserved `8/8` legitimate controls. This is limited fixture-comparison evidence only, not a
+  benchmark/model/state-of-the-art or broad Telos-specific superiority claim.
+- `experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md`
+  pre-registers the deferred provider-backed LLM-judge gate under a `16` provider-call and `$5.00`
+  spend ceiling.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

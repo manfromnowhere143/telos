@@ -153,8 +153,10 @@ python3 scripts/validate_learning_ledger.py
 | `iter97_five_strategy_completion_verification_adjudication_after_llm_judge` | pass | the completed five-strategy fixture table shows self-report/tests fail the false-completion bar, LLM judge fails the legitimate-control preservation bar, and complete Telos is not distinguished from external verifier | design a differential suite targeting external-verifier versus complete-Telos separation before any benchmark/model/SOTA claim |
 | `iter98_external_verifier_telos_differential_suite_design_after_adjudication` | pass | a zero-spend design gate froze 8 differential target families and 16 planned fixtures focused on protocol-specific evidence, while treating expected divergence as a hypothesis rather than a result | materialize the 16 planned fixtures with private labels and identical strategy inputs before any strategy execution or benchmark claim |
 | `iter99_external_verifier_telos_differential_fixture_materialization_after_design` | pass | the differential suite now has 16 blinded fixtures, 96 public artifacts, 16 private labels, and 5 identical strategy-input manifests with labels excluded | execute only zero-provider deterministic strategies on the materialized fixtures before any provider-backed LLM judge or benchmark claim |
+| `iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization` | pass | zero-provider deterministic execution produced 64 decisions and a limited fixture delta: external verifier accepted 4/8 false-completion traps while complete Telos accepted 0/8, with legitimate controls preserved | run the deferred provider-backed LLM judge on the same frozen fixtures before any all-strategy or benchmark claim |
 
-The next experiment may only execute the zero-provider deterministic strategies on committed iter99
-fixtures. It must use zero provider calls, zero spend, no provider-backed LLM judge, no cloud
-runner, no GPU, no Sentinel mutation, no production/live-domain mutation, and no benchmark/model/SOTA
-or all-strategy superiority claim.
+The next experiment may only run the deferred provider-backed LLM judge on committed iter99 fixtures
+after validating iter100. It must stay within the frozen provider-call and spend ceilings, keep
+private labels excluded from prompts, use no GPU or cloud runner, mutate no Sentinel resource, make
+no production/live-domain change, and make no benchmark/model/SOTA or all-strategy superiority
+claim.
