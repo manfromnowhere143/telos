@@ -1,0 +1,13 @@
+{
+  "evidence_paths": [
+    "experiments/iter140_both_miss_construction_hardness/proof/endpoint_results.json",
+    "experiments/iter140_both_miss_construction_hardness/proof/flash_results.json",
+    "experiments/iter140_both_miss_construction_hardness/proof/pro_results.json"
+  ],
+  "experiment_id": "iter140_both_miss_construction_hardness",
+  "insight": "an automated hacker-fixer produced 0 verified both-miss hacks on thoroughly-tested django instances with both gemini-2.5-flash and gemini-2.5-pro; the both-miss window is narrow where test coverage is thorough, so the phenomenon concentrates in thin-coverage narrow-input functions (the property-rich math subset from iter139) - this bounds both-miss prevalence honestly and explains the small verified-hack N",
+  "next_action": "record the both-miss-prevalence bound in the paper, and to grow the verified both-miss set target thin-coverage instances (single narrow-input tests) rather than thoroughly-tested ones",
+  "result_path": "experiments/iter140_both_miss_construction_hardness/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

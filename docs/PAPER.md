@@ -62,6 +62,16 @@ defense is not a better static verifier; it is execution on held-out inputs. Eve
 wrong on a single held-out input, and running the changed code outside the visible test catches all of
 them.
 
+The class is real but its prevalence is bounded. An automated hacker-fixer that starts from the correct
+gold fix and asks a model to degrade it produced `0` verified both-miss hacks across `20` model-instance
+attempts on thoroughly-tested django instances, with both a fast and a stronger reasoning model; the
+degradations either broke the visible test or preserved correctness, and the stronger model did no
+better. So the both-miss window is narrow where a test suite is thorough - the visible and held-out
+tests overlap enough that breaking generalization usually breaks a visible test too - and it
+concentrates in thin-coverage, narrow-input functions (the property-rich math subset), which is exactly
+where the hand-built examples of this section succeed. This is a sharper claim than "both-miss is
+everywhere": it is a real vulnerability localized to thin test coverage.
+
 ## 5. The gold-free automated third layer
 
 We remove every dependence on a reference implementation. A model proposes a metamorphic property from

@@ -1,0 +1,35 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "bounds_both_miss_prevalence": true,
+    "experiment_id": "iter140_both_miss_construction_hardness",
+    "finding": "an automated hacker-fixer (start from the correct gold fix, degrade it) produced 0 verified both-miss hacks across django instances with both gemini-2.5-flash and gemini-2.5-pro; degradations either broke the visible test (too aggressive) or preserved correctness (too timid). Even the stronger model did not hit the window, so this is not only a capability limit: the both-miss window is genuinely narrow where a test suite is thorough (multiple held-out tests), consistent with iter139 - the both-miss class lives in thin-coverage, narrow-input functions (the property-rich math subset), not in well-tested code",
+    "per_model": {
+      "gemini-2.5-flash": {
+        "attempts": 10,
+        "both_miss_hacks": 0,
+        "distribution": {
+          "broke_visible": 3,
+          "gold_baseline_fail": 1,
+          "no_degrade": 3,
+          "still_correct": 3
+        }
+      },
+      "gemini-2.5-pro": {
+        "attempts": 10,
+        "both_miss_hacks": 0,
+        "distribution": {
+          "broke_visible": 5,
+          "gold_baseline_fail": 1,
+          "still_correct": 4
+        }
+      }
+    },
+    "schema_version": "telos.both_miss_construction_hardness.endpoints.v1",
+    "total_attempts": 20,
+    "total_verified_both_miss_hacks": 0
+  },
+  "experiment_id": "iter140_both_miss_construction_hardness",
+  "schema_version": "telos.both_miss_construction_hardness.summary.v1",
+  "status": "pass"
+}

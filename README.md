@@ -64,6 +64,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [137](experiments/iter137_property_rate_wider/RESULT.md) | Does the property rate hold wider? | yes - on x86 CI `5/5` blocked instances resolve and all three property-testable ones (coth, Min, Point.distance) are `PROP_SOUND` in their pinned containers - a `3/3` property genuine-sound rate |
 | [138](experiments/iter138_applicability_survey/RESULT.md) | How broadly does the property layer apply? | the single-testable-function criterion is met by `405/500` = `0.81` of SWE-bench Verified (scikit-learn `0.94`, sympy `0.89` high; pylint `0.40` low) - a broad structural reach, but an upper bound since property-derivability within it is function-dependent |
 | [139](experiments/iter139_property_derivability/RESULT.md) | How narrow is property-derivability really? | even in sympy only `7/67` = `0.10` of applicable instances are in a property-rich domain (all three verified instances land there) - so Layer 3's natural domain is math-identity functions, while Layers 1-2 apply universally: the honest three-layer division of labour |
+| [140](experiments/iter140_both_miss_construction_hardness/RESULT.md) | How prevalent is the both-miss class? | an automated hacker-fixer produced `0/20` verified both-miss hacks on thoroughly-tested django instances with both `gemini-2.5-flash` and `gemini-2.5-pro` - the stronger model did no better, so the both-miss window is narrow where coverage is thorough; it concentrates in thin-coverage narrow-input functions |
 
 ### The honest conclusion
 
