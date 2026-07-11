@@ -1,0 +1,427 @@
+{
+  "expected_prompt_count": 16,
+  "experiment_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "labels_used_in_llm_judge_prompts": false,
+  "private_label_paths_included": false,
+  "prompt_count": 16,
+  "prompt_rows": [
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0001",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0001.prompt.txt",
+      "prompt_sha256": "607560232481c16fb6bfa684f13fec3492b241c2d0ecfecf9f3022599972b319",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/artifact_manifest.json": "81568fa7e7419210bdd4f084d58918364879b06321cdf11e98b7c62cc78a0e8d",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/changed_artifact.txt": "f5471a651b16a6c80c665afc727b0bc6f7932ce23d7427d9e3f046a6012b91c9",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/fixture_spec.json": "8a87e4c3795ddc2f7410ca66813f583c4e6d9404d29d6414775605207ecbed47",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/receipt.json": "abdfb41ede31262b744bf5a927dd985ff2aa713a3c6dfae952c44610009ffd96",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/task.md": "4cbedb96da02c8af752413227178ae8311065654824fa3487bed263c07003663",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/verification_rubric.md": "53c2271632c3e7e2298ea58fc16fda2ac9b7043a139e0c4167a53939d9efc84d"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/artifact_manifest.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/changed_artifact.txt",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0001/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0001.prompt.txt",
+      "source_iter102_prompt_sha256": "607560232481c16fb6bfa684f13fec3492b241c2d0ecfecf9f3022599972b319",
+      "target_family_id": "stale_receipt_current_artifacts"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0002",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0002.prompt.txt",
+      "prompt_sha256": "a6ff814cfaa5e8524ed7f5ed0e4719ce08cf0cb6afb0eec96575444a5f7de1a0",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/artifact_manifest.json": "8218e2cf5e4c6f6ee864eeefca96c444d32e77d99474d156440989d8645649ba",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/changed_artifact.txt": "2fec87ed20805cf6d8af0eb36744e20a2b48f308d7385f8462ab1dc2550a6d81",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/fixture_spec.json": "b75e53a0d8950703cf5097a147a190166538b7c911efef0f178105291319cd47",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/receipt.json": "d69ba33cf2714f20708cad48908c5b70fc4103d351cc66744d7c25223d75eb58",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/task.md": "4cbedb96da02c8af752413227178ae8311065654824fa3487bed263c07003663",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/verification_rubric.md": "53c2271632c3e7e2298ea58fc16fda2ac9b7043a139e0c4167a53939d9efc84d"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/artifact_manifest.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/changed_artifact.txt",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0002/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0002.prompt.txt",
+      "source_iter102_prompt_sha256": "a6ff814cfaa5e8524ed7f5ed0e4719ce08cf0cb6afb0eec96575444a5f7de1a0",
+      "target_family_id": "stale_receipt_current_artifacts"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0003",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0003.prompt.txt",
+      "prompt_sha256": "b48dadb89223094f85aed32da5f6a74da45b4b624c20cb931832d1ab45550123",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/acceptance_criteria.md": "59bb72071fc23217c4ea52d5eb8fb2e22869ee2d6075c041df854b4f66b8d1fb",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/fixture_spec.json": "8062cd34d5a2f50bef1e43d38ba389d56a6f76dbc639baa004b0ec91bd06abec",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/receipt.json": "ef4645833c54419d651f16640e993e2fa42803f3227e41b112132503bb12d5da",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/task.md": "fbdeefcb5732bfbc308f493ebb72a546e070c1fc83d18cf125f609e7e1f5a774",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/test.log": "bf13afeb4eb6ca6e1551037bffbd62033df9298cbba7ceb883b5a387a16968be",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/verification_rubric.md": "6cb96bd59cbb33b267c4a63d60131290d58685f9bc76cd6d8c8c2ce94578674e"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/acceptance_criteria.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/test.log",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0003/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0003.prompt.txt",
+      "source_iter102_prompt_sha256": "b48dadb89223094f85aed32da5f6a74da45b4b624c20cb931832d1ab45550123",
+      "target_family_id": "missing_falsifier_hidden_by_passing_tests"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0004",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0004.prompt.txt",
+      "prompt_sha256": "74cc3e2ca8092388904083c5dc1d22872458655b66e1b516b81aebe6fbead5c3",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/acceptance_criteria.md": "da449f305b0684e71f22e43ace2a16e58b38db91c9785df09a7be3f888aecfb3",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/fixture_spec.json": "c49d7d9f083c3b7bb252f221b3178d17c339e8e6e8558697ea0e26855c9cfef8",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/receipt.json": "3e440e0dff0d4934935588ebc869a03cf240d4c690c4c818a1fb8d0afecd2431",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/task.md": "fbdeefcb5732bfbc308f493ebb72a546e070c1fc83d18cf125f609e7e1f5a774",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/test.log": "bf13afeb4eb6ca6e1551037bffbd62033df9298cbba7ceb883b5a387a16968be",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/verification_rubric.md": "6cb96bd59cbb33b267c4a63d60131290d58685f9bc76cd6d8c8c2ce94578674e"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/acceptance_criteria.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/test.log",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0004/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0004.prompt.txt",
+      "source_iter102_prompt_sha256": "74cc3e2ca8092388904083c5dc1d22872458655b66e1b516b81aebe6fbead5c3",
+      "target_family_id": "missing_falsifier_hidden_by_passing_tests"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0005",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0005.prompt.txt",
+      "prompt_sha256": "478fd94a36ce61e6298b9386d037027cceb94964d1df46bcebecae7cc16739fd",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/fixture_spec.json": "2dce0cd06859ad19f791f8d1126bea196302ebb3a234887d976b94ed5a31866c",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/receipt.json": "0f72ec9f438ff89c741b7199c431f6a728cb8a7d863f5cba85086676f7ebf7b4",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/task.md": "176b33232cb100619e6eaf5fa0ff067dfb8a6e7b3c806901f8bb79e3175af08d",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/transcript.txt": "351261c3bf2246fa87eb73c1dcabdd36147d64bfc4e8545dd8f46e44dd4ac0fb",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/verification_rubric.md": "986ae70c966f80b0d46f3c159e34eb6a51c416547a1ef1b8edd45a71c132d9d1",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/workspace_listing.txt": "62c11e23baf6505c7226b4194c44c2e8fdb2fb1885cf3686a3a9cc885c3e9694"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/transcript.txt",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/verification_rubric.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0005/public/workspace_listing.txt"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0005.prompt.txt",
+      "source_iter102_prompt_sha256": "478fd94a36ce61e6298b9386d037027cceb94964d1df46bcebecae7cc16739fd",
+      "target_family_id": "setup_done_not_task_done"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0006",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0006.prompt.txt",
+      "prompt_sha256": "cbb28e1a12083c80481241341dd2d1996f9c1cf82180096fea2c71bfcfe5c83c",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/fixture_spec.json": "5c9b0965928ebe6b9d2b45a6f746bec348193f3b2ebcf1a8e904457e36107238",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/receipt.json": "8b4c88b5bd93456d0e8bfed1957719b77d91a7dd8648195fb7d14a27df7ca3cf",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/task.md": "176b33232cb100619e6eaf5fa0ff067dfb8a6e7b3c806901f8bb79e3175af08d",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/transcript.txt": "cdc5906e042747f07d6f1fcff426c66a6ea02852dc26d3dc5212f388dac508a4",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/verification_rubric.md": "986ae70c966f80b0d46f3c159e34eb6a51c416547a1ef1b8edd45a71c132d9d1",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/workspace_listing.txt": "2f4f1caba2ef0f997c186a096e6c198dfe19a6b8c7f38082d33c2b2e19401212"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/transcript.txt",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/verification_rubric.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0006/public/workspace_listing.txt"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0006.prompt.txt",
+      "source_iter102_prompt_sha256": "cbb28e1a12083c80481241341dd2d1996f9c1cf82180096fea2c71bfcfe5c83c",
+      "target_family_id": "setup_done_not_task_done"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0007",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0007.prompt.txt",
+      "prompt_sha256": "f0cd95539d1191217e5a547837c2e0c4f40b5af57ba4c4d159a4656fa4c97ccb",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/command_output.txt": "7d48cc5a666bb58bb9002f09b2070e10b909386bb15588387d23ec0e494b25cf",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/fixture_spec.json": "22dfb998211738484ce703a79c4a3641bf44142675086c135335381e3a3525a1",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/receipt.json": "55e6c28347e42d6bd5c51a2069a698064a287adadc77d8e7f4c324b93f20fec5",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/summary.md": "7a8da6eb8f895ac62aa1995aa8251d09927d9db28e87d42104d8d37d5fa0fbee",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/task.md": "161cd767d83e40729f302c6e9e350f58ff663f4a88536ffff19067b6b57c01ab",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/verification_rubric.md": "86b7b492d7c17984d2e3456a4d0b01006863dc64fb7c4553ac9622f4f2be7110"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/command_output.txt",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/summary.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0007/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0007.prompt.txt",
+      "source_iter102_prompt_sha256": "f0cd95539d1191217e5a547837c2e0c4f40b5af57ba4c4d159a4656fa4c97ccb",
+      "target_family_id": "contradictory_artifact_packet"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0008",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0008.prompt.txt",
+      "prompt_sha256": "12b3e8403f5c28c151bf218c1aa74f8811734dda34a51831fe4c3fab203c2da5",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/command_output.txt": "ee28dcc2ab7718f37c2cf0f70598f095aa7a2042bbda89385a53f69b1f03e749",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/fixture_spec.json": "edfa86b3051d482bede8cf68a2a4d38ee90bcfcc24297760c352b4e3600ddb11",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/receipt.json": "2808fafd56b4f56bd0c1fffd104e0403fc5c62ddb53ed72ced22a1b218607129",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/summary.md": "7a8da6eb8f895ac62aa1995aa8251d09927d9db28e87d42104d8d37d5fa0fbee",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/task.md": "161cd767d83e40729f302c6e9e350f58ff663f4a88536ffff19067b6b57c01ab",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/verification_rubric.md": "86b7b492d7c17984d2e3456a4d0b01006863dc64fb7c4553ac9622f4f2be7110"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/command_output.txt",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/summary.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0008/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0008.prompt.txt",
+      "source_iter102_prompt_sha256": "12b3e8403f5c28c151bf218c1aa74f8811734dda34a51831fe4c3fab203c2da5",
+      "target_family_id": "contradictory_artifact_packet"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0009",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0009.prompt.txt",
+      "prompt_sha256": "14e7402eccc96158d9fdb8ea689d49be245c5f1a0df8cd72d163e6c4175bd460",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/fixture_spec.json": "90e7836192c7f832d062a99d0bf1e23f2187bcba5f609d14022337d7f5d3f00c",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/receipt.json": "2a2b1dd27aa81565ac8d6042a721b451f1e0c8bea680b4006efa22cbb7019f7c",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/review.md": "c5746b311c1cbf176101542645113e1df3cfbe9910b1189a063285dde724871a",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/task.md": "14c4d1d99a7326d573d50e8a2149ac6bb8d75b156fecc0724b6cccf26672fcad",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/task_spec.md": "7ca8093e623b3e67f14802902fa1de96853bbca734b710b53466cc6f343798ed",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/verification_rubric.md": "e3e94e14977eedcfb95c4515c7e5b1215bb8f052311ef3c0f64fe0311a8c602b"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/review.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/task_spec.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0009/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0009.prompt.txt",
+      "source_iter102_prompt_sha256": "14e7402eccc96158d9fdb8ea689d49be245c5f1a0df8cd72d163e6c4175bd460",
+      "target_family_id": "schema_valid_semantic_incomplete_receipt"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0010",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0010.prompt.txt",
+      "prompt_sha256": "b6d93278e30ad0581a728683f6861d3f529b4b06420f82046789997c93f30112",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/fixture_spec.json": "75698a893bc130fef700cf396629b5bc2e14823e2312e26dea22e83a72cc45e4",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/receipt.json": "c82a3a5d4e2620259213fc9c75c66cd476f6944fda54b7e12149500022db65bb",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/review.md": "702bd52f08ab9d856df41befa2ac88fcfa0f544546ffb03b0f6d42decb93eb4a",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/task.md": "14c4d1d99a7326d573d50e8a2149ac6bb8d75b156fecc0724b6cccf26672fcad",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/task_spec.md": "7ca8093e623b3e67f14802902fa1de96853bbca734b710b53466cc6f343798ed",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/verification_rubric.md": "e3e94e14977eedcfb95c4515c7e5b1215bb8f052311ef3c0f64fe0311a8c602b"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/review.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/task_spec.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0010/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0010.prompt.txt",
+      "source_iter102_prompt_sha256": "b6d93278e30ad0581a728683f6861d3f529b4b06420f82046789997c93f30112",
+      "target_family_id": "schema_valid_semantic_incomplete_receipt"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0011",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0011.prompt.txt",
+      "prompt_sha256": "511316852237e2d1bfcd2462096021f414669f0a1e7b8b220751ea9ec6eb1220",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/claim_boundary.json": "d55a312d73c54398a79b9ed016dd139de2b804d53126ca8d343c31c1233aa2ed",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/deployment_note.md": "354fd9075dc330f82e0b7f1deca85c5c7954686bed0eb8fd706cfb63ac3002b4",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/fixture_spec.json": "17cda1d7e38aaa26d96610f485d3c4402bb681abcfa8e734d2d1b79d2cace87c",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/receipt.json": "e7253ba7aa0d2e60fa9c11f6d04c6e87a7e56e4240aacbf37e52d8a1ccf0cf42",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/task.md": "3a9106ded5d213a464936ab46cf76b24c1ed9de2373d3beea374ad3c344c035b",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/verification_rubric.md": "90afdab2a3847e6403ef477699921b1d1d444b008673a96eaafcaab411d85154"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/claim_boundary.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/deployment_note.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0011/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0011.prompt.txt",
+      "source_iter102_prompt_sha256": "511316852237e2d1bfcd2462096021f414669f0a1e7b8b220751ea9ec6eb1220",
+      "target_family_id": "live_domain_flag_without_live_evidence"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0012",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0012.prompt.txt",
+      "prompt_sha256": "6b064f3d90a4a652870565f8cd95c3cc9cb543b55bf83d40ff0844fdf04fa3ae",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/claim_boundary.json": "6c1b38e49ee28c688a6e308cf563ec5108d3ce98a8316df3a223fbffb7bf8230",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/deployment_note.md": "09a35098e74266d7a7cbedae6cf72d46cfc49d6fc190c036113ef355930c76ab",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/fixture_spec.json": "44ad0f6742d3991f43716f8d35041b0fe6a19a89c88d39aa81f6be73a7e8a315",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/receipt.json": "fce944d68510e93d3f65c7dacdb1dd9cd2ba27cadc6c65d62af6091c4725e73c",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/task.md": "3a9106ded5d213a464936ab46cf76b24c1ed9de2373d3beea374ad3c344c035b",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/verification_rubric.md": "90afdab2a3847e6403ef477699921b1d1d444b008673a96eaafcaab411d85154"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/claim_boundary.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/deployment_note.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0012/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0012.prompt.txt",
+      "source_iter102_prompt_sha256": "6b064f3d90a4a652870565f8cd95c3cc9cb543b55bf83d40ff0844fdf04fa3ae",
+      "target_family_id": "live_domain_flag_without_live_evidence"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0013",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0013.prompt.txt",
+      "prompt_sha256": "144ae45fc3156523160d9838c958e127da568ef118b7d0f2866c25fa7f6b3252",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/fixture_spec.json": "93e0f480eb3adf7bbfeb4daf4ad4e0eaca204098ea69b71aeb2870c198fe45c2",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/receipt.json": "667dd7d15cb4a502c1addfda1a6515ee821644e6c3012dbdd34c43f20af5c03b",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/replay_manifest.json": "d2e882a2edd52d09a05eaf05e996247b31109806faaf262725f75136b5578d07",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/result_summary.md": "d8b426b678b69eacd001e92d86a7c752d311c8c3bad890f772ff79cfc586e146",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/task.md": "c74330b043d4845e039478a6ef891e7e90feb7e723f2c1f3523ce2b45cc3fe6a",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/verification_rubric.md": "8ed1d8083ad4835cf0d8ce26ce43f07954d539e60774340f5820ef95e76448f8"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/replay_manifest.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/result_summary.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0013/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0013.prompt.txt",
+      "source_iter102_prompt_sha256": "144ae45fc3156523160d9838c958e127da568ef118b7d0f2866c25fa7f6b3252",
+      "target_family_id": "nondeterministic_result_no_replay"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0014",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0014.prompt.txt",
+      "prompt_sha256": "12ccf1a59d4805eb7fab9257bf2dc13876238e49a4f07214224370a8573cc0d6",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/fixture_spec.json": "990e861ff294ae52756d198855f62e784217e0bc5306985a8ed0d261040e19b2",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/receipt.json": "3d2b5dd7a65ee8f88287a5bd6524ac214109355d3d15948f4ee22f5a5ba4fc0a",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/replay_manifest.json": "85d042ae54476ccdbcca7d2fc967a0dd561c96699e18c4573b2a349395e0bfb7",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/result_summary.md": "d8b426b678b69eacd001e92d86a7c752d311c8c3bad890f772ff79cfc586e146",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/task.md": "c74330b043d4845e039478a6ef891e7e90feb7e723f2c1f3523ce2b45cc3fe6a",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/verification_rubric.md": "8ed1d8083ad4835cf0d8ce26ce43f07954d539e60774340f5820ef95e76448f8"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/replay_manifest.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/result_summary.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0014/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0014.prompt.txt",
+      "source_iter102_prompt_sha256": "12ccf1a59d4805eb7fab9257bf2dc13876238e49a4f07214224370a8573cc0d6",
+      "target_family_id": "nondeterministic_result_no_replay"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0015",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0015.prompt.txt",
+      "prompt_sha256": "1d01f20f959415b13a405ce5df5d3a968963e84fbe5575196814c65fb7de8e92",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/artifact_manifest.json": "8fc264eef3d44232ed2852b47007039746cbc2e2369689ec8ff1b06befb9b79f",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/fixture_spec.json": "1eeaf51057456bdd8fd345c9dcf2ce0494819dbdc6fbdb5496f6bcc2d7e389f3",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/receipt.json": "8ffe4cd472b15092eabf72d706ada0efe93ee460f2780edc0fd8cfe94a83e54d",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/receipt_validation.txt": "9bb2fe59da25f39ac71744c2dbc42d2f9b8f0f307c9920190bc5ce569b267688",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/task.md": "77877cea33756819df4aa82bfd9cf51eecda25c534e04915689c94078e7ee258",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/verification_rubric.md": "85a1270b8d4e4b74622ed981f2482711f7ae6b75c01e62f44d62526057c631a2"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/artifact_manifest.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/receipt_validation.txt",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0015/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0015.prompt.txt",
+      "source_iter102_prompt_sha256": "1d01f20f959415b13a405ce5df5d3a968963e84fbe5575196814c65fb7de8e92",
+      "target_family_id": "adversarial_receipt_digest_collision_attempt"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0016",
+      "private_label_included": false,
+      "private_label_path_included": false,
+      "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0016.prompt.txt",
+      "prompt_sha256": "dbaf8d95d39986443e03e2fff593b218f3477ac87f18879a6aced9247e2f6002",
+      "public_artifact_hashes": {
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/artifact_manifest.json": "2fa6104098bdb2a1d5cce308de0bbb5a8cf3b3035e6e543663bbffe8f93f685c",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/fixture_spec.json": "fccef90f3305324a498f5fe8d6c31422bbfb1a2129900f9038189f07cc7b0033",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/receipt.json": "fec966fdef7ddb5b793160ae48662507bffdd7491d23186c529344d3ad9aff5a",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/receipt_validation.txt": "3573ebd4291d06e020755584ed873295ef9fb4b76cde4c79b108374e082bb37e",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/task.md": "77877cea33756819df4aa82bfd9cf51eecda25c534e04915689c94078e7ee258",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/verification_rubric.md": "85a1270b8d4e4b74622ed981f2482711f7ae6b75c01e62f44d62526057c631a2"
+      },
+      "public_artifact_paths": [
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/artifact_manifest.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/fixture_spec.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/receipt.json",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/receipt_validation.txt",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/task.md",
+        "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixtures/DIFX-FIXTURE-0016/public/verification_rubric.md"
+      ],
+      "source_iter102_prompt_path": "recovered_prompts/DIFX-FIXTURE-0016.prompt.txt",
+      "source_iter102_prompt_sha256": "dbaf8d95d39986443e03e2fff593b218f3477ac87f18879a6aced9247e2f6002",
+      "target_family_id": "adversarial_receipt_digest_collision_attempt"
+    }
+  ],
+  "schema_version": "telos.differential_llm_judge_full_retry.prompt_manifest.v1",
+  "source_recovery_prompt_manifest": "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof/recovered_prompt_manifest.json"
+}

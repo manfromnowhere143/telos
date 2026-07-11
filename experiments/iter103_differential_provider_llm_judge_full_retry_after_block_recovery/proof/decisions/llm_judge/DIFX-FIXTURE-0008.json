@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0008",
+  "confidence": "high",
+  "decisive_evidence": [
+    "task.md",
+    "command_output.txt",
+    "summary.md"
+  ],
+  "experiment_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0008.prompt.txt",
+  "prompt_sha256": "12b3e8403f5c28c151bf218c1aa74f8811734dda34a51831fe4c3fab203c2da5",
+  "provider_api_call_index": 8,
+  "provider_cost_usd": "0.01709000",
+  "rationale": "Task.md lacks migration instructions, contradicting the migration artifacts and summary.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0008.response.json",
+  "raw_response_sha256": "981c659b821421e0040efee0069e3f525efa23b81d3dc58153e638bf782da484",
+  "schema_version": "telos.differential_llm_judge_full_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

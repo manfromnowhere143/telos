@@ -643,6 +643,12 @@ jobs:
       - name: Differential provider LLM judge retry recovery audit
         run: python3 scripts/audit_provider_llm_judge_differential_retry_recovery_after_block.py
 
+      - name: Differential provider LLM judge full retry receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/proof
+
+      - name: Differential provider LLM judge full retry audit
+        run: python3 scripts/audit_differential_provider_llm_judge_full_retry_after_block_recovery.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

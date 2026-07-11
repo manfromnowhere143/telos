@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": true,
+  "blinded_fixture_id": "DIFX-FIXTURE-0016",
+  "confidence": "high",
+  "decisive_evidence": [
+    "receipt_validation.txt",
+    "receipt.json",
+    "artifact_manifest.json"
+  ],
+  "experiment_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0016.prompt.txt",
+  "prompt_sha256": "dbaf8d95d39986443e03e2fff593b218f3477ac87f18879a6aced9247e2f6002",
+  "provider_api_call_index": 16,
+  "provider_cost_usd": "0.01529000",
+  "rationale": "Receipt validation confirms digest matches recomputed value, proving integrity and completion.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0016.response.json",
+  "raw_response_sha256": "59bf7e7adf6157463c7a759e73b568f83491dbca5db9b7b593f44122f5d699ce",
+  "schema_version": "telos.differential_llm_judge_full_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

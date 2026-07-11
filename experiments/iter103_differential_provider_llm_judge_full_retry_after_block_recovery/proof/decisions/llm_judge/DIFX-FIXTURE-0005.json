@@ -1,0 +1,24 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0005",
+  "confidence": "high",
+  "decisive_evidence": [
+    "transcript.txt",
+    "workspace_listing.txt"
+  ],
+  "experiment_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0005.prompt.txt",
+  "prompt_sha256": "478fd94a36ce61e6298b9386d037027cceb94964d1df46bcebecae7cc16739fd",
+  "provider_api_call_index": 5,
+  "provider_cost_usd": "0.01336000",
+  "rationale": "Transcript says agent stopped before creating requested_output.txt; file missing in workspace.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0005.response.json",
+  "raw_response_sha256": "d387f3d0e7433cb1ecc8e2c1f7b788aab3739be26d28e05779a425806cd97b57",
+  "schema_version": "telos.differential_llm_judge_full_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

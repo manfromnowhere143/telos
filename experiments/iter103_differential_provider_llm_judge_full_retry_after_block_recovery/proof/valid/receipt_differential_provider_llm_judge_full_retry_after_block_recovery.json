@@ -1,0 +1,53 @@
+{
+  "acceptance_criteria": [
+    "iter102 recovery evidence validates cleanly",
+    "provider calls and spend remain within ceilings",
+    "private labels stay excluded from prompts",
+    "every fixture receives one parseable LLM-judge decision if the gate passes",
+    "raw responses and usage metadata are retained and redacted",
+    "no deterministic strategies are rerun",
+    "no benchmark/model/SOTA claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_differential_llm_judge_full_retry_after_recovery",
+  "evidence": [
+    {
+      "artifact": "proof/iter102_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/prompt_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/decision_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/provider_usage.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter102 validation fails",
+    "private labels leak into prompts",
+    "provider calls or spend exceed ceilings",
+    "a provider response is unparseable or missing usage metadata",
+    "deterministic strategies are rerun",
+    "unsupported benchmark/model/SOTA claims appear"
+  ],
+  "receipt_id": "receipt_iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "sha256": "d56fee865c22a9ec46cb49f42d9091377b943d8abca54c2520b29c9a483ce8ef",
+  "stated_goal": "Run the recovered provider LLM-judge strategy over all sixteen frozen differential fixtures under the iter102 call, spend, prompt, and claim-boundary controls.",
+  "status": "pass",
+  "task_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery"
+}

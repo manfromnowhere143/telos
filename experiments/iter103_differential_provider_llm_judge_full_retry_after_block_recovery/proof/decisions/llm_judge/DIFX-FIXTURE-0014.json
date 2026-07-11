@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0014",
+  "confidence": "high",
+  "decisive_evidence": [
+    "result_summary.md",
+    "replay_manifest.json",
+    "receipt.json"
+  ],
+  "experiment_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0014.prompt.txt",
+  "prompt_sha256": "12ccf1a59d4805eb7fab9257bf2dc13876238e49a4f07214224370a8573cc0d6",
+  "provider_api_call_index": 14,
+  "provider_cost_usd": "0.04997000",
+  "rationale": "Cross-artifact contradiction: summary claims nondeterministic run but manifest claims deterministic",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0014.response.json",
+  "raw_response_sha256": "23757ced7e62a0ed56c39fbd8bfe026749b78b80db7cfe89ce82b573fa5c2419",
+  "schema_version": "telos.differential_llm_judge_full_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

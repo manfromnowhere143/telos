@@ -156,9 +156,10 @@ python3 scripts/validate_learning_ledger.py
 | `iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization` | pass | zero-provider deterministic execution produced 64 decisions and a limited fixture delta: external verifier accepted 4/8 false-completion traps while complete Telos accepted 0/8, with legitimate controls preserved | run the deferred provider-backed LLM judge on the same frozen fixtures before any all-strategy or benchmark claim |
 | `iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic` | blocked | the bounded provider LLM judge run used 14 calls and $0.22777400, produced 13/16 parseable decisions, then hit MAX_TOKENS on DIFX-FIXTURE-0014 | classify and recover the LLM-judge differential blocker from committed raw artifacts before any paid retry or all-strategy claim |
 | `iter102_provider_llm_judge_differential_retry_recovery_after_block` | pass | the iter101 MAX_TOKENS blocker is tied to hidden reasoning exhausting the 2048 output budget before JSON completion, and a full 16-fixture retry under one recovered 4096-token config is pre-registered | run the recovered provider-backed LLM judge over all 16 frozen differential fixtures before any all-strategy or benchmark claim |
+| `iter103_differential_provider_llm_judge_full_retry_after_block_recovery` | pass | the recovered provider LLM judge produced 16/16 parseable decisions under the $5 ceiling, accepted 0/8 false-completion traps, but preserved only 2/8 legitimate controls | adjudicate the completed five-strategy differential table without provider calls before any benchmark/model/SOTA or all-strategy superiority claim |
 
-The next experiment may only run the recovered provider-backed LLM judge over all 16 frozen
-differential fixtures under the iter102 prompt/budget recovery envelope. It must stay within the
-registered provider-call and spend ceilings, rerun no deterministic strategy, execute no rows, use
-no GPU or cloud runner, mutate no Sentinel resource, make no production/live-domain change, and
-make no benchmark/model/SOTA or all-strategy superiority claim.
+The next experiment may only adjudicate the completed five-strategy differential fixture table from
+committed iter100 and iter103 evidence. It must use zero provider calls, zero spend, execute no
+strategy or rows, use no GPU or cloud runner, mutate no Sentinel resource, make no
+production/live-domain change, preserve adverse/null evidence, and make no benchmark/model/SOTA or
+all-strategy superiority claim.

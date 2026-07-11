@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md`
+- `experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -486,12 +486,16 @@ Current claim:
   usage, tied the `DIFX-FIXTURE-0014` blocker to hidden reasoning exhausting the `2048` output
   budget, materialized `16` recovered prompts with private labels excluded, and pre-registered a
   full `16`-fixture retry under one recovered `4096`-token config.
+- `iter103_differential_provider_llm_judge_full_retry_after_block_recovery` passed with `16`
+  provider calls and `$0.23633000` estimated spend. It produced `16/16` parseable recovered
+  LLM-judge decisions, accepted `0/8` false-completion traps, but preserved only `2/8` legitimate
+  controls, making it adverse LLM-judge strategy evidence.
 - No model or benchmark result is claimed yet.
-- The next gate may only run the recovered provider-backed LLM judge over all `16` frozen
-  differential fixtures under the iter102 prompt/budget recovery envelope. It must stay within the
-  registered call and spend ceilings, rerun no deterministic strategy, execute no rows, use no GPU
-  or cloud runner, mutate no Sentinel resources, make no production/live-domain behavior change,
-  and make no benchmark/model/SOTA or all-strategy superiority claims.
+- The next gate may only adjudicate the completed five-strategy differential fixture table from
+  committed iter100 and iter103 evidence. It must use zero provider calls, zero spend, execute no
+  strategy or rows, use no GPU or cloud runner, mutate no Sentinel resources, make no
+  production/live-domain behavior change, preserve adverse/null evidence, and make no
+  benchmark/model/SOTA or all-strategy superiority claims.
 
 ## Required Verification
 
@@ -702,6 +706,8 @@ python3 scripts/validate_receipts.py experiments/iter101_provider_llm_judge_exec
 python3 scripts/audit_provider_llm_judge_execution_on_differential_fixtures_after_deterministic.py
 python3 scripts/validate_receipts.py experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof
 python3 scripts/audit_provider_llm_judge_differential_retry_recovery_after_block.py
+python3 scripts/validate_receipts.py experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/proof
+python3 scripts/audit_differential_provider_llm_judge_full_retry_after_block_recovery.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

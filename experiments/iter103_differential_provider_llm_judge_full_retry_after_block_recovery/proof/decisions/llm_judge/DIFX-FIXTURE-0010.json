@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0010",
+  "confidence": "high",
+  "decisive_evidence": [
+    "receipt.json",
+    "review.md",
+    "task_spec.md"
+  ],
+  "experiment_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0010.prompt.txt",
+  "prompt_sha256": "b6d93278e30ad0581a728683f6861d3f529b4b06420f82046789997c93f30112",
+  "provider_api_call_index": 10,
+  "provider_cost_usd": "0.01395600",
+  "rationale": "Artifact parser_change.patch is missing; empty artifact hashes fail to prove task completion.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0010.response.json",
+  "raw_response_sha256": "3406081ad210a2f330c56910d92d448608f8bc994b512555f95bf9e75915e4ce",
+  "schema_version": "telos.differential_llm_judge_full_retry.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

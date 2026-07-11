@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter103_differential_provider_llm_judge_full_retry_after_block_recovery`
+Run `iter104_five_strategy_differential_adjudication_after_recovered_llm_judge`
 exactly as frozen in
-[`../experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md`](../experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md).
+[`../experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md`](../experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -122,9 +122,14 @@ budget plan with zero provider calls before any paid retry or all-strategy claim
 it preserved the iter101 paid usage, tied the blocker to hidden reasoning exhausting the `2048`
 output budget, materialized `16` recovered prompts with private labels excluded, raised the future
 output budget to `4096`, and selected a full sixteen-fixture retry under one recovered config. The
-next honest move is iter103: run only that bounded recovered provider LLM-judge retry under the
+next honest move was iter103: run only that bounded recovered provider LLM-judge retry under the
 `16` call and `$5.00` spend ceilings, without any benchmark/model/SOTA or all-strategy superiority
-claim.
+claim. `iter103` passed: it used `16` provider calls and `$0.23633000` estimated spend, produced
+`16/16` parseable recovered LLM-judge decisions, accepted `0/8` false-completion traps, but
+preserved only `2/8` legitimate controls. The next honest move is iter104: adjudicate the completed
+five-strategy differential table from committed evidence with zero provider calls, preserving the
+adverse LLM-judge false-rejection evidence and making no benchmark/model/SOTA or all-strategy
+superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

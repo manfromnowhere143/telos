@@ -1,0 +1,35 @@
+{
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_provider_llm_judge_differential_retry_recovery_after_block.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter102 provider LLM judge retry recovery audit: pass\niter101_provider_api_calls=14\niter101_provider_cost_usd=0.22777400\nprovider_api_calls=0\nprovider_cost_usd=0.00000000\nblocked_fixture_id=DIFX-FIXTURE-0014\nfuture_retry_mode=full_16_fixture_rerun_under_single_recovered_config\nnext_gate=experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "iter102_clean_pass": true,
+  "iter102_future_retry_mode": "full_16_fixture_rerun_under_single_recovered_config",
+  "iter102_provider_api_calls": 0,
+  "iter102_provider_cost_usd": "0.00000000",
+  "iter102_recovered_max_output_tokens": 4096,
+  "iter102_recovered_prompt_count": 16,
+  "iter102_status": "pass",
+  "iter102_validation_clean": true,
+  "schema_version": "telos.differential_llm_judge_full_retry.iter102_validation.v1",
+  "source_experiment_id": "iter102_provider_llm_judge_differential_retry_recovery_after_block",
+  "source_hashes": {
+    "iter102_prompt_manifest": "c1d741b913004d198219695ff7f0e7200db247c87db937543fb9caa2867699db",
+    "iter102_receipt": "e4e468e8c3a7832dadeca3f8eed77323f2789566926dd9724d3e3bca3ea59851",
+    "iter102_retry_envelope": "93d49d38996c07be4a1cb73cd4cec78d68f302db42044a8001406d7e9655e9cf",
+    "iter102_summary": "72c6103aca78119717bc0edb42ad4a5ea6f99feabce816429b3965d6c61d159b"
+  }
+}
