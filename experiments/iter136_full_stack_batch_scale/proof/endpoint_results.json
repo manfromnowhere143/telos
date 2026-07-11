@@ -1,0 +1,47 @@
+{
+  "benchmark_or_sota_claim": false,
+  "experiment_id": "iter136_full_stack_batch_scale",
+  "finding": "the full-stack batch scaled on native-x86 CI: gold resolved for all four blocked instances, and both property-testable ones (coth, Min) were PROP_SOUND in their pinned containers - a 2/2 property genuine-sound rate on the property-testable subset, with the gold-free metamorphic property running inside the same pinned environment as the hidden test",
+  "gold_resolution_count": 4,
+  "gold_resolution_rate": "1.00000000",
+  "instance_count": 4,
+  "per_instance": [
+    {
+      "instance_id": "sympy__sympy-13480",
+      "property": "PROP_SOUND",
+      "property_applicable": true,
+      "property_sound": true,
+      "resolved": true
+    },
+    {
+      "instance_id": "sympy__sympy-13615",
+      "property": "NO_PROPERTY",
+      "property_applicable": false,
+      "property_sound": false,
+      "resolved": true
+    },
+    {
+      "instance_id": "sympy__sympy-12481",
+      "property": "NO_PROPERTY",
+      "property_applicable": false,
+      "property_sound": false,
+      "resolved": true
+    },
+    {
+      "instance_id": "sympy__sympy-15809",
+      "property": "PROP_SOUND",
+      "property_applicable": true,
+      "property_sound": true,
+      "resolved": true
+    }
+  ],
+  "property_genuine_sound_count": 2,
+  "property_genuine_sound_rate": "1.00000000",
+  "property_testable_count": 2,
+  "property_testable_instances": [
+    "sympy__sympy-13480",
+    "sympy__sympy-15809"
+  ],
+  "runner": "GitHub Actions ubuntu-latest (native x86, no emulation)",
+  "schema_version": "telos.full_stack_batch_scale.endpoints.v1"
+}

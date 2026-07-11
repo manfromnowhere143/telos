@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Gold patches resolve for all blocked instances in the batch.",
+    "Every property-testable instance is PROP_SOUND in its pinned container.",
+    "The property genuine-sound rate is what the workflow actually produced."
+  ],
+  "agent_id": "codex-github-actions-full-stack-batch-scale",
+  "benchmark_id": "swebench_verified_full_stack_batch_scale_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter136_full_stack_batch_scale/proof/full_stack_batch_results.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter136_full_stack_batch_scale/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record any PROP_UNSOUND rather than hide it.",
+    "Record a runner-resource cause if the workflow fails."
+  ],
+  "receipt_id": "iter136-full-stack-batch-scale-pass",
+  "sha256": "211da36732debb42b208428836c93614caa316f93831a5b3164b68d868abc611",
+  "stated_goal": "Scale the full-stack batch and measure the property genuine-sound rate across property-testable blocked instances.",
+  "status": "pass",
+  "task_id": "telos:iter136_full_stack_batch_scale"
+}
