@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter135_full_stack_in_container/proof/endpoint_results.json",
+    "experiments/iter135_full_stack_in_container/proof/full_stack_results.json"
+  ],
+  "experiment_id": "iter135_full_stack_in_container",
+  "insight": "the full stack runs in one pinned SWE-bench container: for a natively-unrunnable instance the hidden test resolves and the gold-free coth metamorphic property is sound, so environment fidelity (Docker) and property verification (Layer 3) compose end to end on real cross-repo instances",
+  "next_action": "add per-instance property files for more property-testable blocked instances and scale the x86 CI full-stack batch to measure the property genuine-sound rate across the environment-fidelity-blocked set",
+  "result_path": "experiments/iter135_full_stack_in_container/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

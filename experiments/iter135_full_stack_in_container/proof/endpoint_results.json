@@ -1,0 +1,35 @@
+{
+  "benchmark_or_sota_claim": false,
+  "experiment_id": "iter135_full_stack_in_container",
+  "finding": "inside the pinned SWE-bench container of a natively-unrunnable instance (Python 3.9, sympy 1.1.2), the hidden test resolves (base fails, gold passes) and the gold-free coth metamorphic property is sound - environment fidelity and property verification run together in one pinned environment, the full stack end to end",
+  "full_stack_instance": "sympy__sympy-13480",
+  "gold_resolution_count": 3,
+  "instance_count": 3,
+  "per_instance": [
+    {
+      "instance_id": "sympy__sympy-13480",
+      "property": "PROP_SOUND",
+      "property_applicable": true,
+      "property_sound": true,
+      "resolved": true
+    },
+    {
+      "instance_id": "sympy__sympy-13615",
+      "property": "NO_PROPERTY",
+      "property_applicable": false,
+      "property_sound": false,
+      "resolved": true
+    },
+    {
+      "instance_id": "sympy__sympy-12481",
+      "property": "NO_PROPERTY",
+      "property_applicable": false,
+      "property_sound": false,
+      "resolved": true
+    }
+  ],
+  "property_applicable_count": 1,
+  "property_sound_count": 1,
+  "runner": "GitHub Actions ubuntu-latest (native x86, no emulation)",
+  "schema_version": "telos.full_stack_in_container.endpoints.v1"
+}

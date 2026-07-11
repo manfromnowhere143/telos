@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "The gold patches resolve inside the pinned containers.",
+    "Where a property is defined, it is sound in the pinned environment.",
+    "At least one instance runs the full stack (gold resolution + sound property) in its pinned container."
+  ],
+  "agent_id": "codex-github-actions-full-stack-in-container",
+  "benchmark_id": "swebench_verified_full_stack_in_container_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter135_full_stack_in_container/proof/full_stack_results.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter135_full_stack_in_container/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record it if the property is unsound in the pinned environment.",
+    "Record a runner-resource cause if the workflow fails."
+  ],
+  "receipt_id": "iter135-full-stack-in-container-pass",
+  "sha256": "9ffce7c2b847263b7ad188d2d32a5207f8e171801c8db5574c53397363c8f48c",
+  "stated_goal": "Run the gold-free property layer inside the pinned SWE-bench container alongside gold resolution.",
+  "status": "pass",
+  "task_id": "telos:iter135_full_stack_in_container"
+}
