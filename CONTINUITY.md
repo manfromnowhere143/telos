@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`
+- `experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -504,12 +504,18 @@ Current claim:
   zero spend, zero benchmark/task execution, zero strategy execution, and zero row execution. It
   materialized `20` pilot packets, `160` public artifacts, `10` false-completion private labels,
   `10` legitimate-control private labels, and `5` identical public-only strategy-input manifests.
-- No model or benchmark result is claimed yet.
-- The next gate may only execute the frozen iter106 external benchmark pilot under the registered
-  `30` provider-call and `$10.00000000` spend ceilings. It must keep private labels out of strategy
-  inputs until scoring, preserve raw outputs and adverse/null evidence, use no GPU or cloud runner,
-  mutate no Sentinel resources, make no production/live-domain behavior change, and make no
-  benchmark/model/SOTA or broad all-strategy superiority claims.
+- `iter107_external_benchmark_pilot_execution_after_materialization` passed with `20` provider
+  calls, `$0.38674600` estimated spend, `100` strategy decisions, and `40` raw LLM prompt/response
+  artifacts. Complete Telos accepted `0/10` false-completion packets and preserved `10/10`
+  legitimate controls; the external verifier accepted `2/10` false-completion packets; the LLM
+  judge accepted `0/10` false-completion packets but rejected `10/10` legitimate controls. This is
+  a bounded 20-packet pilot result only.
+- No model, benchmark leaderboard, SWE-bench, all-strategy superiority, or SOTA result is claimed.
+- The next gate may only adjudicate the committed iter107 bounded pilot result and claim boundary
+  with zero provider calls, zero spend, zero strategy execution, and zero benchmark packet
+  execution. It must use no GPU or cloud runner, mutate no Sentinel resources, make no
+  production/live-domain behavior change, and make no benchmark/model/SOTA or broad all-strategy
+  superiority claims.
 
 ## Required Verification
 
@@ -728,6 +734,8 @@ python3 scripts/validate_receipts.py experiments/iter105_external_benchmark_pilo
 python3 scripts/audit_external_benchmark_pilot_design_after_differential_adjudication.py
 python3 scripts/validate_receipts.py experiments/iter106_external_benchmark_pilot_materialization_after_design/proof
 python3 scripts/audit_external_benchmark_pilot_materialization_after_design.py
+python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilot_execution_after_materialization/proof
+python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,602 @@
+{
+  "auth_command_results": [
+    {
+      "command": "gcloud config get-value project",
+      "returncode": 0,
+      "secret_safe_output": true,
+      "stderr_redacted": "",
+      "stdout_redacted": "[REDACTED_GCP_PROJECT]"
+    },
+    {
+      "command": "gcloud auth print-access-token",
+      "returncode": 0,
+      "secret_safe_output": true,
+      "stderr_redacted": "",
+      "stdout_redacted": "[REDACTED_ADC_TOKEN]"
+    }
+  ],
+  "experiment_id": "iter107_external_benchmark_pilot_execution_after_materialization",
+  "generation_config": {
+    "candidateCount": 1,
+    "maxOutputTokens": 4096,
+    "temperature": 0
+  },
+  "input_cost_per_token_usd": "0.00000200",
+  "location": "global",
+  "model_id": "gemini-3.1-pro-preview-customtools",
+  "output_cost_per_token_usd": "0.00001200",
+  "parsed_decision_count": 20,
+  "prompt_count": 20,
+  "provider": "google_vertex_ai",
+  "provider_api_call_ceiling": 30,
+  "provider_api_calls": 20,
+  "provider_blockers": [],
+  "provider_cost_usd": "0.38674600",
+  "provider_execution_completed": true,
+  "provider_spend_ceiling_usd": "10.00000000",
+  "raw_response_count": 20,
+  "schema_version": "telos.external_benchmark_pilot_execution.provider_usage.v1",
+  "strategy_id": "llm_judge",
+  "usage_by_packet": [
+    {
+      "blinded_packet_id": "EBP-PACKET-0001",
+      "cumulative_estimated_cost_usd": "0.01926800",
+      "estimated_cost_usd": "0.01926800",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "4b63b4f3c6339cc9304ab301a367135cc8ab32f284d427a6d74d0d6ce1dd6a3b",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0001.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 192,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 192
+          }
+        ],
+        "promptTokenCount": 3136,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3136
+          }
+        ],
+        "thoughtsTokenCount": 891,
+        "totalTokenCount": 4219,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0002",
+      "cumulative_estimated_cost_usd": "0.03903800",
+      "estimated_cost_usd": "0.01977000",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "eae8f5de8e9b5160271e6a242c30d44853d26f3878edd821d2e539daebce1503",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0002.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 198,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 198
+          }
+        ],
+        "promptTokenCount": 3141,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3141
+          }
+        ],
+        "thoughtsTokenCount": 926,
+        "totalTokenCount": 4265,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0003",
+      "cumulative_estimated_cost_usd": "0.05688600",
+      "estimated_cost_usd": "0.01784800",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "be390e7ddb03806c434fc8d9f2959a0035362f8b8b77d49b125d7540d3df6d66",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0003.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 221,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 221
+          }
+        ],
+        "promptTokenCount": 3116,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3116
+          }
+        ],
+        "thoughtsTokenCount": 747,
+        "totalTokenCount": 4084,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0004",
+      "cumulative_estimated_cost_usd": "0.08041000",
+      "estimated_cost_usd": "0.02352400",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "2b8aa6c5a1e1546f5581c68f0b0e45b67758591662b73bf365d82070aa616263",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0004.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 218,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 218
+          }
+        ],
+        "promptTokenCount": 3110,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3110
+          }
+        ],
+        "thoughtsTokenCount": 1224,
+        "totalTokenCount": 4552,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0005",
+      "cumulative_estimated_cost_usd": "0.09537200",
+      "estimated_cost_usd": "0.01496200",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "e6fec7f5432575fb48bce0981e9298d01f31998813f908e3e8f14546eaf5bba1",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0005.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 193,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 193
+          }
+        ],
+        "promptTokenCount": 3137,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3137
+          }
+        ],
+        "thoughtsTokenCount": 531,
+        "totalTokenCount": 3861,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0006",
+      "cumulative_estimated_cost_usd": "0.11993600",
+      "estimated_cost_usd": "0.02456400",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "745b5c3aaa2863b5e85cc617f5025561c32a392513b4272b8f124eb671b8e2f9",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0006.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 190,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 190
+          }
+        ],
+        "promptTokenCount": 3144,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3144
+          }
+        ],
+        "thoughtsTokenCount": 1333,
+        "totalTokenCount": 4667,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0007",
+      "cumulative_estimated_cost_usd": "0.13883200",
+      "estimated_cost_usd": "0.01889600",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "b9a1a68b79cbf3595c204721aa3b5a4253740d70b609aa69f1c9c3f7972efb10",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0007.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 191,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 191
+          }
+        ],
+        "promptTokenCount": 3160,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3160
+          }
+        ],
+        "thoughtsTokenCount": 857,
+        "totalTokenCount": 4208,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0008",
+      "cumulative_estimated_cost_usd": "0.15281800",
+      "estimated_cost_usd": "0.01398600",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "5ca29762e676551a3f55439116d37ede2ff3523447fd3645457723f944a1d129",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0008.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 177,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 177
+          }
+        ],
+        "promptTokenCount": 3147,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3147
+          }
+        ],
+        "thoughtsTokenCount": 464,
+        "totalTokenCount": 3788,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0009",
+      "cumulative_estimated_cost_usd": "0.16581400",
+      "estimated_cost_usd": "0.01299600",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "304cf2f4bd94deae3b4f98680b8497292995fe79dc0142f43e4ebcdd5d5e0088",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0009.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 158,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 158
+          }
+        ],
+        "promptTokenCount": 3132,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3132
+          }
+        ],
+        "thoughtsTokenCount": 403,
+        "totalTokenCount": 3693,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0010",
+      "cumulative_estimated_cost_usd": "0.18896800",
+      "estimated_cost_usd": "0.02315400",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "1b9b980e662cf72bb3ebe2297de1b066d67436387ca63fab60b2d796ea46c60f",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0010.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 233,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 233
+          }
+        ],
+        "promptTokenCount": 3129,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3129
+          }
+        ],
+        "thoughtsTokenCount": 1175,
+        "totalTokenCount": 4537,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0011",
+      "cumulative_estimated_cost_usd": "0.20293400",
+      "estimated_cost_usd": "0.01396600",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "793b91b2af010d660bcbf6ca7957783c477fca1b481faad7b59af565bad2bcc2",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0011.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 183,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 183
+          }
+        ],
+        "promptTokenCount": 3161,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3161
+          }
+        ],
+        "thoughtsTokenCount": 454,
+        "totalTokenCount": 3798,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0012",
+      "cumulative_estimated_cost_usd": "0.23692200",
+      "estimated_cost_usd": "0.03398800",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "84eeb471badb0038654e695103b40236d2c4dd2553bced48fc1c8e5f9f64aa69",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0012.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 225,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 225
+          }
+        ],
+        "promptTokenCount": 3146,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3146
+          }
+        ],
+        "thoughtsTokenCount": 2083,
+        "totalTokenCount": 5454,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0013",
+      "cumulative_estimated_cost_usd": "0.25424000",
+      "estimated_cost_usd": "0.01731800",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "a11d57429498f531d69dc495c9d50f559908c18e7d584a8ad511295b417462c9",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0013.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 166,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 166
+          }
+        ],
+        "promptTokenCount": 3157,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3157
+          }
+        ],
+        "thoughtsTokenCount": 751,
+        "totalTokenCount": 4074,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0014",
+      "cumulative_estimated_cost_usd": "0.28157000",
+      "estimated_cost_usd": "0.02733000",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "a13b39f138e1554e8a8925e6c08fdf2e0f8f1bbac294a6770d782775fdc678ad",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0014.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 183,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 183
+          }
+        ],
+        "promptTokenCount": 3123,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3123
+          }
+        ],
+        "thoughtsTokenCount": 1574,
+        "totalTokenCount": 4880,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0015",
+      "cumulative_estimated_cost_usd": "0.29891200",
+      "estimated_cost_usd": "0.01734200",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "be7ec5ed3dc728e512923675d963adfdbe499bf63bcf233796f4d46722253545",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0015.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 206,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 206
+          }
+        ],
+        "promptTokenCount": 3139,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3139
+          }
+        ],
+        "thoughtsTokenCount": 716,
+        "totalTokenCount": 4061,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0016",
+      "cumulative_estimated_cost_usd": "0.31776600",
+      "estimated_cost_usd": "0.01885400",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "c44844cf3e0a3159dab88fe0ea7246e0edddb0c56c7714f3974603dd40eac439",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0016.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 253,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 253
+          }
+        ],
+        "promptTokenCount": 3121,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3121
+          }
+        ],
+        "thoughtsTokenCount": 798,
+        "totalTokenCount": 4172,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0017",
+      "cumulative_estimated_cost_usd": "0.33383600",
+      "estimated_cost_usd": "0.01607000",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "601255d4ac328788a01d15e6aab2d82d4fad658e189a995d57a17f9a0504defd",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0017.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 203,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 203
+          }
+        ],
+        "promptTokenCount": 3163,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3163
+          }
+        ],
+        "thoughtsTokenCount": 609,
+        "totalTokenCount": 3975,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0018",
+      "cumulative_estimated_cost_usd": "0.35463000",
+      "estimated_cost_usd": "0.02079400",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "c045092d5ed6f6023a7deb7fcfff753709c949b2b9c7caa628aac6d3d9fa8929",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0018.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 197,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 197
+          }
+        ],
+        "promptTokenCount": 3143,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3143
+          }
+        ],
+        "thoughtsTokenCount": 1012,
+        "totalTokenCount": 4352,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0019",
+      "cumulative_estimated_cost_usd": "0.36931800",
+      "estimated_cost_usd": "0.01468800",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "7d33ac485371eb52eaa89d8afb58294972fb10336af53d7c7213df0681e5bbf9",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0019.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 195,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 195
+          }
+        ],
+        "promptTokenCount": 3132,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3132
+          }
+        ],
+        "thoughtsTokenCount": 507,
+        "totalTokenCount": 3834,
+        "trafficType": "ON_DEMAND"
+      }
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0020",
+      "cumulative_estimated_cost_usd": "0.38674600",
+      "estimated_cost_usd": "0.01742800",
+      "http_status": 200,
+      "ok": true,
+      "prompt_sha256": "fe8275ebe9283639b5a59eefd14a033bb372ec2888aa76b3c5fe317b6ddc4e37",
+      "raw_response_path": "raw_strategy_outputs/llm_judge/EBP-PACKET-0020.response.json",
+      "usage_metadata": {
+        "candidatesTokenCount": 208,
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 208
+          }
+        ],
+        "promptTokenCount": 3140,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3140
+          }
+        ],
+        "thoughtsTokenCount": 721,
+        "totalTokenCount": 4069,
+        "trafficType": "ON_DEMAND"
+      }
+    }
+  ]
+}

@@ -428,10 +428,19 @@ and an adversarial review pass.
   artifacts, `10` false-completion private labels, `10` legitimate-control private labels, and
   `5` identical public-only strategy-input manifests, in
   [`experiments/iter106_external_benchmark_pilot_materialization_after_design`](experiments/iter106_external_benchmark_pilot_materialization_after_design/RESULT.md).
-- Current gate: external benchmark pilot execution after materialization,
+- External benchmark pilot execution after materialization: passed with `20` provider calls,
+  `$0.38674600` estimated spend, `100` strategy decisions, and `40` raw LLM prompt/response
+  artifacts. Complete Telos accepted `0/10` false-completion packets and preserved `10/10`
+  legitimate controls; the external verifier accepted `2/10` false-completion packets; the LLM
+  judge accepted `0/10` false-completion packets but rejected `10/10` legitimate controls. This is
+  a bounded 20-packet pilot result only, not a benchmark/model/SOTA or all-strategy superiority
+  claim, in
+  [`experiments/iter107_external_benchmark_pilot_execution_after_materialization`](experiments/iter107_external_benchmark_pilot_execution_after_materialization/RESULT.md).
+- Current gate: external benchmark pilot adjudication after execution,
   pre-registered in
-  [`experiments/iter107_external_benchmark_pilot_execution_after_materialization`](experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md).
-- Benchmark result: none yet.
+  [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
+- Benchmark leaderboard or broad benchmark result: none yet. Bounded external pilot evidence now
+  exists only for the 20 frozen iter107 packets.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
   discriminating-metric pilot, and one bounded six-row unstable stability replication; none is a
@@ -558,7 +567,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current empirical-validation gate:
-[`experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`](experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md).
+[`experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 

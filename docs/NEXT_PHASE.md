@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter107_external_benchmark_pilot_execution_after_materialization`
+Run `iter108_external_benchmark_pilot_adjudication_after_execution`
 exactly as frozen in
-[`../experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`](../experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md).
+[`../experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`](../experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -140,10 +140,14 @@ provider-call ceiling, and a `$10.00000000` future spend ceiling. `iter106` pass
 provider calls, zero spend, zero benchmark/task execution, zero strategy execution, and zero row
 execution: it materialized `20` pilot packets, `160` public artifacts, `10` false-completion
 private labels, `10` legitimate-control private labels, and `5` identical public-only
-strategy-input manifests. The next honest move is iter107: execute only the frozen iter106 pilot
-under the registered `30` provider-call and `$10.00000000` spend ceilings, keep private labels out
-of strategy inputs until scoring, preserve null/adverse evidence, and make no benchmark/model/SOTA
-or broad all-strategy superiority claim.
+strategy-input manifests. `iter107` passed the bounded pilot execution with `20` provider calls,
+`$0.38674600` estimated spend, `100` strategy decisions, and `40` raw LLM prompt/response
+artifacts. Complete Telos accepted `0/10` false-completion packets and preserved `10/10`
+legitimate controls; the external verifier accepted `2/10` false-completion packets; the provider
+LLM judge accepted `0/10` false-completion packets but rejected `10/10` legitimate controls. The
+next honest move is iter108: adjudicate the bounded pilot claim boundary with zero provider calls,
+zero spend, zero strategy execution, and zero benchmark packet execution before any replication,
+redesign, or benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

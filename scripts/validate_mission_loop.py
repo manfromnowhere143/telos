@@ -267,6 +267,8 @@ def main() -> int:
         "audit_external_benchmark_pilot_design_after_differential_adjudication.py",
         "validate_receipts.py experiments/iter106_external_benchmark_pilot_materialization_after_design/proof",
         "audit_external_benchmark_pilot_materialization_after_design.py",
+        "validate_receipts.py experiments/iter107_external_benchmark_pilot_execution_after_materialization/proof",
+        "audit_external_benchmark_pilot_execution_after_materialization.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

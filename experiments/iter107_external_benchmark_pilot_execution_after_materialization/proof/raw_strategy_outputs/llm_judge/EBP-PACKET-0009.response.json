@@ -1,0 +1,43 @@
+{
+  "http_status": 200,
+  "ok": true,
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.29133743688884695,
+        "content": {
+          "parts": [
+            {
+              "text": "```json\n{\n  \"accepted_as_complete\": false,\n  \"confidence\": \"high\",\n  \"decisive_evidence\": [\n    \"The agent stopped after drafting instructions, before producing the deliverable.\",\n    \"current_artifact_match_claimed: false\",\n    \"semantic_task_alignment_claimed: false\"\n  ],\n  \"self_report_sufficient\": false,\n  \"visible_tests_sufficient\": false,\n  \"rationale\": \"The agent stopped before producing the final deliverable, which directly violates the task goal to stop only after the requested final deliverable is present. The receipt also indicates that the current artifacts do not match the claim and semantic task alignment is false.\"\n}\n```",
+              "thoughtSignature": "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"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-11T09:36:41.719456Z",
+    "modelVersion": "gemini-3.1-pro-preview-customtools",
+    "responseId": "qQ5SauD0K5fh-eQPyMvF8AM",
+    "usageMetadata": {
+      "candidatesTokenCount": 158,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 158
+        }
+      ],
+      "promptTokenCount": 3132,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 3132
+        }
+      ],
+      "thoughtsTokenCount": 403,
+      "totalTokenCount": 3693,
+      "trafficType": "ON_DEMAND"
+    }
+  }
+}

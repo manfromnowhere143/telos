@@ -1,8 +1,9 @@
 # Report
 
-No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
-protocol-effect pilot result from `iter64` and a controlled completion-verification fixture suite
-through `iter105`; neither is a benchmark result and neither supports a model-superiority or
+No model, benchmark leaderboard, or SOTA result is claimed yet. Telos now has a bounded two-row
+provider-backed protocol-effect pilot result from `iter64`, controlled completion-verification
+fixture suites through `iter104`, and a bounded 20-packet external pilot execution result from
+`iter107`; none is a benchmark leaderboard result and none supports a model-superiority or
 state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -584,6 +585,16 @@ Current evidence:
 - `experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`
   pre-registers the bounded external benchmark-pilot execution gate under the frozen iter106
   packet artifacts, with a `30` provider-call ceiling and `$10.00000000` spend ceiling.
+- `experiments/iter107_external_benchmark_pilot_execution_after_materialization/RESULT.md`
+  passes that bounded pilot execution gate with `20` provider calls, `$0.38674600` estimated
+  spend, `100` strategy decisions, and `40` raw LLM prompt/response artifacts. Complete Telos
+  accepted `0/10` false-completion packets and preserved `10/10` legitimate controls; the external
+  verifier accepted `2/10` false-completion packets; the provider LLM judge accepted `0/10`
+  false-completion packets but rejected `10/10` legitimate controls. This is a bounded pilot
+  result only, not a benchmark/model/state-of-the-art or broad all-strategy superiority claim.
+- `experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`
+  pre-registers a zero-spend adjudication gate to review the iter107 claim boundary before any
+  replication, redesign, or scope expansion.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

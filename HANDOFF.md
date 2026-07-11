@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-11T09:12:44Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-11T09:43:36Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -33,7 +33,8 @@ clean
 - experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge: RESULT PUBLISHED
 - experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication: RESULT PUBLISHED
 - experiments/iter106_external_benchmark_pilot_materialization_after_design: RESULT PUBLISHED
-- experiments/iter107_external_benchmark_pilot_execution_after_materialization: PRE-REGISTERED, result pending
+- experiments/iter107_external_benchmark_pilot_execution_after_materialization: RESULT PUBLISHED
+- experiments/iter108_external_benchmark_pilot_adjudication_after_execution: PRE-REGISTERED, result pending
 - experiments/iter10_provider_auth_recovery: RESULT PUBLISHED
 - experiments/iter11_provider_model_pilot_retry: RESULT PUBLISHED
 - experiments/iter12_vertex_model_access_recovery: RESULT PUBLISHED
@@ -128,8 +129,8 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`.
-- No benchmark result is claimed yet.
+- Active gate: `experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`.
+- No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
 
@@ -350,6 +351,8 @@ python3 scripts/validate_receipts.py experiments/iter105_external_benchmark_pilo
 python3 scripts/audit_external_benchmark_pilot_design_after_differential_adjudication.py
 python3 scripts/validate_receipts.py experiments/iter106_external_benchmark_pilot_materialization_after_design/proof
 python3 scripts/audit_external_benchmark_pilot_materialization_after_design.py
+python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilot_execution_after_materialization/proof
+python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

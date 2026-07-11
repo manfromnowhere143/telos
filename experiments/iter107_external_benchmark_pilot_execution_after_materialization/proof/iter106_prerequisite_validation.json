@@ -1,0 +1,69 @@
+{
+  "all_strategy_inputs_identical": true,
+  "audit_returncode": 0,
+  "benchmark_result_claimed_by_source_gate": false,
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter106_external_benchmark_pilot_materialization_after_design/proof",
+      "objective": "validate iter106 receipt packet",
+      "returncode": 0,
+      "secret_safe_output": true,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_external_benchmark_pilot_materialization_after_design.py",
+      "objective": "audit iter106 materialization packet",
+      "returncode": 0,
+      "secret_safe_output": true,
+      "stderr": "",
+      "stdout": "iter106 external benchmark pilot materialization audit: pass\npacket_count=20\nfalse_completion_packet_count=10\nlegitimate_control_packet_count=10\npublic_artifact_count=160\nstrategy_execution_in_iter106=0\nprovider_spend_in_iter106_usd=0.00000000\nnext_gate=experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter107_external_benchmark_pilot_execution_after_materialization",
+  "false_completion_label_count": 10,
+  "labels_excluded_from_strategy_inputs": true,
+  "legitimate_completion_label_count": 10,
+  "packet_count": 20,
+  "private_label_count": 20,
+  "provider_calls_in_source_gate": 0,
+  "provider_spend_in_source_gate_usd": "0.00000000",
+  "public_artifact_count": 160,
+  "receipt_validation_returncode": 0,
+  "schema_version": "telos.external_benchmark_pilot_execution.iter106_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/run_summary.json",
+      "sha256": "d9ff715d286c105694b29860cac1ed30b4e7d0f9aa14f0ed97da4df9b01ad15b"
+    },
+    {
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/selected_packet_manifest.json",
+      "sha256": "8c0b00b4b75d5ec2cd4bc6ea295fe50115561a1f66e3014a2086c631fa09b079"
+    },
+    {
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/strategy_input_manifest.json",
+      "sha256": "8b0bd698fc372967d537b9362bf5af1056f18c3d3bda834a98d78fa6e2e0edec"
+    },
+    {
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/private_label_manifest.json",
+      "sha256": "e0729d13153927c03ab881ea70fca564fec28c74038b3edf6487359aa2c1d79e"
+    },
+    {
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/valid/receipt_external_benchmark_pilot_materialization_after_design.json",
+      "sha256": "46d128a55b0c727e7926831f10c160e3efd08187d417940b4ec9f203c007914e"
+    }
+  ],
+  "source_clean_pass": true,
+  "source_experiment_id": "iter106_external_benchmark_pilot_materialization_after_design",
+  "source_status": "pass",
+  "strategy_ids": [
+    "agent_self_report",
+    "execution_tests_only",
+    "llm_judge",
+    "external_verifier",
+    "complete_telos_protocol"
+  ]
+}

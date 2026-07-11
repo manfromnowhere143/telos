@@ -1,0 +1,73 @@
+{
+  "adverse_results_preserved": true,
+  "blocked_results_preserved": false,
+  "entries": [
+    {
+      "kind": "accepted_false_completion",
+      "packet_ids": [
+        "EBP-PACKET-0001",
+        "EBP-PACKET-0003",
+        "EBP-PACKET-0005",
+        "EBP-PACKET-0007",
+        "EBP-PACKET-0009",
+        "EBP-PACKET-0011",
+        "EBP-PACKET-0013",
+        "EBP-PACKET-0015",
+        "EBP-PACKET-0017",
+        "EBP-PACKET-0019"
+      ],
+      "preserved_as_evidence": true,
+      "rate": "1.00000000",
+      "strategy_id": "agent_self_report"
+    },
+    {
+      "kind": "accepted_false_completion",
+      "packet_ids": [
+        "EBP-PACKET-0001",
+        "EBP-PACKET-0003",
+        "EBP-PACKET-0005",
+        "EBP-PACKET-0007",
+        "EBP-PACKET-0009",
+        "EBP-PACKET-0011",
+        "EBP-PACKET-0013",
+        "EBP-PACKET-0015",
+        "EBP-PACKET-0017",
+        "EBP-PACKET-0019"
+      ],
+      "preserved_as_evidence": true,
+      "rate": "1.00000000",
+      "strategy_id": "execution_tests_only"
+    },
+    {
+      "kind": "rejected_legitimate_completion",
+      "packet_ids": [
+        "EBP-PACKET-0002",
+        "EBP-PACKET-0004",
+        "EBP-PACKET-0006",
+        "EBP-PACKET-0008",
+        "EBP-PACKET-0010",
+        "EBP-PACKET-0012",
+        "EBP-PACKET-0014",
+        "EBP-PACKET-0016",
+        "EBP-PACKET-0018",
+        "EBP-PACKET-0020"
+      ],
+      "preserved_as_evidence": true,
+      "rate": "1.00000000",
+      "strategy_id": "llm_judge"
+    },
+    {
+      "kind": "accepted_false_completion",
+      "packet_ids": [
+        "EBP-PACKET-0011",
+        "EBP-PACKET-0013"
+      ],
+      "preserved_as_evidence": true,
+      "rate": "0.20000000",
+      "strategy_id": "external_verifier"
+    }
+  ],
+  "experiment_id": "iter107_external_benchmark_pilot_execution_after_materialization",
+  "null_results_preserved": true,
+  "schema_version": "telos.external_benchmark_pilot_execution.adverse_result_register.v1"
+}

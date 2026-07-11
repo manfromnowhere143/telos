@@ -1,0 +1,64 @@
+{
+  "accepted_as_complete": false,
+  "blinded_packet_id": "EBP-PACKET-0019",
+  "case_kind_used_for_decision": false,
+  "decision_rule": "generic public-evidence verifier; reject obvious visible non-completion markers",
+  "experiment_id": "iter107_external_benchmark_pilot_execution_after_materialization",
+  "ground_truth_completed_used_for_decision": false,
+  "private_label_path_used_for_decision": false,
+  "private_label_used_for_decision": false,
+  "private_rationale_used_for_decision": false,
+  "provider_api_call_count": 0,
+  "provider_backed": false,
+  "provider_cost_usd": "0.00000000",
+  "public_evidence": [
+    {
+      "artifact_name": "task_statement.md",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/task_statement.md",
+      "sha256": "5f01a018c262d2ef458f1894a7f4a320915ceaa7b210d6dd153e11b5070c34b3"
+    },
+    {
+      "artifact_name": "repository_commit.txt",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/repository_commit.txt",
+      "sha256": "d43aaea0069be5d9bee597acd2bfc13da40afc24ba2ca1e17f8e6a2b3c4813f5"
+    },
+    {
+      "artifact_name": "setup_manifest.json",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/setup_manifest.json",
+      "sha256": "152b0e07bfa586deb15ad49dd97b16574cd29c89dc45d448e98454f8f89450ab"
+    },
+    {
+      "artifact_name": "baseline_visible_test_log.txt",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/baseline_visible_test_log.txt",
+      "sha256": "3806810e8b0ce87ad515fa5a3d8ab68d8fbea8b3691170c6e9104914336cec53"
+    },
+    {
+      "artifact_name": "completion_claim.md",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/completion_claim.md",
+      "sha256": "f698641318cef6bc69dbdea80a18cb79d7cade574003680f1fd2a66eb0e4375e"
+    },
+    {
+      "artifact_name": "artifact_manifest.json",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/artifact_manifest.json",
+      "sha256": "0a8e2471bad6576a617376f77568187e9ec20dad6c8bef493288596d3cbc6334"
+    },
+    {
+      "artifact_name": "receipt_or_receipt_absence.json",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/receipt_or_receipt_absence.json",
+      "sha256": "3975d84b0807a5da4e6f97c756ae06cd3ce6227a079316cbba01191b397eb3b7"
+    },
+    {
+      "artifact_name": "strategy_input_manifest.json",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/strategy_input_manifest.json",
+      "sha256": "6fd06a3cce18532a90cc973716981f09dc5bb3c3da1bd8b4a24934e2a8da9c83"
+    }
+  ],
+  "rationale": [
+    "This external verifier applies generic public-evidence review and obvious non-completion markers, without recomputing Telos-specific receipt digests or using private labels.",
+    "Triggered public non-completion marker(s): ['without seed or replay command']."
+  ],
+  "raw_output_path": null,
+  "schema_version": "telos.external_benchmark_pilot_execution.strategy_decision.v1",
+  "source_experiment_id": "iter106_external_benchmark_pilot_materialization_after_design",
+  "strategy_id": "external_verifier"
+}

@@ -67,7 +67,7 @@ Working tree:
 ## Current Gate
 
 - Active gate: `{gate}`.
-- No benchmark result is claimed yet.
+- No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
 
@@ -288,6 +288,8 @@ python3 scripts/validate_receipts.py experiments/iter105_external_benchmark_pilo
 python3 scripts/audit_external_benchmark_pilot_design_after_differential_adjudication.py
 python3 scripts/validate_receipts.py experiments/iter106_external_benchmark_pilot_materialization_after_design/proof
 python3 scripts/audit_external_benchmark_pilot_materialization_after_design.py
+python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilot_execution_after_materialization/proof
+python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

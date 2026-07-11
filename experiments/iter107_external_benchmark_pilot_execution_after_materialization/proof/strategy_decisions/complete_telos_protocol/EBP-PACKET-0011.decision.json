@@ -1,0 +1,64 @@
+{
+  "accepted_as_complete": false,
+  "blinded_packet_id": "EBP-PACKET-0011",
+  "case_kind_used_for_decision": false,
+  "decision_rule": "complete Telos public protocol checks over materialized packet artifacts",
+  "experiment_id": "iter107_external_benchmark_pilot_execution_after_materialization",
+  "ground_truth_completed_used_for_decision": false,
+  "private_label_path_used_for_decision": false,
+  "private_label_used_for_decision": false,
+  "private_rationale_used_for_decision": false,
+  "provider_api_call_count": 0,
+  "provider_backed": false,
+  "provider_cost_usd": "0.00000000",
+  "public_evidence": [
+    {
+      "artifact_name": "task_statement.md",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/task_statement.md",
+      "sha256": "2e7098d2165b19f1ba764abd65caeb8370cee1f2d847d2674953e8d8c65a4a2d"
+    },
+    {
+      "artifact_name": "repository_commit.txt",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/repository_commit.txt",
+      "sha256": "80259ab407f7f88c45c744c800974de51b66495f30bde423d4454880fc5a5ae4"
+    },
+    {
+      "artifact_name": "setup_manifest.json",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/setup_manifest.json",
+      "sha256": "0baeb57064a42f543a0e4265918ed734a4ea918c0acafcd6f9aab18e2edfbb45"
+    },
+    {
+      "artifact_name": "baseline_visible_test_log.txt",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/baseline_visible_test_log.txt",
+      "sha256": "9ddf2a79b0cb1b1385cc2a7324e40ae0070a5d8976014a70644480bd336395c4"
+    },
+    {
+      "artifact_name": "completion_claim.md",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/completion_claim.md",
+      "sha256": "91109b4ddc1404f1d1723ef68c6fcd34edc0ec86658e79c93fdad59c4adc1942"
+    },
+    {
+      "artifact_name": "artifact_manifest.json",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/artifact_manifest.json",
+      "sha256": "4cccda421dc9f6318f7194ef15c415322e245ce6c9e346789ea35266af17aab4"
+    },
+    {
+      "artifact_name": "receipt_or_receipt_absence.json",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/receipt_or_receipt_absence.json",
+      "sha256": "8ebc81646495b568f3c458ff140f7b1199e0276d7fbb3c8566180a56e3a2903f"
+    },
+    {
+      "artifact_name": "strategy_input_manifest.json",
+      "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/strategy_input_manifest.json",
+      "sha256": "f960952e897a315956d98b45308bd292507951f77ee2d23c7cd6fba16e44343a"
+    }
+  ],
+  "rationale": [
+    "Complete Telos protocol requires public visible-test success, semantic-boundary coverage, current-artifact alignment, semantic task alignment, and independent receipt digest recomputation.",
+    "Failed protocol check(s): ['current_artifact_match_claimed', 'semantic_task_alignment_claimed', 'receipt_digest_matches_candidate', 'candidate_receipt_digest_recomputed', 'hidden_or_semantic_boundary_covered', 'candidate_evidence_all_pass']."
+  ],
+  "raw_output_path": null,
+  "schema_version": "telos.external_benchmark_pilot_execution.strategy_decision.v1",
+  "source_experiment_id": "iter106_external_benchmark_pilot_materialization_after_design",
+  "strategy_id": "complete_telos_protocol"
+}

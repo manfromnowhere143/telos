@@ -160,9 +160,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter104_five_strategy_differential_adjudication_after_recovered_llm_judge` | pass | zero-spend adjudication shows complete Telos was the only balanced pass on the frozen differential fixtures; external verifier accepted 4/8 false traps and the recovered LLM judge rejected 6/8 legitimate controls | design the smallest defensible external benchmark pilot before any paid benchmark execution or benchmark/model/SOTA claim |
 | `iter105_external_benchmark_pilot_design_after_differential_adjudication` | pass | a zero-spend design gate froze a 20-packet external benchmark pilot protocol with 10 false-completion packets, 10 legitimate controls, a future 30-call ceiling, and a $10 spend ceiling | materialize the external benchmark pilot packets without provider calls before any paid benchmark execution or benchmark/model/SOTA claim |
 | `iter106_external_benchmark_pilot_materialization_after_design` | pass | the frozen external benchmark pilot now has 20 static packets, 160 public artifacts, 20 private labels, and 5 identical public-only strategy-input manifests | execute the bounded pilot under the registered 30-call and $10 ceilings, preserving null/adverse results and making no benchmark/model/SOTA claim |
+| `iter107_external_benchmark_pilot_execution_after_materialization` | pass | the bounded 20-packet pilot executed with 20 provider calls and $0.38674600 estimated spend; complete Telos accepted 0/10 false packets and preserved 10/10 legitimate controls, external verifier accepted 2/10 false packets, and the LLM judge rejected 10/10 legitimate controls | adjudicate the bounded pilot claim boundary with zero provider calls before any replication, redesign, or benchmark/model/SOTA claim |
 
-The next experiment may only execute the frozen iter106 external benchmark pilot under the
-registered `30` provider-call and `$10.00000000` spend ceilings. It must keep private labels out of
-strategy inputs until scoring, preserve raw outputs and null/adverse evidence, use no GPU or cloud
-runner, mutate no Sentinel resource, make no production/live-domain change, and make no
-benchmark/model/SOTA or broad all-strategy superiority claim.
+The next experiment may only adjudicate the committed iter107 bounded pilot result and claim
+boundary. It must use zero provider calls, zero spend, zero strategy execution, zero benchmark
+packet execution, no GPU or cloud runner, no Sentinel mutation, no production/live-domain change,
+and no benchmark/model/SOTA or broad all-strategy superiority claim.
