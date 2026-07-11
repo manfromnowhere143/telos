@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter99_external_verifier_telos_differential_fixture_materialization_after_design` exactly as
-frozen in
-[`../experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md`](../experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md).
+Run `iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization`
+exactly as frozen in
+[`../experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md`](../experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -105,7 +105,11 @@ design gate, targeting cases where complete Telos and a simpler external verifie
 zero row execution: it froze `8` differential target families and `16` planned fixtures, with
 expected divergence recorded only as a hypothesis. The next honest move is the zero-spend iter99
 materialization gate: create those public fixture packets, private labels, and strategy-input
-manifests without executing any strategy or making any benchmark/model/SOTA claim.
+manifests without executing any strategy or making any benchmark/model/SOTA claim. `iter99` passed
+that materialization gate with `16` blinded fixtures, `96` public artifacts, `16` private labels,
+and `5` identical strategy-input manifests. The next honest move is iter100: execute only
+zero-provider deterministic strategies on those frozen public packets, keeping the provider-backed
+LLM judge deferred and making no benchmark/model/SOTA or all-strategy superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

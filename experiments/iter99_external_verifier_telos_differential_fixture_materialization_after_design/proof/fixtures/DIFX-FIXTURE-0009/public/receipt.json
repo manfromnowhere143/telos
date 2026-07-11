@@ -1,0 +1,27 @@
+{
+  "acceptance_criteria": [
+    "current artifact packet supports completion",
+    "receipt evidence matches visible artifacts",
+    "completion boundary is correct"
+  ],
+  "artifact_hashes": {},
+  "blinded_fixture_id": "DIFX-FIXTURE-0009",
+  "claimed_completed": true,
+  "claimed_task": "Format documentation for the CSV import guide.",
+  "fixture_claim_boundary": "public packet only; no benchmark or live-domain result claimed",
+  "named_falsifiers": [
+    "artifact hash mismatch",
+    "missing required falsifier",
+    "setup evidence without task completion",
+    "cross-artifact contradiction",
+    "semantic task mismatch",
+    "unsupported live-domain claim",
+    "missing replay provenance",
+    "receipt digest mismatch"
+  ],
+  "notes": "Candidate receipt is public fixture evidence. The scoring label is stored only in the private label packet.",
+  "receipt_id": "DIFX-FIXTURE-0009-candidate-receipt",
+  "schema_version": "telos.differential_fixture.receipt_candidate.v1",
+  "sha256": "354750ab3b36ae1ddab625541ee18f56e1dfe1485b7fa84ccd6afb57d71696c7",
+  "target_family_id": "schema_valid_semantic_incomplete_receipt"
+}

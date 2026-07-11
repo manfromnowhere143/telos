@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "Iter98 receipt and audit validation pass.",
+    "All 16 planned differential fixtures are materialized.",
+    "Every target family has one false-completion trap and one legitimate control.",
+    "Public artifacts and private ground-truth labels are separate.",
+    "Every comparison strategy receives identical public artifact packets.",
+    "Ground-truth labels and planned label-bearing fixture ids are excluded from strategy inputs.",
+    "No provider calls, spend, strategy execution, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, model-superiority, Telos-specific superiority, comparative-performance, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-differential-fixture-materializer",
+  "benchmark_id": "telos_external_verifier_differential_suite_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records fixture counts, zero execution, and next gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/fixture_manifest.json",
+      "kind": "artifact",
+      "notes": "Manifest of materialized public fixture artifacts and hashes.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/strategy_input_manifest.json",
+      "kind": "artifact",
+      "notes": "All strategies receive identical public artifact packets with labels excluded.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records no-execution/no-superiority claim boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter98 validation fails.",
+    "The result must block if any planned fixture is missing.",
+    "The result must fail if private labels are included in strategy inputs.",
+    "The result must fail if provider calls, spend, strategy execution, or row execution occur in iter99.",
+    "The result must fail if unsupported benchmark, model-superiority, Telos-specific superiority, comparative-performance, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter99-differential-fixture-materialization-pass",
+  "sha256": "9e563476f82504f4b04971543422b578bf6c7fd6ec23c680c4f3fa441cbca14c",
+  "stated_goal": "Materialize the frozen iter98 differential suite design as static fixtures.",
+  "status": "pass",
+  "task_id": "telos:iter99_external_verifier_telos_differential_fixture_materialization_after_design@iter98"
+}

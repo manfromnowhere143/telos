@@ -152,8 +152,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery` | pass | the recovered provider LLM judge produced 14 parseable decisions under the $5 ceiling, catching 7/7 false-completion traps but rejecting 5/7 legitimate controls | adjudicate the five completed strategy rows without provider calls before any benchmark/model/SOTA or all-strategy superiority claim |
 | `iter97_five_strategy_completion_verification_adjudication_after_llm_judge` | pass | the completed five-strategy fixture table shows self-report/tests fail the false-completion bar, LLM judge fails the legitimate-control preservation bar, and complete Telos is not distinguished from external verifier | design a differential suite targeting external-verifier versus complete-Telos separation before any benchmark/model/SOTA claim |
 | `iter98_external_verifier_telos_differential_suite_design_after_adjudication` | pass | a zero-spend design gate froze 8 differential target families and 16 planned fixtures focused on protocol-specific evidence, while treating expected divergence as a hypothesis rather than a result | materialize the 16 planned fixtures with private labels and identical strategy inputs before any strategy execution or benchmark claim |
+| `iter99_external_verifier_telos_differential_fixture_materialization_after_design` | pass | the differential suite now has 16 blinded fixtures, 96 public artifacts, 16 private labels, and 5 identical strategy-input manifests with labels excluded | execute only zero-provider deterministic strategies on the materialized fixtures before any provider-backed LLM judge or benchmark claim |
 
-The next experiment may only materialize the 16 planned differential fixtures from committed iter98
-design evidence. It must use zero provider calls, zero spend, no strategy execution, no row
-execution, no cloud runner, no GPU, no Sentinel mutation, no production/live-domain mutation, and no
-benchmark/model/SOTA or all-strategy superiority claim.
+The next experiment may only execute the zero-provider deterministic strategies on committed iter99
+fixtures. It must use zero provider calls, zero spend, no provider-backed LLM judge, no cloud
+runner, no GPU, no Sentinel mutation, no production/live-domain mutation, and no benchmark/model/SOTA
+or all-strategy superiority claim.

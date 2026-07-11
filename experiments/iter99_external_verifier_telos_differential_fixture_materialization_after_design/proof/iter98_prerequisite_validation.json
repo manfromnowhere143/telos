@@ -1,0 +1,66 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed"
+    },
+    {
+      "command": "python3 scripts/audit_external_verifier_telos_differential_suite_design_after_adjudication.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter98 differential suite design audit: pass\ntarget_family_count=8\nplanned_fixture_count=16\nnext_gate=experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/HYPOTHESIS.md"
+    }
+  ],
+  "experiment_id": "iter99_external_verifier_telos_differential_fixture_materialization_after_design",
+  "iter98_audit_returncode": 0,
+  "iter98_clean_pass": true,
+  "iter98_expected_divergence_claimed_as_result": false,
+  "iter98_ground_truth_visible_to_strategies": false,
+  "iter98_identical_artifacts_for_all_strategies": true,
+  "iter98_planned_fixture_count": 16,
+  "iter98_primary_endpoint": "differential_detection_delta",
+  "iter98_receipt_validation_returncode": 0,
+  "iter98_status": "pass",
+  "iter98_strategy_ids": [
+    "agent_self_report",
+    "execution_tests_only",
+    "llm_judge",
+    "external_verifier",
+    "complete_telos_protocol"
+  ],
+  "iter98_target_family_count": 8,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.differential_fixture_materialization.iter98_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof/run_summary.json",
+      "sha256": "b8e7ce7f847427b69a09575a252b4ce0a6509bb2268c9086e527dc12388aeeae"
+    },
+    {
+      "path": "experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof/differential_target_matrix.json",
+      "sha256": "6a3e9239b460a8a75b698a8b5f10ebedb8cfeebc2ab9bde5ec8ba04b66885244"
+    },
+    {
+      "path": "experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof/fixture_design_rules.json",
+      "sha256": "66536d3343f524bcfba3292f52918501fbca180a6ebcae775e535c78fd0e0063"
+    },
+    {
+      "path": "experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof/endpoint_sample_size_rationale.json",
+      "sha256": "0bf967d3f874f61e02d6989dd2fcf9879ec9c56f397588167ecbf8cb4b9e55d8"
+    },
+    {
+      "path": "experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof/claim_boundary.json",
+      "sha256": "0278b45f101042737024a96d629880b1f9c02e5b588b09d3a3b313a467200143"
+    },
+    {
+      "path": "experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof/valid/receipt_external_verifier_telos_differential_suite_design_after_adjudication.json",
+      "sha256": "f010ea23387714fa33a69f2267c35b047ae01ae1b31be8089a11e3f757cdcc30"
+    }
+  ],
+  "strategy_execution_in_this_gate": 0
+}
