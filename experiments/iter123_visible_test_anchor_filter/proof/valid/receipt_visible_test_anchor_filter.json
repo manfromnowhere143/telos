@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "Each sound property holds on the visible-test anchor (kept).",
+    "Each unsound property violates the visible-test anchor (rejected).",
+    "No gold reference is used."
+  ],
+  "agent_id": "codex-local-visible-test-anchor-filter-analyst",
+  "benchmark_id": "swebench_verified_visible_test_anchor_filter_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter123_visible_test_anchor_filter/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record a failure if a sound property violates the anchor.",
+    "Record a miss if an unsound property holds on the anchor."
+  ],
+  "receipt_id": "iter123-visible-test-anchor-filter-pass",
+  "sha256": "33d5201a1f4611959af76a5ec778af1e3ee14089a3b271812e81e575c3ae6032",
+  "stated_goal": "Reject unsound proposed metamorphic properties using the visible test as a gold-free anchor.",
+  "status": "pass",
+  "task_id": "telos:iter123_visible_test_anchor_filter"
+}

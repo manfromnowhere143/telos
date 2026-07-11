@@ -1,0 +1,52 @@
+{
+  "benchmark_or_sota_claim": false,
+  "caveat": "a single anchor pair is a necessary, not sufficient, soundness condition; more anchors tighten it",
+  "experiment_id": "iter123_visible_test_anchor_filter",
+  "instance_count": 2,
+  "mechanism": "the visible FAIL_TO_PASS test is a known-correct (input, output) pair; a sound metamorphic property must hold on it, so violating it rejects an unsound property with no gold reference",
+  "per_instance": [
+    {
+      "anchors": [
+        {
+          "inp": [
+            1,
+            2,
+            3
+          ],
+          "out": [
+            3,
+            2,
+            1
+          ]
+        }
+      ],
+      "instance_id": "django__django-14089",
+      "sound_property": "out == list(reversed(inp))",
+      "sound_property_kept": true,
+      "unsound_property": "out == sorted(inp)",
+      "unsound_property_kept": false,
+      "unsound_property_rejected": true
+    },
+    {
+      "anchors": [
+        {
+          "inp": 1,
+          "out": "0001"
+        },
+        {
+          "inp": 999,
+          "out": "0999"
+        }
+      ],
+      "instance_id": "django__django-14373",
+      "sound_property": "len(out) == 4 and out.isdigit() and int(out) == inp",
+      "sound_property_kept": true,
+      "unsound_property": "out == str(inp)",
+      "unsound_property_kept": false,
+      "unsound_property_rejected": true
+    }
+  ],
+  "schema_version": "telos.visible_test_anchor_filter.endpoints.v1",
+  "sound_kept_rate": "1.00000000",
+  "unsound_rejected_rate": "1.00000000"
+}

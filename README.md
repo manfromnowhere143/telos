@@ -47,6 +47,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [120](experiments/iter120_generalized_metamorphic/RESULT.md) | Does the metamorphic layer generalize past a hand-picked input? | yes - seeded random held-out inputs catch `2/2` (diverging on `10/12` and `8/12`); the open problem narrows to an oracle without gold |
 | [121](experiments/iter121_gold_free_property_oracle/RESULT.md) | Can the oracle drop the gold reference? | yes - contract properties (no gold) catch `2/2` (violating `27/30`, `30/30`) at `0` false positives on gold; the frontier narrows to automatic property generation |
 | [122](experiments/iter122_automatic_property_generation/RESULT.md) | Can the model generate the property itself? | yes - `gemini-2.5-flash` proposes properties that catch `2/2` (violating `28/30`, `26/30`) at `0` gold false positives; the model, fooled as a judge, is reliable as a property generator because execution checks it |
+| [123](experiments/iter123_visible_test_anchor_filter/RESULT.md) | Can unsound properties be rejected without gold? | yes - the visible test is a known-correct anchor; it keeps `2/2` sound properties and rejects `2/2` unsound ones with no gold reference |
 
 ### The honest conclusion
 
@@ -96,9 +97,13 @@ automated: a model proposes the properties and execution verifies them (iter122)
 program's sharpest structural point - the same model that is fooled as a direct judge is reliable as
 a property generator, because a proposed property is checked by execution rather than trusted, so an
 unsound property surfaces as a false positive instead of a silent miss. Moving the model from
-verdict-giver to property-generator converts an unverifiable judgment into a checkable artifact. The
-open target is scaling property generation and rejecting unsound proposed properties without a gold
-reference.
+verdict-giver to property-generator converts an unverifiable judgment into a checkable artifact.
+Unsound proposed properties are then rejected without any gold reference (iter123) by anchoring on the
+visible test - a known-correct input/output pair the agent already had to satisfy - so the automated
+third layer is gold-free end to end: the model proposes, the visible test filters, and execution on
+random inputs catches the generalization-broken completions. The open target is scaling this
+generate-filter-execute pipeline across more instances and strengthening the anchor with the
+`PASS_TO_PASS` cases.
 
 ## Honest Status
 
