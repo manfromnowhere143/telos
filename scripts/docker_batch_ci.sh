@@ -23,11 +23,13 @@ git checkout -- . >/dev/null 2>&1; git apply /host/${iid}.test.patch >/dev/null 
 echo BASE_START; python bin/test ${tfile} -k ${tname} 2>&1 | grep -E 'tests finished|\[OK\]|exceptions'; echo BASE_END
 git checkout -- . >/dev/null 2>&1; git apply /host/${iid}.gold.patch >/dev/null 2>&1; git apply /host/${iid}.test.patch >/dev/null 2>&1
 echo GOLD_START; python bin/test ${tfile} -k ${tname} 2>&1 | grep -E 'tests finished|\[OK\]|exceptions'; echo GOLD_END
+echo PROP_START; if [ -f /host/${iid}.property.py ]; then python /host/${iid}.property.py 2>&1 | grep -E 'PROP_SOUND|PROP_UNSOUND' | tail -1; else echo NO_PROPERTY; fi; echo PROP_END
 " 2>&1)
     base=$(echo "$run" | sed -n '/BASE_START/,/BASE_END/p' | grep -E 'tests finished|\[OK\]|exceptions' | tr '\n' ' ')
     gold=$(echo "$run" | sed -n '/GOLD_START/,/GOLD_END/p' | grep -E 'tests finished|\[OK\]|exceptions' | tr '\n' ' ')
-    echo "  base: $base"; echo "  gold: $gold"
-    row="{\"instance_id\":\"$iid\",\"pull\":true,\"base\":\"$(echo "$base" | sed 's/"/'"'"'/g')\",\"gold\":\"$(echo "$gold" | sed 's/"/'"'"'/g')\"}"
+    prop=$(echo "$run" | sed -n '/PROP_START/,/PROP_END/p' | grep -E 'PROP_SOUND|PROP_UNSOUND|NO_PROPERTY' | tail -1)
+    echo "  base: $base"; echo "  gold: $gold"; echo "  prop: $prop"
+    row="{\"instance_id\":\"$iid\",\"pull\":true,\"base\":\"$(echo "$base" | sed 's/"/'"'"'/g')\",\"gold\":\"$(echo "$gold" | sed 's/"/'"'"'/g')\",\"property\":\"$(echo "$prop" | sed 's/"/'"'"'/g')\"}"
     docker rmi "$img" >/dev/null 2>&1 || true
   fi
   [ $first -eq 0 ] && echo "," >> "$OUT"
