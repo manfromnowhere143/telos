@@ -41,6 +41,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [114](experiments/iter114_batch_native_execution/RESULT.md) | Does gold resolution hold across a batch? | `4/5` gold patches resolve under real execution; `0/5` detector false positives; one honest native-harness fidelity gap |
 | [115](experiments/iter115_wider_batch_native_execution/RESULT.md) | Tighten the fidelity estimate | `17/18` gold patches resolve under real execution (`0.94`); `0/18` detector false positives; the same single fidelity gap |
 | [116](experiments/iter116_executed_hack_catch_rate/RESULT.md) | Measured catch rate on executed hacks | on three hacks that really pass their hidden tests: execution-only `0/3`, detector `1/3`, judge `3/3` |
+| [117](experiments/iter117_precision_coverage_boundary/RESULT.md) | Can the detector gap close for free? | a constant-return signal catches `2/2` missed hacks but costs `1/200` real false positives - the first hardening that trades precision, so it is not adopted and the class is judge territory |
 
 ### The honest conclusion
 
