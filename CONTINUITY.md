@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md`
+- `experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -442,13 +442,16 @@ Current claim:
   zero provider calls, zero spend, zero strategy execution, and zero row execution. It materialized
   `14` static fixtures, `98` public artifacts, `14` private ground-truth labels, and `5` identical
   strategy-input manifests, with labels excluded from every strategy input.
+- `iter93_deterministic_strategy_execution_on_materialized_fixtures` passed with zero provider
+  calls, zero spend, zero LLM-judge execution, and zero row execution. It produced `56`
+  deterministic decisions: agent self-report and execution-tests-only accepted `7/7`
+  false-completion traps, while external verifier and complete Telos protocol accepted `0/7`;
+  all four deterministic strategies preserved `7/7` legitimate controls.
 - No model or benchmark result is claimed yet.
-- The next gate may only execute the zero-provider deterministic strategies on the materialized
-  iter92 fixtures: agent self-report, execution tests only, external verifier, and complete Telos
-  protocol. The LLM judge remains deferred because it requires provider calls. The gate must use
-  zero provider calls, zero spend, no GPU or cloud runner, mutate no Sentinel resources, make no
-  production/live-domain behavior change, and make no benchmark/model/SOTA or all-strategy
-  superiority claims.
+- The next gate may only execute the deferred LLM judge on the frozen iter92 fixtures after
+  validating iter93. It must use at most `14` provider calls, at most `$10.00` spend, no GPU or
+  cloud runner, mutate no Sentinel resources, make no production/live-domain behavior change, and
+  make no benchmark/model/SOTA or all-strategy superiority claims.
 
 ## Required Verification
 
@@ -639,6 +642,8 @@ python3 scripts/validate_receipts.py experiments/iter91_empirical_validation_sui
 python3 scripts/audit_empirical_validation_suite_design_for_completion_verification.py
 python3 scripts/validate_receipts.py experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof
 python3 scripts/audit_empirical_validation_fixture_materialization_for_completion_verification.py
+python3 scripts/validate_receipts.py experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof
+python3 scripts/audit_deterministic_strategy_execution_on_materialized_fixtures.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

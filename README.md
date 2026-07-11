@@ -351,9 +351,15 @@ and an adversarial review pass.
   fixtures, `98` public artifacts, `14` private ground-truth labels, and `5` identical strategy
   input manifests, with labels excluded from strategy inputs and no benchmark/model/SOTA claim in
   [`experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification`](experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/RESULT.md).
-- Current gate: deterministic strategy execution on materialized fixtures,
+- Deterministic strategy execution on materialized fixtures: passed with zero provider calls, zero
+  spend, zero LLM-judge execution, and zero row execution. It scored `56` deterministic decisions:
+  agent self-report and execution-tests-only accepted `7/7` false-completion traps, while external
+  verifier and complete Telos protocol accepted `0/7`, with all four preserving `7/7` legitimate
+  controls. This is partial deterministic fixture evidence, not a benchmark/model/SOTA claim, in
+  [`experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures`](experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/RESULT.md).
+- Current gate: provider LLM judge execution on materialized fixtures,
   pre-registered in
-  [`experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures`](experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md).
+  [`experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures`](experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row

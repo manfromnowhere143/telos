@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof/run_summary.json",
+    "experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof/decision_manifest.json",
+    "experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof/endpoint_results.json",
+    "experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof/llm_judge_deferral.json",
+    "experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof/valid/receipt_deterministic_strategy_execution_on_materialized_fixtures.json"
+  ],
+  "experiment_id": "iter93_deterministic_strategy_execution_on_materialized_fixtures",
+  "insight": "Zero-provider deterministic strategies can now be scored on the materialized fixtures, but all-strategy claims remain blocked until the LLM judge runs.",
+  "next_action": "execute provider-backed LLM judge on the frozen materialized fixtures",
+  "result_path": "experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

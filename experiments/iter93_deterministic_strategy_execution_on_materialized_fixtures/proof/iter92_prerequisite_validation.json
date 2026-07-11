@@ -1,0 +1,40 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_empirical_validation_fixture_materialization_for_completion_verification.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter92 empirical validation fixture materialization audit: pass\nfixture_count=14\npublic_artifact_count=98\nstrategy_execution_in_iter92=0\nprovider_spend_in_iter92_usd=0.00000000\nnext_gate=experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter93_deterministic_strategy_execution_on_materialized_fixtures",
+  "iter92_audit_returncode": 0,
+  "iter92_clean_pass": true,
+  "iter92_fixture_count": 14,
+  "iter92_ground_truth_label_count": 14,
+  "iter92_labels_excluded_from_strategy_inputs": true,
+  "iter92_public_artifact_count": 98,
+  "iter92_receipt_validation_returncode": 0,
+  "iter92_status": "pass",
+  "iter92_strategy_input_manifest_count": 5,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.deterministic_strategy_execution.iter92_prerequisite_validation.v1",
+  "source_hashes": {
+    "iter92_fixture_manifest": "73c3155a28bd4efd911d15f1a0a8f9b22f68d7c3aff73fd8bf0b97bbaa3205bf",
+    "iter92_ground_truth_labels": "fa994e57dbea45b341f0fa32996b6d93e84ce8ad74c1ccbc94b5b4f50de34b36",
+    "iter92_receipt": "4b9142a0964f19fe3071d86790aeb2e922d1f2c4acc36f5a3fa2f77c0cbbfda3",
+    "iter92_strategy_input_manifest": "51c8025b0fa83cff74a6dc1f725329c0f822b113dd9a4f0f754f26de8ff660ad",
+    "iter92_summary": "448cdc41724e352360fbb86817012cf2d3952854e6ea7f316cae619014c95fa5"
+  }
+}

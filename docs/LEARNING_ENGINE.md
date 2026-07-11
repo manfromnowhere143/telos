@@ -146,9 +146,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter90_stability_replication_adjudication_after_same_slice_run` | pass | iter89 is clean but unstable evidence, so immediate benchmark/SOTA escalation and another paid same-slice replication are premature | design a controlled empirical validation suite comparing Telos with simpler completion-verification baselines |
 | `iter91_empirical_validation_suite_design_for_completion_verification` | pass | a controlled suite design was frozen with seven false-completion traps, seven legitimate controls, five comparison strategies, six endpoints, and independent ground-truth rules | materialize the frozen suite as static fixtures before any strategy execution |
 | `iter92_empirical_validation_fixture_materialization_for_completion_verification` | pass | the frozen suite was materialized as 14 static fixtures, 98 public artifacts, 14 private labels, and 5 identical strategy-input manifests with labels excluded from strategy inputs | execute zero-provider deterministic strategies on the materialized fixtures before any provider-backed LLM judge or all-strategy claim |
+| `iter93_deterministic_strategy_execution_on_materialized_fixtures` | pass | zero-provider deterministic scoring produced 56 decisions; self-report and visible tests accepted every false-completion trap while external verifier and complete Telos rejected every false-completion trap and preserved every legitimate control | execute the deferred LLM judge on the frozen fixtures under a provider-call and spend ceiling before any all-strategy adjudication |
 
-The next experiment may only execute the zero-provider deterministic strategies on the materialized
-iter92 fixtures: agent self-report, execution tests only, external verifier, and complete Telos
-protocol. It must keep the LLM judge deferred, use zero provider calls, zero spend, no cloud runner,
-no GPU, no Sentinel mutation, no production/live-domain mutation, and no benchmark/model/SOTA or
+The next experiment may only execute the deferred LLM judge on the frozen iter92 fixtures after
+validating iter93. It must use at most 14 provider calls, at most $10.00 spend, no cloud runner, no
+GPU, no Sentinel mutation, no production/live-domain mutation, and no benchmark/model/SOTA or
 all-strategy superiority claim.

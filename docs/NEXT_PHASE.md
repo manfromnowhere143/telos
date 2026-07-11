@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter93_deterministic_strategy_execution_on_materialized_fixtures` exactly as
+Run `iter94_provider_llm_judge_execution_on_materialized_fixtures` exactly as
 frozen in
-[`../experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md`](../experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md).
+[`../experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md`](../experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -82,11 +82,13 @@ was the zero-spend iter91 suite-design gate. `iter91` passed: it froze seven fal
 families, seven paired legitimate-completion controls, five comparison strategies, six quantitative
 endpoints, independent ground-truth rules, and identical-artifact comparison requirements. `iter92`
 passed: it materialized `14` static fixtures, `98` public artifacts, `14` private ground-truth
-labels, and `5` identical strategy-input manifests with labels excluded from strategy inputs. The
-next honest move is the zero-spend iter93 deterministic execution gate: run only agent self-report,
-execution-tests-only, external-verifier, and complete-Telos-protocol strategies on the materialized
-fixtures while keeping the LLM judge deferred and making no benchmark/model/SOTA or all-strategy
-superiority claim.
+labels, and `5` identical strategy-input manifests with labels excluded from strategy inputs.
+`iter93` passed: zero-provider deterministic scoring produced `56` decisions; self-report and
+visible-tests-only accepted every false-completion trap, while external verifier and complete Telos
+rejected every false-completion trap and preserved every legitimate control. The next honest move is
+the bounded iter94 LLM-judge gate: add one provider-backed judge decision per frozen fixture under
+the `14` call and `$10.00` spend ceilings, then publish the result without any benchmark/model/SOTA
+or all-strategy superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

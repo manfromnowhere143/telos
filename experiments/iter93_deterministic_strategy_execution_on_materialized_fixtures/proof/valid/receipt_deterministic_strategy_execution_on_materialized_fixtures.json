@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "iter92 evidence validates cleanly",
+    "four deterministic strategies receive one decision per materialized fixture",
+    "LLM judge execution remains zero",
+    "endpoint calculations are limited to deterministic strategies",
+    "no provider calls, spend, row execution, benchmark, model, or SOTA claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_empirical_validation_fixtures",
+  "evidence": [
+    {
+      "artifact": "proof/iter92_prerequisite_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/decision_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/llm_judge_deferral.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter92 validation fails",
+    "any deterministic strategy decision is missing",
+    "LLM judge executes in this gate",
+    "labels are used to create strategy decisions",
+    "provider calls, spend, row execution, or unsupported benchmark/model/SOTA claims occur"
+  ],
+  "receipt_id": "receipt_iter93_deterministic_strategy_execution_on_materialized_fixtures",
+  "sha256": "25fa7d7977a5ecefcc75979a07e156405de6a3a2025167ffb10d9a4bbf689af9",
+  "stated_goal": "Execute zero-provider deterministic verification strategies on iter92 materialized fixtures and score partial endpoints without provider calls or SOTA claims.",
+  "status": "pass",
+  "task_id": "iter93_deterministic_strategy_execution_on_materialized_fixtures"
+}

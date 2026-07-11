@@ -467,6 +467,16 @@ Current evidence:
   pre-registers the next zero-spend deterministic execution gate. It may run only agent
   self-report, execution-tests-only, external-verifier, and complete-Telos-protocol strategies on
   the iter92 fixtures; the LLM judge remains deferred because it requires provider calls.
+- `experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/RESULT.md`
+  passes that zero-spend deterministic execution gate. It produced `56` deterministic decisions:
+  agent self-report and execution-tests-only accepted `7/7` false-completion traps, while external
+  verifier and complete Telos protocol accepted `0/7`; all four strategies preserved `7/7`
+  legitimate controls. It made no benchmark/model/state-of-the-art or all-strategy superiority
+  claim.
+- `experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md`
+  pre-registers the next provider-backed LLM-judge gate. It may execute exactly one LLM-judge
+  decision per iter92 fixture under a `14` provider-call and `$10.00` spend ceiling, after
+  validating iter93.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
