@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md`
+- `experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -438,12 +438,17 @@ Current claim:
   false-completion trap families, seven paired legitimate-completion controls, five comparison
   strategies, six quantitative endpoints, independent ground-truth rules, and identical-artifact
   comparison requirements.
+- `iter92_empirical_validation_fixture_materialization_for_completion_verification` passed with
+  zero provider calls, zero spend, zero strategy execution, and zero row execution. It materialized
+  `14` static fixtures, `98` public artifacts, `14` private ground-truth labels, and `5` identical
+  strategy-input manifests, with labels excluded from every strategy input.
 - No model or benchmark result is claimed yet.
-- The next gate may only materialize the frozen iter91 suite design as static fixtures. It must
-  commit case specs, independent ground-truth labels, artifact manifests, and identical
-  strategy-input manifests before any strategy execution, use zero provider calls, zero spend, zero
-  row execution, no GPU or cloud runner, mutate no Sentinel resources, make no production/live-domain
-  behavior change, and make no benchmark/model/SOTA claims.
+- The next gate may only execute the zero-provider deterministic strategies on the materialized
+  iter92 fixtures: agent self-report, execution tests only, external verifier, and complete Telos
+  protocol. The LLM judge remains deferred because it requires provider calls. The gate must use
+  zero provider calls, zero spend, no GPU or cloud runner, mutate no Sentinel resources, make no
+  production/live-domain behavior change, and make no benchmark/model/SOTA or all-strategy
+  superiority claims.
 
 ## Required Verification
 
@@ -632,6 +637,8 @@ python3 scripts/validate_receipts.py experiments/iter90_stability_replication_ad
 python3 scripts/audit_stability_replication_adjudication_after_same_slice_run.py
 python3 scripts/validate_receipts.py experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof
 python3 scripts/audit_empirical_validation_suite_design_for_completion_verification.py
+python3 scripts/validate_receipts.py experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof
+python3 scripts/audit_empirical_validation_fixture_materialization_for_completion_verification.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

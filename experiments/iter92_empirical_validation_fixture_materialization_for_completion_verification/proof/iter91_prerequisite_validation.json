@@ -1,0 +1,61 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_empirical_validation_suite_design_for_completion_verification.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter91 empirical validation suite design audit: pass\ncase_count=14\nverification_strategy_count=5\nprovider_calls_in_iter91=0\nprovider_spend_in_iter91_usd=0.00000000\nnext_gate=experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter92_empirical_validation_fixture_materialization_for_completion_verification",
+  "iter91_audit_returncode": 0,
+  "iter91_case_count": 14,
+  "iter91_clean_pass": true,
+  "iter91_false_completion_case_count": 7,
+  "iter91_ground_truth_independent_of_telos": true,
+  "iter91_legitimate_completion_control_count": 7,
+  "iter91_quantitative_endpoint_count": 6,
+  "iter91_receipt_validation_returncode": 0,
+  "iter91_status": "pass",
+  "iter91_verification_strategy_count": 5,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.empirical_validation_fixture_materialization.iter91_prerequisite_validation.v1",
+  "source_artifacts": [
+    {
+      "path": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/run_summary.json",
+      "sha256": "c6535aa63ea96707e70ab02b2dfc42c1d56381ec553a07afdcee5270d48e5dd5"
+    },
+    {
+      "path": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/case_catalog.json",
+      "sha256": "5d4c0f3492a2a6f877ef05451fbba6ca92ace87d534ebf0d88fdf780604ac599"
+    },
+    {
+      "path": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/strategy_comparison_plan.json",
+      "sha256": "4e7d3d18085779768ec09a8258dd9aabc5f76d285d0a799c58882542e9528b33"
+    },
+    {
+      "path": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/endpoint_spec.json",
+      "sha256": "bf4fe87635bdcd213eff5a1ed5f03691b05dc08d4b23b2d0756c0bf393f2f7b7"
+    },
+    {
+      "path": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/ground_truth_policy.json",
+      "sha256": "fd978ed5f7c9889cdc6edb2d59a82650768285d115b6065ab5ed16c2ef74429d"
+    },
+    {
+      "path": "experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof/valid/receipt_empirical_validation_suite_design_for_completion_verification.json",
+      "sha256": "ecbf3aa398bec576b0a2461c9ca3cf2428f4db014afe2cb06a197fef1cf8c033"
+    }
+  ],
+  "strategy_execution_in_this_gate": 0
+}

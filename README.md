@@ -346,9 +346,14 @@ and an adversarial review pass.
   families, seven paired legitimate-completion controls, five comparison strategies, six
   quantitative endpoints, and made no benchmark/model/SOTA claim in
   [`experiments/iter91_empirical_validation_suite_design_for_completion_verification`](experiments/iter91_empirical_validation_suite_design_for_completion_verification/RESULT.md).
-- Current gate: empirical validation fixture materialization for completion verification,
+- Empirical validation fixture materialization for completion verification: passed with zero
+  provider calls, zero spend, zero strategy execution, and zero row execution. It materialized `14`
+  fixtures, `98` public artifacts, `14` private ground-truth labels, and `5` identical strategy
+  input manifests, with labels excluded from strategy inputs and no benchmark/model/SOTA claim in
+  [`experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification`](experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/RESULT.md).
+- Current gate: deterministic strategy execution on materialized fixtures,
   pre-registered in
-  [`experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification`](experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md).
+  [`experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures`](experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row

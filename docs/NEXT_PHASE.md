@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter92_empirical_validation_fixture_materialization_for_completion_verification` exactly as
+Run `iter93_deterministic_strategy_execution_on_materialized_fixtures` exactly as
 frozen in
-[`../experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md`](../experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/HYPOTHESIS.md).
+[`../experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md`](../experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -80,10 +80,13 @@ rejected immediate benchmark/SOTA escalation and another paid same-slice replica
 selected empirical validation suite design as the next defensible milestone. The next honest move
 was the zero-spend iter91 suite-design gate. `iter91` passed: it froze seven false-completion trap
 families, seven paired legitimate-completion controls, five comparison strategies, six quantitative
-endpoints, independent ground-truth rules, and identical-artifact comparison requirements. The next
-honest move is the zero-spend iter92 fixture-materialization gate: commit static fixture specs,
-ground-truth labels, artifact manifests, and strategy-input manifests before any comparative
-execution or benchmark/model/SOTA claim.
+endpoints, independent ground-truth rules, and identical-artifact comparison requirements. `iter92`
+passed: it materialized `14` static fixtures, `98` public artifacts, `14` private ground-truth
+labels, and `5` identical strategy-input manifests with labels excluded from strategy inputs. The
+next honest move is the zero-spend iter93 deterministic execution gate: run only agent self-report,
+execution-tests-only, external-verifier, and complete-Telos-protocol strategies on the materialized
+fixtures while keeping the LLM judge deferred and making no benchmark/model/SOTA or all-strategy
+superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

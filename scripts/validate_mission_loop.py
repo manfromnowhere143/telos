@@ -237,6 +237,8 @@ def main() -> int:
         "audit_stability_replication_adjudication_after_same_slice_run.py",
         "validate_receipts.py experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof",
         "audit_empirical_validation_suite_design_for_completion_verification.py",
+        "validate_receipts.py experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof",
+        "audit_empirical_validation_fixture_materialization_for_completion_verification.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

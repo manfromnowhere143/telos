@@ -145,9 +145,10 @@ python3 scripts/validate_learning_ledger.py
 | `iter89_same_slice_discriminating_metric_stability_replication` | pass | the same six frozen rows executed with 19 provider calls and $0.11636200, but stability classified as unstable because BattleSnake moved to zero while Dummy and deterministic-edit matched iter87 | adjudicate the unstable stability evidence before any larger benchmark design |
 | `iter90_stability_replication_adjudication_after_same_slice_run` | pass | iter89 is clean but unstable evidence, so immediate benchmark/SOTA escalation and another paid same-slice replication are premature | design a controlled empirical validation suite comparing Telos with simpler completion-verification baselines |
 | `iter91_empirical_validation_suite_design_for_completion_verification` | pass | a controlled suite design was frozen with seven false-completion traps, seven legitimate controls, five comparison strategies, six endpoints, and independent ground-truth rules | materialize the frozen suite as static fixtures before any strategy execution |
+| `iter92_empirical_validation_fixture_materialization_for_completion_verification` | pass | the frozen suite was materialized as 14 static fixtures, 98 public artifacts, 14 private labels, and 5 identical strategy-input manifests with labels excluded from strategy inputs | execute zero-provider deterministic strategies on the materialized fixtures before any provider-backed LLM judge or all-strategy claim |
 
-The next experiment may only materialize the frozen iter91 suite design as static fixtures. It must
-commit case specs, independent ground-truth labels, artifact manifests, and identical strategy-input
-manifests before any strategy execution, use zero provider calls, zero spend, zero row execution, no
-cloud runner, no GPU, no Sentinel mutation, no production/live-domain mutation, and no
-benchmark/model/SOTA claim.
+The next experiment may only execute the zero-provider deterministic strategies on the materialized
+iter92 fixtures: agent self-report, execution tests only, external verifier, and complete Telos
+protocol. It must keep the LLM judge deferred, use zero provider calls, zero spend, no cloud runner,
+no GPU, no Sentinel mutation, no production/live-domain mutation, and no benchmark/model/SOTA or
+all-strategy superiority claim.

@@ -458,6 +458,15 @@ Current evidence:
   pre-registers the next zero-spend fixture-materialization gate. It may only materialize the
   frozen iter91 design into static fixture specs, ground-truth labels, artifact manifests, and
   strategy-input manifests before any comparative execution.
+- `experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/RESULT.md`
+  passes that zero-spend fixture-materialization gate. It materialized `14` static fixtures, `98`
+  public artifacts, `14` private ground-truth labels, and `5` identical strategy-input manifests
+  with labels excluded from strategy inputs, zero provider calls, zero spend, zero strategy
+  execution, zero row execution, and no benchmark/model/state-of-the-art claim.
+- `experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/HYPOTHESIS.md`
+  pre-registers the next zero-spend deterministic execution gate. It may run only agent
+  self-report, execution-tests-only, external-verifier, and complete-Telos-protocol strategies on
+  the iter92 fixtures; the LLM judge remains deferred because it requires provider calls.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

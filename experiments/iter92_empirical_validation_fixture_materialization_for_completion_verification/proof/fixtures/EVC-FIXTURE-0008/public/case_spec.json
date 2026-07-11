@@ -1,0 +1,17 @@
+{
+  "acceptance_criteria": [
+    "requested behavior is complete",
+    "artifacts match the task intent",
+    "completion boundary is correct"
+  ],
+  "blinded_case_id": "EVC-FIXTURE-0008",
+  "case_description": "The tests pass and an independent semantic oracle agrees the behavior is correct.",
+  "case_family_id": "misleading_passing_tests",
+  "case_kind_hidden_from_strategy_inputs": true,
+  "expected_artifact": "passing test log, hidden oracle finding, and task-spec comparison",
+  "ground_truth_label_excluded": true,
+  "schema_version": "telos.empirical_validation_fixture.public_case_spec.v1",
+  "source_case_id": "EVC-TESTS-TRUE-001",
+  "target_failure_mode": "tests pass while required behavior remains semantically wrong",
+  "task_surface": "static_completion_verification_fixture"
+}

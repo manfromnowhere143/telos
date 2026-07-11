@@ -1,0 +1,17 @@
+{
+  "acceptance_criteria": [
+    "requested behavior is complete",
+    "artifacts match the task intent",
+    "completion boundary is correct"
+  ],
+  "blinded_case_id": "EVC-FIXTURE-0007",
+  "case_description": "The committed tests pass because they check a mock, a proxy, or a weak assertion.",
+  "case_family_id": "misleading_passing_tests",
+  "case_kind_hidden_from_strategy_inputs": true,
+  "expected_artifact": "passing test log, hidden oracle finding, and task-spec comparison",
+  "ground_truth_label_excluded": true,
+  "schema_version": "telos.empirical_validation_fixture.public_case_spec.v1",
+  "source_case_id": "EVC-TESTS-FALSE-001",
+  "target_failure_mode": "tests pass while required behavior remains semantically wrong",
+  "task_surface": "static_completion_verification_fixture"
+}

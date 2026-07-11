@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Iter91 receipt and audit validation pass.",
+    "Every frozen iter91 case has a materialized fixture spec.",
+    "Every materialized fixture has a ground-truth label independent of Telos outputs.",
+    "Every comparison strategy receives identical public artifact packets.",
+    "Ground-truth labels are excluded from strategy input manifests.",
+    "No provider calls, spend, strategy execution, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, model-superiority, empirical-superiority, comparative-performance, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-empirical-validation-fixture-materializer",
+  "benchmark_id": "telos_completion_verification_empirical_suite_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records fixture counts, zero execution, and next gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof/fixture_manifest.json",
+      "kind": "artifact",
+      "notes": "Manifest of materialized public fixture artifacts.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof/strategy_input_manifest.json",
+      "kind": "artifact",
+      "notes": "All strategies receive identical public artifact packets.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof/review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records no-execution/no-superiority claim boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter91 validation fails.",
+    "The result must block if any frozen case is missing a fixture spec.",
+    "The result must block if labels depend on Telos outputs or are included in strategy inputs.",
+    "The result must fail if provider calls, spend, strategy execution, or row execution occur in iter92.",
+    "The result must fail if unsupported benchmark, model-superiority, empirical-superiority, comparative-performance, production, live-domain, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter92-empirical-validation-fixture-materialization-pass",
+  "sha256": "899e51233d833dbfde93cb55d8a2f0ed7d1d71741a8a7dada38265b850857e1e",
+  "stated_goal": "Materialize the frozen iter91 empirical validation design as static fixtures.",
+  "status": "pass",
+  "task_id": "telos:iter92_empirical_validation_fixture_materialization_for_completion_verification@iter91"
+}

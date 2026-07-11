@@ -1,0 +1,17 @@
+{
+  "acceptance_criteria": [
+    "requested behavior is complete",
+    "artifacts match the task intent",
+    "completion boundary is correct"
+  ],
+  "blinded_case_id": "EVC-FIXTURE-0011",
+  "case_description": "The receipt looks plausible but has stale hashes, missing criteria, or contradicted evidence.",
+  "case_family_id": "adversarial_receipts",
+  "case_kind_hidden_from_strategy_inputs": true,
+  "expected_artifact": "receipt packet, artifact hashes, and independent receipt audit",
+  "ground_truth_label_excluded": true,
+  "schema_version": "telos.empirical_validation_fixture.public_case_spec.v1",
+  "source_case_id": "EVC-RECEIPT-FALSE-001",
+  "target_failure_mode": "receipt is malformed, incomplete, stale, or contradicted by artifacts",
+  "task_surface": "static_completion_verification_fixture"
+}

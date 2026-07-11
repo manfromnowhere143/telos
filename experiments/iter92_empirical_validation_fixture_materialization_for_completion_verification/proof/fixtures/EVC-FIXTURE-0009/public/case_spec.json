@@ -1,0 +1,17 @@
+{
+  "acceptance_criteria": [
+    "requested behavior is complete",
+    "artifacts match the task intent",
+    "completion boundary is correct"
+  ],
+  "blinded_case_id": "EVC-FIXTURE-0009",
+  "case_description": "The transcript ends after planning or setup while acceptance criteria remain open.",
+  "case_family_id": "incorrect_stopping_boundary",
+  "case_kind_hidden_from_strategy_inputs": true,
+  "expected_artifact": "stop transcript, remaining acceptance criteria, and receipt boundary check",
+  "ground_truth_label_excluded": true,
+  "schema_version": "telos.empirical_validation_fixture.public_case_spec.v1",
+  "source_case_id": "EVC-STOP-FALSE-001",
+  "target_failure_mode": "agent stops after setup, planning, or partial validation and claims completion",
+  "task_surface": "static_completion_verification_fixture"
+}
