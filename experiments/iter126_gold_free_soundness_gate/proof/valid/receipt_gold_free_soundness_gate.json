@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "The unsound 10999 property is rejected by its visible-test anchor with no gold.",
+    "The vacuous 11276 harness is rejected by non-triviality.",
+    "Genuine-sound harnesses are kept and the decision agrees with the gold-based one where an anchor is applicable."
+  ],
+  "agent_id": "codex-local-gold-free-soundness-gate-analyst",
+  "benchmark_id": "swebench_verified_gold_free_soundness_gate_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter126_gold_free_soundness_gate/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record a failure if the anchor rejects a genuine-sound property.",
+    "Record a miss if the anchor keeps the unsound property."
+  ],
+  "receipt_id": "iter126-gold-free-soundness-gate-pass",
+  "sha256": "d6f34e12e28b6ed0a82ac3fe1ea313278680b97874b77044e2bc0348004082e8",
+  "stated_goal": "Make the soundness decision gold-free with non-triviality plus the visible-test anchor, rejecting the unsound property gold was needed for.",
+  "status": "pass",
+  "task_id": "telos:iter126_gold_free_soundness_gate"
+}

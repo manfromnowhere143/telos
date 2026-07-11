@@ -1,0 +1,70 @@
+{
+  "endpoints": {
+    "agreement_with_gold_based_where_applicable": true,
+    "anchor_not_applicable": [
+      "django__django-11848"
+    ],
+    "benchmark_or_sota_claim": false,
+    "experiment_id": "iter126_gold_free_soundness_gate",
+    "finding": "a non-triviality filter plus the visible-test anchor reproduces the gold-based soundness decision without gold: it keeps the genuine-sound properties, rejects the unsound 10999 property gold was needed for in iter125, and rejects the vacuous 11276 harness",
+    "gold_free_kept_ids": [
+      "django__django-13670",
+      "django__django-14089",
+      "django__django-14373"
+    ],
+    "per_instance": [
+      {
+        "gold_free_decision": "rejected_unsound",
+        "holds_on_anchor": false,
+        "instance_id": "django__django-10999",
+        "nontrivial": true
+      },
+      {
+        "gold_free_decision": "no_harness",
+        "holds_on_anchor": null,
+        "instance_id": "django__django-11206",
+        "nontrivial": false
+      },
+      {
+        "gold_free_decision": "rejected_vacuous",
+        "holds_on_anchor": null,
+        "instance_id": "django__django-11276",
+        "nontrivial": false
+      },
+      {
+        "gold_free_decision": "anchor_not_applicable",
+        "holds_on_anchor": null,
+        "instance_id": "django__django-11848",
+        "nontrivial": true
+      },
+      {
+        "gold_free_decision": "kept",
+        "holds_on_anchor": true,
+        "instance_id": "django__django-13670",
+        "nontrivial": true
+      },
+      {
+        "gold_free_decision": "kept",
+        "holds_on_anchor": true,
+        "instance_id": "django__django-14089",
+        "nontrivial": true
+      },
+      {
+        "gold_free_decision": "kept",
+        "holds_on_anchor": true,
+        "instance_id": "django__django-14373",
+        "nontrivial": true
+      }
+    ],
+    "schema_version": "telos.gold_free_soundness_gate.endpoints.v1",
+    "unsound_rejected_by_anchor": [
+      "django__django-10999"
+    ],
+    "vacuous_rejected_by_nontriviality": [
+      "django__django-11276"
+    ]
+  },
+  "experiment_id": "iter126_gold_free_soundness_gate",
+  "schema_version": "telos.gold_free_soundness_gate.summary.v1",
+  "status": "pass"
+}

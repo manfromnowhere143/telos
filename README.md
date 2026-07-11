@@ -50,6 +50,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [123](experiments/iter123_visible_test_anchor_filter/RESULT.md) | Can unsound properties be rejected without gold? | yes - the visible test is a known-correct anchor; it keeps `2/2` sound properties and rejects `2/2` unsound ones with no gold reference |
 | [124](experiments/iter124_property_generation_at_scale/RESULT.md) | Does automatic property generation generalize? | not yet - across seven real instances only `2/7` produce a clean sound auto-generated harness; the mechanism is real but the harness/input synthesizer is the bottleneck (generation, syntax, input-domain, mis-target failures) |
 | [125](experiments/iter125_harness_synthesizer/RESULT.md) | Does a validated synthesizer help? | yes - test-source targeting, input validation, and retry roughly double the rate to `4/7`; a non-triviality filter is required and catches a vacuous harness raw soundness accepted; two residual failures (unsound property, structured-input domain) remain |
+| [126](experiments/iter126_gold_free_soundness_gate/RESULT.md) | Can the soundness decision drop gold too? | yes - non-triviality plus the visible-test anchor keeps the `3` genuine-sound harnesses, rejects the unsound `10999` property gold was needed for, and rejects the vacuous `11276`; the pipeline is gold-free at every step |
 
 ### The honest conclusion
 
