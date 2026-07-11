@@ -1,0 +1,32 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed"
+    },
+    {
+      "command": "python3 scripts/audit_differential_provider_llm_judge_full_retry_after_block_recovery.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter103 recovered provider LLM judge full retry audit: pass\nprovider_api_calls=16\nprovider_cost_usd=0.23633000\nllm_judge_decision_count=16\nall_strategy_endpoint_evidence_complete=true\nnext_gate=experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md"
+    }
+  ],
+  "experiment_id": "iter104_five_strategy_differential_adjudication_after_recovered_llm_judge",
+  "iter103_all_strategy_endpoint_evidence_complete": true,
+  "iter103_audit_returncode": 0,
+  "iter103_llm_judge_decision_count": 16,
+  "iter103_provider_api_calls": 16,
+  "iter103_provider_cost_usd": "0.23633000",
+  "iter103_receipt_validation_returncode": 0,
+  "iter103_redaction_scan_passed": true,
+  "iter103_status": "pass",
+  "schema_version": "telos.differential_five_strategy_adjudication.iter103_validation.v1",
+  "source_hashes": {
+    "iter103_endpoint_results": "dde244588f7e6fd0e6c59f07c69c404bd960fec4e5a6467faabb323f23a64a80",
+    "iter103_receipt": "83640ae5a507e742e14ef6a3994a66d10ba35b4410a474102bd50ed7602b1dfe",
+    "iter103_summary": "71af68bfe2285400c18ff6b18288f223bf567c5bb1aa9313c79e65117573ba55"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "iter103 evidence validates cleanly",
+    "five-strategy differential endpoint evidence is complete",
+    "comparisons are recomputed from committed endpoint rows",
+    "adverse and null results are preserved",
+    "only fixture-level differential claims occur",
+    "no benchmark, model, production, SOTA, or broad all-strategy superiority claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_differential_completion_verification_fixtures",
+  "evidence": [
+    {
+      "artifact": "proof/iter103_prerequisite_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/five_strategy_differential_endpoint_table.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/strategy_comparison.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/adverse_result_register.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter103 prerequisite validation fails",
+    "five-strategy differential endpoint evidence is incomplete",
+    "deterministic endpoint rows no longer match iter100",
+    "provider calls, spend, strategy execution, or row execution occur in this gate",
+    "unsupported benchmark/model/SOTA or broad all-strategy superiority claims appear"
+  ],
+  "receipt_id": "receipt_iter104_five_strategy_differential_adjudication",
+  "sha256": "d724e74d57fbd34f2ba38984850ee8455e7a538e2a4818f0d0c510ecd4fd63c3",
+  "stated_goal": "Adjudicate the completed five-strategy differential fixture evidence without additional execution or provider spend.",
+  "status": "pass",
+  "task_id": "iter104_five_strategy_differential_adjudication_after_recovered_llm_judge"
+}

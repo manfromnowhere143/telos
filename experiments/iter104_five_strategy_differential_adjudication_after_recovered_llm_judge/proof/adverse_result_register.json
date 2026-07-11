@@ -1,0 +1,42 @@
+{
+  "adverse_results": [
+    {
+      "finding": "agent self-report accepted 8/8 false-completion traps",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "self_report_accepts_all_false_completion_traps",
+      "strategy_id": "agent_self_report"
+    },
+    {
+      "finding": "execution-tests-only accepted 8/8 false-completion traps",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "execution_tests_accept_all_false_completion_traps",
+      "strategy_id": "execution_tests_only"
+    },
+    {
+      "finding": "provider LLM judge rejected 6/8 legitimate controls",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "llm_judge_high_false_rejection",
+      "strategy_id": "llm_judge"
+    },
+    {
+      "finding": "external verifier accepted 4/8 false-completion traps that complete Telos rejected",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "external_verifier_accepts_half_differential_traps",
+      "strategy_id": "external_verifier"
+    },
+    {
+      "finding": "the complete-Telos advantage is fixture-level evidence on a frozen synthetic suite, not an external benchmark result",
+      "preserved_as_null_or_adverse_evidence": true,
+      "result_id": "synthetic_fixture_scope_limit",
+      "strategy_id": "complete_telos_protocol"
+    }
+  ],
+  "claim_not_supported_now": "No benchmark result, SWE-bench score, leaderboard result, production/live-domain result, model-superiority result, broad all-strategy superiority result, or state-of-the-art result is supported.",
+  "claim_supported_now": "On the frozen 16-fixture differential suite, complete Telos was the only strategy with 0/8 false-completion acceptance and 8/8 legitimate-control preservation; external verifier accepted 4/8 false-completion traps and the provider LLM judge rejected 6/8 legitimate controls.",
+  "comparison_source_hash": "65f4c4d7bf56f24418017217c9579af1549a9aa5f3fa2ec9b8f64cee097a161b",
+  "experiment_id": "iter104_five_strategy_differential_adjudication_after_recovered_llm_judge",
+  "external_benchmark_pilot_design_selected": true,
+  "immediate_benchmark_claim_rejected": true,
+  "reason_immediate_benchmark_claim_rejected": "the result is controlled differential-fixture evidence and needs a separate pre-registered external benchmark pilot design before any benchmark execution",
+  "schema_version": "telos.differential_five_strategy_adjudication.adverse_result_register.v1"
+}

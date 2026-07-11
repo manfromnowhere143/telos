@@ -2,7 +2,7 @@
 
 No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
 protocol-effect pilot result from `iter64` and a controlled completion-verification fixture suite
-through `iter103`; neither is a benchmark result and neither supports a model-superiority or
+through `iter104`; neither is a benchmark result and neither supports a model-superiority or
 state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -558,6 +558,15 @@ Current evidence:
   LLM-judge strategy evidence and not a benchmark/model/state-of-the-art or superiority claim.
 - `experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md`
   pre-registers the zero-spend five-strategy differential adjudication gate.
+- `experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/RESULT.md`
+  passes that zero-spend adjudication. Complete Telos was the only balanced pass on the frozen
+  16-fixture differential suite; external verifier accepted `4/8` false-completion traps and the
+  recovered provider LLM judge rejected `6/8` legitimate controls. This supports only a
+  fixture-level differential result, not a benchmark/model/state-of-the-art or broad all-strategy
+  superiority claim.
+- `experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`
+  pre-registers the zero-spend external benchmark-pilot design gate before any paid benchmark
+  execution.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

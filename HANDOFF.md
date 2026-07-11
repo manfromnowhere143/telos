@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-11T08:18:44Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-11T08:34:02Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -30,7 +30,8 @@ clean
 - experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic: RESULT PUBLISHED
 - experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block: RESULT PUBLISHED
 - experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery: RESULT PUBLISHED
-- experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge: PRE-REGISTERED, result pending
+- experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge: RESULT PUBLISHED
+- experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication: PRE-REGISTERED, result pending
 - experiments/iter10_provider_auth_recovery: RESULT PUBLISHED
 - experiments/iter11_provider_model_pilot_retry: RESULT PUBLISHED
 - experiments/iter12_vertex_model_access_recovery: RESULT PUBLISHED
@@ -125,7 +126,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md`.
+- Active gate: `experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -341,6 +342,8 @@ python3 scripts/validate_receipts.py experiments/iter102_provider_llm_judge_diff
 python3 scripts/audit_provider_llm_judge_differential_retry_recovery_after_block.py
 python3 scripts/validate_receipts.py experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/proof
 python3 scripts/audit_differential_provider_llm_judge_full_retry_after_block_recovery.py
+python3 scripts/validate_receipts.py experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/proof
+python3 scripts/audit_five_strategy_differential_adjudication_after_recovered_llm_judge.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

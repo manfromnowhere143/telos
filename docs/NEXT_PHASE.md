@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter104_five_strategy_differential_adjudication_after_recovered_llm_judge`
+Run `iter105_external_benchmark_pilot_design_after_differential_adjudication`
 exactly as frozen in
-[`../experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md`](../experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md).
+[`../experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`](../experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -129,7 +129,11 @@ claim. `iter103` passed: it used `16` provider calls and `$0.23633000` estimated
 preserved only `2/8` legitimate controls. The next honest move is iter104: adjudicate the completed
 five-strategy differential table from committed evidence with zero provider calls, preserving the
 adverse LLM-judge false-rejection evidence and making no benchmark/model/SOTA or all-strategy
-superiority claim.
+superiority claim. `iter104` passed with zero provider calls and zero spend: complete Telos was
+the only balanced pass on the frozen 16-fixture differential suite, external verifier accepted
+`4/8` false-completion traps, and the recovered LLM judge rejected `6/8` legitimate controls. The
+next honest move is iter105: design the smallest defensible external benchmark pilot from committed
+evidence before any paid benchmark execution or benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

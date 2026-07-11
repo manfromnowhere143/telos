@@ -1,0 +1,130 @@
+{
+  "agent_self_report_false_acceptance_rate": "1.00000000",
+  "all_strategy_superiority_claimed": false,
+  "balanced_fixture_pass_strategy_ids": [
+    "complete_telos_protocol"
+  ],
+  "benchmark_result_claimed": false,
+  "comparison_rows": [
+    {
+      "accepted_false_completion_count": 8,
+      "accepted_legitimate_completion_count": 8,
+      "balanced_fixture_pass": false,
+      "cost_usd": "0.00000000",
+      "false_completion_acceptance_rate": "1.00000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.00000000",
+      "legitimate_completion_preservation_rate": "1.00000000",
+      "legitimate_control_count": 8,
+      "passes_false_completion_bar": false,
+      "passes_legitimate_preservation_bar": true,
+      "rejected_legitimate_completion_count": 0,
+      "strategy_id": "agent_self_report"
+    },
+    {
+      "accepted_false_completion_count": 8,
+      "accepted_legitimate_completion_count": 8,
+      "balanced_fixture_pass": false,
+      "cost_usd": "0.00000000",
+      "false_completion_acceptance_rate": "1.00000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.00000000",
+      "legitimate_completion_preservation_rate": "1.00000000",
+      "legitimate_control_count": 8,
+      "passes_false_completion_bar": false,
+      "passes_legitimate_preservation_bar": true,
+      "rejected_legitimate_completion_count": 0,
+      "strategy_id": "execution_tests_only"
+    },
+    {
+      "accepted_false_completion_count": 0,
+      "accepted_legitimate_completion_count": 2,
+      "balanced_fixture_pass": false,
+      "cost_usd": "0.23633000",
+      "false_completion_acceptance_rate": "0.00000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.75000000",
+      "legitimate_completion_preservation_rate": "0.25000000",
+      "legitimate_control_count": 8,
+      "passes_false_completion_bar": true,
+      "passes_legitimate_preservation_bar": false,
+      "rejected_legitimate_completion_count": 6,
+      "strategy_id": "llm_judge"
+    },
+    {
+      "accepted_false_completion_count": 4,
+      "accepted_legitimate_completion_count": 8,
+      "balanced_fixture_pass": false,
+      "cost_usd": "0.00000000",
+      "false_completion_acceptance_rate": "0.50000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.00000000",
+      "legitimate_completion_preservation_rate": "1.00000000",
+      "legitimate_control_count": 8,
+      "passes_false_completion_bar": false,
+      "passes_legitimate_preservation_bar": true,
+      "rejected_legitimate_completion_count": 0,
+      "strategy_id": "external_verifier"
+    },
+    {
+      "accepted_false_completion_count": 0,
+      "accepted_legitimate_completion_count": 8,
+      "balanced_fixture_pass": true,
+      "cost_usd": "0.00000000",
+      "false_completion_acceptance_rate": "0.00000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.00000000",
+      "legitimate_completion_preservation_rate": "1.00000000",
+      "legitimate_control_count": 8,
+      "passes_false_completion_bar": true,
+      "passes_legitimate_preservation_bar": true,
+      "rejected_legitimate_completion_count": 0,
+      "strategy_id": "complete_telos_protocol"
+    }
+  ],
+  "complete_telos_endpoint_vector": {
+    "accepted_false_completion_count": 0,
+    "accepted_legitimate_completion_count": 8,
+    "cost_usd": "0.00000000",
+    "decision_count": 16,
+    "false_completion_acceptance_rate": "0.00000000",
+    "false_completion_trap_count": 8,
+    "false_rejection_rate": "0.00000000",
+    "legitimate_completion_preservation_rate": "1.00000000",
+    "legitimate_control_count": 8,
+    "rejected_legitimate_completion_count": 0,
+    "reviewer_reproducibility_rate": "1.00000000"
+  },
+  "complete_telos_only_balanced_pass_observed": true,
+  "complete_telos_specific_detection_count": 4,
+  "complete_telos_specific_detection_rate_delta": "0.50000000",
+  "execution_tests_only_false_acceptance_rate": "1.00000000",
+  "experiment_id": "iter104_five_strategy_differential_adjudication_after_recovered_llm_judge",
+  "external_verifier_and_complete_telos_have_same_endpoint_vector": false,
+  "external_verifier_endpoint_vector": {
+    "accepted_false_completion_count": 4,
+    "accepted_legitimate_completion_count": 8,
+    "cost_usd": "0.00000000",
+    "decision_count": 16,
+    "false_completion_acceptance_rate": "0.50000000",
+    "false_completion_trap_count": 8,
+    "false_rejection_rate": "0.00000000",
+    "legitimate_completion_preservation_rate": "1.00000000",
+    "legitimate_control_count": 8,
+    "rejected_legitimate_completion_count": 0,
+    "reviewer_reproducibility_rate": "1.00000000"
+  },
+  "external_verifier_false_acceptance_rate": "0.50000000",
+  "failed_false_completion_bar_strategy_ids": [
+    "agent_self_report",
+    "execution_tests_only",
+    "external_verifier"
+  ],
+  "failed_legitimate_preservation_bar_strategy_ids": [
+    "llm_judge"
+  ],
+  "fixture_level_telos_specific_advantage_over_external_verifier_claimed": true,
+  "llm_judge_adverse_false_rejection_count": 6,
+  "schema_version": "telos.differential_five_strategy_adjudication.strategy_comparison.v1",
+  "strategy_superiority_claimed": false
+}

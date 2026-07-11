@@ -261,6 +261,8 @@ def main() -> int:
         "audit_provider_llm_judge_differential_retry_recovery_after_block.py",
         "validate_receipts.py experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/proof",
         "audit_differential_provider_llm_judge_full_retry_after_block_recovery.py",
+        "validate_receipts.py experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/proof",
+        "audit_five_strategy_differential_adjudication_after_recovered_llm_judge.py",
         "validate_handoff.py",
     ]:
         if required not in "\n".join(contract.get("current_validation", [])):

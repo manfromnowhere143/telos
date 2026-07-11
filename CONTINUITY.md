@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md`
+- `experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -490,12 +490,17 @@ Current claim:
   provider calls and `$0.23633000` estimated spend. It produced `16/16` parseable recovered
   LLM-judge decisions, accepted `0/8` false-completion traps, but preserved only `2/8` legitimate
   controls, making it adverse LLM-judge strategy evidence.
+- `iter104_five_strategy_differential_adjudication_after_recovered_llm_judge` passed with zero
+  provider calls and zero spend. Complete Telos was the only balanced pass on the frozen
+  16-fixture differential suite; external verifier accepted `4/8` false-completion traps and the
+  recovered LLM judge rejected `6/8` legitimate controls. This is a fixture-level differential
+  result, not a benchmark/model/SOTA claim.
 - No model or benchmark result is claimed yet.
-- The next gate may only adjudicate the completed five-strategy differential fixture table from
-  committed iter100 and iter103 evidence. It must use zero provider calls, zero spend, execute no
-  strategy or rows, use no GPU or cloud runner, mutate no Sentinel resources, make no
+- The next gate may only design the smallest defensible external benchmark pilot from committed
+  iter104 evidence. It must use zero provider calls, zero spend, execute no benchmark tasks,
+  strategies, or rows, use no GPU or cloud runner, mutate no Sentinel resources, make no
   production/live-domain behavior change, preserve adverse/null evidence, and make no
-  benchmark/model/SOTA or all-strategy superiority claims.
+  benchmark/model/SOTA or broad all-strategy superiority claims.
 
 ## Required Verification
 
@@ -708,6 +713,8 @@ python3 scripts/validate_receipts.py experiments/iter102_provider_llm_judge_diff
 python3 scripts/audit_provider_llm_judge_differential_retry_recovery_after_block.py
 python3 scripts/validate_receipts.py experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/proof
 python3 scripts/audit_differential_provider_llm_judge_full_retry_after_block_recovery.py
+python3 scripts/validate_receipts.py experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/proof
+python3 scripts/audit_five_strategy_differential_adjudication_after_recovered_llm_judge.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

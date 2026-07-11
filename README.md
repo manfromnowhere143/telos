@@ -412,9 +412,15 @@ and an adversarial review pass.
   false-completion traps but preserved only `2/8` legitimate controls, so this is adverse
   LLM-judge strategy evidence, not a benchmark/model/SOTA or superiority claim, in
   [`experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery`](experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/RESULT.md).
-- Current gate: five-strategy differential adjudication after recovered LLM judge,
+- Five-strategy differential adjudication after recovered LLM judge: passed with zero provider
+  calls and zero spend. Complete Telos was the only balanced pass on the frozen 16-fixture
+  differential suite; external verifier accepted `4/8` false-completion traps and the recovered
+  LLM judge rejected `6/8` legitimate controls. This is a fixture-level differential result, not a
+  benchmark/model/SOTA claim, in
+  [`experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge`](experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/RESULT.md).
+- Current gate: external benchmark pilot design after differential adjudication,
   pre-registered in
-  [`experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge`](experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md).
+  [`experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication`](experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -542,7 +548,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current empirical-validation gate:
-[`experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md`](experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/HYPOTHESIS.md).
+[`experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`](experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
