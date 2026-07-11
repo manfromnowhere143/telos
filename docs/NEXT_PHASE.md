@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter102_provider_llm_judge_differential_retry_recovery_after_block`
+Run `iter103_differential_provider_llm_judge_full_retry_after_block_recovery`
 exactly as frozen in
-[`../experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`](../experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md).
+[`../experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md`](../experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -117,8 +117,14 @@ same frozen fixtures under the `16` call and `$5.00` ceilings, keeping private l
 making no benchmark/model/SOTA or all-strategy superiority claim. `iter101` blocked after `14`
 provider calls and `$0.22777400` estimated spend: `13/16` LLM-judge decisions parsed, then
 `DIFX-FIXTURE-0014` hit `MAX_TOKENS`. All-strategy endpoint evidence remains incomplete. The next
-honest move is iter102: classify the blocker from committed raw artifacts and recover the prompt/
-budget plan with zero provider calls before any paid retry or all-strategy claim.
+honest move was iter102: classify the blocker from committed raw artifacts and recover the prompt/
+budget plan with zero provider calls before any paid retry or all-strategy claim. `iter102` passed:
+it preserved the iter101 paid usage, tied the blocker to hidden reasoning exhausting the `2048`
+output budget, materialized `16` recovered prompts with private labels excluded, raised the future
+output budget to `4096`, and selected a full sixteen-fixture retry under one recovered config. The
+next honest move is iter103: run only that bounded recovered provider LLM-judge retry under the
+`16` call and `$5.00` spend ceilings, without any benchmark/model/SOTA or all-strategy superiority
+claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

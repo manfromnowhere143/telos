@@ -402,9 +402,14 @@ and an adversarial review pass.
   decisions, then `DIFX-FIXTURE-0014` hit `MAX_TOKENS`; all-strategy endpoint evidence remains
   incomplete and no benchmark/model/SOTA or superiority claim is made, in
   [`experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic`](experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/RESULT.md).
-- Current gate: provider LLM judge differential retry recovery after block,
+- Provider LLM judge differential retry recovery after block: passed with zero provider calls,
+  zero spend, zero LLM-judge execution, and zero row execution. It tied the iter101 blocker to
+  hidden reasoning exhausting the `2048` output budget, materialized `16` recovered prompts with
+  private labels excluded, and pre-registered a full recovered retry, in
+  [`experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block`](experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/RESULT.md).
+- Current gate: differential provider LLM judge full retry after block recovery,
   pre-registered in
-  [`experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block`](experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md).
+  [`experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery`](experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -532,7 +537,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current empirical-validation gate:
-[`experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`](experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md).
+[`experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md`](experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 

@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-11T07:45:18Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-11T08:02:30Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -28,7 +28,8 @@ clean
 - experiments/iter09_provider_model_pilot_smoke: RESULT PUBLISHED
 - experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization: RESULT PUBLISHED
 - experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic: RESULT PUBLISHED
-- experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block: PRE-REGISTERED, result pending
+- experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block: RESULT PUBLISHED
+- experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery: PRE-REGISTERED, result pending
 - experiments/iter10_provider_auth_recovery: RESULT PUBLISHED
 - experiments/iter11_provider_model_pilot_retry: RESULT PUBLISHED
 - experiments/iter12_vertex_model_access_recovery: RESULT PUBLISHED
@@ -123,7 +124,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`.
+- Active gate: `experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md`.
 - No benchmark result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
@@ -335,6 +336,8 @@ python3 scripts/validate_receipts.py experiments/iter100_deterministic_strategy_
 python3 scripts/audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py
 python3 scripts/validate_receipts.py experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/proof
 python3 scripts/audit_provider_llm_judge_execution_on_differential_fixtures_after_deterministic.py
+python3 scripts/validate_receipts.py experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof
+python3 scripts/audit_provider_llm_judge_differential_retry_recovery_after_block.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

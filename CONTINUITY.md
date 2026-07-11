@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`
+- `experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -481,12 +481,17 @@ Current claim:
   `14` provider calls and `$0.22777400` estimated spend. It produced `13/16` parseable LLM-judge
   decisions, then `DIFX-FIXTURE-0014` hit `MAX_TOKENS`; all-strategy endpoint evidence remains
   incomplete.
+- `iter102_provider_llm_judge_differential_retry_recovery_after_block` passed with zero provider
+  calls, zero spend, zero LLM-judge execution, and zero row execution. It preserved iter101 paid
+  usage, tied the `DIFX-FIXTURE-0014` blocker to hidden reasoning exhausting the `2048` output
+  budget, materialized `16` recovered prompts with private labels excluded, and pre-registered a
+  full `16`-fixture retry under one recovered `4096`-token config.
 - No model or benchmark result is claimed yet.
-- The next gate may only classify and recover the iter101 LLM-judge blocker from committed raw
-  artifacts. It must use zero provider calls, zero spend, no LLM-judge execution, no deterministic
-  strategy rerun, no row execution, no GPU or cloud runner, mutate no Sentinel resources, make no
-  production/live-domain behavior change, and make no benchmark/model/SOTA or all-strategy
-  superiority claims.
+- The next gate may only run the recovered provider-backed LLM judge over all `16` frozen
+  differential fixtures under the iter102 prompt/budget recovery envelope. It must stay within the
+  registered call and spend ceilings, rerun no deterministic strategy, execute no rows, use no GPU
+  or cloud runner, mutate no Sentinel resources, make no production/live-domain behavior change,
+  and make no benchmark/model/SOTA or all-strategy superiority claims.
 
 ## Required Verification
 
@@ -695,6 +700,8 @@ python3 scripts/validate_receipts.py experiments/iter100_deterministic_strategy_
 python3 scripts/audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py
 python3 scripts/validate_receipts.py experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/proof
 python3 scripts/audit_provider_llm_judge_execution_on_differential_fixtures_after_deterministic.py
+python3 scripts/validate_receipts.py experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof
+python3 scripts/audit_provider_llm_judge_differential_retry_recovery_after_block.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

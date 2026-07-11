@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof/iter101_validation.json",
+    "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof/blocker_analysis.json",
+    "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof/usage_analysis.json",
+    "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof/retry_recovery_plan.json",
+    "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof/retry_envelope.json",
+    "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof/run_summary.json",
+    "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof/valid/receipt_provider_llm_judge_differential_retry_recovery_after_block.json"
+  ],
+  "experiment_id": "iter102_provider_llm_judge_differential_retry_recovery_after_block",
+  "insight": "iter101's blocked LLM-judge result was caused by hidden reasoning exhausting the 2048 output-token budget before visible JSON completion",
+  "next_action": "run the full sixteen-fixture LLM-judge retry under one recovered config before any all-strategy comparison or benchmark claim",
+  "result_path": "experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/RESULT.md",
+  "status": "pass"
+}

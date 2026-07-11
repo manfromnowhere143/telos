@@ -1,0 +1,28 @@
+{
+  "estimated_worst_case_cost_usd": "0.81788800",
+  "experiment_id": "iter102_provider_llm_judge_differential_retry_recovery_after_block",
+  "future_benchmark_model_sota_claim_allowed": false,
+  "future_cloud_runner_startup": false,
+  "future_deterministic_strategy_rerun_count": 0,
+  "future_generation_config": {
+    "candidateCount": 1,
+    "maxOutputTokens": 4096,
+    "temperature": 0
+  },
+  "future_gpu_use": false,
+  "future_llm_judge_decision_target": 16,
+  "future_model_id": "gemini-3.1-pro-preview-customtools",
+  "future_production_or_live_domain_mutation": false,
+  "future_provider_call_ceiling": 16,
+  "future_provider_spend_ceiling_usd": "5.00000000",
+  "future_retry_mode": "full_16_fixture_rerun_under_single_recovered_config",
+  "future_row_execution": 0,
+  "future_sentinel_mutation": false,
+  "max_estimated_prompt_tokens": 983,
+  "next_experiment_id": "iter103_differential_provider_llm_judge_full_retry_after_block_recovery",
+  "next_gate": "experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md",
+  "next_gate_pre_registered": true,
+  "parse_failure_policy": "stop_and_publish_blocked_without_unregistered_retry",
+  "rationale_for_full_rerun": "avoids mixing old and recovered LLM-judge configs across one endpoint row",
+  "schema_version": "telos.differential_llm_judge_retry_recovery.retry_envelope.v1"
+}

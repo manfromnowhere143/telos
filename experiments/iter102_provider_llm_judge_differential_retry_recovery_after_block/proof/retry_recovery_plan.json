@@ -1,0 +1,27 @@
+{
+  "directly_addresses_iter101_blocker": true,
+  "experiment_id": "iter102_provider_llm_judge_differential_retry_recovery_after_block",
+  "labels_remain_excluded": true,
+  "old_generation_config": {
+    "candidateCount": 1,
+    "maxOutputTokens": 2048,
+    "temperature": 0
+  },
+  "output_budget_multiplier": "2.00000000",
+  "recovered_generation_config": {
+    "candidateCount": 1,
+    "maxOutputTokens": 4096,
+    "temperature": 0
+  },
+  "recovery_actions": [
+    "increase maxOutputTokens from 2048 to 4096 after hidden reasoning consumed the old output budget",
+    "remove the explicit think-privately instruction from the LLM-judge prompt",
+    "require exactly one minified JSON object with no markdown or reasoning",
+    "cap rationale length at 96 characters",
+    "cap decisive_evidence at three public artifact names",
+    "rerun all sixteen fixtures under one recovered config rather than mixing configs",
+    "stop on any parse failure and publish blocked evidence without unregistered retries"
+  ],
+  "retry_envelope_artifact": "retry_envelope.json",
+  "schema_version": "telos.differential_llm_judge_retry_recovery.plan.v1"
+}

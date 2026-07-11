@@ -1,0 +1,43 @@
+{
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_provider_llm_judge_execution_on_differential_fixtures_after_deterministic.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter101 provider LLM judge execution audit: blocked\nprovider_api_calls=14\nprovider_cost_usd=0.22777400\nllm_judge_decision_count=13\nall_strategy_endpoint_evidence_complete=false\nnext_gate=experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter102_provider_llm_judge_differential_retry_recovery_after_block",
+  "iter101_all_strategy_endpoint_evidence_complete": false,
+  "iter101_blocked_result": true,
+  "iter101_candidate_tokens": 1084,
+  "iter101_expected_llm_judge_decision_count": 16,
+  "iter101_labels_used_in_llm_judge_prompts": false,
+  "iter101_llm_judge_decision_count": 13,
+  "iter101_prompt_tokens": 13639,
+  "iter101_provider_api_calls": 14,
+  "iter101_provider_cost_usd": "0.22777400",
+  "iter101_quality_failure": false,
+  "iter101_redaction_scan_passed": true,
+  "iter101_status": "blocked",
+  "iter101_thoughts_tokens": 15624,
+  "iter101_validation_clean": true,
+  "schema_version": "telos.differential_llm_judge_retry_recovery.iter101_validation.v1",
+  "source_experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "source_hashes": {
+    "iter101_decision_manifest": "1f85d7af6014c262d2e87414f2be668f8b2dd40a310cf840b91a6d558debaa0c",
+    "iter101_endpoints": "257a9374f4a17aacd8f6d8029c851d01e5c3cabc1cae2e7f761e020f108f6df1",
+    "iter101_prompt_manifest": "586354578071e1f007b660cd165702b81d45062b7faeaf85c784203a0f6bd03a",
+    "iter101_provider_usage": "0af0f784308765146a354cbf04d0b1e7a465e6ac372fe89498746cb8eb07e9cb",
+    "iter101_receipt": "772381cfc754a2377969df6a76a8621866f0cec169159978db505d6684ea2e1c",
+    "iter101_summary": "78a4d2e988d873ec962441f8e1d5942eccb4af1a89bf6f35ee2ddbdc414000e8"
+  }
+}

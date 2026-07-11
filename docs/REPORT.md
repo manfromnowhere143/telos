@@ -2,7 +2,7 @@
 
 No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
 protocol-effect pilot result from `iter64` and a controlled completion-verification fixture suite
-through `iter101`; neither is a benchmark result and neither supports a model-superiority or
+through `iter102`; neither is a benchmark result and neither supports a model-superiority or
 state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -542,6 +542,15 @@ Current evidence:
 - `experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`
   pre-registers the zero-spend recovery gate for classifying that blocker from committed raw
   artifacts before any paid retry.
+- `experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/RESULT.md`
+  passes that zero-spend recovery gate. It preserves the iter101 paid usage accounting, classifies
+  `DIFX-FIXTURE-0014` as an output-budget blocker caused by hidden reasoning exhausting the `2048`
+  output budget before JSON completion, materializes `16` recovered prompts with private labels
+  excluded, and pre-registers a full recovered retry without making any benchmark/model/state-of-
+  the-art or superiority claim.
+- `experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/HYPOTHESIS.md`
+  pre-registers the bounded recovered provider LLM-judge retry over all sixteen frozen
+  differential fixtures.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
