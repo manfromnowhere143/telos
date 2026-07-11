@@ -1,0 +1,11 @@
+{
+  "evidence_paths": [
+    "experiments/iter129_applicability_and_strategy_selection/proof/endpoint_results.json"
+  ],
+  "experiment_id": "iter129_applicability_and_strategy_selection",
+  "insight": "the last residual 11276 is not a property candidate but a cross-cutting escape() refactor (27 FAIL_TO_PASS tests); under a single-testable-function applicability criterion the property-based third layer is 6/6 on valid candidates, and a function-name classifier (parse -> round-trip, else contract) assigns every one the sound strategy",
+  "next_action": "generalize the corpus of single-function candidates beyond django utils and re-measure the genuine-sound rate at larger scale",
+  "result_path": "experiments/iter129_applicability_and_strategy_selection/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

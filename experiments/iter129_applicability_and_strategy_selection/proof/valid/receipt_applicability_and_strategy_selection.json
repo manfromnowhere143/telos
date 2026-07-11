@@ -1,0 +1,25 @@
+{
+  "acceptance_criteria": [
+    "11276 is excluded as a non-single-function cross-cutting refactor.",
+    "The six valid candidates are all genuine-sound (6/6).",
+    "The automatic function-type classifier assigns each valid candidate the strategy that was sound."
+  ],
+  "agent_id": "codex-local-applicability-strategy-analyst",
+  "benchmark_id": "swebench_verified_applicability_strategy_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter129_applicability_and_strategy_selection/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record a failure if the criterion excludes a genuine single-function candidate.",
+    "Record a misassignment if the classifier assigns a wrong strategy."
+  ],
+  "receipt_id": "iter129-applicability-and-strategy-selection-pass",
+  "sha256": "1738b58ad6ebe6781b9dcf969afdda379b55a6c98897f38d1d40db605274dddb",
+  "stated_goal": "Refine the applicability criterion to exclude cross-cutting refactors and make property-strategy selection automatic.",
+  "status": "pass",
+  "task_id": "telos:iter129_applicability_and_strategy_selection"
+}

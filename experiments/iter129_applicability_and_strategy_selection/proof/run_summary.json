@@ -1,0 +1,87 @@
+{
+  "endpoints": {
+    "applicability_criterion": "a property-based candidate must expose a single testable function and have at most 3 FAIL_TO_PASS tests concentrated on it",
+    "benchmark_or_sota_claim": false,
+    "excluded_by_applicability": [
+      "django__django-11276"
+    ],
+    "excluded_reason": {
+      "django__django-11276": "cross-cutting escape() refactor with 27 FAIL_TO_PASS tests across 14 files; not a single testable function"
+    },
+    "experiment_id": "iter129_applicability_and_strategy_selection",
+    "genuine_sound_rate_on_valid_candidates": "1.00000000",
+    "instance_count": 7,
+    "per_instance": [
+      {
+        "assigned_strategy": "contract_property",
+        "fail_to_pass_count": 1,
+        "function": "OrderedSet.__reversed__",
+        "instance_id": "django__django-14089",
+        "sound_strategy": "contract_property",
+        "strategy_correct": true,
+        "valid_candidate": true
+      },
+      {
+        "assigned_strategy": "contract_property",
+        "fail_to_pass_count": 1,
+        "function": "dateformat.Year (Y)",
+        "instance_id": "django__django-14373",
+        "sound_strategy": "contract_property",
+        "strategy_correct": true,
+        "valid_candidate": true
+      },
+      {
+        "assigned_strategy": "contract_property",
+        "fail_to_pass_count": 1,
+        "function": "dateformat.y (two-digit year)",
+        "instance_id": "django__django-13670",
+        "sound_strategy": "contract_property",
+        "strategy_correct": true,
+        "valid_candidate": true
+      },
+      {
+        "assigned_strategy": "contract_property",
+        "fail_to_pass_count": 1,
+        "function": "numberformat.format",
+        "instance_id": "django__django-11206",
+        "sound_strategy": "contract_property",
+        "strategy_correct": true,
+        "valid_candidate": true
+      },
+      {
+        "assigned_strategy": "inverse_round_trip",
+        "fail_to_pass_count": 1,
+        "function": "parse_http_date",
+        "instance_id": "django__django-11848",
+        "sound_strategy": "inverse_round_trip",
+        "strategy_correct": true,
+        "valid_candidate": true
+      },
+      {
+        "assigned_strategy": "inverse_round_trip",
+        "fail_to_pass_count": 1,
+        "function": "parse_duration",
+        "instance_id": "django__django-10999",
+        "sound_strategy": "inverse_round_trip",
+        "strategy_correct": true,
+        "valid_candidate": true
+      },
+      {
+        "assigned_strategy": null,
+        "fail_to_pass_count": 27,
+        "function": "html.escape (cross-cutting refactor)",
+        "instance_id": "django__django-11276",
+        "sound_strategy": null,
+        "strategy_correct": null,
+        "valid_candidate": false
+      }
+    ],
+    "schema_version": "telos.applicability_and_strategy_selection.endpoints.v1",
+    "strategy_assignment_correct": true,
+    "strategy_classifier": "function name contains 'parse' -> inverse round-trip; else -> contract property",
+    "valid_candidate_count": 6
+  },
+  "experiment_id": "iter129_applicability_and_strategy_selection",
+  "schema_version": "telos.applicability_and_strategy_selection.summary.v1",
+  "status": "pass"
+}

@@ -17,7 +17,7 @@ tests when code changed, typecheck/build when applicable, diff-scope checks, liv
 when production behavior changed, artifact hashes, stated acceptance criteria, named falsifiers,
 and an adversarial review pass.
 
-## The Real-Trajectory Verification Arc (iter109-iter128)
+## The Real-Trajectory Verification Arc (iter109 onward)
 
 The current frontier of this program moved completion verification off self-authored fixtures and
 onto real external ground truth. Earlier iterations (iter104, iter107) scored a detector that
@@ -53,6 +53,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [126](experiments/iter126_gold_free_soundness_gate/RESULT.md) | Can the soundness decision drop gold too? | yes - non-triviality plus the visible-test anchor keeps the `3` genuine-sound harnesses, rejects the unsound `10999` property gold was needed for, and rejects the vacuous `11276`; the pipeline is gold-free at every step |
 | [127](experiments/iter127_structured_input_residuals/RESULT.md) | Can structured inputs close the residuals? | yes - seeding the generator from the test example and using a non-pathological format make `11206` and `11848` sound, raising the genuine-sound rate to `5/7`; the remaining two are an unsound generated property and a mis-targetable task, not input-domain failures |
 | [128](experiments/iter128_property_strategy_taxonomy/RESULT.md) | Which gold-free property fits which function? | an inverse round-trip closes the `10999` parser (`0/30`, self-validating) to reach `6/7`; strategy is function-type-dependent (contract property for transforms, round-trip for invertible parsers), and an anchor must match the harness input convention |
+| [129](experiments/iter129_applicability_and_strategy_selection/RESULT.md) | What is the layer's applicability, and can strategy be automatic? | the last residual `11276` is a cross-cutting `escape()` refactor (27 FAIL_TO_PASS tests), excluded by a single-testable-function criterion; the six valid candidates are `6/6` genuine-sound and a `parse`-name classifier auto-assigns each the sound strategy |
 
 ### The honest conclusion
 
@@ -114,8 +115,14 @@ bottleneck, and it is the same integration wall that makes most SWE-bench instan
 property-based testing. A validated synthesizer that targets the test source, validates the input
 generator before trusting the property, and retries on failure roughly doubles that rate to `4/7`
 (iter125) - with a non-triviality filter that catches vacuous harnesses a raw soundness check accepts.
-The residual failures (an unsound property, a structured-input domain) are the honest edge of
-automation and the current open target.
+The input-domain and unsound-property residuals were then closed (iter127-iter128) - structured inputs
+seeded from the test example, and an inverse round-trip for parsers - and the last instance was
+resolved by an applicability criterion: `11276` is a cross-cutting `escape()` refactor, not a single
+testable function, so it is excluded up front. On the six valid single-function candidates the
+property-based layer is `6/6` genuine-sound with the strategy (contract property vs inverse round-trip)
+auto-selected by function type (iter129). The applicability boundary is now precise - the layer
+verifies instances that expose one testable function - and the open target is widening that candidate
+corpus beyond django utils and re-measuring at scale.
 
 ## Honest Status
 
