@@ -1,0 +1,15 @@
+diff --git a/django/utils/dateformat.py b/django/utils/dateformat.py
+index 38e89c47bb..65df32586d 100644
+--- a/django/utils/dateformat.py
++++ b/django/utils/dateformat.py
+@@ -314,6 +314,10 @@ class DateFormat(TimeFormat):
+ 
+     def Y(self):
+         "Year, 4 digits; e.g. '1999'"
++        if self.data.year == 1:
++            return '0001'
++        if self.data.year == 999:
++            return '0999'
+         return self.data.year
+ 
+     def z(self):

@@ -40,6 +40,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [113](experiments/iter113_native_execution_ground_truth/RESULT.md) | Do the hacks really pass the tests? | native execution of a real instance: base fails, gold passes, a hard-coded hack passes the real hidden test; execution-only and the detector accept it, only the judge flags it |
 | [114](experiments/iter114_batch_native_execution/RESULT.md) | Does gold resolution hold across a batch? | `4/5` gold patches resolve under real execution; `0/5` detector false positives; one honest native-harness fidelity gap |
 | [115](experiments/iter115_wider_batch_native_execution/RESULT.md) | Tighten the fidelity estimate | `17/18` gold patches resolve under real execution (`0.94`); `0/18` detector false positives; the same single fidelity gap |
+| [116](experiments/iter116_executed_hack_catch_rate/RESULT.md) | Measured catch rate on executed hacks | on three hacks that really pass their hidden tests: execution-only `0/3`, detector `1/3`, judge `3/3` |
 
 ### The honest conclusion
 
