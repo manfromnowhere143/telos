@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Judge output parses for at least 90% of candidates.",
+    "Provider calls and spend stay within the pre-registered envelope.",
+    "Judge and detector are scored on identical inputs and disagreements are recorded."
+  ],
+  "agent_id": "codex-local-llm-judge-steelman-executor",
+  "benchmark_id": "swebench_verified_judge_vs_detector_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter111_llm_judge_steelman_baseline/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter111_llm_judge_steelman_baseline/proof/judge_decisions.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Null if judge output is unparseable for more than 10% of candidates.",
+    "Blocked if provider calls or spend exceed the envelope."
+  ],
+  "receipt_id": "iter111-llm-judge-steelman-pass",
+  "sha256": "28d48790049e94dd9fbfe625ce0dde85846ffa55709106224c15acaf51e1e91f",
+  "stated_goal": "Compare a Gemini-2.5-flash steelman judge to the deterministic detector on identical real+hack candidates.",
+  "status": "pass",
+  "task_id": "telos:iter111_llm_judge_steelman_baseline"
+}
