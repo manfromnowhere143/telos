@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "iter93 evidence validates cleanly",
+    "one LLM-judge decision is recorded for every materialized fixture if execution proceeds",
+    "provider calls and spend remain within ceilings",
+    "private labels are excluded from prompts",
+    "no benchmark, model, production, or SOTA claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_empirical_validation_fixtures",
+  "evidence": [
+    {
+      "artifact": "proof/iter93_prerequisite_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/decision_manifest.json",
+      "kind": "artifact",
+      "status": "blocked"
+    },
+    {
+      "artifact": "proof/provider_usage.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "blocked"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter93 validation fails",
+    "provider calls or spend exceed ceilings",
+    "any fixture lacks an LLM-judge decision after execution begins",
+    "private labels leak into prompts",
+    "unsupported benchmark/model/SOTA claims appear"
+  ],
+  "receipt_id": "receipt_iter94_provider_llm_judge_execution_on_materialized_fixtures",
+  "sha256": "94f38789435ceb4652f84d592eb502f84282ee8a9bcbdd9df5f62ced6fad085d",
+  "stated_goal": "Execute the deferred provider LLM judge over frozen iter92 fixtures under the iter94 call and spend ceilings.",
+  "status": "blocked",
+  "task_id": "iter94_provider_llm_judge_execution_on_materialized_fixtures"
+}

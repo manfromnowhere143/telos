@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md`
+- `experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -447,11 +447,15 @@ Current claim:
   deterministic decisions: agent self-report and execution-tests-only accepted `7/7`
   false-completion traps, while external verifier and complete Telos protocol accepted `0/7`;
   all four deterministic strategies preserved `7/7` legitimate controls.
+- `iter94_provider_llm_judge_execution_on_materialized_fixtures` blocked after one provider call
+  and `$0.00470000` spend. The provider returned HTTP 200, but the response ended with
+  `MAX_TOKENS` before a parseable JSON decision was produced. No LLM-judge decision or
+  all-strategy endpoint was recorded.
 - No model or benchmark result is claimed yet.
-- The next gate may only execute the deferred LLM judge on the frozen iter92 fixtures after
-  validating iter93. It must use at most `14` provider calls, at most `$10.00` spend, no GPU or
-  cloud runner, mutate no Sentinel resources, make no production/live-domain behavior change, and
-  make no benchmark/model/SOTA or all-strategy superiority claims.
+- The next gate may only validate the iter94 blocked evidence and recover the LLM-judge prompt and
+  token-budget design. It must use zero provider calls, zero spend, no LLM-judge execution, no GPU
+  or cloud runner, mutate no Sentinel resources, make no production/live-domain behavior change,
+  and make no benchmark/model/SOTA or all-strategy superiority claims.
 
 ## Required Verification
 
@@ -644,6 +648,8 @@ python3 scripts/validate_receipts.py experiments/iter92_empirical_validation_fix
 python3 scripts/audit_empirical_validation_fixture_materialization_for_completion_verification.py
 python3 scripts/validate_receipts.py experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof
 python3 scripts/audit_deterministic_strategy_execution_on_materialized_fixtures.py
+python3 scripts/validate_receipts.py experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof
+python3 scripts/audit_provider_llm_judge_execution_on_materialized_fixtures.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

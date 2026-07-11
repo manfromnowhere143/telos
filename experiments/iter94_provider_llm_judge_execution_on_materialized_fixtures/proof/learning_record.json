@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof/run_summary.json",
+    "experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof/decision_manifest.json",
+    "experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof/provider_usage.json",
+    "experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof/endpoint_results.json",
+    "experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof/valid/receipt_provider_llm_judge_execution_on_materialized_fixtures.json"
+  ],
+  "experiment_id": "iter94_provider_llm_judge_execution_on_materialized_fixtures",
+  "insight": "The deferred LLM judge can complete the controlled five-strategy fixture table only if provider execution, usage accounting, parsing, and label separation all hold under the frozen gate.",
+  "next_action": "recover LLM-judge prompt and token-budget handling after the blocked provider call",
+  "result_path": "experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}

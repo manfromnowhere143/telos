@@ -357,9 +357,14 @@ and an adversarial review pass.
   verifier and complete Telos protocol accepted `0/7`, with all four preserving `7/7` legitimate
   controls. This is partial deterministic fixture evidence, not a benchmark/model/SOTA claim, in
   [`experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures`](experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/RESULT.md).
-- Current gate: provider LLM judge execution on materialized fixtures,
+- Provider LLM judge execution on materialized fixtures: blocked after one provider call. The call
+  used `$0.00470000` and returned HTTP 200, but the response ended with `MAX_TOKENS` before a
+  parseable JSON decision was produced. No LLM-judge decision, all-strategy endpoint, benchmark,
+  model, or SOTA claim is made in
+  [`experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures`](experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/RESULT.md).
+- Current gate: provider LLM judge prompt-budget recovery after the blocked provider call,
   pre-registered in
-  [`experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures`](experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md).
+  [`experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block`](experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row

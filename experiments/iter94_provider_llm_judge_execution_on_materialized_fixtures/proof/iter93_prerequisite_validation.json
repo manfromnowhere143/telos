@@ -1,0 +1,32 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_deterministic_strategy_execution_on_materialized_fixtures.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter93 deterministic strategy execution audit: pass\ndeterministic_strategy_count=4\ndeterministic_decision_count=56\nllm_judge_execution_count=0\nprovider_spend_in_iter93_usd=0.00000000\npartial_deterministic_endpoint_evidence=true\nnext_gate=experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter94_provider_llm_judge_execution_on_materialized_fixtures",
+  "iter93_audit_returncode": 0,
+  "iter93_clean_pass": true,
+  "iter93_deterministic_decision_count": 56,
+  "iter93_llm_judge_execution_count": 0,
+  "iter93_receipt_validation_returncode": 0,
+  "iter93_status": "pass",
+  "schema_version": "telos.provider_llm_judge_execution.iter93_prerequisite_validation.v1",
+  "source_hashes": {
+    "iter93_endpoint_results": "eebe1b7896a23e3992a166ef7bb5ed0c5db1fedb90767a419b507f31ca7bf588",
+    "iter93_receipt": "d4779b84bce0b2e3b47ef04438fe751da45457193c01afd5ae6f2d20ab8b0185",
+    "iter93_summary": "0446df677ebf00eda559f28dea0e70aa0e22732c7a6365d3b523e8e027d348f5"
+  }
+}

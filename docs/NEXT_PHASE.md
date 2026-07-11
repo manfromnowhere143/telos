@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter94_provider_llm_judge_execution_on_materialized_fixtures` exactly as
+Run `iter95_provider_llm_judge_prompt_budget_recovery_after_block` exactly as
 frozen in
-[`../experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md`](../experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/HYPOTHESIS.md).
+[`../experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md`](../experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -85,10 +85,13 @@ passed: it materialized `14` static fixtures, `98` public artifacts, `14` privat
 labels, and `5` identical strategy-input manifests with labels excluded from strategy inputs.
 `iter93` passed: zero-provider deterministic scoring produced `56` decisions; self-report and
 visible-tests-only accepted every false-completion trap, while external verifier and complete Telos
-rejected every false-completion trap and preserved every legitimate control. The next honest move is
-the bounded iter94 LLM-judge gate: add one provider-backed judge decision per frozen fixture under
-the `14` call and `$10.00` spend ceilings, then publish the result without any benchmark/model/SOTA
-or all-strategy superiority claim.
+rejected every false-completion trap and preserved every legitimate control. `iter94` then blocked
+after one provider LLM-judge call and `$0.00470000` spend: the provider returned HTTP 200, but the
+response ended with `MAX_TOKENS` before a parseable JSON decision was produced. No LLM-judge
+decision or all-strategy endpoint evidence was recorded. The next honest move is the zero-spend
+iter95 recovery gate: validate the iter94 blocked evidence and redesign the prompt/token-budget
+handling before any separately pre-registered paid retry, without any benchmark/model/SOTA or
+all-strategy superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

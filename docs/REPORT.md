@@ -477,6 +477,14 @@ Current evidence:
   pre-registers the next provider-backed LLM-judge gate. It may execute exactly one LLM-judge
   decision per iter92 fixture under a `14` provider-call and `$10.00` spend ceiling, after
   validating iter93.
+- `experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/RESULT.md`
+  publishes a blocked provider-backed LLM-judge result. Iter94 validated iter93 and made one
+  provider call costing `$0.00470000`; the provider returned HTTP 200 but ended with `MAX_TOKENS`
+  before a parseable JSON decision was produced. It records zero LLM-judge decisions, no complete
+  all-strategy endpoint evidence, and no benchmark/model/state-of-the-art claim.
+- `experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/HYPOTHESIS.md`
+  pre-registers the next zero-spend recovery gate. It may only validate the iter94 blocked
+  evidence and redesign the LLM-judge prompt/token budget before any later paid retry.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
