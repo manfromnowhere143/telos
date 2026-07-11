@@ -1,0 +1,33 @@
+name: docker-batch
+
+# Manual only. This runs the SWE-bench Docker batch on the native-x86 runner (no emulation).
+# It never runs on push, so it cannot affect the main CI.
+on:
+  workflow_dispatch:
+
+jobs:
+  docker-batch:
+    name: swebench docker batch (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - name: Run Docker batch
+        run: |
+          chmod +x scripts/docker_batch_ci.sh
+          bash scripts/docker_batch_ci.sh
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-batch-results
+          path: experiments/iter134_x86_ci_docker_batch/proof/ci_batch_results.json
+          if-no-files-found: warn
