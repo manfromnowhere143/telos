@@ -1,0 +1,13 @@
+{
+  "repo": "sympy/sympy",
+  "evaluation": "symbolic exact simplification with a free Symbol (universally quantified, not sampled)",
+  "identities": [
+    {"name": "coth_odd", "expr": "coth(-x)+coth(x)", "simplify": "0", "sound": true},
+    {"name": "coth_reciprocal", "expr": "coth(x)*tanh(x)-1", "simplify": "0", "sound": true},
+    {"name": "cosh_even", "expr": "cosh(-x)-cosh(x)", "simplify": "0", "sound": true},
+    {"name": "pythagorean", "expr": "cosh(x)**2 - sinh(x)**2 - 1", "simplify": "0", "sound": true}
+  ],
+  "numeric_sound": 3,
+  "symbolic_sound": 4,
+  "note": "symbolic evaluation removed the numeric float-precision artifact and is a stronger check: it proves the identity for all x, not sampled points"
+}

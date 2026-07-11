@@ -1,0 +1,18 @@
+{
+  "benchmark_or_sota_claim": false,
+  "docker_harness_scope": {
+    "cost": "multi-GB image per instance, x86 emulation on arm64; a focused build, not a code gate - scoped here, not built",
+    "provides": "pinned per-instance Python and dependencies via the official SWE-bench Docker images (or arm64 variants), matching each instance's original environment",
+    "resolves": "the environment-fidelity failures measured in iter114 (native harness ~0.94 on same-era django), iter124, and iter130 (pre-3.10 sympy instances that import removed stdlib and cannot run on Python 3.11)",
+    "status": "next-phase infrastructure; scoped, not implemented"
+  },
+  "evaluation": "symbolic exact simplification with a free Symbol (universally quantified, not sampled)",
+  "experiment_id": "iter131_symbolic_evaluation",
+  "finding": "symbolic property evaluation removes the numeric float-precision artifact and is stronger than sampling (it proves the identity for all x); the Docker harness is scoped as the path to running the environment-fidelity-blocked instances",
+  "identities_tested": 4,
+  "numeric_sound": 3,
+  "numeric_to_symbolic_gain": 1,
+  "schema_version": "telos.symbolic_evaluation.endpoints.v1",
+  "symbolic_sound": 4,
+  "universally_quantified": true
+}

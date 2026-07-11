@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Symbolic evaluation makes all four identities exactly sound.",
+    "The check is universally quantified, not sampled.",
+    "The Docker harness is scoped as next-phase, not claimed built."
+  ],
+  "agent_id": "codex-local-symbolic-evaluation-executor",
+  "benchmark_id": "swebench_verified_symbolic_evaluation_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter131_symbolic_evaluation/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter131_symbolic_evaluation/proof/symbolic_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Record a failure if a true identity does not reduce to zero symbolically.",
+    "The Docker-harness scope must not claim the harness is built."
+  ],
+  "receipt_id": "iter131-symbolic-evaluation-pass",
+  "sha256": "4118311fbf17121a77eee9c4510ecf1a088bd145c9d8cb383313288492c90b1f",
+  "stated_goal": "Adopt symbolic property evaluation to remove the numeric artifact and scope the Docker harness.",
+  "status": "pass",
+  "task_id": "telos:iter131_symbolic_evaluation"
+}

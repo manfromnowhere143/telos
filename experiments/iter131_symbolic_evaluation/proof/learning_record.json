@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter131_symbolic_evaluation/proof/endpoint_results.json",
+    "experiments/iter131_symbolic_evaluation/proof/symbolic_results.json"
+  ],
+  "experiment_id": "iter131_symbolic_evaluation",
+  "insight": "symbolic property evaluation makes 4/4 identities exactly sound (removing the numeric float artifact) and is stronger than sampling because it proves the property for all x; the remaining scale lever is the Docker harness for environment-fidelity-blocked instances, now scoped",
+  "next_action": "prototype the official SWE-bench Docker harness on one environment-fidelity-blocked instance to confirm it runs where the native harness cannot",
+  "result_path": "experiments/iter131_symbolic_evaluation/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
