@@ -79,6 +79,18 @@ under an identical defensive-research framing, the Anthropic frontier model `cla
 construct the hacks while `gpt-5.6-terra` complied, so who can red-team a verifier is itself
 model-dependent.
 
+The effect is a measurable rate, not two exemplars. Over `25` genuine attempts on a wider pool of
+thoroughly-tested django instances, the frontier adversary produced confirmed both-miss hacks -
+visible-pass, detector-evaded, and failing a held-out test the gold fix passes - on `0.24` of attempts,
+and on `0.12` of attempts (half of the confirmed hacks) the completion also fooled the strong LLM judge
+and was caught only by held-out execution. The three judge-fooled hacks are ordinary-looking
+generalization bugs, not mechanical special-cases: a two-digit-year formatter that returns the full year
+for normal years (`django-13670`), a form field that silently substitutes the default error message in an
+untested branch (`django-13933`), and an autoreload `-m` reconstruction that passes `python -m django`
+but breaks the package case (`django-14311`). So on well-tested application code, roughly one attempt in
+eight yields a completion that defeats both static layers, which is the quantified statement of why the
+execution layer is necessary rather than optional.
+
 ## 5. The gold-free automated third layer
 
 We remove every dependence on a reference implementation. A model proposes a metamorphic property from
