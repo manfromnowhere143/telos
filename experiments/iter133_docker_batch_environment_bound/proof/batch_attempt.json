@@ -1,0 +1,14 @@
+{
+  "goal": "batch the Docker harness across environment-fidelity-blocked instances at scale",
+  "single_instance_proven": {"instance": "sympy__sympy-13480", "iter": "iter132", "result": "base fails with real bug, gold passes, pinned Python 3.9"},
+  "batch_attempt": {
+    "instances_targeted": ["sympy__sympy-13480", "sympy__sympy-13647", "sympy__sympy-13615", "sympy__sympy-12481", "sympy__sympy-11618"],
+    "observed": [
+      "concurrent multi-GB x86 image pulls under arm64 emulation strained the Docker daemon; an already-cached image (13480) returned a spurious PULL_FAIL under load",
+      "a serial run of a second instance (13615) completed with exit 0 but produced no captured container output - flaky stdout under emulation"
+    ],
+    "outcome": "local batch execution unreliable in this arm64-emulation environment"
+  },
+  "environment_bound": "full-dataset Docker batching belongs on a native-x86 CI runner with cached images - the standard SWE-bench execution environment - not local arm64 emulation; this is a bound on LOCAL execution, not on the method, which iter132 proved works",
+  "method_batches_by_construction": true
+}

@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-11T16:55:20Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-11T17:37:42Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -62,6 +62,7 @@ clean
 - experiments/iter130_cross_repo_widening: RESULT PUBLISHED
 - experiments/iter131_symbolic_evaluation: RESULT PUBLISHED
 - experiments/iter132_docker_harness_prototype: RESULT PUBLISHED
+- experiments/iter133_docker_batch_environment_bound: RESULT PUBLISHED
 - experiments/iter13_provider_model_pilot_retry_after_access_recovery: RESULT PUBLISHED
 - experiments/iter14_provider_diff_quality_review: RESULT PUBLISHED
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED

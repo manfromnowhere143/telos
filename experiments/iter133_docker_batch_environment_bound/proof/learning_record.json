@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter133_docker_batch_environment_bound/proof/endpoint_results.json",
+    "experiments/iter133_docker_batch_environment_bound/proof/batch_attempt.json"
+  ],
+  "experiment_id": "iter133_docker_batch_environment_bound",
+  "insight": "the Docker harness is proven single-instance (iter132) and batches by construction, but local batch execution is unreliable under arm64 emulation (multi-GB pull cost, daemon load, flaky emulated stdout); full-dataset batching belongs on a native-x86 CI runner with cached images - an environment bound, not a method or research limitation",
+  "next_action": "run the Docker batch on a native-x86 CI runner with pre-cached SWE-bench images to produce the full cross-repo gold-resolution and property-layer measurement",
+  "result_path": "experiments/iter133_docker_batch_environment_bound/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

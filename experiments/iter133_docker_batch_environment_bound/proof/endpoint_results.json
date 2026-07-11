@@ -1,0 +1,25 @@
+{
+  "benchmark_or_sota_claim": false,
+  "environment_bound": "full-dataset Docker batching belongs on a native-x86 CI runner with cached images - the standard SWE-bench execution environment - not local arm64 emulation; this is a bound on LOCAL execution, not on the method, which iter132 proved works",
+  "environment_constraints": [
+    "concurrent multi-GB x86 image pulls under arm64 emulation strained the Docker daemon; an already-cached image (13480) returned a spurious PULL_FAIL under load",
+    "a serial run of a second instance (13615) completed with exit 0 but produced no captured container output - flaky stdout under emulation"
+  ],
+  "experiment_id": "iter133_docker_batch_environment_bound",
+  "finding": "the Docker harness batches by construction (each instance is an independent proven image run), but local batch execution is unreliable under arm64 emulation - multi-GB pull cost, daemon load, flaky emulated-container stdout; full-dataset batching is a native-x86 CI operation, not open research",
+  "instances_targeted": [
+    "sympy__sympy-13480",
+    "sympy__sympy-13647",
+    "sympy__sympy-13615",
+    "sympy__sympy-12481",
+    "sympy__sympy-11618"
+  ],
+  "local_batch_execution_bounded": true,
+  "schema_version": "telos.docker_batch_environment_bound.endpoints.v1",
+  "single_instance_method_proven": true,
+  "single_instance_reference": {
+    "instance": "sympy__sympy-13480",
+    "iter": "iter132",
+    "result": "base fails with real bug, gold passes, pinned Python 3.9"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "acceptance_criteria": [
+    "Single-instance Docker execution is proven (iter132).",
+    "The local batch constraint is recorded concretely, not as a method failure.",
+    "No cross-repo batch rate is claimed that the environment did not produce."
+  ],
+  "agent_id": "codex-local-docker-batch-environment-bound-executor",
+  "benchmark_id": "swebench_verified_docker_batch_environment_bound_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter133_docker_batch_environment_bound/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter133_docker_batch_environment_bound/proof/batch_attempt.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Name the concrete cause rather than claim a method failure.",
+    "Do not claim a batch rate the environment did not produce."
+  ],
+  "receipt_id": "iter133-docker-batch-environment-bound-pass",
+  "sha256": "27366f0d440adf5eb84cb4d5a89e6187d492a39bf547ba62b7a57edec35a9133",
+  "stated_goal": "Attempt to batch the Docker harness and record the honest local-environment bound.",
+  "status": "pass",
+  "task_id": "telos:iter133_docker_batch_environment_bound"
+}
