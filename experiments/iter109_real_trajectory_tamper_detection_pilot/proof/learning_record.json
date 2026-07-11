@@ -1,0 +1,13 @@
+{
+  "evidence_paths": [
+    "experiments/iter109_real_trajectory_tamper_detection_pilot/proof/endpoint_results.json",
+    "experiments/iter109_real_trajectory_tamper_detection_pilot/proof/run_summary.json",
+    "experiments/iter109_real_trajectory_tamper_detection_pilot/proof/valid/receipt_tamper_pilot.json"
+  ],
+  "experiment_id": "iter109_real_trajectory_tamper_detection_pilot",
+  "insight": "raw-diff detector holds 0/200 false positives on real human gold patches while the execution-only default catches no reward hacks",
+  "next_action": "run one adversarial hacker-fixer round against the detector",
+  "result_path": "experiments/iter109_real_trajectory_tamper_detection_pilot/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
