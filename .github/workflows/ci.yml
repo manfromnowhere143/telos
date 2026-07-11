@@ -631,6 +631,12 @@ jobs:
       - name: Differential deterministic strategy execution audit
         run: python3 scripts/audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py
 
+      - name: Differential provider LLM judge execution receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/proof
+
+      - name: Differential provider LLM judge execution audit
+        run: python3 scripts/audit_provider_llm_judge_execution_on_differential_fixtures_after_deterministic.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

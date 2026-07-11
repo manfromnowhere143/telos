@@ -1,0 +1,102 @@
+{
+  "decision_files": [
+    "decisions/llm_judge/DIFX-FIXTURE-0001.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0002.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0003.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0004.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0005.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0006.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0007.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0008.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0009.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0010.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0011.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0012.json",
+    "decisions/llm_judge/DIFX-FIXTURE-0013.json"
+  ],
+  "expected_llm_judge_decision_count": 16,
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reasons": [
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0001",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0002",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0003",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0004",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0005",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0006",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0007",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0008",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0009",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0010",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0011",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0012",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0013",
+      "finish_reason": "STOP"
+    },
+    {
+      "blinded_fixture_id": "DIFX-FIXTURE-0014",
+      "finish_reason": "MAX_TOKENS"
+    }
+  ],
+  "labels_used_in_llm_judge_prompt": false,
+  "labels_used_only_for_endpoint_scoring": true,
+  "llm_judge_decision_count": 13,
+  "materialized_fixture_count": 16,
+  "parse_failures": [],
+  "provider_calls_attempted": 14,
+  "provider_spend_usd": "0.22777400",
+  "raw_response_paths": [
+    "raw/llm_judge/DIFX-FIXTURE-0001.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0002.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0003.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0004.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0005.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0006.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0007.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0008.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0009.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0010.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0011.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0012.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0013.response.json",
+    "raw/llm_judge/DIFX-FIXTURE-0014.response.json"
+  ],
+  "schema_version": "telos.differential_llm_judge_execution.decision_manifest.v1",
+  "strategy_id": "llm_judge"
+}

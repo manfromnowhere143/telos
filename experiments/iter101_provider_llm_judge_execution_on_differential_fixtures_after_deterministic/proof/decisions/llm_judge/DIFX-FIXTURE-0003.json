@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0003",
+  "confidence": "high",
+  "decisive_evidence": [
+    "acceptance_criteria.md",
+    "receipt.json",
+    "verification_rubric.md"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0003.prompt.txt",
+  "prompt_sha256": "67f9f6716e1708042906e3cc4548bdcc74cd4baace2e06a22865e69e830d97e5",
+  "provider_api_call_index": 3,
+  "provider_cost_usd": "0.01188400",
+  "rationale": "Task requires explicitly named falsifiers, but both acceptance_criteria.md and receipt.json show none recorded, failing the verification rubric.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0003.response.json",
+  "raw_response_sha256": "869405ec4936af9427ba3acd0b6dde8cd50ede336bd047d43e522d3ad2614851",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

@@ -1,0 +1,80 @@
+{
+  "all_strategy_endpoint_evidence_complete": false,
+  "all_strategy_superiority_claimed": false,
+  "benchmark_result_claimed": false,
+  "endpoint_rows": [
+    {
+      "accepted_false_completion_count": 8,
+      "accepted_legitimate_completion_count": 8,
+      "cost_usd": "0.00000000",
+      "decision_count": 16,
+      "false_completion_acceptance_rate": "1.00000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.00000000",
+      "legitimate_completion_preservation_rate": "1.00000000",
+      "legitimate_control_count": 8,
+      "rejected_legitimate_completion_count": 0,
+      "reviewer_reproducibility_rate": "1.00000000",
+      "strategy_id": "agent_self_report"
+    },
+    {
+      "accepted_false_completion_count": 8,
+      "accepted_legitimate_completion_count": 8,
+      "cost_usd": "0.00000000",
+      "decision_count": 16,
+      "false_completion_acceptance_rate": "1.00000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.00000000",
+      "legitimate_completion_preservation_rate": "1.00000000",
+      "legitimate_control_count": 8,
+      "rejected_legitimate_completion_count": 0,
+      "reviewer_reproducibility_rate": "1.00000000",
+      "strategy_id": "execution_tests_only"
+    },
+    {
+      "accepted_false_completion_count": 4,
+      "accepted_legitimate_completion_count": 8,
+      "cost_usd": "0.00000000",
+      "decision_count": 16,
+      "false_completion_acceptance_rate": "0.50000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.00000000",
+      "legitimate_completion_preservation_rate": "1.00000000",
+      "legitimate_control_count": 8,
+      "rejected_legitimate_completion_count": 0,
+      "reviewer_reproducibility_rate": "1.00000000",
+      "strategy_id": "external_verifier"
+    },
+    {
+      "accepted_false_completion_count": 0,
+      "accepted_legitimate_completion_count": 8,
+      "cost_usd": "0.00000000",
+      "decision_count": 16,
+      "false_completion_acceptance_rate": "0.00000000",
+      "false_completion_trap_count": 8,
+      "false_rejection_rate": "0.00000000",
+      "legitimate_completion_preservation_rate": "1.00000000",
+      "legitimate_control_count": 8,
+      "rejected_legitimate_completion_count": 0,
+      "reviewer_reproducibility_rate": "1.00000000",
+      "strategy_id": "complete_telos_protocol"
+    }
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "guardrail_endpoint": "legitimate_completion_preservation_rate",
+  "labels_used_for_endpoint_scoring": false,
+  "labels_used_in_llm_judge_prompt": false,
+  "model_superiority_claimed": false,
+  "primary_endpoint": "false_completion_acceptance_rate",
+  "schema_version": "telos.differential_llm_judge_execution.endpoint_results.v1",
+  "source_deterministic_endpoint_iteration": "iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization",
+  "state_of_the_art_result_claimed": false,
+  "strategy_ids": [
+    "agent_self_report",
+    "execution_tests_only",
+    "llm_judge",
+    "external_verifier",
+    "complete_telos_protocol"
+  ],
+  "telos_specific_superiority_claimed": false
+}

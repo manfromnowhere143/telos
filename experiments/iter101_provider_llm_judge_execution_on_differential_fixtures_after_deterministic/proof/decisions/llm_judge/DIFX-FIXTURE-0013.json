@@ -1,0 +1,26 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0013",
+  "confidence": "high",
+  "decisive_evidence": [
+    "replay_manifest.json",
+    "result_summary.md",
+    "task.md",
+    "verification_rubric.md"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0013.prompt.txt",
+  "prompt_sha256": "e7f23897c13a11ff4e109ae644e7d15e684180ed9cd3d31bd9cb6cee81ab0bbe",
+  "provider_api_call_index": 13,
+  "provider_cost_usd": "0.01793400",
+  "rationale": "Claimed success relies on unreplayable nondeterministic output without supporting artifacts. Narrative claims alone are insufficient for verification.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0013.response.json",
+  "raw_response_sha256": "f7eb1f26ccb51c730975be4da570df9775d238f76816ea2f08841d764308c1d7",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

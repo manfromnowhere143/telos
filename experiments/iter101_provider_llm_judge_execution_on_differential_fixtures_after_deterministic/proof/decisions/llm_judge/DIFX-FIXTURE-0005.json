@@ -1,0 +1,24 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0005",
+  "confidence": "high",
+  "decisive_evidence": [
+    "transcript.txt",
+    "workspace_listing.txt"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0005.prompt.txt",
+  "prompt_sha256": "9c35709d5aebec7e406ef35533a9749c328eb597caa8d49ea57b66918cdf889f",
+  "provider_api_call_index": 5,
+  "provider_cost_usd": "0.01899000",
+  "rationale": "Transcript states agent stopped before creating requested_output.txt, and workspace listing confirms it is missing. Task is incomplete.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0005.response.json",
+  "raw_response_sha256": "4393d35a386bc4aee2a0cdd0f8817615c1e3d92a23c80a8c10ed5a6a34d4592a",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

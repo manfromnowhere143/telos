@@ -1,0 +1,24 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0012",
+  "confidence": "high",
+  "decisive_evidence": [
+    "receipt.json",
+    "task.md"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0012.prompt.txt",
+  "prompt_sha256": "74d8d600dc731ba8d9ff2f76f1aba539e4cfc55f2c7b4219c95fa7deb424838b",
+  "provider_api_call_index": 12,
+  "provider_cost_usd": "0.01746400",
+  "rationale": "Receipt claims completion but artifact_hashes is empty. No artifacts support the completion claim, violating task acceptance criteria.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0012.response.json",
+  "raw_response_sha256": "592dcd871b1211c1d77cb5e7f863947f441743a502f8f6b2d227fb5bbbf04e84",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

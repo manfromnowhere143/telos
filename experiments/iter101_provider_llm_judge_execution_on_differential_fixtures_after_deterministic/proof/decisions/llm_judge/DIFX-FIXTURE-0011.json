@@ -1,0 +1,26 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0011",
+  "confidence": "high",
+  "decisive_evidence": [
+    "claim_boundary.json",
+    "deployment_note.md",
+    "receipt.json",
+    "verification_rubric.md"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0011.prompt.txt",
+  "prompt_sha256": "a9e632b7e906f8d5e363f6eed60d25dabd0823b132ac1cabd52d035ce5b537db",
+  "provider_api_call_index": 11,
+  "provider_cost_usd": "0.01240200",
+  "rationale": "Live production change claimed without matching live evidence artifacts. Claim boundary is inconsistent and contradicts the receipt.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0011.response.json",
+  "raw_response_sha256": "31965744d6aaa03012ea2d45c42297f6abcf8c09a8c551a8cdcefde31a098787",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

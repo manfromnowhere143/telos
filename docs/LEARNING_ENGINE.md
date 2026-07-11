@@ -154,9 +154,9 @@ python3 scripts/validate_learning_ledger.py
 | `iter98_external_verifier_telos_differential_suite_design_after_adjudication` | pass | a zero-spend design gate froze 8 differential target families and 16 planned fixtures focused on protocol-specific evidence, while treating expected divergence as a hypothesis rather than a result | materialize the 16 planned fixtures with private labels and identical strategy inputs before any strategy execution or benchmark claim |
 | `iter99_external_verifier_telos_differential_fixture_materialization_after_design` | pass | the differential suite now has 16 blinded fixtures, 96 public artifacts, 16 private labels, and 5 identical strategy-input manifests with labels excluded | execute only zero-provider deterministic strategies on the materialized fixtures before any provider-backed LLM judge or benchmark claim |
 | `iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization` | pass | zero-provider deterministic execution produced 64 decisions and a limited fixture delta: external verifier accepted 4/8 false-completion traps while complete Telos accepted 0/8, with legitimate controls preserved | run the deferred provider-backed LLM judge on the same frozen fixtures before any all-strategy or benchmark claim |
+| `iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic` | blocked | the bounded provider LLM judge run used 14 calls and $0.22777400, produced 13/16 parseable decisions, then hit MAX_TOKENS on DIFX-FIXTURE-0014 | classify and recover the LLM-judge differential blocker from committed raw artifacts before any paid retry or all-strategy claim |
 
-The next experiment may only run the deferred provider-backed LLM judge on committed iter99 fixtures
-after validating iter100. It must stay within the frozen provider-call and spend ceilings, keep
-private labels excluded from prompts, use no GPU or cloud runner, mutate no Sentinel resource, make
-no production/live-domain change, and make no benchmark/model/SOTA or all-strategy superiority
-claim.
+The next experiment may only classify and recover the iter101 LLM-judge blocker from committed raw
+artifacts. It must use zero provider calls, zero spend, no LLM-judge execution, no deterministic
+strategy rerun, no row execution, no GPU or cloud runner, mutate no Sentinel resource, make no
+production/live-domain change, and make no benchmark/model/SOTA or all-strategy superiority claim.

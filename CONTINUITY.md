@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md`
+- `experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -477,12 +477,16 @@ Current claim:
   with zero provider calls, zero spend, no provider-backed strategy execution, and `64`
   deterministic decisions. External verifier accepted `4/8` false-completion traps while complete
   Telos accepted `0/8`; all deterministic strategies preserved `8/8` legitimate controls.
+- `iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic` blocked after
+  `14` provider calls and `$0.22777400` estimated spend. It produced `13/16` parseable LLM-judge
+  decisions, then `DIFX-FIXTURE-0014` hit `MAX_TOKENS`; all-strategy endpoint evidence remains
+  incomplete.
 - No model or benchmark result is claimed yet.
-- The next gate may only run the deferred provider-backed LLM judge on committed iter99 fixtures
-  after validating iter100. It must stay within the frozen `16` provider-call and `$5.00` spend
-  ceilings, keep private labels excluded from prompts, use no GPU or cloud runner, mutate no
-  Sentinel resources, make no production/live-domain behavior change, and make no benchmark/model/
-  SOTA or all-strategy superiority claims.
+- The next gate may only classify and recover the iter101 LLM-judge blocker from committed raw
+  artifacts. It must use zero provider calls, zero spend, no LLM-judge execution, no deterministic
+  strategy rerun, no row execution, no GPU or cloud runner, mutate no Sentinel resources, make no
+  production/live-domain behavior change, and make no benchmark/model/SOTA or all-strategy
+  superiority claims.
 
 ## Required Verification
 
@@ -689,6 +693,8 @@ python3 scripts/validate_receipts.py experiments/iter99_external_verifier_telos_
 python3 scripts/audit_external_verifier_telos_differential_fixture_materialization_after_design.py
 python3 scripts/validate_receipts.py experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof
 python3 scripts/audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py
+python3 scripts/validate_receipts.py experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/proof
+python3 scripts/audit_provider_llm_judge_execution_on_differential_fixtures_after_deterministic.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

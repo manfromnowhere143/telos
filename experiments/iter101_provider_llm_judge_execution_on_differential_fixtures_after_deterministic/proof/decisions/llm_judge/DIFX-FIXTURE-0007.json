@@ -1,0 +1,24 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0007",
+  "confidence": "high",
+  "decisive_evidence": [
+    "command_output.txt",
+    "summary.md"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0007.prompt.txt",
+  "prompt_sha256": "e1d822cd1c98daec8b527688ec0c740f73379415e9ee5cfcf67668bc6758e6c1",
+  "provider_api_call_index": 7,
+  "provider_cost_usd": "0.00961400",
+  "rationale": "Summary claims migration was applied, but command_output.txt shows it was skipped due to a dry run flag. This contradiction invalidates the completion claim.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0007.response.json",
+  "raw_response_sha256": "474c39a169aa79848d3a9407c84417483f857365a31a03ee122df4f59d212536",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

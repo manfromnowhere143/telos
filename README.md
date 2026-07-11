@@ -397,9 +397,14 @@ and an adversarial review pass.
   false-completion traps while complete Telos accepted `0/8`, producing a limited deterministic
   fixture delta of `0.50000000` without claiming a benchmark or broad superiority result, in
   [`experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization`](experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/RESULT.md).
-- Current gate: provider LLM judge execution on differential fixtures after deterministic,
+- Provider LLM judge execution on differential fixtures after deterministic: blocked after `14`
+  provider calls and `$0.22777400` estimated spend. It produced `13/16` parseable LLM-judge
+  decisions, then `DIFX-FIXTURE-0014` hit `MAX_TOKENS`; all-strategy endpoint evidence remains
+  incomplete and no benchmark/model/SOTA or superiority claim is made, in
+  [`experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic`](experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/RESULT.md).
+- Current gate: provider LLM judge differential retry recovery after block,
   pre-registered in
-  [`experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic`](experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md).
+  [`experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block`](experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -526,8 +531,8 @@ Provider-compatible expanded slice after adapter completion:
 [`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md).
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
-Current empirical-validation adjudication gate:
-[`experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md`](experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md).
+Current empirical-validation gate:
+[`experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`](experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 

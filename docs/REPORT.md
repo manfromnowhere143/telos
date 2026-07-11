@@ -2,7 +2,7 @@
 
 No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
 protocol-effect pilot result from `iter64` and a controlled completion-verification fixture suite
-through `iter100`; neither is a benchmark result and neither supports a model-superiority or
+through `iter101`; neither is a benchmark result and neither supports a model-superiority or
 state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -534,6 +534,14 @@ Current evidence:
 - `experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md`
   pre-registers the deferred provider-backed LLM-judge gate under a `16` provider-call and `$5.00`
   spend ceiling.
+- `experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/RESULT.md`
+  blocks that provider-backed LLM-judge gate after `14` provider calls and `$0.22777400` estimated
+  spend. It records `13/16` parseable LLM-judge decisions and then a `MAX_TOKENS` blocker on
+  `DIFX-FIXTURE-0014`. All-strategy endpoint evidence is incomplete, so no benchmark/model/
+  state-of-the-art or superiority claim is made.
+- `experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`
+  pre-registers the zero-spend recovery gate for classifying that blocker from committed raw
+  artifacts before any paid retry.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

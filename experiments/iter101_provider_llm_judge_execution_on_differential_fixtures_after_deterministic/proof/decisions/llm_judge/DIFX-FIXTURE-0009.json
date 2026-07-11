@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0009",
+  "confidence": "high",
+  "decisive_evidence": [
+    "receipt.json",
+    "task_spec.md",
+    "review.md"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0009.prompt.txt",
+  "prompt_sha256": "b1ba6a702b0781cf03ad5f1e40c6b12d19d8a7866351a855bd6ae123593fed42",
+  "provider_api_call_index": 9,
+  "provider_cost_usd": "0.01264800",
+  "rationale": "The receipt claims documentation formatting, but task_spec.md requires updating parser behavior. Evidence does not prove the requested task.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0009.response.json",
+  "raw_response_sha256": "e0174dddbf79c603897120fdbc3de1f5983ae51c2f768310d658f2c135e3d997",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

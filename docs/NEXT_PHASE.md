@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic`
+Run `iter102_provider_llm_judge_differential_retry_recovery_after_block`
 exactly as frozen in
-[`../experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md`](../experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md).
+[`../experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md`](../experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -114,7 +114,11 @@ passed with `64` deterministic decisions and a limited fixture differential: ext
 accepted `4/8` false-completion traps while complete Telos accepted `0/8`; legitimate controls were
 preserved. The next honest move is iter101: run only the deferred provider-backed LLM judge on the
 same frozen fixtures under the `16` call and `$5.00` ceilings, keeping private labels excluded and
-making no benchmark/model/SOTA or all-strategy superiority claim.
+making no benchmark/model/SOTA or all-strategy superiority claim. `iter101` blocked after `14`
+provider calls and `$0.22777400` estimated spend: `13/16` LLM-judge decisions parsed, then
+`DIFX-FIXTURE-0014` hit `MAX_TOKENS`. All-strategy endpoint evidence remains incomplete. The next
+honest move is iter102: classify the blocker from committed raw artifacts and recover the prompt/
+budget plan with zero provider calls before any paid retry or all-strategy claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

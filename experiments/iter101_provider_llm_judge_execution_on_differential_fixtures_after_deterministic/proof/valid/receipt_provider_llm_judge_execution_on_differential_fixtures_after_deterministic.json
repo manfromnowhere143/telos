@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "iter100 deterministic evidence validates cleanly",
+    "one parseable LLM-judge decision is recorded for every materialized fixture if the gate passes",
+    "provider calls and spend remain within ceilings",
+    "private labels are excluded from prompts",
+    "deterministic strategies are not rerun",
+    "no benchmark, model, production, broad superiority, or SOTA claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_external_verifier_differential_fixtures",
+  "evidence": [
+    {
+      "artifact": "proof/iter100_prerequisite_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/decision_manifest.json",
+      "kind": "artifact",
+      "status": "blocked"
+    },
+    {
+      "artifact": "proof/provider_usage.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "blocked"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter100 validation fails",
+    "provider calls or spend exceed ceilings",
+    "any fixture lacks a parseable LLM-judge decision after execution begins",
+    "private labels leak into prompts",
+    "deterministic strategies are rerun",
+    "unsupported benchmark/model/SOTA or broad-superiority claims appear"
+  ],
+  "receipt_id": "receipt_iter101_provider_llm_judge_execution_on_differential_fixtures",
+  "sha256": "31401c4a857382c391f5cb696005718412972ab455c6a9a25263e7a5c5dac3c3",
+  "stated_goal": "Run only the provider LLM judge over frozen iter99 differential fixtures after iter100 deterministic execution.",
+  "status": "blocked",
+  "task_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic"
+}

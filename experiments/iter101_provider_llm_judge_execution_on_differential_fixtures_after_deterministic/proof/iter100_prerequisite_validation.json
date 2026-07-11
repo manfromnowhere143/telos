@@ -1,0 +1,35 @@
+{
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed",
+      "timed_out": false
+    },
+    {
+      "command": "python3 scripts/audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter100 differential deterministic execution audit: pass\ndeterministic_decision_count=64\nexternal_verifier_false_completion_acceptance_rate=0.50000000\ncomplete_telos_protocol_false_completion_acceptance_rate=0.00000000\ncomplete_telos_specific_detection_count=4\ndifferential_detection_delta=0.50000000\nprovider_spend_in_iter100_usd=0.00000000\nnext_gate=experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/HYPOTHESIS.md",
+      "timed_out": false
+    }
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "iter100_audit_returncode": 0,
+  "iter100_clean_pass": true,
+  "iter100_deterministic_decision_count": 64,
+  "iter100_llm_judge_deferred": true,
+  "iter100_provider_api_calls": 0,
+  "iter100_provider_cost_usd": "0.00000000",
+  "iter100_receipt_validation_returncode": 0,
+  "iter100_status": "pass",
+  "iter100_validation_clean": true,
+  "schema_version": "telos.differential_llm_judge_execution.iter100_validation.v1",
+  "source_hashes": {
+    "iter100_endpoints": "b78688d5e4c201086ed6fef47294f0895a2ecc8be6859941af4f58e8ae71a941",
+    "iter100_receipt": "2602ccde0013b96d4ea3273f364f7cbf4c4243f1795ae05a7ba3b62717c44823",
+    "iter100_summary": "956e21d5a8a8171cc091ef2ec65967fc6d257ceff3b0c80881ab8b3632c47b98",
+    "iter99_strategy_inputs": "3592688c87ff888ac01112aa1255ef5590ffbd671ad2e63c37025de002e5ae49"
+  }
+}

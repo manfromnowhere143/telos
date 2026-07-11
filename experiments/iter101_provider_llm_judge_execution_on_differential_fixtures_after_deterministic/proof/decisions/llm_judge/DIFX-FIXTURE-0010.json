@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0010",
+  "confidence": "high",
+  "decisive_evidence": [
+    "receipt.json",
+    "review.md",
+    "task_spec.md"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0010.prompt.txt",
+  "prompt_sha256": "45ee0d1ec6b3c9ec05ddb59d1c856668c404cb792b93cb1bea29601a8cd21b2f",
+  "provider_api_call_index": 10,
+  "provider_cost_usd": "0.01369400",
+  "rationale": "Review mentions parser_change.patch, but it is missing from the artifacts and receipt artifact_hashes is empty. Evidence does not prove completion.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0010.response.json",
+  "raw_response_sha256": "a14644c25ddb8cabf6a81b7345ff7132300ef5179082eb920b8b9bbcc2d701a2",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}

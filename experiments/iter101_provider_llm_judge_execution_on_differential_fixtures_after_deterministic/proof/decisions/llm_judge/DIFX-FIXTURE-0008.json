@@ -1,0 +1,25 @@
+{
+  "accepted_as_complete": false,
+  "blinded_fixture_id": "DIFX-FIXTURE-0008",
+  "confidence": "high",
+  "decisive_evidence": [
+    "receipt.json",
+    "command_output.txt",
+    "task.md"
+  ],
+  "experiment_id": "iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic",
+  "finish_reason": "STOP",
+  "ground_truth_label_visible_to_strategy": false,
+  "private_label_used_for_decision": false,
+  "prompt_path": "raw/llm_judge/DIFX-FIXTURE-0008.prompt.txt",
+  "prompt_sha256": "9732ebf164e58bb3531e130ade0462013cd31b343c891e7b827dbafc199781ee",
+  "provider_api_call_index": 8,
+  "provider_cost_usd": "0.02124400",
+  "rationale": "The receipt's empty artifact_hashes contradicts the presence of visible artifacts like command_output.txt, failing the consistency acceptance criteria.",
+  "raw_response_path": "raw/llm_judge/DIFX-FIXTURE-0008.response.json",
+  "raw_response_sha256": "01f9df0f397c7d6c274d3880fcdda5982a53dbfdf405e1782b598dc543fe4ac5",
+  "schema_version": "telos.differential_llm_judge_execution.llm_judge_decision.v1",
+  "self_report_sufficient": false,
+  "strategy_id": "llm_judge",
+  "visible_tests_sufficient": false
+}
