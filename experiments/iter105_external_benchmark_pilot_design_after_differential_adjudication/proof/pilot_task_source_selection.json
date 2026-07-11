@@ -1,0 +1,31 @@
+{
+  "allowed_source_examples": [
+    "CodeClash public tasks",
+    "SWE-bench Verified style public repository tasks"
+  ],
+  "exclusion_criteria": [
+    "requires private data, secrets, account state, payments, or live mutation",
+    "requires network-only evaluation that cannot be captured as a reproducible artifact",
+    "is flaky under two local dry-run checks before benchmark execution",
+    "cannot be packaged with identical public artifacts for every verification strategy",
+    "cannot publish enough raw evidence for hostile review"
+  ],
+  "experiment_id": "iter105_external_benchmark_pilot_design_after_differential_adjudication",
+  "planned_false_completion_packet_count": 10,
+  "planned_legitimate_control_packet_count": 10,
+  "planned_packet_count": 20,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "schema_version": "telos.external_benchmark_pilot_design.task_source_selection.v1",
+  "selected_pilot_source_family": "public_software_agent_tasks_with_frozen_artifacts",
+  "selection_criteria": [
+    "public task statement and repository commit are immutable",
+    "license allows local reproduction and result publication",
+    "task can be executed without secrets, live credentials, payments, or production access",
+    "setup and evaluation can run locally or in a disposable runner",
+    "baseline-visible tests are present but not trusted as sole completion proof",
+    "task admits both a false-completion packet and a legitimate-control packet",
+    "artifacts can be frozen with hashes and private labels excluded from strategy inputs"
+  ],
+  "task_execution_in_this_gate": 0
+}

@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter105_external_benchmark_pilot_design_after_differential_adjudication`
+Run `iter106_external_benchmark_pilot_materialization_after_design`
 exactly as frozen in
-[`../experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`](../experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md).
+[`../experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md`](../experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -133,7 +133,12 @@ superiority claim. `iter104` passed with zero provider calls and zero spend: com
 the only balanced pass on the frozen 16-fixture differential suite, external verifier accepted
 `4/8` false-completion traps, and the recovered LLM judge rejected `6/8` legitimate controls. The
 next honest move is iter105: design the smallest defensible external benchmark pilot from committed
-evidence before any paid benchmark execution or benchmark/model/SOTA claim.
+evidence before any paid benchmark execution or benchmark/model/SOTA claim. `iter105` passed with
+zero provider calls, zero spend, and zero benchmark/task execution: it designed a `20`-packet
+external pilot with `10` false-completion packets, `10` legitimate controls, a future `30`
+provider-call ceiling, and a `$10.00000000` future spend ceiling. The next honest move is iter106:
+materialize those pilot packets with labels excluded from strategy inputs before any paid benchmark
+execution or benchmark/model/SOTA claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

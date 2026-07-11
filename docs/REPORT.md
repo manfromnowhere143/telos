@@ -2,7 +2,7 @@
 
 No model or benchmark result is claimed yet. Telos now has a bounded two-row provider-backed
 protocol-effect pilot result from `iter64` and a controlled completion-verification fixture suite
-through `iter104`; neither is a benchmark result and neither supports a model-superiority or
+through `iter105`; neither is a benchmark result and neither supports a model-superiority or
 state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -567,6 +567,14 @@ Current evidence:
 - `experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`
   pre-registers the zero-spend external benchmark-pilot design gate before any paid benchmark
   execution.
+- `experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/RESULT.md`
+  passes that zero-spend design gate with a `20`-packet external pilot protocol, `10`
+  false-completion packets, `10` legitimate controls, a future `30` provider-call ceiling, and a
+  `$10.00000000` future spend ceiling. This is design evidence only, not a benchmark/model/state-
+  of-the-art or broad all-strategy superiority claim.
+- `experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md`
+  pre-registers the zero-spend external benchmark-pilot materialization gate before any paid
+  benchmark execution.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

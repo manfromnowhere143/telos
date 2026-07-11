@@ -1,0 +1,31 @@
+{
+  "experiment_id": "iter105_external_benchmark_pilot_design_after_differential_adjudication",
+  "hash_every_public_artifact": true,
+  "labels_excluded_from_strategy_inputs": true,
+  "publish_failed_hypotheses": true,
+  "redact_provider_tokens_and_project_identifiers": true,
+  "required_future_execution_artifacts": [
+    "raw_strategy_outputs/",
+    "endpoint_results.json",
+    "provider_usage.json",
+    "redaction_scan.json",
+    "adverse_result_register.json",
+    "claim_boundary.json",
+    "valid/receipt.json"
+  ],
+  "required_private_artifacts_per_packet": [
+    "ground_truth_label.json",
+    "label_rationale.md"
+  ],
+  "required_public_artifacts_per_packet": [
+    "task_statement.md",
+    "repository_commit.txt",
+    "setup_manifest.json",
+    "baseline_visible_test_log.txt",
+    "completion_claim.md",
+    "artifact_manifest.json",
+    "receipt_or_receipt_absence.json",
+    "strategy_input_manifest.json"
+  ],
+  "schema_version": "telos.external_benchmark_pilot_design.artifact_requirements.v1"
+}

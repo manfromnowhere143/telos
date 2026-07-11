@@ -158,9 +158,10 @@ python3 scripts/validate_learning_ledger.py
 | `iter102_provider_llm_judge_differential_retry_recovery_after_block` | pass | the iter101 MAX_TOKENS blocker is tied to hidden reasoning exhausting the 2048 output budget before JSON completion, and a full 16-fixture retry under one recovered 4096-token config is pre-registered | run the recovered provider-backed LLM judge over all 16 frozen differential fixtures before any all-strategy or benchmark claim |
 | `iter103_differential_provider_llm_judge_full_retry_after_block_recovery` | pass | the recovered provider LLM judge produced 16/16 parseable decisions under the $5 ceiling, accepted 0/8 false-completion traps, but preserved only 2/8 legitimate controls | adjudicate the completed five-strategy differential table without provider calls before any benchmark/model/SOTA or all-strategy superiority claim |
 | `iter104_five_strategy_differential_adjudication_after_recovered_llm_judge` | pass | zero-spend adjudication shows complete Telos was the only balanced pass on the frozen differential fixtures; external verifier accepted 4/8 false traps and the recovered LLM judge rejected 6/8 legitimate controls | design the smallest defensible external benchmark pilot before any paid benchmark execution or benchmark/model/SOTA claim |
+| `iter105_external_benchmark_pilot_design_after_differential_adjudication` | pass | a zero-spend design gate froze a 20-packet external benchmark pilot protocol with 10 false-completion packets, 10 legitimate controls, a future 30-call ceiling, and a $10 spend ceiling | materialize the external benchmark pilot packets without provider calls before any paid benchmark execution or benchmark/model/SOTA claim |
 
-The next experiment may only design the smallest defensible external benchmark pilot from committed
-iter104 evidence. It must use zero provider calls, zero spend, execute no benchmark tasks,
+The next experiment may only materialize the external benchmark pilot packets from committed
+iter105 design evidence. It must use zero provider calls, zero spend, execute no benchmark tasks,
 strategies, or rows, use no GPU or cloud runner, mutate no Sentinel resource, make no
-production/live-domain change, preserve null/adverse evidence, and make no benchmark/model/SOTA or
-broad all-strategy superiority claim.
+production/live-domain change, keep labels out of strategy inputs, preserve null/adverse evidence,
+and make no benchmark/model/SOTA or broad all-strategy superiority claim.

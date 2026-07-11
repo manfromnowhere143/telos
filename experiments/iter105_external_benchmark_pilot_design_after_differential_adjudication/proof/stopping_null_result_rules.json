@@ -1,0 +1,23 @@
+{
+  "claim_after_future_execution": "At most a bounded external pilot result, never a benchmark leaderboard, model superiority, or SOTA claim.",
+  "experiment_id": "iter105_external_benchmark_pilot_design_after_differential_adjudication",
+  "must_stop_and_publish_null_or_blocker_if": [
+    "private labels leak into any strategy input",
+    "public artifacts differ between strategies for the same packet",
+    "task source cannot be frozen at commit and artifact hash level",
+    "future provider calls exceed the registered call ceiling",
+    "future spend exceeds the registered spend ceiling",
+    "complete Telos fails the legitimate-preservation guardrail",
+    "external verifier and complete Telos tie on the primary endpoint",
+    "any benchmark/model/SOTA wording is needed to make the result sound useful"
+  ],
+  "null_results_to_preserve": [
+    "complete Telos ties external verifier",
+    "complete Telos reduces false completions but rejects too many legitimate controls",
+    "LLM judge outperforms complete Telos",
+    "visible tests are sufficient on the selected external packets",
+    "task source proves too flaky for a defensible pilot"
+  ],
+  "rerun_policy": "No unregistered retries. A retry requires a new recovery gate that preserves the failed artifacts and explains the blocker.",
+  "schema_version": "telos.external_benchmark_pilot_design.stopping_rules.v1"
+}

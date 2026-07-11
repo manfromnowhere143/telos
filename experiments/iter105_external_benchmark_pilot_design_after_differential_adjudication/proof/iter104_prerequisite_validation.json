@@ -1,0 +1,37 @@
+{
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed"
+    },
+    {
+      "command": "python3 scripts/audit_five_strategy_differential_adjudication_after_recovered_llm_judge.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter104 five-strategy differential adjudication audit: pass\nbalanced_fixture_pass_strategy_ids=complete_telos_protocol\ncomplete_telos_specific_detection_count=4\ncomplete_telos_specific_detection_rate_delta=0.50000000\nllm_judge_false_rejection_count=6\nnext_gate=experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md"
+    }
+  ],
+  "experiment_id": "iter105_external_benchmark_pilot_design_after_differential_adjudication",
+  "iter104_audit_returncode": 0,
+  "iter104_balanced_fixture_pass_strategy_ids": [
+    "complete_telos_protocol"
+  ],
+  "iter104_benchmark_result_claimed": false,
+  "iter104_clean_pass": true,
+  "iter104_complete_telos_specific_detection_count": 4,
+  "iter104_complete_telos_specific_detection_rate_delta": "0.50000000",
+  "iter104_fixture_level_telos_advantage_claimed": true,
+  "iter104_llm_judge_false_rejection_count": 6,
+  "iter104_receipt_validation_returncode": 0,
+  "iter104_status": "pass",
+  "schema_version": "telos.external_benchmark_pilot_design.iter104_validation.v1",
+  "source_hashes": {
+    "iter104_adverse": "03af4a8eea505dc23e6f2b9c8a6b3587e0c89bcb046ec10f1a0684dad74c952a",
+    "iter104_comparison": "7a843d8f598ef8fcb407ab0bb19f2e918ee86d7420dcfe80cfd589c578f6d500",
+    "iter104_receipt": "7d09e0828de88d2f9e53216202ee91b4c9de246460644d88d0e01a8ca46f013a",
+    "iter104_summary": "07f35ca0c16e829f2d5fba4fb7d8e37af8bdd8acebc7d91f5cbf98f79caeb5a7"
+  }
+}

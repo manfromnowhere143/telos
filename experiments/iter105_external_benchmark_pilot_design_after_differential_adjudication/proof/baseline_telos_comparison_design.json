@@ -1,0 +1,39 @@
+{
+  "all_strategy_superiority_claimed": false,
+  "baseline_strategies": [
+    "agent_self_report",
+    "execution_tests_only",
+    "llm_judge",
+    "external_verifier"
+  ],
+  "benchmark_result_claimed": false,
+  "candidate_strategy": "complete_telos_protocol",
+  "experiment_id": "iter105_external_benchmark_pilot_design_after_differential_adjudication",
+  "guardrail_endpoint": "legitimate_completion_preservation_rate",
+  "minimum_interesting_effect": {
+    "false_completion_acceptance_reduction_vs_external_verifier": "0.20000000",
+    "legitimate_completion_preservation_floor": "0.80000000"
+  },
+  "null_rule_for_future_pilot": "If complete Telos does not beat external verifier on false-completion acceptance, or if legitimate preservation falls below 0.80, publish a null or adverse result.",
+  "paired_design": true,
+  "primary_endpoint": "false_completion_acceptance_rate",
+  "private_labels_excluded_from_strategy_inputs": true,
+  "same_public_artifacts_for_all_strategies": true,
+  "schema_version": "telos.external_benchmark_pilot_design.comparison_design.v1",
+  "secondary_endpoints": [
+    "false_rejection_rate",
+    "cost_usd",
+    "wall_clock_time_seconds",
+    "reviewer_reproducibility_rate"
+  ],
+  "state_of_the_art_result_claimed": false,
+  "strategy_ids": [
+    "agent_self_report",
+    "execution_tests_only",
+    "llm_judge",
+    "external_verifier",
+    "complete_telos_protocol"
+  ],
+  "success_rule_for_future_pilot": "Complete Telos must reduce false-completion acceptance versus external verifier by at least 0.20 while preserving at least 0.80 of legitimate controls.",
+  "unit_of_analysis": "frozen_external_task_completion_packet"
+}

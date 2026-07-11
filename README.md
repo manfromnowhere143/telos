@@ -418,9 +418,14 @@ and an adversarial review pass.
   LLM judge rejected `6/8` legitimate controls. This is a fixture-level differential result, not a
   benchmark/model/SOTA claim, in
   [`experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge`](experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/RESULT.md).
-- Current gate: external benchmark pilot design after differential adjudication,
+- External benchmark pilot design after differential adjudication: passed with zero provider calls,
+  zero spend, and zero benchmark/task execution. It designed a `20`-packet external pilot with a
+  future `30` provider-call and `$10.00000000` spend ceiling, but it is a design result only, not a
+  benchmark/model/SOTA claim, in
+  [`experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication`](experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/RESULT.md).
+- Current gate: external benchmark pilot materialization after design,
   pre-registered in
-  [`experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication`](experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md).
+  [`experiments/iter106_external_benchmark_pilot_materialization_after_design`](experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -548,7 +553,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current empirical-validation gate:
-[`experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`](experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md).
+[`experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md`](experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 

@@ -1,0 +1,16 @@
+{
+  "benchmark_result_claimed": false,
+  "benchmark_task_execution_in_this_gate": 0,
+  "experiment_id": "iter105_external_benchmark_pilot_design_after_differential_adjudication",
+  "future_execution_requires_operator_budget_confirmation": true,
+  "future_paid_pilot_provider_call_ceiling": 30,
+  "future_paid_pilot_spend_ceiling_usd": "10.00000000",
+  "llm_judge_call_budget_rule": "at most one provider judge call per packet plus retry reserve",
+  "planned_false_completion_packet_count": 10,
+  "planned_legitimate_control_packet_count": 10,
+  "planned_packet_count": 20,
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "rationale": "Twenty paired packets are enough for a small external pilot to catch large failure modes without presenting the result as a benchmark or leaderboard claim.",
+  "schema_version": "telos.external_benchmark_pilot_design.sample_size_budget.v1"
+}

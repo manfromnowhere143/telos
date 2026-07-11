@@ -1,0 +1,54 @@
+{
+  "acceptance_criteria": [
+    "iter104 evidence validates cleanly",
+    "task source selection criteria are explicit",
+    "baseline/Telos comparison design uses identical public artifacts",
+    "sample-size and future budget ceilings are registered",
+    "stopping and null-result rules are registered",
+    "artifact and receipt requirements are registered",
+    "no benchmark, model, production, SOTA, or broad superiority claim occurs"
+  ],
+  "agent_id": "codex",
+  "benchmark_id": "telos_external_benchmark_pilot_design",
+  "evidence": [
+    {
+      "artifact": "proof/iter104_prerequisite_validation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/pilot_task_source_selection.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/baseline_telos_comparison_design.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/sample_size_budget_rationale.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "proof/review.md",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "iter104 prerequisite validation fails",
+    "task-source selection cannot exclude flaky or non-public tasks",
+    "strategy inputs are not identical",
+    "private labels would leak into strategy inputs",
+    "future spend/call ceilings are absent",
+    "stopping or null-result rules are absent",
+    "unsupported benchmark/model/SOTA or broad superiority claims appear"
+  ],
+  "receipt_id": "receipt_iter105_external_benchmark_pilot_design",
+  "sha256": "c96311fe8f279a7e62e1135813b2d0f5e56a33f8eae3789bdd00817584a6622a",
+  "stated_goal": "Design the smallest defensible external benchmark pilot after iter104 differential adjudication, without benchmark execution or provider spend.",
+  "status": "pass",
+  "task_id": "iter105_external_benchmark_pilot_design_after_differential_adjudication"
+}

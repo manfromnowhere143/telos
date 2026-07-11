@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/HYPOTHESIS.md`
+- `experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -495,12 +495,17 @@ Current claim:
   16-fixture differential suite; external verifier accepted `4/8` false-completion traps and the
   recovered LLM judge rejected `6/8` legitimate controls. This is a fixture-level differential
   result, not a benchmark/model/SOTA claim.
+- `iter105_external_benchmark_pilot_design_after_differential_adjudication` passed with zero
+  provider calls, zero spend, and zero benchmark/task execution. It designed a `20`-packet external
+  pilot with `10` false-completion packets, `10` legitimate controls, a future `30` provider-call
+  ceiling, and a `$10.00000000` future spend ceiling. This is design evidence only, not a
+  benchmark/model/SOTA claim.
 - No model or benchmark result is claimed yet.
-- The next gate may only design the smallest defensible external benchmark pilot from committed
-  iter104 evidence. It must use zero provider calls, zero spend, execute no benchmark tasks,
+- The next gate may only materialize the external benchmark pilot packets from committed iter105
+  design evidence. It must use zero provider calls, zero spend, execute no benchmark tasks,
   strategies, or rows, use no GPU or cloud runner, mutate no Sentinel resources, make no
-  production/live-domain behavior change, preserve adverse/null evidence, and make no
-  benchmark/model/SOTA or broad all-strategy superiority claims.
+  production/live-domain behavior change, keep labels out of strategy inputs, preserve
+  adverse/null evidence, and make no benchmark/model/SOTA or broad all-strategy superiority claims.
 
 ## Required Verification
 
@@ -715,6 +720,8 @@ python3 scripts/validate_receipts.py experiments/iter103_differential_provider_l
 python3 scripts/audit_differential_provider_llm_judge_full_retry_after_block_recovery.py
 python3 scripts/validate_receipts.py experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/proof
 python3 scripts/audit_five_strategy_differential_adjudication_after_recovered_llm_judge.py
+python3 scripts/validate_receipts.py experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/proof
+python3 scripts/audit_external_benchmark_pilot_design_after_differential_adjudication.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py
