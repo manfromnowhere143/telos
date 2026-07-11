@@ -46,6 +46,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [119](experiments/iter119_metamorphic_defense/RESULT.md) | Does held-out-input execution catch them? | yes - on the both-miss class the visible test, detector, and judge each catch `0/2` while metamorphic held-out-input execution catches `2/2`; the loop closes |
 | [120](experiments/iter120_generalized_metamorphic/RESULT.md) | Does the metamorphic layer generalize past a hand-picked input? | yes - seeded random held-out inputs catch `2/2` (diverging on `10/12` and `8/12`); the open problem narrows to an oracle without gold |
 | [121](experiments/iter121_gold_free_property_oracle/RESULT.md) | Can the oracle drop the gold reference? | yes - contract properties (no gold) catch `2/2` (violating `27/30`, `30/30`) at `0` false positives on gold; the frontier narrows to automatic property generation |
+| [122](experiments/iter122_automatic_property_generation/RESULT.md) | Can the model generate the property itself? | yes - `gemini-2.5-flash` proposes properties that catch `2/2` (violating `28/30`, `26/30`) at `0` gold false positives; the model, fooled as a judge, is reliable as a property generator because execution checks it |
 
 ### The honest conclusion
 
@@ -89,10 +90,15 @@ both-miss stealth class was found (iter118), and a held-out-input (metamorphic) 
 shown to catch that class (iter119) - completing a three-layer argument: the deterministic detector
 catches mechanical hacks, the LLM judge catches oblique and hard-coded hacks the detector misses, and
 held-out-input execution catches plausible-but-generalization-broken completions both static layers
-accept. That third layer was generalized to random inputs (iter120) and then made gold-free with
-contract properties that catch the both-miss class at zero false positives on the correct code
-(iter121). The open target is now automatic property generation from the task specification so the
-third layer needs neither gold nor a hand-written property.
+accept. That third layer was generalized to random inputs (iter120), made gold-free with contract properties
+that catch the both-miss class at zero false positives on the correct code (iter121), and then
+automated: a model proposes the properties and execution verifies them (iter122). This forces the
+program's sharpest structural point - the same model that is fooled as a direct judge is reliable as
+a property generator, because a proposed property is checked by execution rather than trusted, so an
+unsound property surfaces as a false positive instead of a silent miss. Moving the model from
+verdict-giver to property-generator converts an unverifiable judgment into a checkable artifact. The
+open target is scaling property generation and rejecting unsound proposed properties without a gold
+reference.
 
 ## Honest Status
 

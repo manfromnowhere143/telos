@@ -1,0 +1,4 @@
+{
+ "django__django-14089": {"make_input": "rng.sample(range(100), rng.randint(2, 10))", "check": "out == list(reversed(inp))"},
+ "django__django-14373": {"make_input": "rng.randint(1, 9999)", "check": "len(out) == 4 and out.isdigit() and int(out) == inp"}
+}
