@@ -1,0 +1,1337 @@
+{
+  "benchmark_task_execution_in_this_gate": 0,
+  "experiment_id": "iter106_external_benchmark_pilot_materialization_after_design",
+  "failure_modes": [
+    "adversarial receipts",
+    "incorrect stopping boundaries",
+    "incorrect stopping boundary",
+    "misleading passing tests",
+    "partial implementation",
+    "partial implementations",
+    "proxy completion",
+    "reward hacking",
+    "semantically incomplete solutions"
+  ],
+  "false_completion_packet_count": 10,
+  "labels_excluded_from_strategy_inputs": true,
+  "legitimate_control_packet_count": 10,
+  "packet_count": 20,
+  "packets": [
+    {
+      "blinded_packet_id": "EBP-PACKET-0001",
+      "failure_mode_under_test": "proxy completion",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-01",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/private/ground_truth_label.json",
+          "sha256": "a1f5df8bed025b3eb6db2ae0311b41eae771ab1d728bcc1b9e55eacbf7ac5e4a"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/private/label_rationale.md",
+          "sha256": "b7d2aa9c0ae781de33d6ff1a7bb6eb33376d37217fb296b2e86a8304402f6109"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/public/task_statement.md",
+          "sha256": "65dfb805873b8c8a385fc20bba99281108e314631c191f70142ec97af49bc505"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/public/repository_commit.txt",
+          "sha256": "42d62039192622706a02462ce172810e303c0c25e75980b7a755efcbcf0ab9d8"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/public/setup_manifest.json",
+          "sha256": "da759762763ba29520241d5ae6310c8c8388811f48507e1a8ddc9276884bc06f"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/public/baseline_visible_test_log.txt",
+          "sha256": "ba4765b3ae8f9c4ae5784f1bc594ee248bf545db9cd49056dd9b915e1ae94e95"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/public/completion_claim.md",
+          "sha256": "1492ea5bdb2ec01cb3ff824af4cbd74bf84565aae7f027ef3aaafbbc85470874"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/public/artifact_manifest.json",
+          "sha256": "a2120c939ed2e6d049d20173e24fca6692d3539a84c9f977d4d780ebdfdedf4f"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/public/receipt_or_receipt_absence.json",
+          "sha256": "7b40dd19d3dbf7d0c869f5319ec654d032ca127756f961463b362ed53d68bc74"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0001/public/strategy_input_manifest.json",
+          "sha256": "ec4a679b64649867cc2568224f4ea1de749dd4d007586b8cef2548b9db5f6dd0"
+        }
+      ],
+      "source_family_id": "proxy_completion_setup_only",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0002",
+      "failure_mode_under_test": "proxy completion",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-01",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/private/ground_truth_label.json",
+          "sha256": "2d6bcd2e99afb52491eb6b3ca33baac3aeb0f4571548b5f2e3b01d918d5eade8"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/private/label_rationale.md",
+          "sha256": "a5575bf68eac1cef45e684c92f09577d12da43c11178aae6826874c95eb01e78"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/public/task_statement.md",
+          "sha256": "79109ade901176d57b4938b40b9ed5872ca7a726bda7a727d4b1aa0fa9b70c2e"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/public/repository_commit.txt",
+          "sha256": "42d62039192622706a02462ce172810e303c0c25e75980b7a755efcbcf0ab9d8"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/public/setup_manifest.json",
+          "sha256": "30e275fca59dc532373437a8fbeaaf2beb07dedb557c71b7eacc60bc370569f2"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/public/baseline_visible_test_log.txt",
+          "sha256": "6948e86a1817025515d218380fd00a0e0d0c561bd7b9dce11efd7a3790291530"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/public/completion_claim.md",
+          "sha256": "440c4eb23d0a4e3dcbeb487f333713ea27e4527b4faa7c850e346500b314c698"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/public/artifact_manifest.json",
+          "sha256": "74a5f34a96dfadc0e4c183ea3685c0be41dc88a1647a2fa7fdeaf42a608f0a08"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/public/receipt_or_receipt_absence.json",
+          "sha256": "78926a6cdc2c5d805f26c2f2f87aecc6506ca5dd1ada44ee74408cc6482792df"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0002/public/strategy_input_manifest.json",
+          "sha256": "cbb139c6d7d3359eb41a32725e0a64ad2910760c5346b4d814167ae4e18aac7e"
+        }
+      ],
+      "source_family_id": "proxy_completion_setup_only",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0003",
+      "failure_mode_under_test": "reward hacking",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-02",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/private/ground_truth_label.json",
+          "sha256": "ac3df40cce6cf792bd5aa696baa51f28acefb3b5d0a7fb5a19ac58e77931336b"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/private/label_rationale.md",
+          "sha256": "54c2830547618a821e7d7cdca3c83a0c0ab99685431c38d6970e46b56bff6097"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/public/task_statement.md",
+          "sha256": "400d6c6e259c0fc2e1dac460c19366a6b3f4c1397d606f223e3619daeede353a"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/public/repository_commit.txt",
+          "sha256": "23c35fb69b4be940fa2cbbb42fbcef8f0f3d3cf4adab2bc47e810492ebdc90f3"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/public/setup_manifest.json",
+          "sha256": "bc2c0d92f00feb6262b6bfd137fba943af0221374f11020e8bfb5be50ad2353e"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/public/baseline_visible_test_log.txt",
+          "sha256": "b760faabf0710cc1eeafe8b2607a4f10ae80f3b2c64d30888d8fc2fac7d168de"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/public/completion_claim.md",
+          "sha256": "14fd0dd33cef3bee8fbdc5e541f679cebe3ae82bd1aa56d4c52fbc7eb655158a"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/public/artifact_manifest.json",
+          "sha256": "5f810622114dc078a404a3dbd6c8c22468d2c6b63a8b9d834deddc8164bdc6a2"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/public/receipt_or_receipt_absence.json",
+          "sha256": "00126a779ad26129f88a9e27c7ebe1d373977ad8e6c6252956da5b850afaa71a"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0003/public/strategy_input_manifest.json",
+          "sha256": "88b3374dec4d8bf0d6c6d5626b64cc3445bb0e97f3613af24b7c7a0ee05421bb"
+        }
+      ],
+      "source_family_id": "reward_hacking_visible_metric",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0004",
+      "failure_mode_under_test": "reward hacking",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-02",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/private/ground_truth_label.json",
+          "sha256": "6225565c131aa4f7a8b646610d3dfc0a414272ff38b1f2db8150c952d2f34344"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/private/label_rationale.md",
+          "sha256": "4f123bafa4f73159a4400bb6b6516c6dd5fa57c5595f4e434fe0da9beee6d2ec"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/public/task_statement.md",
+          "sha256": "62d3abf78761788a03b2e174a809485a9538c9998587645c337e9a2518382747"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/public/repository_commit.txt",
+          "sha256": "23c35fb69b4be940fa2cbbb42fbcef8f0f3d3cf4adab2bc47e810492ebdc90f3"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/public/setup_manifest.json",
+          "sha256": "407a9282de07a70de89d9316b8827f0577f2c41720cf27c368958441c1aaa07c"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/public/baseline_visible_test_log.txt",
+          "sha256": "17188aca8cbee57c7a7622ae8bea23e9aba93ef95c5b6113799a3fd87851377a"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/public/completion_claim.md",
+          "sha256": "dfa833dfaca68070dfadd98eb5262aac7015e751dec62a19a48d5a95c8ece379"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/public/artifact_manifest.json",
+          "sha256": "e0e7c6adefdf1eaa0c137127e270dd8ff9dea8c2126bb054492efac13d6aa091"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/public/receipt_or_receipt_absence.json",
+          "sha256": "ddb61ba8eac1878503700a7dc978d26e6d16692be29579048a243ccd0fc6c775"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0004/public/strategy_input_manifest.json",
+          "sha256": "5c1e7a5d9eecaff5a1e15c255a2e30ab370b4ccc54cf9e93b62d6f9d96e018f1"
+        }
+      ],
+      "source_family_id": "reward_hacking_visible_metric",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0005",
+      "failure_mode_under_test": "partial implementation",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-03",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/private/ground_truth_label.json",
+          "sha256": "40277c6ed26714de439c22d532d3dd7597c524ea12c937f4c04929a1eebd3109"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/private/label_rationale.md",
+          "sha256": "52af5fe00a5bcaf3315a5a655258552a678d5d027e982ed779a69ff90d45385e"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/public/task_statement.md",
+          "sha256": "0145825024e36643e04cd85ed78d0dd0aa52ce0da3de9d5245e95f75beb854dc"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/public/repository_commit.txt",
+          "sha256": "9c2aa87c1f91279c814309c9e318a910b94eabb191f4640d5acf6106841fe580"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/public/setup_manifest.json",
+          "sha256": "6bce9fb578969ee7a90b57d8ec25cbbbe5fe2d1cb10426ea0649afe3bf5b01b3"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/public/baseline_visible_test_log.txt",
+          "sha256": "c49d82035fe8b9bf9ea3b4fa60d230d9cc4516c65a7c0ea6e8e0542a6e6d3d63"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/public/completion_claim.md",
+          "sha256": "e9d2ec5f646f9d014ea8f7be5bba652e02854fae97f8c9c548b17ea8f806ef6f"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/public/artifact_manifest.json",
+          "sha256": "e62c51ca4e6a136bf9b740fff16d8c52fbaaac6fc6a1bdc02b4fd93169300254"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/public/receipt_or_receipt_absence.json",
+          "sha256": "16b0940a11568a6ce200c38dc6b85ecb2fa723a9f32b1ecd27cbbb430b51c6e9"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0005/public/strategy_input_manifest.json",
+          "sha256": "0931c0690cb4e21eda42ad392878b460af806c7220f350f885746cadf8d31ced"
+        }
+      ],
+      "source_family_id": "partial_implementation_single_path",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0006",
+      "failure_mode_under_test": "partial implementation",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-03",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/private/ground_truth_label.json",
+          "sha256": "4d2b7b6dd272cdb4534300f2741f5a154314a7c5d9c42b2fa75921f36b7a3dd5"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/private/label_rationale.md",
+          "sha256": "079066e3b7e4043be0f685cc381069b7d7ee5dcfdcbb6e52007c5219f2b66f84"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/public/task_statement.md",
+          "sha256": "b7ce3b3ac64323397231ecd2a65a4cd48f7c76882296145fdb402c046b61aef5"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/public/repository_commit.txt",
+          "sha256": "9c2aa87c1f91279c814309c9e318a910b94eabb191f4640d5acf6106841fe580"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/public/setup_manifest.json",
+          "sha256": "f8ab24b3c37d6b8060e1742eee02031bb856b61b072205076a9a8f785485e4dc"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/public/baseline_visible_test_log.txt",
+          "sha256": "72a73edb1e69477af93e7aca5d6cf2f7e7c43fe336ff337a3e46d928161b4f9f"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/public/completion_claim.md",
+          "sha256": "e672c985943995a33cd0144be355f3dc549563331ce3a197859f01af1ed99710"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/public/artifact_manifest.json",
+          "sha256": "eccc1fd8a279edf7b09c8098461e669bfb27a66d2bd2de6b7f187cddb3290694"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/public/receipt_or_receipt_absence.json",
+          "sha256": "1ce4158d7d446812155a0a779cf929bf1dc479a371e27d5b403791931bbc5815"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0006/public/strategy_input_manifest.json",
+          "sha256": "d58abdfb3bfe9931bcd46bc908fc883148e3a047a84e61c482245adf87665843"
+        }
+      ],
+      "source_family_id": "partial_implementation_single_path",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0007",
+      "failure_mode_under_test": "misleading passing tests",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-04",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/private/ground_truth_label.json",
+          "sha256": "d501fa974a04bc0c50ee7c8c0b22c1d88c0ec2be174eca62446175f28f521202"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/private/label_rationale.md",
+          "sha256": "4a92e7890b111d6d4c8e93298839441cfbbf68864eeb94060493efcf8224de47"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/public/task_statement.md",
+          "sha256": "da7e408659f6a8a7962d7e706201b20e535f13c39d40819343dac1325eabcede"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/public/repository_commit.txt",
+          "sha256": "78258ea9a57a6b17445319e207409d6049e1c4b0b7b480b1a2408daea6fa3b66"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/public/setup_manifest.json",
+          "sha256": "cca24141109884911540e2303187e705bdf714eabdfa1ebf86612dc482d9e689"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/public/baseline_visible_test_log.txt",
+          "sha256": "a67ba1095138dd3d042f0790cf7c8cb0266f1216a41d9d9b2af32551bce8a223"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/public/completion_claim.md",
+          "sha256": "b9373752dd6c145ff480bbce86f57afe0999e152955d49994c8e8c493e324e12"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/public/artifact_manifest.json",
+          "sha256": "cd6980fa2843d7dd2c40bbc68c6150b0b0b3041c9fbc2d1002a247501fea897a"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/public/receipt_or_receipt_absence.json",
+          "sha256": "9d8d940ec6f9ab8969723f60837183ec254495278c6888880350961c2cba237b"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0007/public/strategy_input_manifest.json",
+          "sha256": "1d20352956d81ce215bdcc9b2e292f2448c538c7ba6ef5aef5e985f04c5c21c9"
+        }
+      ],
+      "source_family_id": "misleading_passing_tests",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0008",
+      "failure_mode_under_test": "misleading passing tests",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-04",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/private/ground_truth_label.json",
+          "sha256": "f63366bd49c18adf7cdd86c7b4c24a9aab2c93bb681b8d7fdf323051d8d991ed"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/private/label_rationale.md",
+          "sha256": "f2754b1d345f44dd9c3b767b17093f1204df7c17c4fb22065caa044d38c94d3f"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/public/task_statement.md",
+          "sha256": "822fff75b52512849d00cd9ac6088786c8dba15258b497ba8a0ef79dc859efbf"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/public/repository_commit.txt",
+          "sha256": "78258ea9a57a6b17445319e207409d6049e1c4b0b7b480b1a2408daea6fa3b66"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/public/setup_manifest.json",
+          "sha256": "20b89e21cce56ec0e1b09d4ce64ef9f48ab74293938b3c6bf6ea77415025c763"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/public/baseline_visible_test_log.txt",
+          "sha256": "928f1e02b0190bc46b19b0abff4fad7986d47046d023205afcc9e6ecfaad7f2b"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/public/completion_claim.md",
+          "sha256": "9ab2bc9df0a3195eee74a59fcca33deae7de3970700cb2ae3b26b7cc446b4e96"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/public/artifact_manifest.json",
+          "sha256": "788dedf33c68e9997c944f06d069d7fb3a4acef208a21c2782495691ee0e1040"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/public/receipt_or_receipt_absence.json",
+          "sha256": "e6b8e633048d54fd7521139a94657407069700b41d796b5399d268d484371590"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0008/public/strategy_input_manifest.json",
+          "sha256": "a2a149354c6a6b870802333da46643e4ebe73cb9d58c42bc885c0e6275b0a051"
+        }
+      ],
+      "source_family_id": "misleading_passing_tests",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0009",
+      "failure_mode_under_test": "incorrect stopping boundary",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-05",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/private/ground_truth_label.json",
+          "sha256": "72a410b8876459a0e178f19356f6372bb113f2285e164200d3973276024dd88a"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/private/label_rationale.md",
+          "sha256": "6bb25b3ef708c043686291b83746f6115c305ccc3f2d593ec61a3254a2bf8a34"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/public/task_statement.md",
+          "sha256": "1a99433b3d208e87552fc247cc66073eb71ed629ce41097bc03a32e6face57aa"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/public/repository_commit.txt",
+          "sha256": "2a968a7a3f52fd8e2bf69b255c97935b6de705f479c2e4664e254e03d846affe"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/public/setup_manifest.json",
+          "sha256": "9c8fbde14191022ff1180da2d9099a8291b3ffbcdb268635324e2e6a6cfe49c1"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/public/baseline_visible_test_log.txt",
+          "sha256": "46a0e02324b04cfeb9113dd2fcef66ac3bbe45a24a346cb68a1cc3cb136cd4c1"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/public/completion_claim.md",
+          "sha256": "5e1f0c8dd973e7770c5b7d683ecf4a31e3f402b6adc66e1c8532bd512fd248f8"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/public/artifact_manifest.json",
+          "sha256": "f2ee8a23fb96c2879880c8735361ad608d36bb265b9f0e0fc0914403662e7f21"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/public/receipt_or_receipt_absence.json",
+          "sha256": "0d94c88deb7890159655447411c0feae3ff1336bb800e663975d9b348ee38b8f"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0009/public/strategy_input_manifest.json",
+          "sha256": "91402a82a662987e123cbd751ad02f8ce6efb319cffb41f60b55573487be609a"
+        }
+      ],
+      "source_family_id": "incorrect_stopping_boundary",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0010",
+      "failure_mode_under_test": "incorrect stopping boundary",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-05",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/private/ground_truth_label.json",
+          "sha256": "b83ad43d8b500056ae8e6dcc887579fbd56e9da0999e4b647a081af1e808baca"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/private/label_rationale.md",
+          "sha256": "cf8ab66a8aa21977d95b1b6c7ee724e6484d3ce67d34049fd92c0f33d1456907"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/public/task_statement.md",
+          "sha256": "0efc7fa72d383dadc294d153a9effd3ec53790981b1c9aa35d8b26365c6147fd"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/public/repository_commit.txt",
+          "sha256": "2a968a7a3f52fd8e2bf69b255c97935b6de705f479c2e4664e254e03d846affe"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/public/setup_manifest.json",
+          "sha256": "c36fc0b2803a33cce37d71efffa27f6b253b4f010b02593e0331f22ec262997e"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/public/baseline_visible_test_log.txt",
+          "sha256": "05114be1fd37e02334e9207383df4d29ef72f4d22f1c9f7a751174aa11536101"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/public/completion_claim.md",
+          "sha256": "440fb2f658c715bcdaaba8475c71827504e691f2b75fad4b6a44884f70a57970"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/public/artifact_manifest.json",
+          "sha256": "971f5c3abe4450531d4272945efc4fe2a3bdba47dacca051d6f5de6dea966f0b"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/public/receipt_or_receipt_absence.json",
+          "sha256": "1e6a44bdbe66b310c45b19a284ef1404c517ed79fcbbdde87dd47077f4e8804e"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0010/public/strategy_input_manifest.json",
+          "sha256": "e31f7a2f2cc0016f70e2477b7c17f1edce7ba456d4bd32f57c589c7eb50b8cc8"
+        }
+      ],
+      "source_family_id": "incorrect_stopping_boundary",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0011",
+      "failure_mode_under_test": "adversarial receipts",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-06",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/private/ground_truth_label.json",
+          "sha256": "6774709830881cd028fe083378620e475361c5f1a4f10b9fb2af7b8b63e9de38"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/private/label_rationale.md",
+          "sha256": "0ca92b7629f567bf9aa8dea9cb7d2d8c87426645c797cb6dfca682bff9e776ff"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/task_statement.md",
+          "sha256": "2e7098d2165b19f1ba764abd65caeb8370cee1f2d847d2674953e8d8c65a4a2d"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/repository_commit.txt",
+          "sha256": "80259ab407f7f88c45c744c800974de51b66495f30bde423d4454880fc5a5ae4"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/setup_manifest.json",
+          "sha256": "0baeb57064a42f543a0e4265918ed734a4ea918c0acafcd6f9aab18e2edfbb45"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/baseline_visible_test_log.txt",
+          "sha256": "9ddf2a79b0cb1b1385cc2a7324e40ae0070a5d8976014a70644480bd336395c4"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/completion_claim.md",
+          "sha256": "91109b4ddc1404f1d1723ef68c6fcd34edc0ec86658e79c93fdad59c4adc1942"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/artifact_manifest.json",
+          "sha256": "4cccda421dc9f6318f7194ef15c415322e245ce6c9e346789ea35266af17aab4"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/receipt_or_receipt_absence.json",
+          "sha256": "8ebc81646495b568f3c458ff140f7b1199e0276d7fbb3c8566180a56e3a2903f"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0011/public/strategy_input_manifest.json",
+          "sha256": "f960952e897a315956d98b45308bd292507951f77ee2d23c7cd6fba16e44343a"
+        }
+      ],
+      "source_family_id": "adversarial_receipt_digest_mismatch",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0012",
+      "failure_mode_under_test": "adversarial receipts",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-06",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/private/ground_truth_label.json",
+          "sha256": "63d4cb7cc8add0e97ec7e0eb28afdc9d88c3e4ac9856a6522677f0df8f8ac5fa"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/private/label_rationale.md",
+          "sha256": "18edb46e10ebe6b629826fbf5b3f3be28fd6b0cd488525534eb3cd42a6e42198"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/public/task_statement.md",
+          "sha256": "2cb80f3ea1756c7a49fb03a8c88270eec077a197f8dbbb11717b297539a802d8"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/public/repository_commit.txt",
+          "sha256": "80259ab407f7f88c45c744c800974de51b66495f30bde423d4454880fc5a5ae4"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/public/setup_manifest.json",
+          "sha256": "43bdf7170b32972a42dc2176ae10f18b85471a59faeac8d1efe624f0653c7988"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/public/baseline_visible_test_log.txt",
+          "sha256": "14e244260b4a80d69a668c4406bae91e9ecb134107283fab5cc77dd423f70779"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/public/completion_claim.md",
+          "sha256": "c80235a26a07b3fbf93204887878d2fb1aaed4d676781237285ff6df069f8767"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/public/artifact_manifest.json",
+          "sha256": "5378dba59dd41545d149ad3538e5a2d5887a6b59afcbe552d4000302e863191e"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/public/receipt_or_receipt_absence.json",
+          "sha256": "20ccea3207a53457fff4e661e9d4de1499bf54b96f2915e8a536ea55be773018"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0012/public/strategy_input_manifest.json",
+          "sha256": "5c7f753741c811f8468846383eeececc4f17f28eae2ebdaabea1379915ee1297"
+        }
+      ],
+      "source_family_id": "adversarial_receipt_digest_mismatch",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0013",
+      "failure_mode_under_test": "adversarial receipts",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-07",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/private/ground_truth_label.json",
+          "sha256": "13190cca2fb2f7ff2373e6344aca05e4cdb469f80ea0c9be49b0361c1234507b"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/private/label_rationale.md",
+          "sha256": "5663bfaa1f8d480b6d915617ee3d671e6dd06121c9f5227781750d71eb6c4601"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/public/task_statement.md",
+          "sha256": "34aa2d8c337ac38b02755687bc778e83d449eb16d56f928e854e574ab9120124"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/public/repository_commit.txt",
+          "sha256": "e66582a4465591cefb22b1a25bb0fc1906a8e38d1f3a57f9854cc1da49fe3e79"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/public/setup_manifest.json",
+          "sha256": "788ef235fda9857faa0018c784e5e58f2b8360dac3f7026d277c513115a9c8bc"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/public/baseline_visible_test_log.txt",
+          "sha256": "9ddf2a79b0cb1b1385cc2a7324e40ae0070a5d8976014a70644480bd336395c4"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/public/completion_claim.md",
+          "sha256": "206c1f31cd29988992039446d008077fd42c6293b78f27dfa19b04b946ad77a0"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/public/artifact_manifest.json",
+          "sha256": "0747302c88d67ae37e4acebe146e256dc0f3a5e332e03813bca19e7e8e687d4b"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/public/receipt_or_receipt_absence.json",
+          "sha256": "d0705490a9a17fcebafa94b1b46c7fe545f042923973e5ce8443e846ff0d433f"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0013/public/strategy_input_manifest.json",
+          "sha256": "1818c0b4a64297f51d2a601b474c0656a12efc5aafeb22ea6721ffa23fee300a"
+        }
+      ],
+      "source_family_id": "stale_receipt_current_artifacts",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0014",
+      "failure_mode_under_test": "adversarial receipts",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-07",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/private/ground_truth_label.json",
+          "sha256": "8aab39bad4cf07ffc5944fac7a09ebf85d785062860bf208bd5b6af8ea164849"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/private/label_rationale.md",
+          "sha256": "1befa59d09942fde5a9c026d85f721f5ccc6ad3a1ac82350f2ec2cce718629c0"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/public/task_statement.md",
+          "sha256": "8cda9b78275ba0e617ee526ba4362f3096fb5d2c68ae9595bdd4ce89528f091c"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/public/repository_commit.txt",
+          "sha256": "e66582a4465591cefb22b1a25bb0fc1906a8e38d1f3a57f9854cc1da49fe3e79"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/public/setup_manifest.json",
+          "sha256": "98a5b2efe60875db7889672b828de9313bd13b691760f8e89a60486aaccb8802"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/public/baseline_visible_test_log.txt",
+          "sha256": "14e244260b4a80d69a668c4406bae91e9ecb134107283fab5cc77dd423f70779"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/public/completion_claim.md",
+          "sha256": "13660132774e5b2bf6e7246d0d0856d4a9b09a9d2bdbe73663de3cc246e609dc"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/public/artifact_manifest.json",
+          "sha256": "0bae1da4e234ed179f7c45b5cf1825a76e151e23d638df600553a934c4fad645"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/public/receipt_or_receipt_absence.json",
+          "sha256": "0e6b38840a6cd501c802e38a30776afd954ce3bc71a68c3951b585bbba0c0f6b"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0014/public/strategy_input_manifest.json",
+          "sha256": "6685ad03b1ce912ca8b2db4883b4dadd09b292980659cf5b735ebba323cff35b"
+        }
+      ],
+      "source_family_id": "stale_receipt_current_artifacts",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0015",
+      "failure_mode_under_test": "semantically incomplete solutions",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-08",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/private/ground_truth_label.json",
+          "sha256": "9b07e0c05c799bd9cc6659db4cb842b35df5bb8c60b5fa6759c1fc0a888f67d6"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/private/label_rationale.md",
+          "sha256": "29fbe02bc44f6e20af8ec00159ef711a54a552875ef07f94eee255166756da7b"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/public/task_statement.md",
+          "sha256": "2bcd58269553bc70dd39254a749c7a098ccb0573893deeb4adaaa5ee3296b220"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/public/repository_commit.txt",
+          "sha256": "45b562c188dbd495eeb3cd3417481abca0ea473f52915b3ab3cf9e1fdeafa7e9"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/public/setup_manifest.json",
+          "sha256": "bf7938be9ac57df720828cee7b4920555bef78ac4dbc6b45b2a0e5ca87f9914c"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/public/baseline_visible_test_log.txt",
+          "sha256": "ff5aa64f2b9b633d6194c17b58e955ef220962fc01de75932d15557b87074054"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/public/completion_claim.md",
+          "sha256": "2999d9c48c6b9d076df67a57cb95f63498510ffaa6c3c2b10cfbacd5d0775e7d"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/public/artifact_manifest.json",
+          "sha256": "4b006c7b999dff1d7a512a1435a52ede7e81ddac80452ac4c43d7c2d87016b04"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/public/receipt_or_receipt_absence.json",
+          "sha256": "59b035a69022a637f1d3826b01d57d50dfa22b672623ae8a863ec8ffb7f3b33c"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0015/public/strategy_input_manifest.json",
+          "sha256": "75df376167f1e2cdab8538d249d91acacf6870ec2a4b572be5fa34994ccdbe8a"
+        }
+      ],
+      "source_family_id": "schema_valid_semantic_incomplete",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0016",
+      "failure_mode_under_test": "semantically incomplete solutions",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-08",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/private/ground_truth_label.json",
+          "sha256": "2a9993179b31ab066673738ae06fce2493a68f68412987b317a5ebaa99257e6b"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/private/label_rationale.md",
+          "sha256": "1b594295eff9d2794db03bc93ef4107750001a654aac352533434b65455ca170"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/public/task_statement.md",
+          "sha256": "67fff5eea4e49f350486d19937b33ffbe9fc29cd9663397c59576896fe8707ae"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/public/repository_commit.txt",
+          "sha256": "45b562c188dbd495eeb3cd3417481abca0ea473f52915b3ab3cf9e1fdeafa7e9"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/public/setup_manifest.json",
+          "sha256": "c81a4ca96ea5d79a0cadc61b62751b4ca35ddbdaa440d032f3d3c3dce390bf83"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/public/baseline_visible_test_log.txt",
+          "sha256": "c6d54afa38843caf6e55f76389ffd88dc05497149943ff2bf465bd58ab17c543"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/public/completion_claim.md",
+          "sha256": "71a1edec9e8396ff1e5ff44548e7609eee9cf8989784f008563be9f4ad29f80f"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/public/artifact_manifest.json",
+          "sha256": "b112b87708eb0d565c44e199afc14133b4e89be5ee458c4026b18746b72f915c"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/public/receipt_or_receipt_absence.json",
+          "sha256": "525d25514aa3e501738c15fa23e90f294fc466f40261d1770b67920fc0f25bd5"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0016/public/strategy_input_manifest.json",
+          "sha256": "acdb4f185d2247d345c912b64d70440ab7d95681f4dd17d4fcb07ce3be1310aa"
+        }
+      ],
+      "source_family_id": "schema_valid_semantic_incomplete",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0017",
+      "failure_mode_under_test": "partial implementations",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-09",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/private/ground_truth_label.json",
+          "sha256": "d8af956c2452b0db12f13c205ba1a3aa3d26f62463f594cff95c10ceb3d752f5"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/private/label_rationale.md",
+          "sha256": "8d8969656c47f3fcd2376bd8bd510ff65eb243b81620e07d01c0ea0a7f9880da"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/public/task_statement.md",
+          "sha256": "45501a534e17d67a0814408c18fcfa9cd24f222487ad1185f0af6d2a4fa42627"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/public/repository_commit.txt",
+          "sha256": "36e5502085e560bef3591065103c526a3195b04644c6b962699596fa0ef33a33"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/public/setup_manifest.json",
+          "sha256": "9f61c84edf6abf071ddc1993852cbef17efc569cda38e3f0b137702d81f2722a"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/public/baseline_visible_test_log.txt",
+          "sha256": "2c6f7e0413d71dc9c4773bc74579b1bd86e945d82d768dfa3985b0a0a9d6c8ea"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/public/completion_claim.md",
+          "sha256": "58062ab3745276dd641e10c78d0751e2e9986c6045f5d7d561221a32c11478c5"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/public/artifact_manifest.json",
+          "sha256": "07a5b358864c05d18084512ccaaf25b348cbf2ac0534e21ccd325d14ec5752f1"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/public/receipt_or_receipt_absence.json",
+          "sha256": "44c00d785239a280bf4e8c32fd893ca67889ae24080ed2468c05f7cf34ebdc14"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0017/public/strategy_input_manifest.json",
+          "sha256": "2a8ccbd8cb914a31e3db6302ff23f7d39a110cc0255f9b69bb1ec9ec282d83e7"
+        }
+      ],
+      "source_family_id": "contradictory_artifact_packet",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0018",
+      "failure_mode_under_test": "partial implementations",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-09",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/private/ground_truth_label.json",
+          "sha256": "82dc3e3c2c86a031e74a26f955b5dd4e31af218476c513fe876b6601230abefc"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/private/label_rationale.md",
+          "sha256": "6efa7e3f7f5dc22a32cbb412d96392654de5ba6b309a10eae707a918d2b57c61"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/public/task_statement.md",
+          "sha256": "5e32c77521b1c0010784a006927aa6ba6e85b7c197b404cd00103d39aebd5fcb"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/public/repository_commit.txt",
+          "sha256": "36e5502085e560bef3591065103c526a3195b04644c6b962699596fa0ef33a33"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/public/setup_manifest.json",
+          "sha256": "8a21a9c5487d489aaaa2be5fa1691dbf2e99720751cc6d7a60b427ada4c18e71"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/public/baseline_visible_test_log.txt",
+          "sha256": "af21c63399fd15364d0f16d83afc85995eefdf46760a9ad6aee98353c627b2e6"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/public/completion_claim.md",
+          "sha256": "f3ecda74be2e8428a598ea0bec415849da71ed787b872e49b01954509f6c52b7"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/public/artifact_manifest.json",
+          "sha256": "7cb1211df6096ea0bbab4b0a0ca2f5b93c503283b24525471f62aad3e2edc486"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/public/receipt_or_receipt_absence.json",
+          "sha256": "254be7244d529d1972053502c2b350ad432982defd4ded99bbd6c28011e42657"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0018/public/strategy_input_manifest.json",
+          "sha256": "043f8dd88d6b637c3af875a78d339c8dae7e0ce5e0d63f04e90353ebf919d389"
+        }
+      ],
+      "source_family_id": "contradictory_artifact_packet",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0019",
+      "failure_mode_under_test": "incorrect stopping boundaries",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-10",
+      "pair_member_blinded_order": 1,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/private/ground_truth_label.json",
+          "sha256": "516b5dee204668d48784844063ba54639c0dc4e5f5f75b99865686823f83e9ee"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/private/label_rationale.md",
+          "sha256": "35a3be0cb711f23f260ee6552442d9e1734f6d39c897db631e165510a3f949f9"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/task_statement.md",
+          "sha256": "5f01a018c262d2ef458f1894a7f4a320915ceaa7b210d6dd153e11b5070c34b3"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/repository_commit.txt",
+          "sha256": "d43aaea0069be5d9bee597acd2bfc13da40afc24ba2ca1e17f8e6a2b3c4813f5"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/setup_manifest.json",
+          "sha256": "152b0e07bfa586deb15ad49dd97b16574cd29c89dc45d448e98454f8f89450ab"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/baseline_visible_test_log.txt",
+          "sha256": "3806810e8b0ce87ad515fa5a3d8ab68d8fbea8b3691170c6e9104914336cec53"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/completion_claim.md",
+          "sha256": "f698641318cef6bc69dbdea80a18cb79d7cade574003680f1fd2a66eb0e4375e"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/artifact_manifest.json",
+          "sha256": "0a8e2471bad6576a617376f77568187e9ec20dad6c8bef493288596d3cbc6334"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/receipt_or_receipt_absence.json",
+          "sha256": "3975d84b0807a5da4e6f97c756ae06cd3ce6227a079316cbba01191b397eb3b7"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0019/public/strategy_input_manifest.json",
+          "sha256": "6fd06a3cce18532a90cc973716981f09dc5bb3c3da1bd8b4a24934e2a8da9c83"
+        }
+      ],
+      "source_family_id": "nondeterministic_no_replay",
+      "strategy_inputs_must_exclude_private_labels": true
+    },
+    {
+      "blinded_packet_id": "EBP-PACKET-0020",
+      "failure_mode_under_test": "incorrect stopping boundaries",
+      "label_visible_to_strategy_inputs": false,
+      "pair_id": "EBP-PAIR-10",
+      "pair_member_blinded_order": 2,
+      "private_artifact_count": 2,
+      "private_artifacts": [
+        {
+          "artifact_name": "ground_truth_label.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/private/ground_truth_label.json",
+          "sha256": "81423a8baf112c9219860b23b5f4e46e3520ce3ca02f9bced45f1d4601870ee1"
+        },
+        {
+          "artifact_name": "label_rationale.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/private/label_rationale.md",
+          "sha256": "b61cfe25f8670bc3ecebba23a3d2dfdf6a662ecb5c6ddffc69d76c212078509a"
+        }
+      ],
+      "public_artifact_count": 8,
+      "public_artifacts": [
+        {
+          "artifact_name": "task_statement.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/public/task_statement.md",
+          "sha256": "a2b0842213e74b6a29eb2d5fc8463b04f0c09b97999dde00788f1a3816cb71db"
+        },
+        {
+          "artifact_name": "repository_commit.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/public/repository_commit.txt",
+          "sha256": "d43aaea0069be5d9bee597acd2bfc13da40afc24ba2ca1e17f8e6a2b3c4813f5"
+        },
+        {
+          "artifact_name": "setup_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/public/setup_manifest.json",
+          "sha256": "d300eefe21d51803b268710b7cd672dda964e0b1302c62d2e113f7025f7b50cb"
+        },
+        {
+          "artifact_name": "baseline_visible_test_log.txt",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/public/baseline_visible_test_log.txt",
+          "sha256": "9000a6a4018d0a1d2aad2063caeae9799f7a8f9c6de27e25d2d152d39566d904"
+        },
+        {
+          "artifact_name": "completion_claim.md",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/public/completion_claim.md",
+          "sha256": "72d90d820e77d838de7695aef08ee207a25d72f758b6fd2498fb4f695566e9dd"
+        },
+        {
+          "artifact_name": "artifact_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/public/artifact_manifest.json",
+          "sha256": "accb929f4a484c94cc10ff531407bd88bf5685c406575e8bd7c0d144c82f8a2a"
+        },
+        {
+          "artifact_name": "receipt_or_receipt_absence.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/public/receipt_or_receipt_absence.json",
+          "sha256": "d5d8dcbad1fdec70f821690e92646e0dca3a595431bbd00d3c9e77c3bb413c74"
+        },
+        {
+          "artifact_name": "strategy_input_manifest.json",
+          "path": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/packets/EBP-PACKET-0020/public/strategy_input_manifest.json",
+          "sha256": "02a0411dde7cc07062289a18623f1dcaaba2dd67cb7d144a9f5544b90dcc2863"
+        }
+      ],
+      "source_family_id": "nondeterministic_no_replay",
+      "strategy_inputs_must_exclude_private_labels": true
+    }
+  ],
+  "pair_count": 10,
+  "pilot_id": "telos_external_benchmark_pilot_v0",
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "same_public_artifacts_for_all_strategies": true,
+  "schema_version": "telos.external_benchmark_pilot_materialization.selected_packet_manifest.v1",
+  "selected_source_family": "public_software_agent_tasks_with_frozen_artifacts",
+  "source_anchor": {
+    "codeclash_commit": "381cdfa05a35e8acd35853b9fc7e13005121b127",
+    "codeclash_repository": "https://github.com/codeclash-ai/codeclash",
+    "codeclash_snapshot_path": "experiments/source_snapshots/codeclash/configs/test/dummy.yaml",
+    "codeclash_snapshot_sha256": "b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97",
+    "swebench_verified_reference": "https://www.swebench.com/verified.html"
+  },
+  "strategy_execution_in_this_gate": 0
+}

@@ -1,0 +1,59 @@
+{
+  "acceptance_criteria": [
+    "Iter105 receipt and audit validation pass.",
+    "All 20 planned packets are materialized.",
+    "Exactly 10 private labels are false-completion traps and 10 are legitimate controls.",
+    "Every required public artifact is present and hashed.",
+    "Private labels and rationales are excluded from every strategy input.",
+    "All strategies receive identical public artifact packets.",
+    "No provider calls, spend, benchmark execution, strategy execution, row execution, cloud runner, GPU, Sentinel mutation, or live-domain mutation occurs.",
+    "No benchmark, model-superiority, comparative-performance, or state-of-the-art claim occurs."
+  ],
+  "agent_id": "codex-local-external-benchmark-pilot-materializer",
+  "benchmark_id": "telos_external_benchmark_pilot_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/run_summary.json",
+      "kind": "test",
+      "notes": "Summary records counts, zero execution, and next gate.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/selected_packet_manifest.json",
+      "kind": "artifact",
+      "notes": "Manifest of selected packet artifacts and source anchor.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/public_artifact_hash_manifest.json",
+      "kind": "artifact",
+      "notes": "Every public packet artifact is hashed.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/strategy_input_manifest.json",
+      "kind": "artifact",
+      "notes": "All strategies receive identical public-only inputs.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter106_external_benchmark_pilot_materialization_after_design/proof/materialization_review.md",
+      "kind": "adversarial_review",
+      "notes": "Review records the no-execution/no-result boundary.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The result must block if iter105 validation fails.",
+    "The result must fail if any packet or required artifact is missing.",
+    "The result must fail if private labels leak into strategy inputs.",
+    "The result must fail if public artifact hashes do not match committed files.",
+    "The result must fail if provider calls, spend, benchmark execution, or strategy execution occur.",
+    "The result must fail if benchmark, model-superiority, comparative-performance, leaderboard, SWE-bench, or state-of-the-art claims appear."
+  ],
+  "receipt_id": "iter106-external-benchmark-pilot-materialization-pass",
+  "sha256": "b16462b443f020a5ad26587b9865e79a034f1ee67f9c4f207bbf362a89df3b9e",
+  "stated_goal": "Materialize the iter105 external benchmark pilot packets before execution.",
+  "status": "pass",
+  "task_id": "telos:iter106_external_benchmark_pilot_materialization_after_design@iter105"
+}

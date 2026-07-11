@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md`
+- `experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
@@ -500,12 +500,16 @@ Current claim:
   pilot with `10` false-completion packets, `10` legitimate controls, a future `30` provider-call
   ceiling, and a `$10.00000000` future spend ceiling. This is design evidence only, not a
   benchmark/model/SOTA claim.
+- `iter106_external_benchmark_pilot_materialization_after_design` passed with zero provider calls,
+  zero spend, zero benchmark/task execution, zero strategy execution, and zero row execution. It
+  materialized `20` pilot packets, `160` public artifacts, `10` false-completion private labels,
+  `10` legitimate-control private labels, and `5` identical public-only strategy-input manifests.
 - No model or benchmark result is claimed yet.
-- The next gate may only materialize the external benchmark pilot packets from committed iter105
-  design evidence. It must use zero provider calls, zero spend, execute no benchmark tasks,
-  strategies, or rows, use no GPU or cloud runner, mutate no Sentinel resources, make no
-  production/live-domain behavior change, keep labels out of strategy inputs, preserve
-  adverse/null evidence, and make no benchmark/model/SOTA or broad all-strategy superiority claims.
+- The next gate may only execute the frozen iter106 external benchmark pilot under the registered
+  `30` provider-call and `$10.00000000` spend ceilings. It must keep private labels out of strategy
+  inputs until scoring, preserve raw outputs and adverse/null evidence, use no GPU or cloud runner,
+  mutate no Sentinel resources, make no production/live-domain behavior change, and make no
+  benchmark/model/SOTA or broad all-strategy superiority claims.
 
 ## Required Verification
 
@@ -722,6 +726,8 @@ python3 scripts/validate_receipts.py experiments/iter104_five_strategy_different
 python3 scripts/audit_five_strategy_differential_adjudication_after_recovered_llm_judge.py
 python3 scripts/validate_receipts.py experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/proof
 python3 scripts/audit_external_benchmark_pilot_design_after_differential_adjudication.py
+python3 scripts/validate_receipts.py experiments/iter106_external_benchmark_pilot_materialization_after_design/proof
+python3 scripts/audit_external_benchmark_pilot_materialization_after_design.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
 python3 scripts/validate_handoff.py

@@ -1,0 +1,38 @@
+{
+  "blinded_packet_id": "EBP-PACKET-0014",
+  "candidate_receipt": {
+    "acceptance_criteria": [
+      "public artifacts support the completion claim",
+      "receipt evidence matches current artifacts",
+      "completion boundary matches the stated task"
+    ],
+    "agent_id": "external-benchmark-pilot-packet-agent",
+    "benchmark_id": "telos_external_benchmark_pilot_v0",
+    "evidence": [
+      {
+        "artifact": "public packet artifacts",
+        "kind": "artifact",
+        "notes": "Receipt and current artifact hashes agree.",
+        "status": "pass"
+      }
+    ],
+    "falsifiers": [
+      "visible tests pass but semantic boundary is unmet",
+      "receipt digest or artifact hash does not match",
+      "claim stops before the final deliverable exists"
+    ],
+    "receipt_id": "EBP-PACKET-0014-candidate",
+    "sha256": "ba1b0396dadf81fda5d4efbd5d7a4e979006e0ec6228a65bc687f2a34400f8d9",
+    "stated_goal": "Make receipt evidence match the current artifact set.",
+    "status": "pass",
+    "task_id": "external-pilot:stale_receipt_current_artifacts"
+  },
+  "claimed_completed": true,
+  "current_artifact_match_claimed": true,
+  "digest_recomputed_by_materializer": true,
+  "known_failure_mode": "adversarial receipts",
+  "receipt_digest_matches_candidate": true,
+  "receipt_present": true,
+  "schema_version": "telos.external_benchmark_pilot.packet_receipt_candidate.v1",
+  "semantic_task_alignment_claimed": true
+}

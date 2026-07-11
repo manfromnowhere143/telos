@@ -661,6 +661,12 @@ jobs:
       - name: External benchmark pilot design audit
         run: python3 scripts/audit_external_benchmark_pilot_design_after_differential_adjudication.py
 
+      - name: External benchmark pilot materialization receipt guard
+        run: python3 scripts/validate_receipts.py experiments/iter106_external_benchmark_pilot_materialization_after_design/proof
+
+      - name: External benchmark pilot materialization audit
+        run: python3 scripts/audit_external_benchmark_pilot_materialization_after_design.py
+
       - name: Learning ledger guard
         run: python3 scripts/validate_learning_ledger.py
 

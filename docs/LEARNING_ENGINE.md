@@ -159,9 +159,10 @@ python3 scripts/validate_learning_ledger.py
 | `iter103_differential_provider_llm_judge_full_retry_after_block_recovery` | pass | the recovered provider LLM judge produced 16/16 parseable decisions under the $5 ceiling, accepted 0/8 false-completion traps, but preserved only 2/8 legitimate controls | adjudicate the completed five-strategy differential table without provider calls before any benchmark/model/SOTA or all-strategy superiority claim |
 | `iter104_five_strategy_differential_adjudication_after_recovered_llm_judge` | pass | zero-spend adjudication shows complete Telos was the only balanced pass on the frozen differential fixtures; external verifier accepted 4/8 false traps and the recovered LLM judge rejected 6/8 legitimate controls | design the smallest defensible external benchmark pilot before any paid benchmark execution or benchmark/model/SOTA claim |
 | `iter105_external_benchmark_pilot_design_after_differential_adjudication` | pass | a zero-spend design gate froze a 20-packet external benchmark pilot protocol with 10 false-completion packets, 10 legitimate controls, a future 30-call ceiling, and a $10 spend ceiling | materialize the external benchmark pilot packets without provider calls before any paid benchmark execution or benchmark/model/SOTA claim |
+| `iter106_external_benchmark_pilot_materialization_after_design` | pass | the frozen external benchmark pilot now has 20 static packets, 160 public artifacts, 20 private labels, and 5 identical public-only strategy-input manifests | execute the bounded pilot under the registered 30-call and $10 ceilings, preserving null/adverse results and making no benchmark/model/SOTA claim |
 
-The next experiment may only materialize the external benchmark pilot packets from committed
-iter105 design evidence. It must use zero provider calls, zero spend, execute no benchmark tasks,
-strategies, or rows, use no GPU or cloud runner, mutate no Sentinel resource, make no
-production/live-domain change, keep labels out of strategy inputs, preserve null/adverse evidence,
-and make no benchmark/model/SOTA or broad all-strategy superiority claim.
+The next experiment may only execute the frozen iter106 external benchmark pilot under the
+registered `30` provider-call and `$10.00000000` spend ceilings. It must keep private labels out of
+strategy inputs until scoring, preserve raw outputs and null/adverse evidence, use no GPU or cloud
+runner, mutate no Sentinel resource, make no production/live-domain change, and make no
+benchmark/model/SOTA or broad all-strategy superiority claim.

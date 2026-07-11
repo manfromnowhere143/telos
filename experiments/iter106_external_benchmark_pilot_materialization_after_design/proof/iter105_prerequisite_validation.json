@@ -1,0 +1,56 @@
+{
+  "benchmark_task_execution_in_this_gate": 0,
+  "clean_prerequisites": true,
+  "command_results": [
+    {
+      "command": "python3 scripts/validate_receipts.py experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/proof",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "receipt validation: 1 valid receipts passed"
+    },
+    {
+      "command": "python3 scripts/audit_external_benchmark_pilot_design_after_differential_adjudication.py",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "iter105 external benchmark pilot design audit: pass\nplanned_packet_count=20\nfuture_paid_pilot_provider_call_ceiling=30\nfuture_paid_pilot_spend_ceiling_usd=10.00000000\nnext_gate=experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md"
+    }
+  ],
+  "experiment_id": "iter106_external_benchmark_pilot_materialization_after_design",
+  "iter105_audit_returncode": 0,
+  "iter105_benchmark_result_claimed": false,
+  "iter105_clean_pass": true,
+  "iter105_future_provider_call_ceiling": 30,
+  "iter105_future_spend_ceiling_usd": "10.00000000",
+  "iter105_guardrail_endpoint": "legitimate_completion_preservation_rate",
+  "iter105_planned_false_completion_packet_count": 10,
+  "iter105_planned_legitimate_control_packet_count": 10,
+  "iter105_planned_packet_count": 20,
+  "iter105_primary_endpoint": "false_completion_acceptance_rate",
+  "iter105_private_labels_excluded_from_strategy_inputs": true,
+  "iter105_receipt_validation_returncode": 0,
+  "iter105_same_public_artifacts_for_all_strategies": true,
+  "iter105_status": "pass",
+  "iter105_strategy_ids": [
+    "agent_self_report",
+    "execution_tests_only",
+    "llm_judge",
+    "external_verifier",
+    "complete_telos_protocol"
+  ],
+  "provider_calls_in_this_gate": 0,
+  "provider_spend_in_this_gate_usd": "0.00000000",
+  "row_execution_in_this_gate": 0,
+  "schema_version": "telos.external_benchmark_pilot_materialization.iter105_validation.v1",
+  "source_hashes": {
+    "codeclash_dummy_source_snapshot": "b8e856447fc71c79bb5e042dc530127480d670d84fd51c03e2c2e7f58c630e97",
+    "iter105_artifacts": "e44fae150927626d655c4cc2c9b075305bff98b840a03cd7e00964acc88bbaa2",
+    "iter105_boundary": "e8bd076eb37b2db2716761e9681acabd2cd0812d75cd21bb1042b6a2f6ad7ab0",
+    "iter105_budget": "049a404999f6039c304795990731b426e52ddb6a585b138657409549222d8c3f",
+    "iter105_comparison": "e924efa9455c7deb7a1965882ca99b918fab4c2e6b421abb06b7706dec99ea00",
+    "iter105_receipt": "262cf1b385ce4e8bf11e437377284cdde281c9d52c1a8959c0d3b41525573f46",
+    "iter105_stopping": "28a141f7db3aa8591bc2d91c0a5656f2c9358ddc48f14f22c72f8bd5317d6eee",
+    "iter105_summary": "3477ef0c755006256257457f6383951025df02240eff167ddcb827ca3b50b04f",
+    "iter105_task_source": "e859efec4d38c7e7c8d45087c73ae3fbf0f55c3298c98c9417ef8e1efe142e5b"
+  },
+  "strategy_execution_in_this_gate": 0
+}

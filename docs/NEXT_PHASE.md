@@ -2,9 +2,9 @@
 
 ## Current Action
 
-Run `iter106_external_benchmark_pilot_materialization_after_design`
+Run `iter107_external_benchmark_pilot_execution_after_materialization`
 exactly as frozen in
-[`../experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md`](../experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md).
+[`../experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`](../experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md).
 
 The output is not a leaderboard score, SWE-bench score, production/live-domain result,
 model-superiority result, or state-of-the-art claim. `iter64` already produced a bounded two-row
@@ -136,9 +136,14 @@ next honest move is iter105: design the smallest defensible external benchmark p
 evidence before any paid benchmark execution or benchmark/model/SOTA claim. `iter105` passed with
 zero provider calls, zero spend, and zero benchmark/task execution: it designed a `20`-packet
 external pilot with `10` false-completion packets, `10` legitimate controls, a future `30`
-provider-call ceiling, and a `$10.00000000` future spend ceiling. The next honest move is iter106:
-materialize those pilot packets with labels excluded from strategy inputs before any paid benchmark
-execution or benchmark/model/SOTA claim.
+provider-call ceiling, and a `$10.00000000` future spend ceiling. `iter106` passed with zero
+provider calls, zero spend, zero benchmark/task execution, zero strategy execution, and zero row
+execution: it materialized `20` pilot packets, `160` public artifacts, `10` false-completion
+private labels, `10` legitimate-control private labels, and `5` identical public-only
+strategy-input manifests. The next honest move is iter107: execute only the frozen iter106 pilot
+under the registered `30` provider-call and `$10.00000000` spend ceilings, keep private labels out
+of strategy inputs until scoring, preserve null/adverse evidence, and make no benchmark/model/SOTA
+or broad all-strategy superiority claim.
 
 - keep
   [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json)

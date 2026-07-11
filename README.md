@@ -423,9 +423,14 @@ and an adversarial review pass.
   future `30` provider-call and `$10.00000000` spend ceiling, but it is a design result only, not a
   benchmark/model/SOTA claim, in
   [`experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication`](experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/RESULT.md).
-- Current gate: external benchmark pilot materialization after design,
+- External benchmark pilot materialization after design: passed with zero provider calls, zero
+  spend, and zero benchmark/task execution. It materialized `20` pilot packets, `160` public
+  artifacts, `10` false-completion private labels, `10` legitimate-control private labels, and
+  `5` identical public-only strategy-input manifests, in
+  [`experiments/iter106_external_benchmark_pilot_materialization_after_design`](experiments/iter106_external_benchmark_pilot_materialization_after_design/RESULT.md).
+- Current gate: external benchmark pilot execution after materialization,
   pre-registered in
-  [`experiments/iter106_external_benchmark_pilot_materialization_after_design`](experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md).
+  [`experiments/iter107_external_benchmark_pilot_execution_after_materialization`](experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md).
 - Benchmark result: none yet.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
@@ -553,7 +558,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current empirical-validation gate:
-[`experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md`](experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md).
+[`experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`](experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 

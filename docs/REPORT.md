@@ -575,6 +575,15 @@ Current evidence:
 - `experiments/iter106_external_benchmark_pilot_materialization_after_design/HYPOTHESIS.md`
   pre-registers the zero-spend external benchmark-pilot materialization gate before any paid
   benchmark execution.
+- `experiments/iter106_external_benchmark_pilot_materialization_after_design/RESULT.md`
+  passes that zero-spend materialization gate. It materialized `20` pilot packets, `160` public
+  artifacts, `10` false-completion private labels, `10` legitimate-control private labels, and `5`
+  identical strategy-input manifests with labels excluded from every strategy input. This is
+  materialization evidence only, not a benchmark/model/state-of-the-art or broad all-strategy
+  superiority claim.
+- `experiments/iter107_external_benchmark_pilot_execution_after_materialization/HYPOTHESIS.md`
+  pre-registers the bounded external benchmark-pilot execution gate under the frozen iter106
+  packet artifacts, with a `30` provider-call ceiling and `$10.00000000` spend ceiling.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
