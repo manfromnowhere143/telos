@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter150_gold_free_oracle_rate/proof/endpoint_results.json",
+    "experiments/iter150_gold_free_oracle_rate/proof/goldfree_oracle_run_d.json"
+  ],
+  "experiment_id": "iter150_gold_free_oracle_rate",
+  "insight": "the intervention is oracle-agnostic: pooled over 7 evaluated both-miss, a gold-free property gate catches 7/7 and reaches real completion 5/7 = 0.714, matching the regression-gated 0.769. The protocol effect comes from execution-based rejection plus a generalize-signal, not from access to the real tests. Property synthesis is stochastic (an instance can be sound in one run, unsound in another), so the evaluated set is pooled across runs",
+  "next_action": "consolidate the completed detection+intervention arc into the submission-shaped paper; the remaining experimental frontier is raising property-derivability beyond format functions",
+  "result_path": "experiments/iter150_gold_free_oracle_rate/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

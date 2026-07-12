@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter149). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter150). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 
@@ -136,11 +136,15 @@ the visible test, validated sound on the gold code, executed on random inputs, n
 tests - the gate still catches every constructed both-miss (`3/3` on evaluated instances) and drives
 gold-free repair to real completion (`2/3`, scored against the true held-out, which never enter the gate).
 So the intervention is not an artifact of the gate holding the real tests; it holds when the oracle has
-only the contract to lean on. The evaluated set is small (it requires both a sound property and a
-constructed both-miss on the same instance, and the property is sound on `9/10` of the targeted format
-functions), so this is an existence-and-necessity result on the property-derivable subset, not a rate. A
-correction is on the record: an initial run reported the oracle failing, which was a Django-settings
-execution artifact in the standalone property scripts, caught and fixed before this result. The complementary control holds:
+only the contract to lean on. Grown to a rate over `7` evaluated instances pooled across runs, the gold-free gate catches the gamed
+completion `7/7` and reaches real completion `5/7` (`0.71`) - within sampling noise of the regression-gated
+`10/13` (`0.77`). So the intervention is oracle-agnostic: whether the execution gate is the real regression
+suite or a gold-free property, the effect is essentially the same, which localizes the improvement to
+execution-based rejection plus a generalize-signal rather than to privileged access to the tests. The
+evaluated set is bounded to the property-derivable subset (it requires both a sound property and a
+constructed both-miss on the same instance; property synthesis is stochastic, so the set is pooled across
+runs). A correction is on the record: an initial run reported the oracle failing, which was a
+Django-settings execution artifact in the standalone property scripts, caught and fixed before this result. The complementary control holds:
 the gate does not harm correct completions - across `10` django instances it accepts all `10` gold fixes
 and both genuinely-correct honest agent fixes with `0/12` false rejections. So the protocol is a
 net-positive filter - it converts gamed completions and leaves correct ones untouched - which is the

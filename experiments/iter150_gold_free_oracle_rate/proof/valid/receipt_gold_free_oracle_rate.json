@@ -1,0 +1,31 @@
+{
+  "acceptance_criteria": [
+    "The evaluated set is grown beyond iter149's three instances.",
+    "The gold-free gate catches every evaluated gamed completion.",
+    "The gold-free real-completion rate matches the regression-gated rate within tolerance."
+  ],
+  "agent_id": "local-gold-free-oracle-rate-executor",
+  "benchmark_id": "swebench_verified_gold_free_oracle_rate_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter150_gold_free_oracle_rate/proof/goldfree_oracle_run_d.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter150_gold_free_oracle_rate/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "An evaluated instance requires a sound gold-free property and a constructed both-miss; no held-out test enters the gate.",
+    "Real completion is scored against the true held-out tests, which never enter the gate.",
+    "The gold-free/regression comparison is a rate over evaluated instances, not a benchmark."
+  ],
+  "receipt_id": "iter150-gold-free-oracle-rate-pass",
+  "sha256": "b02d3df07d4209a838f41d00094c11a5243d4368769beff6c2d5fb84bbfb6c80",
+  "stated_goal": "Grow the gold-free-oracle evaluated set and report the pooled catch and real-completion rate, comparing it to the regression-gated rate.",
+  "status": "pass",
+  "task_id": "telos:iter150_gold_free_oracle_rate"
+}

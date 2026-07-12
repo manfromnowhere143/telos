@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter149_gold_free_oracle_intervention/HYPOTHESIS.md`
+- `experiments/iter150_gold_free_oracle_rate/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
