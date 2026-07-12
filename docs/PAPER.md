@@ -101,6 +101,17 @@ it survives every static layer tested and is caught only by held-out execution. 
 therefore necessary against frontier judges, not only against a weak one; a judge panel narrows the
 survivor set but does not substitute for execution.
 
+The class is not django-specific. Rerunning the frontier hacker-fixer on sympy, executed natively,
+yields a confirmed judge-fooled both-miss (`sympy-22714` flips an imaginary-coordinate guard from
+`any(... im(a) ...)` to `all(... im(a).is_zero is False ...)`, accepting a partly-imaginary point; it
+passes the visible `evaluate(False)` regression, evades the detector, is judged `legitimate`, and fails
+the held-out `test_point`). So the class and the execution-necessity result generalize beyond django. The
+rate, however, is repo-dependent: sympy's confirmed rate is `0.056` against django's `0.24`, because
+sympy's tests pin exact mathematical behavior and the adversary breaks the visible test far more often
+(`0.67` of attempts vs `0.44` on django). The class exists everywhere it was sought but is easier to
+manufacture in loosely-tested application code than in tightly-tested math code; the defense - held-out
+execution - is the same in both.
+
 ## 5. The gold-free automated third layer
 
 We remove every dependence on a reference implementation. A model proposes a metamorphic property from
