@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter137). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter144). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 

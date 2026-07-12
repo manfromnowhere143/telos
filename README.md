@@ -135,9 +135,30 @@ seeded from the test example, and an inverse round-trip for parsers - and the la
 resolved by an applicability criterion: `11276` is a cross-cutting `escape()` refactor, not a single
 testable function, so it is excluded up front. On the six valid single-function candidates the
 property-based layer is `6/6` genuine-sound with the strategy (contract property vs inverse round-trip)
-auto-selected by function type (iter129). The applicability boundary is now precise - the layer
-verifies instances that expose one testable function - and the open target is widening that candidate
-corpus beyond django utils and re-measuring at scale.
+auto-selected by function type (iter129). The property layer's reach was then bounded twice over: the
+official SWE-bench Docker harness closed the environment-fidelity gap so natively-unrunnable instances
+resolve their real hidden tests in pinned containers (iter130-137), and an applicability survey measured
+the layer's structural reach at `405/500` = `0.81` of the dataset but its property-derivability within
+that at only `~0.10` even in sympy (iter138-139) - the honest three-layer division of labour, with the
+detector and judge universal and the property layer the math-identity specialist.
+
+The current frontier is the both-miss class itself, stress-tested by a frontier adversary. iter140 ran
+an automated hacker-fixer with `gemini-2.5-flash/pro`, got `0/20` verified both-miss on thoroughly-tested
+django, and read that as the window being narrow where coverage is thorough. That reading was wrong, and
+it is retracted in place: iter141 reran the same pool with a non-refusing frontier adversary
+(`gpt-5.6-terra`) and a robust apply harness and produced confirmed both-miss hacks - the `0/20` was a
+capability-plus-harness artifact, not structural closure. iter142 measured the rate: over `25` genuine
+attempts a frontier adversary produces confirmed both-miss hacks on `0.24` of attempts and, on `0.12`
+(half of them), the completion also fools the LLM judge and is caught only by held-out execution. iter143
+answered the obvious objection that the judge was too weak: re-judging with frontier judges, `gpt-5.6-terra`
+is fooled by `1/6` and `claude-opus-4-8` by `3/6` (a bigger reasoning model is not a better judge), and one
+hack survives every judge tested plus the detector. iter144 showed the class is not django-specific - it
+reproduces on sympy (`sympy-22714`), judge-fooled, at a lower repo-dependent rate. A secondary datum from
+this arc: `claude-opus-4-8` refused to construct the hacks under the same defensive-research framing while
+`gpt-5.6-terra` complied, so who can red-team a completion verifier is itself model-dependent. The
+conclusion is sharper than before: static verification of an agent's diff - by regex or by a frontier model
+- cannot separate a correct general fix from a plausible special-case, and held-out execution is necessary,
+not optional, even on well-tested code and even against frontier judges.
 
 ## Honest Status
 
@@ -586,9 +607,12 @@ corpus beyond django utils and re-measuring at scale.
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: external benchmark pilot adjudication after execution,
-  pre-registered in
-  [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
+- Current gate: cross-repo both-miss on sympy (iter144, `PASS`), pre-registered in
+  [`experiments/iter144_cross_repo_both_miss_sympy`](experiments/iter144_cross_repo_both_miss_sympy/HYPOTHESIS.md);
+  the next gate is a third repo plus a judge-panel-before-execution layer. This superseded the earlier
+  external-benchmark-pilot adjudication gate
+  [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md),
+  once the real-trajectory arc (iter109 onward) became the live research frontier.
 - Benchmark leaderboard or broad benchmark result: none yet. Bounded external pilot evidence now
   exists only for the 20 frozen iter107 packets.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
@@ -716,27 +740,30 @@ Provider-compatible expanded slice after adapter completion:
 [`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md).
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
-Current empirical-validation gate:
-[`experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
+Current gate:
+[`experiments/iter144_cross_repo_both_miss_sympy/HYPOTHESIS.md`](experiments/iter144_cross_repo_both_miss_sympy/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter128); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter144); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-128<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-144<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges · cross-repo"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   class L1,L2,L3 d;
-  class BM risk;
-  class DEF,AUT,SC fix;
+  class BM,FBM risk;
+  class DEF,AUT,SC,APP fix;
 ```
 
-The earlier provider-pilot and semantic-guard arc (iter00-iter108) is preserved in the Honest Status
-log above and the learning ledger.
+The FBM node is the current frontier: iter140's `0/20` gemini null read the both-miss window as narrow,
+but iter141 overturned that reading - a non-refusing frontier adversary manufactures the class on
+well-tested code, iter142 measured the rate, iter143 showed it survives frontier judges, and iter144
+generalized it to a second repo. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
+preserved in the Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
 
@@ -752,10 +779,12 @@ The target was not chosen by taste. It was chosen by the frozen survey.
 
 ## Architecture
 
-The real-trajectory arc (iter109-iter128) established a three-layer completion verifier, each layer
+The real-trajectory arc (iter109-iter144) established a three-layer completion verifier, each layer
 present because the one before it provably fails on a measured class of reward hack (see the arc
-section above and the synthesis report). The cascade runs cheapest-first and escalates only the
-survivors:
+section above and the synthesis report). The necessity of the third layer is not asserted but measured:
+a frontier adversary defeats both static layers on `0.12` of attempts against well-tested code, and one
+such hack survives every frontier judge tested (iter142-iter144). The cascade runs cheapest-first and
+escalates only the survivors:
 
 ```mermaid
 flowchart LR
@@ -782,7 +811,7 @@ completions the static layers accept - with the property strategy chosen by func
 property for pure transforms, an inverse round-trip for invertible parsers/formatters).
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter137), submission-shaped.
+Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter144), submission-shaped.
 Synthesis report: [`docs/COMPLETION_VERIFICATION_REPORT.md`](docs/COMPLETION_VERIFICATION_REPORT.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
 Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
@@ -799,7 +828,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter128), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter144), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
