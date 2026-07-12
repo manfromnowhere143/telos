@@ -1,0 +1,13 @@
+{
+  "evidence_paths": [
+    "experiments/iter151_cross_repo_scale_official/proof/endpoint_results.json",
+    "experiments/iter151_cross_repo_scale_official/proof/raw/scale_results.json",
+    "experiments/iter151_cross_repo_scale_official/proof/raw/sweb_reports.tgz"
+  ],
+  "experiment_id": "iter151_cross_repo_scale_official",
+  "insight": "the completion-gate intervention scales cross-repo on the official SWE-bench metric: over 20 both-miss starts across 8 repos, proxy resolves 0/20 (definitional), Telos gate recovers 10/20 = 0.5 to full official resolution. Honest: the oracle is the regression suite (realistic CI), so this is the intervention at scale, not the gold-free oracle; baseline 0 is definitional; per-repo varies. Ran on a cloud x86 Docker VM (arm64/local could not); harness malformed-patch false-negative caught and fixed before trusting numbers",
+  "next_action": "the higher-novelty v2 experiment: detection at scale - measure the rate frontier LLM judges (reward models) are fooled by the both-miss hacks across these repos, saving each hack diff for the reward-hack benchmark artifact",
+  "result_path": "experiments/iter151_cross_repo_scale_official/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

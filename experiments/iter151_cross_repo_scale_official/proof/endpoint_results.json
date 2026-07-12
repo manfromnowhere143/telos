@@ -1,0 +1,61 @@
+{
+  "adversary_model": "gpt-5.6-terra",
+  "baseline_is_definitional": true,
+  "baseline_resolved": 0,
+  "baseline_resolved_rate": 0.0,
+  "benchmark_or_sota_claim": false,
+  "both_miss_starts": 20,
+  "experiment_id": "iter151_cross_repo_scale_official",
+  "finding": "scaling the completion-gate intervention to 8 SWE-bench repositories on the official metric: over 20 both-miss starts a proxy gate resolves 0/20 (=0 by construction, since a both-miss fails a PASS_TO_PASS) while the Telos gate (regression-failure rejection + gold-free generalize-signal + bounded repair) recovers 10/20 = 0.5 to full official resolution. The intervention generalizes cross-repo on the metric the field tracks. Honest scope: the held-out oracle here is the existing regression suite (realistic CI), so this scales the intervention, not the gold-free-property-oracle novelty (iter149-150); per-repo recovery varies (e.g. scikit-learn 3/3, xarray 2/2, django 2/5, sphinx 0/2), reported at full weight",
+  "metric": "official SWE-bench resolved (FAIL_TO_PASS + PASS_TO_PASS all pass), swebench 4.1.0",
+  "no_both_miss": 25,
+  "oracle_is_regression_suite": true,
+  "per_repo": {
+    "astropy/astropy": {
+      "both_miss": 1,
+      "telos_resolved": 0
+    },
+    "django/django": {
+      "both_miss": 5,
+      "telos_resolved": 2
+    },
+    "matplotlib/matplotlib": {
+      "both_miss": 3,
+      "telos_resolved": 1
+    },
+    "pydata/xarray": {
+      "both_miss": 2,
+      "telos_resolved": 2
+    },
+    "pytest-dev/pytest": {
+      "both_miss": 3,
+      "telos_resolved": 1
+    },
+    "scikit-learn/scikit-learn": {
+      "both_miss": 3,
+      "telos_resolved": 3
+    },
+    "sphinx-doc/sphinx": {
+      "both_miss": 2,
+      "telos_resolved": 0
+    },
+    "sympy/sympy": {
+      "both_miss": 1,
+      "telos_resolved": 1
+    }
+  },
+  "repo_count": 8,
+  "repos": [
+    "astropy/astropy",
+    "django/django",
+    "matplotlib/matplotlib",
+    "pydata/xarray",
+    "pytest-dev/pytest",
+    "scikit-learn/scikit-learn",
+    "sphinx-doc/sphinx",
+    "sympy/sympy"
+  ],
+  "schema_version": "telos.cross_repo_scale_official.endpoints.v1",
+  "telos_resolved": 10,
+  "telos_resolved_rate": 0.5
+}

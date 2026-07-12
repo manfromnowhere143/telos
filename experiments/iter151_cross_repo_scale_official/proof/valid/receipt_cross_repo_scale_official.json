@@ -1,0 +1,36 @@
+{
+  "acceptance_criteria": [
+    "The intervention is measured across at least five repositories.",
+    "The proxy baseline is 0 by construction and reported as such.",
+    "The Telos-gate resolved-rate is measured by the official harness and reported with per-repo detail."
+  ],
+  "agent_id": "cloud-vm-cross-repo-scale-executor",
+  "benchmark_id": "swebench_verified_cross_repo_scale_official_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter151_cross_repo_scale_official/proof/raw/scale_results.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter151_cross_repo_scale_official/proof/raw/sweb_reports.tgz",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter151_cross_repo_scale_official/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "resolved is the official SWE-bench verdict (FAIL_TO_PASS + PASS_TO_PASS), backed by a committed report.json.",
+    "The proxy baseline being 0 is definitional (a both-miss fails a PASS_TO_PASS), not an empirical surprise.",
+    "The oracle is the regression suite; this scales the intervention, not the gold-free-oracle result."
+  ],
+  "receipt_id": "iter151-cross-repo-scale-official-pass",
+  "sha256": "2428ff49a950ad7d0cd263299daaf8ec373e948f64bbd3a31bc4742f859ae5cb",
+  "stated_goal": "Scale the completion-gate intervention across SWE-bench repositories and score it with the official SWE-bench evaluation harness.",
+  "status": "pass",
+  "task_id": "telos:iter151_cross_repo_scale_official"
+}

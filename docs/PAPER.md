@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter150). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter151). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 
@@ -127,7 +127,14 @@ deliberately lower than an earlier variant that leaked the gold fix into the fee
 that run was discarded as confounded, and `5/7` is the gold-free number. The rate replicates: a disjoint,
 older django sample (`11xxx-12xxx`) reproduces the identical `0/7 -> 5/7`, and pooled across the two
 disjoint samples the protocol lifts real completion from `0/13` to `10/13` (`0.77`), so it is not a
-small-N artifact of the original instance choice.
+small-N artifact of the original instance choice. It also generalizes across repositories on the official
+metric: run across `8` `SWE-bench_Verified` repositories (django, scikit-learn, sympy, matplotlib, astropy,
+xarray, pytest, sphinx) and scored by the official `swebench` harness in pinned Docker containers, a proxy
+gate resolves `0/20` both-miss starts (definitional) while the Telos gate recovers `10/20` (`0.50`) to full
+official resolution, each verdict backed by a committed report. Here the held-out oracle is the
+repository's regression suite (realistic CI), so this scales the intervention across repos on the metric
+the field tracks rather than the gold-free-oracle variant; the baseline `0` is definitional and per-repo
+recovery varies (reported at full weight).
 
 The protocol effect survives a gold-free oracle, which is the sharpest test of it. The gate above used the
 real held-out tests - a realistic regression suite, but one with coverage of the broken behavior. Replacing
