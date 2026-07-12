@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter145). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter146). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 
@@ -21,7 +21,10 @@ only execution on held-out inputs catches. We make that third layer gold-free an
 proposes a metamorphic property from the function contract, the visible test rejects unsound proposals,
 and execution catches the rest. The load-bearing observation is that the same model that is fooled as a
 direct verdict-giver is reliable as a property generator, because a proposed property is checked by
-execution rather than trusted.
+execution rather than trusted. Finally, on a bounded set the protocol does more than detect: used as a
+completion gate that rejects a gamed completion and returns a gold-free "you did not generalize" signal,
+it lifts the rate of real completion on reward-hack-prone starts from `0/7` to `5/7`, with ordinary
+success preserved - first evidence that the protocol changes outcomes, not only measures them.
 
 ## 1. Problem
 
@@ -105,6 +108,22 @@ while also evading the detector, so it is caught only by held-out execution. The
 single-judge-selection risk (no single judge exceeds `6/7`, and which is best is not knowable in advance),
 but any-catch buys recall by flagging on one dissenting judge and so trades away precision; it is a
 mitigation, not a substitute for execution.
+
+Finally, the protocol does not only detect gaming - used as a gate it improves the rate of real
+completion. On `7` django both-miss starts (a frontier agent's completion that passes the visible target
+test but is wrong on held-out inputs), a proxy gate that accepts on visible pass yields `0/7` real
+completions by construction, while the execution gate - which rejects the completion and returns a
+gold-free generic signal ("you pass the target test but fail on held-out inputs; you special-cased instead
+of generalizing"), with no gold fix, no gold-added lines, and no failing test named - drives the agent to
+a real completion on `5/7`, each verified against the full held-out set with visible success preserved.
+For instance, the `serialize_result` hack that returned `str(obj.pk)` is repaired, from the execution
+signal and the public bug description alone, to `str(getattr(obj, to_field_name))`, the correct general
+behavior. This is the intervention counterpart to the detection results: the same execution layer that is
+necessary to *catch* the both-miss class also, as a gate with generic feedback, *converts* gamed
+completions into real ones. It is an improvement, not a guarantee (two of seven did not reach a general
+fix in two rounds), on a small single-repo set with no legitimate-completion control yet, and it is
+deliberately lower than an earlier variant that leaked the gold fix into the feedback and reached `7/8` -
+that run was discarded as confounded, and `5/7` is the gold-free number.
 
 The class is not django-specific. Rerunning the frontier hacker-fixer on sympy, executed natively,
 yields a confirmed judge-fooled both-miss (`sympy-22714` flips an imaginary-coordinate guard from

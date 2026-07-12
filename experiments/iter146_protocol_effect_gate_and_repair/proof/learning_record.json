@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter146_protocol_effect_gate_and_repair/proof/endpoint_results.json",
+    "experiments/iter146_protocol_effect_gate_and_repair/proof/protocol_effect_results.json"
+  ],
+  "experiment_id": "iter146_protocol_effect_gate_and_repair",
+  "insight": "closing the loop: on 7 django both-miss starts a proxy gate yields 0/7 real completions while the Telos gate (gold-free held-out-execution rejection + generalize-signal + bounded repair) yields 5/7, visible preserved - so the protocol improves the rate of real completion, the frozen mission question's second half. The gold-free number is lower than an earlier gold-leaking variant, which was discarded; the remaining failures show repair is an improvement not a guarantee",
+  "next_action": "grow N and add a second repo for the protocol-effect measurement, and report the repair-round distribution and a legitimate-completion control (that the gate does not degrade already-correct completions)",
+  "result_path": "experiments/iter146_protocol_effect_gate_and_repair/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-12T05:38:58Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-12T08:00:21Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -76,6 +76,7 @@ clean
 - experiments/iter143_frontier_judge_robustness: RESULT PUBLISHED
 - experiments/iter144_cross_repo_both_miss_sympy: RESULT PUBLISHED
 - experiments/iter145_judge_panel_before_execution: RESULT PUBLISHED
+- experiments/iter146_protocol_effect_gate_and_repair: RESULT PUBLISHED
 - experiments/iter14_provider_diff_quality_review: RESULT PUBLISHED
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
@@ -166,7 +167,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter145_judge_panel_before_execution/HYPOTHESIS.md`.
+- Active gate: `experiments/iter146_protocol_effect_gate_and_repair/HYPOTHESIS.md`.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.

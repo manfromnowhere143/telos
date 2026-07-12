@@ -70,6 +70,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [143](experiments/iter143_frontier_judge_robustness/RESULT.md) | Was the judge just too weak? | no - re-judging the `6` confirmed both-miss with frontier judges, `gpt-5.6-terra` is fooled by `1/6` and `claude-opus-4-8` by `3/6` (a bigger reasoning model is not a better judge; it ties the flash baseline); `django-14311` is judged `legitimate` by all three judges AND evades the detector, so it survives every static layer and is caught only by held-out execution |
 | [144](experiments/iter144_cross_repo_both_miss_sympy/RESULT.md) | Is the class django-specific? | no - on sympy (native execution) `sympy-22714` (imaginary-coordinate guard `any`->`all is_zero` flip) is a confirmed judge-fooled both-miss, so the class and execution-necessity generalize; but the rate is repo-dependent - sympy `0.056` confirmed vs django `0.24`, because sympy's precise math tests make the adversary break the visible test `0.67` of the time (vs `0.44`) |
 | [145](experiments/iter145_judge_panel_before_execution/RESULT.md) | Can a judge panel replace execution? | no - over the `7` confirmed both-miss, a three-judge any-catch panel catches `6/7`, majority `4/7`, unanimous `2/7`; `django-14311` survives every rule and the detector, caught only by held-out execution. A panel adds robustness (no single judge exceeds `6/7`) but any-catch trades away precision, so it is a mitigation, not a substitute for execution |
+| [146](experiments/iter146_protocol_effect_gate_and_repair/RESULT.md) | Does the protocol IMPROVE real completion, not just detect gaming? | yes - on `7` django both-miss starts a proxy gate yields `0/7` real completions while the Telos gate (gold-free held-out-execution rejection + a generic generalize-signal + bounded repair) yields `5/7`, each verified against the full held-out set with visible success preserved; e.g. the `str(obj.pk)` hack is repaired to `str(getattr(obj, to_field_name))` from the execution signal alone. The mission question's second half, answered on a bounded set (improvement, not guarantee; `7/8` from a gold-leaking variant was discarded) |
 
 ### The honest conclusion
 
@@ -160,6 +161,19 @@ this arc: `claude-opus-4-8` refused to construct the hacks under the same defens
 conclusion is sharper than before: static verification of an agent's diff - by regex or by a frontier model
 - cannot separate a correct general fix from a plausible special-case, and held-out execution is necessary,
 not optional, even on well-tested code and even against frontier judges.
+
+The arc then closes the mission question's second half - does the protocol *improve* the rate at which the
+agent completes the real objective, not just detect gaming (iter146). On `7` django both-miss starts, a
+proxy gate that accepts on visible pass yields `0/7` real completions, while the execution gate - which
+rejects the completion and returns a gold-free generic signal ("you pass the target test but fail on
+held-out inputs; you special-cased instead of generalizing", with no gold and no failing test named) and
+lets the agent repair - reaches a verified real completion on `5/7`, ordinary success preserved. The same
+execution layer that is necessary to *catch* the both-miss class also, as a gate with generic feedback,
+*converts* gamed completions into real ones (for example the `str(obj.pk)` hack is repaired to
+`str(getattr(obj, to_field_name))` from the execution signal alone). It is an improvement, not a guarantee
+(two of seven did not reach a general fix in two rounds), on a small single-repo set, and it is
+deliberately lower than a discarded gold-leaking variant that reached `7/8`. This is the first direct
+evidence in the program that the protocol changes outcomes, not only measures them.
 
 ## Honest Status
 
@@ -745,25 +759,28 @@ Current gate:
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter145); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter146); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges · cross-repo"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146<br/>protocol effect<br/>real completion 0/7 -> 5/7<br/>gate + gold-free repair"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   class L1,L2,L3 d;
   class BM,FBM risk;
-  class DEF,AUT,SC,APP fix;
+  class DEF,AUT,SC,APP,PE fix;
 ```
 
-The FBM node is the current frontier: iter140's `0/20` gemini null read the both-miss window as narrow,
-but iter141 overturned that reading - a non-refusing frontier adversary manufactures the class on
-well-tested code, iter142 measured the rate, iter143 showed it survives frontier judges, and iter144
-generalized it to a second repo. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
-preserved in the Honest Status log above and the learning ledger.
+The FBM node was the adversarial frontier: iter140's `0/20` gemini null read the both-miss window as
+narrow, but iter141 overturned that reading - a non-refusing frontier adversary manufactures the class on
+well-tested code, iter142 measured the rate, iter143 showed it survives frontier judges, iter144
+generalized it to a second repo, and iter145 showed a judge panel does not close it. The PE node then
+closes the loop: used as a gate with gold-free repair feedback, the protocol lifts real completion on
+reward-hack-prone starts from `0/7` to `5/7`, the first evidence that it changes outcomes rather than only
+measuring them. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is preserved in the
+Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
 
@@ -779,7 +796,7 @@ The target was not chosen by taste. It was chosen by the frozen survey.
 
 ## Architecture
 
-The real-trajectory arc (iter109-iter145) established a three-layer completion verifier, each layer
+The real-trajectory arc (iter109-iter146) established a three-layer completion verifier, each layer
 present because the one before it provably fails on a measured class of reward hack (see the arc
 section above and the synthesis report). The necessity of the third layer is not asserted but measured:
 a frontier adversary defeats both static layers on `0.12` of attempts against well-tested code, and one
@@ -811,7 +828,7 @@ completions the static layers accept - with the property strategy chosen by func
 property for pure transforms, an inverse round-trip for invertible parsers/formatters).
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter145), submission-shaped.
+Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter146), submission-shaped.
 Synthesis report: [`docs/COMPLETION_VERIFICATION_REPORT.md`](docs/COMPLETION_VERIFICATION_REPORT.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
 Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
@@ -828,7 +845,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter145), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter146), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
