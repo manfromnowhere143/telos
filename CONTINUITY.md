@@ -24,17 +24,19 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter152_reward_model_gaming_scale/HYPOTHESIS.md`
+- `experiments/iter152_reward_model_gaming_scale/HYPOTHESIS.md` (SHIPPED - RESULT published, CI-green)
 
-In-flight run (for the next operator): iter152 (reward-model-gaming detection at scale) is EXECUTING on
-GCE VM `telos-scale-2` (us-central1-a) as systemd unit `telos-detect`. It constructs execution-verified
-both-miss across SWE-bench repos and scores each with the deterministic detector plus two frontier judges
-(`gpt-5.6-terra`, `claude-opus-4-8`), saving hack diffs. Reach it: `gcloud compute ssh telos-scale-2
---zone=us-central1-a` (direct SSH). On completion: pull `~/telos/detection_results.json` + hack diffs +
-official reports into `experiments/iter152_reward_model_gaming_scale/proof/raw`, formalize RESULT + runner +
-receipt, commit CI-green, then `gcloud compute instances delete telos-scale-2 --zone=us-central1-a` and
-`gcloud compute firewall-rules delete telos-ssh-direct2` to stop billing. iter151 (cross-repo intervention
-on the official metric, `0/20 -> 10/20`) is SHIPPED and CI-green.
+Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
+`0/20 -> 10/20`, 8 repos) and iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
+reward models `7/20` and `9/20`, `5/20` survive every static layer; 20 hack diffs saved as a reward-hack
+benchmark seed) are both SHIPPED and CI-green; their cloud VMs are deleted (billing stopped). The
+highest-leverage next step before arXiv is the PAPER ACCESSIBILITY REWRITE (a domain expert, the Sentinel
+endorser Holger Caesar, flagged that a dense "technical LLM style" makes strong results hard to read, and
+`paper/telos.tex` has the same style: define every term on first use, spell out antecedents, unpack
+compressed jargon like both-miss / gold-free / generalize-signal). Then `iter153` grows the reward-hack
+benchmark from the saved hack diffs. Any new cloud run: provision an x86 Docker VM, add a direct-SSH
+firewall from the current IP UP FRONT (IAP tunnel is flaky), launch via `systemd-run`, and delete the VM +
+firewall when done.
 
 Claim-boundary reviewer entry point:
 

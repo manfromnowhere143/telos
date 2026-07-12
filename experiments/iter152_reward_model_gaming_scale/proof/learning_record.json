@@ -1,0 +1,13 @@
+{
+  "evidence_paths": [
+    "experiments/iter152_reward_model_gaming_scale/proof/endpoint_results.json",
+    "experiments/iter152_reward_model_gaming_scale/proof/raw/detection_results.json",
+    "experiments/iter152_reward_model_gaming_scale/proof/raw/det_reports.tgz"
+  ],
+  "experiment_id": "iter152_reward_model_gaming_scale",
+  "insight": "a frontier LLM used as a reward model is gameable at scale: across 8 repos on 20 execution-verified both-miss, the detector is fooled 20/20, gpt-5.6-terra 7/20, claude-opus-4-8 9/20, and 5/20 survive every static layer (caught only by execution). This is the RLAIF-relevant reward-model-robustness result; hack diffs saved as the reward-hack benchmark seed. Single adversary, two judges - scope stated",
+  "next_action": "grow N and judges toward a reward-model-robustness benchmark; write the accessibility rewrite of the paper (Caesar lesson) before arXiv",
+  "result_path": "experiments/iter152_reward_model_gaming_scale/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

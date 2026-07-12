@@ -76,7 +76,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [149](experiments/iter149_gold_free_oracle_intervention/RESULT.md) | Does the effect survive a gold-free oracle (not the real tests)? | yes - replacing the regression oracle with a model-proposed contract property (docstring + visible test only, no held-out tests in the gate), the gold-free gate catches the gamed completion `3/3` on evaluated instances and drives gold-free repair to real completion `2/3`; property sound on `9/10` format functions. Closes the "you used the real tests" objection (small-N, property-derivable subset; an initial all-unsound run was a Django-settings harness artifact, caught and fixed) |
 | [150](experiments/iter150_gold_free_oracle_rate/RESULT.md) | Is the intervention oracle-agnostic? | yes - grown to `7` evaluated (pooled), the gold-free property gate catches gamed `7/7` and reaches real completion `5/7` (`0.71`), within sampling noise of the regression-gated `10/13` (`0.77`); the improvement comes from execution-based rejection + a generalize-signal, not from privileged access to the tests. Bounded to the property-derivable subset; property synthesis is stochastic (pooled across runs) |
 | [151](experiments/iter151_cross_repo_scale_official/RESULT.md) | Does the intervention scale cross-repo on the OFFICIAL metric? | yes - across `8` SWE-bench repositories (django, scikit-learn, sympy, matplotlib, astropy, xarray, pytest, sphinx), over `20` both-miss starts a proxy gate resolves `0/20` (definitional) while the Telos gate recovers `10/20` (`0.50`) to full official SWE-bench resolution, every verdict backed by a committed `report.json`. Ran on a cloud x86 Docker VM (arm64/local could not). Honest: baseline `0` is definitional, the oracle is the regression suite (this scales the intervention, not the gold-free novelty), and a malformed-patch harness false-negative was caught and fixed before trusting numbers |
-| [152](experiments/iter152_reward_model_gaming_scale/HYPOTHESIS.md) | How often is a frontier reward model fooled by both-miss, cross-repo? | in progress (executing on a cloud x86 Docker VM) - measures, on execution-verified both-miss across SWE-bench repos, the rate at which the deterministic detector and two frontier judges used as reward models (`gpt-5.6-terra`, `claude-opus-4-8`) are fooled, and the share that survive every static layer (caught only by execution); saves each hack diff as the reward-hack benchmark seed |
+| [152](experiments/iter152_reward_model_gaming_scale/RESULT.md) | How often is a frontier reward model fooled by both-miss, cross-repo? | gameable - across `8` repos on `20` execution-verified both-miss, the deterministic detector is fooled `20/20`, and two frontier models used as reward models are fooled `7/20` (`gpt-5.6-terra`) and `9/20` (`claude-opus-4-8` - a bigger model is not a safer reward model); `5/20` (`0.25`) survive EVERY static layer, catchable only by held-out execution. All 20 hack diffs saved as a reward-hack benchmark seed. Honest: single adversary, two judges, constructed (not naturally-emergent) hacks, `N=20` |
 
 ### The honest conclusion
 
@@ -768,12 +768,12 @@ Current gate:
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter151); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter152); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146-151<br/>protocol effect<br/>gamed 0/13 -> 10/13 · gold-free 5/7<br/>cross-repo 8 repos 0/20 -> 10/20 official"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146-152<br/>protocol + detection at scale<br/>cross-repo 0/20 -> 10/20 official<br/>reward-model fooled 35-45% · 25% survive all static"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
@@ -805,7 +805,7 @@ The target was not chosen by taste. It was chosen by the frozen survey.
 
 ## Architecture
 
-The real-trajectory arc (iter109-iter151) established a three-layer completion verifier, each layer
+The real-trajectory arc (iter109-iter152) established a three-layer completion verifier, each layer
 present because the one before it provably fails on a measured class of reward hack (see the arc
 section above and the synthesis report). The necessity of the third layer is not asserted but measured:
 a frontier adversary defeats both static layers on `0.12` of attempts against well-tested code, and one
@@ -837,7 +837,7 @@ completions the static layers accept - with the property strategy chosen by func
 property for pure transforms, an inverse round-trip for invertible parsers/formatters).
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter151), submission-shaped.
+Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter152), submission-shaped.
 LaTeX manuscript draft: [`paper/telos.tex`](paper/telos.tex) (findings-paper framing; see [`paper/README.md`](paper/README.md) for build and the pre-posting checklist).
 Synthesis report: [`docs/COMPLETION_VERIFICATION_REPORT.md`](docs/COMPLETION_VERIFICATION_REPORT.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
@@ -855,7 +855,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter151), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter152), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

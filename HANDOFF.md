@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-12T17:38:38Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-12T20:35:27Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -83,7 +83,7 @@ clean
 - experiments/iter14_provider_diff_quality_review: RESULT PUBLISHED
 - experiments/iter150_gold_free_oracle_rate: RESULT PUBLISHED
 - experiments/iter151_cross_repo_scale_official: RESULT PUBLISHED
-- experiments/iter152_reward_model_gaming_scale: PRE-REGISTERED, result pending
+- experiments/iter152_reward_model_gaming_scale: RESULT PUBLISHED
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED

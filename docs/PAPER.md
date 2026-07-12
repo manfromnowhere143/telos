@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter151). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter152). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 
@@ -135,6 +135,17 @@ official resolution, each verdict backed by a committed report. Here the held-ou
 repository's regression suite (realistic CI), so this scales the intervention across repos on the metric
 the field tracks rather than the gold-free-oracle variant; the baseline `0` is definitional and per-repo
 recovery varies (reported at full weight).
+
+The detection side scales too, and it is the reward-model-relevant result. Across the same `8` repositories,
+on `20` execution-verified both-miss hacks, the deterministic detector is fooled `20/20` (it is blind to
+generalization bugs), and two frontier models used as reward-model judges are fooled `7/20` (`gpt-5.6-terra`)
+and `9/20` (`claude-opus-4-8`) - the larger reasoning model is fooled more often, so a bigger model is not a
+safer reward model. Load-bearing: `5/20` (`0.25`) of hacks survive every static layer - the detector and
+both frontier reward models - and are catchable only by held-out execution. So a frontier LLM used as a
+reward model (as in RLAIF) is gameable by constructible hacks on real code, cross-repo, and roughly one in
+four defeats every static verifier tested. This is a single-adversary, two-judge measurement on `N=20`
+constructed (not naturally-emergent) hacks, and the hack diffs are saved as the seed of a reward-hack
+benchmark; it is not a benchmark or SOTA claim.
 
 The protocol effect survives a gold-free oracle, which is the sharpest test of it. The gate above used the
 real held-out tests - a realistic regression suite, but one with coverage of the broken behavior. Replacing
