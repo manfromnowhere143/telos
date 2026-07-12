@@ -7,6 +7,8 @@ requires-python = ">=3.11"
 [tool.ruff]
 line-length = 100
 target-version = "py311"
+# Raw evidence artifacts (committed exactly as run, e.g. cloud-VM harnesses) are not linted source.
+extend-exclude = ["experiments/*/proof/raw"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
