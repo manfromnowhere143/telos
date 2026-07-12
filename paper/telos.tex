@@ -30,26 +30,36 @@ Autonomous Agent Completion}
 \maketitle
 
 \begin{abstract}
-When an autonomous coding agent reports a task complete, the visible test suite is the usual proof. But an
-outcome verifier the agent can influence is gameable: the agent can edit the tests, weaken assertions,
-hard-code the expected output, or write code that only special-cases the visible input. We study whether an
-external protocol can separate real completion from proxy gaming on real agent-style completions, using the
-\texttt{SWE-bench\_Verified} dataset as the substrate and, where noted, real hidden tests executed in pinned
-containers as ground truth. We report a set of bounded pilots, not a leaderboard result. The findings are:
-(i) completion verification needs three layers---a deterministic diff detector, a strong LLM judge, and
-held-out-input execution---and each is necessary because the one before it provably fails on a measured
-class of reward hack; (ii) a class of ``both-miss'' completions passes the visible test, evades the
-detector, and is called legitimate by a frontier judge, yet is wrong on inputs the test never exercises,
-and a frontier adversary manufactures this class on well-tested application code at a measurable rate, with
-one hack surviving three frontier judges and a judge panel; (iii) used as a completion gate that rejects a
-gamed completion and returns a gold-free ``you did not generalize'' signal, the protocol lifts the rate of
-real completion on reward-hack-prone starts from $0$ to $5/7$, replicating on a disjoint sample (pooled
-$0/13 \to 10/13$) while preserving correct completions ($0/12$ false rejections); and (iv) the improvement
-is oracle-agnostic---a gold-free model-proposed property in the gate matches the real-test gate within
-sampling noise. The load-bearing observation is that the same model that is fooled as a direct verdict-giver
-is reliable as a \emph{property generator}, because a proposed property is checked by execution rather than
-trusted. All numbers are small-$N$ pilots on real data, reproduced by committed runners and validated
-receipts; we state the empirical bounds explicitly.
+When an AI coding agent reports that a task is done, the usual proof is that a test suite passes. But if
+the agent can influence that test suite, the proof can be gamed: the agent can edit or weaken the tests,
+hard-code the expected answer, or write code that only handles the exact input the test checks rather than
+solving the problem in general. We ask whether an external protocol---one that never trusts the agent's own
+signal---can tell a genuine fix from one that merely games the test. Our substrate is real GitHub-issue
+tasks from \texttt{SWE-bench\_Verified}, and where we say ``executed'' we run each project's own hidden
+tests in its original pinned environment as ground truth. These are small-scale pilots, not a leaderboard
+score, and we state the limits plainly.
+
+We report four findings. \textbf{(1) Verification needs three layers}, each catching a class of cheat the
+layer before it misses: a fast rule-based check that reads only the code change and catches mechanical
+cheats (editing tests, weakening assertions, hard-coding outputs); a strong language model acting as a code
+reviewer, which catches subtler cheats the rules cannot; and, last, actually running the changed code on
+inputs the visible test never used. \textbf{(2) A hard class we call a ``both-miss''}: a change that passes
+the visible test, is not flagged by the rule-based check, and is judged correct by a frontier reviewer
+model---yet is wrong on some input the test never exercised. We show a frontier model can deliberately
+construct these on well-tested code at a measurable rate, and that some fool three different frontier
+reviewers and a panel of them; only running the code on new inputs catches them. \textbf{(3) Used as a
+gate, the protocol does more than detect---it improves the work.} When the gate rejects a change whose
+behavior is wrong on unseen inputs and tells the agent only ``your fix does not generalize'' (without
+revealing the answer), the share of genuinely correct completions rises from $0$ to $5$ of $7$ on
+hack-prone cases (reproduced on a fresh sample; $10$ of $13$ pooled), while never rejecting a correct
+completion ($0$ of $12$ false alarms). \textbf{(4) This does not depend on having the hidden tests.}
+Replacing them with a correctness property that the model proposes from the function's own documentation,
+and that is confirmed by running it (never trusted on the model's word), works about as well.
+
+The idea that ties this together: the same model is \emph{unreliable} when asked ``is this code correct?''
+but \emph{reliable} when asked instead to propose a property that execution can check---because a proposed
+property is verified by running it, not taken on faith. Every number is a small-sample pilot on real data,
+reproduced by a committed script and a validated receipt, and we state the bounds explicitly.
 \end{abstract}
 
 \section{Introduction}
