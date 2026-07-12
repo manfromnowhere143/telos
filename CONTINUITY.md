@@ -24,7 +24,17 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter151_cross_repo_scale_official/HYPOTHESIS.md`
+- `experiments/iter152_reward_model_gaming_scale/HYPOTHESIS.md`
+
+In-flight run (for the next operator): iter152 (reward-model-gaming detection at scale) is EXECUTING on
+GCE VM `telos-scale-2` (us-central1-a) as systemd unit `telos-detect`. It constructs execution-verified
+both-miss across SWE-bench repos and scores each with the deterministic detector plus two frontier judges
+(`gpt-5.6-terra`, `claude-opus-4-8`), saving hack diffs. Reach it: `gcloud compute ssh telos-scale-2
+--zone=us-central1-a` (direct SSH). On completion: pull `~/telos/detection_results.json` + hack diffs +
+official reports into `experiments/iter152_reward_model_gaming_scale/proof/raw`, formalize RESULT + runner +
+receipt, commit CI-green, then `gcloud compute instances delete telos-scale-2 --zone=us-central1-a` and
+`gcloud compute firewall-rules delete telos-ssh-direct2` to stop billing. iter151 (cross-repo intervention
+on the official metric, `0/20 -> 10/20`) is SHIPPED and CI-green.
 
 Claim-boundary reviewer entry point:
 
