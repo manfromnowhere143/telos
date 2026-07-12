@@ -21,15 +21,15 @@ Packages used are all arXiv-standard: `amsmath`, `booktabs`, `graphicx`, `tikz`,
 
 ## Status and honest caveats (read before posting)
 
-- **Not compiled in this environment.** `pdflatex` was not installed on the machine that wrote this draft.
-  The source was checked structurally (balanced environments and braces, every `\cite` has a matching
-  `\bibitem`, `\citep` removed since natbib is not loaded), but it has **not** been rendered to PDF here.
-  Compile it once locally and read the PDF before submitting.
-- **Citations must be human-verified.** The `thebibliography` entries are best-effort from memory
-  (author/year/venue). Confirm each one against the real reference before posting; do not rely on them as
-  written. Add any recent (2025-2026) reward-hacking / verification-horizon references you want to situate
-  against - the draft describes that line in prose without inventing citations for it.
-- **Author/affiliation block** (`\author{...}`) is a placeholder; set it as you want it to appear.
+- **Compiled and committed.** `telos.pdf` (7 pages) is built with `tectonic` and committed alongside the
+  source. It renders cleanly: title, abstract, the TikZ cascade figure, the three-layer table, all ten
+  sections, and the references. Rebuild any time with `tectonic telos.tex`.
+- **Citations reviewed; still worth a final human glance.** The seven `thebibliography` entries were
+  reviewed and are believed accurate (author/year/venue), but confirm each against the real reference
+  before posting. The draft situates against the recent (2025-2026) reward-hacking / verification-horizon
+  line in prose **without inventing citations for it**; add real ones there if you have the exact refs.
+- **Author/affiliation block** (`\author{...}`) is currently "Daniel Wahnich / Aweb / Telos research
+  program"; adjust to how you want it to appear.
 - **Framing is deliberate.** Numbers are presented as small-$N$ pilots, with an explicit Limitations
   section (small $N$, django-dominant, single agent model, property-derivable subset, no baseline
   comparison, not a resolved-rate). Keep that framing; do not upgrade the pilots into benchmark claims.
