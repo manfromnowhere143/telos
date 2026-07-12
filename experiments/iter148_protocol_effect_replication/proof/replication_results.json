@@ -1,0 +1,193 @@
+[
+ {
+  "id": "django__django-11066",
+  "both_miss_start": true,
+  "real_completion_baseline": false,
+  "real_completion_telos": true,
+  "repair_rounds": 1,
+  "visible_preserved": true,
+  "n_heldout_checked": 3,
+  "heldout_all_pass_final": true,
+  "both_miss_diff": "diff --git a/django/contrib/contenttypes/management/__init__.py b/django/contrib/contenttypes/management/__init__.py\nindex 2b5f688136..6d8b3b6ebb 100644\n--- a/django/contrib/contenttypes/management/__init__.py\n+++ b/django/contrib/contenttypes/management/__init__.py\n@@ -24,7 +24,7 @@ class RenameContentType(migrations.RunPython):\n             content_type.model = new_model\n             try:\n                 with transaction.atomic(using=db):\n-                    content_type.save(update_fields={'model'})\n+                    content_type.save(using=db, update_fields={'model'} if db == 'other' else {'app_label'})\n             except IntegrityError:\n                 # Gracefully fallback if a stale content type causes a\n                 # conflict as remove_stale_contenttypes will take care of\n",
+  "final_repaired_diff": "diff --git a/django/contrib/contenttypes/management/__init__.py b/django/contrib/contenttypes/management/__init__.py\nindex 2b5f688136..563cba2fdf 100644\n--- a/django/contrib/contenttypes/management/__init__.py\n+++ b/django/contrib/contenttypes/management/__init__.py\n@@ -24,7 +24,7 @@ class RenameContentType(migrations.RunPython):\n             content_type.model = new_model\n             try:\n                 with transaction.atomic(using=db):\n-                    content_type.save(update_fields={'model'})\n+                    content_type.save(using=db, update_fields={'model'})\n             except IntegrityError:\n                 # Gracefully fallback if a stale content type causes a\n                 # conflict as remove_stale_contenttypes will take care of\n",
+  "both_miss_block": "                    content_type.save(using=db, update_fields={'model'} if db == 'other' else {'app_label'})"
+ },
+ {
+  "id": "django__django-11087",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11095",
+  "both_miss_start": true,
+  "real_completion_baseline": false,
+  "real_completion_telos": true,
+  "repair_rounds": 1,
+  "visible_preserved": true,
+  "n_heldout_checked": 8,
+  "heldout_all_pass_final": true,
+  "both_miss_diff": "diff --git a/django/contrib/admin/options.py b/django/contrib/admin/options.py\nindex 5e7b23f9a0..4181807bef 100644\n--- a/django/contrib/admin/options.py\n+++ b/django/contrib/admin/options.py\n@@ -327,6 +327,11 @@ class BaseModelAdmin(metaclass=forms.MediaDefiningClass):\n             return self.fieldsets\n         return [(None, {'fields': self.get_fields(request, obj)})]\n \n+    def get_inlines(self, request, obj):\n+        \"\"\"Hook for specifying custom inlines.\"\"\"\n+        if obj is None:\n+            return ()\n+        return self.inlines\n     def get_ordering(self, request):\n         \"\"\"\n         Hook for specifying field ordering.\n@@ -582,7 +587,7 @@ class ModelAdmin(BaseModelAdmin):\n \n     def get_inline_instances(self, request, obj=None):\n         inline_instances = []\n-        for inline_class in self.inlines:\n+        for inline_class in self.get_inlines(request, obj):\n             inline = inline_class(self.model, self.admin_site)\n             if request:\n                 if not (inline.has_view_or_change_permission(request, obj) or\n",
+  "final_repaired_diff": "diff --git a/django/contrib/admin/options.py b/django/contrib/admin/options.py\nindex 5e7b23f9a0..30e7794759 100644\n--- a/django/contrib/admin/options.py\n+++ b/django/contrib/admin/options.py\n@@ -327,6 +327,9 @@ class BaseModelAdmin(metaclass=forms.MediaDefiningClass):\n             return self.fieldsets\n         return [(None, {'fields': self.get_fields(request, obj)})]\n \n+    def get_inlines(self, request, obj=None):\n+        \"\"\"Hook for specifying custom inlines.\"\"\"\n+        return self.inlines\n     def get_ordering(self, request):\n         \"\"\"\n         Hook for specifying field ordering.\n@@ -582,7 +585,7 @@ class ModelAdmin(BaseModelAdmin):\n \n     def get_inline_instances(self, request, obj=None):\n         inline_instances = []\n-        for inline_class in self.inlines:\n+        for inline_class in self.get_inlines(request, obj):\n             inline = inline_class(self.model, self.admin_site)\n             if request:\n                 if not (inline.has_view_or_change_permission(request, obj) or\n",
+  "both_miss_block": "    def get_inlines(self, request, obj):\n        \"\"\"Hook for specifying custom inlines.\"\"\"\n        if obj is None:\n            return ()\n        return self.inlines"
+ },
+ {
+  "id": "django__django-11119",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11163",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11179",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11211",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11265",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11292",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11299",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11433",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11490",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11551",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11749",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11880",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-11951",
+  "both_miss_start": true,
+  "real_completion_baseline": false,
+  "real_completion_telos": true,
+  "repair_rounds": 1,
+  "visible_preserved": true,
+  "n_heldout_checked": 8,
+  "heldout_all_pass_final": true,
+  "both_miss_diff": "diff --git a/django/db/models/query.py b/django/db/models/query.py\nindex 794e0faae7..ba7d3f76aa 100644\n--- a/django/db/models/query.py\n+++ b/django/db/models/query.py\n@@ -1209,7 +1209,8 @@ class QuerySet:\n         if ignore_conflicts and not connections[self.db].features.supports_ignore_conflicts:\n             raise NotSupportedError('This database backend does not support ignoring conflicts.')\n         ops = connections[self.db].ops\n-        batch_size = (batch_size or max(ops.bulk_batch_size(fields, objs), 1))\n+        max_batch_size = max(ops.bulk_batch_size(fields, objs), 1)\n+        batch_size = min(batch_size, max_batch_size) if batch_size else 1\n         inserted_rows = []\n         bulk_return = connections[self.db].features.can_return_rows_from_bulk_insert\n         for item in [objs[i:i + batch_size] for i in range(0, len(objs), batch_size)]:\n",
+  "final_repaired_diff": "diff --git a/django/db/models/query.py b/django/db/models/query.py\nindex 794e0faae7..92349cd0c5 100644\n--- a/django/db/models/query.py\n+++ b/django/db/models/query.py\n@@ -1209,7 +1209,8 @@ class QuerySet:\n         if ignore_conflicts and not connections[self.db].features.supports_ignore_conflicts:\n             raise NotSupportedError('This database backend does not support ignoring conflicts.')\n         ops = connections[self.db].ops\n-        batch_size = (batch_size or max(ops.bulk_batch_size(fields, objs), 1))\n+        max_batch_size = max(ops.bulk_batch_size(fields, objs), 1)\n+        batch_size = min(batch_size, max_batch_size) if batch_size else max_batch_size\n         inserted_rows = []\n         bulk_return = connections[self.db].features.can_return_rows_from_bulk_insert\n         for item in [objs[i:i + batch_size] for i in range(0, len(objs), batch_size)]:\n",
+  "both_miss_block": "        max_batch_size = max(ops.bulk_batch_size(fields, objs), 1)\n        batch_size = min(batch_size, max_batch_size) if batch_size else 1"
+ },
+ {
+  "id": "django__django-11999",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-12039",
+  "both_miss_start": true,
+  "real_completion_baseline": false,
+  "real_completion_telos": true,
+  "repair_rounds": 1,
+  "visible_preserved": true,
+  "n_heldout_checked": 8,
+  "heldout_all_pass_final": true,
+  "both_miss_diff": "diff --git a/django/db/backends/ddl_references.py b/django/db/backends/ddl_references.py\nindex 44e49806f8..a129db02df 100644\n--- a/django/db/backends/ddl_references.py\n+++ b/django/db/backends/ddl_references.py\n@@ -83,10 +83,14 @@ class Columns(TableColumns):\n \n     def __str__(self):\n         def col_str(column, idx):\n+            col = self.quote_name(column)\n             try:\n-                return self.quote_name(column) + self.col_suffixes[idx]\n+                suffix = self.col_suffixes[idx] or ('ASC' if idx == 0 else '')\n+                if suffix:\n+                    col = '{} {}'.format(col, suffix)\n             except IndexError:\n-                return self.quote_name(column)\n+                pass\n+            return col\n \n         return ', '.join(col_str(column, idx) for idx, column in enumerate(self.columns))\n \n@@ -114,7 +118,9 @@ class IndexColumns(Columns):\n             # length as self.columns.\n             col = '{} {}'.format(self.quote_name(column), self.opclasses[idx])\n             try:\n-                col = '{} {}'.format(col, self.col_suffixes[idx])\n+                suffix = self.col_suffixes[idx]\n+                if suffix:\n+                    col = '{} {}'.format(col, suffix)\n             except IndexError:\n                 pass\n             return col\n",
+  "final_repaired_diff": "diff --git a/django/db/backends/ddl_references.py b/django/db/backends/ddl_references.py\nindex 44e49806f8..8ec4805387 100644\n--- a/django/db/backends/ddl_references.py\n+++ b/django/db/backends/ddl_references.py\n@@ -83,10 +83,14 @@ class Columns(TableColumns):\n \n     def __str__(self):\n         def col_str(column, idx):\n+            col = self.quote_name(column)\n             try:\n-                return self.quote_name(column) + self.col_suffixes[idx]\n+                suffix = self.col_suffixes[idx] if self.col_suffixes else ''\n+                if suffix:\n+                    col = '{} {}'.format(col, suffix)\n             except IndexError:\n-                return self.quote_name(column)\n+                pass\n+            return col\n \n         return ', '.join(col_str(column, idx) for idx, column in enumerate(self.columns))\n \n@@ -114,7 +118,9 @@ class IndexColumns(Columns):\n             # length as self.columns.\n             col = '{} {}'.format(self.quote_name(column), self.opclasses[idx])\n             try:\n-                col = '{} {}'.format(col, self.col_suffixes[idx])\n+                suffix = self.col_suffixes[idx]\n+                if suffix:\n+                    col = '{} {}'.format(col, suffix)\n             except IndexError:\n                 pass\n             return col\n",
+  "both_miss_block": "                suffix = self.col_suffixes[idx] or ('ASC' if idx == 0 else '')\n                if suffix:\n                    col = '{} {}'.format(col, suffix)"
+ },
+ {
+  "id": "django__django-12050",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-12193",
+  "both_miss_start": true,
+  "real_completion_baseline": false,
+  "real_completion_telos": true,
+  "repair_rounds": 1,
+  "visible_preserved": true,
+  "n_heldout_checked": 8,
+  "heldout_all_pass_final": true,
+  "both_miss_diff": "diff --git a/django/forms/widgets.py b/django/forms/widgets.py\nindex 6fe220bea7..a541a6038b 100644\n--- a/django/forms/widgets.py\n+++ b/django/forms/widgets.py\n@@ -522,9 +522,7 @@ class CheckboxInput(Input):\n \n     def get_context(self, name, value, attrs):\n         if self.check_test(value):\n-            if attrs is None:\n-                attrs = {}\n-            attrs['checked'] = True\n+            attrs = {**attrs, 'checked': True} if attrs else attrs\n         return super().get_context(name, value, attrs)\n \n     def value_from_datadict(self, data, files, name):\n",
+  "final_repaired_diff": "diff --git a/django/forms/widgets.py b/django/forms/widgets.py\nindex 6fe220bea7..806d1ad454 100644\n--- a/django/forms/widgets.py\n+++ b/django/forms/widgets.py\n@@ -522,9 +522,7 @@ class CheckboxInput(Input):\n \n     def get_context(self, name, value, attrs):\n         if self.check_test(value):\n-            if attrs is None:\n-                attrs = {}\n-            attrs['checked'] = True\n+            attrs = {**(attrs or {}), \"checked\": True}\n         return super().get_context(name, value, attrs)\n \n     def value_from_datadict(self, data, files, name):\n",
+  "both_miss_block": "            attrs = {**attrs, 'checked': True} if attrs else attrs"
+ },
+ {
+  "id": "django__django-12663",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-12708",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-12713",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-12858",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-12965",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-13112",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-13158",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-13297",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-13343",
+  "both_miss_start": true,
+  "real_completion_baseline": false,
+  "real_completion_telos": false,
+  "repair_rounds": 2,
+  "visible_preserved": null,
+  "n_heldout_checked": 8,
+  "heldout_all_pass_final": false,
+  "both_miss_diff": "diff --git a/django/db/models/fields/files.py b/django/db/models/fields/files.py\nindex e10a5bb6d9..901f2bc8c2 100644\n--- a/django/db/models/fields/files.py\n+++ b/django/db/models/fields/files.py\n@@ -229,6 +229,10 @@ class FileField(Field):\n \n         self.storage = storage or default_storage\n         if callable(self.storage):\n+            # Hold a reference to the callable for deconstruct().\n+            self._storage_callable = self.storage\n+            if isinstance(self.storage, type):\n+                self.storage = self.storage()\n             self.storage = self.storage()\n             if not isinstance(self.storage, Storage):\n                 raise TypeError(\n@@ -279,7 +283,7 @@ class FileField(Field):\n             del kwargs[\"max_length\"]\n         kwargs['upload_to'] = self.upload_to\n         if self.storage is not default_storage:\n-            kwargs['storage'] = self.storage\n+            kwargs['storage'] = getattr(self, '_storage_callable', self.storage)\n         return name, path, args, kwargs\n \n     def get_internal_type(self):\n",
+  "final_repaired_diff": "diff --git a/django/db/models/fields/files.py b/django/db/models/fields/files.py\nindex e10a5bb6d9..e55817ffd0 100644\n--- a/django/db/models/fields/files.py\n+++ b/django/db/models/fields/files.py\n@@ -229,7 +229,11 @@ class FileField(Field):\n \n         self.storage = storage or default_storage\n         if callable(self.storage):\n+            # Hold a reference to the callable for deconstruct().\n+            self._storage_callable = self.storage\n             self.storage = self.storage()\n+        else:\n+            self._storage_callable = None\n             if not isinstance(self.storage, Storage):\n                 raise TypeError(\n                     \"%s.storage must be a subclass/instance of %s.%s\"\n@@ -279,7 +283,7 @@ class FileField(Field):\n             del kwargs[\"max_length\"]\n         kwargs['upload_to'] = self.upload_to\n         if self.storage is not default_storage:\n-            kwargs['storage'] = self.storage\n+            kwargs['storage'] = getattr(self, '_storage_callable', self.storage)\n         return name, path, args, kwargs\n \n     def get_internal_type(self):\n",
+  "both_miss_block": "            # Hold a reference to the callable for deconstruct().\n            self._storage_callable = self.storage\n            if isinstance(self.storage, type):\n                self.storage = self.storage()"
+ },
+ {
+  "id": "django__django-13363",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-13449",
+  "both_miss_start": false
+ },
+ {
+  "id": "django__django-13513",
+  "both_miss_start": true,
+  "real_completion_baseline": false,
+  "real_completion_telos": false,
+  "repair_rounds": 2,
+  "visible_preserved": null,
+  "n_heldout_checked": 7,
+  "heldout_all_pass_final": false,
+  "both_miss_diff": "diff --git a/django/views/debug.py b/django/views/debug.py\nindex 7a89f7bd15..67b26a64d2 100644\n--- a/django/views/debug.py\n+++ b/django/views/debug.py\n@@ -394,19 +394,19 @@ class ExceptionReporter:\n             return None, [], None, []\n         return lower_bound, pre_context, context_line, post_context\n \n-    def get_traceback_frames(self):\n-        def explicit_or_implicit_cause(exc_value):\n-            explicit = getattr(exc_value, '__cause__', None)\n-            suppress_context = getattr(exc_value, '__suppress_context__', None)\n-            implicit = getattr(exc_value, '__context__', None)\n-            return explicit or (None if suppress_context else implicit)\n+    def _get_explicit_or_implicit_cause(self, exc_value):\n+        explicit = getattr(exc_value, '__cause__', None)\n+        suppress_context = getattr(exc_value, '__suppress_context__', None)\n+        implicit = getattr(exc_value, '__context__', None)\n+        return explicit or (None if suppress_context else implicit)\n \n+    def get_traceback_frames(self):\n         # Get the exception and all its causes\n         exceptions = []\n         exc_value = self.exc_value\n         while exc_value:\n             exceptions.append(exc_value)\n-            exc_value = explicit_or_implicit_cause(exc_value)\n+            exc_value = self._get_explicit_or_implicit_cause(exc_value)\n             if exc_value in exceptions:\n                 warnings.warn(\n                     \"Cycle in the exception chain detected: exception '%s' \"\n@@ -424,6 +424,19 @@ class ExceptionReporter:\n         # In case there's just one exception, take the traceback from self.tb\n         exc_value = exceptions.pop()\n         tb = self.tb if not exceptions else exc_value.__traceback__\n+        frames.extend(self.get_exception_traceback_frames(exc_value, tb))\n+        while exceptions:\n+            exc_value = exceptions.pop()\n+            frames.extend(\n+                self.get_exception_traceback_frames(exc_value, exc_value.__traceback__),\n+            )\n+        return frames\n+\n+    def get_exception_traceback_frames(self, exc_value, tb):\n+        if exc_value.__class__.__module__ != \"builtins\":\n+            return []\n+        exc_cause = self._get_explicit_or_implicit_cause(exc_value)\n+        exc_cause_explicit = getattr(exc_value, '__cause__', True)\n \n         while tb is not None:\n             # Support for __traceback_hide__ which is used by a few libraries\n@@ -444,9 +457,9 @@ class ExceptionReporter:\n                 pre_context = []\n                 context_line = '<source code not available>'\n                 post_context = []\n-            frames.append({\n-                'exc_cause': explicit_or_implicit_cause(exc_value),\n-                'exc_cause_explicit': getattr(exc_value, '__cause__', True),\n+            yield {\n+                'exc_cause': exc_cause,\n+                'exc_cause_explicit': exc_cause_explicit,\n                 'tb': tb,\n                 'type': 'django' if module_name.startswith('django.') else 'user',\n                 'filename': filename,\n@@ -458,17 +471,8 @@ class ExceptionReporter:\n                 'context_line': context_line,\n                 'post_context': post_context,\n                 'pre_context_lineno': pre_context_lineno + 1,\n-            })\n-\n-            # If the traceback for current exception is consumed, try the\n-            # other exception.\n-            if not tb.tb_next and exceptions:\n-                exc_value = exceptions.pop()\n-                tb = exc_value.__traceback__\n-            else:\n-                tb = tb.tb_next\n-\n-        return frames\n+            }\n+            tb = tb.tb_next\n \n \n def technical_404_response(request, exception):\n",
+  "final_repaired_diff": "diff --git a/django/views/debug.py b/django/views/debug.py\nindex 7a89f7bd15..5e1e92e3a2 100644\n--- a/django/views/debug.py\n+++ b/django/views/debug.py\n@@ -394,19 +394,19 @@ class ExceptionReporter:\n             return None, [], None, []\n         return lower_bound, pre_context, context_line, post_context\n \n-    def get_traceback_frames(self):\n-        def explicit_or_implicit_cause(exc_value):\n-            explicit = getattr(exc_value, '__cause__', None)\n-            suppress_context = getattr(exc_value, '__suppress_context__', None)\n-            implicit = getattr(exc_value, '__context__', None)\n-            return explicit or (None if suppress_context else implicit)\n+    def _get_explicit_or_implicit_cause(self, exc_value):\n+        explicit = getattr(exc_value, '__cause__', None)\n+        suppress_context = getattr(exc_value, '__suppress_context__', None)\n+        implicit = getattr(exc_value, '__context__', None)\n+        return explicit or (None if suppress_context else implicit)\n \n+    def get_traceback_frames(self):\n         # Get the exception and all its causes\n         exceptions = []\n         exc_value = self.exc_value\n         while exc_value:\n             exceptions.append(exc_value)\n-            exc_value = explicit_or_implicit_cause(exc_value)\n+            exc_value = self._get_explicit_or_implicit_cause(exc_value)\n             if exc_value in exceptions:\n                 warnings.warn(\n                     \"Cycle in the exception chain detected: exception '%s' \"\n@@ -424,6 +424,12 @@ class ExceptionReporter:\n         # In case there's just one exception, take the traceback from self.tb\n         exc_value = exceptions.pop()\n         tb = self.tb if not exceptions else exc_value.__traceback__\n+        def explicit_or_implicit_cause(exc_value):\n+            explicit = getattr(exc_value, \"__cause__\", None)\n+            implicit = getattr(exc_value, \"__context__\", None)\n+            if explicit is not None:\n+                return explicit\n+            return None if getattr(exc_value, \"__suppress_context__\", False) else implicit\n \n         while tb is not None:\n             # Support for __traceback_hide__ which is used by a few libraries\n@@ -444,9 +450,9 @@ class ExceptionReporter:\n                 pre_context = []\n                 context_line = '<source code not available>'\n                 post_context = []\n-            frames.append({\n-                'exc_cause': explicit_or_implicit_cause(exc_value),\n-                'exc_cause_explicit': getattr(exc_value, '__cause__', True),\n+            yield {\n+                'exc_cause': exc_cause,\n+                'exc_cause_explicit': exc_cause_explicit,\n                 'tb': tb,\n                 'type': 'django' if module_name.startswith('django.') else 'user',\n                 'filename': filename,\n@@ -458,17 +464,8 @@ class ExceptionReporter:\n                 'context_line': context_line,\n                 'post_context': post_context,\n                 'pre_context_lineno': pre_context_lineno + 1,\n-            })\n-\n-            # If the traceback for current exception is consumed, try the\n-            # other exception.\n-            if not tb.tb_next and exceptions:\n-                exc_value = exceptions.pop()\n-                tb = exc_value.__traceback__\n-            else:\n-                tb = tb.tb_next\n-\n-        return frames\n+            }\n+            tb = tb.tb_next\n \n \n def technical_404_response(request, exception):\n",
+  "both_miss_block": "        frames.extend(self.get_exception_traceback_frames(exc_value, tb))\n        while exceptions:\n            exc_value = exceptions.pop()\n            frames.extend(\n                self.get_exception_traceback_frames(exc_value, exc_value.__traceback__),\n            )\n        return frames\n\n    def get_exception_traceback_frames(self, exc_value, tb):\n        if exc_value.__class__.__module__ != \"builtins\":\n            return []\n        exc_cause = self._get_explicit_or_implicit_cause(exc_value)\n        exc_cause_explicit = getattr(exc_value, '__cause__', True)"
+ }
+]

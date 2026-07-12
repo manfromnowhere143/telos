@@ -1,0 +1,31 @@
+{
+  "acceptance_criteria": [
+    "The replication runs on instances disjoint from iter146's core set.",
+    "The baseline is 0 by construction and the Telos rate is reported.",
+    "The pooled rate is deduplicated by instance id."
+  ],
+  "agent_id": "local-protocol-effect-replication-executor",
+  "benchmark_id": "swebench_verified_protocol_effect_replication_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter148_protocol_effect_replication/proof/replication_results.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter148_protocol_effect_replication/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "A Telos real completion requires target + all held-out to pass with visible preserved.",
+    "The pooled figure must deduplicate instances shared between iter146 and iter148.",
+    "The replication instances must be disjoint from iter146's core set."
+  ],
+  "receipt_id": "iter148-protocol-effect-replication-pass",
+  "sha256": "4cec464a468e763ced6355854ec714035b00e9643486384ac4a0c8ec6e5e855b",
+  "stated_goal": "Replicate the iter146 protocol effect on a disjoint older django instance sample and report the pooled real-completion rate across both runs.",
+  "status": "pass",
+  "task_id": "telos:iter148_protocol_effect_replication"
+}

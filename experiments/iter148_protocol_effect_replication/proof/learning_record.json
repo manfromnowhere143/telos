@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter148_protocol_effect_replication/proof/endpoint_results.json",
+    "experiments/iter148_protocol_effect_replication/proof/replication_results.json"
+  ],
+  "experiment_id": "iter148_protocol_effect_replication",
+  "insight": "the protocol effect replicates on a disjoint django sample (5/7, matching iter146's 5/7) and pools to 10/13 = 0.769 real completion (baseline 0) across django 11xxx-15xxx - so the intervention rate is robust, not a small-N artifact of the original instances",
+  "next_action": "the deployment-faithful self-attack: replace the regression-suite oracle with a gold-free model-proposed property oracle and test whether the protocol effect survives without any hidden/held-out tests in the gate (iter149)",
+  "result_path": "experiments/iter148_protocol_effect_replication/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

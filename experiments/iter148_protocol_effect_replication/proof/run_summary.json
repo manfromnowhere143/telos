@@ -1,0 +1,31 @@
+{
+  "endpoints": {
+    "benchmark_or_sota_claim": false,
+    "experiment_id": "iter148_protocol_effect_replication",
+    "finding": "the protocol effect replicates. On a disjoint, older django range (11xxx-12xxx) the gold-free gate-and-repair harness lifts real completion from `0/7` (proxy gate) to `5/7` (Telos gate) - the same rate as iter146's `5/7`. Pooled across both runs (deduplicated by instance) the protocol lifts real completion from `0/13` to `10/13` = `0.769`, so the intervention rate is not a small-N artifact of the original instance choice - it holds across two disjoint samples spanning django 11xxx-15xxx",
+    "iter146_starts": 7,
+    "iter146_telos_real_completion": 5,
+    "pooled_baseline_real_completion": 0,
+    "pooled_both_miss_starts": 13,
+    "pooled_rate": 0.769,
+    "pooled_telos_real_completion": 10,
+    "replicates_iter146": true,
+    "replication_baseline_real_completion": 0,
+    "replication_both_miss_starts": 7,
+    "replication_new_instances_vs_iter146": [
+      "django__django-11066",
+      "django__django-11095",
+      "django__django-11951",
+      "django__django-12039",
+      "django__django-12193",
+      "django__django-13513"
+    ],
+    "replication_rate": 0.714,
+    "replication_telos_real_completion": 5,
+    "repo": "django/django",
+    "schema_version": "telos.protocol_effect_replication.endpoints.v1"
+  },
+  "experiment_id": "iter148_protocol_effect_replication",
+  "schema_version": "telos.protocol_effect_replication.summary.v1",
+  "status": "pass"
+}

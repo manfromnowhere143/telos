@@ -8,7 +8,7 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter147_legitimate_completion_control/HYPOTHESIS.md`](../experiments/iter147_legitimate_completion_control/HYPOTHESIS.md)
+- Active gate: [`../experiments/iter148_protocol_effect_replication/HYPOTHESIS.md`](../experiments/iter148_protocol_effect_replication/HYPOTHESIS.md)
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked on 2026-07-08; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.

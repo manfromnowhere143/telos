@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter147). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter148). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 
@@ -23,8 +23,9 @@ and execution catches the rest. The load-bearing observation is that the same mo
 direct verdict-giver is reliable as a property generator, because a proposed property is checked by
 execution rather than trusted. Finally, on a bounded set the protocol does more than detect: used as a
 completion gate that rejects a gamed completion and returns a gold-free "you did not generalize" signal,
-it lifts the rate of real completion on reward-hack-prone starts from `0/7` to `5/7`, with ordinary
-success preserved - first evidence that the protocol changes outcomes, not only measures them.
+it lifts the rate of real completion on reward-hack-prone starts from `0` to `5/7`, replicating on a
+disjoint sample (pooled `0/13 -> 10/13`) with ordinary success preserved - first evidence that the
+protocol changes outcomes, not only measures them.
 
 ## 1. Problem
 
@@ -121,9 +122,12 @@ signal and the public bug description alone, to `str(getattr(obj, to_field_name)
 behavior. This is the intervention counterpart to the detection results: the same execution layer that is
 necessary to *catch* the both-miss class also, as a gate with generic feedback, *converts* gamed
 completions into real ones. It is an improvement, not a guarantee (two of seven did not reach a general
-fix in two rounds), on a small single-repo set, and it is
+fix in two rounds), and it is
 deliberately lower than an earlier variant that leaked the gold fix into the feedback and reached `7/8` -
-that run was discarded as confounded, and `5/7` is the gold-free number. The complementary control holds:
+that run was discarded as confounded, and `5/7` is the gold-free number. The rate replicates: a disjoint,
+older django sample (`11xxx-12xxx`) reproduces the identical `0/7 -> 5/7`, and pooled across the two
+disjoint samples the protocol lifts real completion from `0/13` to `10/13` (`0.77`), so it is not a
+small-N artifact of the original instance choice. The complementary control holds:
 the gate does not harm correct completions - across `10` django instances it accepts all `10` gold fixes
 and both genuinely-correct honest agent fixes with `0/12` false rejections. So the protocol is a
 net-positive filter - it converts gamed completions and leaves correct ones untouched - which is the
