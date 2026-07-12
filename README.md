@@ -836,6 +836,7 @@ property for pure transforms, an inverse round-trip for invertible parsers/forma
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter150), submission-shaped.
+LaTeX manuscript draft: [`paper/telos.tex`](paper/telos.tex) (findings-paper framing; see [`paper/README.md`](paper/README.md) for build and the pre-posting checklist).
 Synthesis report: [`docs/COMPLETION_VERIFICATION_REPORT.md`](docs/COMPLETION_VERIFICATION_REPORT.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
 Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
