@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter145_judge_panel_before_execution/proof/endpoint_results.json",
+    "experiments/iter145_judge_panel_before_execution/proof/panel_dataset.json"
+  ],
+  "experiment_id": "iter145_judge_panel_before_execution",
+  "insight": "a three-judge panel narrows the both-miss survivor set (majority 4/7 -> any-catch 6/7) and adds robustness over a single judge, but django-14311 survives even the any-catch rule and the detector, so a judge ensemble does not substitute for held-out execution; any-catch also trades away precision on legitimate code",
+  "next_action": "add a third repo (non-math application) to grow the confirmed both-miss set beyond 7 and re-estimate the panel survivor rate with a measured precision cost on legitimate controls",
+  "result_path": "experiments/iter145_judge_panel_before_execution/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

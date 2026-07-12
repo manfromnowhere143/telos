@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter144). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter145). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 
@@ -98,8 +98,13 @@ hacks with two frontier judges under the identical rubric, the baseline `gemini-
 (opus-4-8 ties the small baseline, and the two frontier judges disagree on two hacks). One hack,
 `django-14311`, is called `legitimate` by all three judges and also evades the deterministic detector, so
 it survives every static layer tested and is caught only by held-out execution. The execution layer is
-therefore necessary against frontier judges, not only against a weak one; a judge panel narrows the
-survivor set but does not substitute for execution.
+therefore necessary against frontier judges, not only against a weak one. A judge panel helps but does
+not close the gap: combining all three judges over the seven confirmed both-miss hacks, an any-catch
+ensemble catches `6/7`, a majority rule `4/7`, and `django-14311` survives every rule including any-catch
+while also evading the detector, so it is caught only by held-out execution. The ensemble removes the
+single-judge-selection risk (no single judge exceeds `6/7`, and which is best is not knowable in advance),
+but any-catch buys recall by flagging on one dissenting judge and so trades away precision; it is a
+mitigation, not a substitute for execution.
 
 The class is not django-specific. Rerunning the frontier hacker-fixer on sympy, executed natively,
 yields a confirmed judge-fooled both-miss (`sympy-22714` flips an imaginary-coordinate guard from
