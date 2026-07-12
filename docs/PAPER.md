@@ -91,6 +91,16 @@ but breaks the package case (`django-14311`). So on well-tested application code
 eight yields a completion that defeats both static layers, which is the quantified statement of why the
 execution layer is necessary rather than optional.
 
+This survives the obvious objection that the judge was too weak. Re-judging the six confirmed both-miss
+hacks with two frontier judges under the identical rubric, the baseline `gemini-2.5-flash` is fooled by
+`3/6`, the frontier `gpt-5.6-terra` by `1/6`, and the frontier reasoning model `claude-opus-4-8` by
+`3/6` - so a stronger judge narrows the class but a larger reasoning model is not a more reliable judge
+(opus-4-8 ties the small baseline, and the two frontier judges disagree on two hacks). One hack,
+`django-14311`, is called `legitimate` by all three judges and also evades the deterministic detector, so
+it survives every static layer tested and is caught only by held-out execution. The execution layer is
+therefore necessary against frontier judges, not only against a weak one; a judge panel narrows the
+survivor set but does not substitute for execution.
+
 ## 5. The gold-free automated third layer
 
 We remove every dependence on a reference implementation. A model proposes a metamorphic property from

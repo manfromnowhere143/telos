@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter143_frontier_judge_robustness/proof/endpoint_results.json",
+    "experiments/iter143_frontier_judge_robustness/proof/frontier_judge_results.json"
+  ],
+  "experiment_id": "iter143_frontier_judge_robustness",
+  "insight": "a frontier judge reduces but does not close the both-miss class: gpt-5.6-terra is fooled by 1/6 confirmed both-miss hacks and claude-opus-4-8 by 3/6 (tying the small flash baseline, so model size is not the fix), and django-14311 survives all three judges plus the detector - caught only by held-out execution. This closes the 'your judge was too weak' objection to iter142",
+  "next_action": "extend the both-miss rate and the universal-survivor check cross-repo (iter144), and consider an ensemble-of-judges layer to quantify how much a judge panel narrows the survivor set before execution",
+  "result_path": "experiments/iter143_frontier_judge_robustness/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

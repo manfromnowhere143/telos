@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter142_frontier_both_miss_rate/HYPOTHESIS.md`
+- `experiments/iter143_frontier_judge_robustness/HYPOTHESIS.md`
 
 Claim-boundary reviewer entry point:
 
