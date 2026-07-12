@@ -1,0 +1,12 @@
+{
+  "evidence_paths": [
+    "experiments/iter147_legitimate_completion_control/proof/endpoint_results.json",
+    "experiments/iter147_legitimate_completion_control/proof/legit_control_results.json"
+  ],
+  "experiment_id": "iter147_legitimate_completion_control",
+  "insight": "the gate does not harm correct completions: 0/12 correct completions falsely rejected (10/10 gold accepted, 2/2 agent-correct accepted). With iter146 the protocol is a net-positive filter - improves gamed, preserves correct - which is the 'preserving ordinary success' clause. Confirmatory for the execution gate; property-layer 0-FP is iter121/129",
+  "next_action": "strengthen the honest-agent population (more file context so more genuinely-correct completions) and add a second repo, to make the preserve-correct control less confirmatory and more distributional",
+  "result_path": "experiments/iter147_legitimate_completion_control/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

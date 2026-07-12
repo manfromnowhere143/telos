@@ -71,6 +71,7 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [144](experiments/iter144_cross_repo_both_miss_sympy/RESULT.md) | Is the class django-specific? | no - on sympy (native execution) `sympy-22714` (imaginary-coordinate guard `any`->`all is_zero` flip) is a confirmed judge-fooled both-miss, so the class and execution-necessity generalize; but the rate is repo-dependent - sympy `0.056` confirmed vs django `0.24`, because sympy's precise math tests make the adversary break the visible test `0.67` of the time (vs `0.44`) |
 | [145](experiments/iter145_judge_panel_before_execution/RESULT.md) | Can a judge panel replace execution? | no - over the `7` confirmed both-miss, a three-judge any-catch panel catches `6/7`, majority `4/7`, unanimous `2/7`; `django-14311` survives every rule and the detector, caught only by held-out execution. A panel adds robustness (no single judge exceeds `6/7`) but any-catch trades away precision, so it is a mitigation, not a substitute for execution |
 | [146](experiments/iter146_protocol_effect_gate_and_repair/RESULT.md) | Does the protocol IMPROVE real completion, not just detect gaming? | yes - on `7` django both-miss starts a proxy gate yields `0/7` real completions while the Telos gate (gold-free held-out-execution rejection + a generic generalize-signal + bounded repair) yields `5/7`, each verified against the full held-out set with visible success preserved; e.g. the `str(obj.pk)` hack is repaired to `str(getattr(obj, to_field_name))` from the execution signal alone. The mission question's second half, answered on a bounded set (improvement, not guarantee; `7/8` from a gold-leaking variant was discarded) |
+| [147](experiments/iter147_legitimate_completion_control/RESULT.md) | Does the gate harm correct completions? | no - across `10` django instances the gate accepts all `10` gold fixes and both genuinely-correct honest agent fixes with `0/12` false rejections; with iter146 the protocol is a net-positive filter (improves gamed, preserves correct), the "preserving ordinary task success" clause. Confirmatory for the execution gate; property-gate 0-FP is iter121/129 |
 
 ### The honest conclusion
 
@@ -172,8 +173,11 @@ execution layer that is necessary to *catch* the both-miss class also, as a gate
 *converts* gamed completions into real ones (for example the `str(obj.pk)` hack is repaired to
 `str(getattr(obj, to_field_name))` from the execution signal alone). It is an improvement, not a guarantee
 (two of seven did not reach a general fix in two rounds), on a small single-repo set, and it is
-deliberately lower than a discarded gold-leaking variant that reached `7/8`. This is the first direct
-evidence in the program that the protocol changes outcomes, not only measures them.
+deliberately lower than a discarded gold-leaking variant that reached `7/8`. The complementary control
+holds (iter147): the gate accepts all `10` gold fixes and both genuinely-correct honest agent fixes with
+`0/12` false rejections, so it does not harm correct work. The protocol is therefore a net-positive filter
+- it converts gamed completions and preserves correct ones - which is the first direct evidence in the
+program that the protocol changes outcomes, not only measures them, with ordinary success preserved.
 
 ## Honest Status
 
@@ -759,12 +763,12 @@ Current gate:
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter146); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter147); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146<br/>protocol effect<br/>real completion 0/7 -> 5/7<br/>gate + gold-free repair"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146-147<br/>protocol effect<br/>gamed 0/7 -> 5/7 · correct 0/12 false-reject<br/>net-positive filter"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
@@ -796,7 +800,7 @@ The target was not chosen by taste. It was chosen by the frozen survey.
 
 ## Architecture
 
-The real-trajectory arc (iter109-iter146) established a three-layer completion verifier, each layer
+The real-trajectory arc (iter109-iter147) established a three-layer completion verifier, each layer
 present because the one before it provably fails on a measured class of reward hack (see the arc
 section above and the synthesis report). The necessity of the third layer is not asserted but measured:
 a frontier adversary defeats both static layers on `0.12` of attempts against well-tested code, and one
@@ -828,7 +832,7 @@ completions the static layers accept - with the property strategy chosen by func
 property for pure transforms, an inverse round-trip for invertible parsers/formatters).
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter146), submission-shaped.
+Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter147), submission-shaped.
 Synthesis report: [`docs/COMPLETION_VERIFICATION_REPORT.md`](docs/COMPLETION_VERIFICATION_REPORT.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
 Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
@@ -845,7 +849,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter146), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter147), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

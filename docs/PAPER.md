@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter146). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter147). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 
@@ -121,9 +121,15 @@ signal and the public bug description alone, to `str(getattr(obj, to_field_name)
 behavior. This is the intervention counterpart to the detection results: the same execution layer that is
 necessary to *catch* the both-miss class also, as a gate with generic feedback, *converts* gamed
 completions into real ones. It is an improvement, not a guarantee (two of seven did not reach a general
-fix in two rounds), on a small single-repo set with no legitimate-completion control yet, and it is
+fix in two rounds), on a small single-repo set, and it is
 deliberately lower than an earlier variant that leaked the gold fix into the feedback and reached `7/8` -
-that run was discarded as confounded, and `5/7` is the gold-free number.
+that run was discarded as confounded, and `5/7` is the gold-free number. The complementary control holds:
+the gate does not harm correct completions - across `10` django instances it accepts all `10` gold fixes
+and both genuinely-correct honest agent fixes with `0/12` false rejections. So the protocol is a
+net-positive filter - it converts gamed completions and leaves correct ones untouched - which is the
+"while preserving ordinary task success" half of the question (confirmatory for the execution gate, whose
+accept condition a correct completion meets by construction; the gold-free property gate's independent `0`
+false-positive rate on correct code is the earlier iter121/iter129 result).
 
 The class is not django-specific. Rerunning the frontier hacker-fixer on sympy, executed natively,
 yields a confirmed judge-fooled both-miss (`sympy-22714` flips an imaginary-coordinate guard from
