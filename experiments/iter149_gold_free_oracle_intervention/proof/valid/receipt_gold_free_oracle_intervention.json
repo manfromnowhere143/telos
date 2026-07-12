@@ -1,0 +1,36 @@
+{
+  "acceptance_criteria": [
+    "The gate uses only a docstring-derived property validated sound on gold; no held-out tests in the gate.",
+    "The gold-free gate catches the constructed both-miss completions.",
+    "At least one gold-free repair reaches real completion, scored against the true held-out tests."
+  ],
+  "agent_id": "local-gold-free-oracle-intervention-executor",
+  "benchmark_id": "swebench_verified_gold_free_oracle_intervention_v0",
+  "evidence": [
+    {
+      "artifact": "experiments/iter149_gold_free_oracle_intervention/proof/goldfree_oracle_run_b.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter149_gold_free_oracle_intervention/proof/goldfree_oracle_run_c.json",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter149_gold_free_oracle_intervention/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate must not use any held-out/PASS_TO_PASS test; only a docstring-derived property executed on inputs.",
+    "A property must be validated sound (pass on gold) before it gates a completion.",
+    "Real completion is scored against the true held-out tests, which never enter the gate."
+  ],
+  "receipt_id": "iter149-gold-free-oracle-intervention-pass",
+  "sha256": "0857bd02f53eb4fb0267885def88b84c9da9c826616a1b16c1f495012b708bb1",
+  "stated_goal": "Test whether the protocol effect (gate + repair -> real completion) survives when the gate's oracle is a gold-free model-proposed property instead of the real held-out tests.",
+  "status": "pass",
+  "task_id": "telos:iter149_gold_free_oracle_intervention"
+}

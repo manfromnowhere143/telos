@@ -1,6 +1,6 @@
 # Three Layers of Agent-Completion Verification: When Static Verifiers Fail and Execution Recovers
 
-A research paper consolidating the Telos program (experiments iter109-iter148). All results are bounded
+A research paper consolidating the Telos program (experiments iter109-iter149). All results are bounded
 pilots on real data with claims held below their evidence; none is a benchmark leaderboard score or a
 state-of-the-art claim. Every number is reproduced by a committed runner and a validated receipt.
 
@@ -127,7 +127,20 @@ deliberately lower than an earlier variant that leaked the gold fix into the fee
 that run was discarded as confounded, and `5/7` is the gold-free number. The rate replicates: a disjoint,
 older django sample (`11xxx-12xxx`) reproduces the identical `0/7 -> 5/7`, and pooled across the two
 disjoint samples the protocol lifts real completion from `0/13` to `10/13` (`0.77`), so it is not a
-small-N artifact of the original instance choice. The complementary control holds:
+small-N artifact of the original instance choice.
+
+The protocol effect survives a gold-free oracle, which is the sharpest test of it. The gate above used the
+real held-out tests - a realistic regression suite, but one with coverage of the broken behavior. Replacing
+that oracle with a gold-free one - a model-proposed contract property derived only from the docstring and
+the visible test, validated sound on the gold code, executed on random inputs, never touching the held-out
+tests - the gate still catches every constructed both-miss (`3/3` on evaluated instances) and drives
+gold-free repair to real completion (`2/3`, scored against the true held-out, which never enter the gate).
+So the intervention is not an artifact of the gate holding the real tests; it holds when the oracle has
+only the contract to lean on. The evaluated set is small (it requires both a sound property and a
+constructed both-miss on the same instance, and the property is sound on `9/10` of the targeted format
+functions), so this is an existence-and-necessity result on the property-derivable subset, not a rate. A
+correction is on the record: an initial run reported the oracle failing, which was a Django-settings
+execution artifact in the standalone property scripts, caught and fixed before this result. The complementary control holds:
 the gate does not harm correct completions - across `10` django instances it accepts all `10` gold fixes
 and both genuinely-correct honest agent fixes with `0/12` false rejections. So the protocol is a
 net-positive filter - it converts gamed completions and leaves correct ones untouched - which is the

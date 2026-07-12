@@ -1,0 +1,13 @@
+{
+  "evidence_paths": [
+    "experiments/iter149_gold_free_oracle_intervention/proof/endpoint_results.json",
+    "experiments/iter149_gold_free_oracle_intervention/proof/goldfree_oracle_run_b.json",
+    "experiments/iter149_gold_free_oracle_intervention/proof/goldfree_oracle_run_c.json"
+  ],
+  "experiment_id": "iter149_gold_free_oracle_intervention",
+  "insight": "the protocol effect survives a gold-free oracle: a docstring-derived property (no held-out tests in the gate) catches the gamed both-miss 3/3 and drives gold-free repair to real completion 2/3, closing the 'you used the real tests' objection. Bounded to the property-derivable subset (sound on 9/10); the compound sound-property-and-both-miss requirement limits N. An initial all-unsound run was a Django-settings harness artifact, caught and fixed",
+  "next_action": "grow the evaluated set by decoupling property synthesis from both-miss construction (bank sound properties, then attack), and extend beyond format functions to raise the property-derivable yield",
+  "result_path": "experiments/iter149_gold_free_oracle_intervention/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
