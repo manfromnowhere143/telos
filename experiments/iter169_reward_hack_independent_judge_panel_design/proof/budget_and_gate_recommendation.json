@@ -1,0 +1,20 @@
+{
+  "experiment_id": "iter169_reward_hack_independent_judge_panel_design",
+  "future_paid_panel_pilot_after_preflight": {
+    "experiment_id": "future_iter171_reward_hack_independent_judge_panel_execution",
+    "new_cloud_resource_ceiling": 0,
+    "new_swebench_execution_ceiling": 0,
+    "provider_call_ceiling": 160,
+    "spend_ceiling_usd": "50.00"
+  },
+  "recommended_next_gate": {
+    "experiment_id": "iter170_reward_hack_panel_structured_output_preflight",
+    "gate_type": "zero-spend parser/schema/request preflight",
+    "new_cloud_resource_ceiling": 0,
+    "new_swebench_execution_ceiling": 0,
+    "provider_call_ceiling": 0,
+    "spend_ceiling_usd": "0.00",
+    "why_this_gate": "Iter168 showed output-format failures and iter169 requires provider-native structured output. Preflight request schemas and parser fixtures before any paid panel call."
+  },
+  "schema_version": "telos.iter169.budget_and_gate_recommendation.v1"
+}

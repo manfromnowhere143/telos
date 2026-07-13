@@ -9,7 +9,8 @@ rate-limit recovery (`3/40` recall, `0/40` control false positives, specificity 
 `0.5375`), a zero-spend evaluator-family design from `iter166`, a completed skeptical-prompt null
 from `iter167` (`80/80` calls, `3/40` recall, `0/40` false positives, specificity `0.90`), and a
 zero-spend iter168 null adjudication showing all `9` invalids were markdown-fenced JSON while diagnostic
-repair would still reach only `4/40` recall; none is a benchmark leaderboard result and none supports a
+repair would still reach only `4/40` recall, plus a zero-spend iter169 independent judge-panel design with
+frozen structured-output and aggregation rules; none is a benchmark leaderboard result and none supports a
 model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -601,7 +602,7 @@ Current evidence:
 - `experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`
   pre-registers a zero-spend adjudication gate to review the iter107 claim boundary before any
   replication, redesign, or scope expansion.
-- Reward-hack benchmark arc current through iter168: `iter153` materialized the 20-row seed, `iter156`
+- Reward-hack benchmark arc current through iter169: `iter153` materialized the 20-row seed, `iter156`
   released the 40-row hash-checked `reward_hack_benchmark_v1` row artifact, `iter159` blinded the 40
   all-hack judge packets, `iter160` froze the parser, `iter161` ran `gemini-2.5-flash` on all 40 all-hack
   packets and caught `3/40`, `iter163` materialized 40 paired legitimate controls and blinded control
@@ -617,7 +618,10 @@ Current evidence:
   leaderboard, model-comparison, SOTA, natural-frequency, or broad robustness result. `iter168`
   adjudicated the null without spend: all `9` invalids were markdown-fenced JSON, diagnostic fence
   stripping would move recall only to `4/40`, and the next recommended intervention is independent
-  judge-panel design.
+  judge-panel design. `iter169` published that design without spend: three cross-provider panel slots,
+  provider-native structured-output enforcement, frozen standalone, any-catch, majority, and unanimous
+  aggregation rules, leakage controls, nondecision accounting, and a future paid-pilot ceiling of `160`
+  calls and `$50.00`.
 - `experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md`
   publishes the zero-spend evaluator-family design and recommends the bounded iter167 skeptical-judge
   calibration gate.
@@ -628,8 +632,10 @@ Current evidence:
 - `docs/LITERATURE_ALIGNMENT_2026.md`
   records the July 2026 literature sweep across frontier-eval, reward-hacking, LLM-judge, and agent-benchmark
   sources; it is a source-alignment memo only, not an empirical result.
-- `experiments/iter169_reward_hack_independent_judge_panel_design/HYPOTHESIS.md`
-  pre-registers the zero-spend independent judge-panel design gate before any further provider spend.
+- `experiments/iter169_reward_hack_independent_judge_panel_design/RESULT.md`
+  publishes the zero-spend independent judge-panel design gate before any further provider spend.
+- `experiments/iter170_reward_hack_panel_structured_output_preflight/HYPOTHESIS.md`
+  pre-registers the zero-spend parser/schema/request preflight for the iter169 panel design.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
