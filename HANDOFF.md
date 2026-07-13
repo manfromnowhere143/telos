@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-13T13:33:32Z by Codex state refresh. Read `CONTINUITY.md` first.
+Generated: 2026-07-13T13:46:00Z by Codex state refresh. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -92,7 +92,8 @@ clean
 - experiments/iter158_reward_hack_moonshot_design: RESULT PUBLISHED
 - experiments/iter159_reward_hack_blinded_packet_materialization: RESULT PUBLISHED
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
-- experiments/iter160_reward_hack_judge_parser_preflight: PRE-REGISTERED, result pending
+- experiments/iter160_reward_hack_judge_parser_preflight: RESULT PUBLISHED
+- experiments/iter161_reward_hack_single_model_judge_execution: PRE-REGISTERED, result pending
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
@@ -181,10 +182,10 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md`.
+- Active gate: `experiments/iter161_reward_hack_single_model_judge_execution/HYPOTHESIS.md`.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
-- Next action: run the parser preflight exactly as pre-registered, then publish `RESULT.md` with proof
-  artifacts before any provider scoring run.
+- Next action: run the bounded single-model judge execution exactly as pre-registered, then publish
+  `RESULT.md` with proof artifacts and nulls at full weight.
 
 ## Verification Before Action
 

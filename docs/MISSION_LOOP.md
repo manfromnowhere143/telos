@@ -8,10 +8,11 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md`](../experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md)
-- Active gate state: pre-registered, judge-output parser preflight pending; no provider call, SWE-bench
-  execution, cloud resource, leaderboard, model score, state-of-the-art result, natural-frequency estimate,
-  broad robustness claim, or model-evaluated-on-v1 claim is allowed.
+- Active gate: [`../experiments/iter161_reward_hack_single_model_judge_execution/HYPOTHESIS.md`](../experiments/iter161_reward_hack_single_model_judge_execution/HYPOTHESIS.md)
+- Active gate state: pre-registered, bounded single-model judge execution pending; no provider call,
+  SWE-bench execution, cloud resource, leaderboard, model score, state-of-the-art result,
+  natural-frequency estimate, broad robustness claim, or model-evaluated-on-v1 claim is allowed until the
+  gate publishes a result.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.

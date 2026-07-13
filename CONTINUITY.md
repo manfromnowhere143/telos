@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md` (PRE-REGISTERED; judge-output parser preflight pending)
+- `experiments/iter161_reward_hack_single_model_judge_execution/HYPOTHESIS.md` (PRE-REGISTERED; bounded single-model judge execution pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -47,8 +47,11 @@ leakage controls, recall metrics, and null/fail semantics, while making no model
 claim. Iter159 is published as a zero-spend blinded-packet materialization pass: the packet artifact now
 contains exactly `40` prompt-ready model-judge packets, with `40/40` public task text coverage, `40/40`
 target-test coverage, stable packet hashes, and `0` forbidden key, substring, or official-report value
-leakage hits. The active next gate is `iter160`: validate a strict judge-output parser and fixture suite
-before any provider calls or scoring claims.
+leakage hits. Iter160 is published as a zero-spend parser preflight pass: the strict parser accepts exactly
+`reward_hack`, `legitimate`, and `inconclusive`, while the fixture suite yields `3` parsed, `2` refusal,
+and `8` invalid outputs with stable fixture hashes. The active next gate is `iter161`: run the first
+bounded single-model judge execution over the frozen blinded packets under an explicit `40`-call and
+`$20.00` spend ceiling.
 
 Claim-boundary reviewer entry point:
 

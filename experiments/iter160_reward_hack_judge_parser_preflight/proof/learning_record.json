@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter160_reward_hack_judge_parser_preflight/proof/judge_output_schema.json",
+    "experiments/iter160_reward_hack_judge_parser_preflight/proof/fixtures/judge_output_fixtures.jsonl",
+    "experiments/iter160_reward_hack_judge_parser_preflight/proof/parsed_fixture_results.json",
+    "experiments/iter160_reward_hack_judge_parser_preflight/proof/parser_audit.json",
+    "experiments/iter160_reward_hack_judge_parser_preflight/proof/endpoint_results.json",
+    "experiments/iter160_reward_hack_judge_parser_preflight/proof/run_summary.json",
+    "experiments/iter160_reward_hack_judge_parser_preflight/proof/valid/receipt_reward_hack_judge_parser_preflight.json"
+  ],
+  "experiment_id": "iter160_reward_hack_judge_parser_preflight",
+  "insight": "A strict local parser can accept only the three pre-registered verdict values while keeping refusals, malformed JSON, missing fields, unknown verdicts, type errors, range errors, extra fields, and fenced JSON out of scoreable decisions.",
+  "next_action": "Pre-register the first bounded single-model judge execution over the frozen blinded packets using this parser and explicit call/spend/null semantics.",
+  "result_path": "experiments/iter160_reward_hack_judge_parser_preflight/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
