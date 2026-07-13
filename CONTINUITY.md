@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter168_reward_hack_skeptical_judge_null_adjudication/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend iter167 null adjudication pending)
+- `experiments/iter169_reward_hack_independent_judge_panel_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend independent judge-panel design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -73,8 +73,10 @@ next gate was `iter167`: run the paired skeptical-judge calibration to test whet
 without burning the paired-control boundary. Iter167 is published as a completed null: `80/80` provider
 calls succeeded, cost guard `$1.559880`, prompt leakage hits `0`, response secret hits `0`, false
 positives `0/40`, specificity `0.90`, but recall stayed `3/40`, hack invalids were `5/40`, hack
-nondecision rate `0.125`, and balanced detection `0.4875`. The active next gate is `iter168`: zero-spend
-adjudication of the iter167 null and malformed-output pattern before any further provider spend.
+nondecision rate `0.125`, and balanced detection `0.4875`. Iter168 is published as a zero-spend
+adjudication pass: all `9` invalid outputs were markdown-fenced JSON, diagnostic-only fence stripping
+would move recall only to `4/40`, and the recommended next intervention is independent judge-panel design.
+The active next gate is `iter169`: zero-spend panel design before any further provider spend.
 
 Claim-boundary reviewer entry point:
 

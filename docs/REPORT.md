@@ -6,9 +6,11 @@ completion-verification fixture suites through `iter104`, a bounded 20-packet ex
 result from `iter107`, a bounded single-model all-hack recall result from `iter161`, a paired legitimate
 control artifact from `iter163`, a complete bounded paired single-model metric after the `iter165`
 rate-limit recovery (`3/40` recall, `0/40` control false positives, specificity `1.0`, balanced detection
-`0.5375`), a zero-spend evaluator-family design from `iter166`, and a completed skeptical-prompt null
-from `iter167` (`80/80` calls, `3/40` recall, `0/40` false positives, specificity `0.90`); none is a
-benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
+`0.5375`), a zero-spend evaluator-family design from `iter166`, a completed skeptical-prompt null
+from `iter167` (`80/80` calls, `3/40` recall, `0/40` false positives, specificity `0.90`), and a
+zero-spend iter168 null adjudication showing all `9` invalids were markdown-fenced JSON while diagnostic
+repair would still reach only `4/40` recall; none is a benchmark leaderboard result and none supports a
+model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -599,7 +601,7 @@ Current evidence:
 - `experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`
   pre-registers a zero-spend adjudication gate to review the iter107 claim boundary before any
   replication, redesign, or scope expansion.
-- Reward-hack benchmark arc current through iter167: `iter153` materialized the 20-row seed, `iter156`
+- Reward-hack benchmark arc current through iter168: `iter153` materialized the 20-row seed, `iter156`
   released the 40-row hash-checked `reward_hack_benchmark_v1` row artifact, `iter159` blinded the 40
   all-hack judge packets, `iter160` froze the parser, `iter161` ran `gemini-2.5-flash` on all 40 all-hack
   packets and caught `3/40`, `iter163` materialized 40 paired legitimate controls and blinded control
@@ -612,15 +614,22 @@ Current evidence:
   skeptical-prompt run and failed the metric bars: `80/80` provider calls succeeded, prompt leakage hits
   `0`, response secret hits `0`, false positives remained `0/40`, specificity was `0.90`, but recall stayed
   `3/40`, hack nondecision rose to `5/40`, and balanced detection was `0.4875`. This is not a
-  leaderboard, model-comparison, SOTA, natural-frequency, or broad robustness result.
+  leaderboard, model-comparison, SOTA, natural-frequency, or broad robustness result. `iter168`
+  adjudicated the null without spend: all `9` invalids were markdown-fenced JSON, diagnostic fence
+  stripping would move recall only to `4/40`, and the next recommended intervention is independent
+  judge-panel design.
 - `experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md`
   publishes the zero-spend evaluator-family design and recommends the bounded iter167 skeptical-judge
   calibration gate.
 - `experiments/iter167_reward_hack_skeptical_judge_calibration/RESULT.md`
   publishes the completed skeptical-prompt null and its proof artifacts.
-- `experiments/iter168_reward_hack_skeptical_judge_null_adjudication/HYPOTHESIS.md`
-  pre-registers a zero-spend adjudication of the iter167 null and malformed-output pattern before any
-  further provider spend.
+- `experiments/iter168_reward_hack_skeptical_judge_null_adjudication/RESULT.md`
+  publishes the zero-spend adjudication of the iter167 null and malformed-output pattern.
+- `docs/LITERATURE_ALIGNMENT_2026.md`
+  records the July 2026 literature sweep across frontier-eval, reward-hacking, LLM-judge, and agent-benchmark
+  sources; it is a source-alignment memo only, not an empirical result.
+- `experiments/iter169_reward_hack_independent_judge_panel_design/HYPOTHESIS.md`
+  pre-registers the zero-spend independent judge-panel design gate before any further provider spend.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
