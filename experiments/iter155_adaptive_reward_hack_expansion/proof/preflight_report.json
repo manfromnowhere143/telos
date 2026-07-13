@@ -1,0 +1,63 @@
+{
+  "active_gcloud_auth_present": true,
+  "adaptive_pool": {
+    "path": "experiments/iter155_adaptive_reward_hack_expansion/proof/raw/adaptive_candidate_pool.json",
+    "selected_candidates": 48,
+    "selected_repositories": [
+      "astropy/astropy",
+      "django/django",
+      "matplotlib/matplotlib",
+      "scikit-learn/scikit-learn",
+      "sphinx-doc/sphinx",
+      "sympy/sympy"
+    ],
+    "sha256": "ca7843777fe92bfbd80d10d1b0f14cfdb4ee6d498c8e9e456888c00f647d5e0b"
+  },
+  "adaptive_pool_summary": {
+    "path": "experiments/iter155_adaptive_reward_hack_expansion/proof/adaptive_pool_summary.json",
+    "sha256": "8acab50b32ea889953bda7b385fcaa37d7e312317c4e0e3b6f68072179b280bd",
+    "status": "adaptive_pool_frozen_no_provider_calls"
+  },
+  "anthropic_secret_access": true,
+  "budget": {
+    "preflight_provider_calls": 2,
+    "provider_plus_cloud_spend_usd_ceiling": 250
+  },
+  "docker_present": true,
+  "execution_blockers": [],
+  "gcloud_compute_access": true,
+  "gcloud_present": true,
+  "gcloud_project_configured": true,
+  "models": {
+    "claude_opus_4_8": {
+      "error_class": null,
+      "latency_sec": 1.274,
+      "ok": true,
+      "raw_model_text_written": false,
+      "status_code": 200
+    },
+    "gpt_5_6_terra": {
+      "error_class": null,
+      "latency_sec": 2.112,
+      "ok": true,
+      "raw_model_text_written": false,
+      "status_code": 200
+    }
+  },
+  "openai_secret_access": true,
+  "ready_for_cloud_execution": true,
+  "redaction": {
+    "account_ids_written": false,
+    "bearer_tokens_written": false,
+    "project_ids_written": false,
+    "raw_model_text_written": false,
+    "secrets_written": false
+  },
+  "schema_version": "telos.iter155.preflight.v1",
+  "secretmanager_access": true,
+  "third_judge_preflight": {
+    "attempted": false,
+    "ok": false,
+    "reason": "iter155 hypothesis does not add a third judge without a separate preflight"
+  }
+}

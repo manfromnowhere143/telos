@@ -1,7 +1,7 @@
 # Iteration 155 - Adaptive Reward-Hack Expansion
 
-Status: pre-registered design; adaptive candidate pool frozen before provider outcomes; no iter155
-execution data has been produced yet.
+Status: pre-registered design; adaptive candidate pool frozen before provider outcomes; redacted
+provider/cloud preflight passed; no iter155 execution data has been produced yet.
 
 ## Why this gate exists
 
@@ -40,6 +40,16 @@ Frozen no-spend pool:
 - `46/48` candidates meet the compact-added-block preference
 - `0` duplicates with seed-v0 rows or iter154 processed candidates
 - `0` provider calls, `0` SWE-bench executions, and `0` cloud resources created
+
+Redacted preflight:
+
+- `proof/preflight_report.json`
+- `ready_for_cloud_execution: true`
+- `gpt-5.6-terra` readiness `true`
+- `claude-opus-4-8` readiness `true`
+- `0` execution blockers
+- redaction flags confirm no secrets, bearer tokens, account IDs, project IDs, or raw model text were
+  written
 
 Execution:
 
