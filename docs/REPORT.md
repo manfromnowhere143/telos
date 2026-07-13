@@ -11,9 +11,10 @@ from `iter167` (`80/80` calls, `3/40` recall, `0/40` false positives, specificit
 zero-spend iter168 null adjudication showing all `9` invalids were markdown-fenced JSON while diagnostic
 repair would still reach only `4/40` recall, plus a zero-spend iter169 independent judge-panel design with
 frozen structured-output and aggregation rules, and a zero-spend iter170 structured-output/request preflight
-that keeps paid execution blocked pending exact bindings, plus a zero-spend iter171 binding freeze that
-keeps the panel blocked while freezing `majority_catch` and a bounded `20`-pair pilot plan; none is a
-benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
+that keeps paid execution blocked pending exact bindings, a zero-spend iter171 binding freeze that keeps
+the panel blocked while freezing `majority_catch` and a bounded `20`-pair pilot plan, and a zero-spend
+iter172 operator-binding recovery packet showing no operator choices were supplied; none is a benchmark
+leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -630,7 +631,9 @@ Current evidence:
   `requires_operator_input`, the primary rule is `majority_catch`, generated secret hits are `0`, paid
   execution is not authorized, and a full three-slot all-packet run is recognized as `240` calls, above the
   preserved `160`-call ceiling. The bounded pilot plan is therefore `20` paired rows (`120` planned calls +
-  `40` retry reserve), still blocked pending exact operator bindings.
+  `40` retry reserve), still blocked pending exact operator bindings. `iter172` checked for a non-secret
+  operator choice packet without spend; none was supplied, all three slots remain `requires_operator_input`,
+  missing fields are explicit, generated secret hits are `0`, and paid execution remains unauthorized.
 - `experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md`
   publishes the zero-spend evaluator-family design and recommends the bounded iter167 skeptical-judge
   calibration gate.
@@ -647,8 +650,10 @@ Current evidence:
   publishes the zero-spend parser/schema/request preflight for the iter169 panel design.
 - `experiments/iter171_reward_hack_panel_model_binding_freeze/RESULT.md`
   publishes the zero-spend model/API binding freeze and blocked paid-panel readiness decision.
-- `experiments/iter172_reward_hack_panel_operator_binding_recovery/HYPOTHESIS.md`
-  pre-registers the zero-spend operator binding recovery before any paid panel call.
+- `experiments/iter172_reward_hack_panel_operator_binding_recovery/RESULT.md`
+  publishes the zero-spend operator-binding recovery packet and blocked readiness decision.
+- `experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md`
+  pre-registers the zero-spend public binding menu before any paid panel call.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

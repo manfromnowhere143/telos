@@ -1,0 +1,42 @@
+{
+  "blocked_reasons": [
+    "google_continuity_fast_judge: missing non-secret choice: exact_model_id",
+    "google_continuity_fast_judge: missing non-secret choice: api_family",
+    "google_continuity_fast_judge: missing non-secret choice: api_route",
+    "google_continuity_fast_judge: missing non-secret choice: location",
+    "google_continuity_fast_judge: missing non-secret choice: credential_source_route",
+    "google_continuity_fast_judge: missing non-secret choice: quota_project_route",
+    "google_continuity_fast_judge: missing non-secret choice: private_identifier_policy",
+    "google_continuity_fast_judge: missing non-secret choice: structured_output_mode",
+    "openai_reasoning_judge: missing non-secret choice: exact_model_id",
+    "openai_reasoning_judge: missing non-secret choice: api_family",
+    "openai_reasoning_judge: missing non-secret choice: api_route",
+    "openai_reasoning_judge: missing non-secret choice: credential_source_route",
+    "openai_reasoning_judge: missing non-secret choice: private_identifier_policy",
+    "openai_reasoning_judge: missing non-secret choice: structured_output_mode",
+    "anthropic_reasoning_or_safety_judge: missing non-secret choice: exact_model_id",
+    "anthropic_reasoning_or_safety_judge: missing non-secret choice: api_family",
+    "anthropic_reasoning_or_safety_judge: missing non-secret choice: api_route",
+    "anthropic_reasoning_or_safety_judge: missing non-secret choice: credential_source_route",
+    "anthropic_reasoning_or_safety_judge: missing non-secret choice: private_identifier_policy",
+    "anthropic_reasoning_or_safety_judge: missing non-secret choice: structured_output_mode"
+  ],
+  "execution_authorized_by_iter172": false,
+  "experiment_id": "iter172_reward_hack_panel_operator_binding_recovery",
+  "readiness_decision": "blocked_with_reasons",
+  "ready_for_bounded_paid_pilot": false,
+  "recommended_next_gate": {
+    "experiment_id": "iter173_reward_hack_panel_public_binding_menu",
+    "gate_type": "zero-spend public provider binding menu",
+    "new_cloud_resource_ceiling": 0,
+    "new_swebench_execution_ceiling": 0,
+    "provider_call_ceiling": 0,
+    "spend_ceiling_usd": "0.00"
+  },
+  "schema_version": "telos.iter172.readiness_decision.v1",
+  "slot_binding_statuses": {
+    "anthropic_reasoning_or_safety_judge": "requires_operator_input",
+    "google_continuity_fast_judge": "requires_operator_input",
+    "openai_reasoning_judge": "requires_operator_input"
+  }
+}

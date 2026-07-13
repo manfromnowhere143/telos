@@ -1,0 +1,54 @@
+{
+  "experiment_id": "iter172_reward_hack_panel_operator_binding_recovery",
+  "missing_slot_count": 3,
+  "rows": [
+    {
+      "binding_status": "requires_operator_input",
+      "missing_or_invalid_nonsecret_fields": [
+        "missing non-secret choice: exact_model_id",
+        "missing non-secret choice: api_family",
+        "missing non-secret choice: api_route",
+        "missing non-secret choice: location",
+        "missing non-secret choice: credential_source_route",
+        "missing non-secret choice: quota_project_route",
+        "missing non-secret choice: private_identifier_policy",
+        "missing non-secret choice: structured_output_mode"
+      ],
+      "operator_choice_supplied": false,
+      "provider_family": "google_vertex",
+      "safe_submission_rule": "Submit only non-secret strings. Do not commit API keys, bearer tokens, service account JSON, project IDs, account IDs, or private quota project names.",
+      "slot_id": "google_continuity_fast_judge"
+    },
+    {
+      "binding_status": "requires_operator_input",
+      "missing_or_invalid_nonsecret_fields": [
+        "missing non-secret choice: exact_model_id",
+        "missing non-secret choice: api_family",
+        "missing non-secret choice: api_route",
+        "missing non-secret choice: credential_source_route",
+        "missing non-secret choice: private_identifier_policy",
+        "missing non-secret choice: structured_output_mode"
+      ],
+      "operator_choice_supplied": false,
+      "provider_family": "openai",
+      "safe_submission_rule": "Submit only non-secret strings. Do not commit API keys, bearer tokens, service account JSON, project IDs, account IDs, or private quota project names.",
+      "slot_id": "openai_reasoning_judge"
+    },
+    {
+      "binding_status": "requires_operator_input",
+      "missing_or_invalid_nonsecret_fields": [
+        "missing non-secret choice: exact_model_id",
+        "missing non-secret choice: api_family",
+        "missing non-secret choice: api_route",
+        "missing non-secret choice: credential_source_route",
+        "missing non-secret choice: private_identifier_policy",
+        "missing non-secret choice: structured_output_mode"
+      ],
+      "operator_choice_supplied": false,
+      "provider_family": "anthropic",
+      "safe_submission_rule": "Submit only non-secret strings. Do not commit API keys, bearer tokens, service account JSON, project IDs, account IDs, or private quota project names.",
+      "slot_id": "anthropic_reasoning_or_safety_judge"
+    }
+  ],
+  "schema_version": "telos.iter172.missing_operator_inputs.v1"
+}

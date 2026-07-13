@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter172_reward_hack_panel_operator_binding_recovery/HYPOTHESIS.md`](../experiments/iter172_reward_hack_panel_operator_binding_recovery/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend operator binding recovery pending; iter161/iter165 may be
+- Active gate: [`../experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md`](../experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md)
+- Active gate state: pre-registered zero-spend public binding-menu gate pending; iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
   evaluator-family design, and iter167 may be cited only as a completed skeptical-prompt null
@@ -21,9 +21,11 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   preflight that keeps paid execution blocked pending exact bindings. Iter171 may be cited only as a
   zero-spend binding freeze and blocked readiness decision: all three panel slots require operator input,
   the primary `majority_catch` rule is frozen, generated secret hits are `0`, and the full all-packet
-  three-slot panel requires `240` calls versus the preserved `160`-call ceiling. No benchmark score,
-  leaderboard, model-comparison result, state-of-the-art result, natural-frequency estimate, or broad
-  robustness claim is allowed.
+  three-slot panel requires `240` calls versus the preserved `160`-call ceiling. Iter172 may be cited only
+  as a zero-spend operator-binding recovery packet showing no operator choices were supplied, all three
+  slots still require operator input, missing non-secret fields are explicit, and paid execution remains
+  unauthorized. No benchmark score, leaderboard, model-comparison result, state-of-the-art result,
+  natural-frequency estimate, or broad robustness claim is allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.

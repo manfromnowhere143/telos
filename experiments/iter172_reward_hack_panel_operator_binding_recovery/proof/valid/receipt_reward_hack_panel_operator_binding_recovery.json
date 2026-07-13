@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Zero provider calls, credential probes, model evaluations, SWE-bench executions, and cloud resources.",
+    "Every slot has a ready, blocked, or requires_operator_input binding status.",
+    "No committed binding artifact contains secrets, bearer tokens, project IDs, or service accounts.",
+    "The iter171 majority_catch primary aggregation rule remains frozen.",
+    "Future paid pilot remains capped at 160 provider calls and $50.00.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim is made."
+  ],
+  "agent_id": "codex-local-zero-spend-operator-binding-recovery",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter172_reward_hack_panel_operator_binding_recovery/proof/operator_binding_packet.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter172_reward_hack_panel_operator_binding_recovery/proof/missing_operator_inputs.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter172_reward_hack_panel_operator_binding_recovery/proof/choice_intake_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter172_reward_hack_panel_operator_binding_recovery/proof/secret_safety_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter172_reward_hack_panel_operator_binding_recovery/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, or model evaluation occurs.",
+    "The gate fails if a ready slot lacks exact non-secret model/API binding fields.",
+    "The gate fails if a committed artifact contains secrets or private project/account identifiers.",
+    "The gate fails if the primary aggregation rule changes after iter171.",
+    "The gate fails if a paid pilot is authorized above 160 calls or $50.00."
+  ],
+  "receipt_id": "iter172-reward-hack-panel-operator-binding-recovery-pass",
+  "sha256": "75d6f15ae08652180a0b691220790918acb9c285dfffdb6bc1a9bb97b614f872",
+  "stated_goal": "Recover or block the non-secret operator binding choices needed for the iter171 reward-hack judge panel without provider calls or credential probes.",
+  "status": "pass",
+  "task_id": "telos:iter172_reward_hack_panel_operator_binding_recovery"
+}

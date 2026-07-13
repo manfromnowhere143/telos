@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter172_reward_hack_panel_operator_binding_recovery/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend operator binding recovery pending)
+- `experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend public binding-menu gate pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -88,7 +88,12 @@ bindings. Iter171 is published as a zero-spend model/API binding freeze pass: al
 hits are `0`, and paid execution is not authorized. It also records that a full three-slot run over all
 `80` blinded packets requires `240` calls, above the preserved `160`-call ceiling, so the bounded pilot plan
 is `20` paired rows (`120` planned calls + `40` retry reserve). The active next gate is `iter172`:
-zero-spend operator binding recovery before any further provider spend.
+zero-spend operator binding recovery before any further provider spend. Iter172 is published as a
+zero-spend operator binding recovery pass: no operator choice packet was supplied, all three slots remain
+`requires_operator_input`, missing non-secret fields are explicit, generated secret hits are `0`,
+`majority_catch` and the `160`-call / `$50.00` ceiling are preserved, and paid execution is not authorized.
+The active next gate is `iter173`: build a public provider binding menu from official docs without
+credentials or model calls.
 
 Claim-boundary reviewer entry point:
 

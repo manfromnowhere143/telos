@@ -1,0 +1,126 @@
+{
+  "binding_status_counts": {
+    "blocked": 0,
+    "ready": 0,
+    "requires_operator_input": 3
+  },
+  "claim_boundary": "Operator-binding packet only; no provider was called or scored.",
+  "experiment_id": "iter172_reward_hack_panel_operator_binding_recovery",
+  "generated_at_utc": "2026-07-13T19:28:08Z",
+  "operator_choice_intake_notes": [
+    "operator_binding_choices.json was not supplied"
+  ],
+  "operator_choice_parse_failures": [],
+  "operator_choices_path": "experiments/iter172_reward_hack_panel_operator_binding_recovery/operator_binding_choices.json",
+  "operator_choices_supplied": false,
+  "paid_pilot_call_accounting": {
+    "current_call_ceiling": 160,
+    "fits_under_ceiling": true,
+    "full_all_packet_panel_fits_under_current_ceiling": false,
+    "full_three_slot_all_packet_calls_required": 240,
+    "panel_slot_count": 3,
+    "planned_calls_plus_retry_reserve": 160,
+    "planned_primary_calls": 120,
+    "retry_reserve_calls": 40,
+    "selected_packet_count_for_bounded_pilot": 40,
+    "selected_pair_count_for_bounded_pilot": 20
+  },
+  "paid_pilot_spend_ceiling_usd": "50.00",
+  "primary_aggregation_rule_id": "majority_catch",
+  "primary_rule_selected_before_outputs": true,
+  "schema_version": "telos.iter172.operator_binding_packet.v1",
+  "slot_count": 3,
+  "slot_operator_packets": [
+    {
+      "accepted_choice": null,
+      "binding_status": "requires_operator_input",
+      "frozen_structured_output_template_sha256": "6b4146780acf45a889da9295e0d01b1b197dffe7cc46a33b7205ab13ca26c554",
+      "iter171_block_reasons": [
+        "runtime Google project/quota-project route is not frozen in a committed artifact",
+        "credential source route is not frozen and was not probed by this zero-spend gate",
+        "Vertex structured-output request route still requires operator binding before spend"
+      ],
+      "missing_or_invalid_nonsecret_fields": [
+        "missing non-secret choice: exact_model_id",
+        "missing non-secret choice: api_family",
+        "missing non-secret choice: api_route",
+        "missing non-secret choice: location",
+        "missing non-secret choice: credential_source_route",
+        "missing non-secret choice: quota_project_route",
+        "missing non-secret choice: private_identifier_policy",
+        "missing non-secret choice: structured_output_mode"
+      ],
+      "operator_choice_supplied": false,
+      "provider_family": "google_vertex",
+      "required_nonsecret_fields": [
+        "exact_model_id",
+        "api_family",
+        "api_route",
+        "location",
+        "credential_source_route",
+        "quota_project_route",
+        "private_identifier_policy",
+        "structured_output_mode"
+      ],
+      "slot_id": "google_continuity_fast_judge"
+    },
+    {
+      "accepted_choice": null,
+      "binding_status": "requires_operator_input",
+      "frozen_structured_output_template_sha256": "a5f837feff2705b168bcf71e279af7a78ad660add79c7483d8a94851263f73d9",
+      "iter171_block_reasons": [
+        "exact OpenAI model id is not committed",
+        "exact OpenAI API route is not committed",
+        "runtime credential source route is not frozen in a committed artifact"
+      ],
+      "missing_or_invalid_nonsecret_fields": [
+        "missing non-secret choice: exact_model_id",
+        "missing non-secret choice: api_family",
+        "missing non-secret choice: api_route",
+        "missing non-secret choice: credential_source_route",
+        "missing non-secret choice: private_identifier_policy",
+        "missing non-secret choice: structured_output_mode"
+      ],
+      "operator_choice_supplied": false,
+      "provider_family": "openai",
+      "required_nonsecret_fields": [
+        "exact_model_id",
+        "api_family",
+        "api_route",
+        "credential_source_route",
+        "private_identifier_policy",
+        "structured_output_mode"
+      ],
+      "slot_id": "openai_reasoning_judge"
+    },
+    {
+      "accepted_choice": null,
+      "binding_status": "requires_operator_input",
+      "frozen_structured_output_template_sha256": "95fd7eb21f9ae0d5a3bdef79c4ef0d7926f6dfb08b375a9bce9a1eca6dc83ccb",
+      "iter171_block_reasons": [
+        "exact Anthropic model id is not committed",
+        "exact Anthropic structured-output API route is not committed",
+        "runtime credential source route is not frozen in a committed artifact"
+      ],
+      "missing_or_invalid_nonsecret_fields": [
+        "missing non-secret choice: exact_model_id",
+        "missing non-secret choice: api_family",
+        "missing non-secret choice: api_route",
+        "missing non-secret choice: credential_source_route",
+        "missing non-secret choice: private_identifier_policy",
+        "missing non-secret choice: structured_output_mode"
+      ],
+      "operator_choice_supplied": false,
+      "provider_family": "anthropic",
+      "required_nonsecret_fields": [
+        "exact_model_id",
+        "api_family",
+        "api_route",
+        "credential_source_route",
+        "private_identifier_policy",
+        "structured_output_mode"
+      ],
+      "slot_id": "anthropic_reasoning_or_safety_judge"
+    }
+  ]
+}
