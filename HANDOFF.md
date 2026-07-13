@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-13T12:51:46Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-13T13:04:41Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -11,7 +11,20 @@ branch: master
 Working tree:
 
 ```text
-clean
+M CONTINUITY.md
+ M README.md
+ M docs/LEARNING_ENGINE.md
+ M docs/MISSION_LOOP.md
+ M docs/PAPER.md
+ M experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md
+ M mission/loop.json
+ M paper/README.md
+ M paper/telos.pdf
+ M paper/telos.tex
+?? experiments/iter157_paper_plain_language_completion/RESULT.md
+?? experiments/iter157_paper_plain_language_completion/proof/
+?? experiments/iter158_reward_hack_moonshot_design/
+?? scripts/audit_paper_plain_language_completion.py
 ```
 
 ## Experiments
@@ -88,7 +101,8 @@ clean
 - experiments/iter154_reward_hack_benchmark_expansion_pilot: RESULT PUBLISHED
 - experiments/iter155_adaptive_reward_hack_expansion: RESULT PUBLISHED
 - experiments/iter156_reward_hack_benchmark_v1_manifest: RESULT PUBLISHED
-- experiments/iter157_paper_plain_language_completion: PRE-REGISTERED, result pending
+- experiments/iter157_paper_plain_language_completion: RESULT PUBLISHED
+- experiments/iter158_reward_hack_moonshot_design: PRE-REGISTERED, result pending
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED
@@ -178,7 +192,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md`.
+- Active gate: `experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md`.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.

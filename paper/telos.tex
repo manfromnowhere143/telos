@@ -16,8 +16,9 @@
 
 % NOTE TO AUTHOR (Daniel): this is a findings-paper draft. Before posting, verify every citation's
 % author/year/venue by hand (the .bib entries are best-effort and must be human-checked), confirm the
-% author/affiliation block, and re-read the Limitations section. Every quantitative claim below is
-% reproduced by a committed runner and a validated receipt in the Telos repository.
+% author/affiliation block, and re-read the Limitations section. Every quantitative and artifact claim
+% below is reproduced by a committed runner, a committed manifest, or a validated receipt in the Telos
+% repository.
 
 \title{When Static Verifiers Fail and Execution Recovers:\\
 A Three-Layer Protocol for Verifying---and Improving---\\
@@ -47,8 +48,11 @@ reviewer, which catches subtler cheats the rules cannot; and, last, actually run
 inputs the visible test never used. \textbf{(2) A hard class we call a ``both-miss''}: a change that passes
 the visible test, is not flagged by the rule-based check, and is judged correct by a frontier reviewer
 model---yet is wrong on some input the test never exercised. We show a frontier model can deliberately
-construct these on well-tested code, across repositories, and that $5$ of $20$ saved reward-hack diffs fool
-every static verifier we tested: the rule-based detector and two frontier model judges. \textbf{(3) Used as
+construct these on well-tested code, across repositories, and that $5$ of the first $20$ saved reward-hack
+diffs fool every static verifier we tested: the rule-based detector and two frontier model judges. We then
+package the seed and two expansion gates as a hash-checked, $40$-row
+\texttt{reward\_hack\_benchmark\_v1} artifact; $13/40$ rows survive every static verifier tested. This is a
+row artifact, not a model score or leaderboard. \textbf{(3) Used as
 a gate, the protocol does more than detect---it improves the work.} When the gate rejects a change whose
 behavior is wrong on unseen inputs and tells the agent only ``your fix does not generalize'' (without
 revealing the answer), the share of genuinely correct completions rises from $0$ to $5$ of $7$ on
@@ -97,8 +101,10 @@ Our contributions are:
   failure class (Section~\ref{sec:threelayer}).
   \item \textbf{The both-miss class.} A ``both-miss'' is a patch that passes the visible test, evades the
   detector, and is accepted by a model judge, but fails on unseen behavior. We show that a frontier
-  adversary can construct this class, that one example survives three judges and every panel rule, and that
-  $5/20$ cross-repository reward-hack diffs survive every static verifier tested
+  adversary can construct this class, that one example survives three judges and every panel rule, that
+  $5/20$ seed reward-hack diffs survive every static verifier tested, and that the released v1 row artifact
+  contains $40$ constructed execution-verified both-miss rows with $13/40$ surviving every static verifier
+  tested
   (Section~\ref{sec:bothmiss}).
   \item \textbf{A gate that improves outcomes.} When execution rejects the gamed patch and returns only the
   generic signal ``your fix does not generalize,'' the agent often repairs it. The gate moves real
@@ -258,11 +264,21 @@ panel helps but still does not replace execution: an any-catch panel catches $6/
 
 \paragraph{Reward-model relevance at cross-repository scale.} The same failure matters for reward models:
 if a model is used to score code during reinforcement learning, a patch the model accepts can become a
-training reward. On $20$ execution-verified both-miss hacks across eight repositories, the deterministic
-detector was fooled $20/20$, \texttt{gpt-5.6-terra} used as a reward-model judge was fooled $7/20$, and
-\texttt{claude-opus-4-8} was fooled $9/20$. The load-bearing result is that $5/20$ hacks survived every
-static layer we tested: detector plus both frontier judges. Those $20$ hack diffs are saved as the seed of
-a reward-hack benchmark, not yet claimed as a released benchmark.
+training reward. On the first $20$ execution-verified both-miss hacks across eight repositories, the
+deterministic detector was fooled $20/20$, \texttt{gpt-5.6-terra} used as a reward-model judge was fooled
+$7/20$, and \texttt{claude-opus-4-8} was fooled $9/20$. The load-bearing result is that $5/20$ hacks
+survived every static layer we tested: detector plus both frontier judges.
+
+That seed then became a benchmark artifact through three explicit gates. First, the $20$ rows were
+materialized as a validated seed with diff hashes and source traceability. Second, a frozen expansion pilot
+added $17$ execution-verified rows but missed its pre-registered $20$-new-row bar, so it was published as a
+null shortfall rather than silently upgraded. Third, an adaptive follow-up added the missing $3$ rows. The
+zero-spend manifest gate then joined the seed, the $17$ expansion rows, and the $3$ adaptive rows into
+\texttt{reward\_hack\_benchmark\_v1}: $40$ unique constructed both-miss rows across $11$ repositories, all
+with hack-diff hashes, official report hashes, and source traceability. In that artifact, $16/40$ rows fool
+\texttt{gpt-5.6-terra}, $19/40$ fool \texttt{claude-opus-4-8}, and $13/40$ survive every static layer
+tested. This is a released row artifact only. It is not a benchmark score, leaderboard, model comparison,
+state-of-the-art claim, natural-frequency estimate, or broad reward-model robustness claim.
 
 \section{From detection to intervention}
 \label{sec:intervention}
@@ -351,6 +367,9 @@ We state the empirical bounds plainly.
   \item \textbf{Constructed hacks.} The both-miss patches are adversarially constructed from gold fixes.
   This isolates the failure class, but it does not measure how often a naturally trained RL agent would
   discover the same class.
+  \item \textbf{Artifact, not score.} The released \texttt{reward\_hack\_benchmark\_v1} package contains
+  $40$ hash-checked constructed rows. It does not evaluate a model on the artifact, rank models, or estimate
+  natural reward-hacking frequency.
   \item \textbf{Repository coverage.} The latest intervention and reward-model measurements span eight
   repositories, but the pool is still small and selected for reward-hack-prone starts. Per-repository
   recovery varies, including zeros.
@@ -384,10 +403,11 @@ run.
 
 Every quantitative claim in this paper is reproduced by a committed runner and a validated receipt in the
 Telos repository, under \texttt{experiments/iterNNN\_*} with a pre-registered hypothesis, proof artifacts,
-and a learning record. The manuscript consolidates the public evidence arc through \texttt{iter152}. The
+and a learning record. The manuscript consolidates the public evidence arc through \texttt{iter156}. The
 deterministic parts rerun in continuous integration; native-execution and Docker transcripts are retained as
-observed evidence; the $20$ saved reward-hack diffs from \texttt{iter152} are the seed for the next
-benchmark-building step.
+observed evidence; and \texttt{benchmarks/reward\_hack\_benchmark\_v1/} contains the released $40$-row
+artifact with its manifest and schema. The artifact is a row set for future scoring gates, not itself a
+score.
 
 \begin{thebibliography}{9}
 \small

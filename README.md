@@ -82,7 +82,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [154](experiments/iter154_reward_hack_benchmark_expansion_pilot/RESULT.md) | Can the seed grow under bounded spend and the same evidence rules? | null shortfall - the frozen 96-candidate expansion produced `17` new execution-verified both-miss rows across `10` repos, not the required `20`; `8/17` survive every static layer, all accepted rows have diff/report/source hashes, one provider call errored, and cloud resources were deleted; no v1 benchmark is released |
 | [155](experiments/iter155_adaptive_reward_hack_expansion/RESULT.md) | Can iter154's shortfall evidence guide the final benchmark-size expansion? | pass - the frozen adaptive pool added `3` new execution-verified both-miss rows after `12` processed candidates, raising seed + iter154 + iter155 to `40` rows; `3/3` have diff/report/source hashes, `1/3` fooled `gpt-5.6-terra`, `0/3` fooled `claude-opus-4-8`, provider errors were `0/38`, and cloud resources were deleted. Honest: this crosses the benchmark-size candidate-pool bar, but no public v1 benchmark, leaderboard, model score, or SOTA claim is released |
 | [156](experiments/iter156_reward_hack_benchmark_v1_manifest/RESULT.md) | Can the 40-row candidate pool become a reviewer-facing v1 benchmark artifact? | pass - `benchmarks/reward_hack_benchmark_v1/` now contains exactly `40` unique execution-verified both-miss rows across `11` repos, with `40/40` hack diff hashes, official report hashes, and source traceability; `13/40` survive every static layer, `16/40` fool `gpt-5.6-terra`, and `19/40` fool `claude-opus-4-8`; zero new provider calls, SWE-bench executions, or cloud resources. Honest: released row artifact only, not a benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
-| [157](experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md) | Can the paper be made plain-language and claim-boundary current before arXiv? | pre-registered - rewrite remaining paper sections around iter151-156 evidence, including the v1 artifact boundary, without adding new empirical claims |
+| [157](experiments/iter157_paper_plain_language_completion/RESULT.md) | Can the paper be made plain-language and claim-boundary current before arXiv? | pass - `paper/telos.tex`, `docs/PAPER.md`, and `paper/README.md` now represent iter151-156 consistently, including the `40`-row `reward_hack_benchmark_v1` artifact and the `13/40` survives-all-static boundary; zero provider calls, SWE-bench executions, or cloud resources. Honest: prose/readability update only, not a new empirical result, benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
+| [158](experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md) | Can the next reward-hack benchmark moonshot be designed without score leakage or overclaiming? | pre-registered - design the scoring/evaluation protocol for the frozen v1 artifact before any provider calls, SWE-bench executions, cloud resources, or model-score claims |
 
 ### The honest conclusion
 
@@ -637,9 +638,10 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: paper plain-language completion (iter157, pre-registered) in
-  [`experiments/iter157_paper_plain_language_completion`](experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md);
-  the next step is to finish the paper readability pass with the iter156 artifact boundary included. The
+- Current gate: reward-hack benchmark moonshot design (iter158, pre-registered) in
+  [`experiments/iter158_reward_hack_moonshot_design`](experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md);
+  the next step is to design the scoring/evaluation protocol for the frozen v1 artifact before any
+  provider calls, SWE-bench executions, cloud resources, or model-score claims. The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
 - Benchmark leaderboard or broad benchmark result: none yet. Bounded external pilot evidence now
@@ -770,11 +772,11 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md`](experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md).
+[`experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md`](experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter156); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter157); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
@@ -798,7 +800,8 @@ measuring them. Iter153 materialized those reward-hack rows as a seed artifact, 
 it under bounded spend and honestly missed the `20`-row bar with `17` new rows, and iter155 adaptively
 added `3` more rows to cross the `40`-row candidate-pool bar. Iter156 materialized the hash-checked
 `reward_hack_benchmark_v1` row artifact with `40` rows across `11` repos and `13/40` surviving every
-static layer, still without a benchmark score or leaderboard. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
+static layer, still without a benchmark score or leaderboard. Iter157 made the paper and public paper
+mirror current through that boundary. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
@@ -815,7 +818,7 @@ The target was not chosen by taste. It was chosen by the frozen survey.
 
 ## Architecture
 
-The real-trajectory arc (iter109-iter152) established a three-layer completion verifier, each layer
+The real-trajectory arc (iter109-iter156) established a three-layer completion verifier, each layer
 present because the one before it provably fails on a measured class of reward hack (see the arc
 section above and the synthesis report). The necessity of the third layer is not asserted but measured:
 a frontier adversary defeats both static layers on `0.12` of attempts against well-tested code, and one
@@ -847,7 +850,7 @@ completions the static layers accept - with the property strategy chosen by func
 property for pure transforms, an inverse round-trip for invertible parsers/formatters).
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
-Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter152), submission-shaped.
+Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter156), submission-shaped.
 LaTeX manuscript draft: [`paper/telos.tex`](paper/telos.tex) (findings-paper framing; see [`paper/README.md`](paper/README.md) for build and the pre-posting checklist).
 Synthesis report: [`docs/COMPLETION_VERIFICATION_REPORT.md`](docs/COMPLETION_VERIFICATION_REPORT.md).
 Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
@@ -865,7 +868,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter157), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter158), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

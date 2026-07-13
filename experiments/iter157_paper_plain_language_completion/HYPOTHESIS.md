@@ -1,6 +1,6 @@
 # Iteration 157 - Paper Plain-Language Completion
 
-Status: pre-registered design; no paper rewrite for iter157 has been applied yet.
+Status: result published; see `RESULT.md`.
 
 ## Why this gate exists
 

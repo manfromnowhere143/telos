@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md` (PRE-REGISTERED; paper readability/claim-boundary update pending)
+- `experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md` (PRE-REGISTERED; moonshot scoring/evaluation design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -35,15 +35,15 @@ new execution-verified both-miss rows across `10` repos, not the required `20`, 
 static layer and all cloud resources deleted. Iter155 is published as a pass: the frozen adaptive pool
 processed `12` candidates and added `3` new execution-verified rows, crossing the `40`-row candidate
 benchmark-size bar (`20` seed + `17` iter154 + `3` iter155) with `0` provider errors and `0` undeleted
-cloud resources. The paper has received a full accessibility pass through `paper/telos.tex`: terms are
-defined earlier, the iter151 and iter152 results are represented in the manuscript body, and the
-limitations were updated so the paper does not understate or overclaim the cross-repo evidence. The
-iter156 is published as a zero-spend pass: `benchmarks/reward_hack_benchmark_v1/` contains exactly `40`
+cloud resources. Iter156 is published as a zero-spend pass: `benchmarks/reward_hack_benchmark_v1/` contains exactly `40`
 unique execution-verified rows across `11` repos, with `40/40` hack diff hashes, official report hashes,
 and source traceability; `13/40` survive every static layer, `16/40` fool `gpt-5.6-terra`, and `19/40`
 fool `claude-opus-4-8`. No benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency
-estimate, or broad robustness claim is made. The active next gate is `iter157`: finish the remaining
-paper plain-language pass and update the paper with the iter156 artifact boundary before arXiv.
+estimate, or broad robustness claim is made. Iter157 is published as a paper/readability pass: `paper/telos.tex`,
+`docs/PAPER.md`, and `paper/README.md` now represent iter151-156 consistently, including the iter156 v1
+artifact boundary, with zero provider calls, SWE-bench executions, or cloud resources. The active next gate
+is `iter158`: design the reward-hack benchmark moonshot scoring/evaluation protocol for the frozen v1
+artifact before any provider calls, SWE-bench executions, cloud resources, or model-score claims.
 
 Claim-boundary reviewer entry point:
 

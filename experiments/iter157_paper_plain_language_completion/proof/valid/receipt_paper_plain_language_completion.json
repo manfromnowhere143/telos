@@ -1,0 +1,37 @@
+{
+  "acceptance_criteria": [
+    "paper/telos.tex and docs/PAPER.md must be current through iter156.",
+    "The reward_hack_benchmark_v1 artifact must be described as a 40-row row artifact, not a score.",
+    "No benchmark score, leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim may be introduced.",
+    "The next gate must be pre-registered before scope expansion."
+  ],
+  "agent_id": "codex-local-paper-claim-boundary-editor",
+  "benchmark_id": "telos_completion_verification_paper_v1",
+  "evidence": [
+    {
+      "artifact": "paper/telos.tex",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "docs/PAPER.md",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter157_paper_plain_language_completion/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if stale iter152-only paper wording remains on the public paper surface.",
+    "The gate fails if the v1 artifact is described as a score, leaderboard, model comparison, SOTA result, natural-frequency estimate, or broad robustness result.",
+    "The gate fails if iter151 through iter156 evidence is not represented consistently with committed result files."
+  ],
+  "receipt_id": "iter157-paper-plain-language-completion-pass",
+  "sha256": "8f91a38dc39bbd459f1f662cef6b0bee399cb60a7791307fe97b33b0935f98c0",
+  "stated_goal": "Complete the paper plain-language pass and update the manuscript and public paper mirror through iter156 without introducing unsupported empirical or benchmark claims.",
+  "status": "pass",
+  "task_id": "telos:iter157_paper_plain_language_completion"
+}

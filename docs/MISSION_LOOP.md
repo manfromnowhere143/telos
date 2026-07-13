@@ -8,9 +8,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md`](../experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md)
-- Active gate state: pre-registered, paper readability and claim-boundary update pending; no leaderboard,
-  model score, state-of-the-art result, natural-frequency estimate, or broad robustness claim is allowed.
+- Active gate: [`../experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md`](../experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md)
+- Active gate state: pre-registered, moonshot design gate pending; no provider call, SWE-bench execution,
+  cloud resource, leaderboard, model score, state-of-the-art result, natural-frequency estimate, or broad
+  robustness claim is allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.
