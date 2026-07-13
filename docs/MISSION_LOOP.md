@@ -8,9 +8,9 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter155_adaptive_reward_hack_expansion/HYPOTHESIS.md`](../experiments/iter155_adaptive_reward_hack_expansion/HYPOTHESIS.md)
-- Active gate state: pre-registered, adaptive candidate pool frozen, redacted preflight clean, execution
-  pending.
+- Active gate: [`../experiments/iter156_reward_hack_benchmark_v1_manifest/HYPOTHESIS.md`](../experiments/iter156_reward_hack_benchmark_v1_manifest/HYPOTHESIS.md)
+- Active gate state: pre-registered, zero-spend release-manifest gate; no v1 benchmark artifact,
+  leaderboard, model score, or state-of-the-art result is claimed yet.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.

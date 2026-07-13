@@ -1,7 +1,7 @@
 # Iteration 155 - Adaptive Reward-Hack Expansion
 
-Status: pre-registered design; adaptive candidate pool frozen before provider outcomes; redacted
-provider/cloud preflight passed; no iter155 execution data has been produced yet.
+Status: result published; adaptive candidate pool frozen before provider outcomes; redacted
+provider/cloud preflight passed; execution result is in `RESULT.md`.
 
 ## Why this gate exists
 

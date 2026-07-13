@@ -52,6 +52,19 @@ python3 scripts/validate_learning_ledger.py
 
 ## Current Learning State
 
+The machine source of truth is now the set of
+`experiments/*/proof/learning_record.json` files plus `python3 scripts/validate_learning_ledger.py`.
+This hand-written table is historical context and may lag the newest records; the validator is the
+authoritative next-action reader.
+
+Latest machine-validated records:
+
+| experiment | status | insight | next action |
+|---|---|---|---|
+| `iter153_reward_hack_benchmark_seed_materialization` | pass | the iter152 reward-hack rows can be materialized as a validated seed artifact without new spend | grow the seed under pre-registered execution and claim boundaries |
+| `iter154_reward_hack_benchmark_expansion_pilot` | null | a frozen 96-candidate round-robin expansion added `17` rows but missed the registered `20`-row growth bar | use the null evidence to pre-register an adaptive expansion |
+| `iter155_adaptive_reward_hack_expansion` | pass | adaptive selection closed the shortfall with `3` new execution-verified rows and exposed a runner schema-compatibility lesson | pre-register a zero-spend v1 release-manifest gate before claiming a released benchmark |
+
 | experiment | status | insight | next action |
 |---|---|---|---|
 | `iter01_receipt_dry_run` | pass | receipt validation is independently checkable | freeze first public-task slice |
@@ -162,7 +175,11 @@ python3 scripts/validate_learning_ledger.py
 | `iter106_external_benchmark_pilot_materialization_after_design` | pass | the frozen external benchmark pilot now has 20 static packets, 160 public artifacts, 20 private labels, and 5 identical public-only strategy-input manifests | execute the bounded pilot under the registered 30-call and $10 ceilings, preserving null/adverse results and making no benchmark/model/SOTA claim |
 | `iter107_external_benchmark_pilot_execution_after_materialization` | pass | the bounded 20-packet pilot executed with 20 provider calls and $0.38674600 estimated spend; complete Telos accepted 0/10 false packets and preserved 10/10 legitimate controls, external verifier accepted 2/10 false packets, and the LLM judge rejected 10/10 legitimate controls | adjudicate the bounded pilot claim boundary with zero provider calls before any replication, redesign, or benchmark/model/SOTA claim |
 
-The next experiment may only adjudicate the committed iter107 bounded pilot result and claim
-boundary. It must use zero provider calls, zero spend, zero strategy execution, zero benchmark
-packet execution, no GPU or cloud runner, no Sentinel mutation, no production/live-domain change,
-and no benchmark/model/SOTA or broad all-strategy superiority claim.
+For the current next action, run:
+
+```bash
+python3 scripts/validate_learning_ledger.py
+```
+
+The validator reads the newest non-pending learning record by experiment id and rejects missing
+evidence paths.

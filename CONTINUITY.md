@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter155_adaptive_reward_hack_expansion/HYPOTHESIS.md` (PRE-REGISTERED; adaptive pool frozen; preflight clean; execution pending)
+- `experiments/iter156_reward_hack_benchmark_v1_manifest/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend release-manifest gate; no v1 benchmark artifact released yet)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -32,14 +32,15 @@ reward models `7/20` and `9/20`, `5/20` survive every static layer), and iter153
 `benchmarks/reward_hack_seed_v0/`, 20 rows, 8 repos, 20/20 diff hashes, zero new spend) are SHIPPED.
 iter154 is published as a null shortfall: the frozen 96-candidate bounded-spend expansion produced `17`
 new execution-verified both-miss rows across `10` repos, not the required `20`, with `8/17` surviving every
-static layer and all cloud resources deleted. The paper has received a full accessibility pass through
-`paper/telos.tex`: terms are defined earlier, the iter151 and iter152 results are represented in the
-manuscript body, and the limitations were updated so the paper does not understate or overclaim the
-cross-repo evidence. The active next gate is `iter155`: the no-spend adaptive pool is frozen at `48`
-candidates across `6` repos with `0` seed/iter154 duplicates, and the redacted provider/cloud preflight is
-clean (`ready_for_cloud_execution=true`, `0` execution blockers). Next action is a bounded execution run
-from the frozen pool; pass requires at least `3` additional verified rows before any v1 benchmark-size
-claim.
+static layer and all cloud resources deleted. Iter155 is published as a pass: the frozen adaptive pool
+processed `12` candidates and added `3` new execution-verified rows, crossing the `40`-row candidate
+benchmark-size bar (`20` seed + `17` iter154 + `3` iter155) with `0` provider errors and `0` undeleted
+cloud resources. The paper has received a full accessibility pass through `paper/telos.tex`: terms are
+defined earlier, the iter151 and iter152 results are represented in the manuscript body, and the
+limitations were updated so the paper does not understate or overclaim the cross-repo evidence. The
+active next gate is `iter156`: a zero-spend v1 release-manifest gate that must hash-check and join the
+40 candidate rows before any released benchmark wording. After that manifest gate, resume the remaining
+paper plain-language pass before arXiv.
 
 Claim-boundary reviewer entry point:
 

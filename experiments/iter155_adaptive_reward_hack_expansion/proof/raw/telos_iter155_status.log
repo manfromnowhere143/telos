@@ -1,0 +1,15 @@
+systemctl status telos-iter155
+Unit telos-iter155.service could not be found.
+
+systemctl list telos units
+  UNIT LOAD ACTIVE SUB DESCRIPTION
+
+0 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.
+
+unit files
+
+process check
+19345 bash -c set -euo pipefail cd "$HOME/telos" RAW="experiments/iter155_adaptive_reward_hack_expansion/proof/raw" {   echo "systemctl status telos-iter155"   systemctl status telos-iter155 --no-pager --lines=120 || true   echo   echo "systemctl list telos units"   systemctl list-units --all "telos*" --no-pager || true   echo   echo "unit files"   ls -la /etc/systemd/system/telos* 2>/dev/null || true   echo   echo "process check"   pgrep -af "run_adaptive_reward_hack_expansion_remote|run_reward_hack_expansion_remote|swebench|run_evaluation" || true   echo   echo "docker check"   sudo docker ps --format "{{.ID}} {{.Image}} {{.Status}}" || true } > "$RAW/telos_iter155_status.log" 2>&1 sha256sum "$RAW/telos_iter155_status.log" wc -c "$RAW/telos_iter155_status.log"
+
+docker check
