@@ -1,0 +1,19 @@
+{
+  "evidence_paths": [
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/audit_report.json",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/endpoint_results.json",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/run_summary.json",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/expansion_results.json",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/expansion_rows.jsonl",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/swebench_logs_v4.tgz",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/cloud_lifecycle.json",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/valid/receipt_reward_hack_benchmark_expansion_pilot.json"
+  ],
+  "experiment_id": "iter154_reward_hack_benchmark_expansion_pilot",
+  "insight": "A frozen 96-candidate round-robin expansion grew the seed by 17 execution-verified both-miss rows across 10 repositories, including 8 rows that survive the deterministic detector and both frontier judges, but it missed the registered >=20-row benchmark-growth bar.",
+  "next_action": "Pre-register iter155 as an adaptive expansion gate that uses iter154's productive strata and failure modes before any new provider or cloud work; do not release a v1 benchmark from iter154.",
+  "result_path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}
+

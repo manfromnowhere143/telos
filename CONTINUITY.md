@@ -24,19 +24,19 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter154_reward_hack_benchmark_expansion_pilot/HYPOTHESIS.md` (PRE-REGISTERED; bounded-spend expansion pilot from the validated iter153 seed)
+- `experiments/iter155_adaptive_reward_hack_expansion/HYPOTHESIS.md` (PRE-REGISTERED; adaptive follow-up to the iter154 shortfall)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
 reward models `7/20` and `9/20`, `5/20` survive every static layer), and iter153 (validated
-`benchmarks/reward_hack_seed_v0/`, 20 rows, 8 repos, 20/20 diff hashes, zero new spend) are SHIPPED. The
-paper has received a full accessibility pass through `paper/telos.tex`: terms are defined earlier, the
-iter151 and iter152 results are represented in the manuscript body, and the limitations were updated so the
-paper does not understate or overclaim the cross-repo evidence. The active next gate is `iter154`, a
-bounded-spend expansion pilot: grow the seed with at least 20 new execution-verified both-miss rows only if
-the official reports, source traceability, duplicate exclusion, spend accounting, and cloud cleanup bars are
-met. Any cloud run: provision an x86 Docker VM, add a direct-SSH firewall from the current IP UP FRONT (IAP
-tunnel is flaky), launch via `systemd-run`, and delete the VM + firewall when done.
+`benchmarks/reward_hack_seed_v0/`, 20 rows, 8 repos, 20/20 diff hashes, zero new spend) are SHIPPED.
+iter154 is published as a null shortfall: the frozen 96-candidate bounded-spend expansion produced `17`
+new execution-verified both-miss rows across `10` repos, not the required `20`, with `8/17` surviving every
+static layer and all cloud resources deleted. The paper has received a full accessibility pass through
+`paper/telos.tex`: terms are defined earlier, the iter151 and iter152 results are represented in the
+manuscript body, and the limitations were updated so the paper does not understate or overclaim the
+cross-repo evidence. The active next gate is `iter155`: adaptively target unprocessed candidates from
+iter154's eligible pool and add at least 3 verified rows before any v1 benchmark-size claim.
 
 Claim-boundary reviewer entry point:
 

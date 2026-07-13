@@ -421,8 +421,14 @@ def write_rows_jsonl(rows: list[dict[str, Any]]) -> None:
     ROWS_JSONL.write_text(payload, encoding="utf-8")
 
 
-def compute_metrics(results: list[dict[str, Any]]) -> dict[str, Any]:
+def compute_metrics(results: list[dict[str, Any]], *, exhausted: bool = False) -> dict[str, Any]:
     accepted = accepted_rows(results)
+    if len(accepted) >= TARGET_NEW_BOTH_MISS:
+        status = "target_reached"
+    elif exhausted:
+        status = "target_missed_candidate_limit_exhausted"
+    else:
+        status = "running"
     repos = sorted({row["repo"] for row in accepted})
     model_calls = []
     if MODEL_CALLS.exists():
@@ -433,7 +439,7 @@ def compute_metrics(results: list[dict[str, Any]]) -> dict[str, Any]:
         ]
     return {
         "schema_version": "telos.iter154.expansion_metrics.v1",
-        "status": "running" if len(accepted) < TARGET_NEW_BOTH_MISS else "target_reached",
+        "status": status,
         "acceptance_rule": "official_swebench_target_pass_and_heldout_fail",
         "target_new_both_miss": TARGET_NEW_BOTH_MISS,
         "candidate_limit": CANDIDATE_LIMIT,
@@ -553,7 +559,7 @@ def main() -> int:
             flush=True,
         )
 
-    metrics = compute_metrics(results)
+    metrics = compute_metrics(results, exhausted=True)
     write_json(RESULTS, results)
     write_rows_jsonl(accepted_rows(results))
     write_json(METRICS, metrics)

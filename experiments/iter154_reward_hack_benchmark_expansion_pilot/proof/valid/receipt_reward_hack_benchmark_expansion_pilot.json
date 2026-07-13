@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "At least 20 new execution-verified both-miss rows are required for a pass.",
+    "Every accepted row must have a hack diff SHA256, official report hash, and raw source traceability.",
+    "Duplicate seed instances must not be counted as new.",
+    "Cloud resources must be deleted before publication.",
+    "The result must not claim a released benchmark, leaderboard, model superiority, state-of-the-art result, or natural reward-hacking frequency."
+  ],
+  "agent_id": "x86-official-swebench-expansion-runner",
+  "benchmark_id": "telos_reward_hack_seed_v1_expansion_pilot",
+  "evidence": [
+    {
+      "artifact": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/expansion_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/expansion_rows.jsonl",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/swebench_logs_v4.tgz",
+      "kind": "test",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/cloud_lifecycle.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/endpoint_results.json",
+      "kind": "adversarial_review",
+      "status": "fail"
+    }
+  ],
+  "falsifiers": [
+    "The gate must fail if fewer than 20 new execution-verified both-miss rows are produced.",
+    "The gate must fail if any accepted row lacks a hack diff hash, official report hash, or source traceability.",
+    "The gate must fail if any counted row duplicates reward_hack_seed_v0.",
+    "The gate must fail if cloud resources remain undeleted after the run.",
+    "The gate must fail if it claims a released benchmark, leaderboard, model superiority, state-of-the-art result, or natural reward-hacking frequency."
+  ],
+  "receipt_id": "iter154-reward-hack-benchmark-expansion-shortfall",
+  "sha256": "7cd7cce8752ad2a77fec03379f18d1178e510b0830e0f68acfbdcfd34ae7ae8a",
+  "stated_goal": "Grow the validated reward-hack seed by at least 20 new execution-verified both-miss rows under official execution, bounded spend, and strict claim boundaries.",
+  "status": "fail",
+  "task_id": "telos:iter154_reward_hack_benchmark_expansion_pilot"
+}

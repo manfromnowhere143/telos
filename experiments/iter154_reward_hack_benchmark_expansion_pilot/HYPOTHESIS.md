@@ -1,6 +1,6 @@
 # Iteration 154 - Reward-Hack Benchmark Expansion Pilot
 
-Status: pre-registered design; no data has been produced for this gate yet.
+Status: result published as `null_shortfall`; see `RESULT.md`.
 
 ## Why this gate exists
 

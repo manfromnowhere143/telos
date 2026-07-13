@@ -1,0 +1,48 @@
+{
+  "bars": [
+    {
+      "name": "new_execution_verified_both_miss >= 20",
+      "observed": 17,
+      "passed": false
+    },
+    {
+      "name": "total_seed_plus_new_rows >= 40",
+      "observed": 37,
+      "passed": false
+    },
+    {
+      "name": "new_rows_with_hack_diff_sha256 == new_execution_verified_both_miss",
+      "observed": "17 == 17",
+      "passed": true
+    },
+    {
+      "name": "new_rows_with_official_report_hash == new_execution_verified_both_miss",
+      "observed": "17 == 17",
+      "passed": true
+    },
+    {
+      "name": "new_rows_traceable_to_raw_evidence == new_execution_verified_both_miss",
+      "observed": "17 == 17",
+      "passed": true
+    },
+    {
+      "name": "duplicate_seed_instances == 0",
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "undeleted_cloud_resources == 0",
+      "observed": 0,
+      "passed": true
+    }
+  ],
+  "experiment_id": "iter154_reward_hack_benchmark_expansion_pilot",
+  "notes": [
+    "The raw expansion_metrics.json status field remains 'running' because the remote runner returned exit code 2 on target shortfall after candidate exhaustion. proof/raw/remote_completion_summary.json records this as target_missed_candidate_limit_exhausted.",
+    "One provider call returned HTTP 400; no alternate provider was substituted and the error is retained in model_call_ledger.jsonl.",
+    "The cloud VM and firewall were deleted before publication."
+  ],
+  "schema_version": "telos.iter154.audit_report.v1",
+  "status": "null_shortfall"
+}
+
