@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-13T04:52:16Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-13T06:50:04Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -11,18 +11,7 @@ branch: master
 Working tree:
 
 ```text
-M CONTINUITY.md
- M HANDOFF.md
- M README.md
- M docs/MISSION_LOOP.md
- M mission/loop.json
- M paper/README.md
- M paper/telos.pdf
- M paper/telos.tex
-?? benchmarks/reward_hack_seed_v0/
-?? experiments/iter153_reward_hack_benchmark_seed_materialization/
-?? experiments/iter154_reward_hack_benchmark_expansion_pilot/
-?? scripts/run_reward_hack_benchmark_seed_materialization.py
+clean
 ```
 
 ## Experiments
