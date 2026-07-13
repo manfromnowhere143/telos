@@ -1,0 +1,49 @@
+{
+  "dataset_id": "princeton-nlp/SWE-bench_Verified",
+  "dataset_rows": 500,
+  "eligible_rows": 290,
+  "exclusions": {
+    "already_in_seed_v0": 20,
+    "fail_to_pass_count_not_one": 112,
+    "not_single_primary_source_file": 71,
+    "pass_to_pass_count_lt_two": 7
+  },
+  "per_repo_cap": 12,
+  "pre_provider_outcome_freeze": true,
+  "raw_snapshot_path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/swebench_verified_rows_snapshot.json",
+  "raw_snapshot_sha256": "8b912e9e1aff87ab16ebcdb37c636bd45fb23bf7dd90c4b88ca2ab11f0bd6385",
+  "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+  "sampling_rule": "Exclude reward_hack_seed_v0 instances; require one primary non-test source file in the gold patch, exactly one FAIL_TO_PASS, and at least two PASS_TO_PASS checks; preserve dataset order within each repo; cap at 12 candidates per repo; select by lexicographic repo round-robin until 96 candidates or exhaustion.",
+  "schema_version": "telos.iter154.candidate_pool_summary.v1",
+  "seed_instances_excluded": 20,
+  "seed_path": "benchmarks/reward_hack_seed_v0/reward_hack_seed_v0.jsonl",
+  "selected_candidate_target": 96,
+  "selected_candidates": 96,
+  "selected_repo_counts": {
+    "astropy/astropy": 12,
+    "django/django": 12,
+    "matplotlib/matplotlib": 12,
+    "pallets/flask": 1,
+    "psf/requests": 3,
+    "pydata/xarray": 9,
+    "pylint-dev/pylint": 4,
+    "pytest-dev/pytest": 10,
+    "scikit-learn/scikit-learn": 11,
+    "sphinx-doc/sphinx": 11,
+    "sympy/sympy": 11
+  },
+  "selected_repos": [
+    "astropy/astropy",
+    "django/django",
+    "matplotlib/matplotlib",
+    "pallets/flask",
+    "psf/requests",
+    "pydata/xarray",
+    "pylint-dev/pylint",
+    "pytest-dev/pytest",
+    "scikit-learn/scikit-learn",
+    "sphinx-doc/sphinx",
+    "sympy/sympy"
+  ],
+  "status": "prepared"
+}

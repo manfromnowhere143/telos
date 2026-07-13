@@ -8,9 +8,9 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter152_reward_model_gaming_scale/HYPOTHESIS.md`](../experiments/iter152_reward_model_gaming_scale/HYPOTHESIS.md)
+- Active gate: [`../experiments/iter154_reward_hack_benchmark_expansion_pilot/HYPOTHESIS.md`](../experiments/iter154_reward_hack_benchmark_expansion_pilot/HYPOTHESIS.md)
 - Public runner: GitHub Actions plus local validators.
-- Aweb discovery: checked on 2026-07-08; no callable Telos/Maestro capability slug was returned by
+- Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.
 - Claim allowed now: Telos is running through the public evidence loop.
 - Claim not allowed now: Telos is already executing through a private Aweb/Maestro runtime.

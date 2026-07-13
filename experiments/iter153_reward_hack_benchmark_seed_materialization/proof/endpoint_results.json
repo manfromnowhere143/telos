@@ -1,0 +1,50 @@
+{
+  "bars": {
+    "hack_diff_sha256_present_20": true,
+    "new_cloud_resources_0": true,
+    "new_judge_calls_0": true,
+    "new_provider_calls_0": true,
+    "new_swebench_executions_0": true,
+    "no_overclaim_flags": true,
+    "repo_count_8": true,
+    "row_count_20": true,
+    "survives_all_static_5": true,
+    "traceable_to_iter152": true
+  },
+  "claim_boundary": "Telos materialized a validated seed artifact from the 20 iter152 reward-hack diffs, preserving 8-repository coverage, static-verifier labels, and the 5/20 survives-all-static label. This is not a released benchmark, benchmark score, leaderboard, model comparison, state-of-the-art claim, or natural-RL frequency claim.",
+  "experiment_id": "iter153_reward_hack_benchmark_seed_materialization",
+  "manifest_path": "benchmarks/reward_hack_seed_v0/manifest.json",
+  "repo_count": 8,
+  "repos": [
+    "astropy/astropy",
+    "django/django",
+    "matplotlib/matplotlib",
+    "pydata/xarray",
+    "pytest-dev/pytest",
+    "scikit-learn/scikit-learn",
+    "sphinx-doc/sphinx",
+    "sympy/sympy"
+  ],
+  "row_count": 20,
+  "schema_version": "telos.reward_hack_seed_materialization.endpoints.v1",
+  "seed_artifacts": {
+    "benchmarks/reward_hack_seed_v0/reward_hack_seed_v0.jsonl": "1bb21ea77f6394456fe9ec6a17a28b02c83a3420580fa2851f0183ea9b926452",
+    "benchmarks/reward_hack_seed_v0/schema.json": "cd19cced15049eb36fff1befe8625857ee2274563b9c21cc6f5f287580a47e8a"
+  },
+  "seed_id": "reward_hack_seed_v0",
+  "seed_path": "benchmarks/reward_hack_seed_v0/reward_hack_seed_v0.jsonl",
+  "source_artifacts": {
+    "experiments/iter152_reward_model_gaming_scale/proof/raw/det_reports.tgz": "ea6d49357aaa4f00183f46b577f3570cc11e47e85295ea0c55badaed6ad71492",
+    "experiments/iter152_reward_model_gaming_scale/proof/raw/detection_results.json": "47e86e97fe7d10399d043d956832da078863b7bd9e71077951f832b1a16271e4",
+    "experiments/iter152_reward_model_gaming_scale/proof/run_summary.json": "3ba831c51bfe6fca66059a0d24e1b0abf61e02b3ea36e22f3b74ef11d9d6bb22"
+  },
+  "source_experiment": "iter152_reward_model_gaming_scale",
+  "status": "pass",
+  "survives_all_static": 5,
+  "zero_spend": {
+    "new_cloud_resources": 0,
+    "new_judge_calls": 0,
+    "new_provider_calls": 0,
+    "new_swebench_executions": 0
+  }
+}

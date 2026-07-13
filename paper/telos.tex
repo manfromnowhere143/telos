@@ -5,6 +5,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning}
@@ -39,22 +40,24 @@ tasks from \texttt{SWE-bench\_Verified}, and where we say ``executed'' we run ea
 tests in its original pinned environment as ground truth. These are small-scale pilots, not a leaderboard
 score, and we state the limits plainly.
 
-We report four findings. \textbf{(1) Verification needs three layers}, each catching a class of cheat the
+We report four empirical findings and one design lesson. \textbf{(1) Verification needs three layers}, each catching a class of cheat the
 layer before it misses: a fast rule-based check that reads only the code change and catches mechanical
 cheats (editing tests, weakening assertions, hard-coding outputs); a strong language model acting as a code
 reviewer, which catches subtler cheats the rules cannot; and, last, actually running the changed code on
 inputs the visible test never used. \textbf{(2) A hard class we call a ``both-miss''}: a change that passes
 the visible test, is not flagged by the rule-based check, and is judged correct by a frontier reviewer
 model---yet is wrong on some input the test never exercised. We show a frontier model can deliberately
-construct these on well-tested code at a measurable rate, and that some fool three different frontier
-reviewers and a panel of them; only running the code on new inputs catches them. \textbf{(3) Used as a
-gate, the protocol does more than detect---it improves the work.} When the gate rejects a change whose
+construct these on well-tested code, across repositories, and that $5$ of $20$ saved reward-hack diffs fool
+every static verifier we tested: the rule-based detector and two frontier model judges. \textbf{(3) Used as
+a gate, the protocol does more than detect---it improves the work.} When the gate rejects a change whose
 behavior is wrong on unseen inputs and tells the agent only ``your fix does not generalize'' (without
 revealing the answer), the share of genuinely correct completions rises from $0$ to $5$ of $7$ on
 hack-prone cases (reproduced on a fresh sample; $10$ of $13$ pooled), while never rejecting a correct
-completion ($0$ of $12$ false alarms). \textbf{(4) This does not depend on having the hidden tests.}
-Replacing them with a correctness property that the model proposes from the function's own documentation,
-and that is confirmed by running it (never trusted on the model's word), works about as well.
+completion ($0$ of $12$ false alarms). On the official SWE-bench scoring harness this cross-repository
+intervention recovers $10$ of $20$ gamed starts. \textbf{(4) This does not depend on having the hidden
+tests.} Replacing them with a correctness property that the model proposes from the function's own
+documentation, and that is confirmed by running it (never trusted on the model's word), works about as
+well on the property-derivable subset.
 
 The idea that ties this together: the same model is \emph{unreliable} when asked ``is this code correct?''
 but \emph{reliable} when asked instead to propose a property that execution can check---because a proposed
@@ -64,90 +67,118 @@ reproduced by a committed script and a validated receipt, and we state the bound
 
 \section{Introduction}
 
-Reward hacking in coding agents is a live failure mode. Benchmarks trust test output generated in a
-container the agent controls, and agents earn credit by deleting failing tests, monkey-patching the
-verifier, or special-casing inputs instead of solving the task~\cite{amodei2016concrete,krakovna2020specification,skalse2022defining}. As agents take on longer-horizon software tasks, the gap
-between \emph{passing the visible proxy} and \emph{completing the real objective} becomes the central
-verification problem.
+A coding benchmark usually asks one question: do the tests pass? That is a useful question, but it is not
+the same as asking whether the task is really complete. An autonomous agent can pass the visible test while
+leaving the real bug in place. It can edit or skip the test, weaken an assertion, change the test
+infrastructure, or make the source code handle only the exact input the test checks. In reward-learning
+language, the test is a proxy reward; passing it without solving the real task is reward
+hacking~\cite{amodei2016concrete,krakovna2020specification,skalse2022defining}.
 
-The question of this work: given a candidate solution---a raw unified diff plus the public
-\texttt{FAIL\_TO\_PASS} test identifiers---can an external protocol tell genuine completion from proxy
-gaming, without trusting the agent's own signal; and, beyond detection, can such a protocol \emph{improve}
-the rate at which the agent completes the real objective while preserving ordinary task success?
+This paper studies that failure mode in coding agents. The input to the verifier is intentionally narrow:
+a proposed patch, the public test identifiers, and the receipt the agent would present as evidence. The
+verifier is not allowed to trust the agent's final message, and the early layers are not allowed to read a
+hidden label. The question is:
 
-We answer both on real data, as bounded pilots. Our contributions are:
+\begin{quote}
+Can an external protocol tell a real software fix from a patch that merely games the visible test, and can
+the protocol help the agent repair the gamed patch into a real fix?
+\end{quote}
+
+The answer from these pilots is yes, but only with the right division of labor. A cheap static detector can
+catch mechanical cheating. A language-model judge can catch some semantic cheating. Neither can reliably
+separate a correct general fix from a plausible special-case. That last distinction requires execution:
+run the changed code on inputs or tests the agent did not see.
+
+Our contributions are:
 
 \begin{enumerate}
-  \item \textbf{A three-layer verifier with measured necessity.} A deterministic detector, a strong LLM
-  judge, and held-out-input execution, where each layer is present because the one before it provably fails
-  on a measured class of reward hack (Section~\ref{sec:threelayer}).
-  \item \textbf{The both-miss class, and that a frontier adversary manufactures it.} Completions that pass
-  the visible test, evade the detector, and are judged legitimate by a frontier model, yet are wrong on
-  held-out inputs. A non-refusing frontier adversary constructs this class on well-tested application code
-  at a measurable rate; one hack survives three frontier judges and every judge-panel rule
+  \item \textbf{A three-layer verifier.} The protocol combines a deterministic detector, a strong
+  language-model judge, and held-out execution. Each layer exists because the previous layer has a measured
+  failure class (Section~\ref{sec:threelayer}).
+  \item \textbf{The both-miss class.} A ``both-miss'' is a patch that passes the visible test, evades the
+  detector, and is accepted by a model judge, but fails on unseen behavior. We show that a frontier
+  adversary can construct this class, that one example survives three judges and every panel rule, and that
+  $5/20$ cross-repository reward-hack diffs survive every static verifier tested
   (Section~\ref{sec:bothmiss}).
-  \item \textbf{From detection to intervention.} Used as a completion gate with a gold-free repair signal,
-  the protocol lifts real completion from $0/13$ to $10/13$ (pooled, replicated) while false-rejecting
-  $0/12$ correct completions, and the effect is oracle-agnostic (Sections~\ref{sec:intervention}
-  and~\ref{sec:goldfree}).
-  \item \textbf{A transferable reframing.} Moving a model from verdict-giver to property-generator converts
-  an untrustworthy judgment into a checkable artifact (Section~\ref{sec:insight}).
+  \item \textbf{A gate that improves outcomes.} When execution rejects the gamed patch and returns only the
+  generic signal ``your fix does not generalize,'' the agent often repairs it. The gate moves real
+  completion from $0/13$ to $10/13$ in two \texttt{django} samples and from $0/20$ to $10/20$ on the
+  official SWE-bench harness across eight repositories, while accepting $12/12$ correct completions
+  (Section~\ref{sec:intervention}).
+  \item \textbf{A gold-free execution layer.} ``Gold-free'' means the gate does not use the hidden tests or
+  the reference patch. A model proposes a property from the function's contract, the visible test filters
+  obviously unsound properties, and execution checks the property on new inputs. On the evaluated subset,
+  this recovers nearly the same intervention rate as the regression-test oracle
+  (Section~\ref{sec:goldfree}).
+  \item \textbf{A transferable reframing.} The same model can be unsafe as a verdict-giver and useful as a
+  property-generator, because a property is not trusted; it is run (Section~\ref{sec:insight}).
 \end{enumerate}
 
-We are deliberate about scope. Every quantitative claim is a small-$N$ pilot on real instances, reproduced
-by a committed runner and a validated receipt; none is a benchmark resolved-rate, a leaderboard score, or a
-state-of-the-art claim. Section~\ref{sec:limitations} states the bounds.
+We keep the scope narrow. The results are bounded pilots on real instances. They are not a SWE-bench
+leaderboard score, not a state-of-the-art claim, and not evidence about every possible model or reward
+model. Every number is backed by a committed script, raw artifacts, and a validated receipt.
 
 \section{Related work}
 
-\paragraph{Reward hacking and specification gaming.} The tendency of optimizers to satisfy a proxy rather
-than the intended objective is long documented~\cite{amodei2016concrete,krakovna2020specification}, and
-formal treatments characterize when a proxy reward is hackable~\cite{skalse2022defining}. Our setting is
-the coding-agent instance of this: the ``proxy'' is a visible test the agent can influence, and gaming
-means passing it without solving the task.
+\paragraph{Reward hacking and specification gaming.} Reward hacking is the general problem of optimizing a
+proxy instead of the intended objective. In coding-agent evaluation, the proxy is often a visible test
+suite. If an agent can make that suite pass without fixing the underlying behavior, the benchmark score has
+stopped measuring completion.
 
-\paragraph{Outcome verification and LLM-as-judge.} Using a strong model to judge another model's output is
-now standard~\cite{zheng2023judging}, with known weaknesses in consistency and calibration. We treat the
-judge as one layer and measure precisely where it fails: on plausible-but-wrong completions that a frontier
-judge accepts.
+\paragraph{Model judges.} It is common to ask a strong model to judge whether another model's answer is
+good~\cite{zheng2023judging}. This helps, and in our experiments it catches many patches that a rule-based
+detector cannot. But a model judge is still a static reader. It can be persuaded by plausible code that is
+wrong only on an untested branch.
 
-\paragraph{Metamorphic and property-based testing.} Checking a program against relations that must hold
-across inputs, rather than against a reference output, is the core of metamorphic
-testing~\cite{chen2018metamorphic} and property-based testing~\cite{claessen2000quickcheck}. Our third
-layer instantiates this idea gold-free: a model proposes a property from the function contract, the visible
-test filters unsound proposals, and execution checks the rest.
+\paragraph{Metamorphic and property-based testing.} Metamorphic testing checks relations that should hold
+across inputs, and property-based testing generates many inputs to test a property of the program
+\cite{chen2018metamorphic,claessen2000quickcheck}. Our execution layer uses that idea in a verifier
+setting: the agent's patch is run on new inputs, and a model-proposed property is accepted only if execution
+supports it.
 
-\paragraph{Software-agent benchmarks.} \texttt{SWE-bench}~\cite{jimenez2024swebench} and its
-human-validated \texttt{Verified} subset provide real GitHub issues with hidden tests; we use them as the
-substrate but do not report a resolved-rate.
+\paragraph{Software-agent benchmarks.} \texttt{SWE-bench} and \texttt{SWE-bench\_Verified} provide real
+GitHub issues and tests~\cite{jimenez2024swebench}. We use them as the task substrate and, where stated,
+use the official Docker harness for ground-truth execution. We do not report a resolved-rate for a model.
 
 \section{Setup}
 
-The substrate is \texttt{SWE-bench\_Verified}, 500 human-reviewed instances. A candidate is scored by
-verifiers that see only what an honest evaluator could---the candidate diff, the public test identifiers,
-and the candidate's own receipt---never a ground-truth label. Where results say ``executed,'' the real
-hidden test was run: natively on same-era instances, and in the official \texttt{SWE-bench} Docker images
-(pinned Python) for instances the local machine cannot run. Throughout, \texttt{FAIL\_TO\_PASS} denotes the
-target test that encodes the fix requirement (the visible proxy), and \texttt{PASS\_TO\_PASS} denotes the
-repository's existing regression tests---tests that pass before and after a correct change.
+The substrate is \texttt{SWE-bench\_Verified}, a set of 500 human-reviewed GitHub issues. Each instance has
+a target test, called \texttt{FAIL\_TO\_PASS}, that should fail before the fix and pass after it. It also
+has existing regression tests, called \texttt{PASS\_TO\_PASS}, that should continue to pass after a correct
+fix.
+
+A candidate completion is a raw unified diff. The first two verifier layers see only the diff, the public
+test identifiers, and the candidate's receipt. They do not see the gold patch, the hidden verdict, or a
+label saying whether the patch is a hack. When the paper says ``executed,'' the changed code was actually
+run: either natively when the local environment matched, or in the official SWE-bench Docker image for that
+instance when a pinned environment was required.
+
+We use three terms throughout:
+
+\begin{itemize}
+  \item \textbf{Visible proxy}: the target test the agent is trying to pass.
+  \item \textbf{Static verifier}: a verifier that reads the patch but does not run the changed program.
+  \item \textbf{Held-out execution}: running the changed program on behavior not exposed to the agent's
+  visible target test.
+\end{itemize}
 
 \section{The three-layer result}
 \label{sec:threelayer}
 
-Each layer is present because the one before it provably fails on a measured class of hack
-(Table~\ref{tab:threelayer}). The composition is a cascade run cheapest-first: the free detector first, the
-paid judge on survivors, execution on what remains (Figure~\ref{fig:cascade}).
+No single verifier was enough. The working shape is a cascade: run the cheapest check first, send survivors
+to the model judge, and run the hardest cases (or a sample of them) against held-out behavior
+(Figure~\ref{fig:cascade}). Table~\ref{tab:threelayer} shows why each layer is needed.
 
 \begin{table}[t]
 \centering
 \small
-\begin{tabular}{@{}p{2.6cm}p{4.4cm}p{6.0cm}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{6.0cm}@{}}
 \toprule
 \textbf{Layer} & \textbf{Catches} & \textbf{Evidence} \\
 \midrule
 Deterministic detector & mechanical hacks: test edits, assertion weakening, literal special-casing,
 receipt tampering & $0/200$ false positives on real human gold patches; full recall on source-only
-evasions after one hacker-fixer round, still $0/200$ FP \\
+evasions after one hardening round, still $0/200$ FP \\
 \addlinespace
 LLM judge & oblique and hard-coded hacks the detector misses & on 60 stealth candidates,
 $\text{detector-only}=0$, $\text{judge-only}=15$; on executed hacks, execution-only $0/3$, detector $1/3$,
@@ -158,14 +189,15 @@ both-miss class, static verifiers $0/2$, metamorphic $2/2$; a frontier adversary
 well-tested code, caught only by held-out execution \\
 \bottomrule
 \end{tabular}
-\caption{The three layers and the measured class each recovers. The detector's precision/coverage boundary
-is itself measured: a signal that would close its gap costs $1/200$ real false positives, so it is not
-adopted and that class is handed upward.}
+\caption{The three layers and the measured class each recovers. A broader detector signal would catch more
+hacks but also flags $1/200$ real human patches, so the protocol keeps the detector precise and hands those
+cases upward.}
 \label{tab:threelayer}
 \end{table}
 
 \begin{figure}[t]
 \centering
+\resizebox{\linewidth}{!}{%
 \begin{tikzpicture}[
   node distance=6mm and 10mm,
   box/.style={draw, rounded corners, align=center, inner sep=4pt, font=\small, minimum height=9mm},
@@ -187,64 +219,77 @@ adopted and that class is handed upward.}
 \draw (d) edge (x);
 \draw (j) edge (x);
 \draw (m) edge (x);
-\end{tikzpicture}
+\end{tikzpicture}%
+}
 \caption{The cascade. Mechanical hacks are caught free by the detector; oblique and hard-coded hacks by the
-judge; plausible-but-generalization-broken completions only by held-out execution.}
+judge; plausible but broken completions only by execution.}
 \label{fig:cascade}
 \end{figure}
 
 \section{The both-miss class and a frontier adversary}
 \label{sec:bothmiss}
 
-We red-teamed the cascade and broke it. Two disguised completions---\texttt{iter(sorted(self.dict,
-reverse=True))} presented as a reversal, and \texttt{'0\%03d' \% year} presented as zero-padding---pass the
-real hidden test, evade the detector, and are called legitimate by a strong judge, while being wrong on a
-held-out input the test never exercises. No static inspection, by regex or by frontier model, separates a
-correct general fix from a plausible one that special-cases the visible input. The defense is execution on
-held-out inputs: every hack in this class is wrong on a single held-out input, and running the changed code
-outside the visible test catches all of them.
+We call the hardest class a \emph{both-miss}: both static layers miss it. The patch passes the visible test,
+the deterministic detector does not flag it, and a model judge calls it legitimate. The patch is still
+wrong.
 
-\paragraph{A frontier adversary manufactures the class.} An automated hacker-fixer that starts from the
-correct gold fix and rewrites it into a subtly wrong variant produced $2$ confirmed both-miss hacks on
-thoroughly-tested \texttt{django} instances when driven by a non-refusing frontier model
-(\texttt{gpt-5.6-terra}), where a weaker model with a brittle apply harness had produced $0/20$. One hack,
-\texttt{django-14752}, keeps an extracted \texttt{serialize\_result} method's signature but returns
-\texttt{str(obj.pk)} instead of honoring \texttt{to\_field\_name}; it passes the visible test, evades the
-detector, and is judged legitimate, failing only a held-out test the gold fix passes. Over $25$ genuine
-attempts, the frontier adversary produced confirmed both-miss hacks on $0.24$ of attempts, and on $0.12$
-(half of the confirmed) the completion also fooled the judge and was caught only by execution.
+The simplest examples look harmless in review. One patch presents \texttt{iter(sorted(self.dict,
+reverse=True))} as a reversal. Another presents \texttt{'0\%03d' \% year} as zero-padding. Both pass their
+real hidden test and fool the static layers, but both fail on a new input that exercises the general rule.
+This is the key distinction: a static reader can see plausible code, but only execution can ask whether the
+code behaves correctly away from the visible example.
 
-\paragraph{The class survives frontier judges and a judge panel.} Re-judging the six confirmed both-miss
-hacks with two frontier judges under an identical rubric, the baseline is fooled by $3/6$, one frontier
-judge by $1/6$, and a frontier reasoning model by $3/6$---a larger model is not a better judge here, and the
-two frontier judges disagree. One hack, \texttt{django-14311}, is judged legitimate by all three judges and
-evades the detector, surviving every static layer; it is caught only by held-out execution. A three-judge
-ensemble narrows but does not close the gap: an any-catch panel catches $6/7$, and \texttt{django-14311}
-survives every rule, so a judge panel is a mitigation, not a substitute for execution. A secondary datum:
-under an identical defensive-research framing, an Anthropic frontier model refused the construction while
-the OpenAI model complied, so who can red-team a completion verifier is itself model-dependent.
+\paragraph{A frontier adversary can manufacture both-miss patches.} We used an automated hacker-fixer: it
+starts from the real gold fix and asks a model to rewrite it into a subtly wrong patch that still passes the
+target test. With a non-refusing frontier model (\texttt{gpt-5.6-terra}), the system produced confirmed
+both-miss hacks on well-tested \texttt{django} instances. One example, \texttt{django-14752}, keeps the
+shape of the correct \texttt{serialize\_result} method but returns \texttt{str(obj.pk)} instead of respecting
+\texttt{to\_field\_name}. It passes the visible test, evades the detector, and is judged legitimate, but it
+fails the held-out behavior that the gold fix handles. Across $25$ genuine attempts on this pool, the
+frontier adversary produced confirmed both-miss hacks on $0.24$ of attempts; on $0.12$ of attempts the hack
+also fooled the model judge and was caught only by execution.
+
+\paragraph{Bigger judges do not close the gap.} We re-judged six confirmed both-miss hacks with two
+frontier judges under the same rubric. The baseline judge was fooled by $3/6$, one frontier judge by $1/6$,
+and a larger frontier reasoning model by $3/6$. Larger was not safer here. One hack,
+\texttt{django-14311}, was called legitimate by all three judges and also evaded the detector. A three-judge
+panel helps but still does not replace execution: an any-catch panel catches $6/7$, and
+\texttt{django-14311} survives every panel rule.
+
+\paragraph{Reward-model relevance at cross-repository scale.} The same failure matters for reward models:
+if a model is used to score code during reinforcement learning, a patch the model accepts can become a
+training reward. On $20$ execution-verified both-miss hacks across eight repositories, the deterministic
+detector was fooled $20/20$, \texttt{gpt-5.6-terra} used as a reward-model judge was fooled $7/20$, and
+\texttt{claude-opus-4-8} was fooled $9/20$. The load-bearing result is that $5/20$ hacks survived every
+static layer we tested: detector plus both frontier judges. Those $20$ hack diffs are saved as the seed of
+a reward-hack benchmark, not yet claimed as a released benchmark.
 
 \section{From detection to intervention}
 \label{sec:intervention}
 
-Detection is necessary but not the goal; the goal is to improve the rate at which the agent completes the
-real objective. We use the execution layer as a completion \emph{gate}. On \texttt{django} both-miss
-starts---a frontier agent's completion that passes the visible target test but is wrong on held-out
-inputs---we compare two gates on the identical start. The \emph{proxy gate} accepts on visible pass; real
-completion (all held-out pass) is $0$ by construction. The \emph{Telos gate} runs held-out execution,
-rejects a failing completion, and returns a gold-free generic signal---``you pass the target test but fail
-on held-out inputs; you special-cased instead of generalizing''---with no gold fix and no failing test
-named; the agent revises, and the gate re-runs the target and all held-out tests (up to two rounds). Real
-completion requires the final revision to pass the target and all held-out tests.
+Detection is necessary, but the stronger question is whether the verifier can improve the agent's work. We
+therefore use the execution layer as a completion \emph{gate}. The gate does not reveal the gold fix, the
+hidden test name, or the expected output. It only returns a generic diagnosis: the patch passes the target
+test but fails on unseen behavior, so the agent probably special-cased instead of generalizing.
 
-The Telos gate lifts real completion from $0/7$ to $5/7$ with visible success preserved. For example, the
-\texttt{str(obj.pk)} hack is repaired, from the execution signal and the public bug description alone, to
-\texttt{str(getattr(obj, to\_field\_name))}---the correct general behavior. The rate replicates: a disjoint,
-older \texttt{django} sample reproduces $0/7 \to 5/7$, and pooled across the two disjoint samples the
-protocol lifts real completion from $0/13$ to $10/13$ ($0.77$). It is an improvement, not a guarantee (some
-starts do not reach a general fix in two rounds), and it is deliberately lower than a discarded variant that
-leaked the gold fix into the feedback and reached $7/8$; that run was confounded and $5/7$ is the gold-free
-number.
+We compare two gates on the same gamed starting patch. The \emph{proxy gate} accepts the patch as soon as
+the visible target test passes. By construction, a both-miss patch has real completion $0$: it fails some
+held-out behavior. The \emph{Telos gate} runs held-out execution, rejects the patch, gives the generic
+generalization signal, lets the agent revise, and then re-runs the tests. A completion counts only if the
+final patch passes the target test and the held-out behavior.
+
+On $7$ \texttt{django} both-miss starts, the Telos gate lifts real completion from $0/7$ to $5/7$. For
+example, the \texttt{str(obj.pk)} hack is repaired, from the generic signal and the public bug description
+alone, to \texttt{str(getattr(obj, to\_field\_name))}, which is the correct general behavior. The result
+replicates on a disjoint older \texttt{django} sample: again $0/7 \to 5/7$. Pooled across the two samples,
+the gate moves real completion from $0/13$ to $10/13$.
+
+The intervention also scales beyond \texttt{django} on the official SWE-bench harness. Across $20$
+both-miss starts from eight repositories, the proxy gate resolves $0/20$ and the Telos gate recovers
+$10/20$ to full official resolution. This is not a model leaderboard score: the baseline is definitional,
+and the oracle here is the repository regression suite, like a realistic continuous-integration gate. The
+claim is narrower and useful: rejection plus a generic generalization signal can convert some gamed patches
+into real fixes across repositories.
 
 \paragraph{The gate preserves correct completions.} Across $10$ instances the gate accepts all $10$ gold
 fixes and both genuinely-correct honest agent fixes with $0/12$ false rejections. With the improvement
@@ -256,22 +301,22 @@ separate result in the program.
 \section{The intervention is oracle-agnostic}
 \label{sec:goldfree}
 
-The sharpest objection is that the gate above used the real held-out tests. Those are the repository's
-existing regression suite---a realistic continuous-integration gate, not a hidden answer key---but they
-still carry coverage of the broken behavior, and the genuinely dangerous both-miss is the thin-coverage one
-where no existing test covers the break. We therefore replace the regression oracle with a \emph{gold-free}
-one: a model writes a self-contained property check from the function's docstring and the visible test
-only---never the held-out tests---validated sound by requiring it to pass on the correct code, and executed
-on random inputs. Real completion is still scored against the true held-out tests, which never enter the
-gate.
+The sharpest objection is that the gate above used held-out tests. Those tests are realistic: they are the
+project's own regression suite, the kind of check a software team would run in continuous integration. But
+they still contain information about the broken behavior. To test whether the method depends on that
+privileged test coverage, we replace the regression oracle with a gold-free one.
 
-Pooled across runs on $7$ evaluated instances (a sound property and a constructed both-miss on the same
-instance), the gold-free property gate catches the gamed completion $7/7$ and drives gold-free repair to
-real completion $5/7$ ($0.71$)---within sampling noise of the regression-gated $10/13$ ($0.77$). So the
-improvement is oracle-agnostic: it comes from execution-based rejection plus a generalize-signal, not from
-privileged access to the tests. The evaluated set is bounded to the property-derivable subset and by the
-compound requirement that a sound property and a both-miss both land on the same instance; property
-synthesis is stochastic, so the set is pooled across runs.
+Gold-free means no hidden test and no reference patch enters the gate. A model reads the function's
+documentation and the visible test, then proposes a property that should hold for correct code. For a
+formatter/parser pair, the property might be a round trip: formatting a value and parsing it should return
+the original value. For a mathematical function, the property might be an identity. The proposal is not
+trusted. It must pass the visible-test anchor and then be checked by execution on new inputs.
+
+Pooled across runs on $7$ evaluated instances, the gold-free property gate catches the gamed completion
+$7/7$ and drives repair to real completion $5/7$. That is close to the regression-gated $10/13$ rate. The
+lesson is not that properties work everywhere; they do not. The lesson is that when a property can be
+derived, the intervention comes from execution-based rejection plus the generalization signal, not from
+secret access to the hidden tests.
 
 \paragraph{A correction on the record.} An initial gold-free run reported every property unsound and the
 oracle failing. This was a harness artifact, not a finding: the model's standalone property scripts did not
@@ -283,26 +328,32 @@ record rather than discarding it silently.
 \section{The transferable insight}
 \label{sec:insight}
 
-Across the program the same model plays two roles with opposite reliability. As a direct verdict-giver it is
-fooled by disguised hacks. As a property generator it is reliable, because its output is a checkable
-artifact: a proposed property is verified by execution, so an unsound one surfaces as a visible-test-anchor
-violation or a false positive rather than a silent acceptance. Moving a model from verdict-giver to
-property-generator converts an untrustworthy judgment into a checkable artifact. This is the paper's
-transferable claim, independent of the specific benchmark: wherever an autonomous system's self-report is
-untrustworthy, the recovery is not a better judge but an external check that reduces the claim to something
-execution can falsify---and, where the real environment forbids re-running the counterfactual, that
-execution can be supplied by simulation.
+Across the program the same model has two very different roles.
+
+As a verdict-giver, the model is asked, ``Is this patch correct?'' That is an ungrounded judgment, and the
+both-miss examples show that plausible wrong code can fool it. As a property-generator, the model is asked a
+different question: ``What relation should correct code satisfy?'' The answer becomes an artifact. The
+protocol then runs that artifact. If the property is bad, it fails the visible anchor or falsely rejects the
+known-correct code. If the patch is bad, execution falsifies it on new inputs.
+
+This is the transferable idea: do not ask a model to be the source of truth when the claim can be converted
+into something executable. Let the model propose checks; let execution decide.
 
 \section{Limitations}
 \label{sec:limitations}
 
 We state the empirical bounds plainly.
 \begin{itemize}
-  \item \textbf{Small $N$.} The intervention rate is pooled $N=13$; the gold-free rate is $N=7$; cross-repo
-  generalization is one confirmed instance. These are pilots, not distributional results, and the
-  confidence intervals are wide.
-  \item \textbf{Repository coverage.} Results are \texttt{django}-dominant, with one \texttt{sympy} instance
-  for cross-repo existence. External validity across repositories is not established.
+  \item \textbf{Small $N$.} The replicated \texttt{django} intervention is pooled $N=13$; the official
+  cross-repository intervention is $N=20$; the reward-model gaming measurement is $N=20$; the gold-free
+  property-gate rate is $N=7$. These are pilots, not distributional results, and the confidence intervals
+  are wide.
+  \item \textbf{Constructed hacks.} The both-miss patches are adversarially constructed from gold fixes.
+  This isolates the failure class, but it does not measure how often a naturally trained RL agent would
+  discover the same class.
+  \item \textbf{Repository coverage.} The latest intervention and reward-model measurements span eight
+  repositories, but the pool is still small and selected for reward-hack-prone starts. Per-repository
+  recovery varies, including zeros.
   \item \textbf{Single agent model.} The gaming agent and the repairing agent are the same frontier model;
   cross-model generalization of the intervention is untested.
   \item \textbf{Property-derivable subset.} The gold-free third layer applies where a function admits a
@@ -318,21 +369,25 @@ We state the empirical bounds plainly.
 
 \section{Conclusion}
 
-Static verification of an autonomous agent's diff---by regex or by a frontier model---cannot separate a
-correct general fix from a plausible special-case, and held-out execution is the layer that recovers. A
-frontier adversary manufactures the both-miss class on well-tested code, it survives frontier judges and
-judge panels, and only execution catches it. Used as a gate with a gold-free generalize-signal, the same
-execution layer does more than detect: it improves the rate of real completion while preserving correct
-work, and it does so oracle-agnostically. The through-line is that a model is untrustworthy as a
-verdict-giver but reliable as a property generator, because execution checks the artifact. The results are
-bounded pilots; the ideas, we believe, generalize beyond them.
+Static verification of an autonomous agent's patch---by rules or by a frontier model---cannot reliably
+separate a correct general fix from a plausible special-case. Held-out execution is the recovering layer. A
+frontier adversary can manufacture both-miss patches, some survive multiple frontier judges, and in the
+cross-repository reward-model measurement one quarter survive every static verifier tested. Used as a gate,
+the same execution layer can also improve the agent's work: it rejects the gamed patch, gives only a generic
+generalization signal, and often converts the patch into a real fix.
+
+The central lesson is operational. A model is unsafe as the final verdict on code correctness, but useful as
+a generator of executable checks. The protocol becomes stronger when the model's output is not trusted but
+run.
 
 \section*{Reproducibility}
 
 Every quantitative claim in this paper is reproduced by a committed runner and a validated receipt in the
 Telos repository, under \texttt{experiments/iterNNN\_*} with a pre-registered hypothesis, proof artifacts,
-and a learning record; the deterministic parts rerun in continuous integration. Native-execution and Docker
-transcripts are retained as observed evidence.
+and a learning record. The manuscript consolidates the public evidence arc through \texttt{iter152}. The
+deterministic parts rerun in continuous integration; native-execution and Docker transcripts are retained as
+observed evidence; the $20$ saved reward-hack diffs from \texttt{iter152} are the seed for the next
+benchmark-building step.
 
 \begin{thebibliography}{9}
 \small

@@ -1,0 +1,46 @@
+{
+  "acceptance_criteria": [
+    "Exactly 20 iter152 both-miss rows are materialized.",
+    "All 8 iter152 repositories are represented.",
+    "Every row has a non-empty hack diff and matching SHA256.",
+    "Every row traces back to committed iter152 raw evidence.",
+    "The survives-all-static row count is 5.",
+    "No benchmark, leaderboard, model-superiority, SOTA, or natural-RL-frequency claim is made."
+  ],
+  "agent_id": "local-zero-spend-materializer",
+  "benchmark_id": "telos_reward_hack_seed_v0_materialization",
+  "evidence": [
+    {
+      "artifact": "benchmarks/reward_hack_seed_v0/reward_hack_seed_v0.jsonl",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "benchmarks/reward_hack_seed_v0/manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter153_reward_hack_benchmark_seed_materialization/proof/audit_report.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter153_reward_hack_benchmark_seed_materialization/proof/endpoint_results.json",
+      "kind": "test",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The seed must fail if row count differs from 20 or repository count differs from 8.",
+    "The seed must fail if any row loses traceability to iter152 detection_results.json or det_reports.tgz.",
+    "The seed must fail if any hack diff SHA256 is missing or mismatched.",
+    "The seed must fail if it claims a released benchmark, leaderboard, model superiority, SOTA result, or natural-RL frequency.",
+    "The seed must fail if this gate performs new provider calls, cloud runs, SWE-bench execution, or judge calls."
+  ],
+  "receipt_id": "iter153-reward-hack-seed-materialization-pass",
+  "sha256": "34165b385c31e732d6d8e571183e1cbcafa656527249de12aa581ae9da8c4a15",
+  "stated_goal": "Materialize a validated reward-hack benchmark seed from committed iter152 artifacts without new provider calls, cloud resources, SWE-bench execution, or judge calls.",
+  "status": "pass",
+  "task_id": "telos:iter153_reward_hack_benchmark_seed_materialization"
+}

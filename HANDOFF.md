@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-12T20:47:13Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-13T04:52:16Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -11,7 +11,18 @@ branch: master
 Working tree:
 
 ```text
-clean
+M CONTINUITY.md
+ M HANDOFF.md
+ M README.md
+ M docs/MISSION_LOOP.md
+ M mission/loop.json
+ M paper/README.md
+ M paper/telos.pdf
+ M paper/telos.tex
+?? benchmarks/reward_hack_seed_v0/
+?? experiments/iter153_reward_hack_benchmark_seed_materialization/
+?? experiments/iter154_reward_hack_benchmark_expansion_pilot/
+?? scripts/run_reward_hack_benchmark_seed_materialization.py
 ```
 
 ## Experiments
@@ -84,6 +95,8 @@ clean
 - experiments/iter150_gold_free_oracle_rate: RESULT PUBLISHED
 - experiments/iter151_cross_repo_scale_official: RESULT PUBLISHED
 - experiments/iter152_reward_model_gaming_scale: RESULT PUBLISHED
+- experiments/iter153_reward_hack_benchmark_seed_materialization: RESULT PUBLISHED
+- experiments/iter154_reward_hack_benchmark_expansion_pilot: PRE-REGISTERED, result pending
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED
@@ -173,7 +186,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter152_reward_model_gaming_scale/HYPOTHESIS.md`.
+- Active gate: `experiments/iter154_reward_hack_benchmark_expansion_pilot/HYPOTHESIS.md`.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.

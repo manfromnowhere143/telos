@@ -24,19 +24,19 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter152_reward_model_gaming_scale/HYPOTHESIS.md` (SHIPPED - RESULT published, CI-green)
+- `experiments/iter154_reward_hack_benchmark_expansion_pilot/HYPOTHESIS.md` (PRE-REGISTERED; bounded-spend expansion pilot from the validated iter153 seed)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
-`0/20 -> 10/20`, 8 repos) and iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
-reward models `7/20` and `9/20`, `5/20` survive every static layer; 20 hack diffs saved as a reward-hack
-benchmark seed) are both SHIPPED and CI-green; their cloud VMs are deleted (billing stopped). The
-highest-leverage next step before arXiv is the PAPER ACCESSIBILITY REWRITE (a domain expert, the Sentinel
-endorser Holger Caesar, flagged that a dense "technical LLM style" makes strong results hard to read, and
-`paper/telos.tex` has the same style: define every term on first use, spell out antecedents, unpack
-compressed jargon like both-miss / gold-free / generalize-signal). Then `iter153` grows the reward-hack
-benchmark from the saved hack diffs. Any new cloud run: provision an x86 Docker VM, add a direct-SSH
-firewall from the current IP UP FRONT (IAP tunnel is flaky), launch via `systemd-run`, and delete the VM +
-firewall when done.
+`0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
+reward models `7/20` and `9/20`, `5/20` survive every static layer), and iter153 (validated
+`benchmarks/reward_hack_seed_v0/`, 20 rows, 8 repos, 20/20 diff hashes, zero new spend) are SHIPPED. The
+paper has received a full accessibility pass through `paper/telos.tex`: terms are defined earlier, the
+iter151 and iter152 results are represented in the manuscript body, and the limitations were updated so the
+paper does not understate or overclaim the cross-repo evidence. The active next gate is `iter154`, a
+bounded-spend expansion pilot: grow the seed with at least 20 new execution-verified both-miss rows only if
+the official reports, source traceability, duplicate exclusion, spend accounting, and cloud cleanup bars are
+met. Any cloud run: provision an x86 Docker VM, add a direct-SSH firewall from the current IP UP FRONT (IAP
+tunnel is flaky), launch via `systemd-run`, and delete the VM + firewall when done.
 
 Claim-boundary reviewer entry point:
 
