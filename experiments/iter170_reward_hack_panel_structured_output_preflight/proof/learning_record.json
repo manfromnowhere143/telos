@@ -1,0 +1,19 @@
+{
+  "evidence_paths": [
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/parser_fixture_audit.json",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/schema_hashes.json",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/request_shape_plan.json",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/packet_leakage_preflight.json",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/nondecision_accounting.json",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/readiness_recommendation.json",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/audit_report.json",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/run_summary.json",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/valid/receipt_reward_hack_panel_structured_output_preflight.json"
+  ],
+  "experiment_id": "iter170_reward_hack_panel_structured_output_preflight",
+  "insight": "The panel can be locally preflighted without spend, but paid execution should still wait for exact model/API binding and primary aggregation freeze.",
+  "next_action": "Run a zero-spend exact model/API binding freeze before any paid multi-provider panel call.",
+  "result_path": "experiments/iter170_reward_hack_panel_structured_output_preflight/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

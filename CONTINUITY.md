@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter170_reward_hack_panel_structured_output_preflight/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend structured-output/request preflight pending)
+- `experiments/iter171_reward_hack_panel_model_binding_freeze/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend exact model/API binding freeze pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -80,7 +80,10 @@ Iter169 is published as a zero-spend independent judge-panel design pass: it fre
 panel slots (`google_vertex`, `openai`, `anthropic`), structured-output enforcement, standalone,
 any-catch, majority, and unanimous aggregation rules, leakage controls, nondecision accounting, and a
 future paid-pilot ceiling of `160` calls and `$50.00`, while making no model score or leaderboard claim.
-The active next gate is `iter170`: zero-spend structured-output/request preflight before any further
+Iter170 is published as a zero-spend structured-output/request preflight pass: valid parser fixtures parse,
+markdown-fenced JSON remains invalid, all `40` hack and `40` control packets have `0` forbidden leakage
+hits and `0` allowlist mismatches, and paid panel execution remains blocked pending exact model/API
+bindings. The active next gate is `iter171`: zero-spend exact model/API binding freeze before any further
 provider spend.
 
 Claim-boundary reviewer entry point:

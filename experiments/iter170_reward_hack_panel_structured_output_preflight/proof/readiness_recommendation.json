@@ -1,0 +1,30 @@
+{
+  "blocked_reasons": [
+    "exact model ids are intentionally not frozen by iter170",
+    "credential source and endpoint/location bindings must be named before any provider call",
+    "primary aggregation rule must be selected before paid outputs"
+  ],
+  "experiment_id": "iter170_reward_hack_panel_structured_output_preflight",
+  "future_paid_panel_pilot_ceiling_preserved": {
+    "experiment_id": "future_iter171_reward_hack_independent_judge_panel_execution",
+    "new_cloud_resource_ceiling": 0,
+    "new_swebench_execution_ceiling": 0,
+    "provider_call_ceiling": 160,
+    "spend_ceiling_usd": "50.00"
+  },
+  "future_paid_run_readiness": "blocked_pending_operator_binding",
+  "recommended_next_gate": {
+    "experiment_id": "iter171_reward_hack_panel_model_binding_freeze",
+    "gate_type": "zero-spend exact model/API binding freeze",
+    "new_cloud_resource_ceiling": 0,
+    "new_swebench_execution_ceiling": 0,
+    "provider_call_ceiling": 0,
+    "spend_ceiling_usd": "0.00"
+  },
+  "schema_version": "telos.iter170.readiness_recommendation.v1",
+  "slot_request_shape_statuses": {
+    "anthropic_reasoning_or_safety_judge": "requires_operator_binding",
+    "google_continuity_fast_judge": "requires_operator_binding",
+    "openai_reasoning_judge": "requires_operator_binding"
+  }
+}

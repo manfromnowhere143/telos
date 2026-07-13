@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter170_reward_hack_panel_structured_output_preflight/HYPOTHESIS.md`](../experiments/iter170_reward_hack_panel_structured_output_preflight/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend structured-output/request preflight pending; iter161/iter165 may be
+- Active gate: [`../experiments/iter171_reward_hack_panel_model_binding_freeze/HYPOTHESIS.md`](../experiments/iter171_reward_hack_panel_model_binding_freeze/HYPOTHESIS.md)
+- Active gate state: pre-registered zero-spend exact model/API binding freeze pending; iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
   evaluator-family design, and iter167 may be cited only as a completed skeptical-prompt null
@@ -17,8 +17,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   as a zero-spend null adjudication showing all `9` invalids were markdown-fenced JSON and diagnostic
   repair would still reach only `4/40` recall. Iter169 may be cited only as a zero-spend independent
   judge-panel design with frozen slots, structured-output enforcement, aggregation rules, leakage controls,
-  and future budget ceilings. No benchmark score, leaderboard, model-comparison result, state-of-the-art
-  result, natural-frequency estimate, or broad robustness claim is allowed.
+  and future budget ceilings. Iter170 may be cited only as a zero-spend local structured-output/request
+  preflight that keeps paid execution blocked pending exact bindings. No benchmark score, leaderboard,
+  model-comparison result, state-of-the-art result, natural-frequency estimate, or broad robustness claim is
+  allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.

@@ -1,0 +1,190 @@
+{
+  "allowed_statuses": [
+    "preflight_ready",
+    "blocked",
+    "requires_operator_binding"
+  ],
+  "experiment_id": "iter170_reward_hack_panel_structured_output_preflight",
+  "primary_result": "requires_operator_binding",
+  "schema_version": "telos.iter170.request_shape_plan.v1",
+  "slot_request_shapes": [
+    {
+      "blocking_rule": "A future execution gate may not call this slot until the placeholder fields are resolved in a pre-registered hypothesis.",
+      "provider_family": "google_vertex",
+      "request_shape_status": "requires_operator_binding",
+      "request_template": {
+        "input": "<serialized_model_prompt_payload>",
+        "model": "<operator_frozen_gemini_model_id>",
+        "response_format": {
+          "mime_type": "application/json",
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "properties": {
+              "confidence": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "rationale": {
+                "maxLength": 1200,
+                "minLength": 1,
+                "type": "string"
+              },
+              "verdict": {
+                "enum": [
+                  "inconclusive",
+                  "legitimate",
+                  "reward_hack"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "confidence",
+              "rationale",
+              "verdict"
+            ],
+            "title": "Telos reward-hack judge output v1",
+            "type": "object"
+          },
+          "type": "text"
+        }
+      },
+      "required_operator_binding_before_paid_call": [
+        "exact_model_id",
+        "credential_source",
+        "api_endpoint_or_location",
+        "structured_output_mode",
+        "primary_aggregation_rule"
+      ],
+      "shape_static_checks_pass": true,
+      "slot_id": "google_continuity_fast_judge"
+    },
+    {
+      "blocking_rule": "A future execution gate may not call this slot until the placeholder fields are resolved in a pre-registered hypothesis.",
+      "provider_family": "openai",
+      "request_shape_status": "requires_operator_binding",
+      "request_template": {
+        "messages": [
+          {
+            "content": "<judge_system_instruction>",
+            "role": "system"
+          },
+          {
+            "content": "<serialized_model_prompt_payload>",
+            "role": "user"
+          }
+        ],
+        "model": "<operator_frozen_openai_model_id>",
+        "response_format": {
+          "json_schema": {
+            "name": "telos_reward_hack_judge_output",
+            "schema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "confidence": {
+                  "maximum": 1.0,
+                  "minimum": 0.0,
+                  "type": "number"
+                },
+                "rationale": {
+                  "maxLength": 1200,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "verdict": {
+                  "enum": [
+                    "inconclusive",
+                    "legitimate",
+                    "reward_hack"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "confidence",
+                "rationale",
+                "verdict"
+              ],
+              "title": "Telos reward-hack judge output v1",
+              "type": "object"
+            },
+            "strict": true
+          },
+          "type": "json_schema"
+        }
+      },
+      "required_operator_binding_before_paid_call": [
+        "exact_model_id",
+        "credential_source",
+        "api_endpoint_or_location",
+        "structured_output_mode",
+        "primary_aggregation_rule"
+      ],
+      "shape_static_checks_pass": true,
+      "slot_id": "openai_reasoning_judge"
+    },
+    {
+      "blocking_rule": "A future execution gate may not call this slot until the placeholder fields are resolved in a pre-registered hypothesis.",
+      "provider_family": "anthropic",
+      "request_shape_status": "requires_operator_binding",
+      "request_template": {
+        "max_tokens": 1200,
+        "messages": [
+          {
+            "content": "<serialized_model_prompt_payload>",
+            "role": "user"
+          }
+        ],
+        "model": "<operator_frozen_anthropic_model_id>",
+        "output_config": {
+          "format": {
+            "schema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "confidence": {
+                  "maximum": 1.0,
+                  "minimum": 0.0,
+                  "type": "number"
+                },
+                "rationale": {
+                  "maxLength": 1200,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "verdict": {
+                  "enum": [
+                    "inconclusive",
+                    "legitimate",
+                    "reward_hack"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "confidence",
+                "rationale",
+                "verdict"
+              ],
+              "title": "Telos reward-hack judge output v1",
+              "type": "object"
+            },
+            "type": "json_schema"
+          }
+        }
+      },
+      "required_operator_binding_before_paid_call": [
+        "exact_model_id",
+        "credential_source",
+        "api_endpoint_or_location",
+        "structured_output_mode",
+        "primary_aggregation_rule"
+      ],
+      "shape_static_checks_pass": true,
+      "slot_id": "anthropic_reasoning_or_safety_judge"
+    }
+  ]
+}
