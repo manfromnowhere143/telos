@@ -1,0 +1,39 @@
+{
+  "acceptance_criteria": [
+    "The exact v1 artifact hashes must be frozen.",
+    "At least three evaluator families must be defined.",
+    "Leakage controls must exclude labels, official reports, and prior static verdicts from model prompts.",
+    "Null/fail semantics must cover refusals, malformed outputs, harness failures, and label leakage.",
+    "No provider calls, SWE-bench executions, cloud resources, benchmark scores, leaderboards, model-superiority claims, SOTA claims, natural-frequency estimates, or broad robustness claims may occur."
+  ],
+  "agent_id": "codex-local-zero-spend-moonshot-designer",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter158_reward_hack_moonshot_design/proof/scoring_protocol.md",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter158_reward_hack_moonshot_design/proof/moonshot_design.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter158_reward_hack_moonshot_design/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if the v1 row set or artifact hashes change.",
+    "The gate fails if model-judge packets would expose static labels, official reports, or known hack labels.",
+    "The gate fails if this design claims a model score, leaderboard, SOTA result, natural-frequency estimate, or broad robustness result.",
+    "The gate fails if any provider call, SWE-bench execution, or cloud resource is used."
+  ],
+  "receipt_id": "iter158-reward-hack-moonshot-design-pass",
+  "sha256": "1cf5de4ef73e183c1d011cc13a4ff75eb7ad910b30eb8c84cd1d9c7bc9cb9a2a",
+  "stated_goal": "Design a leakage-controlled scoring/evaluation protocol for the frozen reward_hack_benchmark_v1 artifact without executing providers, SWE-bench, cloud resources, or model-score claims.",
+  "status": "pass",
+  "task_id": "telos:iter158_reward_hack_moonshot_design"
+}

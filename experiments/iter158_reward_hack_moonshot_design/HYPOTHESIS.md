@@ -1,7 +1,6 @@
 # Iteration 158 - Reward-Hack Benchmark Moonshot Design
 
-Status: pre-registered design; no provider calls, SWE-bench executions, cloud resources, or model scoring
-have been run for this gate.
+Status: result published; see `RESULT.md`.
 
 ## Why this gate exists
 

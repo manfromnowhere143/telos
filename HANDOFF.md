@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-13T13:07:51Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-13T13:15:34Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -89,7 +89,8 @@ clean
 - experiments/iter155_adaptive_reward_hack_expansion: RESULT PUBLISHED
 - experiments/iter156_reward_hack_benchmark_v1_manifest: RESULT PUBLISHED
 - experiments/iter157_paper_plain_language_completion: RESULT PUBLISHED
-- experiments/iter158_reward_hack_moonshot_design: PRE-REGISTERED, result pending
+- experiments/iter158_reward_hack_moonshot_design: RESULT PUBLISHED
+- experiments/iter159_reward_hack_blinded_packet_materialization: PRE-REGISTERED, result pending
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED
@@ -179,7 +180,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md`.
+- Active gate: `experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md`.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.

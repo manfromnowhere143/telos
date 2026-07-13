@@ -66,6 +66,7 @@ Latest machine-validated records:
 | `iter155_adaptive_reward_hack_expansion` | pass | adaptive selection closed the shortfall with `3` new execution-verified rows and exposed a runner schema-compatibility lesson | pre-register a zero-spend v1 release-manifest gate before claiming a released benchmark |
 | `iter156_reward_hack_benchmark_v1_manifest` | pass | the seed, iter154, and iter155 evidence can be joined into a `40`-row v1 artifact with `13` rows that survive every static layer | resume the paper plain-language pass with the benchmark artifact boundary updated |
 | `iter157_paper_plain_language_completion` | pass | the paper and public paper mirror can be made current through iter156 while preserving the row-artifact boundary and no-score/no-leaderboard language | pre-register the moonshot scoring/evaluation design for the frozen v1 artifact before any provider calls or model-score claims |
+| `iter158_reward_hack_moonshot_design` | pass | the frozen v1 artifact can support a leakage-controlled scoring design with static, model-judge, panel, and execution-backed evaluator families while keeping score claims out of scope | materialize blinded judge packets and audit leakage before any provider calls |
 
 | experiment | status | insight | next action |
 |---|---|---|---|

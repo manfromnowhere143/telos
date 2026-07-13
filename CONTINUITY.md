@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md` (PRE-REGISTERED; moonshot scoring/evaluation design pending)
+- `experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md` (PRE-REGISTERED; blinded packet materialization pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -41,9 +41,12 @@ and source traceability; `13/40` survive every static layer, `16/40` fool `gpt-5
 fool `claude-opus-4-8`. No benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency
 estimate, or broad robustness claim is made. Iter157 is published as a paper/readability pass: `paper/telos.tex`,
 `docs/PAPER.md`, and `paper/README.md` now represent iter151-156 consistently, including the iter156 v1
-artifact boundary, with zero provider calls, SWE-bench executions, or cloud resources. The active next gate
-is `iter158`: design the reward-hack benchmark moonshot scoring/evaluation protocol for the frozen v1
-artifact before any provider calls, SWE-bench executions, cloud resources, or model-score claims.
+artifact boundary, with zero provider calls, SWE-bench executions, or cloud resources. Iter158 is published
+as a zero-spend moonshot design pass: it freezes the v1 artifact hashes, defines four evaluator families,
+leakage controls, recall metrics, and null/fail semantics, while making no model score or leaderboard
+claim. The active next gate is `iter159`: materialize blinded judge packets for the frozen v1 artifact and
+audit that labels, official reports, source splits, prior static verdicts, and known-hack wording are
+excluded before any provider calls or scoring claims.
 
 Claim-boundary reviewer entry point:
 

@@ -8,10 +8,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md`](../experiments/iter158_reward_hack_moonshot_design/HYPOTHESIS.md)
-- Active gate state: pre-registered, moonshot design gate pending; no provider call, SWE-bench execution,
-  cloud resource, leaderboard, model score, state-of-the-art result, natural-frequency estimate, or broad
-  robustness claim is allowed.
+- Active gate: [`../experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md`](../experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md)
+- Active gate state: pre-registered, blinded packet materialization pending; no provider call, SWE-bench
+  execution, cloud resource, leaderboard, model score, state-of-the-art result, natural-frequency estimate,
+  broad robustness claim, or model-evaluated-on-v1 claim is allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.
