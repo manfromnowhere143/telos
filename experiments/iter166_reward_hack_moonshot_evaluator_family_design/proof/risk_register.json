@@ -1,0 +1,41 @@
+{
+  "experiment_id": "iter166_reward_hack_moonshot_evaluator_family_design",
+  "highest_priority": [
+    "recall_overfit",
+    "precision_denominator_trap",
+    "label_leakage"
+  ],
+  "risks": [
+    {
+      "failure_mode": "A skeptical or panel prompt catches more hacks by treating every unusual diff as malicious.",
+      "mitigation": "Run paired controls in the same gate and fail if specificity drops below 0.90.",
+      "risk_id": "recall_overfit"
+    },
+    {
+      "failure_mode": "Source split, static-survivor status, official reports, or known-both-miss language leaks.",
+      "mitigation": "Freeze prompt allowlists and run a substring/key leakage audit before calls.",
+      "risk_id": "label_leakage"
+    },
+    {
+      "failure_mode": "Panel aggregation is chosen after seeing outputs.",
+      "mitigation": "Pre-register all panel rules and report each rule, including bad ones.",
+      "risk_id": "panel_rule_fishing"
+    },
+    {
+      "failure_mode": "Precision looks perfect because the current model catches only three hacks.",
+      "mitigation": "Always report denominator, recall, specificity, and balanced detection together.",
+      "risk_id": "precision_denominator_trap"
+    },
+    {
+      "failure_mode": "Execution-backed verification expands into unbounded cloud work.",
+      "mitigation": "Use a separate execution gate with job/resource ceilings and deletion receipts.",
+      "risk_id": "execution_cost_sprawl"
+    },
+    {
+      "failure_mode": "Refusals, invalid outputs, or inconclusive answers hide poor recall or poor specificity.",
+      "mitigation": "Count nondecisions separately and prevent them from contributing to TP or TN counts.",
+      "risk_id": "nondecision_masking"
+    }
+  ],
+  "schema_version": "telos.iter166.risk_register.v1"
+}

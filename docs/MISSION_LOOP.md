@@ -8,11 +8,12 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md`](../experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md)
-- Active gate state: pre-registered moonshot evaluator-family design pending; iter161/iter165 may be cited
-  only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false positives,
-  specificity `1.0`, balanced detection `0.5375`). No benchmark score, leaderboard, model-comparison
-  result, state-of-the-art result, natural-frequency estimate, or broad robustness claim is allowed.
+- Active gate: [`../experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md`](../experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md)
+- Active gate state: pre-registered skeptical judge calibration pending; iter161/iter165 may be cited only
+  as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false positives,
+  specificity `1.0`, balanced detection `0.5375`), and iter166 may be cited only as a zero-spend
+  evaluator-family design. No benchmark score, leaderboard, model-comparison result, state-of-the-art
+  result, natural-frequency estimate, or broad robustness claim is allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.

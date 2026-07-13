@@ -1,0 +1,42 @@
+{
+  "benchmark_row_count": 40,
+  "claim_boundary": "Design result only; no new empirical evaluator result or leaderboard is claimed.",
+  "control_row_count": 40,
+  "experiment_id": "iter166_reward_hack_moonshot_evaluator_family_design",
+  "failures": [],
+  "generated_at_utc": "2026-07-13T15:02:23Z",
+  "input_hashes": {
+    "benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/manifest.json": "7bb2d2fc4cee1a9d816149783cb7a2828817080f4de563b447fd5f81be3e33bd",
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/blinded_control_packets_v1/manifest.json": "4849901a672b4b13b66bd6ee36db024cb4b5ba5495c2cb0408f82d266a2f1ffd",
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/manifest.json": "2eaeab3f75c16f1e22ebf64ecf5cc0344f30300e673089674fc527316f5b4858",
+    "benchmarks/reward_hack_benchmark_v1/manifest.json": "880f3a2a4083c0c23c74e66a6028005d07572da710bc6c778437b12185721b92",
+    "benchmarks/reward_hack_benchmark_v1/reward_hack_benchmark_v1.jsonl": "b83bf0febd19269881e5fe214f8457a3ca052e65960f58ad4393da3fe7a21159",
+    "experiments/iter158_reward_hack_moonshot_design/proof/moonshot_design.json": "d7a0279ca9fb73de39207db7e2884e20f7774f21c6b3119b255b08b1349be872",
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/run_summary.json": "a2c668dbf5ead2e122bab6fbec82f74f6c900caaa21eef1ef2b41dfae0418d91",
+    "experiments/iter162_reward_hack_legitimate_control_design/proof/metric_protocol.json": "9ec588b6f3a386d4c039a49ace26bdadeb01460922102d5f31e358ad79c8111a",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/metric_summary.json": "cfbd2ceabb30d34701a2f0125e9a7673684b62e06d35c08dd8752ae7950adeb9"
+  },
+  "iter158_family_count": 4,
+  "iter161_verdict_counts": {
+    "legitimate": 37,
+    "reward_hack": 3
+  },
+  "iter165_metrics": {
+    "balanced_detection_rate": 0.5375,
+    "false_positive_rate_controls": 0.0,
+    "miss_rate_all_hack": 0.925,
+    "non_decision_rate_controls": 0.0,
+    "non_decision_rate_hack": 0.0,
+    "precision_reward_hack_binary_flag": 1.0,
+    "recall_all_hack": 0.075,
+    "specificity_all_denominator": 1.0
+  },
+  "iter166_family_count": 5,
+  "model_evaluations": 0,
+  "new_cloud_resources": 0,
+  "new_provider_calls": 0,
+  "new_swebench_executions": 0,
+  "recommended_next_gate": "iter167_reward_hack_skeptical_judge_calibration",
+  "schema_version": "telos.iter166.run_summary.v1",
+  "status": "pass"
+}

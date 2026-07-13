@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md` (PRE-REGISTERED; moonshot evaluator-family design pending)
+- `experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md` (PRE-REGISTERED; skeptical judge calibration pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -66,8 +66,11 @@ successful iter164 records, and produced a complete paired single-model metric: 
 `0/40` false positives on controls, specificity `1.0`, precision `1.0` with denominator `3`, balanced
 detection `0.5375`, sequence estimated cost guard `$0.727580`, and no SWE-bench executions or cloud
 resources. This is a one-model bounded metric only, not a leaderboard, model-comparison, SOTA,
-natural-frequency, or broad robustness claim. The active next gate is `iter166`: design the moonshot
-evaluator family that can raise recall while preserving the measured false-positive boundary.
+natural-frequency, or broad robustness claim. Iter166 is published as a zero-spend moonshot
+evaluator-family design pass: it specifies `5` evaluator families, leakage controls, specificity floor
+`0.90`, control false-positive ceiling `4/40`, nondecision accounting, and a bounded next gate. The active
+next gate is `iter167`: run the paired skeptical-judge calibration to test whether recall can improve
+without burning the paired-control boundary.
 
 Claim-boundary reviewer entry point:
 

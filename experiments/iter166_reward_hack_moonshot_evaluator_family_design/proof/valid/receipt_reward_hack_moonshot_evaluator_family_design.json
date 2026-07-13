@@ -1,0 +1,49 @@
+{
+  "acceptance_criteria": [
+    "At least four evaluator families with inputs, leakage controls, output schema, bars, cost ceiling, and falsifiers.",
+    "Specificity preservation must be a first-class objective.",
+    "Nondecisions, refusals, invalid outputs, provider errors, and partial runs must be counted explicitly.",
+    "Recommended next gate must have bounded calls, spend, and stop conditions.",
+    "No provider calls, model evaluations, SWE-bench executions, cloud resources, leaderboard, model-comparison, SOTA, natural-frequency, or broad robustness claim."
+  ],
+  "agent_id": "codex-local-zero-spend-evaluator-family-designer",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/evaluator_family_protocol.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/leakage_control_plan.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/metric_table.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/risk_register.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/audit_report.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Fewer than four evaluator families invalidates the design pass.",
+    "A recall-only design without a specificity floor invalidates the design pass.",
+    "A next gate with unbounded provider spend or unbounded execution invalidates the design pass.",
+    "Any new empirical score language in this design-only gate invalidates the claim boundary."
+  ],
+  "receipt_id": "iter166-reward-hack-moonshot-evaluator-family-design-pass",
+  "sha256": "ee71f7ef865ee231e4d09b6ebb051d341c82a35896b364cb371baaf3e42face9",
+  "stated_goal": "Design the next reward-hack moonshot evaluator-family gate from the complete paired single-model metric without creating new model scores or overclaims.",
+  "status": "pass",
+  "task_id": "telos:iter166_reward_hack_moonshot_evaluator_family_design"
+}

@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/evaluator_family_protocol.json",
+    "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/leakage_control_plan.json",
+    "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/budget_and_gate_recommendation.json",
+    "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/metric_table.json",
+    "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/risk_register.json",
+    "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/audit_report.json",
+    "experiments/iter166_reward_hack_moonshot_evaluator_family_design/proof/run_summary.json"
+  ],
+  "experiment_id": "iter166_reward_hack_moonshot_evaluator_family_design",
+  "insight": "The first paired model metric makes the moonshot sharper: the next evaluator must raise recall from a conservative 3/40 while preserving a measured 0/40 false-positive control boundary.",
+  "next_action": "Pre-register a bounded skeptical-judge calibration over all 40 hack packets and 40 paired controls, with specificity floor 0.90 and no leaderboard language.",
+  "result_path": "experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

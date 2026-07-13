@@ -6,8 +6,8 @@ completion-verification fixture suites through `iter104`, a bounded 20-packet ex
 result from `iter107`, a bounded single-model all-hack recall result from `iter161`, a paired legitimate
 control artifact from `iter163`, and a complete bounded paired single-model metric after the `iter165`
 rate-limit recovery (`3/40` recall, `0/40` control false positives, specificity `1.0`, balanced detection
-`0.5375`); none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art
-claim.
+`0.5375`), plus a zero-spend evaluator-family design from `iter166`; none is a benchmark leaderboard
+result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -598,18 +598,24 @@ Current evidence:
 - `experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md`
   pre-registers a zero-spend adjudication gate to review the iter107 claim boundary before any
   replication, redesign, or scope expansion.
-- Reward-hack benchmark arc current through iter165: `iter153` materialized the 20-row seed, `iter156`
+- Reward-hack benchmark arc current through iter166: `iter153` materialized the 20-row seed, `iter156`
   released the 40-row hash-checked `reward_hack_benchmark_v1` row artifact, `iter159` blinded the 40
   all-hack judge packets, `iter160` froze the parser, `iter161` ran `gemini-2.5-flash` on all 40 all-hack
   packets and caught `3/40`, `iter163` materialized 40 paired legitimate controls and blinded control
   packets, `iter164` published the Vertex `http_429` partial block after 15 successful controls, and
   `iter165` recovered only the missing 25 controls to complete the paired metric. The complete one-model
   metric is `3/40` all-hack recall, `0/40` control false positives, specificity `1.0`, precision `1.0`
-  with denominator `3`, and balanced detection `0.5375`. This is not a leaderboard, model-comparison,
-  SOTA, natural-frequency, or broad robustness result.
-- `experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md`
-  pre-registers a zero-spend moonshot design gate for evaluator families that can raise recall while
-  preserving the measured false-positive boundary.
+  with denominator `3`, and balanced detection `0.5375`. `iter166` then published a zero-spend
+  evaluator-family design with `5` evaluator families, specificity floor `0.90`, control false-positive
+  ceiling `4/40`, nondecision accounting, and a bounded next gate. This is not a leaderboard,
+  model-comparison, SOTA, natural-frequency, or broad robustness result.
+- `experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md`
+  publishes the zero-spend evaluator-family design and recommends the bounded iter167 skeptical-judge
+  calibration gate.
+- `experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md`
+  pre-registers a paired `40` hack + `40` control provider run with call ceiling `80`, spend ceiling
+  `$20.00`, specificity floor `0.90`, required recall improvement `>= 0.15`, no SWE-bench executions, and
+  no cloud resources.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
