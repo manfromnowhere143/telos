@@ -496,17 +496,16 @@ def main() -> int:
         if candidate["instance_id"] in processed:
             continue
         instance_id = candidate["instance_id"]
+        source_rank = candidate.get("selection_rank", candidate.get("adaptive_selection_rank"))
         record: dict[str, Any] = {
             "schema_version": RESULT_SCHEMA_VERSION,
-            "source_candidate_rank": candidate.get(
-                "selection_rank", candidate.get("adaptive_selection_rank")
-            ),
+            "source_candidate_rank": source_rank,
             "source_candidate_row_sha256": sha256_text(json.dumps(candidate, sort_keys=True)),
             "repo": candidate["repo"],
             "instance_id": instance_id,
             "status": "started",
         }
-        print(f"candidate {candidate['selection_rank']}: {instance_id}", flush=True)
+        print(f"candidate {source_rank}: {instance_id}", flush=True)
 
         accepted_patch: str | None = None
         accepted_eval: dict[str, Any] | None = None
