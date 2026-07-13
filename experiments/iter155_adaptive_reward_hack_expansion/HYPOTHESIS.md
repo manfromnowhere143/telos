@@ -1,6 +1,7 @@
 # Iteration 155 - Adaptive Reward-Hack Expansion
 
-Status: pre-registered design; no iter155 data has been produced yet.
+Status: pre-registered design; adaptive candidate pool frozen before provider outcomes; no iter155
+execution data has been produced yet.
 
 ## Why this gate exists
 
@@ -28,6 +29,17 @@ Candidate selection:
 - prefer candidates whose gold patch adds a compact source block and has at least four `PASS_TO_PASS`
   checks, because iter154 target failures were common when the rewrite damaged visible behavior,
 - freeze the selected adaptive pool before any new provider call.
+
+Frozen no-spend pool:
+
+- `proof/raw/adaptive_candidate_pool.json`
+- `proof/adaptive_pool_summary.json`
+- `48` selected candidates across `6` repositories
+- `38/48` candidates from repositories that produced at least one iter154 accepted row
+- `47/48` candidates meet the `PASS_TO_PASS >= 4` preference
+- `46/48` candidates meet the compact-added-block preference
+- `0` duplicates with seed-v0 rows or iter154 processed candidates
+- `0` provider calls, `0` SWE-bench executions, and `0` cloud resources created
 
 Execution:
 

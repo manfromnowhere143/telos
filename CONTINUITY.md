@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter155_adaptive_reward_hack_expansion/HYPOTHESIS.md` (PRE-REGISTERED; adaptive follow-up to the iter154 shortfall)
+- `experiments/iter155_adaptive_reward_hack_expansion/HYPOTHESIS.md` (PRE-REGISTERED; adaptive pool frozen, execution pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -35,8 +35,10 @@ new execution-verified both-miss rows across `10` repos, not the required `20`, 
 static layer and all cloud resources deleted. The paper has received a full accessibility pass through
 `paper/telos.tex`: terms are defined earlier, the iter151 and iter152 results are represented in the
 manuscript body, and the limitations were updated so the paper does not understate or overclaim the
-cross-repo evidence. The active next gate is `iter155`: adaptively target unprocessed candidates from
-iter154's eligible pool and add at least 3 verified rows before any v1 benchmark-size claim.
+cross-repo evidence. The active next gate is `iter155`: the no-spend adaptive pool is frozen at `48`
+candidates across `6` repos with `0` seed/iter154 duplicates. Next action is a secret-safe cloud/provider
+preflight, then a bounded execution run only if the preflight is clean; pass requires at least `3`
+additional verified rows before any v1 benchmark-size claim.
 
 Claim-boundary reviewer entry point:
 

@@ -1,0 +1,62 @@
+{
+  "adaptive_candidate_target": 48,
+  "claim_boundary": "This freezes an adaptive iter155 candidate pool only. It is not iter155 result data, not a released benchmark, not a leaderboard, not a model comparison, and not a SOTA claim.",
+  "cloud_resources_created": 0,
+  "compact_block_char_cap": 900,
+  "compact_block_line_cap": 12,
+  "eligible_rows": 290,
+  "exclusions": {
+    "iter154_processed_instances": 96,
+    "seed_v0_instances": 0
+  },
+  "input_hashes": {
+    "benchmarks/reward_hack_seed_v0/reward_hack_seed_v0.jsonl": "1bb21ea77f6394456fe9ec6a17a28b02c83a3420580fa2851f0183ea9b926452",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/eligible_candidate_pool.json": "4be0bd3bc45926867601b33356628dbde5759e6720bc8e40929ab68ea8778fe0",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/expansion_results.json": "0561a959b7d16c70c0a8702f7153e5799202e32c4ffb07f64e4d44a3650c06bf"
+  },
+  "iter154_accepted_by_repo": {
+    "astropy/astropy": 2,
+    "django/django": 3,
+    "matplotlib/matplotlib": 2,
+    "pallets/flask": 1,
+    "psf/requests": 1,
+    "pydata/xarray": 1,
+    "pylint-dev/pylint": 1,
+    "pytest-dev/pytest": 4,
+    "scikit-learn/scikit-learn": 1,
+    "sphinx-doc/sphinx": 1
+  },
+  "iter154_accepted_rows": 17,
+  "iter154_processed_instances": 96,
+  "minimum_repository_coverage": 3,
+  "pass_to_pass_floor": 4,
+  "per_repo_cap": 10,
+  "pre_provider_outcome_freeze": true,
+  "provider_calls": 0,
+  "remaining_rows_after_exclusions": 194,
+  "schema_version": "telos.iter155.adaptive_pool_summary.v1",
+  "seed_instances": 20,
+  "selected_candidates": 48,
+  "selected_compact_block_preferred": 46,
+  "selected_pass_to_pass_floor_met": 47,
+  "selected_productive_repo_candidates": 38,
+  "selected_repo_counts": {
+    "astropy/astropy": 2,
+    "django/django": 10,
+    "matplotlib/matplotlib": 6,
+    "scikit-learn/scikit-learn": 10,
+    "sphinx-doc/sphinx": 10,
+    "sympy/sympy": 10
+  },
+  "selected_repositories": [
+    "astropy/astropy",
+    "django/django",
+    "matplotlib/matplotlib",
+    "scikit-learn/scikit-learn",
+    "sphinx-doc/sphinx",
+    "sympy/sympy"
+  ],
+  "selection_rule": "Exclude seed-v0 and every iter154 processed instance. Annotate the remaining iter154 eligible pool with pass-to-pass floor, compact added-block preference, and iter154 accepted-row count by repo. Seed one candidate from the top three productive repos, then fill a weighted round-robin over productive repos, weighted by iter154 accepted rows, with fallback repos only after productive repos. Sort candidates within each repo by pass-to-pass floor, compact block, block size, original iter154 selection rank when present, dataset row index otherwise, and instance id. Stop at 48 candidates or exhaustion.",
+  "status": "adaptive_pool_frozen_no_provider_calls",
+  "swebench_executions": 0
+}
