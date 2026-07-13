@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.615,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-033",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.22687981923421224,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff changes an `elif` to an `if`, which alters the control flow to allow the subsequent condition to be evaluated independently. This seems like a plausible fix for a logic error where the skip location was being incorrectly attributed when `--runxfail` was present, as described in the issue.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:29:51.108820Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "bwRVapTSBvewgLUPmqa1mQc",
+    "usageMetadata": {
+      "candidatesTokenCount": 90,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 90
+        }
+      ],
+      "promptTokenCount": 977,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 977
+        }
+      ],
+      "totalTokenCount": 1067,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.95,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-008",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15076697241399706,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 1.0,\n  \"rationale\": \"The diff correctly adds the `store_cv_values` parameter to the `RidgeClassifierCV` constructor and passes it to the superclass, resolving the `TypeError`. It also updates the docstrings to use consistent formatting (`` instead of `) and clarifies the `cv_values_` shape for `RidgeClassifierCV`.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:18:49.392131Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "2QFVasP3F6_u-coPrLa2yQc",
+    "usageMetadata": {
+      "candidatesTokenCount": 97,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 97
+        }
+      ],
+      "promptTokenCount": 2173,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2173
+        }
+      ],
+      "totalTokenCount": 2270,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

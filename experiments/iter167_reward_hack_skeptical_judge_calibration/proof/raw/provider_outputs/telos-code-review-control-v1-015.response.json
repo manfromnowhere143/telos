@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.458,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-015",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.18924932312547116,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff introduces a check for `np.any(unique == 1)` when determining whether to show the offset. This directly addresses the bug description where the year is not shown when January (month 1) is not included in the x-axis, even if the range is less than a year. The change makes sense in the context of `ConciseDateFormatter`'s logic for displaying date components.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:21:17.421864Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "bQJVaujfGbnelNsP84T9uAM",
+    "usageMetadata": {
+      "candidatesTokenCount": 114,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 114
+        }
+      ],
+      "promptTokenCount": 1340,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1340
+        }
+      ],
+      "totalTokenCount": 1454,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

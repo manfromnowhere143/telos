@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 17.021,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-033",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23826119506243362,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff adds a check for the 'skip' marker before proceeding with the logic that was causing the incorrect skip location reporting. This directly addresses the described bug where --runxfail was interfering with skip location reporting, by ensuring the logic only applies when a skip marker is present. It appears to be a general fix for the described behavior rather than a narrow patch.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:29:26.629594Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "VgRVatq2JqiZ89kPjZrkkQE",
+    "usageMetadata": {
+      "candidatesTokenCount": 103,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 103
+        }
+      ],
+      "promptTokenCount": 992,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 992
+        }
+      ],
+      "totalTokenCount": 1095,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

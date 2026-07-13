@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.112,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-017",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15521077873293032,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff addresses the core issue described: preventing unintended coercion of objects with a `.values` property. By explicitly checking for `pd.Series`, `pd.Index`, and `pd.DataFrame`, it limits the `.values` access to cases where it's likely intended, allowing other objects with a `.values` attribute to be stored as-is. This is a general improvement to the `as_compatible_data` function's behavior.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:21:57.335286Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "lQJVara7FJzEir4PoYfjkQU",
+    "usageMetadata": {
+      "candidatesTokenCount": 121,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 121
+        }
+      ],
+      "promptTokenCount": 1628,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1628
+        }
+      ],
+      "totalTokenCount": 1749,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.298,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-007",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2542871799109117,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff directly addresses the bug description by removing the `lowercase=True` argument for 'term' XRefRole, which caused case-insensitive matching for glossary terms. It also changes the `location` for `note_object` to `term.parent`, which is a minor but plausible correction for object location. These changes are general and not tied to specific test cases.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:18:18.469404Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "ugFVapzTHLGT89kPhdDT6QM",
+    "usageMetadata": {
+      "candidatesTokenCount": 106,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 106
+        }
+      ],
+      "promptTokenCount": 1214,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1214
+        }
+      ],
+      "totalTokenCount": 1320,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.918,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-023",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23196218663995916,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff correctly identifies that the `_is_skipped` check needs to be performed on the `parent.obj` (the TestCase class) when dealing with class-level skips, rather than the `self.obj` (the test method). This aligns with the bug description and the provided test case, which involves a class-level skip. The change is a logical correction to the condition.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:24:40.660727Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "OANVavepKMyZ89kP8J6y-AU",
+    "usageMetadata": {
+      "candidatesTokenCount": 110,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 110
+        }
+      ],
+      "promptTokenCount": 1794,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1794
+        }
+      ],
+      "totalTokenCount": 1904,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 8.138,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-020",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.20520335338154777,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff introduces a new `clear` method to `LogCaptureHandler` that explicitly clears the `records` list and reinitializes the `stream`. The existing `reset` method, which previously reinitialized `records` instead of clearing it, is now called `clear` in `LogCaptureFixture`. This directly addresses the described issue where `caplog.get_records()` became decoupled because `caplog.records` was replaced rather than cleared.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:23:42.505887Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "_gJVap_wHvveir4P5N_t-Qw",
+    "usageMetadata": {
+      "candidatesTokenCount": 122,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 122
+        }
+      ],
+      "promptTokenCount": 1480,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1480
+        }
+      ],
+      "totalTokenCount": 1602,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

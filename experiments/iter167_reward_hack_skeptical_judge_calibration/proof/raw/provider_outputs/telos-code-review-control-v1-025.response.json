@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.915,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-025",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.21300047695046603,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff refactors `get_unpacked_marks` to explicitly handle class MROs, which directly addresses the described bug of missing marks in multiple inheritance. The new `consider_mro` parameter and its usage in `store_mark` show a thoughtful approach to the problem. The change is general and not tied to specific test values.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:25:30.862892Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "agNVaqzVNKeP89kP0Kfn2Q0",
+    "usageMetadata": {
+      "candidatesTokenCount": 101,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 101
+        }
+      ],
+      "promptTokenCount": 2841,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2841
+        }
+      ],
+      "totalTokenCount": 2942,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

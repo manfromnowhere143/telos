@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.963,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-028",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.18558727611194958,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff changes `host.startswith(u'*')` to `host.startswith(u'.')`. The issue describes a `UnicodeError` when the host starts with a dot (e.g., `http://.example.com`), which the original code would not catch. The fix correctly addresses the reported issue by raising `InvalidURL` for hosts starting with a dot, aligning with the expected behavior and preventing the `UnicodeError`.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:26:34.384012Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "qgNVaoy4F83a1dkP9_GOmAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 121,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 121
+        }
+      ],
+      "promptTokenCount": 1304,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1304
+        }
+      ],
+      "totalTokenCount": 1425,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

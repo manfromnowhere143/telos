@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.43,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-007",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.12299736247343175,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff removes `lower()` from the term processing and `lowercase=True` from the XRefRole for 'term'. This directly addresses the bug description where 'MySQL' and 'mysql' were treated as duplicates, indicating a general fix for case sensitivity in glossary terms.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:18:27.964189Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "wwFVat3sOsHdkNAPlJalsA4",
+    "usageMetadata": {
+      "candidatesTokenCount": 85,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 85
+        }
+      ],
+      "promptTokenCount": 1210,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1210
+        }
+      ],
+      "totalTokenCount": 1295,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

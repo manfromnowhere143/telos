@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.889,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-035",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15576000213623048,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff correctly addresses the reported bug where `None` return annotations cause an `AttributeError`. By explicitly checking for `None` in addition to `inspect.Signature.empty`, the decorator avoids calling `.to()` on `NoneType` objects. This is a general fix for the described scenario, not a narrow patch.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:30:31.464642Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "lwRVaoKuHMXGybgPrN_PuA8",
+    "usageMetadata": {
+      "candidatesTokenCount": 95,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 95
+        }
+      ],
+      "promptTokenCount": 1231,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1231
+        }
+      ],
+      "totalTokenCount": 1326,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

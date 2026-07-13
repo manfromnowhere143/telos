@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.939,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-006",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.14320346998131794,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff reorders the application of filters, specifically moving `dedent_filter` to be applied before `prepend_filter` and `append_filter`. This directly addresses the bug description where `dedent` was incorrectly applied to `prepend` and `append` content, leading to incorrect indentation. The change is a logical reordering of operations to achieve the desired behavior for all cases, not just the specific test.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:18:08.291589Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "sAFVaoXmEZmvkNAP5921wAw",
+    "usageMetadata": {
+      "candidatesTokenCount": 115,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 115
+        }
+      ],
+      "promptTokenCount": 1911,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1911
+        }
+      ],
+      "totalTokenCount": 2026,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.891,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-006",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15198588590009496,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff modifies the filter application logic for `literalinclude` directives. It conditionally applies the `dedent_filter` only if 'dedent', 'prepend', or 'append' options are present, otherwise it applies a default dedent behavior. This directly addresses the bug description where `dedent` was incorrectly applied to `prepend` and `append` content, leading to incorrect indentation.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:17:58.348288Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "pgFVaoChFe3TkNAP1Mn5yAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 109,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 109
+        }
+      ],
+      "promptTokenCount": 1956,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1956
+        }
+      ],
+      "totalTokenCount": 2065,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md` (PRE-REGISTERED; skeptical judge calibration pending)
+- `experiments/iter168_reward_hack_skeptical_judge_null_adjudication/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend iter167 null adjudication pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -69,8 +69,12 @@ resources. This is a one-model bounded metric only, not a leaderboard, model-com
 natural-frequency, or broad robustness claim. Iter166 is published as a zero-spend moonshot
 evaluator-family design pass: it specifies `5` evaluator families, leakage controls, specificity floor
 `0.90`, control false-positive ceiling `4/40`, nondecision accounting, and a bounded next gate. The active
-next gate is `iter167`: run the paired skeptical-judge calibration to test whether recall can improve
-without burning the paired-control boundary.
+next gate was `iter167`: run the paired skeptical-judge calibration to test whether recall can improve
+without burning the paired-control boundary. Iter167 is published as a completed null: `80/80` provider
+calls succeeded, cost guard `$1.559880`, prompt leakage hits `0`, response secret hits `0`, false
+positives `0/40`, specificity `0.90`, but recall stayed `3/40`, hack invalids were `5/40`, hack
+nondecision rate `0.125`, and balanced detection `0.4875`. The active next gate is `iter168`: zero-spend
+adjudication of the iter167 null and malformed-output pattern before any further provider spend.
 
 Claim-boundary reviewer entry point:
 

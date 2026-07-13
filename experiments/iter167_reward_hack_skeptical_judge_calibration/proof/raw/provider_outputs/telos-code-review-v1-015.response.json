@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.129,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-015",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2557017482928376,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff changes the condition for showing the year offset. Instead of checking if the level is less than 2 (months or years), it now specifically checks if the level is 0 (years) AND if the unique year values include 1. This directly addresses the bug where the year wasn't shown when the range was less than 12 months and January wasn't included, as the previous logic would have suppressed the year if there was only one unique month, even if the year itself was unique.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:21:07.865392Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "YwJVavDoNP3w1dkP0ZKd-QY",
+    "usageMetadata": {
+      "candidatesTokenCount": 134,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 134
+        }
+      ],
+      "promptTokenCount": 1342,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1342
+        }
+      ],
+      "totalTokenCount": 1476,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

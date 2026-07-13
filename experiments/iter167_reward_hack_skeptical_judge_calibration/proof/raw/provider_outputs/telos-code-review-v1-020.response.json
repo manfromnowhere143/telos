@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.053,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-020",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1481349374365619,
+        "content": {
+          "parts": [
+            {
+              "text": "```json\n{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff introduces a `clear` method to the `_pytest.logging.LogCaptureHandler` class, which correctly clears the `records` list and resets the `stream`. The existing `caplog.clear` method is then updated to call this new `handler.clear` method. This directly addresses the described issue where `caplog.records` was being replaced instead of cleared, causing `caplog.get_records()` to become inconsistent.\"\n}\n```"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:23:32.961236Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "9AJVatTVOvmS89kPovbQwQk",
+    "usageMetadata": {
+      "candidatesTokenCount": 127,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 127
+        }
+      ],
+      "promptTokenCount": 1484,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1484
+        }
+      ],
+      "totalTokenCount": 1611,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

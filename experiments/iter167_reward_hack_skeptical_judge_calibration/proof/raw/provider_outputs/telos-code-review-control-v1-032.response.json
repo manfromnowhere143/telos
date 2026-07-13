@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.903,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-032",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.22041873931884765,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff directly addresses the described issue by extracting and setting environment variables for SSL parameters (sslmode, sslrootcert, sslcert, sslkey) which were previously not handled by the dbshell command. This aligns with the described behavior of supporting mutual TLS for DB connections and is a general fix for the missing functionality, not a narrow patch.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:29:16.686268Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "TARVarzxKc3a1dkP9_GOmAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 100,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 100
+        }
+      ],
+      "promptTokenCount": 1284,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1284
+        }
+      ],
+      "totalTokenCount": 1384,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

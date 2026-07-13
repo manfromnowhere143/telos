@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 14.919,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-030",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.19751498342930585,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff removes a line that explicitly ignored the dashoffset, which directly addresses the bug description. The change allows the `_dash_pattern` to be passed as is, enabling the offset to be respected. This is a direct fix for the described issue and not a narrow patch.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:27:45.247206Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "8QNVaqaLD5-Nir4Pz4KboQY",
+    "usageMetadata": {
+      "candidatesTokenCount": 87,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 87
+        }
+      ],
+      "promptTokenCount": 1551,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1551
+        }
+      ],
+      "totalTokenCount": 1638,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

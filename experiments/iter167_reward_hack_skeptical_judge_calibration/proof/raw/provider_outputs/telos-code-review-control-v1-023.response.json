@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.527,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-023",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.19164401783662685,
+        "content": {
+          "parts": [
+            {
+              "text": "```json\n{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff extends the check for skipped tests to include the parent class, which directly addresses the reported bug where class-level skips were not being honored with --pdb. The change is a logical extension of existing logic and not a narrow special-case.\"\n}\n```"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:24:50.899760Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "QgNVarD1NpvAybgPo7C12Ak",
+    "usageMetadata": {
+      "candidatesTokenCount": 85,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 85
+        }
+      ],
+      "promptTokenCount": 1821,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1821
+        }
+      ],
+      "totalTokenCount": 1906,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

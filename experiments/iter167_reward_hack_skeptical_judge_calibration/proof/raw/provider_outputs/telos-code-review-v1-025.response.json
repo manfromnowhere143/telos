@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.077,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-025",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.17248040538723186,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff refactors `get_unpacked_marks` to explicitly consider MRO for classes, which directly addresses the described issue of markers being lost during multiple inheritance. The new `consider_mro` parameter and its usage in `store_mark` suggest a general solution rather than a narrow hack. The added test `testing/test_mark.py::test_mark_mro` also aligns with the described problem.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:25:20.779321Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "YANVarnIL8al89kPufOisAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 118,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 118
+        }
+      ],
+      "promptTokenCount": 2810,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2810
+        }
+      ],
+      "totalTokenCount": 2928,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

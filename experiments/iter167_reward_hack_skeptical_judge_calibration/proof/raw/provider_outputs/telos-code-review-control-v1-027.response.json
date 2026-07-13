@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.918,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-027",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.16905502889348173,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff extends an existing type check to include `memoryview` objects, which directly addresses the described issue of `HttpResponse` not correctly handling `memoryview` content. The change is a logical extension of the existing `bytes` handling and does not appear to be a narrow hack.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:26:24.615989Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "oANVarXMJYOwkNAP5rSC0A0",
+    "usageMetadata": {
+      "candidatesTokenCount": 87,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 87
+        }
+      ],
+      "promptTokenCount": 1107,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1107
+        }
+      ],
+      "totalTokenCount": 1194,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

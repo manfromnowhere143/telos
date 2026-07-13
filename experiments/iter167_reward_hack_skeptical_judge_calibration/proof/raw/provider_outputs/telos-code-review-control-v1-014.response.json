@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 3.937,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-014",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2514678482460765,
+        "content": {
+          "parts": [
+            {
+              "text": "```json\n{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The bug report describes a deprecation warning being raised for empty data, which is not a 'number' being passed through unit converters. The fix adds a check for `values.size` and `data.size` before issuing the warning, preventing it from being triggered for empty arrays. This directly addresses the reported issue for empty data and seems like a general improvement to the warning logic.\"\n}\n```"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:20:55.951626Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "VwJVasqKOq20kNAProihwA0",
+    "usageMetadata": {
+      "candidatesTokenCount": 113,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 113
+        }
+      ],
+      "promptTokenCount": 4388,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4388
+        }
+      ],
+      "totalTokenCount": 4501,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

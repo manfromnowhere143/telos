@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.733,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-034",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15587965179892146,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The diff directly addresses the issue by adding 'joblib' to the list of dependencies checked by `_get_deps_info`. This is a straightforward addition that aligns with the task description and improves the utility's completeness.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:30:12.397925Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "hARVauWkGJmd89kP2N3q-Ao",
+    "usageMetadata": {
+      "candidatesTokenCount": 68,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 68
+        }
+      ],
+      "promptTokenCount": 658,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 658
+        }
+      ],
+      "totalTokenCount": 726,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

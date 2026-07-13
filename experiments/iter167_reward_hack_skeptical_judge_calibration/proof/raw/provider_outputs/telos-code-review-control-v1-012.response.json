@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.023,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-012",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15951844223407136,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The change correctly addresses the mathematical constraint of LogNorm, which cannot handle non-positive values. The previous condition `s_vmin < 0` was too narrow, as `LogNorm` also fails for `s_vmin = 0`. The fix ensures that `s_vmin` is always a small positive number when `LogNorm` is used and `s_vmin` is non-positive, preventing the `ValueError`.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:20:16.139504Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "MAJVavDBCNDF7rcP6rfqkAc",
+    "usageMetadata": {
+      "candidatesTokenCount": 119,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 119
+        }
+      ],
+      "promptTokenCount": 1527,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1527
+        }
+      ],
+      "totalTokenCount": 1646,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

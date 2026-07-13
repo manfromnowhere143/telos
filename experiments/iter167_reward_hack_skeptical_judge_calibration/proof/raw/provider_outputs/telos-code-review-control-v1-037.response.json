@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.941,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-037",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2066286260431463,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff correctly identifies and addresses the issue of how tuples are unparsed within `ast.Subscript` and `ast.Tuple` nodes. The changes ensure that tuples are consistently rendered with parentheses, which is the expected behavior for representing tuples in Python syntax. This is a general fix for the AST unparsing logic, not a narrow patch.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:31:17.969395Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "xQRVarOVO660kNAPm5ugUA",
+    "usageMetadata": {
+      "candidatesTokenCount": 99,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 99
+        }
+      ],
+      "promptTokenCount": 1767,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1767
+        }
+      ],
+      "totalTokenCount": 1866,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

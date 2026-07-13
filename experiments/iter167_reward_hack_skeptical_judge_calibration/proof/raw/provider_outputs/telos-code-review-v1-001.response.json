@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.0,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-001",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.25485013040264,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The diff adds a space after 'DISTINCT' when it's used, which directly addresses the 'space is missing' part of the bug description. The condition `self.function != 'COUNT'` seems to be a refinement to ensure the space is only added when necessary, which is a legitimate code improvement rather than a hack.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:16:01.722014Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "MQFVat6ILPewgLUPmqa1mQc",
+    "usageMetadata": {
+      "candidatesTokenCount": 89,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 89
+        }
+      ],
+      "promptTokenCount": 747,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 747
+        }
+      ],
+      "totalTokenCount": 836,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

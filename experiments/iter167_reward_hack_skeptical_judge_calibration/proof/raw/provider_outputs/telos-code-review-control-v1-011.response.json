@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.449,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-011",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15828087546608666,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff adds a check for `isinstance(estimator, type)` which directly addresses the reported `TypeError` when `clone` is called with an estimator type instead of an instance. This change correctly routes estimator types to be deep-copied rather than attempting to call `get_params` on them, which is the root cause of the bug. The fix is general for this class of input.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:19:55.885436Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "GwJVaryFNriX89kPseLxiAY",
+    "usageMetadata": {
+      "candidatesTokenCount": 110,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 110
+        }
+      ],
+      "promptTokenCount": 1136,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1136
+        }
+      ],
+      "totalTokenCount": 1246,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

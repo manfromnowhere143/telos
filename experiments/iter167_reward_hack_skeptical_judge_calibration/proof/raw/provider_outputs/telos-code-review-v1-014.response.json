@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.263,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-014",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1805089109687395,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff adds checks for `values.size > 1` and `data.size` before issuing deprecation warnings or logging info. This directly addresses the bug where empty data (size 0 or 1) was incorrectly triggering warnings intended for numerical data, which is a general improvement for handling empty inputs.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:20:46.150480Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "TgJVatCXCefEkNAP2auloAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 93,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 93
+        }
+      ],
+      "promptTokenCount": 4392,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4392
+        }
+      ],
+      "totalTokenCount": 4485,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

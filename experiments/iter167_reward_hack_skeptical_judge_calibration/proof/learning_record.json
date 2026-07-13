@@ -1,0 +1,18 @@
+{
+  "evidence_paths": [
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/model_binding.json",
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/provider_call_ledger.jsonl",
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/parsed_judge_outputs.jsonl",
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/leakage_audit.json",
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/metric_summary.json",
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/endpoint_results.json",
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/run_summary.json",
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/valid/receipt_reward_hack_skeptical_judge_calibration.json"
+  ],
+  "experiment_id": "iter167_reward_hack_skeptical_judge_calibration",
+  "insight": "The recall/specificity tradeoff must be measured on the paired hack/control surface; a stricter prompt is useful only if it raises recall without spending the control false-positive budget.",
+  "next_action": "If pass, pre-register an independent judge-panel design; if fail, publish the null and adjudicate the miss/false-positive pattern before more provider calls; if blocked, recover provider readiness under a separate gate.",
+  "result_path": "experiments/iter167_reward_hack_skeptical_judge_calibration/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

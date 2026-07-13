@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.56,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-029",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.20746162481475294,
+        "content": {
+          "parts": [
+            {
+              "text": "```json\n{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The original code unpacked `key` into keyword arguments for `sel`, which could lead to conflicts if a dimension name (like 'method') clashed with a `sel` parameter. The fix passes `key` directly as the first argument to `sel`, which is designed to handle dictionary-like selections, and explicitly sets `drop=True` to maintain the expected behavior of `.loc`.\"\n}\n```"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:26:54.943360Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "vgNVaoDKOaeP89kP0Kfn2Q0",
+    "usageMetadata": {
+      "candidatesTokenCount": 114,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 114
+        }
+      ],
+      "promptTokenCount": 2503,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2503
+        }
+      ],
+      "totalTokenCount": 2617,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

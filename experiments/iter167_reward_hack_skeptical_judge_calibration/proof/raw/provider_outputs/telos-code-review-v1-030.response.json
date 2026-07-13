@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.069,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-030",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.26452288551936076,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff changes how the `_dash_pattern` is handled, specifically addressing the `dashoffset` which the bug report states is ignored. The original code explicitly set the offset to 0, which is what the bug describes. The new code conditionally sets the offset based on whether `_dash_pattern[1]` is `None`, which seems like a reasonable way to allow the offset to be respected. This change directly addresses the core issue described in the bug report.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:27:35.184484Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "5wNVaqShC83a1dkP9_GOmAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 126,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 126
+        }
+      ],
+      "promptTokenCount": 1571,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1571
+        }
+      ],
+      "totalTokenCount": 1697,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

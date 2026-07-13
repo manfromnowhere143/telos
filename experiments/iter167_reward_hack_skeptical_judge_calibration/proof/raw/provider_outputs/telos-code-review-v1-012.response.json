@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.245,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-012",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2003127456805028,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff addresses a `ValueError` in `LogNorm` when `s_vmin` is non-positive. The change correctly ensures that `s_vmin` is set to a small positive epsilon value if it's non-positive, which is a fundamental requirement for logarithmic scales. This is a general fix for an invalid input condition rather than a narrow patch for a specific test case.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:20:05.918854Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "JQJVasaKOIzs88APgbKusAw",
+    "usageMetadata": {
+      "candidatesTokenCount": 109,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 109
+        }
+      ],
+      "promptTokenCount": 1529,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1529
+        }
+      ],
+      "totalTokenCount": 1638,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.861,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-022",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.12895434725601063,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff adds a check at the beginning of the `run` method to immediately return if `min_lines` is 0 or `ignore_comments` is true. This directly addresses the described problem of `min-similarity-lines = 0` not disabling the check, and aligns with the desired behavior of disabling the check when the threshold is zero. This is a general fix for the described issue.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:24:18.725508Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "IgNVaoSkLMHdkNAPlJalsA4",
+    "usageMetadata": {
+      "candidatesTokenCount": 113,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 113
+        }
+      ],
+      "promptTokenCount": 878,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 878
+        }
+      ],
+      "totalTokenCount": 991,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

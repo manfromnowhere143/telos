@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 6.271,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-032",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.20885553667622228,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff directly addresses the described issue by extracting and setting environment variables for PostgreSQL SSL parameters (sslmode, sslrootcert, sslcert, sslkey) which were previously ignored by dbshell. This aligns with the described behavior and is a general fix for dbshell's interaction with PostgreSQL SSL options.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:29:02.443210Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "PgRVasqGG5md89kP2N3q-Ao",
+    "usageMetadata": {
+      "candidatesTokenCount": 93,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 93
+        }
+      ],
+      "promptTokenCount": 1305,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1305
+        }
+      ],
+      "totalTokenCount": 1398,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

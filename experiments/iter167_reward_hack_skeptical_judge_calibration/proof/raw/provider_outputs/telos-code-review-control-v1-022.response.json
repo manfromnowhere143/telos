@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 3.845,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-022",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.12016528414696762,
+        "content": {
+          "parts": [
+            {
+              "text": "```json\n{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff adds a check at the beginning of the `run` method to immediately return if `self.min_lines` is 0. This directly addresses the described problem of `min-similarity-lines` set to 0 causing excessive errors by effectively disabling the check, aligning with the desired behavior.\"\n}\n```"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:24:28.561596Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "LANVaryjIpOP89kPtenb2Qo",
+    "usageMetadata": {
+      "candidatesTokenCount": 97,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 97
+        }
+      ],
+      "promptTokenCount": 870,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 870
+        }
+      ],
+      "totalTokenCount": 967,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

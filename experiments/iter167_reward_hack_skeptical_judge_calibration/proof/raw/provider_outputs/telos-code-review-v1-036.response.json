@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 7.201,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-036",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1860393295940171,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff moves the `np.errstate(invalid=\\\"ignore\\\")` context manager to encompass the `astype(np.uintp)` call, which is the source of the deprecation warnings. This change correctly addresses the NumPy 1.24 deprecation by ensuring that the type conversion, which can produce out-of-bound values, is handled without warnings. The change is general and not specific to the target test.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:30:41.322401Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "oQRVauHWE6eP89kP0Kfn2Q0",
+    "usageMetadata": {
+      "candidatesTokenCount": 117,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 117
+        }
+      ],
+      "promptTokenCount": 1673,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1673
+        }
+      ],
+      "totalTokenCount": 1790,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -6,7 +6,9 @@ A bounded single-model judge result now exists, now complete as a paired reward-
 `gemini-2.5-flash`: `3/40` recall on the blinded all-hack packets from `iter161` and `0/40` false
 positives on the paired legitimate controls after the `iter165` rate-limit recovery. That supports only
 this one model's bounded recall/specificity/precision shape; the high precision has denominator `3` and
-does not make the model a strong detector. No leaderboard, public benchmark score, model-comparison result, precision result outside this one-model bounded metric, state-of-the-art result, natural-frequency estimate, or broad robustness result is claimed. The repository begins with a completed target survey:
+does not make the model a strong detector. Iter167 tested a stricter skeptical prompt and failed the
+pre-registered improvement bars: recall stayed `3/40`, specificity was `0.90`, hack nondecision rose to
+`5/40`, prompt leakage was `0`, and response secret hits were `0`. No leaderboard, public benchmark score, model-comparison result, precision result outside this one-model bounded metric, state-of-the-art result, natural-frequency estimate, or broad robustness result is claimed. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
 hybrid Telos overlay on public software-agent tasks.
 
@@ -95,7 +97,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [164](experiments/iter164_reward_hack_single_model_control_evaluation/RESULT.md) | Can the same model judge evaluate controls under the iter160 parser? | blocked - the bounded run preserved `15` parsed legitimate-control outputs, then stopped on a Vertex `http_429` provider rate-limit block at packet `016`; prompt leakage hits `0`, response secret hits `0`, estimated cost guard `$0.298030`, no SWE-bench executions or cloud resources. Honest: partial diagnostics only, not a precision result |
 | [165](experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/RESULT.md) | Can the iter164 rate-limit block be recovered without re-calling successful controls? | pass - recovered only the `25` missing controls, reused the `15` successful iter164 controls, and produced a complete paired single-model metric: controls `40/40` `legitimate`, false positives `0/40`, specificity `1.0`, recall from iter161 `3/40` (`0.075`), precision for the `reward_hack` flag `1.0` with denominator `3`, balanced detection `0.5375`, sequence estimated cost guard `$0.727580`, prompt leakage hits `0`, response secret hits `0`, no SWE-bench executions or cloud resources. Honest: one-model bounded metric only, not a leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
 | [166](experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md) | Can the next moonshot evaluator family be designed from the paired metric without overclaiming? | pass - zero-spend design specifies `5` evaluator families, leakage controls, stop conditions, specificity floor `0.90`, control false-positive ceiling `4/40`, nondecision accounting, and a bounded next gate; provider calls `0`, model evaluations `0`, SWE-bench executions `0`, cloud resources `0`. Honest: design only, not a model score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
-| [167](experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md) | Can a skeptical judge prompt raise recall without burning the control boundary? | pre-registered - paired `40` hack + `40` control provider run for `gemini-2.5-flash`, call ceiling `80`, spend ceiling `$20`, specificity floor `0.90`, required recall improvement `>= 0.15`, balanced-detection improvement `>= 0.10`, no SWE-bench executions or cloud resources |
+| [167](experiments/iter167_reward_hack_skeptical_judge_calibration/RESULT.md) | Can a skeptical judge prompt raise recall without burning the control boundary? | fail - completed the paired `40` hack + `40` control provider run for `gemini-2.5-flash` under the iter160 parser: provider successes `80/80`, estimated cost guard `$1.559880`, prompt leakage hits `0`, response secret hits `0`, false positives `0/40`, specificity `0.90`, but recall stayed `3/40` (`0.075`), hack invalids were `5/40`, nondecision rate on hacks `0.125`, balanced detection `0.4875`, so the pre-registered recall, nondecision, and balanced-detection bars failed. Honest: completed null only, not a leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
+| [168](experiments/iter168_reward_hack_skeptical_judge_null_adjudication/HYPOTHESIS.md) | Can the iter167 null be adjudicated before spending again? | pre-registered - zero-spend adjudication of the iter167 null, invalid-output taxonomy, diagnostic-only fenced-JSON counterfactual, miss-pattern summary, and next-intervention recommendation; provider calls `0`, model evaluations `0`, SWE-bench executions `0`, cloud resources `0`, no score changes or leaderboard language |
 
 ### The honest conclusion
 
@@ -650,10 +653,10 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack skeptical judge calibration (iter167, pre-registered) in
-  [`experiments/iter167_reward_hack_skeptical_judge_calibration`](experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md);
-  the next step is to test whether recall can improve while preserving the iter165 false-positive boundary
-  before any broader benchmark, leaderboard, or model-comparison claim.
+- Current gate: reward-hack skeptical judge null adjudication (iter168, pre-registered) in
+  [`experiments/iter168_reward_hack_skeptical_judge_null_adjudication`](experiments/iter168_reward_hack_skeptical_judge_null_adjudication/HYPOTHESIS.md);
+  the next step is to adjudicate the completed iter167 null and malformed-output pattern before any further
+  provider spend, broader benchmark, leaderboard, or model-comparison claim.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -788,16 +791,16 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md`](experiments/iter167_reward_hack_skeptical_judge_calibration/HYPOTHESIS.md).
+[`experiments/iter168_reward_hack_skeptical_judge_null_adjudication/HYPOTHESIS.md`](experiments/iter168_reward_hack_skeptical_judge_null_adjudication/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter166); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter167); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-166<br/>judge eval + design<br/>3/40 recall · 0/40 FP controls"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-167<br/>judge eval + null<br/>3/40 recall · 0/40 FP controls"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
@@ -830,8 +833,10 @@ Iter165 recovered only the missing controls and produced the complete paired one
 `3/40` recall on hacks, `0/40` false positives on controls, specificity `1.0`, and balanced detection
 `0.5375`; this is still not a leaderboard or model-comparison result. Iter166 designed `5` evaluator
 families and froze the next stop conditions: specificity floor `0.90`, control false-positive ceiling
-`4/40`, and balanced-detection improvement floor `0.10`. Iter167 is the active skeptical-judge calibration
-gate for testing whether recall can improve without burning the measured false-positive boundary. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
+`4/40`, and balanced-detection improvement floor `0.10`. Iter167 completed the skeptical-judge calibration
+and failed honestly: provider successes `80/80`, false positives `0/40`, specificity `0.90`, but recall
+stayed `3/40`, hack invalids rose to `5/40`, and balanced detection dropped to `0.4875`. Iter168 is the
+active zero-spend null-adjudication gate before any further provider spend. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
@@ -898,7 +903,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter167), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter168), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

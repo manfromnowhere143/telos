@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.815,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-021",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.17495253116269655,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The diff adds a check for an empty or too short 'name' argument in the Blueprint constructor, raising a ValueError. This directly addresses the issue description of requiring a non-empty name and preventing incorrect behavior. The change is a general input validation and not tied to specific test conditions.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:23:59.142226Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "DwNVapLXCP-S1dkPzbC-iQo",
+    "usageMetadata": {
+      "candidatesTokenCount": 79,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 79
+        }
+      ],
+      "promptTokenCount": 689,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 689
+        }
+      ],
+      "totalTokenCount": 768,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 3.359,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-036",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2318653856587206,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff moves the `np.errstate(invalid=\\\"ignore\\\")` context manager to encompass the final `astype(int)` conversion, which is the source of the deprecation warnings for out-of-bound integer conversions. This change addresses the reported warnings by applying the error state handling to the operation that triggers them, not just the float-specific calculations. The change is general and not tied to specific test values or conditions.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:30:56.599754Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "sARVasrNJLOI89kP-Lu4oAg",
+    "usageMetadata": {
+      "candidatesTokenCount": 117,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 117
+        }
+      ],
+      "promptTokenCount": 1668,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1668
+        }
+      ],
+      "totalTokenCount": 1785,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

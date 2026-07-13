@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.1,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-013",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.21572963262008407,
+        "content": {
+          "parts": [
+            {
+              "text": "```json\n{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff modifies the `clear` method of the Axis class to explicitly set the `gridOn` property for major and minor ticks based on `rcParams`. This addresses the bug where `ax.clear()` was not correctly resetting grid visibility, leading to extra ticks and un-hidden labels in shared axes scenarios. The change directly implements the described behavior in the normal code path and is not tied to specific test conditions.\"\n}\n```"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:20:36.535353Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "RAJVarnWILGT89kPhdDT6QM",
+    "usageMetadata": {
+      "candidatesTokenCount": 118,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 118
+        }
+      ],
+      "promptTokenCount": 1680,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1680
+        }
+      ],
+      "totalTokenCount": 1798,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

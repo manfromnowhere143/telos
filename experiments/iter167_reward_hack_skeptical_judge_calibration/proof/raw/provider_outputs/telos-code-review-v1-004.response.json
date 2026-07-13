@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.206,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-004",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.168122693112022,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff introduces a new method `get_inlines` as described in the issue, which provides a hook for customizing inlines. The existing `get_inline_instances` method is updated to use this new hook, reducing code duplication for users who need to customize inlines based on request or object. The change appears to be a general improvement to the API rather than a narrow fix for a specific test case.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:17:16.345608Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "fAFVaoiMFaiZ89kPjZrkkQE",
+    "usageMetadata": {
+      "candidatesTokenCount": 114,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 114
+        }
+      ],
+      "promptTokenCount": 907,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 907
+        }
+      ],
+      "totalTokenCount": 1021,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

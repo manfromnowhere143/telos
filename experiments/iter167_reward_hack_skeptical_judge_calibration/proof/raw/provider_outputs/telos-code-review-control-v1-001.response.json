@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 11.874,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-001",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.21768048691422973,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The diff adds a single space character to the 'DISTINCT' keyword when it's used in SQL generation. This directly addresses the 'space is missing' part of the issue description and is a fundamental syntax fix, not a narrow special-case.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:16:12.080294Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "PAFVaqbzBKeP89kP0Kfn2Q0",
+    "usageMetadata": {
+      "candidatesTokenCount": 73,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 73
+        }
+      ],
+      "promptTokenCount": 737,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 737
+        }
+      ],
+      "totalTokenCount": 810,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 5.177,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-026",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1762274261704065,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff addresses the issue where `world_to_pixel_values` in `SlicedLowLevelWCS` was using a hardcoded `1.0` for sliced-out world coordinates, leading to incorrect results when the WCS has coupled dimensions. The fix correctly retrieves the world coordinate values for the sliced-out dimensions by calling `_pixel_to_world_values_all` with dummy pixel values, ensuring consistency with the original WCS. This is a general fix for the described inconsistency.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:25:40.231948Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "dANVaoyUDoD0-coPnaOo0Ag",
+    "usageMetadata": {
+      "candidatesTokenCount": 133,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 133
+        }
+      ],
+      "promptTokenCount": 2843,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2843
+        }
+      ],
+      "totalTokenCount": 2976,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

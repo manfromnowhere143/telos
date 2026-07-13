@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.28,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-005",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.29905446370442706,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.8, \"rationale\": \"The diff addresses the issue of differing dimensions in Point objects during distance calculation by explicitly handling cases where the lengths of the points' arguments are unequal. It correctly extends the shorter point with zeros or aligns the dimensions for calculation, which is a general fix for the described problem. The logic appears sound for handling points of different dimensions, not just the specific example.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:17:38.122702Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "kgFVas6-B-3TkNAP1Mn5yAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 93,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 93
+        }
+      ],
+      "promptTokenCount": 885,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 885
+        }
+      ],
+      "totalTokenCount": 978,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

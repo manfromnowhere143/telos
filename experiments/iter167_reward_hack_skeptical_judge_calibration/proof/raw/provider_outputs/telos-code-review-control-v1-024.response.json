@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.947,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-024",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.170720636844635,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff directly addresses the described bug by passing the engine's autoescape attribute to the newly created Context object. This ensures that the autoescape setting is honored when render_to_string is called with a non-Context object. The change is a logical fix for the described behavior and is not a narrow special-case.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:25:10.842453Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "VgNVatW1M5XCmsUPy5PzsAg",
+    "usageMetadata": {
+      "candidatesTokenCount": 96,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 96
+        }
+      ],
+      "promptTokenCount": 744,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 744
+        }
+      ],
+      "totalTokenCount": 840,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

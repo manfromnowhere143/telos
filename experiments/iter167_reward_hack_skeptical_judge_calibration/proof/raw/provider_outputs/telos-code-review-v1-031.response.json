@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 25.618,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-031",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.22226385916433028,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff introduces a new helper function `_is_skipped` to consistently check for skipped tests. This function is then used in three different locations where skip status needs to be evaluated, including the `runtest` method which is directly related to the bug description. The change addresses the described bug by ensuring that `tearDown` is not executed for skipped tests when `--pdb` is enabled, and it does so in a general way by centralizing the skip check.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:28:08.218130Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "CARVapKoDZmvkNAP5921wAw",
+    "usageMetadata": {
+      "candidatesTokenCount": 124,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 124
+        }
+      ],
+      "promptTokenCount": 2049,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2049
+        }
+      ],
+      "totalTokenCount": 2173,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

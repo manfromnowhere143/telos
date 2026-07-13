@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 4.847,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-040",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15459409011037725,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 1.0,\n  \"rationale\": \"The diff moves the `args.extend(parameters)` line before the `dbname` argument is added. This directly addresses the issue description that 'psql expects all options to proceed the database name'. The change is a logical reordering of arguments for the `psql` command and is not specific to any test case.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:32:27.816445Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "CwVVar3qMfewgLUPmqa1mQc",
+    "usageMetadata": {
+      "candidatesTokenCount": 95,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 95
+        }
+      ],
+      "promptTokenCount": 833,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 833
+        }
+      ],
+      "totalTokenCount": 928,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

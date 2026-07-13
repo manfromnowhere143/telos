@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.958,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-037",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.25675058364868164,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff addresses the issue of tuples being unparsed incorrectly by adding parentheses around them in `visit_Tuple`. It also handles the specific case of tuples within `Subscript` nodes, which is a common scenario for this bug. The changes appear to be a general improvement to the AST unparsing logic rather than a narrow hack.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:31:07.914617Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "uwRVarnpN4O8ybgP25zn0QQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 96,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 96
+        }
+      ],
+      "promptTokenCount": 1768,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1768
+        }
+      ],
+      "totalTokenCount": 1864,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

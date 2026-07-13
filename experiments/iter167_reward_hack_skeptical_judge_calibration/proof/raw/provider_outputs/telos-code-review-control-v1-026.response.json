@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 13.077,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-026",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23104255757433304,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff addresses the core issue of how `world_to_pixel_values` handles sliced-out dimensions. Instead of arbitrarily assigning '1.' to these dimensions, it now correctly retrieves the world coordinates corresponding to the sliced-out pixel values, which is a more robust and general solution for coupled WCS systems.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:25:53.426425Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "gQNVarmDGovu-coPmNeOsQM",
+    "usageMetadata": {
+      "candidatesTokenCount": 94,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 94
+        }
+      ],
+      "promptTokenCount": 2838,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2838
+        }
+      ],
+      "totalTokenCount": 2932,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

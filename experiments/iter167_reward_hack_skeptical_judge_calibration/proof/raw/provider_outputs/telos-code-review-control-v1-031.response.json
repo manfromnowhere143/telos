@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 12.633,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-031",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1790076763960567,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff introduces a helper function `_is_skipped` to centralize the check for skipped tests. This helper is then used consistently across different parts of the `unittest` integration where skipping logic is relevant, including the `collect` phase, the `_make_xunit_fixture`, and the `runtest` method when `usepdb` is active. This refactoring improves readability and ensures consistent handling of skipped tests, directly addressing the reported issue where `tearDown` was executed for skipped tests under `--pdb`.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:28:41.846028Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "KQRVaszRM66ZgLUPku2rgAM",
+    "usageMetadata": {
+      "candidatesTokenCount": 137,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 137
+        }
+      ],
+      "promptTokenCount": 2042,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2042
+        }
+      ],
+      "totalTokenCount": 2179,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

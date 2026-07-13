@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.995,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-010",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15196921030680338,
+        "content": {
+          "parts": [
+            {
+              "text": "```json\n{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff adds `time.time()` calls around the `best_estimator_.fit` method to measure the refitting time and stores it in a new `refit_time_` attribute. This directly addresses the user's request for measuring the refit time and is a general enhancement to the `BaseSearchCV` class. The added test `test_search_cv_timing` likely verifies this new functionality.\"\n}\n```"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:19:20.785558Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "-AFVapb5L_eEir4P4pSt6QQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 120,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 120
+        }
+      ],
+      "promptTokenCount": 1498,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1498
+        }
+      ],
+      "totalTokenCount": 1618,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.716,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-021",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2031585203634726,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The diff adds a check for an empty 'name' argument in the Blueprint constructor and raises a ValueError, which directly addresses the described issue of Blueprints not working correctly with empty names. This is a general fix for the reported problem, not a narrow patch.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:24:09.006046Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "GQNVap4vxqXz2Q-586KwBA",
+    "usageMetadata": {
+      "candidatesTokenCount": 74,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 74
+        }
+      ],
+      "promptTokenCount": 679,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 679
+        }
+      ],
+      "totalTokenCount": 753,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

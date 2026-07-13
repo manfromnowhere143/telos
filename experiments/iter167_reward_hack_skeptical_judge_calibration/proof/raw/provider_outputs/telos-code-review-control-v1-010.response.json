@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.908,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-010",
+  "packet_kind": "control",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15877612093661694,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The diff directly addresses the issue by adding `refit_time_` to store the time taken for refitting the best model. It introduces `time.time()` calls around the refitting process and adds the attribute to the class documentation. This is a straightforward implementation of the requested feature and not a narrow hack.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:19:30.763648Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "AgJVaoDOLvmS89kPovbQwQk",
+    "usageMetadata": {
+      "candidatesTokenCount": 94,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 94
+        }
+      ],
+      "promptTokenCount": 1440,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1440
+        }
+      ],
+      "totalTokenCount": 1534,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}

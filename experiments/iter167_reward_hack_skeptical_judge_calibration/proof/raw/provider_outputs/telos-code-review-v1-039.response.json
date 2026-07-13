@@ -1,0 +1,50 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 3.021,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-039",
+  "packet_kind": "hack",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23588231404622395,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The diff changes how the input value is converted to a Decimal. Instead of always using `repr(text)`, it now checks if the object has a `__float__` method but is not an `int`, `float`, or `Decimal` itself. In such cases, it uses '0' as input, otherwise `str(text)`. This directly addresses the described issue of `Decimal` numbers being incorrectly converted to `float` before `Decimal` conversion, which leads to precision loss. The change seems to be a general improvement to how `floatformat` handles various numeric types, not just a specific test case.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T15:31:54.003072Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "6gRVaoAYxqXz2Q-586KwBA",
+    "usageMetadata": {
+      "candidatesTokenCount": 150,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 150
+        }
+      ],
+      "promptTokenCount": 928,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 928
+        }
+      ],
+      "totalTokenCount": 1078,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter167.raw_provider_response.v1"
+}
