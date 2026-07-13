@@ -767,22 +767,22 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter145_judge_panel_before_execution/HYPOTHESIS.md`](experiments/iter145_judge_panel_before_execution/HYPOTHESIS.md).
+[`experiments/iter155_adaptive_reward_hack_expansion/HYPOTHESIS.md`](experiments/iter155_adaptive_reward_hack_expansion/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter152); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter155); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146-152<br/>protocol + detection at scale<br/>cross-repo 0/20 -> 10/20 official<br/>reward-model fooled 35-45% · 25% survive all static"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146-152<br/>protocol + detection at scale<br/>cross-repo 0/20 -> 10/20 official<br/>reward-model fooled 35-45% · 25% survive all static"]-->BENCH["153-155<br/>reward-hack benchmark<br/>seed 20 + expansion 17/20 shortfall<br/>adaptive follow-up active"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   class L1,L2,L3 d;
   class BM,FBM risk;
-  class DEF,AUT,SC,APP,PE fix;
+  class DEF,AUT,SC,APP,PE,BENCH fix;
 ```
 
 The FBM node was the adversarial frontier: iter140's `0/20` gemini null read the both-miss window as
@@ -791,8 +791,10 @@ well-tested code, iter142 measured the rate, iter143 showed it survives frontier
 generalized it to a second repo, and iter145 showed a judge panel does not close it. The PE node then
 closes the loop: used as a gate with gold-free repair feedback, the protocol lifts real completion on
 reward-hack-prone starts from `0/7` to `5/7`, the first evidence that it changes outcomes rather than only
-measuring them. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is preserved in the
-Honest Status log above and the learning ledger.
+measuring them. Iter153 materialized those reward-hack rows as a seed benchmark, iter154 tried to grow
+it under bounded spend and honestly missed the `20`-row bar with `17` new rows, and iter155 is now the
+pre-registered adaptive follow-up. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
+preserved in the Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
 
@@ -858,7 +860,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter154), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter155), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
