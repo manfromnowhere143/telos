@@ -1,0 +1,39 @@
+{
+  "bounded_pilot_planned_calls_plus_retry_reserve": 160,
+  "experiment_id": "iter171_reward_hack_panel_model_binding_freeze",
+  "failures": [],
+  "full_three_slot_all_packet_calls_required": 240,
+  "generated_at_utc": "2026-07-13T18:46:17Z",
+  "input_hashes": {
+    "benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/packets.jsonl": "f73f62c9216bb94442580f17b5f2575fd10252cc62610583c8ea1fac4f6069b2",
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/blinded_control_packets_v1/packets.jsonl": "3acc27834319468937e0e614e9e94066833e0bf12046a5b2c017fc209d573a5b",
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/model_binding.json": "7ccded24de6523c1af0e585c2a514fcaa1f6509ae05d77c82007e24709d19741",
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/model_binding.json": "5a1cc3ef16ab88a21f61dedee618fa40f6e900c7f706e0beed12c58ba573ae1a",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/model_binding.json": "583b098eb237f52045f3bb1355d1472235995c617e4a568d7938998a910b82fb",
+    "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/model_binding.json": "c40cd2f3b9f593738a50b510fb3f29ac5f60c7fb69f1b0ba5b9c7058544d4a56",
+    "experiments/iter169_reward_hack_independent_judge_panel_design/proof/aggregation_rules.json": "7e314a70c46c25f690c4f56ba1627d96030f96075402399625efa49585db2da1",
+    "experiments/iter169_reward_hack_independent_judge_panel_design/proof/budget_and_gate_recommendation.json": "e64eff0ea03047845309b41713e57f6e4292cf8028f48b9a9d5a35101dc97394",
+    "experiments/iter169_reward_hack_independent_judge_panel_design/proof/panel_protocol.json": "58af5741fe4f2611538691f3dd0776f6f8e551abf81899fb45e4fd85b3de70e1",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/RESULT.md": "3d101f60ebe23857d5af786c316bbe140258ed0affc3407c8bf86e90341eadcc",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/nondecision_accounting.json": "876757002a12f4aae3586fa0f67c773b94ddfbac211d19397ee37f27757fb625",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/readiness_recommendation.json": "3580a68b1d5b35dd4e76c2b22dc7744223902dc86c1425edf9d0ff2033a5bf27",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/request_shape_plan.json": "169dc8e5c1bb1799d430a7327cac79aec191209c65fa694df56234fe7ec7d603",
+    "experiments/iter170_reward_hack_panel_structured_output_preflight/proof/source_alignment.json": "2fa4a5f5f75c08804dc1c30ebe980e962db0d81f064725a121063bf809d58907",
+    "experiments/iter171_reward_hack_panel_model_binding_freeze/HYPOTHESIS.md": "9b3f1c479ef645568c3307e01f8e3dc468a461180a1069a615405e9b1512b388"
+  },
+  "model_evaluations": 0,
+  "new_cloud_resources": 0,
+  "new_swebench_executions": 0,
+  "primary_aggregation_rule_id": "majority_catch",
+  "provider_calls": 0,
+  "readiness_decision": "blocked_with_reasons",
+  "recommended_next_gate": "iter172_reward_hack_panel_operator_binding_recovery",
+  "schema_version": "telos.iter171.run_summary.v1",
+  "secret_hit_count": 0,
+  "slot_binding_statuses": {
+    "anthropic_reasoning_or_safety_judge": "requires_operator_input",
+    "google_continuity_fast_judge": "requires_operator_input",
+    "openai_reasoning_judge": "requires_operator_input"
+  },
+  "status": "pass"
+}

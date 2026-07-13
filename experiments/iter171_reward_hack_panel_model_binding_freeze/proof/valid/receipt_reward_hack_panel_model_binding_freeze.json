@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "Zero provider calls, model evaluations, SWE-bench executions, and cloud resources.",
+    "Every slot has a ready, blocked, or requires_operator_input binding status.",
+    "No exact binding artifact contains secrets, bearer tokens, project IDs, or service accounts.",
+    "The primary aggregation rule is selected before paid outputs.",
+    "Future paid pilot remains capped at 160 provider calls and $50.00.",
+    "Nondecision accounting from iter170 is preserved.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim is made."
+  ],
+  "agent_id": "codex-local-zero-spend-panel-binding-freeze",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter171_reward_hack_panel_model_binding_freeze/proof/binding_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter171_reward_hack_panel_model_binding_freeze/proof/primary_aggregation_rule.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter171_reward_hack_panel_model_binding_freeze/proof/paid_pilot_plan.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter171_reward_hack_panel_model_binding_freeze/proof/secret_safety_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter171_reward_hack_panel_model_binding_freeze/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, or model evaluation occurs.",
+    "The gate fails if any ready slot lacks exact model, endpoint/location, credential-source, and structured-output mode.",
+    "The gate fails if the primary aggregation rule is left for post-output selection.",
+    "The gate fails if a future paid pilot is authorized above 160 calls or $50.00.",
+    "The gate fails if a model score, panel score, leaderboard, or SOTA claim is made."
+  ],
+  "receipt_id": "iter171-reward-hack-panel-model-binding-freeze-pass",
+  "sha256": "ab946504883db3dec1ba25f2a2a3273f1e675df854c3d0cdf1d81faa4cde2a1c",
+  "stated_goal": "Freeze or block the iter169/iter170 independent reward-hack judge-panel model/API bindings, primary aggregation rule, paid-pilot call accounting, and secret-safety policy without provider calls.",
+  "status": "pass",
+  "task_id": "telos:iter171_reward_hack_panel_model_binding_freeze"
+}

@@ -1,0 +1,31 @@
+{
+  "blocked_reasons": [
+    "google_continuity_fast_judge: runtime Google project/quota-project route is not frozen in a committed artifact",
+    "google_continuity_fast_judge: credential source route is not frozen and was not probed by this zero-spend gate",
+    "google_continuity_fast_judge: Vertex structured-output request route still requires operator binding before spend",
+    "openai_reasoning_judge: exact OpenAI model id is not committed",
+    "openai_reasoning_judge: exact OpenAI API route is not committed",
+    "openai_reasoning_judge: runtime credential source route is not frozen in a committed artifact",
+    "anthropic_reasoning_or_safety_judge: exact Anthropic model id is not committed",
+    "anthropic_reasoning_or_safety_judge: exact Anthropic structured-output API route is not committed",
+    "anthropic_reasoning_or_safety_judge: runtime credential source route is not frozen in a committed artifact",
+    "full three-slot all-packet panel requires 240 calls, above the 160-call ceiling"
+  ],
+  "experiment_id": "iter171_reward_hack_panel_model_binding_freeze",
+  "readiness_decision": "blocked_with_reasons",
+  "ready_for_bounded_paid_pilot": false,
+  "recommended_next_gate": {
+    "experiment_id": "iter172_reward_hack_panel_operator_binding_recovery",
+    "gate_type": "zero-spend operator model/API binding recovery",
+    "new_cloud_resource_ceiling": 0,
+    "new_swebench_execution_ceiling": 0,
+    "provider_call_ceiling": 0,
+    "spend_ceiling_usd": "0.00"
+  },
+  "schema_version": "telos.iter171.readiness_decision.v1",
+  "slot_binding_statuses": {
+    "anthropic_reasoning_or_safety_judge": "requires_operator_input",
+    "google_continuity_fast_judge": "requires_operator_input",
+    "openai_reasoning_judge": "requires_operator_input"
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "authorization_block_reason": "The binding manifest is blocked_with_reasons; no paid provider call is authorized by this gate.",
+  "binding_readiness_decision": "blocked_with_reasons",
+  "call_accounting": {
+    "current_call_ceiling": 160,
+    "fits_under_ceiling": true,
+    "full_all_packet_panel_fits_under_current_ceiling": false,
+    "full_three_slot_all_packet_calls_required": 240,
+    "panel_slot_count": 3,
+    "planned_calls_plus_retry_reserve": 160,
+    "planned_primary_calls": 120,
+    "retry_reserve_calls": 40,
+    "selected_packet_count_for_bounded_pilot": 40,
+    "selected_pair_count_for_bounded_pilot": 20
+  },
+  "execution_authorized_by_iter171": false,
+  "experiment_id": "iter171_reward_hack_panel_model_binding_freeze",
+  "future_paid_panel_pilot_ceiling_preserved": {
+    "experiment_id": "future_iter171_reward_hack_independent_judge_panel_execution",
+    "new_cloud_resource_ceiling": 0,
+    "new_swebench_execution_ceiling": 0,
+    "provider_call_ceiling": 160,
+    "spend_ceiling_usd": "50.00"
+  },
+  "ledger_requirements": [
+    "one provider_call_ledger.jsonl row per attempted call",
+    "raw prompt hash and raw response hash for every attempt",
+    "parser status for every response before aggregation",
+    "per-slot and primary-panel nondecision accounting",
+    "no benchmark leaderboard or model-superiority claim from the bounded pilot"
+  ],
+  "primary_aggregation_rule_id": "majority_catch",
+  "retry_policy": {
+    "invalid_json_or_refusal_is_not_retried_as_score_repair": true,
+    "max_retries_per_provider_packet": 1,
+    "max_retry_calls_total": 40,
+    "retry_allowed_only_for": [
+      "provider_error",
+      "transport_error",
+      "rate_limit"
+    ],
+    "retry_must_use_identical_request_hash": true,
+    "retry_outputs_are_logged_separately": true
+  },
+  "schema_version": "telos.iter171.paid_pilot_plan.v1",
+  "selected_pairs": [
+    {
+      "control_packet_id": "telos-code-review-control-v1-001",
+      "control_packet_sha256": "26ca2bd5d202f15dac8cdd55e6f2ae185e2ab826d3e4eed8fa20296473ce2b5f",
+      "hack_packet_id": "telos-code-review-v1-001",
+      "hack_packet_sha256": "5b5b3e202bbef927fb77489c80783298da037dbaf953b0e1f047a33c486f5a8d",
+      "pair_index": 1,
+      "ranking_sha256": "9fb614498520a000b270edb37865f34aa94151ed252a7c010e08f63804801271"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-002",
+      "control_packet_sha256": "78c0c56b4e2e77734a3bf59a9bb807e90c3e0eb21985f439cbd98c14fde6c440",
+      "hack_packet_id": "telos-code-review-v1-002",
+      "hack_packet_sha256": "01fd3eb2883372785abf841a8b54ff0dc4b00de95001db42ac425778e7952e33",
+      "pair_index": 2,
+      "ranking_sha256": "21fa6d81e65d51b98212d38811857fc81f3e6cdab26f108cc6a59844bdf11dc3"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-004",
+      "control_packet_sha256": "b06f0da5c2b5e9e40b470de6f155cd91b97dad1de7e513b448c436b377c3ca3a",
+      "hack_packet_id": "telos-code-review-v1-004",
+      "hack_packet_sha256": "717889b808479b15b0f974d56bb05b9982ba51a2229330729d6768f6cfb80d8c",
+      "pair_index": 4,
+      "ranking_sha256": "202774004818662aab29a0e226735de96ee357d0e628d2b95e52c035300976ef"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-008",
+      "control_packet_sha256": "f9e237aa5b816cd9ed5cd890aa03158a5d48429bf8f00004e19a79e5b8614a31",
+      "hack_packet_id": "telos-code-review-v1-008",
+      "hack_packet_sha256": "f9e42b0ffcaee13db05d00e66824634d940491b3d155513a86a85e041fea54b5",
+      "pair_index": 8,
+      "ranking_sha256": "3bbbd09e19874ba2fb85df998cc36876375ccfd7c1a4b1e490151f7e398e3793"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-010",
+      "control_packet_sha256": "eed5e75fa00f79a4037ff12fc5e62b8af69e6edb6438aa5847f23d367d598e0d",
+      "hack_packet_id": "telos-code-review-v1-010",
+      "hack_packet_sha256": "01117239f62836307cfc092689abee093d1e1abc1d81d7dd82db049288ba0182",
+      "pair_index": 10,
+      "ranking_sha256": "18073518a73068913e5bf2fb1eaa2dfaeb71859793e20f098a1814f96cac14f7"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-011",
+      "control_packet_sha256": "c3c1c0b695aa5d1c52ffb2bd0981f13cd5d89faa0d9a5c312a7516da556f7ba3",
+      "hack_packet_id": "telos-code-review-v1-011",
+      "hack_packet_sha256": "2e2b763dcb886226f87107984721afd33948b4df628d6667cde021a62033a387",
+      "pair_index": 11,
+      "ranking_sha256": "5fc9bd32784a768592bcf926f5dcd60101995d832189d7c65cf2d537efdb869e"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-013",
+      "control_packet_sha256": "52c1315f3f25c7ff150039b6f5274e798b3951cf3a297b368bcde797cdb67386",
+      "hack_packet_id": "telos-code-review-v1-013",
+      "hack_packet_sha256": "827bbe1445dde768d100421205d1fcdc0ebbcc7e1a98503816ce267bcf618475",
+      "pair_index": 13,
+      "ranking_sha256": "9ebf6506162746458592af43a9cbfa075669f459628ee350a1fd69fce53ccac2"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-014",
+      "control_packet_sha256": "6efe0a3caccf9cb2707ff33106a3a2ba568d61c229cd9985ead3713dfa9b8244",
+      "hack_packet_id": "telos-code-review-v1-014",
+      "hack_packet_sha256": "04a31496cc5333fdb32086c26ff8bce13af0355312f210d3e4d6a3f99a5f986c",
+      "pair_index": 14,
+      "ranking_sha256": "45cb040a7a8d368802efc1e1f67f5448042785704906dd93aedef117a29e2fcd"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-016",
+      "control_packet_sha256": "d923312e444e9311b289208999f634b35e8c3e93c64f8c7bc77a11fae8e234dc",
+      "hack_packet_id": "telos-code-review-v1-016",
+      "hack_packet_sha256": "1634e76468ebf8b6e81c5ed0b660d45a33cd40082c2c84606f5a0f5a559f0044",
+      "pair_index": 16,
+      "ranking_sha256": "991d65caf344362069b9687ae64938c4b05905f2ea529ab11c6a960f8ca695e0"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-018",
+      "control_packet_sha256": "91e54c2f84da0b4b3aee1984014815b933b781ac391286035ed3b2aaa1a7b047",
+      "hack_packet_id": "telos-code-review-v1-018",
+      "hack_packet_sha256": "7ed89046cc7743d14b8cac5527831010b286b03094d8c82ead2259562ae23e34",
+      "pair_index": 18,
+      "ranking_sha256": "7814dd740905694eeb41edd552002b64e540106390920766b762e724278df3b7"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-019",
+      "control_packet_sha256": "a7ae23cf85abee6562054823f422b65d323888d6287c1d8224adf82c8fe43409",
+      "hack_packet_id": "telos-code-review-v1-019",
+      "hack_packet_sha256": "5c8948b51be7c1441d819ef4d6ee71e69edf0b69d4593375745fb61116f1416c",
+      "pair_index": 19,
+      "ranking_sha256": "62accce35aac6dbe87e6819a4b6fd6abe7f3c012ed708b7a73fa07efb8cc5f05"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-021",
+      "control_packet_sha256": "34a1c5a14146ce324b32a4fd2aa78bd33fcb4bf59744a649072da4ebd9053e5e",
+      "hack_packet_id": "telos-code-review-v1-021",
+      "hack_packet_sha256": "81e867f097d1eb9e8341e7a2d760750e9436711e89cf2508c0708e8a3e53b5ef",
+      "pair_index": 21,
+      "ranking_sha256": "4b8fd68a4e9e1642fd6a5adf9ab1c37f267b15b2b420ae17e6c88d844c20c5a6"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-022",
+      "control_packet_sha256": "1cf36383931e05378744edcf68a9352ac846cf68830e0275938a52d4c087e1e7",
+      "hack_packet_id": "telos-code-review-v1-022",
+      "hack_packet_sha256": "c70fbf2648819a2d616c078e2f1a8f3ee701ce8a2319c69eb064c355d35f44fd",
+      "pair_index": 22,
+      "ranking_sha256": "269ee6e762e6e41ccf29c32bbd9826f15cff707f94b8f061d7951e89adcfbf86"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-023",
+      "control_packet_sha256": "eda5680b61d591920428ecb0d7d38ee9175bbdc69d061972bebb0cbf51eed010",
+      "hack_packet_id": "telos-code-review-v1-023",
+      "hack_packet_sha256": "1e45789edc52555c764df7371c03856331d27ded93a51c9c50ceff1b0a9d2c64",
+      "pair_index": 23,
+      "ranking_sha256": "4eac2f06fb9ed5af262089b985553e8d0f51730d93c513fe4bea8c047eb81a7b"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-026",
+      "control_packet_sha256": "cdc8292c9c4f38ea199395a0d3807dfbba1dc0756d1f3c87ab1cd8430b25c00c",
+      "hack_packet_id": "telos-code-review-v1-026",
+      "hack_packet_sha256": "69f50a19c3f1e98ed76543a5453ab15ac9d3f9c95457b3c257c96b2d5d60d7c9",
+      "pair_index": 26,
+      "ranking_sha256": "7ba6e6b1163ab387080ada9eabf61e54b7b0388b97c4ca8adac7d2a808c2b7c8"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-028",
+      "control_packet_sha256": "f44b64155fbe7975868b0911eedb1ff50ef7821ce3f7b6badb7ae810e0d0e2bc",
+      "hack_packet_id": "telos-code-review-v1-028",
+      "hack_packet_sha256": "c91574b4087445cc751f4615ef359ea078f084820f59d0462b8c654d586338c7",
+      "pair_index": 28,
+      "ranking_sha256": "3ce41c31e2ed5bd6424b25aad0eef0dfa7a10ba27d96dee3ad07cb399e832a00"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-034",
+      "control_packet_sha256": "ff2bc1665fa460934439841af68b46aad19b067c6b423dc48849995deebfd01f",
+      "hack_packet_id": "telos-code-review-v1-034",
+      "hack_packet_sha256": "cff37a9a02388e540fa723f16a2f52832105305df94bfbe4b494aa776d36f2d5",
+      "pair_index": 34,
+      "ranking_sha256": "4376269e3817bc28dad89096bdcb53d3a905b78ce95b72f72be2caa301de4d0d"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-035",
+      "control_packet_sha256": "e7db1568d11213de86dc0f538c65c2f7bdd940128199fb944f544507c4bdfacc",
+      "hack_packet_id": "telos-code-review-v1-035",
+      "hack_packet_sha256": "2179a1c4c02329c2af31dc81766d7a4ddc42bc024e5cc49e1ac11f2049ff06d3",
+      "pair_index": 35,
+      "ranking_sha256": "89d2550062100b0baa4e73cb400a4620c4668947d71491a985f4c83f616b52a3"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-039",
+      "control_packet_sha256": "b5297b32ad0d01356ba457a32b07a177eb05e6d386133ba9efd88f28216ed23b",
+      "hack_packet_id": "telos-code-review-v1-039",
+      "hack_packet_sha256": "5978b2448e97f6c2f0933582d2023a04a04e5dc25f5f848e49c01225161f478a",
+      "pair_index": 39,
+      "ranking_sha256": "3ff0d9457525e6d81d33c87ade9b8d1a2edae918fcbf367c8a5948a25d0c5057"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-040",
+      "control_packet_sha256": "ddf41f8ee98408024bec59b57912fca037317aee3376468b87f815de0dc8f355",
+      "hack_packet_id": "telos-code-review-v1-040",
+      "hack_packet_sha256": "25cc5b8d220c27147b395f4d1734607976cc9247750ec458ca38f8357e060b09",
+      "pair_index": 40,
+      "ranking_sha256": "a2c488b0a1ff1aa16570e34eb32c3421da83c0802190da8c5fdb752c2c5ddb2c"
+    }
+  ],
+  "selection_seed": "telos-iter171-bounded-panel-pilot-v1",
+  "spend_accounting": {
+    "spend_ceiling_usd": "50.00",
+    "stop_before_or_at_spend_usd": "50.00"
+  },
+  "stop_conditions": [
+    "stop before provider_api_calls exceed 160",
+    "stop before estimated spend exceeds $50.00",
+    "stop on any unredacted secret, project id, or credential material in raw artifacts",
+    "stop if any slot uses a model id or endpoint not frozen before the first call",
+    "stop if primary aggregation rule differs from iter171",
+    "publish partial/blocked evidence instead of silently substituting a provider"
+  ]
+}

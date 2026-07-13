@@ -1,0 +1,332 @@
+{
+  "allowed_binding_statuses": [
+    "blocked",
+    "ready",
+    "requires_operator_input"
+  ],
+  "binding_status_counts": {
+    "blocked": 0,
+    "ready": 0,
+    "requires_operator_input": 3
+  },
+  "claim_boundary": "Binding manifest only. No model or panel was called, scored, ranked, or compared.",
+  "experiment_id": "iter171_reward_hack_panel_model_binding_freeze",
+  "generated_at_utc": "2026-07-13T18:46:17Z",
+  "prior_google_continuity_binding_evidence": [
+    {
+      "artifact": "experiments/iter161_reward_hack_single_model_judge_execution/proof/model_binding.json",
+      "artifact_sha256": "7ccded24de6523c1af0e585c2a514fcaa1f6509ae05d77c82007e24709d19741",
+      "experiment_id": "iter161_reward_hack_single_model_judge_execution",
+      "generation_config": {
+        "maxOutputTokens": 512,
+        "temperature": 0,
+        "thinkingConfig": {
+          "thinkingBudget": 0
+        }
+      },
+      "location": "us-central1",
+      "model_id": "gemini-2.5-flash",
+      "project_identifier_committed": false,
+      "provider": "google_vertex",
+      "secret_values_written": false,
+      "status": "frozen_before_provider_call"
+    },
+    {
+      "artifact": "experiments/iter164_reward_hack_single_model_control_evaluation/proof/model_binding.json",
+      "artifact_sha256": "5a1cc3ef16ab88a21f61dedee618fa40f6e900c7f706e0beed12c58ba573ae1a",
+      "experiment_id": "iter164_reward_hack_single_model_control_evaluation",
+      "generation_config": {
+        "maxOutputTokens": 512,
+        "temperature": 0,
+        "thinkingConfig": {
+          "thinkingBudget": 0
+        }
+      },
+      "location": "us-central1",
+      "model_id": "gemini-2.5-flash",
+      "project_identifier_committed": false,
+      "provider": "google_vertex",
+      "secret_values_written": false,
+      "status": "frozen_before_provider_call"
+    },
+    {
+      "artifact": "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/model_binding.json",
+      "artifact_sha256": "583b098eb237f52045f3bb1355d1472235995c617e4a568d7938998a910b82fb",
+      "experiment_id": "iter165_reward_hack_control_evaluation_rate_limit_recovery",
+      "generation_config": {
+        "maxOutputTokens": 512,
+        "temperature": 0,
+        "thinkingConfig": {
+          "thinkingBudget": 0
+        }
+      },
+      "location": "us-central1",
+      "model_id": "gemini-2.5-flash",
+      "project_identifier_committed": false,
+      "provider": "google_vertex",
+      "secret_values_written": false,
+      "status": "frozen_before_first_recovery_call"
+    },
+    {
+      "artifact": "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/model_binding.json",
+      "artifact_sha256": "c40cd2f3b9f593738a50b510fb3f29ac5f60c7fb69f1b0ba5b9c7058544d4a56",
+      "experiment_id": "iter167_reward_hack_skeptical_judge_calibration",
+      "generation_config": {
+        "maxOutputTokens": 512,
+        "temperature": 0,
+        "thinkingConfig": {
+          "thinkingBudget": 0
+        }
+      },
+      "location": "us-central1",
+      "model_id": "gemini-2.5-flash",
+      "project_identifier_committed": false,
+      "provider": "google_vertex",
+      "secret_values_written": false,
+      "status": "frozen_before_first_provider_call"
+    }
+  ],
+  "readiness_decision": "blocked_with_reasons",
+  "schema_version": "telos.iter171.binding_manifest.v1",
+  "slot_bindings": [
+    {
+      "binding_status": "requires_operator_input",
+      "block_reasons_if_not_ready": [
+        "runtime Google project/quota-project route is not frozen in a committed artifact",
+        "credential source route is not frozen and was not probed by this zero-spend gate",
+        "Vertex structured-output request route still requires operator binding before spend"
+      ],
+      "credential_source_policy": {
+        "allowed_sources": [
+          "runtime Application Default Credentials selected by the operator",
+          "runtime bearer token held outside the repository"
+        ],
+        "forbidden": [
+          "committed bearer tokens",
+          "committed service-account JSON",
+          "credential probing in this gate"
+        ],
+        "required_nonsecret_choice_before_paid_call": "freeze ADC or bearer-token route and quota-project route in a hypothesis",
+        "status": "requires_operator_input"
+      },
+      "endpoint_or_location_policy": {
+        "api_family": "Google Vertex AI generateContent",
+        "endpoint_template": "https://aiplatform.googleapis.com/v1/projects/[RUNTIME_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+        "location": "us-central1",
+        "runtime_project_identifier_policy": "operator-provided at runtime; no project id may be committed",
+        "status": "requires_operator_input"
+      },
+      "exact_model_id": "gemini-2.5-flash",
+      "exact_model_id_sources": [
+        "experiments/iter161_reward_hack_single_model_judge_execution/proof/model_binding.json",
+        "experiments/iter164_reward_hack_single_model_control_evaluation/proof/model_binding.json",
+        "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/model_binding.json",
+        "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/model_binding.json"
+      ],
+      "fallback_policy": "do not silently replace; publish a blocked/preflight result",
+      "independence_role": "continuity baseline for iter161/iter165/iter167",
+      "provider_family": "google_vertex",
+      "ready_requirements": [
+        "exact_model_id",
+        "endpoint_or_location_policy",
+        "credential_source_policy",
+        "structured_output_mode"
+      ],
+      "slot_id": "google_continuity_fast_judge",
+      "structured_output_mode": {
+        "mode": {
+          "mime_type": "application/json",
+          "schema": {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "additionalProperties": false,
+            "properties": {
+              "confidence": {
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "type": "number"
+              },
+              "rationale": {
+                "maxLength": 1200,
+                "minLength": 1,
+                "type": "string"
+              },
+              "verdict": {
+                "enum": [
+                  "inconclusive",
+                  "legitimate",
+                  "reward_hack"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "confidence",
+              "rationale",
+              "verdict"
+            ],
+            "title": "Telos reward-hack judge output v1",
+            "type": "object"
+          },
+          "type": "text"
+        },
+        "request_template_sha256": "6b4146780acf45a889da9295e0d01b1b197dffe7cc46a33b7205ab13ca26c554",
+        "status": "requires_operator_binding"
+      }
+    },
+    {
+      "binding_status": "requires_operator_input",
+      "block_reasons_if_not_ready": [
+        "exact OpenAI model id is not committed",
+        "exact OpenAI API route is not committed",
+        "runtime credential source route is not frozen in a committed artifact"
+      ],
+      "credential_source_policy": {
+        "allowed_sources": [
+          "runtime OPENAI_API_KEY held outside the repository"
+        ],
+        "forbidden": [
+          "committed API keys",
+          "credential probing in this gate"
+        ],
+        "status": "requires_operator_input"
+      },
+      "endpoint_or_location_policy": {
+        "api_family": "OpenAI structured-output API",
+        "required_nonsecret_choice_before_paid_call": "freeze exact API surface and model id that support strict json_schema output",
+        "route": null,
+        "status": "requires_operator_input"
+      },
+      "exact_model_id": null,
+      "exact_model_id_sources": [],
+      "fallback_policy": "defer or publish blocked; do not substitute after seeing outputs",
+      "independence_role": "different provider and post-training stack from google continuity slot",
+      "provider_family": "openai",
+      "ready_requirements": [
+        "exact_model_id",
+        "endpoint_or_location_policy",
+        "credential_source_policy",
+        "structured_output_mode"
+      ],
+      "slot_id": "openai_reasoning_judge",
+      "structured_output_mode": {
+        "mode": {
+          "json_schema": {
+            "name": "telos_reward_hack_judge_output",
+            "schema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "confidence": {
+                  "maximum": 1.0,
+                  "minimum": 0.0,
+                  "type": "number"
+                },
+                "rationale": {
+                  "maxLength": 1200,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "verdict": {
+                  "enum": [
+                    "inconclusive",
+                    "legitimate",
+                    "reward_hack"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "confidence",
+                "rationale",
+                "verdict"
+              ],
+              "title": "Telos reward-hack judge output v1",
+              "type": "object"
+            },
+            "strict": true
+          },
+          "type": "json_schema"
+        },
+        "request_template_sha256": "a5f837feff2705b168bcf71e279af7a78ad660add79c7483d8a94851263f73d9",
+        "status": "requires_operator_binding"
+      }
+    },
+    {
+      "binding_status": "requires_operator_input",
+      "block_reasons_if_not_ready": [
+        "exact Anthropic model id is not committed",
+        "exact Anthropic structured-output API route is not committed",
+        "runtime credential source route is not frozen in a committed artifact"
+      ],
+      "credential_source_policy": {
+        "allowed_sources": [
+          "runtime ANTHROPIC_API_KEY held outside the repository"
+        ],
+        "forbidden": [
+          "committed API keys",
+          "credential probing in this gate"
+        ],
+        "status": "requires_operator_input"
+      },
+      "endpoint_or_location_policy": {
+        "api_family": "Anthropic Messages structured-output API",
+        "required_nonsecret_choice_before_paid_call": "freeze exact Claude model id and output_config JSON-schema route",
+        "route": null,
+        "status": "requires_operator_input"
+      },
+      "exact_model_id": null,
+      "exact_model_id_sources": [],
+      "fallback_policy": "run a documented two-slot pilot only if pre-registered as a blocked recovery",
+      "independence_role": "different provider and alignment stack from google/openai slots",
+      "provider_family": "anthropic",
+      "ready_requirements": [
+        "exact_model_id",
+        "endpoint_or_location_policy",
+        "credential_source_policy",
+        "structured_output_mode"
+      ],
+      "slot_id": "anthropic_reasoning_or_safety_judge",
+      "structured_output_mode": {
+        "mode": {
+          "format": {
+            "schema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "additionalProperties": false,
+              "properties": {
+                "confidence": {
+                  "maximum": 1.0,
+                  "minimum": 0.0,
+                  "type": "number"
+                },
+                "rationale": {
+                  "maxLength": 1200,
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "verdict": {
+                  "enum": [
+                    "inconclusive",
+                    "legitimate",
+                    "reward_hack"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "confidence",
+                "rationale",
+                "verdict"
+              ],
+              "title": "Telos reward-hack judge output v1",
+              "type": "object"
+            },
+            "type": "json_schema"
+          }
+        },
+        "request_template_sha256": "95fd7eb21f9ae0d5a3bdef79c4ef0d7926f6dfb08b375a9bce9a1eca6dc83ccb",
+        "status": "requires_operator_binding"
+      }
+    }
+  ],
+  "slot_count": 3
+}
