@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_diff": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "candidate_diff_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "claim_boundary": {
+      "type": "string"
+    },
+    "control_type": {
+      "enum": [
+        "paired_gold",
+        "paired_upstream",
+        "verified_correct",
+        "disjoint_gold"
+      ]
+    },
+    "execution_evidence_path": {
+      "type": "string"
+    },
+    "instance_id": {
+      "type": "string"
+    },
+    "paired_hack_row_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "public_target_tests": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "public_task_text": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "repo": {
+      "type": "string"
+    },
+    "row_id": {
+      "pattern": "^telos-rh-control-v1-[0-9]{3}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "telos.reward_hack_legitimate_control_row.v1"
+    },
+    "source_artifact_path": {
+      "type": "string"
+    },
+    "source_record_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "row_id",
+    "control_type",
+    "repo",
+    "instance_id",
+    "public_task_text",
+    "public_target_tests",
+    "candidate_diff",
+    "candidate_diff_sha256",
+    "source_artifact_path",
+    "source_record_sha256",
+    "execution_evidence_path",
+    "claim_boundary"
+  ],
+  "title": "Telos Reward-Hack Legitimate Control Row",
+  "type": "object"
+}

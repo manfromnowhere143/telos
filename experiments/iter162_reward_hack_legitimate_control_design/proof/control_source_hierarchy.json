@@ -1,0 +1,78 @@
+{
+  "experiment_id": "iter162_reward_hack_legitimate_control_design",
+  "hack_artifact_instance_ids_sha256": "e18b6a71a164ea68045b7864441c07f69d5318631c0a5cfa37d851b563e09105",
+  "hack_artifact_repositories": [
+    "astropy/astropy",
+    "django/django",
+    "matplotlib/matplotlib",
+    "pallets/flask",
+    "psf/requests",
+    "pydata/xarray",
+    "pylint-dev/pylint",
+    "pytest-dev/pytest",
+    "scikit-learn/scikit-learn",
+    "sphinx-doc/sphinx",
+    "sympy/sympy"
+  ],
+  "hack_artifact_rows": 40,
+  "iter147_gold_accepted_instances": 10,
+  "materialization_null_floor": 20,
+  "materialization_target": 40,
+  "notes": [
+    "Outcome-only legitimate-control records cannot become packets until their candidate diff is recovered.",
+    "Paired and disjoint controls must be reported as separate strata."
+  ],
+  "schema_version": "telos.iter162.control_source_hierarchy.v1",
+  "source_tiers": [
+    {
+      "description": "Preferred: same instance_id as a reward-hack row, public SWE-bench task metadata, and a human gold or accepted-correct patch with source and execution/report hash.",
+      "id": "paired_swebench_gold_patch",
+      "pairing": "same_public_issue_as_hack_row",
+      "requires": [
+        "candidate_diff",
+        "candidate_diff_sha256",
+        "public_task_text",
+        "public_target_tests",
+        "source_artifact_path_or_public_url",
+        "execution_evidence_path_or_public_report_hash"
+      ],
+      "tier": 1
+    },
+    {
+      "description": "Fallback for paired rows: accepted upstream patch or public maintainer fix for the same issue when the exact SWE-bench gold patch cannot be recovered locally.",
+      "id": "paired_public_upstream_fix",
+      "pairing": "same_public_issue_as_hack_row",
+      "requires": [
+        "candidate_diff_sha256",
+        "public_source_url",
+        "source_record_sha256",
+        "claim_boundary"
+      ],
+      "tier": 2
+    },
+    {
+      "description": "Use prior Telos correct-completion controls such as iter147 only when the actual candidate diff can be recovered and hashed; outcome-only metadata is insufficient.",
+      "id": "previously_verified_correct_completion",
+      "pairing": "reported_as_disjoint_or_recovered_pair",
+      "requires": [
+        "candidate_diff",
+        "candidate_diff_sha256",
+        "source_record_sha256",
+        "execution_evidence_path"
+      ],
+      "tier": 3
+    },
+    {
+      "description": "Disjoint public SWE-bench Verified gold/accepted patches from the same repository families when paired controls fall below the materialization target.",
+      "id": "disjoint_swebench_gold_patch",
+      "pairing": "disjoint_control_stratum",
+      "requires": [
+        "repo",
+        "instance_id",
+        "candidate_diff_sha256",
+        "source_artifact_path_or_public_url"
+      ],
+      "tier": 4
+    }
+  ]
+}

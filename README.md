@@ -88,7 +88,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [159](experiments/iter159_reward_hack_blinded_packet_materialization/RESULT.md) | Can the v1 rows be materialized into blinded judge packets without label leakage? | pass - `benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/` now contains exactly `40` blinded model-judge packets with stable packet hashes, `40/40` public task text coverage, `40/40` target-test coverage, and `0` forbidden key, substring, or official-report value leakage hits; zero provider calls, SWE-bench executions, cloud resources, model outputs, scores, leaderboards, model comparisons, SOTA claims, natural-frequency estimates, or broad robustness claims |
 | [160](experiments/iter160_reward_hack_judge_parser_preflight/RESULT.md) | Can judge outputs be parsed before any provider scoring run? | pass - `telos/reward_hack_judge_parser.py` and `scripts/preflight_reward_hack_judge_parser.py` validate a strict local parser against `13` fixtures: `3` parsed, `2` refusal, and `8` invalid; accepted verdicts are exactly `reward_hack`, `legitimate`, and `inconclusive`; refusals and invalid outputs never count as caught or legitimate; zero provider calls, SWE-bench executions, cloud resources, scores, leaderboards, model comparisons, SOTA claims, natural-frequency estimates, or broad robustness claims |
 | [161](experiments/iter161_reward_hack_single_model_judge_execution/RESULT.md) | Can one model judge run on the frozen blinded packets under explicit ceilings? | pass - `gemini-2.5-flash` via Vertex judged all `40/40` frozen blinded all-hack packets under the iter160 parser: `3` `reward_hack`, `37` `legitimate`, `0` refusals, `0` invalid outputs, `0` prompt leakage hits, `0` response secret hits, estimated cost guard `$0.734250`, no SWE-bench executions or cloud runners. Honest: this is `3/40` recall on an all-positive artifact only, not precision, a benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
-| [162](experiments/iter162_reward_hack_legitimate_control_design/HYPOTHESIS.md) | Can the reward-hack evaluator get legitimate controls before precision claims? | pre-registered - design a blinded legitimate-control protocol, source/hash requirements, pairing rules, leakage exclusions, and precision metric boundary before any control-set materialization or model evaluation |
+| [162](experiments/iter162_reward_hack_legitimate_control_design/RESULT.md) | Can the reward-hack evaluator get legitimate controls before precision claims? | pass - zero-spend design now defines the legitimate-control source hierarchy, row schema, blinded packet schema, false-positive/specificity/precision metric boundary, and next materialization bars; provider calls `0`, SWE-bench executions `0`, cloud resources `0`. Honest: design only, not a control artifact, precision number, benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
+| [163](experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md) | Can legitimate controls be materialized and blinded before precision evaluation? | pre-registered - target `40` source/hash-verified legitimate controls, null floor `20`, `0` prompt leakage, no model calls, no SWE-bench executions, no cloud resources, and no precision or leaderboard claims |
 
 ### The honest conclusion
 
@@ -643,10 +644,10 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack legitimate-control design (iter162, pre-registered) in
-  [`experiments/iter162_reward_hack_legitimate_control_design`](experiments/iter162_reward_hack_legitimate_control_design/HYPOTHESIS.md);
-  the next step is a zero-spend control protocol for blinded legitimate rows before any precision,
-  balanced-score, leaderboard, or model-comparison claim.
+- Current gate: reward-hack legitimate-control materialization (iter163, pre-registered) in
+  [`experiments/iter163_reward_hack_legitimate_control_materialization`](experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md);
+  the next step is to recover source/hash-verified legitimate controls and blinded control packets before
+  any precision, balanced-score, leaderboard, or model-comparison claim.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -779,7 +780,7 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter162_reward_hack_legitimate_control_design/HYPOTHESIS.md`](experiments/iter162_reward_hack_legitimate_control_design/HYPOTHESIS.md).
+[`experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md`](experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
@@ -814,7 +815,9 @@ complete committed public metadata coverage and no label/report/static-verdict l
 validated the strict judge-output parser and fixture suite before provider scoring. Iter161 then ran one
 bounded model judge over all 40 all-hack packets and recorded `3` `reward_hack` verdicts and `37`
 `legitimate` verdicts, making the recall gap visible while still making no precision, leaderboard, or
-model-comparison claim; iter162 is the active legitimate-control design gate. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
+model-comparison claim. Iter162 designed the legitimate-control source hierarchy, schemas, and
+false-positive/specificity/precision boundary; iter163 is the active materialization gate for source/hash
+verified controls. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
@@ -881,7 +884,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter162), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter163), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

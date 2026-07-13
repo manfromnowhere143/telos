@@ -1,0 +1,37 @@
+{
+  "acceptance_criteria": [
+    "Define legitimate-control source hierarchy and source/hash requirements.",
+    "Define row and blinded packet schemas with no label or prior-verdict leakage.",
+    "Define false-positive, specificity, and precision boundaries.",
+    "Use zero provider calls, zero SWE-bench executions, and zero cloud resources."
+  ],
+  "agent_id": "codex-zero-spend-control-design",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter162_reward_hack_legitimate_control_design/proof/control_source_hierarchy.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter162_reward_hack_legitimate_control_design/proof/metric_protocol.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter162_reward_hack_legitimate_control_design/proof/design_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Precision cannot be inferred from all-hack recall alone.",
+    "Outcome-only legitimate controls are insufficient without a recovered candidate diff.",
+    "Prompt-visible control packets must not reveal labels, gold/control status, reports, or prior verdicts."
+  ],
+  "receipt_id": "iter162-reward-hack-legitimate-control-design-pass",
+  "sha256": "15a6459bac011b9eb3b95c58abe1a383d6a671492ee3a544ce751c3360468436",
+  "stated_goal": "Design legitimate-control source, schema, packet, and metric protocol before precision claims.",
+  "status": "pass",
+  "task_id": "telos:iter162_reward_hack_legitimate_control_design"
+}

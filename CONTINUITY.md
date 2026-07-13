@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter162_reward_hack_legitimate_control_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend legitimate-control design pending)
+- `experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md` (PRE-REGISTERED; legitimate-control materialization pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -54,7 +54,11 @@ execution over the frozen all-hack packets: `40/40` provider calls succeeded, ev
 `gemini-2.5-flash` returned `3` `reward_hack` and `37` `legitimate` verdicts with `0` prompt leakage hits,
 `0` response secret hits, no SWE-bench executions, and no cloud runners. This is all-positive recall
 evidence only, not precision, a leaderboard, a benchmark score, model comparison, SOTA claim, or broad
-robustness claim. The active next gate is `iter162`: design legitimate controls before any precision claim.
+robustness claim. Iter162 is published as a zero-spend legitimate-control design pass: it defines the
+control source hierarchy, row schema, blinded packet schema, false-positive/specificity/precision metric
+boundary, and next materialization bars, with zero provider calls, zero SWE-bench executions, and zero cloud
+resources. The active next gate is `iter163`: materialize source/hash-verified legitimate controls and
+blinded control packets before any precision claim.
 
 Claim-boundary reviewer entry point:
 

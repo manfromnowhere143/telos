@@ -3,8 +3,9 @@
 No benchmark leaderboard, model-comparison, precision, or SOTA result is claimed yet. Telos now has a
 bounded two-row provider-backed protocol-effect pilot result from `iter64`, controlled
 completion-verification fixture suites through `iter104`, a bounded 20-packet external pilot execution
-result from `iter107`, and a bounded single-model all-hack recall result from `iter161`; none is a
-benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
+result from `iter107`, a bounded single-model all-hack recall result from `iter161`, and a zero-spend
+legitimate-control design from `iter162`; none is a benchmark leaderboard result and none supports a
+model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark

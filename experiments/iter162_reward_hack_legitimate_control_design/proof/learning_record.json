@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter162_reward_hack_legitimate_control_design/proof/control_source_hierarchy.json",
+    "experiments/iter162_reward_hack_legitimate_control_design/proof/legitimate_control_row_schema.json",
+    "experiments/iter162_reward_hack_legitimate_control_design/proof/blinded_control_packet_schema.json",
+    "experiments/iter162_reward_hack_legitimate_control_design/proof/metric_protocol.json",
+    "experiments/iter162_reward_hack_legitimate_control_design/proof/design_audit.json",
+    "experiments/iter162_reward_hack_legitimate_control_design/proof/run_summary.json"
+  ],
+  "experiment_id": "iter162_reward_hack_legitimate_control_design",
+  "insight": "Iter161's all-positive recall result must be paired with legitimate controls before any precision, balanced score, leaderboard, or model-comparison claim; the control design now separates false-positive pressure, specificity, and precision.",
+  "next_action": "Materialize blinded legitimate-control rows and packets, targeting 40 controls with a hard 20-control null floor, then audit leakage before any control-set model evaluation.",
+  "result_path": "experiments/iter162_reward_hack_legitimate_control_design/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

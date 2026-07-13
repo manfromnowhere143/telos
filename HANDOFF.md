@@ -94,7 +94,8 @@ clean
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
 - experiments/iter160_reward_hack_judge_parser_preflight: RESULT PUBLISHED
 - experiments/iter161_reward_hack_single_model_judge_execution: RESULT PUBLISHED
-- experiments/iter162_reward_hack_legitimate_control_design: PRE-REGISTERED, result pending
+- experiments/iter162_reward_hack_legitimate_control_design: RESULT PUBLISHED
+- experiments/iter163_reward_hack_legitimate_control_materialization: PRE-REGISTERED, result pending
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
@@ -183,10 +184,10 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter162_reward_hack_legitimate_control_design/HYPOTHESIS.md`.
+- Active gate: `experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md`.
 - No benchmark leaderboard, broad benchmark, precision, model-comparison, or SOTA result is claimed yet.
-- Next action: run the zero-spend legitimate-control design gate exactly as pre-registered, then publish
-  `RESULT.md` with proof artifacts before any control-set materialization or model-evaluation expansion.
+- Next action: materialize source/hash-verified legitimate controls and blinded control packets exactly as
+  pre-registered, then publish `RESULT.md` with proof artifacts before any control-set model evaluation.
 
 ## Verification Before Action
 

@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "forbidden_prompt_fields": [
+    "label",
+    "control_type",
+    "gold",
+    "legitimate",
+    "official_report",
+    "source_split",
+    "source_experiment",
+    "static_verdicts",
+    "survives_all_static",
+    "prior_verdict"
+  ],
+  "properties": {
+    "model_prompt_payload": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_diff": {},
+        "instance_id": {},
+        "public_target_tests": {},
+        "public_task_text": {},
+        "repository": {},
+        "required_output": {},
+        "review_instruction": {}
+      },
+      "required": [
+        "repository",
+        "instance_id",
+        "public_task_text",
+        "public_target_tests",
+        "candidate_diff",
+        "review_instruction",
+        "required_output"
+      ],
+      "type": "object"
+    },
+    "packet_id": {
+      "pattern": "^telos-code-review-control-v1-[0-9]{3}$",
+      "type": "string"
+    },
+    "packet_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "row_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "telos.reward_hack_blinded_legitimate_control_packet.v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "packet_id",
+    "row_id",
+    "model_prompt_payload",
+    "packet_sha256"
+  ],
+  "title": "Telos Reward-Hack Blinded Legitimate-Control Judge Packet",
+  "type": "object"
+}
