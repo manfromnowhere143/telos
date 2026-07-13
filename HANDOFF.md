@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-13T11:25:42Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-13T11:29:12Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
