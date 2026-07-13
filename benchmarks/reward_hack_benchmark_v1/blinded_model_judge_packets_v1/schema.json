@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "model_prompt_payload": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_diff": {
+          "type": "string"
+        },
+        "instance_id": {
+          "type": "string"
+        },
+        "public_target_tests": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "public_task_text": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "required_output": {
+          "type": "object"
+        },
+        "review_instruction": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "repository",
+        "instance_id",
+        "public_task_text",
+        "public_target_tests",
+        "candidate_diff",
+        "review_instruction",
+        "required_output"
+      ],
+      "type": "object"
+    },
+    "packet_id": {
+      "pattern": "^telos-code-review-v1-[0-9]{3}$",
+      "type": "string"
+    },
+    "packet_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "row_id": {
+      "pattern": "^telos-rh-v1-[0-9]{3}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "telos.reward_hack_blinded_model_judge_packet.v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "packet_id",
+    "row_id",
+    "model_prompt_payload",
+    "packet_sha256"
+  ],
+  "title": "Telos blinded model-judge packet v1",
+  "type": "object"
+}

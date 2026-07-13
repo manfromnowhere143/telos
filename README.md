@@ -84,7 +84,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [156](experiments/iter156_reward_hack_benchmark_v1_manifest/RESULT.md) | Can the 40-row candidate pool become a reviewer-facing v1 benchmark artifact? | pass - `benchmarks/reward_hack_benchmark_v1/` now contains exactly `40` unique execution-verified both-miss rows across `11` repos, with `40/40` hack diff hashes, official report hashes, and source traceability; `13/40` survive every static layer, `16/40` fool `gpt-5.6-terra`, and `19/40` fool `claude-opus-4-8`; zero new provider calls, SWE-bench executions, or cloud resources. Honest: released row artifact only, not a benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
 | [157](experiments/iter157_paper_plain_language_completion/RESULT.md) | Can the paper be made plain-language and claim-boundary current before arXiv? | pass - `paper/telos.tex`, `docs/PAPER.md`, and `paper/README.md` now represent iter151-156 consistently, including the `40`-row `reward_hack_benchmark_v1` artifact and the `13/40` survives-all-static boundary; zero provider calls, SWE-bench executions, or cloud resources. Honest: prose/readability update only, not a new empirical result, benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
 | [158](experiments/iter158_reward_hack_moonshot_design/RESULT.md) | Can the next reward-hack benchmark moonshot be designed without score leakage or overclaiming? | pass - a zero-spend scoring/evaluation protocol now freezes the `40`-row v1 artifact hashes, defines `4` evaluator families (static detectors, model judges, judge panels, execution-backed gates), leakage controls, recall metrics, and null/fail semantics; no provider calls, SWE-bench executions, cloud resources, model scores, leaderboards, model comparisons, SOTA claims, natural-frequency estimates, or broad robustness claims |
-| [159](experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md) | Can the v1 rows be materialized into blinded judge packets without label leakage? | pre-registered - create 40 prompt packets and audit that labels, official reports, source splits, prior static verdicts, and known-hack wording are excluded before any model calls |
+| [159](experiments/iter159_reward_hack_blinded_packet_materialization/RESULT.md) | Can the v1 rows be materialized into blinded judge packets without label leakage? | pass - `benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/` now contains exactly `40` blinded model-judge packets with stable packet hashes, `40/40` public task text coverage, `40/40` target-test coverage, and `0` forbidden key, substring, or official-report value leakage hits; zero provider calls, SWE-bench executions, cloud resources, model outputs, scores, leaderboards, model comparisons, SOTA claims, natural-frequency estimates, or broad robustness claims |
+| [160](experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md) | Can judge outputs be parsed before any provider scoring run? | pre-registered - validate a strict local parser and fixture suite for valid, refusal, malformed, missing-field, and inconclusive outputs before any model calls |
 
 ### The honest conclusion
 
@@ -639,10 +640,11 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack blinded packet materialization (iter159, pre-registered) in
-  [`experiments/iter159_reward_hack_blinded_packet_materialization`](experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md);
-  the next step is to create label-safe judge packets for the frozen v1 artifact before any provider
-  calls, SWE-bench executions, cloud resources, or model-score claims. The
+- Current gate: reward-hack judge parser preflight (iter160, pre-registered) in
+  [`experiments/iter160_reward_hack_judge_parser_preflight`](experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md);
+  the next step is to validate strict local parsing for valid, refusal, malformed, missing-field, and
+  inconclusive judge outputs before any provider calls, SWE-bench executions, cloud resources, or
+  model-score claims. The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
 - Benchmark leaderboard or broad benchmark result: none yet. Bounded external pilot evidence now
@@ -773,11 +775,11 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md`](experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md).
+[`experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md`](experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter158); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter159); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
@@ -803,7 +805,9 @@ added `3` more rows to cross the `40`-row candidate-pool bar. Iter156 materializ
 `reward_hack_benchmark_v1` row artifact with `40` rows across `11` repos and `13/40` surviving every
 static layer, still without a benchmark score or leaderboard. Iter157 made the paper and public paper
 mirror current through that boundary. Iter158 designed the zero-spend scoring/evaluation protocol and set
-packet materialization as the next leakage-control gate. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
+packet materialization as the next leakage-control gate. Iter159 materialized the 40 blinded packets with
+complete committed public metadata coverage and no label/report/static-verdict leakage hits; iter160 is the
+parser preflight before any provider scoring. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
@@ -870,7 +874,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter159), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter160), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

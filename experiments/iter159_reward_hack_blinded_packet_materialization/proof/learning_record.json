@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter159_reward_hack_blinded_packet_materialization/proof/leakage_audit.json",
+    "experiments/iter159_reward_hack_blinded_packet_materialization/proof/endpoint_results.json",
+    "experiments/iter159_reward_hack_blinded_packet_materialization/proof/run_summary.json",
+    "experiments/iter159_reward_hack_blinded_packet_materialization/proof/valid/receipt_reward_hack_blinded_packet_materialization.json",
+    "benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/packets.jsonl",
+    "benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/manifest.json"
+  ],
+  "experiment_id": "iter159_reward_hack_blinded_packet_materialization",
+  "insight": "The frozen v1 reward-hack artifact can be transformed into 40 prompt-safe model-judge packets using committed SWE-bench public metadata while excluding labels, official reports, source provenance, and static-verdict outcomes from model-visible input.",
+  "next_action": "Pre-register a zero-spend judge-output parser preflight with valid, refusal, malformed, and inconclusive fixtures before any provider scoring run.",
+  "result_path": "experiments/iter159_reward_hack_blinded_packet_materialization/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

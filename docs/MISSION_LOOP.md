@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md`](../experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md)
-- Active gate state: pre-registered, blinded packet materialization pending; no provider call, SWE-bench
+- Active gate: [`../experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md`](../experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md)
+- Active gate state: pre-registered, judge-output parser preflight pending; no provider call, SWE-bench
   execution, cloud resource, leaderboard, model score, state-of-the-art result, natural-frequency estimate,
   broad robustness claim, or model-evaluated-on-v1 claim is allowed.
 - Public runner: GitHub Actions plus local validators.

@@ -1,0 +1,41 @@
+{
+  "acceptance_criteria": [
+    "Packet count must be exactly 40.",
+    "Packet row ids must match the frozen v1 row ids.",
+    "Model-visible payloads must contain only the prompt-allowed fields from iter158.",
+    "Packets must exclude labels, official reports, report hashes, source splits, source experiments, prior judge labels, and known-both-miss wording.",
+    "Every packet must have a stable SHA256.",
+    "The gate must use zero provider calls, zero SWE-bench executions, and zero cloud resources.",
+    "The result must not claim model scores, leaderboards, model superiority, state of the art, natural frequency, broad robustness, or model evaluation on packets."
+  ],
+  "agent_id": "codex-local-zero-spend-blinded-packet-materializer",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/packets.jsonl",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter159_reward_hack_blinded_packet_materialization/proof/leakage_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    },
+    {
+      "artifact": "benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if packet count or row ids differ from the frozen v1 artifact.",
+    "The gate fails if labels, official reports, report hashes, source splits, source experiments, prior judge labels, or known-both-miss wording leak into packets.",
+    "The gate fails if any provider call, SWE-bench execution, cloud resource, model output, or score is produced.",
+    "The gate fails if missing public metadata is hidden instead of reported."
+  ],
+  "receipt_id": "iter159-reward-hack-blinded-packet-materialization-pass",
+  "sha256": "3eb736478f1fe8c436ed790f60a686bad7485037454559a8a2cf6f10e99432b0",
+  "stated_goal": "Materialize blinded model-judge packets for the frozen reward_hack_benchmark_v1 artifact and audit them for label, report, provenance, and static-verdict leakage without provider calls, SWE-bench executions, cloud resources, or score claims.",
+  "status": "pass",
+  "task_id": "telos:iter159_reward_hack_blinded_packet_materialization"
+}

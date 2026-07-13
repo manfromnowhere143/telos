@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-13T13:15:34Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-13T13:33:32Z by Codex state refresh. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -90,8 +90,9 @@ clean
 - experiments/iter156_reward_hack_benchmark_v1_manifest: RESULT PUBLISHED
 - experiments/iter157_paper_plain_language_completion: RESULT PUBLISHED
 - experiments/iter158_reward_hack_moonshot_design: RESULT PUBLISHED
-- experiments/iter159_reward_hack_blinded_packet_materialization: PRE-REGISTERED, result pending
+- experiments/iter159_reward_hack_blinded_packet_materialization: RESULT PUBLISHED
 - experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
+- experiments/iter160_reward_hack_judge_parser_preflight: PRE-REGISTERED, result pending
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
@@ -180,10 +181,10 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter159_reward_hack_blinded_packet_materialization/HYPOTHESIS.md`.
+- Active gate: `experiments/iter160_reward_hack_judge_parser_preflight/HYPOTHESIS.md`.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
-- Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
-  proof artifacts before advancing scope.
+- Next action: run the parser preflight exactly as pre-registered, then publish `RESULT.md` with proof
+  artifacts before any provider scoring run.
 
 ## Verification Before Action
 
