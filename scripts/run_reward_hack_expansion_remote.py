@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Iter154 remote runner: expand the reward-hack seed on an x86 SWE-bench VM.
+"""Remote runner: expand the reward-hack seed on an x86 SWE-bench VM.
 
 Run this on the cloud VM from the repository root. It expects:
 
-- `experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/selected_candidate_pool.json`
+- a selected candidate-pool JSON file, defaulting to the iter154 selected pool
 - `~/.telos.env` containing OPENAI_API_KEY and ANTHROPIC_API_KEY
 - a Python environment with `swebench` installed
 
@@ -30,14 +30,35 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from telos.tamper import Candidate, detect_tamper
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPERIMENT = ROOT / "experiments/iter154_reward_hack_benchmark_expansion_pilot"
+EXPERIMENT = ROOT / os.environ.get(
+    "TELOS_EXPANSION_EXPERIMENT",
+    "experiments/iter154_reward_hack_benchmark_expansion_pilot",
+)
 RAW = EXPERIMENT / "proof/raw"
-SELECTED_POOL = RAW / "selected_candidate_pool.json"
+SELECTED_POOL = ROOT / os.environ.get(
+    "TELOS_SELECTED_POOL",
+    str((RAW / "selected_candidate_pool.json").relative_to(ROOT)),
+)
 
 RESULTS = RAW / "expansion_results.json"
 ROWS_JSONL = RAW / "expansion_rows.jsonl"
 METRICS = RAW / "expansion_metrics.json"
 MODEL_CALLS = RAW / "model_call_ledger.jsonl"
+RUN_ID_PREFIX = os.environ.get("TELOS_RUN_ID_PREFIX", "iter154")
+RESULT_SCHEMA_VERSION = os.environ.get(
+    "TELOS_RESULT_SCHEMA_VERSION", "telos.iter154.expansion_result_row.v1"
+)
+METRICS_SCHEMA_VERSION = os.environ.get(
+    "TELOS_METRICS_SCHEMA_VERSION", "telos.iter154.expansion_metrics.v1"
+)
+CLAIM_BOUNDARY = os.environ.get(
+    "TELOS_CLAIM_BOUNDARY",
+    (
+        "Constructed execution-verified both-miss row from iter154 expansion; not a released "
+        "benchmark score, leaderboard, model-superiority result, SOTA claim, or natural-RL "
+        "frequency claim."
+    ),
+)
 
 TARGET_NEW_BOTH_MISS = int(os.environ.get("TARGET_NEW_BOTH_MISS", "20"))
 CANDIDATE_LIMIT = int(os.environ.get("CANDIDATE_LIMIT", "96"))
@@ -337,7 +358,7 @@ def build_variant(gold_patch: str, source_file: str, replacement_lines: list[str
 
 
 def swebench_eval(instance_id: str, patch: str, run_tag: str) -> dict[str, Any]:
-    run_id = f"iter154_{run_tag}_{int(time.time() * 1000)}"
+    run_id = f"{RUN_ID_PREFIX}_{run_tag}_{int(time.time() * 1000)}"
     pred_path = RAW / f"pred_{run_id}.jsonl"
     pred = {"instance_id": instance_id, "model_name_or_path": run_tag, "model_patch": patch}
     pred_path.write_text(json.dumps(pred) + "\n", encoding="utf-8")
@@ -438,7 +459,7 @@ def compute_metrics(results: list[dict[str, Any]], *, exhausted: bool = False) -
             if line.strip()
         ]
     return {
-        "schema_version": "telos.iter154.expansion_metrics.v1",
+        "schema_version": METRICS_SCHEMA_VERSION,
         "status": status,
         "acceptance_rule": "official_swebench_target_pass_and_heldout_fail",
         "target_new_both_miss": TARGET_NEW_BOTH_MISS,
@@ -476,8 +497,10 @@ def main() -> int:
             continue
         instance_id = candidate["instance_id"]
         record: dict[str, Any] = {
-            "schema_version": "telos.iter154.expansion_result_row.v1",
-            "source_candidate_rank": candidate["selection_rank"],
+            "schema_version": RESULT_SCHEMA_VERSION,
+            "source_candidate_rank": candidate.get(
+                "selection_rank", candidate.get("adaptive_selection_rank")
+            ),
             "source_candidate_row_sha256": sha256_text(json.dumps(candidate, sort_keys=True)),
             "repo": candidate["repo"],
             "instance_id": instance_id,
@@ -541,11 +564,7 @@ def main() -> int:
                 ),
                 "hack_diff_sha256": sha256_text(accepted_patch),
                 "hack_diff": accepted_patch,
-                "claim_boundary": (
-                    "Constructed execution-verified both-miss row from iter154 expansion; not a "
-                    "released benchmark score, leaderboard, model-superiority result, SOTA claim, "
-                    "or natural-RL frequency claim."
-                ),
+                "claim_boundary": CLAIM_BOUNDARY,
             }
         )
         results.append(record)

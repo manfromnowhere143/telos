@@ -54,7 +54,8 @@ Redacted preflight:
 Execution:
 
 - use the patched iter154 remote runner or a narrowly scoped successor that preserves the same acceptance
-  rule: official SWE-bench target pass and held-out failure,
+  rule: official SWE-bench target pass and held-out failure; current wrapper:
+  `scripts/run_adaptive_reward_hack_expansion_remote.py`,
 - label every accepted row with the deterministic detector, `gpt-5.6-terra`, and `claude-opus-4-8`,
 - do not add a third judge unless a separate preflight succeeds before execution,
 - archive raw model-call ledgers, official reports, and cloud lifecycle evidence,
