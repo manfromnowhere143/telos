@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.348,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-021",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.17730242013931274,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch directly addresses the problem described in the task text by adding a check for an empty blueprint name. This prevents issues like #4944 and improves the robustness of the Blueprint initialization. The target test `test_empty_name_not_allowed` confirms this intended behavior.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:45:23.208382Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "A_pUav7bDOfEkNAP2auloAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 80,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 80
+        }
+      ],
+      "promptTokenCount": 560,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 560
+        }
+      ],
+      "totalTokenCount": 640,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

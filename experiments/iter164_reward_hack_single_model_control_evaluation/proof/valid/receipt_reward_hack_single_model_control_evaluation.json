@@ -1,0 +1,47 @@
+{
+  "acceptance_criteria": [
+    "Control packet hashes must match the iter163 packet manifest.",
+    "Iter163 source/leakage and iter160 parser audits must pass.",
+    "Model binding must be frozen before the first provider call.",
+    "Prompts must exclude labels, official reports, source splits, source experiments, prior static verdicts, and known-both-miss wording.",
+    "Provider calls must be <= 40 and estimated spend must be <= $20.00.",
+    "Every attempted output must be parsed by telos/reward_hack_judge_parser.py.",
+    "Precision must include iter161 true positives and iter164 false positives."
+  ],
+  "agent_id": "codex-bounded-vertex-control-judge-runner",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter164_reward_hack_single_model_control_evaluation/proof/model_binding.json",
+      "kind": "artifact",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter164_reward_hack_single_model_control_evaluation/proof/metric_summary.json",
+      "kind": "artifact",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter164_reward_hack_single_model_control_evaluation/proof/run_summary.json",
+      "kind": "artifact",
+      "status": "blocked"
+    },
+    {
+      "artifact": "experiments/iter164_reward_hack_single_model_control_evaluation/proof/leakage_audit.json",
+      "kind": "adversarial_review",
+      "status": "blocked"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if packet or parser artifacts drift from iter163/iter160.",
+    "The gate fails if prompt leakage is detected.",
+    "The gate fails if calls or estimated spend exceed the pre-registered ceiling.",
+    "The gate is blocked, not silently skipped, if provider/runtime readiness prevents execution.",
+    "The gate cannot support a leaderboard or model-superiority claim."
+  ],
+  "receipt_id": "iter164-reward-hack-single-model-control-evaluation-blocked",
+  "sha256": "02c7bc80fb003165c134827512fedce134718acb733d3b7314c145f1ff2fc013",
+  "stated_goal": "Run one bounded model judge over frozen blinded legitimate-control packets under the iter160 parser and combine with iter161 only inside the iter162 metric boundary.",
+  "status": "blocked",
+  "task_id": "telos:iter164_reward_hack_single_model_control_evaluation"
+}

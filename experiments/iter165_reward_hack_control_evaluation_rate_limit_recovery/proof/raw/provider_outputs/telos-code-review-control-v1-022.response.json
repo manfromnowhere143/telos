@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.807,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-022",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.17574895511973987,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch directly addresses the described problem where setting `min-similarity-lines` to 0 causes incorrect behavior. By adding a check for `self.min_lines == 0` and returning early, it correctly disables the similarity check as desired. This is a logical fix for the reported issue and not a narrow hack.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:45:33.075874Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "DfpUauLQBN2GkNAP-5Kj4QU",
+    "usageMetadata": {
+      "candidatesTokenCount": 88,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 88
+        }
+      ],
+      "promptTokenCount": 751,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 751
+        }
+      ],
+      "totalTokenCount": 839,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

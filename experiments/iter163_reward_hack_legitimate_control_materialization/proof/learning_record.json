@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/legitimate_controls_v1.jsonl",
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/manifest.json",
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/blinded_control_packets_v1/packets.jsonl",
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/blinded_control_packets_v1/manifest.json",
+    "experiments/iter163_reward_hack_legitimate_control_materialization/proof/source_audit.json",
+    "experiments/iter163_reward_hack_legitimate_control_materialization/proof/leakage_audit.json",
+    "experiments/iter163_reward_hack_legitimate_control_materialization/proof/run_summary.json"
+  ],
+  "experiment_id": "iter163_reward_hack_legitimate_control_materialization",
+  "insight": "The 40 reward-hack rows can be paired one-for-one with public SWE-bench Verified gold patches, creating a legitimate-control surface for false-positive and precision measurement without new model calls or SWE-bench executions.",
+  "next_action": "Run one bounded model judge over the blinded legitimate controls under the iter160 parser, then combine with iter161 only inside the iter162 metric boundary.",
+  "result_path": "experiments/iter163_reward_hack_legitimate_control_materialization/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

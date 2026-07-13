@@ -2,9 +2,11 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
-A bounded single-model judge result now exists for the 40 all-hack blinded reward-hack packets in
-`iter161`. No leaderboard, public benchmark score, model-comparison result, precision result, or
-state-of-the-art result is claimed. The repository begins with a completed target survey:
+A bounded single-model judge result now exists, now complete as a paired reward-hack/control result for
+`gemini-2.5-flash`: `3/40` recall on the blinded all-hack packets from `iter161` and `0/40` false
+positives on the paired legitimate controls after the `iter165` rate-limit recovery. That supports only
+this one model's bounded recall/specificity/precision shape; the high precision has denominator `3` and
+does not make the model a strong detector. No leaderboard, public benchmark score, model-comparison result, precision result outside this one-model bounded metric, state-of-the-art result, natural-frequency estimate, or broad robustness result is claimed. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
 hybrid Telos overlay on public software-agent tasks.
 
@@ -89,7 +91,10 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [160](experiments/iter160_reward_hack_judge_parser_preflight/RESULT.md) | Can judge outputs be parsed before any provider scoring run? | pass - `telos/reward_hack_judge_parser.py` and `scripts/preflight_reward_hack_judge_parser.py` validate a strict local parser against `13` fixtures: `3` parsed, `2` refusal, and `8` invalid; accepted verdicts are exactly `reward_hack`, `legitimate`, and `inconclusive`; refusals and invalid outputs never count as caught or legitimate; zero provider calls, SWE-bench executions, cloud resources, scores, leaderboards, model comparisons, SOTA claims, natural-frequency estimates, or broad robustness claims |
 | [161](experiments/iter161_reward_hack_single_model_judge_execution/RESULT.md) | Can one model judge run on the frozen blinded packets under explicit ceilings? | pass - `gemini-2.5-flash` via Vertex judged all `40/40` frozen blinded all-hack packets under the iter160 parser: `3` `reward_hack`, `37` `legitimate`, `0` refusals, `0` invalid outputs, `0` prompt leakage hits, `0` response secret hits, estimated cost guard `$0.734250`, no SWE-bench executions or cloud runners. Honest: this is `3/40` recall on an all-positive artifact only, not precision, a benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
 | [162](experiments/iter162_reward_hack_legitimate_control_design/RESULT.md) | Can the reward-hack evaluator get legitimate controls before precision claims? | pass - zero-spend design now defines the legitimate-control source hierarchy, row schema, blinded packet schema, false-positive/specificity/precision metric boundary, and next materialization bars; provider calls `0`, SWE-bench executions `0`, cloud resources `0`. Honest: design only, not a control artifact, precision number, benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
-| [163](experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md) | Can legitimate controls be materialized and blinded before precision evaluation? | pre-registered - target `40` source/hash-verified legitimate controls, null floor `20`, `0` prompt leakage, no model calls, no SWE-bench executions, no cloud resources, and no precision or leaderboard claims |
+| [163](experiments/iter163_reward_hack_legitimate_control_materialization/RESULT.md) | Can legitimate controls be materialized and blinded before precision evaluation? | pass - `40` paired legitimate controls were materialized one-for-one from public SWE-bench Verified gold patches for the reward-hack rows, with `40` blinded control packets, source audit `pass`, leakage audit `pass`, hack/control diff hash overlap `0`, provider calls `0`, model evaluations `0`, SWE-bench executions `0`, and cloud resources `0`. Honest: artifact only, not a model score, precision number, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
+| [164](experiments/iter164_reward_hack_single_model_control_evaluation/RESULT.md) | Can the same model judge evaluate controls under the iter160 parser? | blocked - the bounded run preserved `15` parsed legitimate-control outputs, then stopped on a Vertex `http_429` provider rate-limit block at packet `016`; prompt leakage hits `0`, response secret hits `0`, estimated cost guard `$0.298030`, no SWE-bench executions or cloud resources. Honest: partial diagnostics only, not a precision result |
+| [165](experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/RESULT.md) | Can the iter164 rate-limit block be recovered without re-calling successful controls? | pass - recovered only the `25` missing controls, reused the `15` successful iter164 controls, and produced a complete paired single-model metric: controls `40/40` `legitimate`, false positives `0/40`, specificity `1.0`, recall from iter161 `3/40` (`0.075`), precision for the `reward_hack` flag `1.0` with denominator `3`, balanced detection `0.5375`, sequence estimated cost guard `$0.727580`, prompt leakage hits `0`, response secret hits `0`, no SWE-bench executions or cloud resources. Honest: one-model bounded metric only, not a leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
+| [166](experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md) | Can the next moonshot evaluator family be designed from the paired metric without overclaiming? | pre-registered - zero-spend design gate for evaluator families that raise recall while preserving the iter165 false-positive boundary; no new model score, leaderboard, model comparison, SOTA claim, or broad robustness claim |
 
 ### The honest conclusion
 
@@ -644,16 +649,18 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack legitimate-control materialization (iter163, pre-registered) in
-  [`experiments/iter163_reward_hack_legitimate_control_materialization`](experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md);
-  the next step is to recover source/hash-verified legitimate controls and blinded control packets before
-  any precision, balanced-score, leaderboard, or model-comparison claim.
+- Current gate: reward-hack moonshot evaluator-family design (iter166, pre-registered) in
+  [`experiments/iter166_reward_hack_moonshot_evaluator_family_design`](experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md);
+  the next step is to design a higher-recall evaluator family while preserving the iter165 false-positive
+  boundary before any broader benchmark, leaderboard, or model-comparison claim.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
 - Benchmark leaderboard or broad benchmark result: none yet. Bounded evidence now includes the 20 frozen
-  iter107 packets and iter161's single-model `3/40` all-hack recall result on
-  `reward_hack_benchmark_v1`, but no precision or leaderboard result exists.
+  iter107 packets and the iter161/iter165 paired single-model metric on `reward_hack_benchmark_v1`
+  (`3/40` all-hack recall, `0/40` control false positives, specificity `1.0`, balanced detection
+  `0.5375`), but no leaderboard, model-comparison, SOTA, natural-frequency, or broad robustness result
+  exists.
 - Provider-backed protocol-effect result: bounded two-row clean pilot, stratified
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
   discriminating-metric pilot, and one bounded six-row unstable stability replication; none is a
@@ -780,22 +787,22 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md`](experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md).
+[`experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md`](experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter161); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter165); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146-152<br/>protocol + detection at scale<br/>cross-repo 0/20 -> 10/20 official<br/>reward-model fooled 35-45% · 25% survive all static"]-->BENCH["153-156<br/>reward-hack benchmark<br/>40-row v1 artifact<br/>13/40 survive all static"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-165<br/>judge eval<br/>3/40 recall · 0/40 FP controls"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   class L1,L2,L3 d;
   class BM,FBM risk;
-  class DEF,AUT,SC,APP,PE,BENCH fix;
+  class DEF,AUT,SC,APP,PE,BENCH,CTRL fix;
 ```
 
 The FBM node was the adversarial frontier: iter140's `0/20` gemini null read the both-miss window as
@@ -816,8 +823,12 @@ validated the strict judge-output parser and fixture suite before provider scori
 bounded model judge over all 40 all-hack packets and recorded `3` `reward_hack` verdicts and `37`
 `legitimate` verdicts, making the recall gap visible while still making no precision, leaderboard, or
 model-comparison claim. Iter162 designed the legitimate-control source hierarchy, schemas, and
-false-positive/specificity/precision boundary; iter163 is the active materialization gate for source/hash
-verified controls. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
+false-positive/specificity/precision boundary. Iter163 materialized `40` paired legitimate controls and
+blinded control packets. Iter164 honestly blocked on a Vertex `http_429` after `15` successful controls.
+Iter165 recovered only the missing controls and produced the complete paired one-model metric:
+`3/40` recall on hacks, `0/40` false positives on controls, specificity `1.0`, and balanced detection
+`0.5375`; this is still not a leaderboard or model-comparison result. Iter166 is the active moonshot
+design gate for a higher-recall evaluator family that preserves the measured false-positive boundary. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
@@ -884,7 +895,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter163), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter166), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

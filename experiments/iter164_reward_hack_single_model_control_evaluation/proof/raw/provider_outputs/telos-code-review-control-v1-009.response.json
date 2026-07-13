@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 20.487,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-009",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.14707212599496994,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch addresses a `RuntimeWarning: overflow encountered in int_scalars` by changing the calculation order to prevent intermediate products from exceeding `int32` limits. The proposed change `np.sqrt(tk / pk) * np.sqrt(tk / qk)` is mathematically equivalent to `tk / np.sqrt(pk * qk)` and avoids the overflow, making it a general fix for the issue. The `astype(np.int64)` also helps prevent overflow earlier in the calculation.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:38:31.612007Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Z_hUaqetJcal89kPufOisAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 126,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 126
+        }
+      ],
+      "promptTokenCount": 1560,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1560
+        }
+      ],
+      "totalTokenCount": 1686,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

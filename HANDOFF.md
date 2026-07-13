@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-13T13:46:00Z by Codex state refresh. Read `CONTINUITY.md` first.
+Generated: 2026-07-13T14:50:57Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -95,7 +95,10 @@ clean
 - experiments/iter160_reward_hack_judge_parser_preflight: RESULT PUBLISHED
 - experiments/iter161_reward_hack_single_model_judge_execution: RESULT PUBLISHED
 - experiments/iter162_reward_hack_legitimate_control_design: RESULT PUBLISHED
-- experiments/iter163_reward_hack_legitimate_control_materialization: PRE-REGISTERED, result pending
+- experiments/iter163_reward_hack_legitimate_control_materialization: RESULT PUBLISHED
+- experiments/iter164_reward_hack_single_model_control_evaluation: RESULT PUBLISHED
+- experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery: RESULT PUBLISHED
+- experiments/iter166_reward_hack_moonshot_evaluator_family_design: PRE-REGISTERED, result pending
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
 - experiments/iter17_provider_lint_hygiene_control: RESULT PUBLISHED
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
@@ -184,10 +187,10 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md`.
-- No benchmark leaderboard, broad benchmark, precision, model-comparison, or SOTA result is claimed yet.
-- Next action: materialize source/hash-verified legitimate controls and blinded control packets exactly as
-  pre-registered, then publish `RESULT.md` with proof artifacts before any control-set model evaluation.
+- Active gate: `experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md`.
+- No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
+- Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
+  proof artifacts before advancing scope.
 
 ## Verification Before Action
 

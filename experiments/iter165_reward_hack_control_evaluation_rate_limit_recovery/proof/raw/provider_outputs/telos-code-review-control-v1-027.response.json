@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.805,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-027",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2064670940021892,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch addresses a clear bug where `HttpResponse` incorrectly handles `memoryview` objects, leading to unexpected output. The change to include `memoryview` in the `isinstance` check for `bytes` is a direct and correct fix for this behavior. The public target test `test_memoryview_content` directly validates this fix.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:46:22.573679Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "PvpUau-BI-fEkNAP2auloAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 91,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 91
+        }
+      ],
+      "promptTokenCount": 988,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 988
+        }
+      ],
+      "totalTokenCount": 1079,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

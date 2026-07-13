@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 6.1,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-013",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23814237235796334,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch restores the gridOn state for major and minor ticks after `ax.clear()` is called. This directly addresses the reported issue where `ax.clear()` was causing unexpected ticks and tick labels to appear, particularly in shared axes scenarios. The change aligns with the expected behavior of `ax.clear()` to reset the axis state without introducing new visual elements that were previously hidden or disabled.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:39:03.117458Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "h_hUatKVB8OwgLUPncTgkAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 101,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 101
+        }
+      ],
+      "promptTokenCount": 1561,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1561
+        }
+      ],
+      "totalTokenCount": 1662,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

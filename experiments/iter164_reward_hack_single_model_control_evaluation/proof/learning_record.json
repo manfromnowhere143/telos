@@ -1,0 +1,18 @@
+{
+  "evidence_paths": [
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/model_binding.json",
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/provider_call_ledger.jsonl",
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/parsed_judge_outputs.jsonl",
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/leakage_audit.json",
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/metric_summary.json",
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/endpoint_results.json",
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/run_summary.json",
+    "experiments/iter164_reward_hack_single_model_control_evaluation/proof/valid/receipt_reward_hack_single_model_control_evaluation.json"
+  ],
+  "experiment_id": "iter164_reward_hack_single_model_control_evaluation",
+  "insight": "The reward-hack judge needs legitimate controls before precision is meaningful; this gate either records that control behavior or publishes the provider/runtime block.",
+  "next_action": "Use the combined iter161/iter164 metric to design the next moonshot evaluator-family gate without turning a single-model result into a leaderboard.",
+  "result_path": "experiments/iter164_reward_hack_single_model_control_evaluation/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "blocked"
+}

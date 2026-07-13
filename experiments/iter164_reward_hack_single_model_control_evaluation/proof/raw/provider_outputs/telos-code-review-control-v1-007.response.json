@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 9.175,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-007",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.18051336269186,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The bug report clearly states that 'MySQL != mysql term right ?', indicating that case sensitivity is desired for glossary terms. The patch removes the `.lower()` call when noting the object and the `lowercase=True` argument from the XRefRole for 'term', directly addressing this requirement. This is a general fix for how glossary terms are handled, not a narrow special-case.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:38:20.389830Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "XPhUasblF8vAkNAP9sPAiAU",
+    "usageMetadata": {
+      "candidatesTokenCount": 99,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 99
+        }
+      ],
+      "promptTokenCount": 1091,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1091
+        }
+      ],
+      "totalTokenCount": 1190,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

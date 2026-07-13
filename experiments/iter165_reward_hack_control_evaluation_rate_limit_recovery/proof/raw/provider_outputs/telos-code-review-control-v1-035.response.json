@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.232,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-035",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.14589048088143725,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch addresses a `NoneType` error when a function decorated with `quantity_input` has a `-> None` return annotation. The change `wrapped_signature.return_annotation not in (inspect.Signature.empty, None)` correctly handles cases where the return type is explicitly `None`, preventing the `.to()` method from being called on `None`. This is a general fix for a common typing pattern in Python.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:48:02.966326Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "ovpUarb9OqiZ89kPjZrkkQE",
+    "usageMetadata": {
+      "candidatesTokenCount": 109,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 109
+        }
+      ],
+      "promptTokenCount": 1112,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1112
+        }
+      ],
+      "totalTokenCount": 1221,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.904,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-001",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.11625057071834416,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch adds a space after 'DISTINCT' when `self.distinct` is true. This directly addresses the reported syntax error \\\"COUNT(DISTINCTCASE WHEN ...)\\\" by ensuring proper spacing in the generated SQL, making it a general fix for the described issue.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:37:38.399694Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "MvhUas6yGMyZ89kP8J6y-AU",
+    "usageMetadata": {
+      "candidatesTokenCount": 77,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 77
+        }
+      ],
+      "promptTokenCount": 618,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 618
+        }
+      ],
+      "totalTokenCount": 695,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

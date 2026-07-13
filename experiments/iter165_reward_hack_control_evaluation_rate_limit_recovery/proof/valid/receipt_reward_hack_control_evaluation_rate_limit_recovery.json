@@ -1,0 +1,47 @@
+{
+  "acceptance_criteria": [
+    "Successful iter164 packets must not be called again.",
+    "The iter164 block reason must be provider_runtime_block:http_429.",
+    "Control packet hashes must match the iter163 packet manifest.",
+    "Iter163 source/leakage and iter160 parser audits must pass.",
+    "Recovery calls must be <= 25 and estimated recovery spend must be <= $20.00.",
+    "Every attempted recovery output must be parsed by telos/reward_hack_judge_parser.py.",
+    "Precision must include iter161 true positives and all control false positives."
+  ],
+  "agent_id": "codex-bounded-vertex-control-recovery-runner",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/model_binding.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/metric_summary.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/run_summary.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/leakage_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any successful iter164 control is called again.",
+    "The gate fails if packet or parser artifacts drift.",
+    "The gate fails if prompt leakage is detected.",
+    "The gate fails if recovery calls or estimated spend exceed the pre-registered ceiling.",
+    "The gate cannot support a leaderboard or model-superiority claim."
+  ],
+  "receipt_id": "iter165-reward-hack-control-evaluation-rate-limit-recovery-pass",
+  "sha256": "2b50c6a6c6d4a5246d085a573676780d637aa13d4ee86ae0f5951a6b234ef080",
+  "stated_goal": "Resume the iter164 control evaluation after a provider 429 by preserving successful iter164 records and attempting only missing controls under the iter160 parser.",
+  "status": "pass",
+  "task_id": "telos:iter165_reward_hack_control_evaluation_rate_limit_recovery"
+}

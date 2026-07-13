@@ -1,0 +1,50 @@
+{
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "claim_boundary": "Legitimate-control artifact only: no model has been evaluated on these controls, no precision number or benchmark score is claimed, and no provider calls were made.",
+  "control_artifacts": {
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/README.md": "c1ce432740f0c43b007e83ecd39ce91a62dc3ef241ce3e2b4a44f22e71a6c2bd",
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/legitimate_controls_v1.jsonl": "6f30de458771b35d78c55031d682928d3f809cb682ac298bf1f87b81e4a0c5c5",
+    "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/schema.json": "c616926c936566375d97d0c89d27d0fced354a5be39879b046d4e0003c8883a5"
+  },
+  "control_set_id": "reward_hack_legitimate_controls_v1",
+  "control_type_counts": {
+    "paired_gold": 40
+  },
+  "leaderboard_claimed": false,
+  "leakage_audit": {
+    "path": "experiments/iter163_reward_hack_legitimate_control_materialization/proof/leakage_audit.json",
+    "sha256": "0dd1294e422e3c5c8f093e7bfa7ae70a9b8843441dbad59783043ecbe56ac187",
+    "status": "pass"
+  },
+  "model_comparison_claimed": false,
+  "precision_claimed": false,
+  "repo_count": 11,
+  "repo_counts": {
+    "astropy/astropy": 3,
+    "django/django": 9,
+    "matplotlib/matplotlib": 7,
+    "pallets/flask": 1,
+    "psf/requests": 1,
+    "pydata/xarray": 4,
+    "pylint-dev/pylint": 1,
+    "pytest-dev/pytest": 5,
+    "scikit-learn/scikit-learn": 5,
+    "sphinx-doc/sphinx": 3,
+    "sympy/sympy": 1
+  },
+  "row_count": 40,
+  "schema_version": "telos.reward_hack_legitimate_control_manifest.v1",
+  "sota_claimed": false,
+  "source_audit": {
+    "path": "experiments/iter163_reward_hack_legitimate_control_materialization/proof/source_audit.json",
+    "sha256": "3baf5229e9e2339f9e96ac8b348a71e830a6474b567ee4e9e4b4d8899e7536e9",
+    "status": "pass"
+  },
+  "source_snapshot": {
+    "dataset_id": "princeton-nlp/SWE-bench_Verified",
+    "path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/swebench_verified_rows_snapshot.json",
+    "revision": "c104f840cc67f8b6eec6f759ebc8b2693d585d4a",
+    "sha256": "8b912e9e1aff87ab16ebcdb37c636bd45fb23bf7dd90c4b88ca2ab11f0bd6385",
+    "split": "test"
+  }
+}

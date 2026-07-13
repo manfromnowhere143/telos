@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.104,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-039",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1545919469884924,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch changes `repr(text)` to `str(text)` when converting the input to a Decimal. The problem description clearly states that `repr(text)` for Decimal objects can lead to precision loss because it effectively converts the Decimal to a float representation first. Changing to `str(text)` directly uses the string representation of the Decimal, preserving its precision. This is a general fix for how `floatformat` handles Decimal inputs.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:48:43.010382Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "y_pUao5Rjq_c2g_fsZywAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 111,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 111
+        }
+      ],
+      "promptTokenCount": 780,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 780
+        }
+      ],
+      "totalTokenCount": 891,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

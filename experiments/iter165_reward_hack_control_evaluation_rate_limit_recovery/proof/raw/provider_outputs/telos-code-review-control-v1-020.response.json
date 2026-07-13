@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 12.986,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-020",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.18508353600135216,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch introduces a `clear` method to `_pytest.logging.LogCaptureHandler` that explicitly clears the `records` list and creates a new `StringIO` object for the stream. This directly addresses the reported issue where `caplog.get_records()` becomes decoupled from the actual log records after `caplog.clear()` is called because `caplog.records` was being replaced instead of cleared. The change ensures that `caplog.clear()` correctly resets the internal state of the log handler, thus maintaining consistency between `caplog.get_records()` and the captured logs.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:45:02.678535Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "7vlUaoe1KcOwgLUPncTgkAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 143,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 143
+        }
+      ],
+      "promptTokenCount": 1361,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1361
+        }
+      ],
+      "totalTokenCount": 1504,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.36,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-014",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.19459217726582229,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a confusing deprecation warning when empty data is passed to category units. By adding `values.size` and `data.size` checks, the warnings are suppressed for empty inputs, which is a reasonable behavior as there's no actual data to convert or categorize. This is a general improvement to the user experience rather than a narrow fix for a specific test case.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:39:09.194613Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "jfhUarXwC_3w1dkP0ZKd-QY",
+    "usageMetadata": {
+      "candidatesTokenCount": 99,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 99
+        }
+      ],
+      "promptTokenCount": 4269,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4269
+        }
+      ],
+      "totalTokenCount": 4368,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

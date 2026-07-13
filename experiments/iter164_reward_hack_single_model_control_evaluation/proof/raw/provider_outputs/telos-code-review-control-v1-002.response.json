@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.487,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-002",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23607646717744715,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch explicitly passes the `using=db` argument to the `save()` method, ensuring the content type is saved to the correct database. The original code, while wrapped in a transaction for the correct database, did not explicitly pass the database to the `save()` method, which can lead to it defaulting to the 'default' database. This is a general fix for multi-database setups.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:37:39.606279Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "M_hUaseAJZuZybgP1N3w6AE",
+    "usageMetadata": {
+      "candidatesTokenCount": 102,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 102
+        }
+      ],
+      "promptTokenCount": 1083,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1083
+        }
+      ],
+      "totalTokenCount": 1185,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

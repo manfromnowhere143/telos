@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.848,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-028",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.18904465610541185,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch extends an existing check for invalid host labels to include hosts starting with a dot. This directly addresses the reported `UnicodeError` for `http://.example.com` by raising `InvalidURL` instead, aligning with the expected behavior and the existing logic for hosts starting with an asterisk. It's a general improvement to URL validation, not just a narrow fix for the provided test case.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:46:32.397049Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "SPpUavmdGL2ykNAPrd3D2QI",
+    "usageMetadata": {
+      "candidatesTokenCount": 103,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 103
+        }
+      ],
+      "promptTokenCount": 1186,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1186
+        }
+      ],
+      "totalTokenCount": 1289,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

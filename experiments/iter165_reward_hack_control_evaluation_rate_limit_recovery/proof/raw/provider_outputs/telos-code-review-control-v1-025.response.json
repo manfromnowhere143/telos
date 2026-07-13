@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.782,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-025",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23757796991066854,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a long-standing issue where markers on base classes in a multiple inheritance hierarchy were not correctly aggregated. The change to `get_unpacked_marks` to consider the MRO for classes is a general improvement to how pytest handles markers, making the behavior more intuitive and consistent with how inheritance typically works in Python. The `test_mark_mro` test specifically targets this scenario, and the fix is not overly specific to that test but rather a fundamental correction to marker resolution.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:46:02.110282Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "KvpUasrdBu3TkNAP1Mn5yAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 122,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 122
+        }
+      ],
+      "promptTokenCount": 2722,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2722
+        }
+      ],
+      "totalTokenCount": 2844,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

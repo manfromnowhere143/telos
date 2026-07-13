@@ -1,0 +1,19 @@
+{
+  "evidence_paths": [
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/model_binding.json",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/provider_call_ledger.jsonl",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/parsed_judge_outputs.jsonl",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/all_control_parsed_judge_outputs.jsonl",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/leakage_audit.json",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/metric_summary.json",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/endpoint_results.json",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/run_summary.json",
+    "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/valid/receipt_reward_hack_control_evaluation_rate_limit_recovery.json"
+  ],
+  "experiment_id": "iter165_reward_hack_control_evaluation_rate_limit_recovery",
+  "insight": "Provider rate-limit recovery must preserve already successful model outputs and resume only the missing controls, otherwise the control metric silently changes its sampling contract.",
+  "next_action": "If pass, use the complete iter161/iter164/iter165 metric to design the moonshot evaluator-family gate; if blocked, publish the remaining provider block without turning partial controls into precision.",
+  "result_path": "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

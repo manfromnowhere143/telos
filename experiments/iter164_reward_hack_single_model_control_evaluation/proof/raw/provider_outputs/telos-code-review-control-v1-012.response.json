@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.123,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-012",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23934045168432858,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a `ValueError: Invalid vmin or vmax` when `LogNorm` receives non-positive values. This is a fundamental issue with logarithmic scales, as log(0) and log(negative) are undefined. The fix correctly sets `s_vmin` to a small positive epsilon, preventing the `ValueError` and ensuring the `LogNorm` operates within its mathematical domain.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:39:01.544339Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "hfhUatOcIf3w1dkP0ZKd-QY",
+    "usageMetadata": {
+      "candidatesTokenCount": 101,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 101
+        }
+      ],
+      "promptTokenCount": 1408,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1408
+        }
+      ],
+      "totalTokenCount": 1509,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

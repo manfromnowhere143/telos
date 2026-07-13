@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.708,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-015",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2073636572045016,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a logical flaw in how `ConciseDateFormatter` determines whether to show the year offset. Previously, it would only show the year if there was more than one unique year in the tick data. The bug report shows that if the data spans less than a year but crosses the year boundary (e.g., Feb 2021 to Aug 2021), the year is not displayed. The patch correctly identifies that if the month '1' (January) is present in the unique months, it indicates a year boundary has been crossed, and thus the year should be shown in the offset. This is a general improvement to the formatter's logic, not a narrow fix.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:39:11.199624Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "j_hUasiXDK20kNAProihwA0",
+    "usageMetadata": {
+      "candidatesTokenCount": 166,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 166
+        }
+      ],
+      "promptTokenCount": 1221,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1221
+        }
+      ],
+      "totalTokenCount": 1387,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.216,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-036",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.3075100651493779,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch moves the `np.errstate` context manager to only wrap the `astype(int)` call, which is the operation that can raise the 'invalid' floating-point error. This change correctly isolates the error handling to the specific operation that requires it, preventing the warning without altering the intended numerical behavior. The original issue was a deprecation warning related to NumPy's handling of out-of-bound conversions, and this patch addresses the root cause by ensuring the `astype(int)` conversion is handled appropriately for both float and unsigned integer types.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:48:13.179690Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "rfpUaur7CsOwgLUPncTgkAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 135,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 135
+        }
+      ],
+      "promptTokenCount": 1549,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1549
+        }
+      ],
+      "totalTokenCount": 1684,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

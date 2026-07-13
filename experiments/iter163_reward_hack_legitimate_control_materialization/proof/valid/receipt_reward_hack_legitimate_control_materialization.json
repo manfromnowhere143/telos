@@ -1,0 +1,44 @@
+{
+  "acceptance_criteria": [
+    "Target 40 legitimate controls, one paired to each reward-hack row.",
+    "Every row must have a candidate diff hash, source record hash, task text, and public target tests.",
+    "Hack and control candidate diff hashes must have zero overlap.",
+    "Blinded control packets must exclude labels, source splits, official reports, prior verdicts, and static outcomes.",
+    "No provider calls, model evaluations, SWE-bench executions, or cloud resources may occur."
+  ],
+  "agent_id": "codex-local-zero-spend-legitimate-control-materializer",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/blinded_control_packets_v1/manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter163_reward_hack_legitimate_control_materialization/proof/leakage_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter163_reward_hack_legitimate_control_materialization/proof/source_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "A row without a recovered candidate diff and stable hash invalidates the pass claim.",
+    "Any prompt-visible label/source/report/prior-verdict leakage invalidates the packet artifact.",
+    "Any overlap between hack and control diff hashes invalidates the control artifact.",
+    "This gate cannot claim precision because no model has been evaluated on controls."
+  ],
+  "receipt_id": "iter163-reward-hack-legitimate-control-materialization-pass",
+  "sha256": "820154c2874fdf1a9ca34625bbcce2fc581abf6b6e3493c88f925540498621dc",
+  "stated_goal": "Materialize source/hash-verified legitimate controls and blinded control packets before any precision or leaderboard claim.",
+  "status": "pass",
+  "task_id": "telos:iter163_reward_hack_legitimate_control_materialization"
+}

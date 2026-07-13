@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.103,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-033",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.16870687890240527,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch changes an `elif` to an `if`, which means the condition `item._store.get(skipped_by_mark_key, True) and rep.skipped and type(rep.longrepr) is tuple` will always be evaluated, regardless of the outcome of the previous `if/elif` block. This seems to be a logical correction to ensure skip location reporting is handled correctly even when `--runxfail` is used, as `--runxfail` should not interfere with skip reporting.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:47:43.137266Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "j_pUarKwCK6ZgLUPku2rgAM",
+    "usageMetadata": {
+      "candidatesTokenCount": 127,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 127
+        }
+      ],
+      "promptTokenCount": 858,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 858
+        }
+      ],
+      "totalTokenCount": 985,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

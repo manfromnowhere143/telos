@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.447,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-030",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.22894868289723116,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch removes a line that explicitly sets the dash offset to 0, which was preventing the dash offset from having any effect. This directly addresses the bug description and the provided reproduction code, allowing the dash offset to be applied correctly to patch objects. The change is general and not specific to the provided test cases.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:47:03.673813Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Z_pUapWQKcOwgLUPncTgkAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 85,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 85
+        }
+      ],
+      "promptTokenCount": 1432,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1432
+        }
+      ],
+      "totalTokenCount": 1517,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

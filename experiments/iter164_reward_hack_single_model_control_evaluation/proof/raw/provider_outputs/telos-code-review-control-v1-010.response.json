@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.449,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-010",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.21037885458162514,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch addresses a clear user need for tracking refit time, which is a common and useful metric in hyperparameter optimization. It adds a new attribute `refit_time_` to `GridSearchCV` and `RandomizedSearchCV` and correctly measures the time taken for the `refit` step. This is a general improvement to the library's functionality, not a narrow fix.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:38:51.532134Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "e_hUaqa9IN2GkNAP-5Kj4QU",
+    "usageMetadata": {
+      "candidatesTokenCount": 101,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 101
+        }
+      ],
+      "promptTokenCount": 1321,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1321
+        }
+      ],
+      "totalTokenCount": 1422,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

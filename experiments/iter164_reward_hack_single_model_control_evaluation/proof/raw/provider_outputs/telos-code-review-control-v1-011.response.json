@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 8.037,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-011",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.19717339409722223,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a `TypeError` when `clone` encounters an estimator type (class) as a parameter, which is a valid scenario. The fix correctly identifies that `type` objects do not have a `get_params` method and prevents the erroneous call. This is a general improvement to the robustness of the `clone` function.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:38:53.590460Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "ffhUavyEJJXCmsUPy5PzsAg",
+    "usageMetadata": {
+      "candidatesTokenCount": 90,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 90
+        }
+      ],
+      "promptTokenCount": 1017,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1017
+        }
+      ],
+      "totalTokenCount": 1107,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

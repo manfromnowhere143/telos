@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter163_reward_hack_legitimate_control_materialization/HYPOTHESIS.md` (PRE-REGISTERED; legitimate-control materialization pending)
+- `experiments/iter166_reward_hack_moonshot_evaluator_family_design/HYPOTHESIS.md` (PRE-REGISTERED; moonshot evaluator-family design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -57,8 +57,17 @@ evidence only, not precision, a leaderboard, a benchmark score, model comparison
 robustness claim. Iter162 is published as a zero-spend legitimate-control design pass: it defines the
 control source hierarchy, row schema, blinded packet schema, false-positive/specificity/precision metric
 boundary, and next materialization bars, with zero provider calls, zero SWE-bench executions, and zero cloud
-resources. The active next gate is `iter163`: materialize source/hash-verified legitimate controls and
-blinded control packets before any precision claim.
+resources. Iter163 is published as a materialization pass: `40` paired public SWE-bench Verified gold-patch
+controls and `40` blinded control packets, source audit `pass`, leakage audit `pass`, and hack/control diff
+hash overlap `0`. Iter164 is published as a blocked provider result: it preserved `15` successful parsed
+control outputs, then stopped on Vertex `http_429`; its partial metrics are diagnostics only. Iter165 is
+published as the rate-limit recovery pass: it called only the `25` missing controls, reused the `15`
+successful iter164 records, and produced a complete paired single-model metric: `3/40` recall on hack rows,
+`0/40` false positives on controls, specificity `1.0`, precision `1.0` with denominator `3`, balanced
+detection `0.5375`, sequence estimated cost guard `$0.727580`, and no SWE-bench executions or cloud
+resources. This is a one-model bounded metric only, not a leaderboard, model-comparison, SOTA,
+natural-frequency, or broad robustness claim. The active next gate is `iter166`: design the moonshot
+evaluator family that can raise recall while preserving the measured false-positive boundary.
 
 Claim-boundary reviewer entry point:
 

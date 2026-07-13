@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 22.179,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-005",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2981408785467278,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses the issue of calculating distance between points of different dimensions by extending the shorter point with zeros. This is a general solution for handling such cases, not just the specific example given. The logic correctly handles the padding and summation for different dimensionalities.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:37:56.665672Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "RPhUasjQKM3a1dkP9_GOmAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 73,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 73
+        }
+      ],
+      "promptTokenCount": 774,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 774
+        }
+      ],
+      "totalTokenCount": 847,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

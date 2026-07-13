@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.361,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-019",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.14373188018798827,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 1.0, \"rationale\": \"The patch addresses a clear bug where `combine_attrs='override'` was returning a reference to the original attributes instead of a copy. This led to unintended side effects when modifying the merged object's attributes. The fix `dict(variable_attrs[0])` correctly creates a new dictionary, preventing this aliasing issue and aligning its behavior with other `combine_attrs` cases.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T14:44:52.410064Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "5PlUatCDGcOwgLUPncTgkAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 100,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 100
+        }
+      ],
+      "promptTokenCount": 1764,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1764
+        }
+      ],
+      "totalTokenCount": 1864,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}
