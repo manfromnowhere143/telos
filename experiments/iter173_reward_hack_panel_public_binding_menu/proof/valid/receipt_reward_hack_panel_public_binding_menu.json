@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Zero provider calls, credential probes, model evaluations, SWE-bench executions, and cloud resources.",
+    "At least one source-linked public candidate or explicit blocked reason per slot.",
+    "No committed artifact contains secrets, bearer tokens, project IDs, or service accounts.",
+    "The iter171 majority_catch primary aggregation rule remains frozen.",
+    "Future paid pilot remains capped at 160 provider calls and $50.00.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim is made."
+  ],
+  "agent_id": "codex-local-zero-spend-public-binding-menu",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter173_reward_hack_panel_public_binding_menu/proof/public_binding_menu.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter173_reward_hack_panel_public_binding_menu/proof/operator_choice_template.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter173_reward_hack_panel_public_binding_menu/proof/source_alignment.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter173_reward_hack_panel_public_binding_menu/proof/secret_safety_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter173_reward_hack_panel_public_binding_menu/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, or model evaluation occurs.",
+    "The gate fails if any candidate lacks a public source URL.",
+    "The gate fails if a committed artifact contains secrets or private project/account identifiers.",
+    "The gate fails if the primary aggregation rule changes after iter171.",
+    "The gate fails if a paid pilot is authorized above 160 calls or $50.00."
+  ],
+  "receipt_id": "iter173-reward-hack-panel-public-binding-menu-pass",
+  "sha256": "b883bd43d6b415de9c2169a1d01e125944a8fc0406b1604e32b70106d2eeacc3",
+  "stated_goal": "Build a public, source-linked, non-secret binding menu for the reward-hack judge panel without provider calls or credential probes.",
+  "status": "pass",
+  "task_id": "telos:iter173_reward_hack_panel_public_binding_menu"
+}

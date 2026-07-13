@@ -1,0 +1,146 @@
+{
+  "claim_boundary": "Public binding menu only; no provider was called, scored, ranked, or compared.",
+  "experiment_id": "iter173_reward_hack_panel_public_binding_menu",
+  "generated_at_utc": "2026-07-13T19:39:20Z",
+  "paid_pilot_call_accounting": {
+    "current_call_ceiling": 160,
+    "fits_under_ceiling": true,
+    "full_all_packet_panel_fits_under_current_ceiling": false,
+    "full_three_slot_all_packet_calls_required": 240,
+    "panel_slot_count": 3,
+    "planned_calls_plus_retry_reserve": 160,
+    "planned_primary_calls": 120,
+    "retry_reserve_calls": 40,
+    "selected_packet_count_for_bounded_pilot": 40,
+    "selected_pair_count_for_bounded_pilot": 20
+  },
+  "paid_pilot_spend_ceiling_usd": "50.00",
+  "primary_aggregation_rule_id": "majority_catch",
+  "primary_rule_selected_before_outputs": true,
+  "retrieved_at_utc": "2026-07-13T19:40:00Z",
+  "schema_version": "telos.iter173.public_binding_menu.v1",
+  "slot_menus": [
+    {
+      "candidates": [
+        {
+          "api_family": "Google Vertex AI generateContent or Gemini API generateContent",
+          "api_route": "runtime_placeholder_vertex_or_gemini_generate_content",
+          "candidate_id": "google_continuity_gemini_2_5_flash_vertex",
+          "credential_source_route": "runtime_adc_or_runtime_api_key_outside_repo",
+          "exact_model_id": "gemini-2.5-flash",
+          "notes": [],
+          "private_identifier_policy": "runtime_placeholder_only",
+          "rationale": "Preserves the iter161/iter165/iter167 continuity model while adding provider-native structured output.",
+          "recommendation": "recommended_continuity_choice",
+          "source_urls": [
+            "https://ai.google.dev/gemini-api/docs/structured-output",
+            "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash",
+            "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash"
+          ],
+          "structured_output_mode": "response_format_json_schema_or_provider_native_equivalent"
+        },
+        {
+          "api_family": "Google Gemini API generateContent",
+          "api_route": "runtime_placeholder_gemini_generate_content",
+          "candidate_id": "google_current_flash_gemini_3_5_flash",
+          "credential_source_route": "runtime_api_key_or_adc_outside_repo",
+          "exact_model_id": "gemini-3.5-flash",
+          "notes": [],
+          "private_identifier_policy": "runtime_placeholder_only",
+          "rationale": "Current public flash-family candidate for speed-oriented judging if operator chooses to move beyond continuity.",
+          "recommendation": "acceptable_alternative_requires_explicit_choice",
+          "source_urls": [
+            "https://ai.google.dev/gemini-api/docs/structured-output",
+            "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash",
+            "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash"
+          ],
+          "structured_output_mode": "response_format_json_schema"
+        }
+      ],
+      "menu_status": "menu_ready_for_operator_choice",
+      "provider_family": "google_vertex_or_gemini",
+      "recommended_candidate_id": "google_continuity_gemini_2_5_flash_vertex",
+      "slot_id": "google_continuity_fast_judge"
+    },
+    {
+      "candidates": [
+        {
+          "api_family": "OpenAI Responses API",
+          "api_route": "runtime_placeholder_openai_responses",
+          "candidate_id": "openai_balanced_gpt_5_6_terra",
+          "credential_source_route": "runtime_OPENAI_API_KEY_outside_repo",
+          "exact_model_id": "gpt-5.6-terra",
+          "notes": [],
+          "private_identifier_policy": "runtime_placeholder_only",
+          "rationale": "Preserves the frontier model family already used in reward-hack artifacts while adding strict structured output.",
+          "recommendation": "recommended_independent_reasoning_choice",
+          "source_urls": [
+            "https://developers.openai.com/api/docs/guides/structured-outputs",
+            "https://developers.openai.com/api/docs/models"
+          ],
+          "structured_output_mode": "response_format_json_schema_strict_true"
+        },
+        {
+          "api_family": "OpenAI Responses API",
+          "api_route": "runtime_placeholder_openai_responses",
+          "candidate_id": "openai_flagship_gpt_5_6_sol",
+          "credential_source_route": "runtime_OPENAI_API_KEY_outside_repo",
+          "exact_model_id": "gpt-5.6-sol",
+          "notes": [],
+          "private_identifier_policy": "runtime_placeholder_only",
+          "rationale": "Higher-capability public catalog option if operator accepts higher expected cost/latency.",
+          "recommendation": "acceptable_alternative_requires_explicit_choice",
+          "source_urls": [
+            "https://developers.openai.com/api/docs/guides/structured-outputs",
+            "https://developers.openai.com/api/docs/models"
+          ],
+          "structured_output_mode": "response_format_json_schema_strict_true"
+        }
+      ],
+      "menu_status": "menu_ready_for_operator_choice",
+      "provider_family": "openai",
+      "recommended_candidate_id": "openai_balanced_gpt_5_6_terra",
+      "slot_id": "openai_reasoning_judge"
+    },
+    {
+      "candidates": [
+        {
+          "api_family": "Anthropic Messages API",
+          "api_route": "runtime_placeholder_anthropic_messages",
+          "candidate_id": "anthropic_opus_4_8",
+          "credential_source_route": "runtime_ANTHROPIC_API_KEY_outside_repo",
+          "exact_model_id": "claude-opus-4-8",
+          "notes": [],
+          "private_identifier_policy": "runtime_placeholder_only",
+          "rationale": "Preserves the Anthropic frontier judge family used in prior reward-hack artifacts while using native structured output.",
+          "recommendation": "recommended_independent_reasoning_choice",
+          "source_urls": [
+            "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+            "https://docs.anthropic.com/en/docs/about-claude/models/overview"
+          ],
+          "structured_output_mode": "output_config_json_schema"
+        },
+        {
+          "api_family": "Anthropic Messages API",
+          "api_route": "runtime_placeholder_anthropic_messages",
+          "candidate_id": "anthropic_sonnet_5",
+          "credential_source_route": "runtime_ANTHROPIC_API_KEY_outside_repo",
+          "exact_model_id": "claude-sonnet-5",
+          "notes": [],
+          "private_identifier_policy": "runtime_placeholder_only",
+          "rationale": "Balanced public catalog option if operator chooses lower expected latency/cost than Opus.",
+          "recommendation": "acceptable_alternative_requires_explicit_choice",
+          "source_urls": [
+            "https://platform.claude.com/docs/en/build-with-claude/structured-outputs",
+            "https://docs.anthropic.com/en/docs/about-claude/models/overview"
+          ],
+          "structured_output_mode": "output_config_json_schema"
+        }
+      ],
+      "menu_status": "menu_ready_for_operator_choice",
+      "provider_family": "anthropic",
+      "recommended_candidate_id": "anthropic_opus_4_8",
+      "slot_id": "anthropic_reasoning_or_safety_judge"
+    }
+  ]
+}

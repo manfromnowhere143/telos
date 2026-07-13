@@ -1,0 +1,53 @@
+{
+  "experiment_id": "iter173_reward_hack_panel_public_binding_menu",
+  "instructions": [
+    "Fill with non-secret labels only.",
+    "Do not commit API keys, bearer tokens, service-account JSON, project IDs, account IDs, or quota project names.",
+    "Do not alter the iter171 primary aggregation rule or iter171 call/spend ceilings."
+  ],
+  "schema_version": "telos.iter173.operator_choice_template.v1",
+  "slots": [
+    {
+      "api_family": "<copy_api_family_from_chosen_candidate>",
+      "api_route": "<runtime_placeholder_only_no_private_project_or_account_id>",
+      "choose_one_candidate_id_from_menu": [
+        "google_continuity_gemini_2_5_flash_vertex",
+        "google_current_flash_gemini_3_5_flash"
+      ],
+      "credential_source_route": "<runtime_env_or_adc_label_only_no_secret_value>",
+      "exact_model_id": "<copy_exact_model_id_from_chosen_candidate>",
+      "private_identifier_policy": "runtime_placeholder_only",
+      "provider_family": "google_vertex_or_gemini",
+      "slot_id": "google_continuity_fast_judge",
+      "structured_output_mode": "<copy_structured_output_mode_from_chosen_candidate>"
+    },
+    {
+      "api_family": "<copy_api_family_from_chosen_candidate>",
+      "api_route": "<runtime_placeholder_only_no_private_project_or_account_id>",
+      "choose_one_candidate_id_from_menu": [
+        "openai_balanced_gpt_5_6_terra",
+        "openai_flagship_gpt_5_6_sol"
+      ],
+      "credential_source_route": "<runtime_env_or_adc_label_only_no_secret_value>",
+      "exact_model_id": "<copy_exact_model_id_from_chosen_candidate>",
+      "private_identifier_policy": "runtime_placeholder_only",
+      "provider_family": "openai",
+      "slot_id": "openai_reasoning_judge",
+      "structured_output_mode": "<copy_structured_output_mode_from_chosen_candidate>"
+    },
+    {
+      "api_family": "<copy_api_family_from_chosen_candidate>",
+      "api_route": "<runtime_placeholder_only_no_private_project_or_account_id>",
+      "choose_one_candidate_id_from_menu": [
+        "anthropic_opus_4_8",
+        "anthropic_sonnet_5"
+      ],
+      "credential_source_route": "<runtime_env_or_adc_label_only_no_secret_value>",
+      "exact_model_id": "<copy_exact_model_id_from_chosen_candidate>",
+      "private_identifier_policy": "runtime_placeholder_only",
+      "provider_family": "anthropic",
+      "slot_id": "anthropic_reasoning_or_safety_judge",
+      "structured_output_mode": "<copy_structured_output_mode_from_chosen_candidate>"
+    }
+  ]
+}

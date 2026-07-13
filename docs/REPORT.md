@@ -12,9 +12,11 @@ zero-spend iter168 null adjudication showing all `9` invalids were markdown-fenc
 repair would still reach only `4/40` recall, plus a zero-spend iter169 independent judge-panel design with
 frozen structured-output and aggregation rules, and a zero-spend iter170 structured-output/request preflight
 that keeps paid execution blocked pending exact bindings, a zero-spend iter171 binding freeze that keeps
-the panel blocked while freezing `majority_catch` and a bounded `20`-pair pilot plan, and a zero-spend
-iter172 operator-binding recovery packet showing no operator choices were supplied; none is a benchmark
-leaderboard result and none supports a model-superiority or state-of-the-art claim.
+the panel blocked while freezing `majority_catch` and a bounded `20`-pair pilot plan, a zero-spend iter172
+operator-binding recovery packet showing no operator choices were supplied, and a zero-spend iter173 public
+binding menu with `3` panel slots, `6` source-linked candidates, secret hits `0`, and paid execution still
+unauthorized; none is a benchmark leaderboard result and none supports a model-superiority or
+state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -634,6 +636,9 @@ Current evidence:
   `40` retry reserve), still blocked pending exact operator bindings. `iter172` checked for a non-secret
   operator choice packet without spend; none was supplied, all three slots remain `requires_operator_input`,
   missing fields are explicit, generated secret hits are `0`, and paid execution remains unauthorized.
+  `iter173` then built a public binding menu from official provider docs without spend: `3` panel slots,
+  `6` source-linked candidate bindings, generated secret hits `0`, `majority_catch` preserved, ready for
+  operator/default choice, and paid execution still unauthorized.
 - `experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md`
   publishes the zero-spend evaluator-family design and recommends the bounded iter167 skeptical-judge
   calibration gate.
@@ -652,8 +657,10 @@ Current evidence:
   publishes the zero-spend model/API binding freeze and blocked paid-panel readiness decision.
 - `experiments/iter172_reward_hack_panel_operator_binding_recovery/RESULT.md`
   publishes the zero-spend operator-binding recovery packet and blocked readiness decision.
-- `experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md`
-  pre-registers the zero-spend public binding menu before any paid panel call.
+- `experiments/iter173_reward_hack_panel_public_binding_menu/RESULT.md`
+  publishes the zero-spend public binding menu before any paid panel call.
+- `experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md`
+  pre-registers the zero-spend default model/API choice freeze from that menu.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

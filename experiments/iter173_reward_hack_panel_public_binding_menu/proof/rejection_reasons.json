@@ -1,0 +1,22 @@
+{
+  "experiment_id": "iter173_reward_hack_panel_public_binding_menu",
+  "rejected_option_classes": [
+    {
+      "option_class": "unsourced_model_id",
+      "reason": "No candidate may enter the operator menu without a public source URL."
+    },
+    {
+      "option_class": "preview_or_experimental_without_explicit_choice",
+      "reason": "Preview/experimental options require a separate explicit operator choice and cannot be defaulted."
+    },
+    {
+      "option_class": "credential_or_project_value",
+      "reason": "Secrets and private identifiers are not binding choices and must stay outside committed artifacts."
+    },
+    {
+      "option_class": "post_output_model_substitution",
+      "reason": "Changing a model after seeing outputs would invalidate the pre-registered panel design."
+    }
+  ],
+  "schema_version": "telos.iter173.rejection_reasons.v1"
+}

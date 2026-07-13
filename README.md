@@ -12,10 +12,11 @@ pre-registered improvement bars: recall stayed `3/40`, specificity was `0.90`, h
 invalid outputs were markdown-fenced JSON, but a diagnostic-only fence strip would move recall only to
 `4/40`, so the main failure is semantic recall, not just output formatting. Iter169 completed a zero-spend
 independent judge-panel design with three cross-provider slots, structured-output enforcement, frozen
-aggregation rules, paired-control accounting, and a bounded future pilot ceiling. The active gate is
-iter173: a zero-spend public binding-menu gate after iter172 confirmed no non-secret operator choices were
-supplied, kept all three panel slots at `requires_operator_input`, preserved `majority_catch`, and kept paid
-execution blocked. No leaderboard, public benchmark score, model-comparison result, precision result outside this one-model bounded metric, state-of-the-art result, natural-frequency estimate, or broad robustness result is claimed. The repository begins with a completed target survey:
+aggregation rules, paired-control accounting, and a bounded future pilot ceiling. Iter173 built a
+zero-spend, source-linked public binding menu for the Google, OpenAI, and Anthropic panel slots: `6`
+candidates across `3` slots, secret hits `0`, primary rule still `majority_catch`, and paid execution
+still unauthorized. The active gate is iter174: freeze exact default model/API choices from that menu
+without provider calls before any paid pilot. No leaderboard, public benchmark score, model-comparison result, precision result outside this one-model bounded metric, state-of-the-art result, natural-frequency estimate, or broad robustness result is claimed. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
 hybrid Telos overlay on public software-agent tasks.
 
@@ -110,7 +111,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [170](experiments/iter170_reward_hack_panel_structured_output_preflight/RESULT.md) | Can the panel schema/request layer be preflighted before paid calls? | pass - zero-spend parser, fixture, request-shape, leakage, and nondecision-accounting preflight for the iter169 panel: valid fixtures parsed, markdown-fenced JSON remained invalid, all `40` hack and `40` control packets had `0` forbidden leakage hits and `0` allowlist mismatches, and paid execution is blocked pending exact operator bindings; provider calls `0`, model evaluations `0`, SWE-bench executions `0`, cloud resources `0`, no model or panel scores |
 | [171](experiments/iter171_reward_hack_panel_model_binding_freeze/RESULT.md) | Can exact panel model/API bindings be frozen before paid calls? | pass - zero-spend binding freeze: all three slots are `requires_operator_input`, primary rule is frozen as `majority_catch`, nondecisions remain outside TP/TN, generated secret hits are `0`, and iter171 does not authorize paid execution. It also records that a full three-slot run over all `80` blinded packets needs `240` calls, above the preserved `160`-call ceiling; bounded pilot plan is `20` paired rows (`120` planned calls + `40` retry reserve), still blocked pending operator bindings |
 | [172](experiments/iter172_reward_hack_panel_operator_binding_recovery/RESULT.md) | Can the blocked panel bindings be recovered without spend? | pass - zero-spend operator binding recovery: no operator choice packet was supplied, so all three slots remain `requires_operator_input`, missing non-secret fields are explicit, secret hits are `0`, `majority_catch` and the `160`-call / `$50.00` bounded-pilot ceiling are preserved, and paid execution is not authorized |
-| [173](experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md) | Can a public binding menu be built before operator choice? | pre-registered - zero-spend official-docs binding menu; no provider calls, credential probes, model evaluations, secrets, scores, or leaderboard claims |
+| [173](experiments/iter173_reward_hack_panel_public_binding_menu/RESULT.md) | Can a public binding menu be built before operator choice? | pass - zero-spend official-docs binding menu: `3` panel slots, `6` source-linked candidates, secret hits `0`, `majority_catch` preserved, ready for operator/default choice, paid execution not authorized |
+| [174](experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md) | Can exact default choices be frozen from the public menu? | pre-registered - zero-spend default model/API choice freeze; no provider calls, credential probes, model evaluations, secrets, scores, or leaderboard claims |
 
 ### The honest conclusion
 
@@ -665,10 +667,11 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack panel public binding menu (iter173, pre-registered) in
-  [`experiments/iter173_reward_hack_panel_public_binding_menu`](experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md);
-  iter172 confirmed no operator choice packet was present, so the next autonomous step is a public,
-  source-linked menu of safe non-secret model/API binding choices before any paid provider spend.
+- Current gate: reward-hack panel default choice freeze (iter174, pre-registered) in
+  [`experiments/iter174_reward_hack_panel_default_choice_freeze`](experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md);
+  iter173 produced a public, source-linked, non-secret binding menu with `6` candidates across `3` panel
+  slots, so the next autonomous step is to freeze exact default choices from that menu before any paid
+  provider spend.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -803,16 +806,16 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md`](experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md).
+[`experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md`](experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter172); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter173); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-172<br/>judge eval + panel preflight<br/>3/40 strict · operator binding blocked"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-173<br/>judge eval + panel preflight<br/>3/40 strict · public menu ready"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
@@ -918,7 +921,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter173), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter174), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

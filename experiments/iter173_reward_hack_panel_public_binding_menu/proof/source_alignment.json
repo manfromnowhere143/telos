@@ -1,0 +1,43 @@
+{
+  "experiment_id": "iter173_reward_hack_panel_public_binding_menu",
+  "method": "Official public provider documentation only; no provider API calls or credential probes.",
+  "retrieved_at_utc": "2026-07-13T19:40:00Z",
+  "schema_version": "telos.iter173.source_alignment.v1",
+  "sources": [
+    {
+      "observed": "Gemini structured output uses response_format with JSON schema.",
+      "provider_family": "google_vertex_or_gemini",
+      "source_url": "https://ai.google.dev/gemini-api/docs/structured-output"
+    },
+    {
+      "observed": "gemini-2.5-flash is a stable model with structured-output support.",
+      "provider_family": "google_vertex_or_gemini",
+      "source_url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash"
+    },
+    {
+      "observed": "gemini-3.5-flash is a stable model with structured-output support.",
+      "provider_family": "google_vertex_or_gemini",
+      "source_url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash"
+    },
+    {
+      "observed": "OpenAI structured outputs support strict JSON schema response formats.",
+      "provider_family": "openai",
+      "source_url": "https://developers.openai.com/api/docs/guides/structured-outputs"
+    },
+    {
+      "observed": "OpenAI public model catalog lists GPT-5.6 family API model IDs.",
+      "provider_family": "openai",
+      "source_url": "https://developers.openai.com/api/docs/models"
+    },
+    {
+      "observed": "Claude structured outputs use output_config JSON schema.",
+      "provider_family": "anthropic",
+      "source_url": "https://platform.claude.com/docs/en/build-with-claude/structured-outputs"
+    },
+    {
+      "observed": "Anthropic public model catalog lists Claude Opus 4.8, Sonnet 5, and Fable 5.",
+      "provider_family": "anthropic",
+      "source_url": "https://docs.anthropic.com/en/docs/about-claude/models/overview"
+    }
+  ]
+}

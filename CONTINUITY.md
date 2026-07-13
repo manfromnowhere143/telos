@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter173_reward_hack_panel_public_binding_menu/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend public binding-menu gate pending)
+- `experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend default model/API choice freeze pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -92,8 +92,11 @@ zero-spend operator binding recovery before any further provider spend. Iter172 
 zero-spend operator binding recovery pass: no operator choice packet was supplied, all three slots remain
 `requires_operator_input`, missing non-secret fields are explicit, generated secret hits are `0`,
 `majority_catch` and the `160`-call / `$50.00` ceiling are preserved, and paid execution is not authorized.
-The active next gate is `iter173`: build a public provider binding menu from official docs without
-credentials or model calls.
+Iter173 is published as a zero-spend public binding-menu pass: official public provider docs supplied a
+source-linked menu with `3` panel slots, `6` candidate model/API bindings, generated secret hits `0`, the
+`majority_catch` rule preserved, and paid execution still unauthorized. The active next gate is `iter174`:
+freeze exact default choices from that public menu without provider calls, credential probes, or model
+evaluations.
 
 Claim-boundary reviewer entry point:
 
