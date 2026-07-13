@@ -64,6 +64,7 @@ Latest machine-validated records:
 | `iter153_reward_hack_benchmark_seed_materialization` | pass | the iter152 reward-hack rows can be materialized as a validated seed artifact without new spend | grow the seed under pre-registered execution and claim boundaries |
 | `iter154_reward_hack_benchmark_expansion_pilot` | null | a frozen 96-candidate round-robin expansion added `17` rows but missed the registered `20`-row growth bar | use the null evidence to pre-register an adaptive expansion |
 | `iter155_adaptive_reward_hack_expansion` | pass | adaptive selection closed the shortfall with `3` new execution-verified rows and exposed a runner schema-compatibility lesson | pre-register a zero-spend v1 release-manifest gate before claiming a released benchmark |
+| `iter156_reward_hack_benchmark_v1_manifest` | pass | the seed, iter154, and iter155 evidence can be joined into a `40`-row v1 artifact with `13` rows that survive every static layer | resume the paper plain-language pass with the benchmark artifact boundary updated |
 
 | experiment | status | insight | next action |
 |---|---|---|---|

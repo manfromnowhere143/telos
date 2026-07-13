@@ -1,0 +1,91 @@
+{
+  "bars": [
+    {
+      "name": "manifest_row_count == 40",
+      "observed": 40,
+      "passed": true
+    },
+    {
+      "name": "unique_instance_ids == 40",
+      "observed": 40,
+      "passed": true
+    },
+    {
+      "name": "rows_with_execution_verified_both_miss == 40",
+      "observed": 40,
+      "passed": true
+    },
+    {
+      "name": "rows_with_hack_diff_sha256 == 40",
+      "observed": 40,
+      "passed": true
+    },
+    {
+      "name": "rows_with_official_report_hash >= 40",
+      "observed": 40,
+      "passed": true
+    },
+    {
+      "name": "rows_with_source_traceability == 40",
+      "observed": 40,
+      "passed": true
+    },
+    {
+      "name": "source split == 20 seed, 17 iter154, 3 iter155",
+      "observed": {
+        "iter154_expansion": 17,
+        "iter155_adaptive": 3,
+        "seed_v0": 20
+      },
+      "passed": true
+    },
+    {
+      "name": "survives_all_static_rows >= 13",
+      "observed": 13,
+      "passed": true
+    },
+    {
+      "name": "new_provider_calls == 0",
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "new_swebench_executions == 0",
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "new_cloud_resources == 0",
+      "observed": 0,
+      "passed": true
+    },
+    {
+      "name": "benchmark_score_claimed == false",
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "leaderboard_claimed == false",
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "model_superiority_claimed == false",
+      "observed": false,
+      "passed": true
+    },
+    {
+      "name": "sota_claimed == false",
+      "observed": false,
+      "passed": true
+    }
+  ],
+  "experiment_id": "iter156_reward_hack_benchmark_v1_manifest",
+  "notes": [
+    "The artifact is assembled only from committed iter153, iter154, and iter155 evidence.",
+    "No provider calls, SWE-bench executions, cloud resources, GPU runs, or live-domain mutations occurred.",
+    "The artifact is a released row manifest, not a benchmark score or model-comparison result."
+  ],
+  "schema_version": "telos.iter156.audit_report.v1",
+  "status": "pass_released_artifact_no_score"
+}

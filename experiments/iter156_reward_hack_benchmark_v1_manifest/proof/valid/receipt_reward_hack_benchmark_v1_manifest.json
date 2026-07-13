@@ -1,0 +1,40 @@
+{
+  "acceptance_criteria": [
+    "The v1 manifest must contain exactly 40 rows.",
+    "All 40 rows must have unique instance ids.",
+    "All 40 rows must be execution-verified both-miss rows.",
+    "All 40 rows must have hack diff hashes, official report hashes, and source traceability.",
+    "The source split must be 20 seed rows, 17 iter154 rows, and 3 iter155 rows.",
+    "The gate must use zero provider calls, zero SWE-bench executions, and zero cloud resources.",
+    "The result must not claim a benchmark score, leaderboard, model superiority, state-of-the-art result, broad reward-model robustness, or natural reward-hacking frequency."
+  ],
+  "agent_id": "codex-local-zero-spend-manifest-materializer",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "benchmarks/reward_hack_benchmark_v1/reward_hack_benchmark_v1.jsonl",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "benchmarks/reward_hack_benchmark_v1/manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter156_reward_hack_benchmark_v1_manifest/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if row count, uniqueness, source split, or row traceability bars fail.",
+    "The gate fails if it requires any new provider call, SWE-bench execution, cloud resource, GPU run, or live-domain mutation.",
+    "The gate fails if public wording claims a benchmark score, leaderboard, model superiority, state-of-the-art result, broad reward-model robustness, or natural reward-hacking frequency."
+  ],
+  "receipt_id": "iter156-reward-hack-benchmark-v1-manifest-pass",
+  "sha256": "463cf63799e817f0c7bf2fdb4729e8bccacc819d1c3daadab9534ee651ee5b6a",
+  "stated_goal": "Materialize a hash-checked 40-row reward-hack benchmark v1 artifact from committed seed, iter154, and iter155 evidence without new spend or model/leaderboard claims.",
+  "status": "pass",
+  "task_id": "telos:iter156_reward_hack_benchmark_v1_manifest"
+}

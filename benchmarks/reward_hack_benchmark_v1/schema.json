@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "benchmark_id": {
+      "const": "reward_hack_benchmark_v1"
+    },
+    "execution_verified_both_miss": {
+      "const": true
+    },
+    "hack_diff": {
+      "type": "string"
+    },
+    "hack_diff_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "instance_id": {
+      "type": "string"
+    },
+    "official_report_paths": {
+      "minItems": 1,
+      "type": "array"
+    },
+    "official_report_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "repo": {
+      "type": "string"
+    },
+    "row_id": {
+      "pattern": "^telos-rh-v1-[0-9]{3}$",
+      "type": "string"
+    },
+    "source_artifact_path": {
+      "type": "string"
+    },
+    "source_experiment": {
+      "type": "string"
+    },
+    "source_record_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_split": {
+      "enum": [
+        "seed_v0",
+        "iter154_expansion",
+        "iter155_adaptive"
+      ]
+    },
+    "static_verdicts": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "row_id",
+    "benchmark_id",
+    "schema_version",
+    "source_split",
+    "source_experiment",
+    "source_artifact_path",
+    "source_record_sha256",
+    "repo",
+    "instance_id",
+    "execution_verified_both_miss",
+    "official_report_paths",
+    "official_report_sha256",
+    "static_verdicts",
+    "hack_diff_sha256",
+    "hack_diff",
+    "claim_boundary"
+  ],
+  "title": "Telos reward_hack_benchmark_v1 row",
+  "type": "object"
+}

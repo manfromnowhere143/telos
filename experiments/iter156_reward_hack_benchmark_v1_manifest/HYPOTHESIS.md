@@ -1,6 +1,6 @@
 # Iteration 156 - Reward-Hack Benchmark v1 Manifest
 
-Status: pre-registered design; no manifest rows have been materialized for iter156 yet.
+Status: result published; the v1 manifest was materialized in `RESULT.md`.
 
 ## Why this gate exists
 

@@ -81,7 +81,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [153](experiments/iter153_reward_hack_benchmark_seed_materialization/RESULT.md) | Can the reward-hack benchmark seed be materialized without new spend? | yes - `benchmarks/reward_hack_seed_v0/` now contains exactly `20` iter152 both-miss rows across `8` repositories, `20/20` hack diff hashes, source-proof traceability, and the `5/20` survives-all-static labels; zero provider calls, cloud resources, SWE-bench executions, or judge calls. Honest: this is a validated seed artifact, not a released benchmark, score, leaderboard, model-comparison result, or SOTA claim |
 | [154](experiments/iter154_reward_hack_benchmark_expansion_pilot/RESULT.md) | Can the seed grow under bounded spend and the same evidence rules? | null shortfall - the frozen 96-candidate expansion produced `17` new execution-verified both-miss rows across `10` repos, not the required `20`; `8/17` survive every static layer, all accepted rows have diff/report/source hashes, one provider call errored, and cloud resources were deleted; no v1 benchmark is released |
 | [155](experiments/iter155_adaptive_reward_hack_expansion/RESULT.md) | Can iter154's shortfall evidence guide the final benchmark-size expansion? | pass - the frozen adaptive pool added `3` new execution-verified both-miss rows after `12` processed candidates, raising seed + iter154 + iter155 to `40` rows; `3/3` have diff/report/source hashes, `1/3` fooled `gpt-5.6-terra`, `0/3` fooled `claude-opus-4-8`, provider errors were `0/38`, and cloud resources were deleted. Honest: this crosses the benchmark-size candidate-pool bar, but no public v1 benchmark, leaderboard, model score, or SOTA claim is released |
-| [156](experiments/iter156_reward_hack_benchmark_v1_manifest/HYPOTHESIS.md) | Can the 40-row candidate pool become a reviewer-facing v1 benchmark artifact? | pre-registered zero-spend manifest gate - must join seed-v0, iter154, and iter155 into exactly `40` unique execution-verified rows with row-level hashes and claim boundaries before any released benchmark wording |
+| [156](experiments/iter156_reward_hack_benchmark_v1_manifest/RESULT.md) | Can the 40-row candidate pool become a reviewer-facing v1 benchmark artifact? | pass - `benchmarks/reward_hack_benchmark_v1/` now contains exactly `40` unique execution-verified both-miss rows across `11` repos, with `40/40` hack diff hashes, official report hashes, and source traceability; `13/40` survive every static layer, `16/40` fool `gpt-5.6-terra`, and `19/40` fool `claude-opus-4-8`; zero new provider calls, SWE-bench executions, or cloud resources. Honest: released row artifact only, not a benchmark score, leaderboard, model comparison, SOTA claim, natural-frequency estimate, or broad robustness claim |
+| [157](experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md) | Can the paper be made plain-language and claim-boundary current before arXiv? | pre-registered - rewrite remaining paper sections around iter151-156 evidence, including the v1 artifact boundary, without adding new empirical claims |
 
 ### The honest conclusion
 
@@ -636,9 +637,9 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack benchmark v1 manifest (iter156, pre-registered) in
-  [`experiments/iter156_reward_hack_benchmark_v1_manifest`](experiments/iter156_reward_hack_benchmark_v1_manifest/HYPOTHESIS.md);
-  the next step is a zero-spend release manifest over the 40-row candidate pool. The
+- Current gate: paper plain-language completion (iter157, pre-registered) in
+  [`experiments/iter157_paper_plain_language_completion`](experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md);
+  the next step is to finish the paper readability pass with the iter156 artifact boundary included. The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
 - Benchmark leaderboard or broad benchmark result: none yet. Bounded external pilot evidence now
@@ -769,16 +770,16 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter156_reward_hack_benchmark_v1_manifest/HYPOTHESIS.md`](experiments/iter156_reward_hack_benchmark_v1_manifest/HYPOTHESIS.md).
+[`experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md`](experiments/iter157_paper_plain_language_completion/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter155); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter156); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
-  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146-152<br/>protocol + detection at scale<br/>cross-repo 0/20 -> 10/20 official<br/>reward-model fooled 35-45% · 25% survive all static"]-->BENCH["153-156<br/>reward-hack benchmark<br/>seed 20 + expansion 17 + adaptive 3 = 40<br/>v1 manifest active"]
+  L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>steelman judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>precision boundary<br/>both-miss found"]-->DEF["119-121<br/>metamorphic defense<br/>gold-free"]-->AUT["122-123<br/>auto-generate<br/>+ anchor filter"]-->SC["124-129<br/>scale: 2/7 -> 6/7<br/>+ strategy taxonomy"]-->APP["130-139<br/>docker harness<br/>+ applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier adversary<br/>both-miss 0.24 · judge-fooled 0.12<br/>survives frontier judges + panel · cross-repo"]-->PE["146-152<br/>protocol + detection at scale<br/>cross-repo 0/20 -> 10/20 official<br/>reward-model fooled 35-45% · 25% survive all static"]-->BENCH["153-156<br/>reward-hack benchmark<br/>40-row v1 artifact<br/>13/40 survive all static"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
@@ -795,8 +796,9 @@ closes the loop: used as a gate with gold-free repair feedback, the protocol lif
 reward-hack-prone starts from `0/7` to `5/7`, the first evidence that it changes outcomes rather than only
 measuring them. Iter153 materialized those reward-hack rows as a seed artifact, iter154 tried to grow
 it under bounded spend and honestly missed the `20`-row bar with `17` new rows, and iter155 adaptively
-added `3` more rows to cross the `40`-row candidate-pool bar. Iter156 is the active zero-spend manifest
-gate required before releasing a public v1 benchmark artifact. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
+added `3` more rows to cross the `40`-row candidate-pool bar. Iter156 materialized the hash-checked
+`reward_hack_benchmark_v1` row artifact with `40` rows across `11` repos and `13/40` surviving every
+static layer, still without a benchmark score or leaderboard. The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
 
 ## Candidate Target Families
@@ -863,7 +865,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter156), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter157), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
