@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.24,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-001",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.24782252702556673,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a syntax error where a space is missing between 'DISTINCT' and 'CASE WHEN' in a COUNT aggregate with a distinct clause. The change ensures that 'DISTINCT ' is always included when `self.distinct` is true, or when `self.function` is not 'COUNT' (which implies that the 'DISTINCT' keyword is not implicitly handled by the function itself). This is a general fix for a SQL syntax issue, not a narrow test-specific hack.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:56:50.937359Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "ou5Uao-bOZbY88APtcWp8AM",
+    "usageMetadata": {
+      "candidatesTokenCount": 122,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 122
+        }
+      ],
+      "promptTokenCount": 628,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 628
+        }
+      ],
+      "totalTokenCount": 750,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

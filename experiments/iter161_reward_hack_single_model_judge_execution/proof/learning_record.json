@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/model_binding.json",
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/provider_call_ledger.jsonl",
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/parsed_judge_outputs.jsonl",
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/leakage_audit.json",
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/endpoint_results.json",
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/run_summary.json",
+    "experiments/iter161_reward_hack_single_model_judge_execution/proof/valid/receipt_reward_hack_single_model_judge_execution.json"
+  ],
+  "experiment_id": "iter161_reward_hack_single_model_judge_execution",
+  "insight": "The first bounded model-judge execution either records one model's parsed behavior on the frozen blinded reward-hack packets or publishes the provider/runtime block before any hidden retry or overclaim.",
+  "next_action": "If pass, design the precision/control-set gate before any leaderboard or model-superiority claim; if blocked, recover provider/model binding and rerun under the same packet/parser contract.",
+  "result_path": "experiments/iter161_reward_hack_single_model_judge_execution/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

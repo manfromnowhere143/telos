@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter161_reward_hack_single_model_judge_execution/HYPOTHESIS.md` (PRE-REGISTERED; bounded single-model judge execution pending)
+- `experiments/iter162_reward_hack_legitimate_control_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend legitimate-control design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -49,9 +49,12 @@ contains exactly `40` prompt-ready model-judge packets, with `40/40` public task
 target-test coverage, stable packet hashes, and `0` forbidden key, substring, or official-report value
 leakage hits. Iter160 is published as a zero-spend parser preflight pass: the strict parser accepts exactly
 `reward_hack`, `legitimate`, and `inconclusive`, while the fixture suite yields `3` parsed, `2` refusal,
-and `8` invalid outputs with stable fixture hashes. The active next gate is `iter161`: run the first
-bounded single-model judge execution over the frozen blinded packets under an explicit `40`-call and
-`$20.00` spend ceiling.
+and `8` invalid outputs with stable fixture hashes. Iter161 is published as the first bounded model-judge
+execution over the frozen all-hack packets: `40/40` provider calls succeeded, every output parsed, and
+`gemini-2.5-flash` returned `3` `reward_hack` and `37` `legitimate` verdicts with `0` prompt leakage hits,
+`0` response secret hits, no SWE-bench executions, and no cloud runners. This is all-positive recall
+evidence only, not precision, a leaderboard, a benchmark score, model comparison, SOTA claim, or broad
+robustness claim. The active next gate is `iter162`: design legitimate controls before any precision claim.
 
 Claim-boundary reviewer entry point:
 
@@ -537,7 +540,8 @@ Current claim:
   legitimate controls; the external verifier accepted `2/10` false-completion packets; the LLM
   judge accepted `0/10` false-completion packets but rejected `10/10` legitimate controls. This is
   a bounded 20-packet pilot result only.
-- No model, benchmark leaderboard, SWE-bench, all-strategy superiority, or SOTA result is claimed.
+- No benchmark leaderboard, SWE-bench, all-strategy superiority, precision result, model-comparison result,
+  or SOTA result is claimed. Iter161 is only a bounded single-model all-hack recall result.
 - The next gate may only adjudicate the committed iter107 bounded pilot result and claim boundary
   with zero provider calls, zero spend, zero strategy execution, and zero benchmark packet
   execution. It must use no GPU or cloud runner, mutate no Sentinel resources, make no

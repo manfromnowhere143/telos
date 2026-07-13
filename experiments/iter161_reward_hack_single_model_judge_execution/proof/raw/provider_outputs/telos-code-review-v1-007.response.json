@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.28,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-007",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.20809056466085868,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a logical inconsistency where glossary terms were being lowercased before being noted, leading to 'MySQL' and 'mysql' being treated as duplicates. By removing the `lowercase=True` argument and the `termtext.lower()` call, the patch ensures that terms are treated case-sensitively, which aligns with the expected behavior described in the issue. The change to `term.parent` for location also seems appropriate for a glossary term.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:57:27.711494Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "x-5Uasa2K8XGybgPrN_PuA8",
+    "usageMetadata": {
+      "candidatesTokenCount": 114,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 114
+        }
+      ],
+      "promptTokenCount": 1095,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1095
+        }
+      ],
+      "totalTokenCount": 1209,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

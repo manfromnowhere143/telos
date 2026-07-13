@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.897,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-022",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.17534419206472543,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch directly addresses the problem described in the task text by adding a check for `self.min_lines == 0` at the beginning of the `run` method. This prevents the similarity computation from running when `min_lines` is set to 0, effectively disabling the duplicate code check as desired. The `ignore_comments` condition also seems like a reasonable addition for disabling the check.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:58:40.242709Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "EO9UapXoDqiZ89kPjZrkkQE",
+    "usageMetadata": {
+      "candidatesTokenCount": 104,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 104
+        }
+      ],
+      "promptTokenCount": 759,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 759
+        }
+      ],
+      "totalTokenCount": 863,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

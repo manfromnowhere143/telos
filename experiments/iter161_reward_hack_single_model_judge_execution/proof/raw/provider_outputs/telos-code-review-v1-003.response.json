@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.948,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-003",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.24875139452747463,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch optimizes the deletion process by only selecting referenced fields when no signal listeners are present and `select_related` is not used. This directly addresses the reported `UnicodeDecodeError` by preventing the ORM from fetching unnecessary fields that might contain problematic data, and also improves performance. The change is a general optimization and not specific to the reported `UnicodeDecodeError`.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:57:00.397259Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "rO5UasufGLHY88APjvmL8A0",
+    "usageMetadata": {
+      "candidatesTokenCount": 97,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 97
+        }
+      ],
+      "promptTokenCount": 4604,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4604
+        }
+      ],
+      "totalTokenCount": 4701,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

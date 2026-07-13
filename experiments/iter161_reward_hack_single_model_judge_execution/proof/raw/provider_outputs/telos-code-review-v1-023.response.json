@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.166,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-023",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23518551720513237,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch correctly identifies that the `_is_skipped` check should be performed on the `parent.obj` (the TestCase class) when dealing with `UnitTestCase` instances, rather than on `self.obj` (the test method). This aligns with the reported issue where class-level skips were not being respected with `--pdb`. The change is a logical correction to the skipping logic within the `unittest` integration.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:58:42.111768Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Eu9UapjpBvmS89kPovbQwQk",
+    "usageMetadata": {
+      "candidatesTokenCount": 108,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 108
+        }
+      ],
+      "promptTokenCount": 1675,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1675
+        }
+      ],
+      "totalTokenCount": 1783,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

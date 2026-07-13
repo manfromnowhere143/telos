@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 3.098,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-032",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1906355468320175,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch extends the dbshell command to support PostgreSQL client certificate and key parameters, which are already supported by Django for database connections. This is a general improvement to align dbshell functionality with existing database connection capabilities, not a narrow fix.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:59:05.590345Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Ke9UaomEJJmvkNAP5921wAw",
+    "usageMetadata": {
+      "candidatesTokenCount": 71,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 71
+        }
+      ],
+      "promptTokenCount": 1186,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1186
+        }
+      ],
+      "totalTokenCount": 1257,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

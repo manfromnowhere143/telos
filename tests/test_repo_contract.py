@@ -22,7 +22,8 @@ def test_core_research_files_exist() -> None:
         assert (ROOT / relative).exists(), relative
 
 
-def test_readme_names_the_first_gate_without_claiming_results() -> None:
+def test_readme_names_the_first_gate_without_overclaiming_results() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     assert "iter00_target_survey" in readme
-    assert "No model result is claimed yet" in readme
+    assert "A bounded single-model judge result now exists" in readme
+    assert "No leaderboard, public benchmark score, model-comparison result, precision result" in readme

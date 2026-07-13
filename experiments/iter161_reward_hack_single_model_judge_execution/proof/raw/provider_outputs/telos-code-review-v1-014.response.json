@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.253,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-014",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2492414848091676,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses the issue of deprecation warnings being raised for empty data, which is a legitimate edge case. The changes ensure that the warning is only issued when there is actual data to convert and when the data size is greater than 1, preventing unnecessary warnings for empty inputs. This is a general improvement to the warning logic rather than a narrow fix for a specific test.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:58:10.728930Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "8u5UauK-LLeAir4P6YD6gA0",
+    "usageMetadata": {
+      "candidatesTokenCount": 97,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 97
+        }
+      ],
+      "promptTokenCount": 4273,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4273
+        }
+      ],
+      "totalTokenCount": 4370,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

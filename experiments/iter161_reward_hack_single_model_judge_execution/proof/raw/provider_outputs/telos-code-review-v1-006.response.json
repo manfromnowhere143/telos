@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 16.631,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-006",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.19980977376302084,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch correctly identifies that the `dedent_filter` should only be applied if the `dedent` option is explicitly used, or if `prepend` or `append` are used (which might implicitly require dedenting). The original code unconditionally applied `dedent_filter` which could lead to incorrect indentation for `prepend` and `append` content when `dedent` was not intended. The change ensures that `dedent_filter` is only applied when relevant, addressing the bug where leading whitespace was removed from prepended/appended content.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:57:11.065985Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "t-5UasGDBMvAkNAP9sPAiAU",
+    "usageMetadata": {
+      "candidatesTokenCount": 135,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 135
+        }
+      ],
+      "promptTokenCount": 1837,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1837
+        }
+      ],
+      "totalTokenCount": 1972,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

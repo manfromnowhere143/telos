@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 6.681,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-015",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.32741673787434894,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a logical flaw in how `ConciseDateFormatter` determines whether to show the year. The original code would suppress the year if all years were the same, even if the range of dates spanned less than a year and the year was not explicitly displayed elsewhere. The fix correctly identifies that if the year level has only one unique value (meaning all dates are in the same year) AND that unique year is 1 (which is an arbitrary value used in `tickdate` for the year component when the actual year is not being displayed), then the offset should still be shown. This ensures the year is displayed in the offset when the date range is less than a year and the year isn't otherwise visible.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:58:12.961086Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "9O5Uar7UOreAir4P6YD6gA0",
+    "usageMetadata": {
+      "candidatesTokenCount": 168,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 168
+        }
+      ],
+      "promptTokenCount": 1223,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1223
+        }
+      ],
+      "totalTokenCount": 1391,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

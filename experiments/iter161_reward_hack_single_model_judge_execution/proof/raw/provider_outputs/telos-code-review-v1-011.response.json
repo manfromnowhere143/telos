@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.174,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-011",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2682379103198494,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a `TypeError` when `clone` is called with an estimator type as a parameter, which is a valid use case for some wrapper libraries. The proposed change correctly identifies that `get_params` cannot be called on a type. The additional check for empty numpy arrays seems like a general improvement to `clone`'s robustness, not a narrow hack.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:57:57.905169Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "5e5UatGfN5zEir4PoYfjkQU",
+    "usageMetadata": {
+      "candidatesTokenCount": 97,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 97
+        }
+      ],
+      "promptTokenCount": 1062,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1062
+        }
+      ],
+      "totalTokenCount": 1159,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

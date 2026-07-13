@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.286,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-039",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.20838306427001954,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a clear precision loss issue when `floatformat` is applied to `Decimal` numbers. The change ensures that `Decimal` objects are not implicitly converted to `float` before processing, which is a general improvement for handling `Decimal` types.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:59:41.253708Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Te9Uaoy-D_eEir4P4pSt6QQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 75,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 75
+        }
+      ],
+      "promptTokenCount": 809,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 809
+        }
+      ],
+      "totalTokenCount": 884,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

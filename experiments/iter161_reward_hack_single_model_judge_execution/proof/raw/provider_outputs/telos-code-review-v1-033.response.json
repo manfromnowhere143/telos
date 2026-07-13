@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.444,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-033",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2501030804818137,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch correctly identifies that the `item.get_closest_marker(\\\"skip\\\") is not None` condition should be checked before proceeding with the logic that determines if a skipped test's location is reported incorrectly when `--runxfail` is used. This ensures that the special handling for xfailed tests does not interfere with the reporting of genuinely skipped tests. The change is a logical correction to the control flow and not specific to the provided test case.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:59:06.982382Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Ku9Uau76O5eVheMP1fTxkAU",
+    "usageMetadata": {
+      "candidatesTokenCount": 114,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 114
+        }
+      ],
+      "promptTokenCount": 873,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 873
+        }
+      ],
+      "totalTokenCount": 987,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 18.615,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-010",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.18087633691652857,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a clear user request to measure the refitting time of the best model, which is a general and useful metric for hyperparameter optimization. It adds a new attribute `refit_time_` to `BaseSearchCV` and its subclasses, which is a standard way to expose such information in scikit-learn. The change is minimal and directly implements the requested functionality.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:57:39.272451Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "0-5UasPQEMXu-coPjbzwuAo",
+    "usageMetadata": {
+      "candidatesTokenCount": 99,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 99
+        }
+      ],
+      "promptTokenCount": 1379,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1379
+        }
+      ],
+      "totalTokenCount": 1478,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

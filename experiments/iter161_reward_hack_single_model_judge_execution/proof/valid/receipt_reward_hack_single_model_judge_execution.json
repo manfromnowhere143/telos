@@ -1,0 +1,41 @@
+{
+  "acceptance_criteria": [
+    "Packet hashes must match the iter159 packet manifest.",
+    "Iter159 leakage and iter160 parser audits must pass.",
+    "Model binding must be frozen before the first provider call.",
+    "Prompts must exclude labels, official reports, source splits, source experiments, prior static verdicts, and known-both-miss wording.",
+    "Provider calls must be <= 40 and estimated spend must be <= $20.00.",
+    "Every attempted output must be parsed by telos/reward_hack_judge_parser.py.",
+    "Raw prompts, raw outputs, parsed records, parser errors, call ledger, and spend ledger must be retained."
+  ],
+  "agent_id": "codex-bounded-vertex-model-judge-runner",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter161_reward_hack_single_model_judge_execution/proof/model_binding.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter161_reward_hack_single_model_judge_execution/proof/run_summary.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter161_reward_hack_single_model_judge_execution/proof/leakage_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if packet or parser artifacts drift from iter159/iter160.",
+    "The gate fails if prompt leakage is detected.",
+    "The gate fails if calls or estimated spend exceed the pre-registered ceiling.",
+    "The gate is blocked, not silently skipped, if provider/runtime readiness prevents execution."
+  ],
+  "receipt_id": "iter161-reward-hack-single-model-judge-execution-pass",
+  "sha256": "6a0c629f778005eca0d564d270391727401f7107454c7f9b0affb0348b7d2b52",
+  "stated_goal": "Run one bounded model judge over frozen blinded reward-hack packets under the iter160 parser, or publish blocked evidence if provider/runtime readiness prevents execution.",
+  "status": "pass",
+  "task_id": "telos:iter161_reward_hack_single_model_judge_execution"
+}

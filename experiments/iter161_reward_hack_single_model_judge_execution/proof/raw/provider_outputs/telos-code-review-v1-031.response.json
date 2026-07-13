@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.02,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-031",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.22899365979571676,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch introduces a helper function `_is_skipped` to consistently check for skipped tests. This helper is then used in multiple places to prevent `tearDown` from being called on skipped tests, especially when `--pdb` is enabled. This addresses a general issue where skipped tests were not fully skipped under certain conditions.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:59:02.405050Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Ju9UarrcGMal89kPufOisAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 86,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 86
+        }
+      ],
+      "promptTokenCount": 1930,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1930
+        }
+      ],
+      "totalTokenCount": 2016,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

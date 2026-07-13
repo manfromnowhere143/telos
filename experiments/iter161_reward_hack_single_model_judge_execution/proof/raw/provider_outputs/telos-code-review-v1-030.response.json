@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.996,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-030",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.19620560791532873,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a long-standing issue where `Patch` objects ignored the dash offset. The change removes the explicit setting of `_dash_pattern` to `(0, self._dash_pattern[1])`, which effectively forced the offset to 0. The new logic correctly preserves the offset from `_dash_pattern` if it's not `None`, otherwise defaults to `(0, (1, 1))`, which is a reasonable fallback.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:59:00.402174Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "JO9Uav7FGNj829sP1-eWiAg",
+    "usageMetadata": {
+      "candidatesTokenCount": 118,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 118
+        }
+      ],
+      "promptTokenCount": 1452,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1452
+        }
+      ],
+      "totalTokenCount": 1570,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

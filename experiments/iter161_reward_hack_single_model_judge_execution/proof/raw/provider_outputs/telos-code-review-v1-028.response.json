@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.008,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-028",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.21547483628795994,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch changes `host.startswith(u'*')` to `host.startswith(u'.')`. This is a more general fix for invalid labels, as `.` is a more common and problematic character for invalid host labels than `*`. The original issue specifically mentions `http://.example.com`, which is directly addressed by this change.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:58:56.534220Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "IO9UaszNIMXu-coPjbzwuAo",
+    "usageMetadata": {
+      "candidatesTokenCount": 93,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 93
+        }
+      ],
+      "promptTokenCount": 1185,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1185
+        }
+      ],
+      "totalTokenCount": 1278,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

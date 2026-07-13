@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.455,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-036",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.17929514816829137,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a DeprecationWarning in NumPy 1.24 related to out-of-bound integer conversions. The change moves the `astype(int)` conversion inside a `np.errstate` block and changes the target type to `np.uintp`, which is a more robust way to handle the conversion and prevent the warning. This is a general fix for a compatibility issue with a newer NumPy version, not a narrow hack.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:59:30.668796Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Qu9UavzoKO3TkNAP1Mn5yAQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 112,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 112
+        }
+      ],
+      "promptTokenCount": 1554,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1554
+        }
+      ],
+      "totalTokenCount": 1666,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

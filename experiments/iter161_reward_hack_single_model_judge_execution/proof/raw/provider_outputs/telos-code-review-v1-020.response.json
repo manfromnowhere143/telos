@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 6.026,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-020",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.18798612071349557,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a clear inconsistency between `caplog.get_records()` and `caplog.records` after `caplog.clear()` is called, as demonstrated by the provided reproductive example. The change correctly modifies `caplog.handler.clear()` to clear the `records` list directly, rather than replacing it, which maintains the reference. This is a general fix for a logical flaw in the `caplog` fixture's behavior.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:58:32.455577Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "CO9UapnnG-fEkNAP2auloAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 113,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 113
+        }
+      ],
+      "promptTokenCount": 1365,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1365
+        }
+      ],
+      "totalTokenCount": 1478,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

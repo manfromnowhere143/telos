@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.142,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-013",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23552201010964133,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch addresses a regression where `ax.clear()` was not correctly resetting grid visibility, leading to extra ticks and labels appearing in shared axes. The change ensures that `gridOn` status is properly re-evaluated based on `rcParams` after clearing, which is a general fix for the `clear` method's behavior.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:58:08.607093Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "8O5UavWGJYvu-coPmNeOsQM",
+    "usageMetadata": {
+      "candidatesTokenCount": 88,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 88
+        }
+      ],
+      "promptTokenCount": 1563,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1563
+        }
+      ],
+      "totalTokenCount": 1651,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

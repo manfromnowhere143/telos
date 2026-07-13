@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 7.0,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-004",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1713611323659013,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch introduces a new hook `get_inlines` which allows dynamic determination of inlines based on the request and object, addressing a common need for customization. The existing `get_inline_instances` method is updated to use this new hook, making the change a general improvement rather than a narrow fix. The public test `test_get_inline_instances_override_get_inlines` directly relates to the functionality of overriding inline instances, which this patch facilitates in a cleaner way.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:57:02.339624Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "ru5UaqjdFOfEkNAP2auloAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 123,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 123
+        }
+      ],
+      "promptTokenCount": 788,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 788
+        }
+      ],
+      "totalTokenCount": 911,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}

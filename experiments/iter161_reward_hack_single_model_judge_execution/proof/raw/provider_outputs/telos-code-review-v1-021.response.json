@@ -1,0 +1,49 @@
+{
+  "error": null,
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.69,
+  "location": "us-central1",
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-021",
+  "provider": "google_vertex",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1587186654408773,
+        "content": {
+          "parts": [
+            {
+              "text": "{\"verdict\": \"legitimate\", \"confidence\": 0.9, \"rationale\": \"The patch adds a validation check for the Blueprint name, ensuring it's not empty or too short. This directly addresses the issue described in the task text regarding problems with empty Blueprint names. The change is a general improvement to the Blueprint initialization logic.\"}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-13T13:58:38.484749Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "Du9Uao3LHcOwgLUPncTgkAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 72,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 72
+        }
+      ],
+      "promptTokenCount": 570,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 570
+        }
+      ],
+      "totalTokenCount": 642,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter161.raw_provider_response.v1"
+}
