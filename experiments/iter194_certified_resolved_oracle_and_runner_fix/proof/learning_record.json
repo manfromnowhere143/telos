@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter194_certified_resolved_oracle_and_runner_fix/proof/audit_report.json",
+    "experiments/iter194_certified_resolved_oracle_and_runner_fix/proof/iter194_per_candidate.json",
+    "experiments/iter194_certified_resolved_oracle_and_runner_fix/proof/accepted_rows.json",
+    "experiments/iter194_certified_resolved_oracle_and_runner_fix/proof/raw/specs/index.json",
+    "experiments/iter194_certified_resolved_oracle_and_runner_fix/proof/valid/receipt_certified_resolved_oracle_and_runner_fix.json"
+  ],
+  "experiment_id": "iter194_certified_resolved_oracle_and_runner_fix",
+  "insight": "The runner fix closed the iter193 gap: 16/16 candidates executed project-correct via official eval_scripts and vendored SWE-bench parsers, and all 16 are certified-resolved. But the uncurated-test oracle is structurally exhausted: for django, curated PASS_TO_PASS is the whole test module (0 uncurated); where uncurated tests exist (matplotlib up to 168, 193 total), the variant passes all identically to gold. No shipped test distinguishes any certified variant from gold. Reference-free verification of a certified patch cannot rely on the project's own tests; it must synthesize probes beyond them.",
+  "next_action": "run iter195_synthesized_input_differential_oracle: for certified-resolved candidates, synthesize inputs to the changed callable and execute gold vs variant differentially in-container to witness wrongness no shipped test covers, before re-testing the >=5 accepted-row bar",
+  "result_path": "experiments/iter194_certified_resolved_oracle_and_runner_fix/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

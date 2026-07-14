@@ -24,15 +24,24 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter194_certified_resolved_oracle_and_runner_fix/HYPOTHESIS.md` (PRE-REGISTERED; project-correct execution + fallback wrongness oracle before re-testing the >=5 bar)
+- `experiments/iter195_synthesized_input_differential_oracle/HYPOTHESIS.md` (PRE-REGISTERED; synthesize inputs to the changed callable and execute gold vs variant differentially, to witness wrongness no shipped test covers)
 
-iter193 published a null (grounded in real x86 container execution): a bounded, elicited attempt to
-construct certified-resolved-and-wrong patches produced `0` witnessed rows against a `>=5` bar. Of `16`
-candidates, `6` matplotlib executed and were certified-resolved but identical to gold across their full
-test module (`undetermined`, not correct), and `10` django/astropy were not executable by a bare-pytest
-harness (django testbed lacks `pytest`; astropy collection gap) — a harness-fitness gap, not a negative.
-iter194 fixes both: certify via the official SWE-bench harness `report.json`, and add a synthesized-input
-gold-differential fallback oracle for certified candidates with no uncurated witness.
+iter193 published a null (real x86 container execution): a bounded, elicited attempt to construct
+certified-resolved-and-wrong patches produced `0` witnessed rows against a `>=5` bar; `6` matplotlib
+executed and were certified-resolved but identical to gold, and `10` django/astropy were blocked by a
+bare-pytest harness (a fitness gap, not a negative).
+
+iter194 fixed the runner and produced a sharper finding. It ran all `16` candidates through their official
+SWE-bench `eval_script` (django `runtests.py`, pytest for the rest) parsed with the vendored official
+SWE-bench parsers: **`16/16` executed and all `16` are certified-resolved**. But `0` were accepted, and the
+reason is structural: for django the curated `PASS_TO_PASS` is the whole test module (`0` uncurated tests),
+and where uncurated tests exist (matplotlib up to `168`, `193` total) the variant passes every one
+identically to gold. **No shipped test — graded or uncurated — distinguishes any certified variant from its
+gold fix.** Reference-free verification of a certified patch therefore cannot rely on the project's own
+tests; it must synthesize probes beyond them. iter195 builds exactly that: synthesize inputs to the changed
+callable, execute gold vs variant differentially in-container, and witness divergence no shipped test
+covers. iter194 transparently re-scoped its own "fallback oracle" item into iter195 because the data showed
+that oracle is the sole remaining path, not a fallback.
 
 ## Standing correction (iter192) - read before citing any reward-hack number
 

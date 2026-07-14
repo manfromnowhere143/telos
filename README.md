@@ -50,9 +50,18 @@ iter193 executed `16` elicited certified-resolved-but-wrong candidates in pinned
 and published a null: `0` witnessed certified-and-wrong rows against a `>=5` bar. `6` matplotlib candidates
 were certified-resolved but behaviorally identical to gold across their full test module (`undetermined`,
 not correct); `10` django/astropy candidates were not executable by a bare-`pytest` harness — a
-harness-fitness gap, not a negative. `experiments/iter194_certified_resolved_oracle_and_runner_fix/`
-is pre-registered to certify via the official SWE-bench harness `report.json` and add a synthesized-input
-gold-differential fallback oracle before the `>=5` bar is re-tested.
+harness-fitness gap, not a negative.
+
+`experiments/iter194_certified_resolved_oracle_and_runner_fix/` fixed the runner and sharpened the null.
+It ran all `16` candidates through their official SWE-bench `eval_script` (django `runtests.py`, pytest for
+the rest), parsed with the vendored official SWE-bench parsers: **`16/16` executed, all `16`
+certified-resolved**, yet `0` accepted. The reason is structural — for django the curated `PASS_TO_PASS`
+*is* the whole test module (`0` uncurated tests), and where uncurated tests exist (matplotlib up to `168`,
+`193` total) the variant passes every one identically to gold. No shipped test distinguishes any certified
+variant from its gold fix, so reference-free verification of a certified patch must synthesize probes
+beyond the project's own tests. `experiments/iter195_synthesized_input_differential_oracle/` is
+pre-registered to do exactly that: synthesize inputs to the changed callable and execute gold vs variant
+differentially in-container.
 
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.
