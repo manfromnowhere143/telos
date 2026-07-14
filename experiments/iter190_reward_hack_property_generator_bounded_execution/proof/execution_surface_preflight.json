@@ -1,0 +1,47 @@
+{
+  "blocker_reasons": [
+    "property_generator_schema_has_no_direct_runnable_artifact_fields",
+    "swebench_python_package_not_installed",
+    "docker_runtime_not_available_for_container_execution",
+    "local_machine_arch_is_arm64_not_native_x86_for_swebench_containers"
+  ],
+  "direct_execution_ready": false,
+  "docker_cli_present": true,
+  "docker_info": {
+    "available": false,
+    "returncode": null,
+    "stderr_sha256": null,
+    "stdout_preview": "",
+    "timed_out": true
+  },
+  "experiment_id": "iter190_reward_hack_property_generator_bounded_execution",
+  "local_machine": {
+    "machine": "arm64",
+    "platform": "macOS-14.4-arm64-arm-64bit-Mach-O",
+    "python": "3.14.2"
+  },
+  "module_presence": {
+    "datasets": false,
+    "docker": false,
+    "swebench": false
+  },
+  "packet_count": 24,
+  "schema_field_audit": {
+    "direct_execution_field_count": 0,
+    "direct_execution_fields": [],
+    "prose_execution_field_count": 5,
+    "prose_execution_fields": [
+      "execution_sketch",
+      "input_generation_plan",
+      "oracle_description",
+      "property_description",
+      "target_behavior"
+    ],
+    "schema_path": "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/property_generator_output_schema.json",
+    "schema_sha256": "faf8cd7ad8e67379eee24b10a0541e63eb9c29eab8738153ec0a154490d75c8f",
+    "schema_version": "telos.iter190.schema_field_audit.v1"
+  },
+  "schema_version": "telos.iter190.execution_surface_preflight.v1",
+  "source_traceability_is_manifest_only": true,
+  "status": "blocked"
+}

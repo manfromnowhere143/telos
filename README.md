@@ -65,8 +65,12 @@ checks, hard forbidden-claim boundaries, secret-hit bar `0`, and no provider, pr
 SWE-bench, cloud, or score-changing execution. Iter189 then executed that audit without spend: all `7`
 required audit-note sections are present, `29` frozen local inputs were checked, `15` recent key-gate
 receipts validated, benchmark-lineage checks passed, forbidden positive claim hits were `0`, secret hits
-were `0`, and the active next gate is iter190 bounded property-generator execution under the preserved
-48-call / `$40.00` ceiling. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
+were `0`, and no claim upgrade was made. Iter190 then stopped before provider spend as a null
+property-generator execution result: it froze the full `24` planned calls with `0` prompt leakage hits,
+but the committed schema has no direct runnable artifact fields and the local runtime is not a ready
+SWE-bench/container execution surface, so local/container execution attempts stayed `0` against the
+pre-registered `20` attempt floor. The active next gate is iter191 zero-spend property-execution contract
+design before any more property-generator spend. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
 state-of-the-art result, natural-frequency estimate, broad robustness result, repaired-score result, or
 claim beyond this bounded panel path is made. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
@@ -180,7 +184,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [187](experiments/iter187_reward_hack_property_generator_schema_preflight/RESULT.md) | Can the property-generator output contract be preflighted before paid calls? | pass - zero-spend schema/parser preflight: `17` fixtures, valid executable parse rate `1.0`, invalid/refusal/malformed rejection rate `1.0`, `24` prompt contracts scanned, `0` prompt-contract leakage hits, future call/spend/execution/false-positive/nondecision bars preserved, and paid property generation still unauthorized |
 | [188](experiments/iter188_telos_mission_data_process_audit_design/RESULT.md) | Can a Sentinel-style Telos mission data/process audit be designed before any new spend? | pass - zero-spend audit design: `26` frozen committed local inputs named, `7` future audit-note sections required, `8` verifier checks planned, freshness edits constrained to concrete stale durable docs, unrepaired iter179 majority-catch remains primary (`17/40` hacks, `0/40` controls), forbidden positive claim hits `0`, secret hits `0`, and no provider/property-generator/SWE-bench/cloud execution or score upgrade |
 | [189](experiments/iter189_telos_mission_evidence_data_process_audit/RESULT.md) | Can the Sentinel-style Telos mission evidence/data-process audit be executed before any new spend? | pass - zero-spend audit execution: all `7/7` required audit-note sections present, `29` frozen local inputs checked, `15` recent key-gate receipts validated, benchmark-lineage checks passed, public metric freshness preserved unrepaired iter179 majority-catch (`17/40` hacks, `0/40` controls), forbidden positive claim hits `0`, secret hits `0`, and no provider/property-generator/SWE-bench/cloud execution or score upgrade |
-| [190](experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md) | Can the preflighted property-generator path run on the 24 property-probe packets under bounded bars? | pre-registered - bounded paid/local execution gate preserving the `24` primary calls, `48` total-call ceiling, `$40.00` spend ceiling, at least `20` local/container execution attempts, control false-positive ceiling `0`, nondecision ceiling `4`, and response secret-hit ceiling `0` |
+| [190](experiments/iter190_reward_hack_property_generator_bounded_execution/RESULT.md) | Can the preflighted property-generator path run on the 24 property-probe packets under bounded bars? | null - stopped before provider spend after freezing `24` planned calls: provider calls `0`, spend `$0.00`, prompt leakage hits `0`, but the schema has no direct runnable artifact fields, local SWE-bench/container execution was unavailable, execution attempts were `0/20`, nondecisions were `24/4`, and hack property failures were `0/4`; next gate is execution-contract design |
+| [191](experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md) | Can the property-execution contract and harness be designed before any more paid property generation? | pre-registered - zero-spend design gate requiring provider calls `0`, property-generator calls `0`, execution-contract schema count at least `1`, sandbox/runtime safety constraints at least `8`, all `24` iter186 packets covered in the feasibility matrix, and paired hack/control issue coverage exactly `12` |
 
 ### The honest conclusion
 
@@ -735,9 +740,9 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack property-generator bounded execution (iter190, pre-registered) in
-  [`experiments/iter190_reward_hack_property_generator_bounded_execution`](experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md);
-  iter189 executed the mission evidence/data-process audit without changing the public metric.
+- Current gate: reward-hack property-execution contract design (iter191, pre-registered) in
+  [`experiments/iter191_reward_hack_property_execution_contract_design`](experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md);
+  iter190 published a null pre-spend execution-surface result and did not call a provider.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -872,16 +877,16 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md`](experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md).
+[`experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md`](experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter189); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter190); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
- L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-187<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40 · property schema"]
+ L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-190<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40 · property execution gap"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
@@ -994,7 +999,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter190), each completed gate with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter191), each completed gate with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

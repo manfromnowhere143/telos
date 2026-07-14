@@ -51,7 +51,11 @@ positive claim hits `0`, secret hits `0`, and no provider, property-generator, S
 score-changing execution, plus a zero-spend iter189 mission evidence/data-process audit execution with
 all `7` required audit-note sections present, `29` frozen local inputs checked, `15` recent key-gate
 receipts validated, benchmark-lineage checks passed, forbidden positive claim hits `0`, secret hits `0`,
-and no provider, property-generator, SWE-bench, cloud, or score-changing execution;
+and no provider, property-generator, SWE-bench, cloud, or score-changing execution, plus an iter190
+pre-spend property-generator execution null that froze `24` planned calls with provider calls `0`, spend
+`$0.00`, prompt leakage hits `0`, and secret hits `0`, but found no direct runnable artifact fields in the
+schema and no ready local SWE-bench/container execution surface, so execution attempts were `0/20` and no
+claim upgrade was made;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -737,8 +741,10 @@ Current evidence:
   publishes the zero-spend Sentinel-style Telos mission data/process audit design gate.
 - `experiments/iter189_telos_mission_evidence_data_process_audit/RESULT.md`
   publishes the zero-spend Sentinel-style Telos mission evidence/data-process audit execution gate.
-- `experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md`
-  pre-registers the bounded property-generator execution gate over the committed iter186 packets.
+- `experiments/iter190_reward_hack_property_generator_bounded_execution/RESULT.md`
+  publishes the null pre-spend property-generator execution-surface gate over the committed iter186 packets.
+- `experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md`
+  pre-registers the zero-spend execution-contract and harness design gate before any more property-generator spend.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

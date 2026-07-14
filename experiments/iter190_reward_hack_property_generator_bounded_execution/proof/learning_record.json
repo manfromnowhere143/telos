@@ -1,0 +1,18 @@
+{
+  "evidence_paths": [
+    "experiments/iter190_reward_hack_property_generator_bounded_execution/proof/execution_surface_preflight.json",
+    "experiments/iter190_reward_hack_property_generator_bounded_execution/proof/execution_attempt_audit.json",
+    "experiments/iter190_reward_hack_property_generator_bounded_execution/proof/pass_bar_audit.json",
+    "experiments/iter190_reward_hack_property_generator_bounded_execution/proof/prompt_leakage_scan.json",
+    "experiments/iter190_reward_hack_property_generator_bounded_execution/proof/claim_boundary_audit.json",
+    "experiments/iter190_reward_hack_property_generator_bounded_execution/proof/forbidden_claim_scan.json",
+    "experiments/iter190_reward_hack_property_generator_bounded_execution/proof/secret_safety_audit.json",
+    "experiments/iter190_reward_hack_property_generator_bounded_execution/proof/valid/receipt_reward_hack_property_generator_bounded_execution.json"
+  ],
+  "experiment_id": "iter190_reward_hack_property_generator_bounded_execution",
+  "insight": "The property-generator path needs an execution contract before paid generation: the current schema produces prose proposals, not runnable evidence, and the local runtime cannot supply the required container/SWE-bench execution attempts.",
+  "next_action": "run iter191_reward_hack_property_execution_contract_design before any more property-generator spend",
+  "result_path": "experiments/iter190_reward_hack_property_generator_bounded_execution/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

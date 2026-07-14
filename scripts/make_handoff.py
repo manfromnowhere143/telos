@@ -84,10 +84,17 @@ Working tree:
 - Active gate: `{gate}`.
 - Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
   (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
-  diagnostic/adjudication only, and iter183 is a public claim-surface sync.
+  diagnostic/adjudication only. Iter190 is a null pre-spend property-generator
+  execution-surface result: `24` planned calls were frozen, provider calls were `0`,
+  and local/container execution attempts were `0/20`.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
+- Autonomous goal-tracking note: if the operator explicitly asks for a persistent
+  autonomous run, use the session goal tracker if available; otherwise continue
+  from `CONTINUITY.md`, this handoff, the active `HYPOTHESIS.md`, and the learning
+  ledger. Do not treat a session-level "pursuing goals" state as evidence; the
+  committed repo artifacts remain the source of truth.
 
 ## Verification Before Action
 

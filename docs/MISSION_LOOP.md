@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md`](../experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md)
-- Active gate state: pre-registered bounded property-generator execution over the committed iter186 packets pending;
+- Active gate: [`../experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md`](../experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md)
+- Active gate state: pre-registered zero-spend property-execution contract design pending;
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
@@ -78,7 +78,11 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   Iter189 may be cited only as a zero-spend mission evidence/data-process audit execution: all `7`
   required audit-note sections present, `29` frozen local inputs checked, `15` recent key-gate receipts
   validated, benchmark-lineage checks passed, forbidden positive claim hits `0`, secret hits `0`, and no
-  provider, property-generator, SWE-bench, cloud, or score-changing execution.
+  provider, property-generator, SWE-bench, cloud, or score-changing execution. Iter190 may be cited only
+  as a null pre-spend property-generator execution-surface result: `24` planned calls were frozen, provider
+  calls were `0`, spend was `$0.00`, prompt leakage hits were `0`, secret/private identifier hits were
+  `0`, local/container execution attempts were `0/20`, nondecisions were `24/4`, and hack property
+  failures were `0/4`; it does not support a property-generator success claim.
   No benchmark
   score, leaderboard, model-comparison result, state-of-the-art
   result, natural-frequency estimate, broad robustness claim, or repaired-score claim is allowed.

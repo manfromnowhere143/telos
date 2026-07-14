@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-14T11:33:57Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-14T11:58:43Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -11,7 +11,17 @@ branch: master
 Working tree:
 
 ```text
-clean
+M CONTINUITY.md
+ M README.md
+ M docs/LITERATURE_ALIGNMENT_2026.md
+ M docs/MISSION_LOOP.md
+ M docs/REPORT.md
+ M mission/loop.json
+ M scripts/make_handoff.py
+?? experiments/iter190_reward_hack_property_generator_bounded_execution/RESULT.md
+?? experiments/iter190_reward_hack_property_generator_bounded_execution/proof/
+?? experiments/iter191_reward_hack_property_execution_contract_design/
+?? scripts/run_reward_hack_property_generator_bounded_execution.py
 ```
 
 ## Experiments
@@ -125,7 +135,8 @@ clean
 - experiments/iter188_telos_mission_data_process_audit_design: RESULT PUBLISHED
 - experiments/iter189_telos_mission_evidence_data_process_audit: RESULT PUBLISHED
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
-- experiments/iter190_reward_hack_property_generator_bounded_execution: PRE-REGISTERED, result pending
+- experiments/iter190_reward_hack_property_generator_bounded_execution: RESULT PUBLISHED
+- experiments/iter191_reward_hack_property_execution_contract_design: PRE-REGISTERED, result pending
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
 - experiments/iter21_opponent_collision_control: RESULT PUBLISHED
@@ -211,13 +222,20 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md`.
+- Active gate: `experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md`.
 - Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
   (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
-  diagnostic/adjudication only, and iter183 is a public claim-surface sync.
+  diagnostic/adjudication only. Iter190 is a null pre-spend property-generator
+  execution-surface result: `24` planned calls were frozen, provider calls were `0`,
+  and local/container execution attempts were `0/20`.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
+- Autonomous goal-tracking note: if the operator explicitly asks for a persistent
+  autonomous run, use the session goal tracker if available; otherwise continue
+  from `CONTINUITY.md`, this handoff, the active `HYPOTHESIS.md`, and the learning
+  ledger. Do not treat a session-level "pursuing goals" state as evidence; the
+  committed repo artifacts remain the source of truth.
 
 ## Verification Before Action
 

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md` (PRE-REGISTERED; bounded property-generator execution over iter186 packets pending)
+- `experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend property-execution contract design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -173,7 +173,12 @@ key-gate receipts validated, benchmark-lineage checks passed, forbidden positive
 hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions
 `0`, and cloud resources `0`; unrepaired iter179 `majority_catch` remains primary. The active next gate is
 `iter190`: bounded property-generator execution over the committed iter186 packets under the preserved
-iter185/iter186/iter187 bars.
+iter185/iter186/iter187 bars. Iter190 is published as a null pre-spend execution-surface result: it froze
+`24` planned property-generator calls, made `0` provider calls, spent `$0.00`, found `0` prompt leakage
+hits and `0` secret/private identifier hits, but counted `0/20` local/container execution attempts because
+the committed schema has no direct runnable artifact fields and the local runtime is not a ready
+SWE-bench/container execution surface. The active next gate is `iter191`: zero-spend property-execution
+contract design before any more property-generator spend.
 
 Claim-boundary reviewer entry point:
 
