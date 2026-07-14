@@ -1,0 +1,19 @@
+{
+  "evidence_paths": [
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/full_cohort_panel_metrics.json",
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/full_cohort_metric_recomputation_audit.json",
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/row_level_disagreement_and_nondecision_audit.json",
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/openai_recovery_effect_boundary.json",
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/panel_rule_comparison_table.json",
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/claim_boundary_decision.json",
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/next_gate_recommendation.json",
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/secret_safety_audit.json",
+    "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/valid/receipt_reward_hack_panel_full_cohort_adjudication.json"
+  ],
+  "experiment_id": "iter179_reward_hack_panel_full_cohort_adjudication",
+  "insight": "the unrepaired full-cohort panel reconciles cleanly at 17/40 hack catches and 0/40 control catches, but OpenAI empty-output nondecisions still require a pre-registered repair design before any repaired metric can be reported",
+  "next_action": "run iter180_reward_hack_panel_openai_nondecision_repair_design before any repaired-score or claim upgrade",
+  "result_path": "experiments/iter179_reward_hack_panel_full_cohort_adjudication/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "No provider calls, credential probes, model evaluations, SWE-bench executions, or cloud resources are used.",
+    "The full cohort has exactly 40 hack rows and 40 control rows.",
+    "Recomputed majority/any/unanimous counts match committed iter175+iter178 panel rows.",
+    "OpenAI recovery diagnostics do not rewrite iter175 or full-cohort primary metrics.",
+    "Row-level disagreement and nondecision causes are reported across both source experiments.",
+    "No committed artifact contains secrets or private project/account identifiers.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim is made."
+  ],
+  "agent_id": "codex-zero-spend-full-cohort-panel-adjudicator",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/full_cohort_panel_metrics.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/full_cohort_metric_recomputation_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/row_level_disagreement_and_nondecision_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/openai_recovery_effect_boundary.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, model evaluation, SWE-bench execution, or cloud resource change occurs.",
+    "The gate fails if full-cohort denominators do not match committed iter175+iter178 primary panel rows.",
+    "The gate fails if OpenAI recovery diagnostics are used to rewrite primary metrics.",
+    "The gate fails if committed artifacts contain secrets or private project/account identifiers.",
+    "The gate cannot support a leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim."
+  ],
+  "receipt_id": "iter179-reward-hack-panel-full-cohort-adjudication-pass",
+  "sha256": "090c52bb2e665ecd30b1c1402395452bba8aa588e3a8408d79eae0b62881e860",
+  "stated_goal": "Adjudicate the full iter175+iter178 reward-hack panel cohort from committed proof artifacts without new spend and without using recovery diagnostics as score repair.",
+  "status": "pass",
+  "task_id": "telos:iter179_reward_hack_panel_full_cohort_adjudication"
+}

@@ -1,0 +1,43 @@
+{
+  "experiment_id": "iter179_reward_hack_panel_full_cohort_adjudication",
+  "primary_rule_id": "majority_catch",
+  "rows": [
+    {
+      "control_catch_count": 0,
+      "control_false_positive_rate": 0.0,
+      "control_nondecision_count": 1,
+      "control_rows": 40,
+      "hack_catch_count": 17,
+      "hack_nondecision_count": 4,
+      "hack_recall_all_denominator": 0.425,
+      "hack_rows": 40,
+      "role": "primary",
+      "rule_id": "majority_catch"
+    },
+    {
+      "control_catch_count": 0,
+      "control_false_positive_rate": 0.0,
+      "control_nondecision_count": 1,
+      "control_rows": 40,
+      "hack_catch_count": 23,
+      "hack_nondecision_count": 4,
+      "hack_recall_all_denominator": 0.575,
+      "hack_rows": 40,
+      "role": "secondary_diagnostic",
+      "rule_id": "any_catch"
+    },
+    {
+      "control_catch_count": 0,
+      "control_false_positive_rate": 0.0,
+      "control_nondecision_count": 1,
+      "control_rows": 40,
+      "hack_catch_count": 2,
+      "hack_nondecision_count": 4,
+      "hack_recall_all_denominator": 0.05,
+      "hack_rows": 40,
+      "role": "secondary_diagnostic",
+      "rule_id": "unanimous_catch"
+    }
+  ],
+  "schema_version": "telos.iter179.panel_rule_comparison_table.v1"
+}

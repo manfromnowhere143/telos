@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter179_reward_hack_panel_full_cohort_adjudication/HYPOTHESIS.md`](../experiments/iter179_reward_hack_panel_full_cohort_adjudication/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend full-cohort adjudication pending; iter161/iter165 may be
+- Active gate: [`../experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/HYPOTHESIS.md`](../experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/HYPOTHESIS.md)
+- Active gate state: pre-registered zero-spend OpenAI nondecision repair design pending; iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
   evaluator-family design, and iter167 may be cited only as a completed skeptical-prompt null
@@ -40,9 +40,13 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   spend guard was `$7.005150`, committed secret/project/account hits were `0`, fresh `majority_catch`
   caught `4/20` hack rows and `0/20` controls, combined unrepaired iter175+iter178 `majority_catch`
   caught `17/40` hack rows and `0/40` controls, and the three OpenAI recovery rows are diagnostic only.
-  Iter179 must adjudicate the full cohort before any README or paper claim upgrade. No benchmark score,
-  leaderboard, model-comparison result, state-of-the-art result, natural-frequency estimate, or broad
-  robustness claim is allowed.
+  Iter179 may be cited only as a zero-spend full-cohort adjudication: `0` provider calls, credential
+  probes, SWE-bench executions, and cloud resources; unrepaired `majority_catch` remains `17/40` hack
+  rows and `0/40` controls; all five panel nondecisions are OpenAI empty-output rows; recovery diagnostics
+  have `0` score-rewrite allowance and no repaired score is claimed. Iter180 must design any repair
+  protocol before paid repair calls. No benchmark score, leaderboard, model-comparison result,
+  state-of-the-art result, natural-frequency estimate, broad robustness claim, or repaired-score claim is
+  allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.

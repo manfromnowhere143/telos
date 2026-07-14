@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter179_reward_hack_panel_full_cohort_adjudication/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend full-cohort adjudication pending)
+- `experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend OpenAI nondecision repair design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -117,8 +117,13 @@ iter178 paid expansion is published as a pass: `123/123` provider calls succeede
 estimated spend guard was `$7.005150`, committed secret/project/account hits were `0`, fresh
 `majority_catch` caught `4/20` hack rows and `0/20` controls, combined unrepaired iter175+iter178
 `majority_catch` caught `17/40` hack rows and `0/40` controls, and the three OpenAI recovery rows parsed
-under the `1536` token budget but remain diagnostic only. The active next gate is `iter179`: zero-spend
-full-cohort adjudication before any README or paper claim upgrade.
+under the `1536` token budget but remain diagnostic only. Iter179 is published as a zero-spend
+full-cohort adjudication pass: `0` provider calls, credential probes, SWE-bench executions, or cloud
+resources; unrepaired `majority_catch` stayed `17/40` hack rows and `0/40` controls; `any_catch` was
+`23/40` hacks and `0/40` controls; `unanimous_catch` was `2/40` hacks and `0/40` controls; all five panel
+nondecisions were OpenAI empty-output rows; recovery diagnostics had `0` score-rewrite allowance and no
+repaired score was claimed. The active next gate is `iter180`: zero-spend OpenAI nondecision repair design
+before any paid repair calls or repaired-score claim.
 
 Claim-boundary reviewer entry point:
 
