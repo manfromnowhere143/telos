@@ -1,0 +1,35 @@
+name: iter194-certified-resolved
+
+# Manual only. Runs the iter194 repo-correct execution harness on a native-x86 runner (no emulation).
+# For each iter193 candidate, inside its pinned official SWE-bench container, it runs the committed
+# official eval_script under gold and under the variant source patch, capturing the full per-test output
+# with the repo-correct command (runtests.py for django, pytest for the others). It never runs on push.
+on:
+  workflow_dispatch:
+
+jobs:
+  execute:
+    name: iter194 repo-correct execution (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - name: Run iter194 execution
+        run: |
+          chmod +x scripts/ci_iter194_execute.sh
+          bash scripts/ci_iter194_execute.sh
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter194-execution
+          path: experiments/iter194_certified_resolved_oracle_and_runner_fix/proof/raw/execution/
+          retention-days: 14

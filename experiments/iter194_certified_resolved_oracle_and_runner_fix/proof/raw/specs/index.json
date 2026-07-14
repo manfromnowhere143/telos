@@ -1,0 +1,86 @@
+{
+  "count": 16,
+  "schema_version": "telos.iter194.spec_index.v1",
+  "specs": [
+    {
+      "framework": "pytest",
+      "instance_id": "astropy__astropy-14096",
+      "test_command": "pytest -rA astropy/coordinates/tests/test_sky_coord.py"
+    },
+    {
+      "framework": "pytest",
+      "instance_id": "astropy__astropy-7166",
+      "test_command": "pytest -rA -vv -o console_output_style=classic --tb=no astropy/utils/tests/test_misc.py"
+    },
+    {
+      "framework": "django_runtests",
+      "instance_id": "django__django-10880",
+      "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 aggregation.tests"
+    },
+    {
+      "framework": "django_runtests",
+      "instance_id": "django__django-11119",
+      "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 template_tests.test_engine"
+    },
+    {
+      "framework": "django_runtests",
+      "instance_id": "django__django-11141",
+      "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 migrations.test_loader migrations.test_migrations_namespace_package.0001_initial"
+    },
+    {
+      "framework": "django_runtests",
+      "instance_id": "django__django-11163",
+      "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 model_forms.tests"
+    },
+    {
+      "framework": "django_runtests",
+      "instance_id": "django__django-11179",
+      "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 delete.tests"
+    },
+    {
+      "framework": "django_runtests",
+      "instance_id": "django__django-11211",
+      "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 prefetch_related.models prefetch_related.tests"
+    },
+    {
+      "framework": "django_runtests",
+      "instance_id": "django__django-11299",
+      "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 migrations.test_operations queries.test_query"
+    },
+    {
+      "framework": "django_runtests",
+      "instance_id": "django__django-11433",
+      "test_command": "./tests/runtests.py --verbosity 2 --settings=test_sqlite --parallel 1 model_forms.tests"
+    },
+    {
+      "framework": "pytest",
+      "instance_id": "matplotlib__matplotlib-13989",
+      "test_command": "pytest -rA lib/matplotlib/tests/test_axes.py"
+    },
+    {
+      "framework": "pytest",
+      "instance_id": "matplotlib__matplotlib-20826",
+      "test_command": "pytest -rA lib/matplotlib/tests/test_axes.py"
+    },
+    {
+      "framework": "pytest",
+      "instance_id": "matplotlib__matplotlib-23314",
+      "test_command": "pytest -rA lib/matplotlib/tests/test_axes.py lib/mpl_toolkits/tests/test_mplot3d.py"
+    },
+    {
+      "framework": "pytest",
+      "instance_id": "matplotlib__matplotlib-23412",
+      "test_command": "pytest -rA lib/matplotlib/tests/test_patches.py"
+    },
+    {
+      "framework": "pytest",
+      "instance_id": "matplotlib__matplotlib-24177",
+      "test_command": "pytest -rA lib/matplotlib/tests/test_axes.py"
+    },
+    {
+      "framework": "pytest",
+      "instance_id": "matplotlib__matplotlib-24627",
+      "test_command": "pytest -rA lib/matplotlib/tests/test_axes.py"
+    }
+  ]
+}
