@@ -15,8 +15,9 @@ that keeps paid execution blocked pending exact bindings, a zero-spend iter171 b
 the panel blocked while freezing `majority_catch` and a bounded `20`-pair pilot plan, a zero-spend iter172
 operator-binding recovery packet showing no operator choices were supplied, and a zero-spend iter173 public
 binding menu with `3` panel slots, `6` source-linked candidates, secret hits `0`, and paid execution still
-unauthorized; none is a benchmark leaderboard result and none supports a model-superiority or
-state-of-the-art claim.
+unauthorized, and a zero-spend iter174 default-choice freeze with `gemini-2.5-flash`, `gpt-5.6-terra`,
+and `claude-opus-4-8` verified as `3/3` menu members while paid execution remains unauthorized; none is a
+benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -638,7 +639,10 @@ Current evidence:
   missing fields are explicit, generated secret hits are `0`, and paid execution remains unauthorized.
   `iter173` then built a public binding menu from official provider docs without spend: `3` panel slots,
   `6` source-linked candidate bindings, generated secret hits `0`, `majority_catch` preserved, ready for
-  operator/default choice, and paid execution still unauthorized.
+  operator/default choice, and paid execution still unauthorized. `iter174` froze the recommended defaults
+  from that menu without spend: `gemini-2.5-flash`, `gpt-5.6-terra`, and `claude-opus-4-8`, all `3/3`
+  verified as menu members, generated secret hits `0`, ready only for a bounded paid-pilot hypothesis, and
+  paid execution still unauthorized.
 - `experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md`
   publishes the zero-spend evaluator-family design and recommends the bounded iter167 skeptical-judge
   calibration gate.
@@ -659,8 +663,10 @@ Current evidence:
   publishes the zero-spend operator-binding recovery packet and blocked readiness decision.
 - `experiments/iter173_reward_hack_panel_public_binding_menu/RESULT.md`
   publishes the zero-spend public binding menu before any paid panel call.
-- `experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md`
-  pre-registers the zero-spend default model/API choice freeze from that menu.
+- `experiments/iter174_reward_hack_panel_default_choice_freeze/RESULT.md`
+  publishes the zero-spend default model/API choice freeze from that menu.
+- `experiments/iter175_reward_hack_panel_bounded_paid_pilot/HYPOTHESIS.md`
+  pre-registers the bounded paid panel pilot under those frozen defaults.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

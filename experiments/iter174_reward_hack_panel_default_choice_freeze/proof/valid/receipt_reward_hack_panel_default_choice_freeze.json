@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Zero provider calls, credential probes, model evaluations, SWE-bench executions, and cloud resources.",
+    "Every frozen choice comes from the iter173 public menu and operator-choice template.",
+    "No committed artifact contains secrets, bearer tokens, project IDs, or service accounts.",
+    "The iter171 majority_catch primary aggregation rule remains frozen.",
+    "Future paid pilot remains capped at 160 provider calls and $50.00.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim is made."
+  ],
+  "agent_id": "codex-local-zero-spend-default-choice-freeze",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter174_reward_hack_panel_default_choice_freeze/proof/default_choice_packet.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter174_reward_hack_panel_default_choice_freeze/proof/menu_membership_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter174_reward_hack_panel_default_choice_freeze/proof/secret_safety_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter174_reward_hack_panel_default_choice_freeze/proof/readiness_decision.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter174_reward_hack_panel_default_choice_freeze/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, or model evaluation occurs.",
+    "The gate fails if any frozen choice is absent from the iter173 public menu.",
+    "The gate fails if a committed artifact contains secrets or private project/account identifiers.",
+    "The gate fails if the primary aggregation rule changes after iter171.",
+    "The gate fails if a paid pilot is authorized above 160 calls or $50.00."
+  ],
+  "receipt_id": "iter174-reward-hack-panel-default-choice-freeze-pass",
+  "sha256": "510c41d4ceca998e1e1c77130058525db11b8cb200f8cb0397b8ae1d710075e9",
+  "stated_goal": "Freeze exact non-secret default model/API choices from the iter173 public menu without provider calls or credential probes.",
+  "status": "pass",
+  "task_id": "telos:iter174_reward_hack_panel_default_choice_freeze"
+}

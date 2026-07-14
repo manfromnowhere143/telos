@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md`](../experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend default model/API choice freeze pending; iter161/iter165 may be
+- Active gate: [`../experiments/iter175_reward_hack_panel_bounded_paid_pilot/HYPOTHESIS.md`](../experiments/iter175_reward_hack_panel_bounded_paid_pilot/HYPOTHESIS.md)
+- Active gate state: pre-registered bounded paid panel pilot pending; iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
   evaluator-family design, and iter167 may be cited only as a completed skeptical-prompt null
@@ -26,6 +26,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   slots still require operator input, missing non-secret fields are explicit, and paid execution remains
   unauthorized. Iter173 may be cited only as a zero-spend public binding menu with `3` panel slots, `6`
   source-linked candidates, secret hits `0`, `majority_catch` preserved, and paid execution still
+  unauthorized. Iter174 may be cited only as a zero-spend default-choice freeze: `gemini-2.5-flash`,
+  `gpt-5.6-terra`, and `claude-opus-4-8`, `3/3` menu membership, secret hits `0`, and paid execution still
   unauthorized. No benchmark score, leaderboard, model-comparison result, state-of-the-art result,
   natural-frequency estimate, or broad robustness claim is allowed.
 - Public runner: GitHub Actions plus local validators.

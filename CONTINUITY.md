@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter174_reward_hack_panel_default_choice_freeze/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend default model/API choice freeze pending)
+- `experiments/iter175_reward_hack_panel_bounded_paid_pilot/HYPOTHESIS.md` (PRE-REGISTERED; bounded paid panel pilot pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -96,7 +96,12 @@ Iter173 is published as a zero-spend public binding-menu pass: official public p
 source-linked menu with `3` panel slots, `6` candidate model/API bindings, generated secret hits `0`, the
 `majority_catch` rule preserved, and paid execution still unauthorized. The active next gate is `iter174`:
 freeze exact default choices from that public menu without provider calls, credential probes, or model
-evaluations.
+evaluations. Iter174 is published as a zero-spend default-choice freeze pass: the defaults are
+`gemini-2.5-flash`, `gpt-5.6-terra`, and `claude-opus-4-8`; all `3/3` choices are verified members of the
+iter173 menu, generated secret hits are `0`, `majority_catch` and the `160`-call / `$50.00` ceilings are
+preserved, and paid execution is still not authorized. The active next gate is `iter175`: run or block the
+bounded paid panel pilot under those frozen defaults, with no model/endpoint/row/parser/rule substitution
+after outputs.
 
 Claim-boundary reviewer entry point:
 
