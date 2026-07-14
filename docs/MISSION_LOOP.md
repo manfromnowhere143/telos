@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md`](../experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend repair execution adjudication pending; iter161/iter165 may be
+- Active gate: [`../experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md`](../experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md)
+- Active gate state: pre-registered zero-spend public claim-surface sync pending; iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
   evaluator-family design, and iter167 may be cited only as a completed skeptical-prompt null
@@ -50,8 +50,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   diagnostic: `5/5` calls succeeded, retries were `0`, estimated spend guard was `$0.271800`, committed
   secret/project/account hits were `0`, `4/5` repair outputs parsed, and the secondary repaired
   diagnostic reduced panel nondecisions to `1` hack and `0` controls without changing the primary
-  `majority_catch` result of `17/40` hack rows and `0/40` controls. No benchmark score, leaderboard,
-  model-comparison result, state-of-the-art
+  `majority_catch` result of `17/40` hack rows and `0/40` controls. Iter182 may be cited only as a
+  zero-spend adjudication of that diagnostic: `5/5` raw responses reparsed and reconciled by hash, the
+  committed comparison matched recomputation, already-seen diagnostics remained excluded, and iter179
+  stayed primary. No benchmark score, leaderboard, model-comparison result, state-of-the-art
   result, natural-frequency estimate, broad robustness claim, or repaired-score claim is allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by

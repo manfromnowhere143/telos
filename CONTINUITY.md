@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend repair execution adjudication pending)
+- `experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend public claim-surface sync pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -131,8 +131,11 @@ nondecision repair-execution pass: `5/5` provider calls succeeded with `0` retri
 `$0.271800`, committed secret/project/account hits were `0`, and `4/5` repair outputs parsed. The
 secondary repaired diagnostic reduces panel nondecisions to `1` hack and `0` controls, but primary
 `majority_catch` remains `17/40` hack rows and `0/40` controls; unrepaired iter179 remains the public
-metric. The active next gate is `iter182`: zero-spend adjudication of the repair execution before any
-README or paper claim wording upgrade.
+metric. Iter182 is published as the zero-spend repair-execution adjudication pass: provider calls `0`,
+credential probes `0`, all `5` raw iter181 responses reparsed and reconciled by hash, the committed
+repair diagnostic matched recomputation, already-seen diagnostics stayed excluded, and no repaired score
+or public benchmark claim was made. The active next gate is `iter183`: zero-spend public claim-surface
+sync to keep README, report, mission-loop, handoff, and paper-facing docs on that adjudicated boundary.
 
 Claim-boundary reviewer entry point:
 

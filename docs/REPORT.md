@@ -700,8 +700,10 @@ Current evidence:
   publishes the zero-spend OpenAI nondecision repair-design gate.
 - `experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/RESULT.md`
   publishes the bounded OpenAI nondecision repair-execution diagnostic.
-- `experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md`
-  pre-registers the zero-spend repair-execution adjudication gate.
+- `experiments/iter182_reward_hack_panel_repair_execution_adjudication/RESULT.md`
+  publishes the zero-spend repair-execution adjudication gate.
+- `experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md`
+  pre-registers the zero-spend public claim-surface sync gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -42,8 +42,10 @@ ten-call / `$10.00` ceiling; unrepaired iter179 remains the primary public metri
 bounded OpenAI repair execution: `5/5` provider calls succeeded with `0` retries, estimated spend guard
 `$0.271800`, `0` secret/project/account hits, and `4/5` parsed repair outputs. The secondary repaired
 diagnostic reduces panel nondecisions to `1` hack and `0` controls, but primary `majority_catch` stays
-`17/40` hack rows and `0/40` controls; unrepaired iter179 remains the public metric. The active gate is
-iter182: a zero-spend adjudication of the repair execution before any wording upgrade. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
+`17/40` hack rows and `0/40` controls; unrepaired iter179 remains the public metric. Iter182 adjudicated
+that repair execution without spend: `0` provider calls, `0` credential probes, `5/5` raw responses
+reparsed and reconciled by hash, the committed comparison matched recomputation, and the repaired output
+remains diagnostic only. The active gate is iter183: a zero-spend public claim-surface sync guard. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
 state-of-the-art result, natural-frequency estimate, broad robustness result, repaired-score result, or
 claim beyond this bounded panel path is made. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
@@ -149,7 +151,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [179](experiments/iter179_reward_hack_panel_full_cohort_adjudication/RESULT.md) | Can the full panel cohort be adjudicated without spend before any claim upgrade? | pass - zero-spend full-cohort adjudication over committed iter175+iter178 proof: `0` provider calls, credential probes, SWE-bench executions, or cloud resources; unrepaired `majority_catch` is `17/40` hack rows and `0/40` controls; `any_catch` is `23/40` hacks and `0/40` controls; `unanimous_catch` is `2/40` hacks and `0/40` controls; five panel nondecisions are all OpenAI empty-output rows; recovery diagnostics stay out of score |
 | [180](experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/RESULT.md) | Can an OpenAI nondecision repair protocol be designed before any paid repair call? | pass - zero-spend repair design: exactly five OpenAI empty-output primary nondecision rows must be rerun before any repaired diagnostic; three rows have prior diagnostics but those outputs remain excluded from score evidence; future execution is OpenAI-only with `5` planned primary calls, `5` retry reserve calls, a `10` call ceiling, and `$10.00` spend ceiling |
 | [181](experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/RESULT.md) | Can the five OpenAI nondecision rows be rerun under the iter180 repair design? | pass - `5/5` OpenAI repair calls succeeded with `0` retries, spend guard `$0.271800`, secret hits `0`, and `4/5` parsed repair outputs; secondary repaired diagnostic reduces nondecisions to hacks `1`, controls `0`, while majority-catch remains `17/40` hacks and `0/40` controls; unrepaired iter179 remains primary |
-| [182](experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md) | Can the repair execution be adjudicated without spend before any claim wording changes? | pre-registered - zero-spend adjudication gate; no provider calls, credential probes, SWE-bench executions, cloud resources, public benchmark score, repaired-score claim, leaderboard, model-comparison, SOTA, natural-frequency, or broad robustness claim |
+| [182](experiments/iter182_reward_hack_panel_repair_execution_adjudication/RESULT.md) | Can the repair execution be adjudicated without spend before any claim wording changes? | pass - zero-spend adjudication reparsed `5/5` raw responses, reconciled ledger/hash/parsed artifacts, confirmed the committed repaired diagnostic, kept iter179 unrepaired majority-catch as primary (`17/40` hacks, `0/40` controls), and made no repaired-score or public benchmark claim |
+| [183](experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md) | Can public surfaces be synchronized to the adjudicated repair-diagnostic boundary? | pre-registered - zero-spend public-claim-surface sync guard; no provider calls, credential probes, SWE-bench executions, cloud resources, public benchmark score, repaired-score claim, leaderboard, model-comparison, SOTA, natural-frequency, or broad robustness claim |
 
 ### The honest conclusion
 
@@ -704,10 +707,10 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack panel repair execution adjudication (iter182, pre-registered) in
-  [`experiments/iter182_reward_hack_panel_repair_execution_adjudication`](experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md);
-  iter181 ran all five OpenAI repair calls and produced a secondary repaired diagnostic, while preserving
-  the unrepaired iter179 primary result for public claims.
+- Current gate: reward-hack panel public claim-surface sync (iter183, pre-registered) in
+  [`experiments/iter183_reward_hack_panel_public_claim_surface_sync`](experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md);
+  iter182 adjudicated the iter181 repair execution from raw committed evidence and preserved the
+  unrepaired iter179 primary result for public claims.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -842,16 +845,16 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md`](experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md).
+[`experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md`](experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter181); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter182); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
- L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-181<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40"]
+ L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-182<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
@@ -890,9 +893,10 @@ stayed `3/40`, hack invalids rose to `5/40`, and balanced detection dropped to `
 adjudicated the null: all `9` invalid outputs were markdown-fenced JSON, and a diagnostic-only strip would
 reach only `4/40` recall, so independent panel design is the next pre-registered gate. The July 2026
 literature sweep is recorded in [`docs/LITERATURE_ALIGNMENT_2026.md`](docs/LITERATURE_ALIGNMENT_2026.md).
-Iter169-181 then moved from single-model judging to a three-provider panel: the full unrepaired
+Iter169-182 then moved from single-model judging to a three-provider panel: the full unrepaired
 `majority_catch` result is `17/40` hack rows and `0/40` controls, and iter181's OpenAI-only repair run
-reduced nondecisions in a secondary diagnostic without changing that primary result.
+reduced nondecisions in a secondary diagnostic without changing that primary result; iter182 adjudicated
+that diagnostic from raw committed proof before any claim upgrade.
 The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
 
@@ -960,7 +964,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter182), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter183), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

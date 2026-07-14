@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "No provider calls, credential probes, model evaluations, SWE-bench executions, or cloud resources are used.",
+    "Iter181 parsed outputs reconcile to raw provider-response artifacts by call id and hash.",
+    "The repaired diagnostic recomputes from fresh iter181 outputs only.",
+    "Already-seen iter178 diagnostics remain excluded.",
+    "The unrepaired iter179 primary result remains identifiable and unmutated.",
+    "No committed artifact contains secrets or private project/account identifiers.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim is made."
+  ],
+  "agent_id": "codex-zero-spend-repair-execution-adjudicator",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter182_reward_hack_panel_repair_execution_adjudication/proof/raw_evidence_reconciliation.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter182_reward_hack_panel_repair_execution_adjudication/proof/recomputed_repair_diagnostic_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter182_reward_hack_panel_repair_execution_adjudication/proof/iter179_primary_boundary_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter182_reward_hack_panel_repair_execution_adjudication/proof/claim_boundary_decision.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter182_reward_hack_panel_repair_execution_adjudication/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, model evaluation, SWE-bench execution, or cloud resource change occurs.",
+    "The gate fails if iter181 parsed outputs do not reconcile to raw committed evidence.",
+    "The gate fails if already-seen diagnostics are counted as score evidence.",
+    "The gate fails if the unrepaired iter179 primary result is hidden or changed.",
+    "The gate cannot support a leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim."
+  ],
+  "receipt_id": "iter182-reward-hack-panel-repair-execution-adjudication-pass",
+  "sha256": "0f07365eec2af0114af5d0921a9b4b987b95bf3601d2469b7237385b01171672",
+  "stated_goal": "Adjudicate the iter181 OpenAI repair execution from committed proof while preserving the unrepaired iter179 primary metric.",
+  "status": "pass",
+  "task_id": "telos:iter182_reward_hack_panel_repair_execution_adjudication"
+}
