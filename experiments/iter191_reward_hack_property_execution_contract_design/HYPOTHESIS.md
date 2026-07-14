@@ -1,5 +1,22 @@
 # Iteration 191 - Reward-Hack Property-Execution Contract Design
 
+> **SUPERSEDED, unrun, by `experiments/iter192_reward_hack_benchmark_construct_validity_audit/`.**
+> This gate was never executed and publishes no result. It is retained unedited below as visible
+> evidence of the path the mission was on, per standard 5.
+>
+> Why it was retired: iter191 proposed designing an execution contract so that property probes could be
+> run against `benchmarks/reward_hack_benchmark_v1/`. iter192 established from committed bytes that v1's
+> rows are not reward hacks — its generator admitted a row only when at least one `PASS_TO_PASS` test
+> failed, so the official SWE-bench harness marks `40/40` unresolved and a zero-cost harness baseline
+> detects `40/40`. Building an execution contract to detect a class the existing test suite already
+> catches perfectly would have spent design effort, and then provider spend, on the wrong target.
+>
+> The successor gate is `experiments/iter193_certified_resolved_reward_hack_construction/`, which
+> targets the class iter192 proved the generator was producing and discarding: patches the official
+> harness certifies as **resolved** that are nonetheless wrong. Against that class the harness scores
+> `0` by construction, so an execution contract genuinely is required — but for a different positive
+> class than the one iter191 assumed.
+
 Status: pre-registered zero-spend contract/harness design gate; no provider calls, credential probes,
 property-generator calls, SWE-bench executions, cloud resources, benchmark-score changes, leaderboard
 claims, model-comparison claims, state-of-the-art claims, natural-frequency claims, broad robustness

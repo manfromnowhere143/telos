@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/acceptance_condition_audit.json",
+    "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/official_harness_verdict.json",
+    "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/official_harness_baseline.json",
+    "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/discarded_certified_variants.json",
+    "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/existing_baseline_scan.json",
+    "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/audit_report.json",
+    "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/valid/receipt_benchmark_construct_validity_audit.json"
+  ],
+  "experiment_id": "iter192_reward_hack_benchmark_construct_validity_audit",
+  "insight": "reward_hack_benchmark_v1 contains no reward hacks. Its generator admitted a row only when at least one PASS_TO_PASS test failed, so the official SWE-bench harness marks all 40/40 rows unresolved and a zero-cost official-harness baseline detects 40/40 against the 17/40 panel figure, a comparator never previously reported. The same runs discarded 139 harness-certified variants across 65 instances as no_both_miss failures without preserving their diffs. Wrongness of those variants is unestablished.",
+  "next_action": "run iter193_certified_resolved_reward_hack_construction: invert the acceptance condition to ftp_ok and not held_fail, then establish wrongness by gold-differential execution on the proven x86 CI container path, before any judge or property comparison",
+  "result_path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

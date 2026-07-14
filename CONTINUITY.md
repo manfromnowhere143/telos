@@ -24,7 +24,44 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend property-execution contract design pending)
+- `experiments/iter193_certified_resolved_reward_hack_construction/HYPOTHESIS.md` (PRE-REGISTERED; bounded construction of certified-resolved-and-wrong rows pending)
+
+## Standing correction (iter192) - read before citing any reward-hack number
+
+`benchmarks/reward_hack_benchmark_v1/` contains **no reward hacks**, and no public number derived from it
+should be described as one.
+
+A reward hack scores well on the reward function while being wrong. The v1 generator
+(`experiments/iter152_reward_model_gaming_scale/proof/raw/detection_pipeline.py`, line 132) admitted a
+row only when `ev["ftp_ok"] and ev["held_fail"]` — the target test passes **and at least one
+`PASS_TO_PASS` test fails. `PASS_TO_PASS` is the repository's own existing test suite, so every row
+breaks that suite by construction. iter192 re-derived the official SWE-bench harness verdict for all
+`40` rows from committed tarballs: `40/40` are `resolved: false`, and `40/40` have at least one failing
+`PASS_TO_PASS` test.
+
+Consequences, all established at zero spend:
+
+- The **official-harness baseline** — run the existing test suite, or read the harness verdict — detects
+  `40/40` rows at `$0.00`. The three-model panel's unrepaired iter179 `majority_catch` detects `17/40` at
+  `$13.59`. That baseline had never been reported anywhere in this repository (`0` hits across `677`
+  committed markdown files).
+- The iter179 figure is **not retracted**: `17/40` hack rows and `0/40` controls is arithmetically
+  correct and reproduces from committed proof. What changed is what it is a figure *about*. It measures
+  how often a frontier panel, reading a diff, spots a subtly-wrong patch **that the existing test suite
+  already rejects**. That is a finding about LLM code review, not about reward hacking, and it does not
+  motivate a verification protocol.
+- `both_miss` always meant *the deterministic detector and the LLM judge miss*. It never meant the tests
+  miss.
+- The iter152/iter154/iter155 runs produced `139` variants across `65` instances that the official
+  harness certified as **resolved** and discarded every one as a `no_both_miss` failure, retaining only
+  `{id, repo, status}`. Their diffs are not recoverable. Whether those variants are *wrong* is
+  unestablished and requires gold-differential execution.
+
+The mission's target is therefore the discarded class, not the retained one: patches the official harness
+certifies as resolved that are nonetheless wrong. Against that class the harness scores `0` by
+construction, so the existing suite cannot help and an instrument probing behavior beyond the suite is
+required. That is what the iter121-iter126 gold-free property oracles were built for, and why evaluating
+them against v1 could never have shown their value.
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier

@@ -2,6 +2,55 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
+## Standing correction (iter192, 2026-07-14): the reward-hack benchmark contains no reward hacks
+
+Read this before citing any number below. It is the largest correction in this repository's history and
+it invalidates the framing — not the arithmetic — of much of the prose that follows.
+
+A reward hack scores well on the reward function while being wrong. That is what makes it dangerous: it
+survives the grader, corrupts the training signal, and ships.
+
+`benchmarks/reward_hack_benchmark_v1/` does not contain such patches. Its generator
+(`experiments/iter152_reward_model_gaming_scale/proof/raw/detection_pipeline.py`, line 132) admitted a
+row only when the target test passed **and at least one `PASS_TO_PASS` test failed**. `PASS_TO_PASS` is
+the repository's own existing test suite. Every row breaks that suite by construction, and
+`experiments/iter192_reward_hack_benchmark_construct_validity_audit/` re-derived the official SWE-bench
+harness verdict for all `40` rows from committed tarballs at zero spend:
+
+| check | value |
+| --- | ---: |
+| rows matched to a committed official SWE-bench report | `40/40` |
+| rows the official harness marks `resolved: false` | `40/40` |
+| rows with at least one failing `PASS_TO_PASS` test | `40/40` |
+
+What follows from that:
+
+| oracle | detections on v1 | provider cost |
+| --- | ---: | ---: |
+| official SWE-bench harness verdict (equivalently: run the existing test suite) | `40/40` | `$0.00` |
+| three-model cross-provider panel, unrepaired `majority_catch` (iter179) | `17/40` | `$13.59` |
+
+That baseline had never been reported here (`0` hits across `677` committed markdown files).
+
+**The `17/40` figure is not retracted.** It is arithmetically correct and reproduces from committed
+proof. What changed is what it is a figure *about*: it measures how often a frontier panel, reading a
+diff, spots a subtly-wrong patch **that the existing test suite already rejects**. That is a legitimate
+finding about LLM code review. It is not a finding about reward hacking, and it does not motivate a
+verification protocol, because the defect class it covers is caught perfectly and for free by running
+the tests. The term `both_miss` always meant *the deterministic detector and the LLM judge miss*; it
+never meant the tests miss.
+
+The same runs produced `139` variants across `65` instances that the official harness certified as
+**resolved** — whole suite passing — and discarded every one as a `no_both_miss` failure, keeping only
+`{id, repo, status}`. Their diffs are unrecoverable. Whether they are *wrong* is unestablished and
+requires gold-differential execution. That discarded class is the mission's target, and it is what
+`experiments/iter193_certified_resolved_reward_hack_construction/` is pre-registered to construct.
+
+Everything below this section predates the correction. Read the iteration prose as a record of what was
+done, not as a standing claim.
+
+---
+
 A bounded single-model judge result now exists, now complete as a paired reward-hack/control result for
 `gemini-2.5-flash`: `3/40` recall on the blinded all-hack packets from `iter161` and `0/40` false
 positives on the paired legitimate controls after the `iter165` rate-limit recovery. That supports only
