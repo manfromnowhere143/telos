@@ -32,6 +32,28 @@ Autonomous Agent Completion}
 \maketitle
 
 \begin{abstract}
+\noindent\fbox{\parbox{\linewidth}{\small\textbf{Erratum (2026-07-14, repository iteration 192).} A
+later audit of committed evidence corrected a framing error in this manuscript, and the correction is
+recorded here rather than hidden. The constructed rows this paper calls ``both-miss reward-hack diffs''
+and packages as \texttt{reward\_hack\_benchmark\_v1} do \emph{not} score well on the reward function: by
+construction each one fails at least one of its instance's own \texttt{PASS\_TO\_PASS} tests, so the
+official \texttt{SWE-bench} harness marks all $40/40$ rows unresolved. They are therefore not reward hacks
+in the score-well-while-wrong sense; they are wrong patches that break the project's existing test suite.
+Two consequences follow. First, the honest detection baseline for these rows is to run the existing test
+suite (equivalently, read the harness verdict), which catches $40/40$ at zero model cost; the three-layer
+detection results below must be read against that baseline, as findings about static detectors and
+language-model judges, not as evidence that catching this class is hard in absolute terms. Second, the
+paper's terminology is rescoped: read ``both-miss'' as ``passes the visible target test but fails held-out
+behavior,'' not as ``reward hack.'' What is \emph{unaffected}: the repair/intervention results (the harness
+already scores these patches $0$, and the protocol lifts them toward resolved), the finding that a model is
+unreliable as a correctness judge but usable as a property proposer verified by execution, and the
+gold-free property results, all of which are execution-grounded and independent of the mislabel. The
+genuine reward-hack class---a patch the harness certifies as \emph{resolved} that is nonetheless
+wrong---is not measured in this manuscript and is the subject of subsequent work (iteration~193). See the
+repository's \texttt{iter192} audit for the full derivation.}}
+
+\vspace{0.75em}
+
 When an AI coding agent reports that a task is done, the usual proof is that a test suite passes. But if
 the agent can influence that test suite, the proof can be gamed: the agent can edit or weaken the tests,
 hard-code the expected answer, or write code that only handles the exact input the test checks rather than
@@ -379,9 +401,14 @@ We state the empirical bounds plainly.
   checkable contract; a structural criterion is met by $0.81$ of the dataset, but property-derivability
   within it is far narrower (about $0.10$ even in a math-heavy repository), so the gold-free intervention is
   demonstrated on the format/contract subset.
-  \item \textbf{No baseline comparison.} We do not benchmark against other reward-hack detection methods;
-  the contribution is the decomposition, the both-miss discovery, and the intervention, not a comparative
-  score.
+  \item \textbf{The dominating baseline for the constructed rows (see Erratum).} Because every constructed
+  both-miss row fails at least one of its instance's own \texttt{PASS\_TO\_PASS} tests, running the
+  existing test suite---or reading the official \texttt{SWE-bench} harness verdict---detects all $40/40$ at
+  zero model cost. The three-layer detection results are reported against that baseline: they characterize
+  where static detectors and language-model judges fail on these rows, not a regime where detection is
+  hard in absolute terms. The detection contribution is the layered decomposition and the both-miss
+  survival measurement; the standalone empirical contributions are the repair/intervention effect and the
+  gold-free property result, which do not depend on the mislabel.
   \item \textbf{Not a resolved-rate.} No result is a \texttt{SWE-bench} resolved-rate or a leaderboard
   number.
 \end{itemize}

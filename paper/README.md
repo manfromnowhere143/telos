@@ -1,12 +1,25 @@
 # Telos paper (findings draft)
 
+> **Not publish-ready. Carries an erratum and must be reconciled with iter192 before any external
+> share (arXiv, link, or distribution).** The abstract now opens with a dated erratum: the rows the
+> draft calls "both-miss reward-hack diffs" and packages as `reward_hack_benchmark_v1` fail their
+> instances' own `PASS_TO_PASS` tests, so the official SWE-bench harness marks `40/40` unresolved and a
+> zero-cost "run the existing suite" baseline detects `40/40`. They are not reward hacks in the
+> score-well-while-wrong sense. `telos.pdf` was rebuilt from the corrected source on 2026-07-14 so the
+> distributed artifact matches the repository's public correction. What survives the correction: the
+> repair/intervention effect, the judge-vs-property-proposer thesis, and the gold-free property results,
+> which are execution-grounded and independent of the mislabel. The genuine reward-hack class
+> (harness-certified-resolved yet wrong) is the subject of iter193 and is not measured here. Do not
+> distribute the pre-erratum framing. See
+> `experiments/iter192_reward_hack_benchmark_construct_validity_audit/`.
+
 `telos.tex` is a self-contained LaTeX draft of the Telos findings paper, consolidating the
-detection, intervention, reward-model-gaming, and reward-hack-artifact arc through iter156. It is framed as
-a findings paper: the contribution is the both-miss discovery, the three-layer decomposition, the
-gate-and-repair intervention, the reward-model vulnerability measurement, the
-`reward_hack_benchmark_v1` row artifact, and the verdict-giver-vs-property-generator insight. Every
-quantitative claim is a bounded pilot or artifact claim reproduced by a committed runner, manifest, and
-validated receipt under `experiments/iterNNN_*`.
+detection, intervention, reward-model-gaming, and reward-hack-artifact arc through iter156. Read its
+contribution list through the erratum above: the standalone empirical contributions are the gate-and-repair
+intervention, the reward-model vulnerability measurement, and the verdict-giver-vs-property-generator
+insight; the both-miss decomposition and the `reward_hack_benchmark_v1` row artifact are retained but
+rescoped by the erratum. Every quantitative claim is a bounded pilot or artifact claim reproduced by a
+committed runner, manifest, and validated receipt under `experiments/iterNNN_*`.
 
 ## Build
 
@@ -16,6 +29,14 @@ Standard `pdflatex` (no bibtex needed - references are a manual `thebibliography
 cd paper
 pdflatex telos.tex
 pdflatex telos.tex   # second pass resolves \ref and \cite numbers
+```
+
+Or with `tectonic` (single command, resolves references automatically; this is what produced the
+committed `telos.pdf` on 2026-07-14):
+
+```
+cd paper
+tectonic telos.tex
 ```
 
 Packages used are all arXiv-standard: `amsmath`, `booktabs`, `graphicx`, `tikz`, `geometry`, `microtype`,
