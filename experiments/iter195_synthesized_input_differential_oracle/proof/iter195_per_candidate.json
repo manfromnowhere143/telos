@@ -2,21 +2,23 @@
   "candidates": [
     {
       "func": "__getattr__",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "'intercepted'",
       "instance_id": "astropy__astropy-14096",
+      "oracle": "synthesized_differential",
       "repo": "astropy/astropy",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "\"'CustomCoord' object has no attribute 'special_attr'\""
     },
     {
       "func": "is_public_member",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "'inherited descriptor documentation'",
       "instance_id": "astropy__astropy-7166",
+      "oracle": "synthesized_differential",
       "repo": "astropy/astropy",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "None"
     },
     {
       "func": "get_group_by_cols",
@@ -29,48 +31,53 @@
     },
     {
       "func": "render_to_string",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "'<tag>'",
       "instance_id": "django__django-11119",
+      "oracle": "synthesized_differential",
       "repo": "django/django",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "'&lt;tag&gt;'"
     },
     {
       "func": "load_disk",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "(True, False)",
       "instance_id": "django__django-11141",
+      "oracle": "synthesized_differential",
       "repo": "django/django",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "(False, True)"
     },
     {
       "func": "model_to_dict",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "{}",
       "instance_id": "django__django-11163",
+      "oracle": "synthesized_differential",
       "repo": "django/django",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "{'id': None, 'name': 'value'}"
     },
     {
       "func": "delete",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "None",
       "instance_id": "django__django-11179",
+      "oracle": "synthesized_differential",
       "repo": "django/django",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "'present'"
     },
     {
       "func": "deconstruct",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "UUID('550e8400-e29b-41d4-a716-446655440000')",
       "instance_id": "django__django-11211",
+      "oracle": "synthesized_differential",
       "repo": "django/django",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "'550e8400e29b41d4a716446655440000'"
     },
     {
       "func": "_add_q",
@@ -83,57 +90,60 @@
     },
     {
       "func": "construct_instance",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "0",
       "instance_id": "django__django-11433",
+      "oracle": "synthesized_differential",
       "repo": "django/django",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "7"
     },
     {
       "func": "hist",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "[0.6666666666666666, 0.16666666666666666]",
       "instance_id": "matplotlib__matplotlib-13989",
       "repo": "matplotlib/matplotlib",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "certified_equivalent",
+      "variant_result": "[0.6666666666666666, 0.16666666666666666]"
     },
     {
       "func": "clear",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "True",
       "instance_id": "matplotlib__matplotlib-20826",
       "repo": "matplotlib/matplotlib",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "certified_equivalent",
+      "variant_result": "True"
     },
     {
       "func": "apply_aspect",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "False",
       "instance_id": "matplotlib__matplotlib-23314",
       "repo": "matplotlib/matplotlib",
-      "status": "scenario_failed",
+      "status": "variant_errored",
       "variant_result": null
     },
     {
       "func": "draw",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "((2.5, (10.0, 10.0)),)",
       "instance_id": "matplotlib__matplotlib-23412",
+      "oracle": "synthesized_differential",
       "repo": "matplotlib/matplotlib",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "((0.0, (10.0, 10.0)),)"
     },
     {
       "func": "__clear",
-      "gold_clean": false,
-      "gold_result": null,
+      "gold_clean": true,
+      "gold_result": "(True, True)",
       "instance_id": "matplotlib__matplotlib-24627",
+      "oracle": "synthesized_differential",
       "repo": "matplotlib/matplotlib",
-      "status": "scenario_failed",
-      "variant_result": null
+      "status": "wrong",
+      "variant_result": "(False, False)"
     }
   ],
   "schema_version": "telos.iter195.per_candidate.v1"

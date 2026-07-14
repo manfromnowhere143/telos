@@ -1,0 +1,25 @@
+APPLY_OK variant
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/matplotlib__matplotlib-23314.scenario.py", line 13, in <module>
+    fig.canvas.draw()
+  File "/testbed/lib/matplotlib/backends/backend_agg.py", line 408, in draw
+    self.figure.draw(self.renderer)
+  File "/testbed/lib/matplotlib/artist.py", line 73, in draw_wrapper
+    result = draw(artist, renderer, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/testbed/lib/matplotlib/artist.py", line 50, in draw_wrapper
+    return draw(artist, renderer)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/testbed/lib/matplotlib/figure.py", line 2916, in draw
+    mimage._draw_list_compositing_images(
+  File "/testbed/lib/matplotlib/image.py", line 131, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "/testbed/lib/matplotlib/artist.py", line 50, in draw_wrapper
+    return draw(artist, renderer)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/testbed/lib/mpl_toolkits/mplot3d/axes3d.py", line 390, in draw
+    if not self.get_visible() and self.get_subplotspec() is not None:
+                                  ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Axes3D' object has no attribute 'get_subplotspec'
+>>>>> Scenario End

@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter195_synthesized_input_differential_oracle/proof/audit_report.json",
+    "experiments/iter195_synthesized_input_differential_oracle/proof/iter195_per_candidate.json",
+    "experiments/iter195_synthesized_input_differential_oracle/proof/accepted_rows.json",
+    "experiments/iter195_synthesized_input_differential_oracle/proof/raw/scenarios/phase_a_summary.json",
+    "experiments/iter195_synthesized_input_differential_oracle/proof/valid/receipt_synthesized_input_differential_oracle.json"
+  ],
+  "experiment_id": "iter195_synthesized_input_differential_oracle",
+  "insight": "First execution-verified positive: 10 certified-resolved patches (official SWE-bench harness marks resolved) produce output differing from the gold fix on a validated synthesized input no shipped test covers. 2 were correct equivalents; the rest honest nulls. django-11119 was hand-judged equivalent and execution proved it a real hack, demonstrating the mission thesis on the mission's own analysis. Elicited/constructed, N=10, 3 repos, 'wrong'=differs-from-gold; no detector evaluated yet.",
+  "next_action": "run iter196_detector_vs_certified_hacks: evaluate the LLM judge panel and a gold-free property oracle (no gold at decision time) against the 10 witnessed certified-resolved reward hacks, to measure which instrument catches the class the harness and shipped tests miss",
+  "result_path": "experiments/iter195_synthesized_input_differential_oracle/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

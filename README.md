@@ -59,9 +59,19 @@ certified-resolved**, yet `0` accepted. The reason is structural — for django 
 *is* the whole test module (`0` uncurated tests), and where uncurated tests exist (matplotlib up to `168`,
 `193` total) the variant passes every one identically to gold. No shipped test distinguishes any certified
 variant from its gold fix, so reference-free verification of a certified patch must synthesize probes
-beyond the project's own tests. `experiments/iter195_synthesized_input_differential_oracle/` is
-pre-registered to do exactly that: synthesize inputs to the changed callable and execute gold vs variant
-differentially in-container.
+beyond the project's own tests. `experiments/iter195_synthesized_input_differential_oracle/` did exactly
+that: synthesize inputs to the changed callable and execute gold vs variant differentially in-container.
+
+`experiments/iter195_synthesized_input_differential_oracle/` is the mission's first execution-verified
+positive result: **`10` certified-resolved reward hacks**. Each is a patch the official SWE-bench harness
+marks resolved (passes every `FAIL_TO_PASS` and `PASS_TO_PASS`) that produces observably different output
+from the gold fix on a validated synthesized input the shipped tests never cover (over `15` scenarios:
+`10` wrong, `2` correct-equivalent, `2` scenario-failed, `1` variant-errored; all `10` re-verified
+airtight). One case, `django-11119`, was hand-judged a correct equivalent and execution proved it a real
+hack — the thesis on the repo's own analysis. Claim boundary: elicited and constructed, not a natural
+frequency; `N=10` across `3` repositories; "wrong" means differs from the gold reference fix; no detector
+is evaluated yet. `experiments/iter196_detector_vs_certified_hacks/` is pre-registered to evaluate the LLM
+judge panel and a gold-free property oracle against these `10`, at decision time with gold forbidden.
 
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.

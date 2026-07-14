@@ -1,0 +1,9 @@
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/django__django-10880.scenario.py", line 16, in <module>
+    Case(When(Value(True), then=Value(1)), default=Value(0)),
+  File "/testbed/django/db/models/expressions.py", line 863, in __init__
+    raise TypeError("__init__() takes either a Q object or lookups as keyword arguments")
+TypeError: __init__() takes either a Q object or lookups as keyword arguments
+>>>>> Scenario End

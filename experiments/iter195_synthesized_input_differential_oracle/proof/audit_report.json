@@ -1,17 +1,18 @@
 {
   "bars": {
-    "accepted_witnessed_wrong": 0,
+    "accepted_witnessed_wrong": 10,
     "scenarios": 15,
-    "validated_scenarios": 0
+    "validated_scenarios": 13
   },
   "experiment_id": "iter195_synthesized_input_differential_oracle",
-  "failed_bars": [
-    "validated scenarios 0 < 8"
-  ],
+  "failed_bars": [],
   "null_reason": null,
   "outcome_distribution": {
-    "scenario_failed": 15
+    "certified_equivalent": 2,
+    "scenario_failed": 2,
+    "variant_errored": 1,
+    "wrong": 10
   },
   "schema_version": "telos.iter195.audit_report.v1",
-  "status": "fail"
+  "status": "pass"
 }

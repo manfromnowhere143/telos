@@ -32,7 +32,17 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter195_synthesized_input_differential_oracle/HYPOTHESIS.md` (PRE-REGISTERED; synthesize inputs to the changed callable and execute gold vs variant differentially, to witness wrongness no shipped test covers)
+- `experiments/iter196_detector_vs_certified_hacks/HYPOTHESIS.md` (to be pre-registered; evaluate the LLM judge panel and a gold-free property oracle against the 10 witnessed certified-resolved reward hacks)
+
+iter195 is the mission's first execution-verified positive result: **`10` certified-resolved reward
+hacks**. Each is a patch the official SWE-bench harness marks resolved (passes every `FAIL_TO_PASS` and
+`PASS_TO_PASS`) that produces observably different output from the gold fix on a validated synthesized
+input the shipped tests never cover. Distribution over `15` scenarios: `10` wrong, `2` certified_equivalent
+(correct rewrites, reported as such), `2` scenario_failed, `1` variant_errored; all `10` re-verified
+airtight. `django-11119` was hand-judged a correct equivalent and execution proved it a real hack —
+the mission thesis demonstrated on the mission's own analysis. Claim boundary: elicited/constructed, not
+natural frequency; `N=10`, `3` repos; "wrong" means differs from the gold reference fix; no detector
+evaluated yet (that is iter196).
 
 iter193 published a null (real x86 container execution): a bounded, elicited attempt to construct
 certified-resolved-and-wrong patches produced `0` witnessed rows against a `>=5` bar; `6` matplotlib
