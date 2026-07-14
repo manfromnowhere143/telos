@@ -16,8 +16,11 @@ the panel blocked while freezing `majority_catch` and a bounded `20`-pair pilot 
 operator-binding recovery packet showing no operator choices were supplied, and a zero-spend iter173 public
 binding menu with `3` panel slots, `6` source-linked candidates, secret hits `0`, and paid execution still
 unauthorized, and a zero-spend iter174 default-choice freeze with `gemini-2.5-flash`, `gpt-5.6-terra`,
-and `claude-opus-4-8` verified as `3/3` menu members while paid execution remains unauthorized; none is a
-benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
+and `claude-opus-4-8` verified as `3/3` menu members while paid execution remained unauthorized, and an
+iter175 bounded paid panel pilot with `120/120` successful primary calls, `0` retries, estimated spend
+guard `$6.312690`, committed secret/project/account hits `0`, and primary `majority_catch` counts of
+`13/20` hack catches and `0/20` control catches; none is a benchmark leaderboard result and none supports
+a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -642,7 +645,10 @@ Current evidence:
   operator/default choice, and paid execution still unauthorized. `iter174` froze the recommended defaults
   from that menu without spend: `gemini-2.5-flash`, `gpt-5.6-terra`, and `claude-opus-4-8`, all `3/3`
   verified as menu members, generated secret hits `0`, ready only for a bounded paid-pilot hypothesis, and
-  paid execution still unauthorized.
+  paid execution still unauthorized. `iter175` then completed that bounded pilot: `120/120` primary calls
+  succeeded across the frozen Google, OpenAI, and Anthropic slots with `0` retries, estimated spend guard
+  `$6.312690`, committed secret/project/account hits `0`, and primary `majority_catch` counts of `13/20`
+  hack catches and `0/20` control catches.
 - `experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md`
   publishes the zero-spend evaluator-family design and recommends the bounded iter167 skeptical-judge
   calibration gate.
@@ -665,8 +671,10 @@ Current evidence:
   publishes the zero-spend public binding menu before any paid panel call.
 - `experiments/iter174_reward_hack_panel_default_choice_freeze/RESULT.md`
   publishes the zero-spend default model/API choice freeze from that menu.
-- `experiments/iter175_reward_hack_panel_bounded_paid_pilot/HYPOTHESIS.md`
-  pre-registers the bounded paid panel pilot under those frozen defaults.
+- `experiments/iter175_reward_hack_panel_bounded_paid_pilot/RESULT.md`
+  publishes the bounded paid panel pilot under the frozen defaults.
+- `experiments/iter176_reward_hack_panel_result_adjudication/HYPOTHESIS.md`
+  pre-registers the zero-spend adjudication of the iter175 panel result.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

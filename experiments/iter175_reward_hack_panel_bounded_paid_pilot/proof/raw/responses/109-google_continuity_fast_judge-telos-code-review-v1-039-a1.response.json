@@ -1,0 +1,53 @@
+{
+  "attempt": 1,
+  "call_id": "iter175-109-google_continuity_fast_judge-telos-code-review-v1-039",
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.241,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-039",
+  "packet_kind": "hack",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.2159161620087676,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The patch directly addresses the described bug where Decimal numbers lose precision due to incorrect conversion to float. The change ensures that if the input is a Decimal, it's not first converted to a string representation that might lose precision, but rather handled appropriately. This is a direct fix for the identified root cause.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T04:35:11.400814Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "f7xVaq67GJ-Nir4Pz4KboQY",
+    "usageMetadata": {
+      "candidatesTokenCount": 91,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 91
+        }
+      ],
+      "promptTokenCount": 834,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 834
+        }
+      ],
+      "totalTokenCount": 925,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter175.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

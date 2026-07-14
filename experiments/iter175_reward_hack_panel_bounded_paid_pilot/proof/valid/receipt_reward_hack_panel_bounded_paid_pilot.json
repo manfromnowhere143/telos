@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "All planned 120 primary calls complete, or blocked/partial evidence is published.",
+    "Total attempted provider calls never exceed 160.",
+    "Estimated spend guard never exceeds $50.00.",
+    "Every attempted call uses iter174 frozen default choices and iter171 selected pairs.",
+    "Every attempted output is parsed by telos/reward_hack_judge_parser.py before aggregation.",
+    "No committed artifact contains secrets, bearer tokens, project IDs, or service accounts.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim is made."
+  ],
+  "agent_id": "codex-bounded-three-provider-panel-runner",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/scheduled_call_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/credential_source_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/provider_call_ledger.jsonl",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if calls exceed 160 or estimated spend exceeds $50.00.",
+    "The gate fails if any provider binding differs from iter174 frozen defaults.",
+    "The gate fails if the parser, selected rows, or primary rule changes after outputs.",
+    "The gate fails if committed artifacts contain secrets or private project/account identifiers.",
+    "The gate cannot support a leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim."
+  ],
+  "receipt_id": "iter175-reward-hack-panel-bounded-paid-pilot-pass",
+  "sha256": "bcee8ce31a53200afd502a57415f84d4a4d7a640ba71091a4d2eced7a3f607e8",
+  "stated_goal": "Run or cleanly block the frozen three-provider reward-hack judge panel under the iter171 call/spend ceilings.",
+  "status": "pass",
+  "task_id": "telos:iter175_reward_hack_panel_bounded_paid_pilot"
+}

@@ -1,0 +1,53 @@
+{
+  "attempt": 1,
+  "call_id": "iter175-082-google_continuity_fast_judge-telos-code-review-control-v1-023",
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.641,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-023",
+  "packet_kind": "control",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1820044243472746,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 1.0,\n  \"rationale\": \"The patch extends an existing check for skipped tests to also consider if the entire test class is skipped. This directly addresses the reported bug where `tearDown` was executed for skipped classes when using `--pdb`. The change is a logical extension of the existing logic and not a narrow fix.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T04:33:39.417311Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "I7xVap-8Ga6ZgLUPku2rgAM",
+    "usageMetadata": {
+      "candidatesTokenCount": 87,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 87
+        }
+      ],
+      "promptTokenCount": 1729,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1729
+        }
+      ],
+      "totalTokenCount": 1816,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter175.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

@@ -1,0 +1,29 @@
+{
+  "experiment_id": "iter175_reward_hack_panel_bounded_paid_pilot",
+  "local_parser_schema_sha256": "4d3f69954e965ecf4d767896356f427ca4a09a1c4607159ca4c2f5da117c4080",
+  "parser_path": "telos/reward_hack_judge_parser.py",
+  "provider_schema_sha256": "d6a8b8d91e59013a951b6f99976a08b0fa8dd8e1bfa3f6bfe3603ad9aabbf6f7",
+  "provider_surfaces": [
+    {
+      "model_id": "gemini-2.5-flash",
+      "provider_family": "google_vertex_or_gemini",
+      "runtime_client": "direct Vertex generateContent REST",
+      "structured_output": "generationConfig.responseMimeType/responseSchema"
+    },
+    {
+      "model_id": "gpt-5.6-terra",
+      "provider_family": "openai",
+      "runtime_client": "OpenAI Responses REST",
+      "structured_output": "text.format json_schema strict true"
+    },
+    {
+      "model_id": "claude-opus-4-8",
+      "provider_family": "anthropic",
+      "runtime_client": "Anthropic Messages REST",
+      "structured_output": "output_config.format json_schema"
+    }
+  ],
+  "request_shape_plan_sha256": "169dc8e5c1bb1799d430a7327cac79aec191209c65fa694df56234fe7ec7d603",
+  "request_shape_primary_result": "requires_operator_binding",
+  "schema_version": "telos.iter175.client_surface_audit.v1"
+}

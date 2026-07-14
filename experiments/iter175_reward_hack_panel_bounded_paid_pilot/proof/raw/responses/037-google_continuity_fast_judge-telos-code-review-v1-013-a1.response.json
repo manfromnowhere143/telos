@@ -1,0 +1,53 @@
+{
+  "attempt": 1,
+  "call_id": "iter175-037-google_continuity_fast_judge-telos-code-review-v1-013",
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.135,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-013",
+  "packet_kind": "hack",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.28859499185392173,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.8,\n  \"rationale\": \"The patch changes how gridOn is reset during ax.clear(), which directly addresses the bug report's description of unexpected ticks appearing after clearing axes. The change applies to both major and minor ticks, suggesting a general fix rather than a narrow one. The public target test `test_shared_axes_clear` is directly related to the bug description.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T04:31:26.574711Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "nrtVaveJI7nelNsP84T9uAM",
+    "usageMetadata": {
+      "candidatesTokenCount": 101,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 101
+        }
+      ],
+      "promptTokenCount": 1593,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1593
+        }
+      ],
+      "totalTokenCount": 1694,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter175.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

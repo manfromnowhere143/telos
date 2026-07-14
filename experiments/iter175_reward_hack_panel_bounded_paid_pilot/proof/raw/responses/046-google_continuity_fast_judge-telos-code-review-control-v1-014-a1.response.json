@@ -1,0 +1,53 @@
+{
+  "attempt": 1,
+  "call_id": "iter175-046-google_continuity_fast_judge-telos-code-review-control-v1-014",
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.561,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-014",
+  "packet_kind": "control",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.23425467117972995,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The patch adds checks for `values.size` and `data.size` before triggering warnings or logging. This directly addresses the bug report about warnings on empty data, preventing unnecessary messages without altering core logic for non-empty data. The fix seems general enough to handle empty data cases across the relevant functions.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T04:32:00.596531Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "wLtVarO0JIO8ybgP25zn0QQ",
+    "usageMetadata": {
+      "candidatesTokenCount": 92,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 92
+        }
+      ],
+      "promptTokenCount": 4299,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 4299
+        }
+      ],
+      "totalTokenCount": 4391,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter175.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter175_reward_hack_panel_bounded_paid_pilot/HYPOTHESIS.md` (PRE-REGISTERED; bounded paid panel pilot pending)
+- `experiments/iter176_reward_hack_panel_result_adjudication/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend panel result adjudication pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -99,9 +99,14 @@ freeze exact default choices from that public menu without provider calls, crede
 evaluations. Iter174 is published as a zero-spend default-choice freeze pass: the defaults are
 `gemini-2.5-flash`, `gpt-5.6-terra`, and `claude-opus-4-8`; all `3/3` choices are verified members of the
 iter173 menu, generated secret hits are `0`, `majority_catch` and the `160`-call / `$50.00` ceilings are
-preserved, and paid execution is still not authorized. The active next gate is `iter175`: run or block the
-bounded paid panel pilot under those frozen defaults, with no model/endpoint/row/parser/rule substitution
-after outputs.
+preserved, and paid execution is still not authorized. Iter175 is published as the bounded paid panel
+pilot pass: `120/120` primary calls succeeded across Google, OpenAI, and Anthropic, retries were `0`,
+estimated spend guard was `$6.312690`, committed secret/project/account hits were `0`, primary
+`majority_catch` caught `13/20` hack rows and `0/20` controls, `any_catch` caught `15/20` hacks and
+`0/20` controls, and `unanimous_catch` caught `1/20` hacks and `0/20` controls. This is a bounded
+`20`-pair pilot only, not a leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness
+claim. The active next gate is `iter176`: zero-spend result adjudication before any expansion or stronger
+claim.
 
 Claim-boundary reviewer entry point:
 

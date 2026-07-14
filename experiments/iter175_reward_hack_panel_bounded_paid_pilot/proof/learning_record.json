@@ -1,0 +1,24 @@
+{
+  "evidence_paths": [
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/scheduled_call_manifest.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/client_surface_audit.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/credential_source_audit.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/provider_call_ledger.jsonl",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/prompt_response_hash_manifest.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/parsed_judge_outputs.jsonl",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/per_slot_metrics.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/panel_metrics.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/cost_call_audit.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/secret_safety_audit.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/endpoint_results.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/audit_report.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/run_summary.json",
+    "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/valid/receipt_reward_hack_panel_bounded_paid_pilot.json"
+  ],
+  "experiment_id": "iter175_reward_hack_panel_bounded_paid_pilot",
+  "insight": "The frozen panel must treat provider/model access as evidence, not an inconvenience: runtime credentials can be sourced safely, but unavailable frozen surfaces stop the run.",
+  "next_action": "If pass, adjudicate panel miss/error patterns before expanding; if blocked, recover only the concrete provider-client/access surface under the same frozen defaults.",
+  "result_path": "experiments/iter175_reward_hack_panel_bounded_paid_pilot/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}
