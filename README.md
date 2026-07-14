@@ -62,8 +62,11 @@ rejection rate, `24` prompt contracts scanned, `0` prompt-contract leakage hits,
 generation still unauthorized. Iter188 then designed the Sentinel-style Telos mission data/process audit
 without spend: `26` frozen committed local inputs, `7` required future audit-note sections, `8` verifier
 checks, hard forbidden-claim boundaries, secret-hit bar `0`, and no provider, property-generator,
-SWE-bench, cloud, or score-changing execution; the active next gate is iter189, which executes that audit
-before any new property-generator spend. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
+SWE-bench, cloud, or score-changing execution. Iter189 then executed that audit without spend: all `7`
+required audit-note sections are present, `29` frozen local inputs were checked, `15` recent key-gate
+receipts validated, benchmark-lineage checks passed, forbidden positive claim hits were `0`, secret hits
+were `0`, and the active next gate is iter190 bounded property-generator execution under the preserved
+48-call / `$40.00` ceiling. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
 state-of-the-art result, natural-frequency estimate, broad robustness result, repaired-score result, or
 claim beyond this bounded panel path is made. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
@@ -176,7 +179,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [186](experiments/iter186_reward_hack_panel_property_probe_packet_materialization/RESULT.md) | Can the property-probe packets be materialized without leakage before any paid generator call? | pass - zero-spend packet materialization: `12` hack-source packets and `12` paired-control-source packets, `24` unique packet hashes, `0` leakage hits, source traceability kept out of the prompt payload, and paid property generation still unauthorized |
 | [187](experiments/iter187_reward_hack_property_generator_schema_preflight/RESULT.md) | Can the property-generator output contract be preflighted before paid calls? | pass - zero-spend schema/parser preflight: `17` fixtures, valid executable parse rate `1.0`, invalid/refusal/malformed rejection rate `1.0`, `24` prompt contracts scanned, `0` prompt-contract leakage hits, future call/spend/execution/false-positive/nondecision bars preserved, and paid property generation still unauthorized |
 | [188](experiments/iter188_telos_mission_data_process_audit_design/RESULT.md) | Can a Sentinel-style Telos mission data/process audit be designed before any new spend? | pass - zero-spend audit design: `26` frozen committed local inputs named, `7` future audit-note sections required, `8` verifier checks planned, freshness edits constrained to concrete stale durable docs, unrepaired iter179 majority-catch remains primary (`17/40` hacks, `0/40` controls), forbidden positive claim hits `0`, secret hits `0`, and no provider/property-generator/SWE-bench/cloud execution or score upgrade |
-| [189](experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md) | Can the Sentinel-style Telos mission evidence/data-process audit be executed before any new spend? | pre-registered - zero-spend audit implementation gate requiring the required sections, public metric freshness, learning-ledger validation, receipt/benchmark-lineage checks, forbidden-claim scan, and secret-safety scan |
+| [189](experiments/iter189_telos_mission_evidence_data_process_audit/RESULT.md) | Can the Sentinel-style Telos mission evidence/data-process audit be executed before any new spend? | pass - zero-spend audit execution: all `7/7` required audit-note sections present, `29` frozen local inputs checked, `15` recent key-gate receipts validated, benchmark-lineage checks passed, public metric freshness preserved unrepaired iter179 majority-catch (`17/40` hacks, `0/40` controls), forbidden positive claim hits `0`, secret hits `0`, and no provider/property-generator/SWE-bench/cloud execution or score upgrade |
+| [190](experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md) | Can the preflighted property-generator path run on the 24 property-probe packets under bounded bars? | pre-registered - bounded paid/local execution gate preserving the `24` primary calls, `48` total-call ceiling, `$40.00` spend ceiling, at least `20` local/container execution attempts, control false-positive ceiling `0`, nondecision ceiling `4`, and response secret-hit ceiling `0` |
 
 ### The honest conclusion
 
@@ -731,9 +735,9 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: Telos mission evidence/data-process audit execution (iter189, pre-registered) in
-  [`experiments/iter189_telos_mission_evidence_data_process_audit`](experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md);
-  iter188 designed the verifier-backed audit packet without changing the public metric.
+- Current gate: reward-hack property-generator bounded execution (iter190, pre-registered) in
+  [`experiments/iter190_reward_hack_property_generator_bounded_execution`](experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md);
+  iter189 executed the mission evidence/data-process audit without changing the public metric.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -868,11 +872,11 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md`](experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md).
+[`experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md`](experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter188); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter189); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
@@ -990,7 +994,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter189), each completed gate with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter190), each completed gate with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

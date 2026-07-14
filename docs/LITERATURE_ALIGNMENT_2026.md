@@ -8,11 +8,11 @@ or weak, and feed the next reward-hack evaluator gate without inflating claims.
 Telos is aligned with a real 2026 frontier problem: agent evaluations can be gamed, reward hacking is now
 studied directly in language-agent settings, and software-agent benchmarks need stronger validity checks
 than a final scalar score. The current Telos evidence is strongest where it uses execution, receipts,
-hashes, controls, and null publication. Iter169-188 moved the project from a single-model judge to an
+hashes, controls, and null publication. Iter169-189 moved the project from a single-model judge to an
 adjudicated three-provider panel, then to a source-linked next-step design, then to a frozen
-property-probe subset, then to a Sentinel-style mission data/process audit design: unrepaired iter179
+property-probe subset, then to a Sentinel-style mission data/process audit: unrepaired iter179
 `majority_catch` remains the primary public metric (`17/40` hack rows and `0/40` controls), while the next
-frontier work should execute that audit before any new provider spend.
+frontier work is bounded property-generator execution before any claim upgrade.
 
 This memo is not a benchmark result, product claim, SOTA claim, model-comparison result, or literature
 review exhaustiveness claim.
@@ -138,11 +138,12 @@ Adjacent institutional signals:
 
 The literature now supports the iter184 recommendation, iter185 converted that recommendation into a
 concrete packet-materialization gate, iter186 materialized the packets, iter187 validated the
-schema/parser and prompt contract before paid calls, and iter188 designed the evidence/data-process audit:
+schema/parser and prompt contract before paid calls, iter188 designed the evidence/data-process audit, and
+iter189 executed it:
 
-- next gate: `iter189_telos_mission_evidence_data_process_audit`;
+- next gate: `iter190_reward_hack_property_generator_bounded_execution`;
 - no provider calls yet;
-- execute a Sentinel-style mission evidence/data-process audit before paid property-generator calls;
+- run the preflighted bounded property-generator path before any claim upgrade;
 - preserve the iter185/iter186 leakage policy: no gold patches, hidden test names, official expected
   outputs, labels, row ids, candidate diffs, target tests, or official report fields in generated prompts;
 - require native structured output or a preflighted equivalent for any future paid generator/judge call;

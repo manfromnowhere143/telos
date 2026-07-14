@@ -48,7 +48,10 @@ rate `1.0`, invalid/refusal/malformed rejection rate `1.0`, `24` prompt contract
 prompt-contract leakage hits, plus a zero-spend iter188 mission data/process audit design with `26`
 committed local inputs named, `7` required future audit-note sections, `8` verifier checks, forbidden
 positive claim hits `0`, secret hits `0`, and no provider, property-generator, SWE-bench, cloud, or
-score-changing execution;
+score-changing execution, plus a zero-spend iter189 mission evidence/data-process audit execution with
+all `7` required audit-note sections present, `29` frozen local inputs checked, `15` recent key-gate
+receipts validated, benchmark-lineage checks passed, forbidden positive claim hits `0`, secret hits `0`,
+and no provider, property-generator, SWE-bench, cloud, or score-changing execution;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -732,8 +735,10 @@ Current evidence:
   publishes the zero-spend property-generator schema/parser preflight gate.
 - `experiments/iter188_telos_mission_data_process_audit_design/RESULT.md`
   publishes the zero-spend Sentinel-style Telos mission data/process audit design gate.
-- `experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md`
-  pre-registers the zero-spend Sentinel-style Telos mission evidence/data-process audit execution gate.
+- `experiments/iter189_telos_mission_evidence_data_process_audit/RESULT.md`
+  publishes the zero-spend Sentinel-style Telos mission evidence/data-process audit execution gate.
+- `experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md`
+  pre-registers the bounded property-generator execution gate over the committed iter186 packets.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

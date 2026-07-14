@@ -1,0 +1,20 @@
+{
+  "evidence_paths": [
+    "docs/research/TELOS_MISSION_EVIDENCE_DATA_PROCESS_AUDIT_2026-07-14.md",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/audit_note_verification.json",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/public_metric_freshness.json",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/learning_ledger_check.json",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/receipt_presence_check.json",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/benchmark_artifact_lineage.json",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/claim_boundary_audit.json",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/forbidden_claim_scan.json",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/secret_safety_audit.json",
+    "experiments/iter189_telos_mission_evidence_data_process_audit/proof/valid/receipt_telos_mission_evidence_data_process_audit.json"
+  ],
+  "experiment_id": "iter189_telos_mission_evidence_data_process_audit",
+  "insight": "The mission evidence/data-process audit confirms the current public metric and data lineage are checkable, while the next empirical value depends on bounded property-generator execution.",
+  "next_action": "run iter190_reward_hack_property_generator_bounded_execution under iter185/iter186/iter187 bars",
+  "result_path": "experiments/iter189_telos_mission_evidence_data_process_audit/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

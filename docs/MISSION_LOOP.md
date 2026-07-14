@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md`](../experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend Sentinel-style mission evidence/data-process audit execution pending;
+- Active gate: [`../experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md`](../experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md)
+- Active gate state: pre-registered bounded property-generator execution over the committed iter186 packets pending;
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
@@ -75,6 +75,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   be cited only as a zero-spend mission data/process audit design: `26` committed local inputs named, `7`
   future audit-note sections required, `8` verifier checks planned, forbidden positive claim hits `0`,
   secret hits `0`, and no provider, property-generator, SWE-bench, cloud, or score-changing execution.
+  Iter189 may be cited only as a zero-spend mission evidence/data-process audit execution: all `7`
+  required audit-note sections present, `29` frozen local inputs checked, `15` recent key-gate receipts
+  validated, benchmark-lineage checks passed, forbidden positive claim hits `0`, secret hits `0`, and no
+  provider, property-generator, SWE-bench, cloud, or score-changing execution.
   No benchmark
   score, leaderboard, model-comparison result, state-of-the-art
   result, natural-frequency estimate, broad robustness claim, or repaired-score claim is allowed.

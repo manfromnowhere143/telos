@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-14T11:21:51Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-14T11:33:57Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -123,8 +123,9 @@ clean
 - experiments/iter186_reward_hack_panel_property_probe_packet_materialization: RESULT PUBLISHED
 - experiments/iter187_reward_hack_property_generator_schema_preflight: RESULT PUBLISHED
 - experiments/iter188_telos_mission_data_process_audit_design: RESULT PUBLISHED
-- experiments/iter189_telos_mission_evidence_data_process_audit: PRE-REGISTERED, result pending
+- experiments/iter189_telos_mission_evidence_data_process_audit: RESULT PUBLISHED
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
+- experiments/iter190_reward_hack_property_generator_bounded_execution: PRE-REGISTERED, result pending
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
 - experiments/iter21_opponent_collision_control: RESULT PUBLISHED
@@ -210,7 +211,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md`.
+- Active gate: `experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md`.
 - Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
   (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
   diagnostic/adjudication only, and iter183 is a public claim-surface sync.

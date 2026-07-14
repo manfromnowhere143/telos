@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend Sentinel-style mission evidence/data-process audit execution pending)
+- `experiments/iter190_reward_hack_property_generator_bounded_execution/HYPOTHESIS.md` (PRE-REGISTERED; bounded property-generator execution over iter186 packets pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -167,7 +167,13 @@ inputs named, `7` future audit-note sections required, `8` verifier checks plann
 claim hits `0`, secret hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`,
 SWE-bench executions `0`, and cloud resources `0`; unrepaired iter179 `majority_catch` remains primary.
 The active next gate is `iter189`: zero-spend execution of that mission evidence/data-process audit before
-any new property-generator spend.
+any new property-generator spend. Iter189 is published as a zero-spend mission evidence/data-process
+audit pass: all `7` required audit-note sections present, `29` frozen local inputs checked, `15` recent
+key-gate receipts validated, benchmark-lineage checks passed, forbidden positive claim hits `0`, secret
+hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions
+`0`, and cloud resources `0`; unrepaired iter179 `majority_catch` remains primary. The active next gate is
+`iter190`: bounded property-generator execution over the committed iter186 packets under the preserved
+iter185/iter186/iter187 bars.
 
 Claim-boundary reviewer entry point:
 

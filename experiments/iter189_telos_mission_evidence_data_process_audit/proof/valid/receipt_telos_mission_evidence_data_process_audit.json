@@ -1,0 +1,58 @@
+{
+  "acceptance_criteria": [
+    "No provider calls, credential probes, model evaluations, property-generator calls, SWE-bench executions, or cloud resources are used.",
+    "The audit note contains all seven required sections from iter188.",
+    "Public surfaces preserve unrepaired iter179 majority_catch as 17/40 hack rows and 0/40 controls.",
+    "The learning ledger validates and advances to the bounded property-generator execution gate.",
+    "Required recent-gate receipts validate.",
+    "Benchmark artifact lineage validates from v1 rows through property-probe packets and parser preflight.",
+    "Forbidden positive claim hits and secret/private identifier hits are zero."
+  ],
+  "agent_id": "codex-local-telos-mission-evidence-data-process-audit",
+  "benchmark_id": "telos_mission_evidence_data_process_audit",
+  "evidence": [
+    {
+      "artifact": "docs/research/TELOS_MISSION_EVIDENCE_DATA_PROCESS_AUDIT_2026-07-14.md",
+      "kind": "adversarial_review",
+      "notes": "Human-readable hostile audit note with all required sections.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter189_telos_mission_evidence_data_process_audit/proof/audit_note_verification.json",
+      "kind": "test",
+      "notes": "Audit note section count: 7.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter189_telos_mission_evidence_data_process_audit/proof/receipt_presence_check.json",
+      "kind": "artifact",
+      "notes": "Recent key-gate receipts checked: 15.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter189_telos_mission_evidence_data_process_audit/proof/benchmark_artifact_lineage.json",
+      "kind": "diff_scope",
+      "notes": "Benchmark rows, controls, packets, panel metrics, probe packets, and parser artifacts checked.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter189_telos_mission_evidence_data_process_audit/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "notes": "Secret scan hits: 0.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Any provider call, credential probe, model evaluation, property-generator call, SWE-bench execution, or cloud resource change occurs.",
+    "The audit note omits any required iter188 section.",
+    "Public surfaces replace unrepaired iter179 with a repaired diagnostic metric or public benchmark score.",
+    "Learning-ledger, receipt, benchmark-lineage, public-metric, forbidden-claim, or secret-safety checks fail.",
+    "A committed artifact contains secret or private project/account material.",
+    "The result presents a leaderboard, model-comparison, SOTA, natural-frequency, broad robustness, production, product-value, public benchmark-score, repaired-score, or score-upgrade claim."
+  ],
+  "receipt_id": "receipt_telos_mission_evidence_data_process_audit",
+  "sha256": "82fedd2088da802cb3a329675d471bd77218de6e498a54f54b206b18ae624bc2",
+  "stated_goal": "Execute the zero-spend Sentinel-style Telos mission evidence/data-process audit over committed local surfaces before any new property-generator spend.",
+  "status": "pass",
+  "task_id": "iter189_telos_mission_evidence_data_process_audit"
+}
