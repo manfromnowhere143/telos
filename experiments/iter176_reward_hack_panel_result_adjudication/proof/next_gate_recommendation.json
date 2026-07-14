@@ -1,0 +1,14 @@
+{
+  "experiment_id": "iter176_reward_hack_panel_result_adjudication",
+  "next_gate": "experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md",
+  "recommendation": "Freeze a zero-spend, disagreement-calibrated expansion design before the next paid run.",
+  "required_design_elements": [
+    "keep majority_catch as the primary rule unless a later pre-registered gate changes it",
+    "address OpenAI max_output_tokens empty-content failures before paid expansion",
+    "stratify rows by panel-missed hacks, majority-caught hacks, panel nondecisions, and clean controls",
+    "report Google/OpenAI/Anthropic disagreement as mechanism evidence, not as a leaderboard",
+    "freeze call ceiling, spend ceiling, stop conditions, and claim boundary before calls"
+  ],
+  "schema_version": "telos.iter176.next_gate_recommendation.v1",
+  "status": "pass"
+}

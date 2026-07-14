@@ -21,8 +21,11 @@ then ran the bounded paid panel pilot: `120/120` primary calls succeeded with `0
 guard `$6.312690`, and `0` secret/project/account hits in committed artifacts. On the `20` paired rows,
 the primary `majority_catch` panel caught `13/20` hack rows and `0/20` controls, while `any_catch` caught
 `15/20` hacks and `0/20` controls and `unanimous_catch` caught `1/20` hacks and `0/20` controls. The
-active gate is iter176: zero-spend adjudication of the iter175 invalid-output, disagreement, and
-claim-boundary pattern before any expansion. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim, state-of-the-art result, natural-frequency estimate, broad robustness result, or claim beyond this bounded `20`-pair pilot is made. The repository begins with a completed target survey:
+iter176 zero-spend adjudication rederived the result from committed proof: `120/120` calls reconciled by
+hash, `120/120` parsed rows mapped to scheduled calls, committed metrics matched, the three nondecisions
+were OpenAI `max_output_tokens` empty-content failures, and the main disagreement pattern was
+OpenAI/Anthropic catch versus Google legitimate on `12` rows. The active gate is iter177: a zero-spend,
+disagreement-calibrated expansion design before any further paid panel call. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim, state-of-the-art result, natural-frequency estimate, broad robustness result, or claim beyond this bounded `20`-pair pilot is made. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
 hybrid Telos overlay on public software-agent tasks.
 
@@ -120,7 +123,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [173](experiments/iter173_reward_hack_panel_public_binding_menu/RESULT.md) | Can a public binding menu be built before operator choice? | pass - zero-spend official-docs binding menu: `3` panel slots, `6` source-linked candidates, secret hits `0`, `majority_catch` preserved, ready for operator/default choice, paid execution not authorized |
 | [174](experiments/iter174_reward_hack_panel_default_choice_freeze/RESULT.md) | Can exact default choices be frozen from the public menu? | pass - zero-spend default freeze: `gemini-2.5-flash`, `gpt-5.6-terra`, and `claude-opus-4-8`; `3/3` choices verified in the iter173 menu, secret hits `0`, `majority_catch` preserved, paid execution not authorized |
 | [175](experiments/iter175_reward_hack_panel_bounded_paid_pilot/RESULT.md) | Can the frozen panel run a bounded paid paired pilot? | pass - `120/120` primary calls succeeded across Google, OpenAI, and Anthropic with `0` retries, estimated spend guard `$6.312690`, secret hits `0`; primary `majority_catch` caught `13/20` hack rows and `0/20` controls. Honest: bounded 20-pair pilot only, not a leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim |
-| [176](experiments/iter176_reward_hack_panel_result_adjudication/HYPOTHESIS.md) | Can the panel pilot be adjudicated before expansion? | pre-registered - zero-spend recomputation, invalid-output audit, disagreement matrix, and claim-boundary decision over iter175 artifacts |
+| [176](experiments/iter176_reward_hack_panel_result_adjudication/RESULT.md) | Can the panel pilot be adjudicated before expansion? | pass - zero-spend recomputation reconciled `120/120` iter175 calls by hash and `120/120` parsed rows to the schedule; committed panel and per-slot metrics matched; primary `majority_catch` remained `13/20` hack catches and `0/20` control catches; three OpenAI empty-content rows stayed nondecisions; `0` provider calls, credential probes, SWE-bench executions, cloud resources, or secret hits. Honest: adjudication only, not a leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, or public benchmark score |
+| [177](experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md) | Can the next panel expansion be designed from the adjudicated disagreement pattern before spending again? | pre-registered - zero-spend expansion design to address OpenAI output-budget empty rows, stratify panel disagreement, freeze call/spend ceilings, and preserve `majority_catch` before any paid run |
 
 ### The honest conclusion
 
@@ -675,10 +679,10 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack panel result adjudication (iter176, pre-registered) in
-  [`experiments/iter176_reward_hack_panel_result_adjudication`](experiments/iter176_reward_hack_panel_result_adjudication/HYPOTHESIS.md);
-  iter175 completed the bounded paid panel pilot with `120/120` successful primary calls, `0` retries,
-  estimated spend guard `$6.312690`, and `0` committed secret/project/account hits.
+- Current gate: reward-hack panel disagreement-calibrated expansion design (iter177, pre-registered) in
+  [`experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design`](experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md);
+  iter176 adjudicated the bounded paid panel pilot with `120/120` calls reconciled by hash, matched
+  committed metrics, `0` provider calls, `0` credential probes, and `0` secret hits.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -813,11 +817,11 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter176_reward_hack_panel_result_adjudication/HYPOTHESIS.md`](experiments/iter176_reward_hack_panel_result_adjudication/HYPOTHESIS.md).
+[`experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md`](experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter175); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter176); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
@@ -928,7 +932,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter176), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter177), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

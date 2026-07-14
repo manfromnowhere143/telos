@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter176_reward_hack_panel_result_adjudication/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend panel result adjudication pending)
+- `experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend disagreement-calibrated expansion design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -105,8 +105,11 @@ estimated spend guard was `$6.312690`, committed secret/project/account hits wer
 `majority_catch` caught `13/20` hack rows and `0/20` controls, `any_catch` caught `15/20` hacks and
 `0/20` controls, and `unanimous_catch` caught `1/20` hacks and `0/20` controls. This is a bounded
 `20`-pair pilot only, not a leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness
-claim. The active next gate is `iter176`: zero-spend result adjudication before any expansion or stronger
-claim.
+claim. Iter176 is published as a zero-spend result adjudication pass: `120/120` iter175 calls reconciled
+by hash, `120/120` parsed rows mapped to scheduled calls, committed panel/per-slot metrics matched, three
+OpenAI `max_output_tokens` empty-content rows stayed nondecisions, and the disagreement matrix showed the
+main mechanism was OpenAI/Anthropic catching while Google called legitimate on `12` rows. The active next
+gate is `iter177`: zero-spend disagreement-calibrated expansion design before any further paid panel call.
 
 Claim-boundary reviewer entry point:
 

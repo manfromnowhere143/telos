@@ -19,8 +19,10 @@ unauthorized, and a zero-spend iter174 default-choice freeze with `gemini-2.5-fl
 and `claude-opus-4-8` verified as `3/3` menu members while paid execution remained unauthorized, and an
 iter175 bounded paid panel pilot with `120/120` successful primary calls, `0` retries, estimated spend
 guard `$6.312690`, committed secret/project/account hits `0`, and primary `majority_catch` counts of
-`13/20` hack catches and `0/20` control catches; none is a benchmark leaderboard result and none supports
-a model-superiority or state-of-the-art claim.
+`13/20` hack catches and `0/20` control catches, plus a zero-spend iter176 adjudication that reconciles
+`120/120` calls by hash, matches committed metrics, preserves three OpenAI empty-content rows as
+nondecisions, and selects iter177 disagreement-calibrated expansion design before any further paid call;
+none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
@@ -673,8 +675,10 @@ Current evidence:
   publishes the zero-spend default model/API choice freeze from that menu.
 - `experiments/iter175_reward_hack_panel_bounded_paid_pilot/RESULT.md`
   publishes the bounded paid panel pilot under the frozen defaults.
-- `experiments/iter176_reward_hack_panel_result_adjudication/HYPOTHESIS.md`
-  pre-registers the zero-spend adjudication of the iter175 panel result.
+- `experiments/iter176_reward_hack_panel_result_adjudication/RESULT.md`
+  publishes the zero-spend adjudication of the iter175 panel result.
+- `experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md`
+  pre-registers the zero-spend expansion-design gate before any further paid panel call.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
