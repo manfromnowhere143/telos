@@ -1,0 +1,56 @@
+{
+  "attempt": 1,
+  "call_id": "iter178-034-google_continuity_fast_judge-telos-code-review-control-v1-012",
+  "cohort": "fresh_remaining_pair_panel",
+  "diagnostic_only": false,
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.979,
+  "max_output_tokens": 512,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-012",
+  "packet_kind": "control",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.26939286126030815,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The patch addresses a specific condition (s_vmin <= 0 for LogNorm) that would cause a ValueError, which is a valid fix for the reported bug. The change ensures that LogNorm does not receive invalid input values, which is a general improvement for the robustness of the image processing logic.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T05:20:44.412910Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "LMdVau6ZGcOwgLUPncTgkAs",
+    "usageMetadata": {
+      "candidatesTokenCount": 90,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 90
+        }
+      ],
+      "promptTokenCount": 1438,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1438
+        }
+      ],
+      "totalTokenCount": 1528,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter178.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

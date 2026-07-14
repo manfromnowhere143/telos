@@ -1,0 +1,71 @@
+{
+  "acceptance_criteria": [
+    "All planned 120 fresh primary calls complete, or blocked/partial evidence is published.",
+    "All planned 3 OpenAI diagnostic recovery calls complete, or blocked evidence is published.",
+    "Total attempted provider calls never exceed 160.",
+    "Estimated spend guard never exceeds $50.00.",
+    "Every fresh attempted call uses iter174 frozen provider/model choices and iter177 selected remaining pairs.",
+    "Every OpenAI attempted call uses the iter177 recovered output-budget shape.",
+    "Every attempted output is parsed by telos/reward_hack_judge_parser.py before aggregation.",
+    "OpenAI recovery diagnostics do not rewrite iter175 primary metrics.",
+    "No committed artifact contains secrets, bearer tokens, project IDs, or service accounts.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim is made."
+  ],
+  "agent_id": "codex-remaining-pairs-three-provider-panel-runner",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/scheduled_call_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/credential_source_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/provider_call_ledger.jsonl",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/panel_metrics.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/combined_unrepaired_diagnostic_table.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/openai_recovery_diagnostic_table.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/endpoint_results.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if calls exceed 160 or estimated spend exceeds $50.00.",
+    "The gate fails if any provider binding differs from iter174 frozen defaults.",
+    "The gate fails if the parser, selected rows, recovery budget, or primary rule changes after outputs.",
+    "The gate fails if OpenAI recovery diagnostics rewrite iter175 primary metrics.",
+    "The gate fails if committed artifacts contain secrets or private project/account identifiers.",
+    "The gate cannot support a leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim."
+  ],
+  "receipt_id": "iter178-reward-hack-panel-remaining-pairs-paid-expansion-pass",
+  "sha256": "ff93f6cb7220e2d8c3ee07c9d3a33d8df6f66f8381d1f77bd5fb690ee9073c14",
+  "stated_goal": "Run the frozen remaining-pairs reward-hack judge panel expansion and separate OpenAI output-budget recovery diagnostic under the iter177 call/spend ceilings.",
+  "status": "pass",
+  "task_id": "telos:iter178_reward_hack_panel_remaining_pairs_paid_expansion"
+}

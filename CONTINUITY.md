@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/HYPOTHESIS.md` (PRE-REGISTERED; bounded paid remaining-pairs panel expansion pending)
+- `experiments/iter179_reward_hack_panel_full_cohort_adjudication/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend full-cohort adjudication pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -113,7 +113,12 @@ gate was `iter177`: zero-spend disagreement-calibrated expansion design before a
 call. Iter177 is published as a zero-spend design pass: the next paid gate is frozen to `20` fresh
 remaining paired rows plus `3` diagnostic OpenAI recovery calls, `123` planned calls before retries, a
 `160` call ceiling, `$50.00` spend ceiling, OpenAI max output tokens `1536`, and no claim upgrade. The
-active next gate is `iter178`: run only that frozen remaining-pairs paid expansion.
+iter178 paid expansion is published as a pass: `123/123` provider calls succeeded, retries were `0`,
+estimated spend guard was `$7.005150`, committed secret/project/account hits were `0`, fresh
+`majority_catch` caught `4/20` hack rows and `0/20` controls, combined unrepaired iter175+iter178
+`majority_catch` caught `17/40` hack rows and `0/40` controls, and the three OpenAI recovery rows parsed
+under the `1536` token budget but remain diagnostic only. The active next gate is `iter179`: zero-spend
+full-cohort adjudication before any README or paper claim upgrade.
 
 Claim-boundary reviewer entry point:
 

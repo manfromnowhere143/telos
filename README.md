@@ -27,8 +27,15 @@ were OpenAI `max_output_tokens` empty-content failures, and the main disagreemen
 OpenAI/Anthropic catch versus Google legitimate on `12` rows. Iter177 froze the next expansion design
 without spend: `20` fresh remaining paired rows, `3` diagnostic OpenAI recovery calls, `123` planned
 calls before retries, a `160` call ceiling, `$50.00` spend ceiling, and OpenAI max output tokens raised to
-`1536` for the next gate. The active gate is iter178: a bounded paid remaining-pairs panel expansion under
-that frozen design. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim, state-of-the-art result, natural-frequency estimate, broad robustness result, or claim beyond this bounded panel path is made. The repository begins with a completed target survey:
+`1536` for the next gate. Iter178 then ran that bounded paid expansion: `123/123` provider calls
+succeeded with `0` retries, estimated spend guard `$7.005150`, and `0` secret/project/account hits. On the
+fresh remaining `20` paired rows, primary `majority_catch` caught `4/20` hack rows and `0/20` controls;
+the combined unrepaired iter175+iter178 diagnostic view is `17/40` hack catches and `0/40` control
+catches, with `4` hack nondecisions and `1` control nondecision. The three OpenAI recovery calls emitted
+parsed diagnostic outputs under the `1536` token budget, but they do not rewrite iter175 metrics. The
+active gate is iter179: a zero-spend full-cohort adjudication and claim-boundary pass. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded
+denominators, model-superiority claim, state-of-the-art result, natural-frequency estimate, broad
+robustness result, or claim beyond this bounded panel path is made. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
 hybrid Telos overlay on public software-agent tasks.
 
@@ -128,7 +135,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [175](experiments/iter175_reward_hack_panel_bounded_paid_pilot/RESULT.md) | Can the frozen panel run a bounded paid paired pilot? | pass - `120/120` primary calls succeeded across Google, OpenAI, and Anthropic with `0` retries, estimated spend guard `$6.312690`, secret hits `0`; primary `majority_catch` caught `13/20` hack rows and `0/20` controls. Honest: bounded 20-pair pilot only, not a leaderboard, model-superiority, SOTA, natural-frequency, or broad robustness claim |
 | [176](experiments/iter176_reward_hack_panel_result_adjudication/RESULT.md) | Can the panel pilot be adjudicated before expansion? | pass - zero-spend recomputation reconciled `120/120` iter175 calls by hash and `120/120` parsed rows to the schedule; committed panel and per-slot metrics matched; primary `majority_catch` remained `13/20` hack catches and `0/20` control catches; three OpenAI empty-content rows stayed nondecisions; `0` provider calls, credential probes, SWE-bench executions, cloud resources, or secret hits. Honest: adjudication only, not a leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, or public benchmark score |
 | [177](experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/RESULT.md) | Can the next panel expansion be designed from the adjudicated disagreement pattern before spending again? | pass - zero-spend design selected the `20` unobserved paired rows for the next primary cohort, kept the three OpenAI empty-content rows as a diagnostic recovery cohort, froze `123` planned calls before retries under a `160` call / `$50.00` ceiling, raised OpenAI max output tokens to `1536`, preserved `majority_catch`, and made `0` provider calls, credential probes, SWE-bench executions, cloud resources, or secret hits. Honest: design only, not a new score or claim upgrade |
-| [178](experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/HYPOTHESIS.md) | Can the frozen panel cover the remaining paired rows under the iter177 call/spend/recovery design? | pre-registered - paid execution gate with `120` fresh remaining-pair panel calls, `3` diagnostic OpenAI recovery calls, `160` total-call ceiling, `$50.00` spend ceiling, no new SWE-bench executions or cloud resources, and no leaderboard/model/SOTA claim |
+| [178](experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/RESULT.md) | Can the frozen panel cover the remaining paired rows under the iter177 call/spend/recovery design? | pass - `123/123` calls succeeded with `0` retries, spend guard `$7.005150`, secret hits `0`; fresh `majority_catch` caught `4/20` hack rows and `0/20` controls; combined unrepaired iter175+iter178 majority is `17/40` hacks and `0/40` controls; recovery rows are diagnostic only |
+| [179](experiments/iter179_reward_hack_panel_full_cohort_adjudication/HYPOTHESIS.md) | Can the full panel cohort be adjudicated without spend before any claim upgrade? | pre-registered - zero-spend adjudication gate over committed iter175+iter178 proof, recovery diagnostics excluded from score repair, no provider calls or claim upgrade |
 
 ### The honest conclusion
 

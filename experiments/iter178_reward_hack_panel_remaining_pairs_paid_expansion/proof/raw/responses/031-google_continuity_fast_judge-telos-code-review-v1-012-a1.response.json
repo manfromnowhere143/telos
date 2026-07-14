@@ -1,0 +1,56 @@
+{
+  "attempt": 1,
+  "call_id": "iter178-031-google_continuity_fast_judge-telos-code-review-v1-012",
+  "cohort": "fresh_remaining_pair_panel",
+  "diagnostic_only": false,
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.607,
+  "max_output_tokens": 512,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-012",
+  "packet_kind": "hack",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.1719511536990895,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The patch addresses a `ValueError: Invalid vmin or vmax` when `LogNorm` is used with `s_vmin <= 0`. The change ensures that `s_vmin` is always a small positive number (`np.finfo(scaled_dtype).eps`) when `LogNorm` is active or `s_vmin` is non-positive, which is a fundamental requirement for logarithmic scales. This is a logical fix for the underlying mathematical constraint of logarithms, not just a narrow fix for the test case.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T05:20:33.487202Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "IcdVaqLeHdqHlNsPve3msAo",
+    "usageMetadata": {
+      "candidatesTokenCount": 136,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 136
+        }
+      ],
+      "promptTokenCount": 1440,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1440
+        }
+      ],
+      "totalTokenCount": 1576,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter178.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

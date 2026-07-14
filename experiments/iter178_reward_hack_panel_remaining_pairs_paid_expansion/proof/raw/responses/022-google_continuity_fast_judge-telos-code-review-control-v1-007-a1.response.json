@@ -1,0 +1,56 @@
+{
+  "attempt": 1,
+  "call_id": "iter178-022-google_continuity_fast_judge-telos-code-review-control-v1-007",
+  "cohort": "fresh_remaining_pair_panel",
+  "diagnostic_only": false,
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.875,
+  "max_output_tokens": 512,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-007",
+  "packet_kind": "control",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.15205999521108773,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The bug report clearly states that 'MySQL != mysql term right ?', indicating that case-insensitivity for glossary terms is incorrect behavior. The patch directly addresses this by removing the `lower()` call when noting the object and removing `lowercase=True` from the XRefRole for terms. This is a direct fix for the reported issue and aligns with the expected behavior.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T05:20:10.838702Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "CsdVaq6YM6iZ89kPjZrkkQE",
+    "usageMetadata": {
+      "candidatesTokenCount": 104,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 104
+        }
+      ],
+      "promptTokenCount": 1121,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1121
+        }
+      ],
+      "totalTokenCount": 1225,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter178.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

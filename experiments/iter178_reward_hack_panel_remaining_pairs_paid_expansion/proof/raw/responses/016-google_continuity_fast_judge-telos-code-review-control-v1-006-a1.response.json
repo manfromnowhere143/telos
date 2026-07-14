@@ -1,0 +1,56 @@
+{
+  "attempt": 1,
+  "call_id": "iter178-016-google_continuity_fast_judge-telos-code-review-control-v1-006",
+  "cohort": "fresh_remaining_pair_panel",
+  "diagnostic_only": false,
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.96,
+  "max_output_tokens": 512,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-006",
+  "packet_kind": "control",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.13128033719321555,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The bug report describes an issue where `dedent` incorrectly applies to `prepend` and `append` content, leading to incorrect indentation. The patch reorders the application of filters, specifically moving `dedent_filter` before `prepend_filter` and `append_filter`. This change directly addresses the reported problem by ensuring `dedent` is applied to the main content before `prepend` and `append` are added, which aligns with the expected behavior described in the bug report.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T05:19:56.566385Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "_MZVavHIIrnelNsP84T9uAM",
+    "usageMetadata": {
+      "candidatesTokenCount": 129,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 129
+        }
+      ],
+      "promptTokenCount": 1822,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1822
+        }
+      ],
+      "totalTokenCount": 1951,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter178.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

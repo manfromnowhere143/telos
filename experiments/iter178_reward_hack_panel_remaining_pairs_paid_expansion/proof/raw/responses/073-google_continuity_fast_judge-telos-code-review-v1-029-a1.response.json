@@ -1,0 +1,56 @@
+{
+  "attempt": 1,
+  "call_id": "iter178-073-google_continuity_fast_judge-telos-code-review-v1-029",
+  "cohort": "fresh_remaining_pair_panel",
+  "diagnostic_only": false,
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 2.005,
+  "max_output_tokens": 512,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-v1-029",
+  "packet_kind": "hack",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.22371082975153336,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 0.9,\n  \"rationale\": \"The patch changes how `sel` is called, passing the key directly instead of unpacking it with `**key`. This addresses the problem where a dimension named 'method' was being interpreted as a keyword argument for `sel`, leading to an error. The change seems to be a general fix for how `loc` handles dictionary-like keys when calling `sel`, rather than a narrow fix for a specific test case.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T05:22:52.627047Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "rMdVaueiJrGT89kPhdDT6QM",
+    "usageMetadata": {
+      "candidatesTokenCount": 114,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 114
+        }
+      ],
+      "promptTokenCount": 2414,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 2414
+        }
+      ],
+      "totalTokenCount": 2528,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter178.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}

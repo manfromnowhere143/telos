@@ -22,7 +22,11 @@ guard `$6.312690`, committed secret/project/account hits `0`, and primary `major
 `13/20` hack catches and `0/20` control catches, plus a zero-spend iter176 adjudication that reconciles
 `120/120` calls by hash, matches committed metrics, preserves three OpenAI empty-content rows as
 nondecisions, and a zero-spend iter177 expansion design that freezes the next paid gate to `20` fresh
-remaining paired rows plus `3` diagnostic OpenAI recovery calls under a `160` call / `$50.00` ceiling;
+remaining paired rows plus `3` diagnostic OpenAI recovery calls under a `160` call / `$50.00` ceiling,
+and an iter178 bounded paid expansion with `123/123` successful calls, `0` retries, spend guard
+`$7.005150`, fresh `majority_catch` counts of `4/20` hack catches and `0/20` control catches, combined
+unrepaired iter175+iter178 `majority_catch` counts of `17/40` hack catches and `0/40` control catches,
+and three parsed OpenAI recovery diagnostics that do not rewrite iter175;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without

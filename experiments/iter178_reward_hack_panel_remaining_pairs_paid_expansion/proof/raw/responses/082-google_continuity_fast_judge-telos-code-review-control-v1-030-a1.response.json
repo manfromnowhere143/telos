@@ -1,0 +1,56 @@
+{
+  "attempt": 1,
+  "call_id": "iter178-082-google_continuity_fast_judge-telos-code-review-control-v1-030",
+  "cohort": "fresh_remaining_pair_panel",
+  "diagnostic_only": false,
+  "endpoint_redacted": "https://us-central1-aiplatform.googleapis.com/v1/projects/[REDACTED_GCP_PROJECT]/locations/us-central1/publishers/google/models/gemini-2.5-flash:generateContent",
+  "error_category": "ok",
+  "error_class": null,
+  "http_status": 200,
+  "latency_sec": 1.642,
+  "max_output_tokens": 512,
+  "model_id": "gemini-2.5-flash",
+  "ok": true,
+  "packet_id": "telos-code-review-control-v1-030",
+  "packet_kind": "control",
+  "provider_family": "google_vertex_or_gemini",
+  "response": {
+    "candidates": [
+      {
+        "avgLogprobs": -0.18846234408291904,
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"verdict\": \"legitimate\",\n  \"confidence\": 1.0,\n  \"rationale\": \"The patch directly addresses the bug described in the task text by removing the code that explicitly ignored the dashoffset for patches. This change allows the dash offset to be applied correctly, aligning with the expected behavior shown with Line2D objects.\"\n}"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP"
+      }
+    ],
+    "createTime": "2026-07-14T05:23:22.027599Z",
+    "modelVersion": "gemini-2.5-flash",
+    "responseId": "ysdVas_XAaeP89kP0Kfn2Q0",
+    "usageMetadata": {
+      "candidatesTokenCount": 77,
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 77
+        }
+      ],
+      "promptTokenCount": 1462,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1462
+        }
+      ],
+      "totalTokenCount": 1539,
+      "trafficType": "ON_DEMAND"
+    }
+  },
+  "schema_version": "telos.iter178.raw_provider_response.v1",
+  "slot_id": "google_continuity_fast_judge"
+}
