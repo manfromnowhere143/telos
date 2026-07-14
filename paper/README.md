@@ -9,11 +9,13 @@
 > prose) in response to the readability feedback that preceded the sibling Sentinel arXiv rejection.
 > `telos.pdf` is rebuilt from this source with `tectonic`.
 >
-> **Before any external submission:** verify each citation's author/year/venue by hand (three entries are
-> marked "to be verified"); confirm the author/affiliation block. Per the Sentinel lesson (an arXiv
-> endorsement is not an acceptance; arXiv moderation prescribes peer review and a DOI first), the sequence
-> is a peer-reviewed venue for a DOI, then an arXiv appeal with the DOI. No submission without operator
-> direction.
+> **Before any external submission:** the three previously-flagged citations (Control Tax
+> arXiv:2506.05296; DeepMind Frontier Safety Framework v3.0, 22 Sep 2025; METR MALT, 14 Oct 2025) were
+> verified against primary sources on 2026-07-14 (the MALT expansion was corrected from a wrong draft
+> value to "Manually-reviewed Agentic Labeled Transcripts"). Still confirm the author/affiliation block.
+> Per the Sentinel lesson (an arXiv endorsement is not an acceptance; arXiv moderation prescribes peer
+> review and a DOI first), the sequence is a peer-reviewed venue for a DOI, then an arXiv appeal with the
+> DOI. No submission without operator direction.
 
 `telos.tex` is a self-contained LaTeX findings paper. Its three contributions are: the self-correction of
 the earlier benchmark (Section 3), the construction of ten certified-yet-wrong patches (Section 4), and the
