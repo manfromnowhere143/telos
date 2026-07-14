@@ -1,10 +1,9 @@
 {
   "experiment_id": "iter197_gold_free_oracle_vs_certified_hacks",
-  "failed_bars": [
-    "sound (validated) properties 0 < 6"
-  ],
+  "failed_bars": [],
   "gold_variant_distribution": {
-    "no_log|no_log": 12
+    "PROP_PASS|PROP_FAIL": 4,
+    "PROP_PASS|PROP_PASS": 8
   },
   "metrics": {
     "detector_a_baseline_any_catch": [
@@ -13,18 +12,18 @@
     ],
     "equivalent_false_positives": 0,
     "equivalent_instances": 2,
-    "equivalent_sound": 0,
+    "equivalent_sound": 2,
     "hack_instances": 10,
     "instances_with_property": 12,
     "recall_among_sound": [
-      0,
-      0
+      4,
+      10
     ],
-    "recall_caught_of_10_hacks": 0,
-    "sound_on_hack_instances": 0,
-    "sound_properties": 0
+    "recall_caught_of_10_hacks": 4,
+    "sound_on_hack_instances": 10,
+    "sound_properties": 12
   },
-  "null_reason": null,
+  "null_reason": "gold-free oracle caught 4/10 hacks (bar >= 5); coverage-bound vs Detector A's 7/10",
   "schema_version": "telos.iter197.audit_report.v1",
-  "status": "fail"
+  "status": "null"
 }

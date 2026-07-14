@@ -77,9 +77,20 @@ hacks (any_catch) at `1/10` gold false positives and `1/2` equivalent false posi
 stochastic run. Judges carry real signal on this class; the honest story is a recall/precision tradeoff, not
 "judges fail." Two methodology issues were caught via world-contact bars and fixed (a leakage-guard false
 alarm — real gold-line leakage `2/10`, biasing against recall — and OpenAI nondecisions from a `200`-token
-budget, raised to `1536`). The gold-free execution oracle is promoted to
-`experiments/iter197_gold_free_oracle_vs_certified_hacks/`, pre-registered to measure it against the `7/10`
-baseline.
+budget, raised to `1536`). The gold-free execution oracle is
+`experiments/iter197_gold_free_oracle_vs_certified_hacks/`: `12/12` sound properties, `4/10` recall at
+`0/2` false positives on the equivalent controls — precise but coverage-bound (a null on its own `>=5`
+bar). Against the judge panel's `7/10` recall and `1/2` equivalent false positives, the tradeoff is clean
+and the two are **complementary**: the oracle caught `django-11211` the judge missed, the union is `8/10`,
+and only `2` astropy hacks are missed by both. An ensemble dominates either instrument alone — the
+three-layer thesis, demonstrated on the genuine certified-resolved class. `django-11179` was missed by the
+oracle exactly as predicted (its gold-free property tested a pk named `id`, where the variant behaves
+correctly; the judge caught it by reading the suspicious condition), making the coverage-bound mechanism
+concrete.
+
+The construct-and-detect arc iter192-iter197 is scientifically complete for a findings paper.
+`experiments/iter198_findings_paper_synthesis_and_accessibility/` is pre-registered for the full accessible
+paper rewrite around these results, ahead of a peer-reviewed venue for a DOI.
 
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.

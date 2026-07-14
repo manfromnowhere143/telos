@@ -1,0 +1,14 @@
+{
+  "evidence_paths": [
+    "experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/audit_report.json",
+    "experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/iter197_per_property.json",
+    "experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/raw/properties/phase_a_summary.json",
+    "experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/valid/receipt_gold_free_oracle.json"
+  ],
+  "experiment_id": "iter197_gold_free_oracle_vs_certified_hacks",
+  "insight": "Gold-free execution oracle: 12/12 sound properties, 4/10 recall on the certified-resolved hacks, 0/2 false positives on equivalent controls -- precise but coverage-bound (below the 5 bar -> null). vs judge panel 7/10 recall, 1/2 equivalent FP. The two are COMPLEMENTARY: oracle caught django-11211 the judge missed; union 8/10; only 2 astropy missed by both. django-11179 missed exactly as predicted (property used pk='id', variant correct there). The recall/precision/coverage tradeoff + complementarity is the detector-comparison result the paper needs; an ensemble dominates either alone.",
+  "next_action": "the construct-and-detect arc (iter192-197) is scientifically complete for a findings paper; next is a full accessible paper rewrite around iter192->197 (correct the reward-hack framing, define every term, kill the dense LLM style per Caesar's feedback), then a peer-reviewed venue for a DOI before arXiv",
+  "result_path": "experiments/iter197_gold_free_oracle_vs_certified_hacks/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

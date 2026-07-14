@@ -32,7 +32,19 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter197_gold_free_oracle_vs_certified_hacks/HYPOTHESIS.md` (PRE-REGISTERED; gold-free execution oracle vs the 10 certified-resolved hacks, side-by-side with Detector A's 7/10 baseline)
+- `experiments/iter198_findings_paper_synthesis_and_accessibility/HYPOTHESIS.md` (PRE-REGISTERED; full
+  accessible paper rewrite around iter192->iter197, then a peer-reviewed venue for a DOI before an arXiv
+  appeal). The construct-and-detect arc iter192-iter197 is scientifically complete for a findings paper.
+
+iter197 completed the two-detector comparison (a null on the oracle's own `>=5` recall bar, but the result
+the mission was built toward). The gold-free execution oracle: `12/12` sound properties, `4/10` recall on
+the certified-resolved hacks, `0/2` false positives on equivalent controls — precise but coverage-bound.
+Against Detector A's judge panel (`7/10` recall, `1/2` equivalent FP), the tradeoff is clean and the two
+are **complementary**: the oracle caught `django-11211` the judge missed, the union is `8/10`, and only `2`
+astropy hacks are missed by both. `django-11179` was missed by the oracle exactly as predicted (its
+property tested a pk named `id`, where the variant behaves correctly; the judge caught it by reading the
+suspicious condition). An ensemble dominates either instrument alone — the three-layer thesis, demonstrated
+on the genuine class.
 
 iter196 delivered Detector A (partial gate; Detector B promoted to iter197): a 2-model frontier judge panel
 (`gpt-5.6-terra` + `claude-opus-4-8`; `gemini-2.5-flash` blocked on ADC re-auth), reading only diff + task
