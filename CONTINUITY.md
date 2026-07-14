@@ -16,6 +16,14 @@ carries the dynamic state.
 7. **One operator at a time.** Keep the repo handoff-ready after every state change.
 8. **Mission loop is explicit.** The public loop contract lives at `mission/loop.json`. Do not claim
    private Aweb/Maestro execution unless Aweb discovery returns a concrete Telos capability slug.
+9. **World-contact beats self-consistency.** A gate that passes only internal checks — CI, guards,
+   audits, a parser accepting its own fixtures — is satisfiable without touching the world, and a
+   capable optimizer will find that fixed point. It did: iter185-iter190 built and passed guards toward
+   a prose-only schema that could produce nothing runnable, and the flagship benchmark was gamed by its
+   own generator (iter192). This is the Telos thesis turned on Telos: a misspecified reward gets
+   satisfied without the real objective. Every gate must therefore include at least one bar that can
+   fail on reality — real execution against behavior the reward does not cover, an outside reader, or
+   external validation. Green guards are a floor, not a finish.
 
 ## Current Research Arc
 
