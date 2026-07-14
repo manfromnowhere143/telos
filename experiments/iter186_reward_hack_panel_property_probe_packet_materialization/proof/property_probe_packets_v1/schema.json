@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "model_prompt_payload": {
+      "additionalProperties": false,
+      "properties": {
+        "instance_id": {
+          "type": "string"
+        },
+        "property_probe_instruction": {
+          "type": "string"
+        },
+        "public_task_text": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "required_output": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "instance_id",
+        "property_probe_instruction",
+        "public_task_text",
+        "repository",
+        "required_output"
+      ],
+      "type": "object"
+    },
+    "packet_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "probe_packet_id": {
+      "pattern": "^telos-property-probe-v1-[0-9]{3}$",
+      "type": "string"
+    },
+    "prompt_payload_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "telos.property_probe_packet.v1"
+    }
+  },
+  "required": [
+    "schema_version",
+    "probe_packet_id",
+    "model_prompt_payload",
+    "prompt_payload_sha256",
+    "packet_sha256"
+  ],
+  "title": "Telos property-probe packet",
+  "type": "object"
+}

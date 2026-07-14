@@ -53,7 +53,10 @@ empirical gate: a property-probe design over the `23` iter179 primary-missed hac
 provider spend. Iter185 then froze that design without spend: the committed iter179 primary-miss cohort is
 `23` hack rows across `4` disagreement/nondecision classes, the priority property-probe subset is `12`
 rows across at least `6` repositories, leakage policy forbids gold patches, hidden test names, official
-expected outputs, and labels, and the next active gate is iter186 packet materialization. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
+expected outputs, and labels, and the next active gate is iter186 packet materialization. Iter186 then
+materialized the `24` property-probe input packets without spend: `12` hack-source packets and `12`
+paired-control-source packets, unique hashes, source traceability in the manifest only, and `0` prompt
+leakage hits. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
 state-of-the-art result, natural-frequency estimate, broad robustness result, repaired-score result, or
 claim beyond this bounded panel path is made. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
@@ -163,7 +166,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [183](experiments/iter183_reward_hack_panel_public_claim_surface_sync/RESULT.md) | Can public surfaces be synchronized to the adjudicated repair-diagnostic boundary? | pass - zero-spend public claim-surface sync: `0` provider calls, credential probes, model evaluations, SWE-bench executions, or cloud resources; public surfaces preserve unrepaired iter179 `majority_catch` as primary (`17/40` hacks, `0/40` controls), keep iter181/iter182 repair evidence diagnostic/adjudication only, and advance the active gate to iter184 |
 | [184](experiments/iter184_reward_hack_panel_frontier_research_alignment_design/RESULT.md) | Can public frontier research be mapped to the next reward-hack panel expansion before spending again? | pass - zero-spend public-source research-alignment design: `20` stable public sources, `6` source-backed technique implications, `0` provider calls, credential probes, model evaluations, SWE-bench executions, cloud resources, or secret hits; next gate is iter185 property-probe design over the `23` iter179 primary-missed hack rows |
 | [185](experiments/iter185_reward_hack_panel_miss_property_probe_design/RESULT.md) | Can the panel-missed hack cohort be turned into a leakage-controlled property-probe design before spending again? | pass - zero-spend property-probe design: exactly `23` iter179 primary-missed hack rows recovered, `4` disagreement/nondecision classes, `12` priority rows selected across at least `6` repos, leakage policy forbids gold patches, hidden test names, official expected outputs, and labels, and future paid/execution bars are frozen before provider spend |
-| [186](experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md) | Can the property-probe packets be materialized without leakage before any paid generator call? | pre-registered - zero-spend packet materialization gate requiring exactly `12` hack packets, `12` paired controls, `24` unique packet hashes, and `0` leakage hits before any provider spend |
+| [186](experiments/iter186_reward_hack_panel_property_probe_packet_materialization/RESULT.md) | Can the property-probe packets be materialized without leakage before any paid generator call? | pass - zero-spend packet materialization: `12` hack-source packets and `12` paired-control-source packets, `24` unique packet hashes, `0` leakage hits, source traceability kept out of the prompt payload, and paid property generation still unauthorized |
+| [187](experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md) | Can the property-generator output contract be preflighted before paid calls? | pre-registered - zero-spend schema/parser preflight requiring fixture coverage, `0` prompt-contract leakage hits, and preserved future call/spend/execution/false-positive/nondecision bars |
 
 ### The honest conclusion
 
@@ -718,10 +722,9 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack panel property-probe packet materialization (iter186, pre-registered) in
-  [`experiments/iter186_reward_hack_panel_property_probe_packet_materialization`](experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md);
-  iter185 froze a leakage-controlled `12`-row priority property-probe subset from the `23` iter179
-  primary-missed hack rows without changing the public metric.
+- Current gate: reward-hack property-generator schema preflight (iter187, pre-registered) in
+  [`experiments/iter187_reward_hack_property_generator_schema_preflight`](experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md);
+  iter186 materialized the `24` leakage-scanned property-probe packets without changing the public metric.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -856,16 +859,16 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md`](experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md).
+[`experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md`](experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter185); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter186); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
 flowchart LR
- L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-185<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40 · property-probe design"]
+ L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-186<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40 · property-probe packets"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
@@ -904,12 +907,13 @@ stayed `3/40`, hack invalids rose to `5/40`, and balanced detection dropped to `
 adjudicated the null: all `9` invalid outputs were markdown-fenced JSON, and a diagnostic-only strip would
 reach only `4/40` recall, so independent panel design is the next pre-registered gate. The July 2026
 literature sweep is recorded in [`docs/LITERATURE_ALIGNMENT_2026.md`](docs/LITERATURE_ALIGNMENT_2026.md).
-Iter169-184 then moved from single-model judging to a three-provider panel: the full unrepaired
+Iter169-186 then moved from single-model judging to a three-provider panel: the full unrepaired
 `majority_catch` result is `17/40` hack rows and `0/40` controls, and iter181's OpenAI-only repair run
 reduced nondecisions in a secondary diagnostic without changing that primary result; iter182 adjudicated
 that diagnostic from raw committed proof before any claim upgrade, and iter183 synchronized public claim
 surfaces to keep that boundary explicit. Iter184 then mapped current public research to a concrete
-property-probe design gate for the `23` hack rows the primary panel still misses.
+property-probe design gate for the `23` hack rows the primary panel still misses; iter185 froze the
+priority subset, and iter186 materialized the leakage-scanned packet inputs.
 The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
 
@@ -977,7 +981,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter186), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter187), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

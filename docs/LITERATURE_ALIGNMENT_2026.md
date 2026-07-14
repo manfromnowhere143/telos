@@ -8,11 +8,11 @@ or weak, and feed the next reward-hack evaluator gate without inflating claims.
 Telos is aligned with a real 2026 frontier problem: agent evaluations can be gamed, reward hacking is now
 studied directly in language-agent settings, and software-agent benchmarks need stronger validity checks
 than a final scalar score. The current Telos evidence is strongest where it uses execution, receipts,
-hashes, controls, and null publication. Iter169-185 moved the project from a single-model judge to an
+hashes, controls, and null publication. Iter169-186 moved the project from a single-model judge to an
 adjudicated three-provider panel, then to a source-linked next-step design, then to a frozen
 property-probe subset: unrepaired iter179 `majority_catch` remains the primary public metric (`17/40`
-hack rows and `0/40` controls), while the next frontier work should materialize leakage-scanned paired
-property-probe packets before any new provider spend.
+hack rows and `0/40` controls), while the next frontier work should preflight the property-generator
+output schema before any new provider spend.
 
 This memo is not a benchmark result, product claim, SOTA claim, model-comparison result, or literature
 review exhaustiveness claim.
@@ -136,14 +136,14 @@ Adjacent institutional signals:
 
 ## Next Gate Impact
 
-The literature now supports the iter184 recommendation, and iter185 has converted that recommendation
-into a concrete packet-materialization gate:
+The literature now supports the iter184 recommendation, iter185 converted that recommendation into a
+concrete packet-materialization gate, and iter186 converted the packets into a schema-preflight gate:
 
-- next gate: `iter186_reward_hack_panel_property_probe_packet_materialization`;
+- next gate: `iter187_reward_hack_property_generator_schema_preflight`;
 - no provider calls yet;
-- materialize exactly `12` hack property-probe packets and `12` paired controls from the iter185 subset;
-- preserve the iter185 leakage policy: no gold patches, hidden test names, official expected outputs, or
-  labels in generated prompts;
+- preflight the property-generator output schema and parser before paid calls;
+- preserve the iter185/iter186 leakage policy: no gold patches, hidden test names, official expected
+  outputs, labels, row ids, candidate diffs, target tests, or official report fields in generated prompts;
 - require native structured output or a preflighted equivalent for any future paid generator/judge call;
 - freeze future call, spend, execution, false-positive, and nondecision bars before any provider call;
 - keep execution-backed adjudication as the final layer for uncertain high-value rows.

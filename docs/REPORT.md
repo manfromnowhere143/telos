@@ -40,7 +40,9 @@ technique implications, and selects iter185 property-probe design over the `23` 
 hack rows before any new provider spend, plus a zero-spend iter185 panel-miss property-probe design that
 recovers exactly `23` iter179 primary-missed hack rows, partitions them into `4` disagreement/nondecision
 classes, selects a `12`-row priority subset across at least `6` repositories, and freezes leakage and
-future paid/execution bars before iter186 packet materialization;
+future paid/execution bars before iter186 packet materialization, plus a zero-spend iter186
+property-probe packet materialization gate that creates `12` hack-source packets and `12`
+paired-control-source packets with `24` unique packet hashes and `0` prompt leakage hits;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -718,8 +720,10 @@ Current evidence:
   publishes the zero-spend public-source frontier research-alignment design gate.
 - `experiments/iter185_reward_hack_panel_miss_property_probe_design/RESULT.md`
   publishes the zero-spend panel-miss property-probe design gate.
-- `experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md`
-  pre-registers the zero-spend property-probe packet materialization gate.
+- `experiments/iter186_reward_hack_panel_property_probe_packet_materialization/RESULT.md`
+  publishes the zero-spend property-probe packet materialization gate.
+- `experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md`
+  pre-registers the zero-spend property-generator schema preflight gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

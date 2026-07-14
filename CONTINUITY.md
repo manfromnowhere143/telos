@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend property-probe packet materialization pending)
+- `experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend property-generator schema preflight pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -150,7 +150,13 @@ classes, and narrowed to a `12`-row priority subset covering at least `6` reposi
 forbids gold patches, hidden test names, official expected outputs, and labels; provider calls `0`,
 credential probes `0`, model evaluations `0`, SWE-bench executions `0`, cloud resources `0`, and secret
 hits `0`. The active next gate is `iter186`: zero-spend materialization of the `12` hack and `12` paired
-control property-probe packets before any property-generator call.
+control property-probe packets before any property-generator call. Iter186 is published as a zero-spend
+property-probe packet materialization pass: `12` hack-source packets and `12` paired-control-source
+packets were materialized with `24` unique packet hashes, source traceability kept in the manifest only,
+candidate diffs and public target-test ids excluded from the model-facing prompt payload, leakage hits
+`0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions `0`,
+cloud resources `0`, and secret hits `0`. The active next gate is `iter187`: zero-spend
+property-generator schema and parser preflight before any paid property-generation call.
 
 Claim-boundary reviewer entry point:
 

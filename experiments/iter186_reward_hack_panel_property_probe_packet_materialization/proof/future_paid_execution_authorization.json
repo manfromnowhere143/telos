@@ -1,0 +1,23 @@
+{
+  "authorized_now": false,
+  "blocker_before_paid_calls": "Run the next zero-spend property-generator schema/preflight gate first.",
+  "experiment_id": "iter186_reward_hack_panel_property_probe_packet_materialization",
+  "next_gate": "experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md",
+  "preserved_iter185_numeric_bars": {
+    "control_false_positive_ceiling": 0,
+    "estimated_spend_ceiling_usd": 40.0,
+    "hack_property_failure_floor_for_success": 4,
+    "local_or_container_execution_attempt_floor": 20,
+    "new_swebench_execution_ceiling": 24,
+    "nondecision_ceiling": 4,
+    "planned_primary_property_generator_calls": 24,
+    "provider_call_ceiling_including_retries": 48,
+    "response_secret_hit_ceiling": 0,
+    "retry_reserve_calls": 24
+  },
+  "prompt_leakage_hit_ceiling": 0,
+  "property_probe_packet_count": 24,
+  "reason": "Iter186 materializes packet inputs only. Provider calls remain unauthorized until the output schema, parser fixtures, and prompt contract pass a zero-spend preflight.",
+  "schema_version": "telos.iter186.future_paid_execution_authorization.v1",
+  "status": "pass"
+}

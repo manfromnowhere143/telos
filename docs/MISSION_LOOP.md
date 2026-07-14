@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md`](../experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend property-probe packet materialization pending;
+- Active gate: [`../experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md`](../experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md)
+- Active gate state: pre-registered zero-spend property-generator schema preflight pending;
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
@@ -65,7 +65,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   cited only as a zero-spend panel-miss property-probe design: exactly `23` iter179 primary-missed hack
   rows recovered, `4` disagreement/nondecision classes, a `12`-row priority subset covering at least `6`
   repositories, leakage policy forbidding gold patches, hidden test names, official expected outputs, and
-  labels, and future paid/execution bars frozen before provider spend. No benchmark
+  labels, and future paid/execution bars frozen before provider spend. Iter186 may be cited only as a
+  zero-spend packet materialization gate: `12` hack-source packets, `12` paired-control-source packets,
+  `24` unique packet hashes, prompt leakage hits `0`, candidate diffs and target-test ids excluded from
+  model-facing prompt payloads, and paid property generation still unauthorized. No benchmark
   score, leaderboard, model-comparison result, state-of-the-art
   result, natural-frequency estimate, broad robustness claim, or repaired-score claim is allowed.
 - Public runner: GitHub Actions plus local validators.
