@@ -1,0 +1,53 @@
+{
+  "acceptance_criteria": [
+    "No provider calls, credential probes, model evaluations, SWE-bench executions, or cloud resources are used.",
+    "The design uses only committed iter175 and iter176 artifacts.",
+    "The design includes at least four row strata.",
+    "The design includes a concrete mitigation for OpenAI empty-content max_output_tokens failures.",
+    "The next paid plan has an explicit provider-call ceiling and spend ceiling.",
+    "No committed artifact contains secrets or private project/account identifiers.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, or public benchmark-score claim is made."
+  ],
+  "agent_id": "codex-zero-spend-panel-expansion-designer",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/proof/expansion_row_selection_design.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/proof/openai_output_budget_recovery_design.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/proof/disagreement_stratification_table.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/proof/call_spend_ceiling_proposal.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, model evaluation, SWE-bench execution, or cloud resource change occurs.",
+    "The gate fails if the design is not derived from committed iter175/iter176 artifacts.",
+    "The gate fails if it lacks an OpenAI output-budget mitigation.",
+    "The gate fails if no explicit call or spend ceiling is frozen.",
+    "The gate fails if committed artifacts contain secrets or private project/account identifiers.",
+    "The gate cannot support a leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, or public benchmark-score claim."
+  ],
+  "receipt_id": "iter177-reward-hack-panel-disagreement-calibrated-expansion-design-pass",
+  "sha256": "d5b699b59e0e06107db821552fe738b0be2bb7bc0e86672daf22efaef0ef6a59",
+  "stated_goal": "Freeze the next reward-hack panel expansion design before further paid calls.",
+  "status": "pass",
+  "task_id": "telos:iter177_reward_hack_panel_disagreement_calibrated_expansion_design"
+}

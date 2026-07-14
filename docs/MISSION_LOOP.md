@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md`](../experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend panel expansion design pending; iter161/iter165 may be
+- Active gate: [`../experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/HYPOTHESIS.md`](../experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/HYPOTHESIS.md)
+- Active gate state: pre-registered bounded paid remaining-pairs panel expansion pending; iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
   evaluator-family design, and iter167 may be cited only as a completed skeptical-prompt null
@@ -33,8 +33,11 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   hits were `0`, and primary `majority_catch` caught `13/20` hack rows and `0/20` controls. Iter176 may
   be cited only as a zero-spend adjudication: `120/120` calls reconciled by hash, committed metrics
   matched, three OpenAI `max_output_tokens` empty-content rows stayed nondecisions, and the next gate is
-  disagreement-calibrated expansion design. No benchmark score, leaderboard, model-comparison result,
-  state-of-the-art result, natural-frequency estimate, or broad robustness claim is allowed.
+  disagreement-calibrated expansion design. Iter177 may be cited only as a zero-spend design: `20` fresh
+  remaining pairs, `3` diagnostic OpenAI recovery calls, `123` planned calls before retries, `160` call
+  ceiling, `$50.00` spend ceiling, OpenAI max output tokens `1536`, and no new score. No benchmark score,
+  leaderboard, model-comparison result, state-of-the-art result, natural-frequency estimate, or broad
+  robustness claim is allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
   the Aweb MCP catalog.

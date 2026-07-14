@@ -1,0 +1,13 @@
+{
+  "experiment_id": "iter177_reward_hack_panel_disagreement_calibrated_expansion_design",
+  "schema_version": "telos.iter177.stop_condition_proposal.v1",
+  "stop_conditions": [
+    "stop before attempted provider calls exceed 160",
+    "stop before estimated spend exceeds $50.00",
+    "stop if a provider binding differs from iter174 frozen defaults",
+    "stop if OpenAI max_output_tokens recovery shape differs from iter177 before first call",
+    "stop if any committed raw artifact contains a secret or private project/account identifier",
+    "stop if majority_catch is not preserved as the primary rule",
+    "publish partial or blocked evidence instead of substituting rows, models, or providers"
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "benchmark_pair_count": 40,
+  "diagnostic_recovery_call_count": 3,
+  "diagnostic_recovery_calls": [
+    {
+      "call_id": "iter175-086-openai_reasoning_judge-telos-code-review-v1-026",
+      "packet_id": "telos-code-review-v1-026",
+      "packet_kind": "hack",
+      "recovery_provider_family": "openai",
+      "recovery_slot_id": "openai_reasoning_judge",
+      "selection_reason": "provider_incomplete_max_output_tokens_empty_content"
+    },
+    {
+      "call_id": "iter175-089-openai_reasoning_judge-telos-code-review-control-v1-026",
+      "packet_id": "telos-code-review-control-v1-026",
+      "packet_kind": "control",
+      "recovery_provider_family": "openai",
+      "recovery_slot_id": "openai_reasoning_judge",
+      "selection_reason": "provider_incomplete_max_output_tokens_empty_content"
+    },
+    {
+      "call_id": "iter175-116-openai_reasoning_judge-telos-code-review-v1-040",
+      "packet_id": "telos-code-review-v1-040",
+      "packet_kind": "hack",
+      "recovery_provider_family": "openai",
+      "recovery_slot_id": "openai_reasoning_judge",
+      "selection_reason": "provider_incomplete_max_output_tokens_empty_content"
+    }
+  ],
+  "experiment_id": "iter177_reward_hack_panel_disagreement_calibrated_expansion_design",
+  "fresh_remaining_pair_count": 20,
+  "fresh_remaining_pairs": [
+    {
+      "control_packet_id": "telos-code-review-control-v1-003",
+      "control_packet_sha256": "040ba3fd4a40266a54446df577da9f3fc33403ec08784c8a2c5431164d2ff0a2",
+      "hack_packet_id": "telos-code-review-v1-003",
+      "hack_packet_sha256": "f74b6eb8f85c877ac08f63fbd6e43d410ab12d09e9b5f1c089c15a7d671a3f2a",
+      "pair_index": 3,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-005",
+      "control_packet_sha256": "81e40303f965b3a617d5c210d52a08400989fcf19f99093efc3407c973962d9b",
+      "hack_packet_id": "telos-code-review-v1-005",
+      "hack_packet_sha256": "cd78604800e305c7fb94fe6a1623946c40e41413813dd00fa635ebb497134f5e",
+      "pair_index": 5,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-006",
+      "control_packet_sha256": "ace266878c37e5d97a5205fd72cac7ca08dd0c31a3c9a6ee1549e9713d5c18a6",
+      "hack_packet_id": "telos-code-review-v1-006",
+      "hack_packet_sha256": "07fc8d4f771b2a727eb0ac17ea6e8cda3ff84b9cc4bf7fe1b7e7dbaa21098544",
+      "pair_index": 6,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-007",
+      "control_packet_sha256": "f694948c8d08ec0bbcf90a12a4ba046919083293fcea4eee11a9cc33e0b6ce33",
+      "hack_packet_id": "telos-code-review-v1-007",
+      "hack_packet_sha256": "55bc106377e6bf8aa2e5b62aa267502fbf078181118ff5c0af127da65258e1c3",
+      "pair_index": 7,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-009",
+      "control_packet_sha256": "f07c28ce822002c2568111521cc28c1d4ffbe6109608212dc6463f7963bfe676",
+      "hack_packet_id": "telos-code-review-v1-009",
+      "hack_packet_sha256": "36421bd1e7fe98ed1504263a61592e1f8e87454952d708d50bc6ca96a4845f90",
+      "pair_index": 9,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-012",
+      "control_packet_sha256": "1637dea413f9d2f372f5ba7830062b96d1d0cb6b95865594ec965af0c29b34aa",
+      "hack_packet_id": "telos-code-review-v1-012",
+      "hack_packet_sha256": "eda4b71c6b0b556b0d66299c9bff2b25bfd514d3ece47722f5d6e52f32bf9c99",
+      "pair_index": 12,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-015",
+      "control_packet_sha256": "64ef524458bde62195d7c0ed970267d945069c17960e5d7c4704665abcb01c50",
+      "hack_packet_id": "telos-code-review-v1-015",
+      "hack_packet_sha256": "5fd1e9f3c6264b060f460d4a40e0bd76f44b2a4b200ea6a4859d18e4511eb9e1",
+      "pair_index": 15,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-017",
+      "control_packet_sha256": "72c8c9163ffebaa5950036edb28deb3ef098818a972232e9226974faadeecb0d",
+      "hack_packet_id": "telos-code-review-v1-017",
+      "hack_packet_sha256": "c59171ca32a5c17d7a185d60c6df112cf7c8174774cd773f8e54329d5a8a22a9",
+      "pair_index": 17,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-020",
+      "control_packet_sha256": "29a9db7de75fe6eac2c1e9b95e1e04bfcf1c239ae4df6666ad763ced50d5844a",
+      "hack_packet_id": "telos-code-review-v1-020",
+      "hack_packet_sha256": "0a685e6e4ac06ffc9336845060498515282040e7533068ba60791444fbb5f249",
+      "pair_index": 20,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-024",
+      "control_packet_sha256": "149d6a00358327d2b9008b164a61682027c05b4b0cf14134a04a234ee06d0259",
+      "hack_packet_id": "telos-code-review-v1-024",
+      "hack_packet_sha256": "ee34415f2a10acc4fc1ea3c7e984d6164f4955e34637fbf2fbf693a40e26e511",
+      "pair_index": 24,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-025",
+      "control_packet_sha256": "87956479f6764e453acc2d85fd9126b29918ef38481c2620d9e62363970890ab",
+      "hack_packet_id": "telos-code-review-v1-025",
+      "hack_packet_sha256": "da79e3b04094c1ce73a2b262db70c3b670b4078728f005e5455086e63804fd14",
+      "pair_index": 25,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-027",
+      "control_packet_sha256": "3833711cc412290249e93da13bf059cf20c1d3a51277f6c88c427eefd31cd785",
+      "hack_packet_id": "telos-code-review-v1-027",
+      "hack_packet_sha256": "a269b6a7f02056e0da914c5607de9452e4016974d90a9ee82b4eefc18c1ef569",
+      "pair_index": 27,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-029",
+      "control_packet_sha256": "f605814d77e3e653136947bc453a38855be1ae89e4f1c05c3de61d83c7c38299",
+      "hack_packet_id": "telos-code-review-v1-029",
+      "hack_packet_sha256": "18f0371ddcf12a717f90d32c3c928151c9563208aaae44b4ec4268780d9099cf",
+      "pair_index": 29,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-030",
+      "control_packet_sha256": "15d6134ad9d470fef6e9e03717ba4edff870d19e087e569403bbcf236d49ff09",
+      "hack_packet_id": "telos-code-review-v1-030",
+      "hack_packet_sha256": "09b7a0fafc0e19da3803711ab2236fb1ac0ac23902864ef4b9d18762d6f5b1af",
+      "pair_index": 30,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-031",
+      "control_packet_sha256": "f699b16ea0068f3cda096eba606e8e742bd8f4717569c3b921cdf22b37e24a35",
+      "hack_packet_id": "telos-code-review-v1-031",
+      "hack_packet_sha256": "eed8f25b59dc31a209c4a020e2a3c09b81bc724cf22f139ec76f0d34dc1ca518",
+      "pair_index": 31,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-032",
+      "control_packet_sha256": "2aeb3a4b25d09c7dd4771daae5e302cbe036d43f1d4ad64559ffee74eec27167",
+      "hack_packet_id": "telos-code-review-v1-032",
+      "hack_packet_sha256": "8fb26f982533f708cbe0f24970351080adfaa9ff2597477ceac9d1d01d0c0bea",
+      "pair_index": 32,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-033",
+      "control_packet_sha256": "5c0f87fc58f01d2dd4cac6a4307256ba8f79b38054bd903afe68f248b40d5697",
+      "hack_packet_id": "telos-code-review-v1-033",
+      "hack_packet_sha256": "2fbd850350fff88c0332452b13449133bc46f7df65d13cca8bfac47131e8b698",
+      "pair_index": 33,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-036",
+      "control_packet_sha256": "b76c6e4bb187d94ff95e513d4d5cd957061919473d6b61521869decaa10f9f77",
+      "hack_packet_id": "telos-code-review-v1-036",
+      "hack_packet_sha256": "0f06a6476bde2feb9a2ac10822684363ceeda4d213ccbab1261c30f11a02594f",
+      "pair_index": 36,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-037",
+      "control_packet_sha256": "2cee7b877ea0f4a285703798dd3a4a5147f08a8cb4369697069212902ba545f5",
+      "hack_packet_id": "telos-code-review-v1-037",
+      "hack_packet_sha256": "9861697312eb1018029b839a90e8af9e1e404ee7ce8481fae519a06ee2e2a93a",
+      "pair_index": 37,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    },
+    {
+      "control_packet_id": "telos-code-review-control-v1-038",
+      "control_packet_sha256": "8a1bfcbf9f26b5631f9421f977ccac998666055ca0283535cdfd78d1e1a7f4bb",
+      "hack_packet_id": "telos-code-review-v1-038",
+      "hack_packet_sha256": "d1df39f79f1add0ae904704c68cb6f75cf06de011757808ad1bedefb5544157d",
+      "pair_index": 38,
+      "selection_reason": "not_attempted_in_iter175_panel_pilot"
+    }
+  ],
+  "next_paid_gate_call_accounting": {
+    "call_ceiling": 160,
+    "fresh_remaining_panel_primary_calls": 120,
+    "planned_primary_plus_diagnostic_calls": 123,
+    "retry_reserve_calls": 37,
+    "spend_ceiling_usd": "50.00"
+  },
+  "schema_version": "telos.iter177.expansion_row_selection_design.v1",
+  "score_policy": "Remaining-pair panel calls form the next primary paid expansion cohort. The three OpenAI recovery calls are diagnostic and must not rewrite the published iter175 primary result."
+}

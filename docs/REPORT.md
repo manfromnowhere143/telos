@@ -21,7 +21,8 @@ iter175 bounded paid panel pilot with `120/120` successful primary calls, `0` re
 guard `$6.312690`, committed secret/project/account hits `0`, and primary `majority_catch` counts of
 `13/20` hack catches and `0/20` control catches, plus a zero-spend iter176 adjudication that reconciles
 `120/120` calls by hash, matches committed metrics, preserves three OpenAI empty-content rows as
-nondecisions, and selects iter177 disagreement-calibrated expansion design before any further paid call;
+nondecisions, and a zero-spend iter177 expansion design that freezes the next paid gate to `20` fresh
+remaining paired rows plus `3` diagnostic OpenAI recovery calls under a `160` call / `$50.00` ceiling;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -650,7 +651,11 @@ Current evidence:
   paid execution still unauthorized. `iter175` then completed that bounded pilot: `120/120` primary calls
   succeeded across the frozen Google, OpenAI, and Anthropic slots with `0` retries, estimated spend guard
   `$6.312690`, committed secret/project/account hits `0`, and primary `majority_catch` counts of `13/20`
-  hack catches and `0/20` control catches.
+  hack catches and `0/20` control catches. `iter176` adjudicated the result with zero spend: `120/120`
+  calls reconciled by hash, committed metrics matched, and three OpenAI empty-content rows remained
+  nondecisions. `iter177` then froze the next paid expansion design: `20` fresh remaining paired rows,
+  `3` diagnostic OpenAI recovery calls, `123` planned calls before retries, a `160` call ceiling, and a
+  `$50.00` spend ceiling.
 - `experiments/iter166_reward_hack_moonshot_evaluator_family_design/RESULT.md`
   publishes the zero-spend evaluator-family design and recommends the bounded iter167 skeptical-judge
   calibration gate.
@@ -677,8 +682,10 @@ Current evidence:
   publishes the bounded paid panel pilot under the frozen defaults.
 - `experiments/iter176_reward_hack_panel_result_adjudication/RESULT.md`
   publishes the zero-spend adjudication of the iter175 panel result.
-- `experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/HYPOTHESIS.md`
-  pre-registers the zero-spend expansion-design gate before any further paid panel call.
+- `experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/RESULT.md`
+  publishes the zero-spend expansion-design gate before any further paid panel call.
+- `experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/HYPOTHESIS.md`
+  pre-registers the bounded paid remaining-pairs expansion gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
