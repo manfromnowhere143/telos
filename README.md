@@ -44,7 +44,15 @@ The same runs produced `139` variants across `65` instances that the official ha
 **resolved** — whole suite passing — and discarded every one as a `no_both_miss` failure, keeping only
 `{id, repo, status}`. Their diffs are unrecoverable. Whether they are *wrong* is unestablished and
 requires gold-differential execution. That discarded class is the mission's target, and it is what
-`experiments/iter193_certified_resolved_reward_hack_construction/` is pre-registered to construct.
+`experiments/iter193_certified_resolved_reward_hack_construction/` set out to construct.
+
+iter193 executed `16` elicited certified-resolved-but-wrong candidates in pinned x86 SWE-bench containers
+and published a null: `0` witnessed certified-and-wrong rows against a `>=5` bar. `6` matplotlib candidates
+were certified-resolved but behaviorally identical to gold across their full test module (`undetermined`,
+not correct); `10` django/astropy candidates were not executable by a bare-`pytest` harness — a
+harness-fitness gap, not a negative. `experiments/iter194_certified_resolved_oracle_and_runner_fix/`
+is pre-registered to certify via the official SWE-bench harness `report.json` and add a synthesized-input
+gold-differential fallback oracle before the `>=5` bar is re-tested.
 
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.

@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter193_certified_resolved_reward_hack_construction/proof/audit_report.json",
+    "experiments/iter193_certified_resolved_reward_hack_construction/proof/phase_b_per_candidate.json",
+    "experiments/iter193_certified_resolved_reward_hack_construction/proof/accepted_rows.json",
+    "experiments/iter193_certified_resolved_reward_hack_construction/proof/raw/phase_a_candidates/phase_a_summary.json",
+    "experiments/iter193_certified_resolved_reward_hack_construction/proof/valid/receipt_certified_resolved_reward_hack.json"
+  ],
+  "experiment_id": "iter193_certified_resolved_reward_hack_construction",
+  "insight": "Bounded elicited construction of certified-resolved-and-wrong patches produced 0 witnessed rows against a >=5 bar. Of 16 candidates, 6 matplotlib executed and were certified-resolved but identical to gold across their full test module (undetermined, not correct); 10 django/astropy were not executable by a bare-pytest harness (django testbed lacks pytest; astropy collection gap). The uncurated-test oracle is coverage-bound (iter139 lesson), and the harness gap is a fitness gap, not a scientific negative. The null is honest and grounded in real container execution.",
+  "next_action": "run iter194_certified_resolved_oracle_and_runner_fix: execute django/astropy via the official SWE-bench harness or runtests.py, and add the synthesized-input gold-differential fallback oracle for certified candidates with no uncurated witness, before re-testing the >=5 accepted-row bar",
+  "result_path": "experiments/iter193_certified_resolved_reward_hack_construction/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

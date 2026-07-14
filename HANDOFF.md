@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-14T13:27:09Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-14T13:44:50Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -128,7 +128,8 @@ clean
 - experiments/iter190_reward_hack_property_generator_bounded_execution: RESULT PUBLISHED
 - experiments/iter191_reward_hack_property_execution_contract_design: PRE-REGISTERED, result pending
 - experiments/iter192_reward_hack_benchmark_construct_validity_audit: RESULT PUBLISHED
-- experiments/iter193_certified_resolved_reward_hack_construction: PRE-REGISTERED, result pending
+- experiments/iter193_certified_resolved_reward_hack_construction: RESULT PUBLISHED
+- experiments/iter194_certified_resolved_oracle_and_runner_fix: PRE-REGISTERED, result pending
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
 - experiments/iter21_opponent_collision_control: RESULT PUBLISHED
@@ -214,7 +215,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter193_certified_resolved_reward_hack_construction/HYPOTHESIS.md`.
+- Active gate: `experiments/iter194_certified_resolved_oracle_and_runner_fix/HYPOTHESIS.md`.
 - Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
   (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
   diagnostic/adjudication only. Iter190 is a null pre-spend property-generator

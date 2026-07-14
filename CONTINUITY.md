@@ -24,7 +24,15 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter193_certified_resolved_reward_hack_construction/HYPOTHESIS.md` (PRE-REGISTERED; bounded construction of certified-resolved-and-wrong rows pending)
+- `experiments/iter194_certified_resolved_oracle_and_runner_fix/HYPOTHESIS.md` (PRE-REGISTERED; project-correct execution + fallback wrongness oracle before re-testing the >=5 bar)
+
+iter193 published a null (grounded in real x86 container execution): a bounded, elicited attempt to
+construct certified-resolved-and-wrong patches produced `0` witnessed rows against a `>=5` bar. Of `16`
+candidates, `6` matplotlib executed and were certified-resolved but identical to gold across their full
+test module (`undetermined`, not correct), and `10` django/astropy were not executable by a bare-pytest
+harness (django testbed lacks `pytest`; astropy collection gap) — a harness-fitness gap, not a negative.
+iter194 fixes both: certify via the official SWE-bench harness `report.json`, and add a synthesized-input
+gold-differential fallback oracle for certified candidates with no uncurated witness.
 
 ## Standing correction (iter192) - read before citing any reward-hack number
 

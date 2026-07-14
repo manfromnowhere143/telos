@@ -1,0 +1,107 @@
+TEST_PATCH_OK
+VARIANT_OK
+GRADED_START
+(no match in any of [<Module test_patches.py>])
+
+
+no tests ran in 10.70s
+GRADED_END
+VARIANT_FULL_START
+V PASSED lib/matplotlib/tests/test_patches.py::test_Polygon_close
+V PASSED lib/matplotlib/tests/test_patches.py::test_corner_center
+V PASSED lib/matplotlib/tests/test_patches.py::test_rotate_rect
+V PASSED lib/matplotlib/tests/test_patches.py::test_rotate_rect_draw[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_dash_offset_patch_draw[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_negative_rect
+V PASSED lib/matplotlib/tests/test_patches.py::test_clip_to_bbox[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_clip_to_bbox[pdf]
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_alpha_coloring[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_alpha_coloring[pdf]
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_alpha_override[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_alpha_override[pdf]
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_color_none
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_custom_linestyle[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_custom_linestyle[pdf]
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_linestyle_accents
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_linestyle_none[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_wedge_movement
+V PASSED lib/matplotlib/tests/test_patches.py::test_wedge_range[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_wedge_range[pdf]
+V PASSED lib/matplotlib/tests/test_patches.py::test_patch_str
+V PASSED lib/matplotlib/tests/test_patches.py::test_multi_color_hatch[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_multi_color_hatch[pdf]
+V PASSED lib/matplotlib/tests/test_patches.py::test_units_rectangle[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_connection_patch[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_connection_patch_fig[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_datetime_rectangle
+V PASSED lib/matplotlib/tests/test_patches.py::test_datetime_datetime_fails
+V PASSED lib/matplotlib/tests/test_patches.py::test_contains_point
+V PASSED lib/matplotlib/tests/test_patches.py::test_contains_points
+V PASSED lib/matplotlib/tests/test_patches.py::test_shadow[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_fancyarrow_units
+V PASSED lib/matplotlib/tests/test_patches.py::test_fancyarrow_setdata
+V PASSED lib/matplotlib/tests/test_patches.py::test_fancyarrow_shape_error
+V PASSED lib/matplotlib/tests/test_patches.py::test_boxstyle_errors[foo-Unknown style: 'foo']
+V PASSED lib/matplotlib/tests/test_patches.py::test_boxstyle_errors[Round,foo-Incorrect style argument: 'Round,foo']
+V PASSED lib/matplotlib/tests/test_patches.py::test_annulus[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_annulus_setters[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_annulus_setters2[png]
+V PASSED lib/matplotlib/tests/test_patches.py::test_degenerate_polygon
+V PASSED lib/matplotlib/tests/test_patches.py::test_color_override_warning[edgecolor]
+V PASSED lib/matplotlib/tests/test_patches.py::test_color_override_warning[facecolor]
+V PASSED lib/matplotlib/tests/test_patches.py::test_empty_verts
+V PASSED lib/matplotlib/tests/test_patches.py::test_default_antialiased
+V PASSED lib/matplotlib/tests/test_patches.py::test_default_linestyle
+V PASSED lib/matplotlib/tests/test_patches.py::test_default_capstyle
+V PASSED lib/matplotlib/tests/test_patches.py::test_default_joinstyle
+VARIANT_FULL_END
+GOLD_OK
+GOLD_FULL_START
+G PASSED lib/matplotlib/tests/test_patches.py::test_Polygon_close
+G PASSED lib/matplotlib/tests/test_patches.py::test_corner_center
+G PASSED lib/matplotlib/tests/test_patches.py::test_rotate_rect
+G PASSED lib/matplotlib/tests/test_patches.py::test_rotate_rect_draw[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_dash_offset_patch_draw[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_negative_rect
+G PASSED lib/matplotlib/tests/test_patches.py::test_clip_to_bbox[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_clip_to_bbox[pdf]
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_alpha_coloring[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_alpha_coloring[pdf]
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_alpha_override[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_alpha_override[pdf]
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_color_none
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_custom_linestyle[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_custom_linestyle[pdf]
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_linestyle_accents
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_linestyle_none[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_wedge_movement
+G PASSED lib/matplotlib/tests/test_patches.py::test_wedge_range[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_wedge_range[pdf]
+G PASSED lib/matplotlib/tests/test_patches.py::test_patch_str
+G PASSED lib/matplotlib/tests/test_patches.py::test_multi_color_hatch[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_multi_color_hatch[pdf]
+G PASSED lib/matplotlib/tests/test_patches.py::test_units_rectangle[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_connection_patch[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_connection_patch_fig[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_datetime_rectangle
+G PASSED lib/matplotlib/tests/test_patches.py::test_datetime_datetime_fails
+G PASSED lib/matplotlib/tests/test_patches.py::test_contains_point
+G PASSED lib/matplotlib/tests/test_patches.py::test_contains_points
+G PASSED lib/matplotlib/tests/test_patches.py::test_shadow[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_fancyarrow_units
+G PASSED lib/matplotlib/tests/test_patches.py::test_fancyarrow_setdata
+G PASSED lib/matplotlib/tests/test_patches.py::test_fancyarrow_shape_error
+G PASSED lib/matplotlib/tests/test_patches.py::test_boxstyle_errors[foo-Unknown style: 'foo']
+G PASSED lib/matplotlib/tests/test_patches.py::test_boxstyle_errors[Round,foo-Incorrect style argument: 'Round,foo']
+G PASSED lib/matplotlib/tests/test_patches.py::test_annulus[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_annulus_setters[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_annulus_setters2[png]
+G PASSED lib/matplotlib/tests/test_patches.py::test_degenerate_polygon
+G PASSED lib/matplotlib/tests/test_patches.py::test_color_override_warning[edgecolor]
+G PASSED lib/matplotlib/tests/test_patches.py::test_color_override_warning[facecolor]
+G PASSED lib/matplotlib/tests/test_patches.py::test_empty_verts
+G PASSED lib/matplotlib/tests/test_patches.py::test_default_antialiased
+G PASSED lib/matplotlib/tests/test_patches.py::test_default_linestyle
+G PASSED lib/matplotlib/tests/test_patches.py::test_default_capstyle
+G PASSED lib/matplotlib/tests/test_patches.py::test_default_joinstyle
+GOLD_FULL_END
