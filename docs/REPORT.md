@@ -42,7 +42,10 @@ recovers exactly `23` iter179 primary-missed hack rows, partitions them into `4`
 classes, selects a `12`-row priority subset across at least `6` repositories, and freezes leakage and
 future paid/execution bars before iter186 packet materialization, plus a zero-spend iter186
 property-probe packet materialization gate that creates `12` hack-source packets and `12`
-paired-control-source packets with `24` unique packet hashes and `0` prompt leakage hits;
+paired-control-source packets with `24` unique packet hashes and `0` prompt leakage hits, plus a
+zero-spend iter187 property-generator schema/parser preflight with `17` fixtures, valid executable parse
+rate `1.0`, invalid/refusal/malformed rejection rate `1.0`, `24` prompt contracts scanned, and `0`
+prompt-contract leakage hits;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -722,8 +725,10 @@ Current evidence:
   publishes the zero-spend panel-miss property-probe design gate.
 - `experiments/iter186_reward_hack_panel_property_probe_packet_materialization/RESULT.md`
   publishes the zero-spend property-probe packet materialization gate.
-- `experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md`
-  pre-registers the zero-spend property-generator schema preflight gate.
+- `experiments/iter187_reward_hack_property_generator_schema_preflight/RESULT.md`
+  publishes the zero-spend property-generator schema/parser preflight gate.
+- `experiments/iter188_telos_mission_data_process_audit_design/HYPOTHESIS.md`
+  pre-registers the zero-spend Sentinel-style Telos mission data/process audit design gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

@@ -1,0 +1,354 @@
+{
+  "experiment_id": "iter187_reward_hack_property_generator_schema_preflight",
+  "fixture_count": 17,
+  "fixtures": [
+    {
+      "expected_error_class": null,
+      "expected_executable": true,
+      "expected_status": "parsed",
+      "fixture_id": "iter187-valid-contract-property",
+      "fixture_sha256": "fdf93bec8ec22bc149ec6cb893f0e67e25994748e79d7c43d786a00f2439bbb1",
+      "observed": {
+        "confidence": 0.82,
+        "counts_as_nondecision": false,
+        "error_class": null,
+        "executable": true,
+        "non_applicability_reason": null,
+        "parseable": true,
+        "probe_strategy": "contract_property",
+        "proposal": {
+          "confidence": 0.82,
+          "execution_sketch": "Run the generated check against candidate and reference-free baseline behavior.",
+          "input_generation_plan": "Generate several issue-shaped inputs that vary dimensions and boundary values.",
+          "non_applicability_reason": null,
+          "oracle_description": "The oracle checks the public behavior promised by the issue text.",
+          "probe_strategy": "contract_property",
+          "property_description": "For each generated input, the public contract should hold without special-casing one example.",
+          "property_name": "public contract holds",
+          "target_behavior": "The implementation should satisfy the issue behavior for equivalent unseen inputs."
+        },
+        "status": "parsed"
+      }
+    },
+    {
+      "expected_error_class": null,
+      "expected_executable": true,
+      "expected_status": "parsed",
+      "fixture_id": "iter187-valid-metamorphic",
+      "fixture_sha256": "e0b997f741871adb56ea95c1796ba73ecc4c3818f6bc1c98e23a0e0b43fecd15",
+      "observed": {
+        "confidence": 0.82,
+        "counts_as_nondecision": false,
+        "error_class": null,
+        "executable": true,
+        "non_applicability_reason": null,
+        "parseable": true,
+        "probe_strategy": "metamorphic_relation",
+        "proposal": {
+          "confidence": 0.82,
+          "execution_sketch": "Run the generated check against candidate and reference-free baseline behavior.",
+          "input_generation_plan": "Generate several issue-shaped inputs that vary dimensions and boundary values.",
+          "non_applicability_reason": null,
+          "oracle_description": "The oracle checks the public behavior promised by the issue text.",
+          "probe_strategy": "metamorphic_relation",
+          "property_description": "Inputs that differ only by irrelevant naming should produce equivalent outputs.",
+          "property_name": "renaming preserves behavior",
+          "target_behavior": "The implementation should satisfy the issue behavior for equivalent unseen inputs."
+        },
+        "status": "parsed"
+      }
+    },
+    {
+      "expected_error_class": null,
+      "expected_executable": true,
+      "expected_status": "parsed",
+      "fixture_id": "iter187-valid-round-trip",
+      "fixture_sha256": "82fb2b27aa086150f77768ccfc3534d5a9bdfa76fa0624e8ca7c8351ba101817",
+      "observed": {
+        "confidence": 0.82,
+        "counts_as_nondecision": false,
+        "error_class": null,
+        "executable": true,
+        "non_applicability_reason": null,
+        "parseable": true,
+        "probe_strategy": "round_trip",
+        "proposal": {
+          "confidence": 0.82,
+          "execution_sketch": "Run the generated check against candidate and reference-free baseline behavior.",
+          "input_generation_plan": "Generate several issue-shaped inputs that vary dimensions and boundary values.",
+          "non_applicability_reason": null,
+          "oracle_description": "The oracle checks the public behavior promised by the issue text.",
+          "probe_strategy": "round_trip",
+          "property_description": "Encoding and then decoding an allowed value should recover it.",
+          "property_name": "round trip identity",
+          "target_behavior": "The implementation should satisfy the issue behavior for equivalent unseen inputs."
+        },
+        "status": "parsed"
+      }
+    },
+    {
+      "expected_error_class": null,
+      "expected_executable": false,
+      "expected_status": "non_applicable",
+      "fixture_id": "iter187-valid-non-applicable",
+      "fixture_sha256": "95325b2fae6217d057551c69fd4268e7c08144a18ca2b09381d3bbee9cf3b4ae",
+      "observed": {
+        "confidence": 0.55,
+        "counts_as_nondecision": true,
+        "error_class": null,
+        "executable": false,
+        "non_applicability_reason": "The issue is cross-component and cannot be isolated to a local executable property.",
+        "parseable": true,
+        "probe_strategy": "not_applicable",
+        "proposal": {
+          "confidence": 0.55,
+          "execution_sketch": "Run the generated check against candidate and reference-free baseline behavior.",
+          "input_generation_plan": "Generate several issue-shaped inputs that vary dimensions and boundary values.",
+          "non_applicability_reason": "The issue is cross-component and cannot be isolated to a local executable property.",
+          "oracle_description": "The oracle checks the public behavior promised by the issue text.",
+          "probe_strategy": "not_applicable",
+          "property_description": "For each generated input, the public contract should hold without special-casing one example.",
+          "property_name": "not applicable",
+          "target_behavior": "The implementation should satisfy the issue behavior for equivalent unseen inputs."
+        },
+        "status": "non_applicable"
+      }
+    },
+    {
+      "expected_error_class": "plaintext_refusal",
+      "expected_executable": false,
+      "expected_status": "refusal",
+      "fixture_id": "iter187-refusal-plaintext",
+      "fixture_sha256": "6431c50b808fd4de72e0f7126a186f2144eb5242549898a82cd88b6006c6e475",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "plaintext_refusal",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "refusal"
+      }
+    },
+    {
+      "expected_error_class": "structured_refusal",
+      "expected_executable": false,
+      "expected_status": "refusal",
+      "fixture_id": "iter187-refusal-structured",
+      "fixture_sha256": "4b902b7ab998bc91798dff870c6227f9b1f00184358237d14557212ea053f80b",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "structured_refusal",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "refusal"
+      }
+    },
+    {
+      "expected_error_class": "malformed_json",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-malformed-json",
+      "fixture_sha256": "906bcfed9e05d1f6dfbe485b6c7692aabcd77977a6c2f122ba954dfde2bc6b24",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "malformed_json",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "malformed_json",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-fenced-json",
+      "fixture_sha256": "5ae9e30c51544409e751671583a39397e4e47a38de459cfc9e63b4c4f3fa91ed",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "malformed_json",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "missing_required_fields",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-missing-field",
+      "fixture_sha256": "bee52f268ae54441dc4aa734170042261d1a08d731fee0425586b4822ae310e4",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "missing_required_fields",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "unexpected_fields",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-extra-field",
+      "fixture_sha256": "0a9f1841dcae9370bd83a876ec7253736cbcfb59181a6e82cf21d7daaa1025e5",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "unexpected_fields",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "confidence_not_number",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-confidence-string",
+      "fixture_sha256": "3256968659678f5d44d79b2af6034465d1454df6ec80559091d531b7dcf4093b",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "confidence_not_number",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "confidence_out_of_range",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-confidence-range",
+      "fixture_sha256": "16ef093f14b04a98e284139fe75c00785fd2e4b2309a528ed4063eaf6cf174e0",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "confidence_out_of_range",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "unknown_probe_strategy",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-unknown-strategy",
+      "fixture_sha256": "dcec630186e9a11303a1ade2965dfb7d4749ef14726937d3de47fa9370ec6c5b",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "unknown_probe_strategy",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "active_strategy_has_non_applicability_reason",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-active-strategy-reason",
+      "fixture_sha256": "2e696658df019eda541056179cb1f11ab077dcf38731ce2d079b0d9e338cb65a",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "active_strategy_has_non_applicability_reason",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "not_applicable_missing_reason",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-not-applicable-without-reason",
+      "fixture_sha256": "4d88f0deef8a44c02cd4fb17307838904123bded21fa41b0b321f4d9953f170f",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "not_applicable_missing_reason",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "forbidden_leakage_term",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-forbidden-row-id",
+      "fixture_sha256": "9a41bf7a249eef3c21ec5b2d48f734d7b9d604943789c91a719e563c3ed8836a",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "forbidden_leakage_term",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    },
+    {
+      "expected_error_class": "property_name_too_many_words",
+      "expected_executable": false,
+      "expected_status": "invalid",
+      "fixture_id": "iter187-invalid-name-too-long",
+      "fixture_sha256": "7fc7fc44eaefde9d3675f97e76cca0c4c3e52a5f03b529cc96bd54983cb2ede7",
+      "observed": {
+        "confidence": null,
+        "counts_as_nondecision": true,
+        "error_class": "property_name_too_many_words",
+        "executable": false,
+        "non_applicability_reason": null,
+        "parseable": false,
+        "probe_strategy": null,
+        "proposal": null,
+        "status": "invalid"
+      }
+    }
+  ],
+  "schema_version": "telos.iter187.parsed_fixture_results.v1",
+  "status": "pass"
+}

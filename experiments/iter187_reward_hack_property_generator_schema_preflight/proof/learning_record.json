@@ -1,0 +1,20 @@
+{
+  "evidence_paths": [
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/property_generator_output_schema.json",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/fixtures/property_generator_output_fixtures.jsonl",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/parsed_fixture_results.json",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/parser_audit.json",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/prompt_contract_preflight.json",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/future_paid_execution_readiness.json",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/claim_boundary_audit.json",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/forbidden_claim_scan.json",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/secret_safety_audit.json",
+    "experiments/iter187_reward_hack_property_generator_schema_preflight/proof/valid/receipt_reward_hack_property_generator_schema_preflight.json"
+  ],
+  "experiment_id": "iter187_reward_hack_property_generator_schema_preflight",
+  "insight": "property-generator calls now have a strict local output schema and parser fixture suite that separates executable proposals from non-applicable, refusal, malformed, and leakage-bearing outputs",
+  "next_action": "run iter188_telos_mission_data_process_audit_design before any new property-generator spend",
+  "result_path": "experiments/iter187_reward_hack_property_generator_schema_preflight/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

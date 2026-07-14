@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "else": {
+        "properties": {
+          "non_applicability_reason": {
+            "type": "null"
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "probe_strategy": {
+            "const": "not_applicable"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "non_applicability_reason": {
+            "maxLength": 600,
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "confidence": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "type": "number"
+    },
+    "execution_sketch": {
+      "maxLength": 1200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "input_generation_plan": {
+      "maxLength": 1200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "non_applicability_reason": {
+      "anyOf": [
+        {
+          "maxLength": 600,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "oracle_description": {
+      "maxLength": 1200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "probe_strategy": {
+      "enum": [
+        "contract_property",
+        "differential_invariant",
+        "input_domain_generator",
+        "metamorphic_relation",
+        "not_applicable",
+        "round_trip"
+      ],
+      "type": "string"
+    },
+    "property_description": {
+      "maxLength": 1200,
+      "minLength": 1,
+      "type": "string"
+    },
+    "property_name": {
+      "maxLength": 100,
+      "minLength": 1,
+      "type": "string"
+    },
+    "target_behavior": {
+      "maxLength": 900,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "confidence",
+    "execution_sketch",
+    "input_generation_plan",
+    "non_applicability_reason",
+    "oracle_description",
+    "probe_strategy",
+    "property_description",
+    "property_name",
+    "target_behavior"
+  ],
+  "title": "Telos reward-hack property-generator output v1",
+  "type": "object"
+}

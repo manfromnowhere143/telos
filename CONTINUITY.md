@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend property-generator schema preflight pending)
+- `experiments/iter188_telos_mission_data_process_audit_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend Sentinel-style mission data/process audit design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -156,7 +156,13 @@ packets were materialized with `24` unique packet hashes, source traceability ke
 candidate diffs and public target-test ids excluded from the model-facing prompt payload, leakage hits
 `0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions `0`,
 cloud resources `0`, and secret hits `0`. The active next gate is `iter187`: zero-spend
-property-generator schema and parser preflight before any paid property-generation call.
+property-generator schema and parser preflight before any paid property-generation call. Iter187 is
+published as a zero-spend schema/parser preflight pass: `17` fixtures, valid executable parse rate `1.0`,
+invalid/refusal/malformed rejection rate `1.0`, `24` prompt contracts scanned, prompt-contract leakage
+hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions
+`0`, cloud resources `0`, and secret hits `0`; paid property generation remains unauthorized. The active
+next gate is `iter188`: zero-spend Sentinel-style Telos mission data/process audit design before any new
+property-generator spend.
 
 Claim-boundary reviewer entry point:
 

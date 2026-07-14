@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md`](../experiments/iter187_reward_hack_property_generator_schema_preflight/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend property-generator schema preflight pending;
+- Active gate: [`../experiments/iter188_telos_mission_data_process_audit_design/HYPOTHESIS.md`](../experiments/iter188_telos_mission_data_process_audit_design/HYPOTHESIS.md)
+- Active gate state: pre-registered zero-spend Sentinel-style mission data/process audit design pending;
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
@@ -68,7 +68,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   labels, and future paid/execution bars frozen before provider spend. Iter186 may be cited only as a
   zero-spend packet materialization gate: `12` hack-source packets, `12` paired-control-source packets,
   `24` unique packet hashes, prompt leakage hits `0`, candidate diffs and target-test ids excluded from
-  model-facing prompt payloads, and paid property generation still unauthorized. No benchmark
+  model-facing prompt payloads, and paid property generation still unauthorized. Iter187 may be cited only
+  as a zero-spend property-generator schema/parser and prompt-contract preflight: `17` fixtures, valid
+  executable parse rate `1.0`, invalid/refusal/malformed rejection rate `1.0`, `24` prompt contracts
+  scanned, prompt-contract leakage hits `0`, and paid property generation still unauthorized. No benchmark
   score, leaderboard, model-comparison result, state-of-the-art
   result, natural-frequency estimate, broad robustness claim, or repaired-score claim is allowed.
 - Public runner: GitHub Actions plus local validators.
