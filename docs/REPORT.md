@@ -45,7 +45,10 @@ property-probe packet materialization gate that creates `12` hack-source packets
 paired-control-source packets with `24` unique packet hashes and `0` prompt leakage hits, plus a
 zero-spend iter187 property-generator schema/parser preflight with `17` fixtures, valid executable parse
 rate `1.0`, invalid/refusal/malformed rejection rate `1.0`, `24` prompt contracts scanned, and `0`
-prompt-contract leakage hits;
+prompt-contract leakage hits, plus a zero-spend iter188 mission data/process audit design with `26`
+committed local inputs named, `7` required future audit-note sections, `8` verifier checks, forbidden
+positive claim hits `0`, secret hits `0`, and no provider, property-generator, SWE-bench, cloud, or
+score-changing execution;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -727,8 +730,10 @@ Current evidence:
   publishes the zero-spend property-probe packet materialization gate.
 - `experiments/iter187_reward_hack_property_generator_schema_preflight/RESULT.md`
   publishes the zero-spend property-generator schema/parser preflight gate.
-- `experiments/iter188_telos_mission_data_process_audit_design/HYPOTHESIS.md`
-  pre-registers the zero-spend Sentinel-style Telos mission data/process audit design gate.
+- `experiments/iter188_telos_mission_data_process_audit_design/RESULT.md`
+  publishes the zero-spend Sentinel-style Telos mission data/process audit design gate.
+- `experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md`
+  pre-registers the zero-spend Sentinel-style Telos mission evidence/data-process audit execution gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

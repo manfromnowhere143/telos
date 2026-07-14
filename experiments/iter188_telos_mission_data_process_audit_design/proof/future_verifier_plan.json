@@ -1,0 +1,50 @@
+{
+  "check_count": 8,
+  "checks": [
+    {
+      "check_id": "required_sections",
+      "mechanism": "Parse the audit note and require every iter188 required section heading."
+    },
+    {
+      "check_id": "claim_boundary",
+      "mechanism": "Require an exact claim-boundary paragraph and false flags for unsupported claims."
+    },
+    {
+      "check_id": "public_metric_freshness",
+      "mechanism": "Require public surfaces to preserve unrepaired iter179 17/40 and 0/40 counts."
+    },
+    {
+      "check_id": "learning_ledger",
+      "mechanism": "Run scripts/validate_learning_ledger.py and require the active next action."
+    },
+    {
+      "check_id": "receipt_presence",
+      "mechanism": "Require proof/valid receipts for completed recent gates or explicit legacy exceptions."
+    },
+    {
+      "check_id": "benchmark_artifact_lineage",
+      "mechanism": "Verify benchmark manifest, rows, packets, controls, metrics, probe packets, and schema."
+    },
+    {
+      "check_id": "forbidden_claims",
+      "mechanism": "Scan durable docs and audit outputs for positive forbidden claim patterns."
+    },
+    {
+      "check_id": "secret_safety",
+      "mechanism": "Scan audit outputs and public surfaces for secret and private identifier patterns."
+    }
+  ],
+  "experiment_id": "iter188_telos_mission_data_process_audit_design",
+  "missing_required_check_ids": [],
+  "required_check_ids": [
+    "benchmark_artifact_lineage",
+    "claim_boundary",
+    "forbidden_claims",
+    "learning_ledger",
+    "public_metric_freshness",
+    "receipt_presence",
+    "required_sections"
+  ],
+  "schema_version": "telos.iter188.future_verifier_plan.v1",
+  "status": "pass"
+}

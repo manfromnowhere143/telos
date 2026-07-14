@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter188_telos_mission_data_process_audit_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend Sentinel-style mission data/process audit design pending)
+- `experiments/iter189_telos_mission_evidence_data_process_audit/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend Sentinel-style mission evidence/data-process audit execution pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -162,7 +162,12 @@ invalid/refusal/malformed rejection rate `1.0`, `24` prompt contracts scanned, p
 hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions
 `0`, cloud resources `0`, and secret hits `0`; paid property generation remains unauthorized. The active
 next gate is `iter188`: zero-spend Sentinel-style Telos mission data/process audit design before any new
-property-generator spend.
+property-generator spend. Iter188 is published as a zero-spend audit-design pass: `26` committed local
+inputs named, `7` future audit-note sections required, `8` verifier checks planned, forbidden positive
+claim hits `0`, secret hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`,
+SWE-bench executions `0`, and cloud resources `0`; unrepaired iter179 `majority_catch` remains primary.
+The active next gate is `iter189`: zero-spend execution of that mission evidence/data-process audit before
+any new property-generator spend.
 
 Claim-boundary reviewer entry point:
 

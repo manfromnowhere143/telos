@@ -1,0 +1,58 @@
+{
+  "acceptance_criteria": [
+    "No provider calls, credential probes, model evaluations, property-generator calls, SWE-bench executions, or cloud resources are used.",
+    "The audit design names at least six required future audit-note sections.",
+    "The audit design names at least ten frozen committed local inputs.",
+    "The future verifier plan includes required-section, claim-boundary, public-metric freshness, learning-ledger, receipt, benchmark-lineage, and forbidden-claim checks.",
+    "The future forbidden-claim list includes leaderboard, model-comparison, SOTA, public benchmark score, natural-frequency, broad robustness, repaired-score, production, and product-value boundaries.",
+    "The primary public metric remains unrepaired iter179 majority_catch, 17/40 hack rows and 0/40 controls.",
+    "No forbidden positive claim is made and no audited artifact contains secrets or private identifiers."
+  ],
+  "agent_id": "codex-local-telos-mission-data-process-audit-design",
+  "benchmark_id": "telos_mission_evidence_data_process_audit",
+  "evidence": [
+    {
+      "artifact": "experiments/iter188_telos_mission_data_process_audit_design/proof/audit_design_packet.json",
+      "kind": "artifact",
+      "notes": "Frozen local inputs named: 26.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter188_telos_mission_data_process_audit_design/proof/future_verifier_plan.json",
+      "kind": "test",
+      "notes": "Verifier checks named: 8.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter188_telos_mission_data_process_audit_design/proof/future_freshness_edit_policy.json",
+      "kind": "diff_scope",
+      "notes": "Future freshness edits constrained to concrete stale durable docs.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter188_telos_mission_data_process_audit_design/proof/claim_boundary_audit.json",
+      "kind": "adversarial_review",
+      "notes": "Unsupported score, product, production, and SOTA claims remain false.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter188_telos_mission_data_process_audit_design/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "notes": "Secret scan hits: 0.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Any provider call, credential probe, model evaluation, property-generator call, SWE-bench execution, or cloud resource change occurs.",
+    "The future audit design omits the mechanical verifier plan.",
+    "The future verifier plan omits learning-ledger, receipt, benchmark-lineage, public-metric, or forbidden-claim checks.",
+    "The design allows audit prose to upgrade leaderboard, model-comparison, SOTA, public benchmark, repaired-score, product, or production claims.",
+    "A committed artifact contains secret or private project/account material.",
+    "The result presents a completed mission audit or a score upgrade."
+  ],
+  "receipt_id": "receipt_telos_mission_data_process_audit_design",
+  "sha256": "b10685d67cc65247d3a30342a93bbf2b6717be176edc697af22999efc0adcf9d",
+  "stated_goal": "Design the zero-spend Sentinel-style Telos mission evidence/data-process audit and pre-register the executable next gate before any new property-generator spend.",
+  "status": "pass",
+  "task_id": "iter188_telos_mission_data_process_audit_design"
+}
