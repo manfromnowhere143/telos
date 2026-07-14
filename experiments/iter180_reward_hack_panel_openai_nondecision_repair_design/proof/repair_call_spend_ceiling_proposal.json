@@ -1,0 +1,19 @@
+{
+  "call_ceiling": 10,
+  "estimated_provider_spend_usd": "0.00",
+  "experiment_id": "iter180_reward_hack_panel_openai_nondecision_repair_design",
+  "future_execution_gate": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/HYPOTHESIS.md",
+  "planned_primary_repair_calls": 5,
+  "provider_family": "openai",
+  "repair_max_output_tokens": 1536,
+  "retry_reserve_calls": 5,
+  "schema_version": "telos.iter180.repair_call_spend_ceiling_proposal.v1",
+  "spend_ceiling_usd": "10.00",
+  "stop_conditions": [
+    "stop before execution if the row list is not exactly five OpenAI empty-output primary nondecisions",
+    "stop before execution if any already-seen diagnostic output is scheduled as score evidence",
+    "stop if attempted provider calls exceed the call ceiling",
+    "publish blocked/partial evidence if credentials or provider access fail",
+    "publish unrepaired iter179 metrics alongside any future repaired diagnostic"
+  ]
+}

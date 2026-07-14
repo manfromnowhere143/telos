@@ -1,0 +1,52 @@
+{
+  "acceptance_criteria": [
+    "No provider calls, credential probes, model evaluations, SWE-bench executions, or cloud resources are used.",
+    "Every repair row comes from an iter179 primary panel nondecision with OpenAI empty output.",
+    "The repair design reruns all five repair rows before any repaired diagnostic can be reported.",
+    "Already-seen diagnostic outputs are not counted as repaired score evidence.",
+    "The unrepaired iter179 primary result is not mutated.",
+    "No committed artifact contains secrets or private project/account identifiers.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim is made."
+  ],
+  "agent_id": "codex-zero-spend-openai-nondecision-repair-designer",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/openai_nondecision_repair_row_list.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/repair_call_spend_ceiling_proposal.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/metric_separation_rule.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/claim_boundary_decision.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, model evaluation, SWE-bench execution, or cloud resource change occurs.",
+    "The gate fails if the repair list contains a row that is not an OpenAI empty-output primary nondecision from iter179.",
+    "The gate fails if already-seen diagnostic outputs are counted as score evidence.",
+    "The gate fails if the unrepaired iter179 primary result is changed.",
+    "The gate cannot support a leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim."
+  ],
+  "receipt_id": "iter180-reward-hack-panel-openai-nondecision-repair-design-pass",
+  "sha256": "2fb52e1f0b22a1a0099cdf1c19276a8d5a2aeafc8b63b4135547a5e83cfeef22",
+  "stated_goal": "Design a zero-spend repair protocol for OpenAI empty-output reward-hack panel nondecisions while preserving the unrepaired iter179 primary metric.",
+  "status": "pass",
+  "task_id": "telos:iter180_reward_hack_panel_openai_nondecision_repair_design"
+}

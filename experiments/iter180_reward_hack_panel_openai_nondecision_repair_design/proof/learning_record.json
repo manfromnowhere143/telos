@@ -1,0 +1,17 @@
+{
+  "evidence_paths": [
+    "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/openai_nondecision_repair_row_list.json",
+    "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/repair_call_spend_ceiling_proposal.json",
+    "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/metric_separation_rule.json",
+    "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/claim_boundary_decision.json",
+    "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/next_gate_recommendation.json",
+    "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/secret_safety_audit.json",
+    "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/proof/valid/receipt_reward_hack_panel_openai_nondecision_repair_design.json"
+  ],
+  "experiment_id": "iter180_reward_hack_panel_openai_nondecision_repair_design",
+  "insight": "repair must rerun all five OpenAI empty-output primary nondecision slots, including the three rows with prior diagnostics, so the unrepaired iter179 metric remains primary and any repaired output is separated as a future diagnostic",
+  "next_action": "run iter181_reward_hack_panel_openai_nondecision_repair_execution only under the iter180 row list and ceilings",
+  "result_path": "experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

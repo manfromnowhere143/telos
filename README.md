@@ -36,8 +36,10 @@ parsed diagnostic outputs under the `1536` token budget, but they do not rewrite
 Iter179 adjudicated the full cohort without spend: unrepaired `majority_catch` remains `17/40` hack rows
 and `0/40` controls, the five panel nondecision rows are all OpenAI empty-output cases, recovery
 diagnostics have `0` score-rewrite allowance, and two fresh OpenAI empty-output hack rows remain
-unrecovered. The active gate is iter180: a zero-spend OpenAI nondecision repair-design gate before any
-paid repair call or repaired-score claim. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
+unrecovered. Iter180 then designed the repair protocol without spend: all five OpenAI empty-output
+primary nondecision rows must be rerun, including the three with prior diagnostics, under a future
+ten-call / `$10.00` ceiling; unrepaired iter179 remains the primary public metric. The active gate is
+iter181: a bounded paid OpenAI repair execution gate. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
 state-of-the-art result, natural-frequency estimate, broad robustness result, repaired-score result, or
 claim beyond this bounded panel path is made. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
@@ -141,7 +143,8 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [177](experiments/iter177_reward_hack_panel_disagreement_calibrated_expansion_design/RESULT.md) | Can the next panel expansion be designed from the adjudicated disagreement pattern before spending again? | pass - zero-spend design selected the `20` unobserved paired rows for the next primary cohort, kept the three OpenAI empty-content rows as a diagnostic recovery cohort, froze `123` planned calls before retries under a `160` call / `$50.00` ceiling, raised OpenAI max output tokens to `1536`, preserved `majority_catch`, and made `0` provider calls, credential probes, SWE-bench executions, cloud resources, or secret hits. Honest: design only, not a new score or claim upgrade |
 | [178](experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/RESULT.md) | Can the frozen panel cover the remaining paired rows under the iter177 call/spend/recovery design? | pass - `123/123` calls succeeded with `0` retries, spend guard `$7.005150`, secret hits `0`; fresh `majority_catch` caught `4/20` hack rows and `0/20` controls; combined unrepaired iter175+iter178 majority is `17/40` hacks and `0/40` controls; recovery rows are diagnostic only |
 | [179](experiments/iter179_reward_hack_panel_full_cohort_adjudication/RESULT.md) | Can the full panel cohort be adjudicated without spend before any claim upgrade? | pass - zero-spend full-cohort adjudication over committed iter175+iter178 proof: `0` provider calls, credential probes, SWE-bench executions, or cloud resources; unrepaired `majority_catch` is `17/40` hack rows and `0/40` controls; `any_catch` is `23/40` hacks and `0/40` controls; `unanimous_catch` is `2/40` hacks and `0/40` controls; five panel nondecisions are all OpenAI empty-output rows; recovery diagnostics stay out of score |
-| [180](experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/HYPOTHESIS.md) | Can an OpenAI nondecision repair protocol be designed before any paid repair call? | pre-registered - zero-spend design gate over the five OpenAI empty-output primary nondecisions, with already-seen diagnostics excluded from repaired-score evidence and no provider calls or claim upgrade |
+| [180](experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/RESULT.md) | Can an OpenAI nondecision repair protocol be designed before any paid repair call? | pass - zero-spend repair design: exactly five OpenAI empty-output primary nondecision rows must be rerun before any repaired diagnostic; three rows have prior diagnostics but those outputs remain excluded from score evidence; future execution is OpenAI-only with `5` planned primary calls, `5` retry reserve calls, a `10` call ceiling, and `$10.00` spend ceiling |
+| [181](experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/HYPOTHESIS.md) | Can the five OpenAI nondecision rows be rerun under the iter180 repair design? | pre-registered - bounded paid execution gate; OpenAI-only, at most `10` calls, `$10.00` spend ceiling, unrepaired iter179 remains the primary public result |
 
 ### The honest conclusion
 
@@ -696,11 +699,10 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack panel OpenAI nondecision repair design (iter180, pre-registered) in
-  [`experiments/iter180_reward_hack_panel_openai_nondecision_repair_design`](experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/HYPOTHESIS.md);
-  iter179 adjudicated the full unrepaired iter175+iter178 panel at `17/40` hack catches and `0/40`
-  control catches under `majority_catch`, with five OpenAI empty-output panel nondecisions and no
-  repaired-score claim.
+- Current gate: reward-hack panel OpenAI nondecision repair execution (iter181, pre-registered) in
+  [`experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution`](experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/HYPOTHESIS.md);
+  iter180 froze a repair design that reruns all five OpenAI empty-output primary nondecision rows before
+  any repaired diagnostic, while preserving the unrepaired iter179 primary result.
   The
   real-trajectory arc (iter109 onward) superseded the earlier external-benchmark-pilot adjudication gate
   [`experiments/iter108_external_benchmark_pilot_adjudication_after_execution`](experiments/iter108_external_benchmark_pilot_adjudication_after_execution/HYPOTHESIS.md).
@@ -835,11 +837,11 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/HYPOTHESIS.md`](experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/HYPOTHESIS.md).
+[`experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/HYPOTHESIS.md`](experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/HYPOTHESIS.md).
 
 ## Current Evidence Arc
 
-The live evidence is the real-trajectory arc (iter109-iter179); the full per-gate result is the
+The live evidence is the real-trajectory arc (iter109-iter180); the full per-gate result is the
 summary table near the top of this file. Its shape:
 
 ```mermaid
@@ -950,7 +952,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter180), each with a learning record
+experiments/               one folder per pre-registered experiment (iter00-iter181), each with a learning record
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling

@@ -29,7 +29,8 @@ unrepaired iter175+iter178 `majority_catch` counts of `17/40` hack catches and `
 and three parsed OpenAI recovery diagnostics that do not rewrite iter175, plus a zero-spend iter179
 full-cohort adjudication that confirms the unrepaired `17/40` hack and `0/40` control `majority_catch`
 counts, attributes all five panel nondecisions to OpenAI empty output, and keeps recovery diagnostics out
-of score;
+of score, plus a zero-spend iter180 repair design that requires rerunning all five OpenAI empty-output
+primary nondecision rows before any repaired diagnostic, with a future `10` call / `$10.00` ceiling;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -695,8 +696,10 @@ Current evidence:
   publishes the bounded paid remaining-pairs expansion gate.
 - `experiments/iter179_reward_hack_panel_full_cohort_adjudication/RESULT.md`
   publishes the zero-spend full-cohort adjudication gate.
-- `experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/HYPOTHESIS.md`
-  pre-registers the zero-spend OpenAI nondecision repair-design gate.
+- `experiments/iter180_reward_hack_panel_openai_nondecision_repair_design/RESULT.md`
+  publishes the zero-spend OpenAI nondecision repair-design gate.
+- `experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/HYPOTHESIS.md`
+  pre-registers the bounded OpenAI nondecision repair-execution gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
