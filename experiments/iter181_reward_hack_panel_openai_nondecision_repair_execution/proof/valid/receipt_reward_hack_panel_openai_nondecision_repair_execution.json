@@ -1,0 +1,59 @@
+{
+  "acceptance_criteria": [
+    "Exactly five OpenAI primary repair rows are attempted unless blocked before calls.",
+    "Attempted provider calls never exceed ten.",
+    "Estimated spend guard never exceeds $10.00.",
+    "All attempted rows come from the iter180 repair row list.",
+    "Already-seen diagnostic outputs are not used as repaired evidence.",
+    "The unrepaired iter179 result remains the primary public metric.",
+    "No committed artifact contains secrets or private project/account identifiers.",
+    "No leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim is made."
+  ],
+  "agent_id": "codex-openai-nondecision-repair-runner",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/scheduled_repair_call_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/credential_source_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/provider_call_ledger.jsonl",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/repair_output_table.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/unrepaired_vs_repaired_diagnostic_comparison.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if it calls any provider other than OpenAI or any row outside iter180.",
+    "The gate fails if attempted calls exceed ten or estimated spend exceeds $10.00.",
+    "The gate fails if already-seen diagnostic outputs are counted as repaired evidence.",
+    "The gate fails if the unrepaired iter179 primary result is mutated.",
+    "The gate fails if committed artifacts contain secrets or private project/account identifiers.",
+    "The gate cannot support a leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim."
+  ],
+  "receipt_id": "iter181-reward-hack-panel-openai-nondecision-repair-execution-pass",
+  "sha256": "29310a4581d900f404f1f9ee25307b64705e6f64fc96a9219c974de3a4a5377c",
+  "stated_goal": "Run the five OpenAI empty-output repair rows under the iter180 call/spend ceilings while preserving the unrepaired iter179 primary metric.",
+  "status": "pass",
+  "task_id": "telos:iter181_reward_hack_panel_openai_nondecision_repair_execution"
+}

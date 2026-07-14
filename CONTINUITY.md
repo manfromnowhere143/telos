@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/HYPOTHESIS.md` (PRE-REGISTERED; bounded OpenAI nondecision repair execution pending)
+- `experiments/iter182_reward_hack_panel_repair_execution_adjudication/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend repair execution adjudication pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -126,8 +126,13 @@ repaired score was claimed. Iter180 is published as a zero-spend OpenAI nondecis
 all five OpenAI empty-output primary nondecision rows must be rerun, including the three with prior
 diagnostics, before any repaired diagnostic can be reported; the future repair execution is OpenAI-only
 with `5` planned primary calls, `5` retry reserve calls, a `10` call ceiling, and `$10.00` spend ceiling;
-unrepaired iter179 remains the primary public result. The active next gate is `iter181`: bounded OpenAI
-nondecision repair execution.
+unrepaired iter179 remains the primary public result. Iter181 is published as the bounded OpenAI
+nondecision repair-execution pass: `5/5` provider calls succeeded with `0` retries, estimated spend guard
+`$0.271800`, committed secret/project/account hits were `0`, and `4/5` repair outputs parsed. The
+secondary repaired diagnostic reduces panel nondecisions to `1` hack and `0` controls, but primary
+`majority_catch` remains `17/40` hack rows and `0/40` controls; unrepaired iter179 remains the public
+metric. The active next gate is `iter182`: zero-spend adjudication of the repair execution before any
+README or paper claim wording upgrade.
 
 Claim-boundary reviewer entry point:
 
