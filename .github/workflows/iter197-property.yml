@@ -1,0 +1,34 @@
+name: iter197-property
+
+# Manual only. Runs the iter197 gold-free correctness-property oracle on a native-x86 runner. For each
+# instance with a generated property, it executes that property inside the pinned official SWE-bench
+# container under gold and under the variant, capturing PROP_PASS/PROP_FAIL. It never runs on push.
+on:
+  workflow_dispatch:
+
+jobs:
+  execute:
+    name: iter197 property execution (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - name: Run iter197 property execution
+        run: |
+          chmod +x scripts/ci_iter197_execute.sh
+          bash scripts/ci_iter197_execute.sh
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter197-execution
+          path: experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/raw/execution/
+          retention-days: 14
