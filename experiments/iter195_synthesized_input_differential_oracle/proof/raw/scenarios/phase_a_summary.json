@@ -1,0 +1,376 @@
+{
+  "adversary_model": "gpt-5.6-terra",
+  "call_ceiling": 120,
+  "certified_candidates": 16,
+  "estimated_spend_usd": 0.8,
+  "manifest": [
+    {
+      "func": "__getattr__",
+      "instance_id": "astropy__astropy-14096",
+      "provider_usage": {
+        "completion_tokens": 632,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 512,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 849,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1481
+      },
+      "repo": "astropy/astropy",
+      "scenario_sha256": "5048ed7a485a22042354dac681c834f818383bbc0bde7b9a1f69456bbf6b4dd8",
+      "src_file": "astropy/coordinates/sky_coordinate.py",
+      "status": "scenario"
+    },
+    {
+      "func": "is_public_member",
+      "instance_id": "astropy__astropy-7166",
+      "provider_usage": {
+        "completion_tokens": 964,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 831,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 881,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1845
+      },
+      "repo": "astropy/astropy",
+      "scenario_sha256": "347ff7ad396865dce0d9f5a8b797b2d064d5b29cef5a937acddf1614e77317b8",
+      "src_file": "astropy/utils/misc.py",
+      "status": "scenario"
+    },
+    {
+      "func": "get_group_by_cols",
+      "instance_id": "django__django-10880",
+      "provider_usage": {
+        "completion_tokens": 1172,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1024,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 603,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1775
+      },
+      "repo": "django/django",
+      "scenario_sha256": "d8b23c095cb223038293fcf893829062ec6a0d79bead71fdb12446aa16edc5b2",
+      "src_file": "django/db/models/aggregates.py",
+      "status": "scenario"
+    },
+    {
+      "func": "render_to_string",
+      "instance_id": "django__django-11119",
+      "provider_usage": {
+        "completion_tokens": 523,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 390,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 567,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1090
+      },
+      "repo": "django/django",
+      "scenario_sha256": "24243a9e07f4da2b1da46ddf8b4da44a914c6387e8234cb1e2242eb4209a48e2",
+      "src_file": "django/template/engine.py",
+      "status": "scenario"
+    },
+    {
+      "func": "load_disk",
+      "instance_id": "django__django-11141",
+      "provider_usage": {
+        "completion_tokens": 1241,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1024,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 1077,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 1074,
+          "cached_tokens": 0
+        },
+        "total_tokens": 2318
+      },
+      "repo": "django/django",
+      "scenario_sha256": "f2dace2eddd0e15c7db9589df33b1202fb98bbcdfae680e535bb5225f2af8488",
+      "src_file": "django/db/migrations/loader.py",
+      "status": "scenario"
+    },
+    {
+      "func": "model_to_dict",
+      "instance_id": "django__django-11163",
+      "provider_usage": {
+        "completion_tokens": 639,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 512,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 622,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1261
+      },
+      "repo": "django/django",
+      "scenario_sha256": "20243addb6477293b849904fd4a3488545671b25e8bb6631c007a607db444d00",
+      "src_file": "django/forms/models.py",
+      "status": "scenario"
+    },
+    {
+      "func": "delete",
+      "instance_id": "django__django-11179",
+      "provider_usage": {
+        "completion_tokens": 654,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 512,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 585,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1239
+      },
+      "repo": "django/django",
+      "scenario_sha256": "0a1baf55fc157eb4a84d7a4b554265fc5191d69e72f9a3d9dae8fee682343ef3",
+      "src_file": "django/db/models/deletion.py",
+      "status": "scenario"
+    },
+    {
+      "func": "deconstruct",
+      "instance_id": "django__django-11211",
+      "provider_usage": {
+        "completion_tokens": 484,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 365,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 763,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1247
+      },
+      "repo": "django/django",
+      "scenario_sha256": "b07416ff41341f4c0cc7ebe8e332931a95a34a146226e3fc4a92ed2a152b6cd5",
+      "src_file": "django/db/models/fields/__init__.py",
+      "status": "scenario"
+    },
+    {
+      "func": "_add_q",
+      "instance_id": "django__django-11299",
+      "provider_usage": {
+        "completion_tokens": 2247,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2048,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 777,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 3024
+      },
+      "repo": "django/django",
+      "scenario_sha256": "724db8f7f18070a5333be8761af643412fda9f661c20d7efe4b487c59467cde7",
+      "src_file": "django/db/models/sql/query.py",
+      "status": "scenario"
+    },
+    {
+      "func": "construct_instance",
+      "instance_id": "django__django-11433",
+      "provider_usage": {
+        "completion_tokens": 688,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 512,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 824,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1512
+      },
+      "repo": "django/django",
+      "scenario_sha256": "9743d2658d1eca54ae734ecf20ff3d72b7e8e13c6ca2c6ddbb5df3639e01eb6b",
+      "src_file": "django/forms/models.py",
+      "status": "scenario"
+    },
+    {
+      "func": "hist",
+      "instance_id": "matplotlib__matplotlib-13989",
+      "provider_usage": {
+        "completion_tokens": 508,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 422,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 774,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1282
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "473a9cafa71c21a4f3c34b3ecf147359bb0f63b57472e2ee62240c795dc1b95a",
+      "src_file": "lib/matplotlib/axes/_axes.py",
+      "status": "scenario"
+    },
+    {
+      "func": "clear",
+      "instance_id": "matplotlib__matplotlib-20826",
+      "provider_usage": {
+        "completion_tokens": 1015,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 896,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 910,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1925
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "74a38e6a640399968d9db7944588dc24f1e1a9ea7d790c756d3e813b3fe1cd11",
+      "src_file": "lib/matplotlib/axis.py",
+      "status": "scenario"
+    },
+    {
+      "func": "apply_aspect",
+      "instance_id": "matplotlib__matplotlib-23314",
+      "provider_usage": {
+        "completion_tokens": 1207,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1024,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 731,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1938
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "6bfff5199edf7226d2fd0baeb17f43a7865aa6a3b0861e5a15f82d14d7ce1407",
+      "src_file": "lib/mpl_toolkits/mplot3d/axes3d.py",
+      "status": "scenario"
+    },
+    {
+      "func": "draw",
+      "instance_id": "matplotlib__matplotlib-23412",
+      "provider_usage": {
+        "completion_tokens": 1719,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1537,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 901,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 2620
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "c14d094c55decb6595198904fa114db1f34f00acfc8423ce9351f79daa1b3c59",
+      "src_file": "lib/matplotlib/patches.py",
+      "status": "scenario"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24177",
+      "status": "no_scenario"
+    },
+    {
+      "func": "__clear",
+      "instance_id": "matplotlib__matplotlib-24627",
+      "provider_usage": {
+        "completion_tokens": 365,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 278,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 743,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1108
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "5ec614b49d8797cf15d84a5d152643bb648b4f6c2d8d98a792bd052797a778c1",
+      "src_file": "lib/matplotlib/axes/_base.py",
+      "status": "scenario"
+    }
+  ],
+  "provider_calls": 16,
+  "scenarios": 15,
+  "schema_version": "telos.iter195.phase_a_summary.v1",
+  "spend_ceiling_usd": 15.0
+}

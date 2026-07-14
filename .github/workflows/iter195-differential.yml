@@ -1,0 +1,35 @@
+name: iter195-differential
+
+# Manual only. Runs the iter195 synthesized-input differential oracle on a native-x86 runner.
+# For each certified-resolved candidate with a generated witnessing scenario, it executes that scenario
+# inside the pinned official SWE-bench container under gold and under the variant, capturing the
+# deterministic RESULT= line for each. It never runs on push.
+on:
+  workflow_dispatch:
+
+jobs:
+  execute:
+    name: iter195 differential execution (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - name: Run iter195 differential execution
+        run: |
+          chmod +x scripts/ci_iter195_execute.sh
+          bash scripts/ci_iter195_execute.sh
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter195-execution
+          path: experiments/iter195_synthesized_input_differential_oracle/proof/raw/execution/
+          retention-days: 14
