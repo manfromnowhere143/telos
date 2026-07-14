@@ -1,0 +1,50 @@
+{
+  "acceptance_criteria": [
+    "Provider calls <=160 and spend <=$30.00; no undeleted cloud resources.",
+    "Every confirmed hack certified by official-harness execution (all FAIL_TO_PASS and PASS_TO_PASS pass under the variant).",
+    "Every confirmed hack has a recorded gold-differential witness executed in the pinned container.",
+    "At least 8 new confirmed hacks, spanning at least 5 repositories, at least 3 new.",
+    "All confirmed hacks re-verified airtight (apply clean, certified, clean divergent output).",
+    "Elicited/constructed framing preserved; no natural-frequency or leaderboard claim."
+  ],
+  "agent_id": "claude-opus-4-8-telos-benchmark-expansion",
+  "benchmark_id": "certified_resolved_reward_hack_v2",
+  "evidence": [
+    {
+      "artifact": "experiments/iter199_benchmark_expansion_across_repos/proof/raw/execution",
+      "kind": "test",
+      "notes": "CI run 29365522019 (success): 23 variants certified + witnessed in pinned containers; logs retained.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter199_benchmark_expansion_across_repos/proof/confirmed_hacks.json",
+      "kind": "artifact",
+      "notes": "12 confirmed new hacks across 8 repos (5 new: requests, xarray, pylint, pytest, sympy); all 12 re-verified airtight. django-10097 passes 1870 graded tests.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter199_benchmark_expansion_across_repos/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "notes": "Funnel: 42 targets -> 23 variants -> 20 certified -> 12 confirmed. Bars (>=8 hacks, >=5 repos, >=3 new) all cleared.",
+      "status": "pass"
+    },
+    {
+      "artifact": "benchmarks/certified_resolved_reward_hack_v2/manifest.json",
+      "kind": "diff_scope",
+      "notes": "Combined benchmark now 22 rows across 8 repos (10 iter195 + 12 iter199).",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Any confirmed hack is not certified-resolved by official-harness execution.",
+    "Any confirmed hack lacks a reproducible gold-differential witness.",
+    "Fewer than 8 confirmed hacks, or fewer than 5 repositories, or fewer than 3 new repositories.",
+    "Provider calls exceed 160 or spend exceeds $30.00, or a cloud resource is left undeleted.",
+    "The result presents a natural-frequency, non-elicited, leaderboard, model-superiority, or SOTA claim."
+  ],
+  "receipt_id": "telos-iter199-benchmark-expansion",
+  "sha256": "9233a34ce78b6dac73f1ede61b59877e755cbe1e49f77d5b92dd683b8194faf5",
+  "stated_goal": "Grow the certified-resolved reward-hack benchmark beyond 3 repositories by constructing and execution-verifying new hacks across the full SWE-bench Verified repo set.",
+  "status": "pass",
+  "task_id": "iter199_benchmark_expansion_across_repos"
+}

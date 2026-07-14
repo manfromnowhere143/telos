@@ -1,119 +1,211 @@
 {
   "candidates": [
     {
+      "certified_resolved": true,
+      "gold_result": "[[1.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]",
       "instance_id": "astropy__astropy-12907",
       "repo": "astropy/astropy",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "[[1.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 1.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 1.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 1.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 1.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 1.0]]",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "'rejected'",
       "instance_id": "django__django-10097",
       "repo": "django/django",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "'accepted'",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": false,
+      "gold_result": "'0o644'",
       "instance_id": "django__django-10914",
       "repo": "django/django",
-      "status": "no_execution"
+      "status": "not_certified",
+      "variant_result": "'0o640'",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "datetime.timedelta(-42, 28800)",
       "instance_id": "django__django-10999",
       "repo": "django/django",
-      "status": "no_execution"
+      "status": "certified_no_witness",
+      "variant_result": "datetime.timedelta(-42, 28800)",
+      "witnessed_wrong": false
     },
     {
+      "certified_resolved": false,
+      "gold_result": "'ok'",
       "instance_id": "matplotlib__matplotlib-20488",
       "repo": "matplotlib/matplotlib",
-      "status": "no_execution"
+      "status": "not_certified",
+      "variant_result": "'ValueError'",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "(10.0, 20.0)",
       "instance_id": "matplotlib__matplotlib-20676",
       "repo": "matplotlib/matplotlib",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "(100.0, 200.0)",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "'$\\\\mathdefault{1\\\\;2\\\\;3}$'",
       "instance_id": "matplotlib__matplotlib-21568",
       "repo": "matplotlib/matplotlib",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "'$\\\\mathdefault{1\\\\;2 3}$'",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": null,
       "instance_id": "psf__requests-1142",
       "repo": "psf/requests",
-      "status": "no_execution"
+      "status": "certified_no_witness",
+      "variant_result": null,
+      "witnessed_wrong": false
     },
     {
+      "certified_resolved": true,
+      "gold_result": "{'zero': 0}",
       "instance_id": "psf__requests-1921",
       "repo": "psf/requests",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "{}",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "[['from_values']]",
       "instance_id": "pydata__xarray-2905",
       "repo": "pydata/xarray",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "[['from_array']]",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "[4, 3, 2, 1]",
       "instance_id": "pydata__xarray-3151",
       "repo": "pydata/xarray",
-      "status": "no_execution"
+      "status": "certified_no_witness",
+      "variant_result": null,
+      "witnessed_wrong": false
     },
     {
+      "certified_resolved": true,
+      "gold_result": "(('a', 0), ('b', 1))",
       "instance_id": "pydata__xarray-3677",
       "repo": "pydata/xarray",
-      "status": "no_execution"
+      "status": "certified_no_witness",
+      "variant_result": null,
+      "witnessed_wrong": false
     },
     {
+      "certified_resolved": true,
+      "gold_result": "1.0",
       "instance_id": "pydata__xarray-4075",
       "repo": "pydata/xarray",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "4.0",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "''",
       "instance_id": "pylint-dev__pylint-4970",
       "repo": "pylint-dev/pylint",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "'TOTAL lines=2 duplicates=0 percent=0.00\\n\\n'",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": false,
+      "gold_result": "True",
       "instance_id": "pylint-dev__pylint-7080",
       "repo": "pylint-dev/pylint",
-      "status": "no_execution"
+      "status": "not_certified",
+      "variant_result": "False",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "['__sentinel__']",
       "instance_id": "pylint-dev__pylint-7277",
       "repo": "pylint-dev/pylint",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "['/', '__sentinel__']",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "''",
       "instance_id": "pytest-dev__pytest-10081",
       "repo": "pytest-dev/pytest",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "'tearDown'",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "'w'",
       "instance_id": "pytest-dev__pytest-5262",
       "repo": "pytest-dev/pytest",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "None",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "['zeta', 'alpha']",
       "instance_id": "scikit-learn__scikit-learn-10908",
       "repo": "scikit-learn/scikit-learn",
-      "status": "no_execution"
+      "status": "certified_no_witness",
+      "variant_result": null,
+      "witnessed_wrong": false
     },
     {
+      "certified_resolved": true,
+      "gold_result": null,
       "instance_id": "sphinx-doc__sphinx-10466",
       "repo": "sphinx-doc/sphinx",
-      "status": "no_execution"
+      "status": "certified_no_witness",
+      "variant_result": null,
+      "witnessed_wrong": false
     },
     {
+      "certified_resolved": true,
+      "gold_result": "sqrt(14)",
       "instance_id": "sympy__sympy-11618",
       "repo": "sympy/sympy",
-      "status": "no_execution"
+      "status": "confirmed",
+      "variant_result": "sqrt(5)",
+      "witnessed_wrong": true
     },
     {
+      "certified_resolved": true,
+      "gold_result": "0.333333333333333333333333333333",
       "instance_id": "sympy__sympy-12096",
       "repo": "sympy/sympy",
-      "status": "no_execution"
+      "status": "certified_no_witness",
+      "variant_result": "0.333333333333333333333333333333",
+      "witnessed_wrong": false
     },
     {
+      "certified_resolved": true,
+      "gold_result": "'ValueError'",
       "instance_id": "sympy__sympy-12481",
       "repo": "sympy/sympy",
-      "status": "no_execution"
+      "status": "certified_no_witness",
+      "variant_result": "'ValueError'",
+      "witnessed_wrong": false
     }
   ],
   "schema_version": "telos.iter199.per_candidate.v1"

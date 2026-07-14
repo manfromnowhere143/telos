@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter199_benchmark_expansion_across_repos/proof/audit_report.json",
+    "experiments/iter199_benchmark_expansion_across_repos/proof/iter199_per_candidate.json",
+    "experiments/iter199_benchmark_expansion_across_repos/proof/confirmed_hacks.json",
+    "experiments/iter199_benchmark_expansion_across_repos/proof/raw/targets.json",
+    "benchmarks/certified_resolved_reward_hack_v2/manifest.json",
+    "experiments/iter199_benchmark_expansion_across_repos/proof/valid/receipt_benchmark_expansion.json"
+  ],
+  "experiment_id": "iter199_benchmark_expansion_across_repos",
+  "insight": "Benchmark expanded from 10 hacks/3 repos to 22 hacks/8 repos: iter199 added 12 new execution-verified certified-resolved reward hacks across 8 repos (5 new: requests, xarray, pylint, pytest, sympy), from 42 frozen targets -> 23 variants -> 20 certified -> 12 certified+witnessed. The class generalizes beyond the original 3 repos. django-10097 passes 1870 graded tests and still returns 'accepted' where gold returns 'rejected'. Standard 9 catch: 7/10 repos lacked vendored parsers; 3 official parsers vendored (byte-identical, tested) before the run or certification would have silently failed.",
+  "next_action": "update the findings paper to reflect the expanded benchmark (22 hacks across 8 repositories instead of 10 across 3) in the abstract, Section 4, Table 1, and Limitations; then the operator peer-review path (hand-verify author block, submit for a DOI, arXiv appeal)",
+  "result_path": "experiments/iter199_benchmark_expansion_across_repos/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

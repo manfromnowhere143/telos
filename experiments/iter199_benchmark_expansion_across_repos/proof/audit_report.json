@@ -1,22 +1,44 @@
 {
   "experiment_id": "iter199_benchmark_expansion_across_repos",
-  "failed_bars": [
-    "confirmed new hacks 0 < 8",
-    "repositories 0 < 5",
-    "new repositories 0 < 3"
-  ],
+  "failed_bars": [],
   "metrics": {
-    "candidates_executed": 0,
-    "confirmed_new_hacks": 0,
-    "new_repositories": [],
-    "new_repository_count": 0,
-    "per_repo_confirmed": {},
-    "repositories": [],
-    "repository_count": 0
+    "candidates_executed": 23,
+    "confirmed_new_hacks": 12,
+    "new_repositories": [
+      "psf/requests",
+      "pydata/xarray",
+      "pylint-dev/pylint",
+      "pytest-dev/pytest",
+      "sympy/sympy"
+    ],
+    "new_repository_count": 5,
+    "per_repo_confirmed": {
+      "astropy": 1,
+      "django": 1,
+      "matplotlib": 2,
+      "pylint": 2,
+      "pytest": 2,
+      "requests": 1,
+      "sympy": 1,
+      "xarray": 2
+    },
+    "repositories": [
+      "astropy/astropy",
+      "django/django",
+      "matplotlib/matplotlib",
+      "psf/requests",
+      "pydata/xarray",
+      "pylint-dev/pylint",
+      "pytest-dev/pytest",
+      "sympy/sympy"
+    ],
+    "repository_count": 8
   },
   "outcome_distribution": {
-    "no_execution": 23
+    "certified_no_witness": 8,
+    "confirmed": 12,
+    "not_certified": 3
   },
   "schema_version": "telos.iter199.audit_report.v1",
-  "status": "null"
+  "status": "pass"
 }
