@@ -88,9 +88,13 @@ oracle exactly as predicted (its gold-free property tested a pk named `id`, wher
 correctly; the judge caught it by reading the suspicious condition), making the coverage-bound mechanism
 concrete.
 
-The construct-and-detect arc iter192-iter197 is scientifically complete for a findings paper.
-`experiments/iter198_findings_paper_synthesis_and_accessibility/` is pre-registered for the full accessible
-paper rewrite around these results, ahead of a peer-reviewed venue for a DOI.
+The construct-and-detect arc iter192-iter197 is scientifically complete for a findings paper, and
+`experiments/iter198_findings_paper_synthesis_and_accessibility/` finished it: `paper/telos.tex` is a full
+accessible rewrite around these results (self-correction, ten certified-yet-wrong patches, two-detector
+comparison), every headline number cross-checked to regenerate from committed proof, and `paper/telos.pdf`
+rebuilt with `tectonic`. The remaining steps are operator actions, not repo gates: hand-verify the three
+flagged citations and the author block, submit to a peer-reviewed venue for a DOI, then appeal to arXiv with
+the DOI (an endorsement is not an acceptance). See `paper/README.md`.
 
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.

@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "Contribution list and body represent iter192-iter197 with no claim above committed evidence.",
+    "Every headline number regenerates from a committed experiments/*/proof artifact (cross-checked).",
+    "'reward hack' used only for the iter195 certified-resolved class, never the iter192 suite-failing rows.",
+    "Accessibility pass: every specialized term defined on first use; no undefined jargon; no LLM-tell phrases.",
+    "A real limitations section (small N, single-run judge, elicited, reference-fix definition of wrong).",
+    "validate_docs passes; paper/telos.pdf rebuilt from source and matches it.",
+    "No submission implied; citations flagged for hand-verification; peer-review-then-DOI-then-arXiv sequence recorded."
+  ],
+  "agent_id": "claude-opus-4-8-telos-paper-rewrite",
+  "benchmark_id": "findings_paper_synthesis_and_accessibility",
+  "evidence": [
+    {
+      "artifact": "paper/telos.tex",
+      "kind": "artifact",
+      "notes": "Full rewrite: 3 contributions (self-correction, 10 certified-yet-wrong patches, two-detector comparison). Terms defined on first use; django-11119 self-criticism kept.",
+      "status": "pass"
+    },
+    {
+      "artifact": "paper/telos.pdf",
+      "kind": "test",
+      "notes": "Rebuilt with tectonic (9 pages, clean compile). Extracted text confirms corrected framing and every headline number; LLM-tell scan found none.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter198_findings_paper_synthesis_and_accessibility/RESULT.md",
+      "kind": "adversarial_review",
+      "notes": "Every headline number cross-checked against committed proof (iter192/194/195/196/197): all matched. 3 citations flagged to_be_verified; judge single-run disclosed.",
+      "status": "pass"
+    },
+    {
+      "artifact": "paper/README.md",
+      "kind": "diff_scope",
+      "notes": "Status updated to clean-rewrite-complete-not-submitted; peer-review->DOI->arXiv sequence and hand-verify steps recorded.",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "Any headline number in the paper does not regenerate from a committed proof artifact.",
+    "The paper calls the iter192 suite-failing rows reward hacks, or presents the judge single run as a stable rate, or makes a leaderboard/SOTA/natural-frequency claim.",
+    "Undefined jargon or LLM-tell phrasing remains, or the abstract is not readable without decoding.",
+    "paper/telos.pdf is stale relative to paper/telos.tex.",
+    "The result claims the paper is published, peer-reviewed, or citation-verified."
+  ],
+  "receipt_id": "telos-iter198-findings-paper-synthesis",
+  "sha256": "8e53cbdd85f610bf1a11f1e1b4974ee024fd666e249ee2d54fe3f5d286f982d0",
+  "stated_goal": "Rewrite paper/telos.tex as a readable findings manuscript that represents iter192-iter197 accurately and inside every committed claim boundary, and rebuild the PDF.",
+  "status": "pass",
+  "task_id": "iter198_findings_paper_synthesis_and_accessibility"
+}

@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-14T19:26:40Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-14T19:36:57Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -133,7 +133,7 @@ clean
 - experiments/iter195_synthesized_input_differential_oracle: RESULT PUBLISHED
 - experiments/iter196_detector_vs_certified_hacks: RESULT PUBLISHED
 - experiments/iter197_gold_free_oracle_vs_certified_hacks: RESULT PUBLISHED
-- experiments/iter198_findings_paper_synthesis_and_accessibility: PRE-REGISTERED, result pending
+- experiments/iter198_findings_paper_synthesis_and_accessibility: RESULT PUBLISHED
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
 - experiments/iter21_opponent_collision_control: RESULT PUBLISHED
@@ -219,7 +219,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter198_findings_paper_synthesis_and_accessibility/HYPOTHESIS.md`.
+- Active gate: `paper/README.md`.
 - Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
   (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
   diagnostic/adjudication only. Iter190 is a null pre-spend property-generator

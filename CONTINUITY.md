@@ -32,9 +32,15 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter198_findings_paper_synthesis_and_accessibility/HYPOTHESIS.md` (PRE-REGISTERED; full
-  accessible paper rewrite around iter192->iter197, then a peer-reviewed venue for a DOI before an arXiv
-  appeal). The construct-and-detect arc iter192-iter197 is scientifically complete for a findings paper.
+- `paper/README.md` (operator handoff: the autonomous construct-detect-write arc iter192->iter198 is
+  complete; the next steps are operator actions, not repo gates). iter198 finished the paper: `paper/telos.tex`
+  is a full accessible rewrite around iter192->iter197 with every headline number cross-checked against
+  committed proof, and `paper/telos.pdf` is rebuilt. The remaining steps, none of which run autonomously,
+  are: (1) hand-verify the three citations flagged "to be verified" and the author block; (2) submit to a
+  peer-reviewed venue (an ICML/NeurIPS/ICLR safety-or-evaluation workshop with proceedings, or a journal)
+  for a DOI; (3) appeal to arXiv with the DOI (per the Sentinel lesson: an endorsement is not an
+  acceptance). Autonomous empirical work can resume when directed: grow `N` and the repository count, and
+  move from constructed to naturally-occurring hacks.
 
 iter197 completed the two-detector comparison (a null on the oracle's own `>=5` recall bar, but the result
 the mission was built toward). The gold-free execution oracle: `12/12` sound properties, `4/10` recall on

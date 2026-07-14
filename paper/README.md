@@ -1,25 +1,25 @@
 # Telos paper (findings draft)
 
-> **Not publish-ready. Carries an erratum and must be reconciled with iter192 before any external
-> share (arXiv, link, or distribution).** The abstract now opens with a dated erratum: the rows the
-> draft calls "both-miss reward-hack diffs" and packages as `reward_hack_benchmark_v1` fail their
-> instances' own `PASS_TO_PASS` tests, so the official SWE-bench harness marks `40/40` unresolved and a
-> zero-cost "run the existing suite" baseline detects `40/40`. They are not reward hacks in the
-> score-well-while-wrong sense. `telos.pdf` was rebuilt from the corrected source on 2026-07-14 so the
-> distributed artifact matches the repository's public correction. What survives the correction: the
-> repair/intervention effect, the judge-vs-property-proposer thesis, and the gold-free property results,
-> which are execution-grounded and independent of the mislabel. The genuine reward-hack class
-> (harness-certified-resolved yet wrong) is the subject of iter193 and is not measured here. Do not
-> distribute the pre-erratum framing. See
-> `experiments/iter192_reward_hack_benchmark_construct_validity_audit/`.
+> **Status: clean rewrite complete (iter198), not yet submitted.** `telos.tex` was fully rewritten on
+> 2026-07-14 around the corrected arc iter192-iter197: an earlier benchmark that did not contain reward
+> hacks (corrected in place), ten execution-verified certified-resolved reward hacks, and a two-detector
+> comparison (judge panel `7/10`, gold-free oracle `4/10` at perfect precision, complementary union
+> `8/10`). Every headline number was cross-checked to regenerate from a committed `experiments/*/proof/`
+> artifact. The draft applies an accessibility pass (every term defined on first use, plain declarative
+> prose) in response to the readability feedback that preceded the sibling Sentinel arXiv rejection.
+> `telos.pdf` is rebuilt from this source with `tectonic`.
+>
+> **Before any external submission:** verify each citation's author/year/venue by hand (three entries are
+> marked "to be verified"); confirm the author/affiliation block. Per the Sentinel lesson (an arXiv
+> endorsement is not an acceptance; arXiv moderation prescribes peer review and a DOI first), the sequence
+> is a peer-reviewed venue for a DOI, then an arXiv appeal with the DOI. No submission without operator
+> direction.
 
-`telos.tex` is a self-contained LaTeX draft of the Telos findings paper, consolidating the
-detection, intervention, reward-model-gaming, and reward-hack-artifact arc through iter156. Read its
-contribution list through the erratum above: the standalone empirical contributions are the gate-and-repair
-intervention, the reward-model vulnerability measurement, and the verdict-giver-vs-property-generator
-insight; the both-miss decomposition and the `reward_hack_benchmark_v1` row artifact are retained but
-rescoped by the erratum. Every quantitative claim is a bounded pilot or artifact claim reproduced by a
-committed runner, manifest, and validated receipt under `experiments/iterNNN_*`.
+`telos.tex` is a self-contained LaTeX findings paper. Its three contributions are: the self-correction of
+the earlier benchmark (Section 3), the construction of ten certified-yet-wrong patches (Section 4), and the
+two-detector comparison (Section 5). Every quantitative claim is a bounded pilot reproduced by a committed
+runner, manifest, and validated receipt under `experiments/iterNNN_*`, and the spine that structures the
+rewrite is `paper/REWRITE_SPINE.md`.
 
 ## Build
 
