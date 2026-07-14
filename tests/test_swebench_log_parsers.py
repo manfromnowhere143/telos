@@ -57,6 +57,28 @@ def test_parse_log_matplotlib_status_first() -> None:
     assert got["lib/matplotlib/tests/test_patches.py::test_shadow"] == TestStatus.FAILED
 
 
+def test_parse_log_pytest_and_options_and_sympy() -> None:
+    from telos.swebench_log_parsers import (
+        parse_log_pytest,
+        parse_log_pytest_options,
+        parse_log_sympy,
+    )
+
+    py = parse_log_pytest(
+        "PASSED xarray/tests/test_a.py::test_one\nFAILED xarray/tests/test_a.py::test_two - err"
+    )
+    assert py["xarray/tests/test_a.py::test_one"] == TestStatus.PASSED
+    assert py["xarray/tests/test_a.py::test_two"] == TestStatus.FAILED
+
+    opt = parse_log_pytest_options("PASSED requests/tests/test_x.py::test_p[GET]")
+    assert opt["requests/tests/test_x.py::test_p[GET]"] == TestStatus.PASSED
+
+    sy = parse_log_sympy("test_foo ok\ntest_bar F\ntest_baz E")
+    assert sy["test_foo"] == TestStatus.PASSED
+    assert sy["test_bar"] == TestStatus.FAILED
+    assert sy["test_baz"] == TestStatus.ERROR
+
+
 def test_empty_log_is_empty_map() -> None:
     assert parse_log_django("") == {}
     assert parse_log_pytest_v2("") == {}

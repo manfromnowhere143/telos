@@ -1,0 +1,35 @@
+name: iter199-execute
+
+# Manual only. Runs the iter199 benchmark-expansion certify+witness harness on a native-x86 runner. For
+# each adversary variant, inside its pinned official SWE-bench container, it certifies the variant with the
+# official eval_script and witnesses wrongness by running the gold-differential scenario under gold and
+# variant. It never runs on push.
+on:
+  workflow_dispatch:
+
+jobs:
+  execute:
+    name: iter199 certify + witness (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - name: Run iter199 execution
+        run: |
+          chmod +x scripts/ci_iter199_execute.sh
+          bash scripts/ci_iter199_execute.sh
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter199-execution
+          path: experiments/iter199_benchmark_expansion_across_repos/proof/raw/execution/
+          retention-days: 14

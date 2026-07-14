@@ -1,0 +1,20 @@
+{
+  "base_commit": "c807dfe7569692cad24f02a08477b70c1679a4dd",
+  "fail_to_pass": [
+    "test_args"
+  ],
+  "framework": "sympy_bintest",
+  "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-12481:latest",
+  "instance_id": "sympy__sympy-12481",
+  "pass_to_pass": [
+    "test_Permutation",
+    "test_josephus",
+    "test_ranking",
+    "test_mul",
+    "test_Cycle",
+    "test_from_sequence",
+    "test_printing_cyclic"
+  ],
+  "repo": "sympy/sympy",
+  "test_command": "PYTHONWARNINGS='ignore::UserWarning,ignore::SyntaxWarning' bin/test -C --verbose sympy/combinatorics/tests/test_permutations.py"
+}

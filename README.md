@@ -96,6 +96,11 @@ rebuilt with `tectonic`. The remaining steps are operator actions, not repo gate
 flagged citations and the author block, submit to a peer-reviewed venue for a DOI, then appeal to arXiv with
 the DOI (an endorsement is not an acceptance). See `paper/README.md`.
 
+`experiments/iter199_benchmark_expansion_across_repos/` grows the benchmark beyond three repositories: it
+runs the same construct-and-witness pipeline on 42 fresh SWE-bench Verified instances spanning all 12
+dataset repositories, to show the certified-yet-wrong class is not an artifact of Django, astropy, and
+matplotlib.
+
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.
 

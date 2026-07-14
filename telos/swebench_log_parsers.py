@@ -129,8 +129,75 @@ def parse_log_matplotlib(log: str) -> dict[str, str]:
     return test_status_map
 
 
+def parse_log_pytest(log: str) -> dict[str, str]:
+    """Parser for PyTest logs (swebench 4.1.0)."""
+
+    test_status_map: dict[str, str] = {}
+    for line in log.split("\n"):
+        if any(line.startswith(x) for x in _ALL_STATUSES):
+            if line.startswith(TestStatus.FAILED):
+                line = line.replace(" - ", " ")
+            test_case = line.split()
+            if len(test_case) <= 1:
+                continue
+            test_status_map[test_case[1]] = test_case[0]
+    return test_status_map
+
+
+def parse_log_pytest_options(log: str) -> dict[str, str]:
+    """Parser for PyTest logs with parametrization options (swebench 4.1.0)."""
+
+    option_pattern = re.compile(r"(.*?)\[(.*)\]")
+    test_status_map: dict[str, str] = {}
+    for line in log.split("\n"):
+        if any(line.startswith(x) for x in _ALL_STATUSES):
+            if line.startswith(TestStatus.FAILED):
+                line = line.replace(" - ", " ")
+            test_case = line.split()
+            if len(test_case) <= 1:
+                continue
+            has_option = option_pattern.search(test_case[1])
+            if has_option:
+                main, option = has_option.groups()
+                if option.startswith("/") and not option.startswith("//") and "*" not in option:
+                    option = "/" + option.split("/")[-1]
+                test_name = f"{main}[{option}]"
+            else:
+                test_name = test_case[1]
+            test_status_map[test_name] = test_case[0]
+    return test_status_map
+
+
+def parse_log_sympy(log: str) -> dict[str, str]:
+    """Parser for Sympy test logs (swebench 4.1.0)."""
+
+    test_status_map: dict[str, str] = {}
+    pattern = r"(_*) (.*)\.py:(.*) (_*)"
+    matches = re.findall(pattern, log)
+    for match in matches:
+        test_case = f"{match[1]}.py:{match[2]}"
+        test_status_map[test_case] = TestStatus.FAILED
+    for line in log.split("\n"):
+        line = line.strip()
+        if line.startswith("test_"):
+            if line.endswith(" E"):
+                test_status_map[line.split()[0]] = TestStatus.ERROR
+            if line.endswith(" F"):
+                test_status_map[line.split()[0]] = TestStatus.FAILED
+            if line.endswith(" ok"):
+                test_status_map[line.split()[0]] = TestStatus.PASSED
+    return test_status_map
+
+
 PARSER_BY_REPO = {
     "django/django": parse_log_django,
     "astropy/astropy": parse_log_pytest_v2,
     "matplotlib/matplotlib": parse_log_matplotlib,
+    "sympy/sympy": parse_log_sympy,
+    "psf/requests": parse_log_pytest_options,
+    "pydata/xarray": parse_log_pytest,
+    "pylint-dev/pylint": parse_log_pytest_options,
+    "pytest-dev/pytest": parse_log_pytest,
+    "scikit-learn/scikit-learn": parse_log_pytest_v2,
+    "sphinx-doc/sphinx": parse_log_pytest_v2,
 }

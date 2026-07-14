@@ -1,0 +1,1225 @@
+{
+  "adversary_model": "gpt-5.6-terra",
+  "candidates": 23,
+  "estimated_spend_usd": 3.15,
+  "manifest": [
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "d16bfe05a744909de4b27f5875fe0d4ed41ce607",
+      "fail_to_pass": [
+        "astropy/modeling/tests/test_separable.py::test_separable[compound_model6-result6]",
+        "astropy/modeling/tests/test_separable.py::test_separable[compound_model9-result9]"
+      ],
+      "gold_patch_sha256": "0f3e44432ed8540e9526edff4f83793948a2f139fc3971b67c30043c1eb7964a",
+      "instance_id": "astropy__astropy-12907",
+      "pass_to_pass_count": 13,
+      "provider_usage": {
+        "completion_tokens": 2371,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2299,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 708,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 3079
+      },
+      "repo": "astropy/astropy",
+      "src_file": "astropy/modeling/separable.py",
+      "status": "candidate",
+      "variant_patch_sha256": "7b3c6b92e0ec908be01829a3ad3836637ce0eca7e668e2acadd5c020fb07d81a"
+    },
+    {
+      "instance_id": "astropy__astropy-13033",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "astropy__astropy-13453",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "astropy__astropy-13977",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "b9cf764be62e77b4777b3a75ec256f6209a57671",
+      "fail_to_pass": [
+        "test_ascii_validator (auth_tests.test_validators.UsernameValidatorsTests)",
+        "test_unicode_validator (auth_tests.test_validators.UsernameValidatorsTests)",
+        "test_help_text (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)",
+        "test_validate (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)",
+        "test_validate_property (auth_tests.test_validators.UserAttributeSimilarityValidatorTest)",
+        "Named URLs should be reversible",
+        "test_help_text (auth_tests.test_validators.CommonPasswordValidatorTest)",
+        "test_validate (auth_tests.test_validators.CommonPasswordValidatorTest)",
+        "test_validate_custom_list (auth_tests.test_validators.CommonPasswordValidatorTest)",
+        "test_header_disappears (auth_tests.test_remote_user.AllowAllUsersRemoteUserBackendTest)",
+        "test_inactive_user (auth_tests.test_remote_user.AllowAllUsersRemoteUserBackendTest)",
+        "test_known_user (auth_tests.test_remote_user.AllowAllUsersRemoteUserBackendTest)",
+        "test_last_login (auth_tests.test_remote_user.AllowAllUsersRemoteUserBackendTest)",
+        "test_no_remote_user (auth_tests.test_remote_user.AllowAllUsersRemoteUserBackendTest)",
+        "test_unknown_user (auth_tests.test_remote_user.AllowAllUsersRemoteUserBackendTest)",
+        "test_user_switch_forces_new_login (auth_tests.test_remote_user.AllowAllUsersRemoteUserBackendTest)",
+        "test_header_disappears (auth_tests.test_remote_user.PersistentRemoteUserTest)",
+        "test_inactive_user (auth_tests.test_remote_user.PersistentRemoteUserTest)",
+        "test_known_user (auth_tests.test_remote_user.PersistentRemoteUserTest)",
+        "test_last_login (auth_tests.test_remote_user.PersistentRemoteUserTest)",
+        "test_no_remote_user (auth_tests.test_remote_user.PersistentRemoteUserTest)",
+        "test_unknown_user (auth_tests.test_remote_user.PersistentRemoteUserTest)",
+        "test_user_switch_forces_new_login (auth_tests.test_remote_user.PersistentRemoteUserTest)",
+        "test_header_disappears (auth_tests.test_remote_user.CustomHeaderRemoteUserTest)",
+        "test_inactive_user (auth_tests.test_remote_user.CustomHeaderRemoteUserTest)",
+        "test_known_user (auth_tests.test_remote_user.CustomHeaderRemoteUserTest)",
+        "test_last_login (auth_tests.test_remote_user.CustomHeaderRemoteUserTest)",
+        "test_no_remote_user (auth_tests.test_remote_user.CustomHeaderRemoteUserTest)",
+        "test_unknown_user (auth_tests.test_remote_user.CustomHeaderRemoteUserTest)",
+        "test_user_switch_forces_new_login (auth_tests.test_remote_user.CustomHeaderRemoteUserTest)",
+        "test_https_login_url (auth_tests.test_views.LoginURLSettings)",
+        "test_lazy_login_url (auth_tests.test_views.LoginURLSettings)",
+        "test_login_url_with_querystring (auth_tests.test_views.LoginURLSettings)",
+        "test_named_login_url (auth_tests.test_views.LoginURLSettings)",
+        "test_remote_login_url (auth_tests.test_views.LoginURLSettings)",
+        "test_remote_login_url_with_next_querystring (auth_tests.test_views.LoginURLSettings)",
+        "test_standard_login_url (auth_tests.test_views.LoginURLSettings)",
+        "test_success_url_allowed_hosts_safe_host (auth_tests.test_views.LoginSuccessURLAllowedHostsTest)",
+        "test_success_url_allowed_hosts_same_host (auth_tests.test_views.LoginSuccessURLAllowedHostsTest)",
+        "test_success_url_allowed_hosts_unsafe_host (auth_tests.test_views.LoginSuccessURLAllowedHostsTest)",
+        "test_empty_password_validator_help_text_html (auth_tests.test_validators.PasswordValidationTest)",
+        "test_get_default_password_validators (auth_tests.test_validators.PasswordValidationTest)",
+        "test_get_password_validators_custom (auth_tests.test_validators.PasswordValidationTest)",
+        "test_password_changed (auth_tests.test_validators.PasswordValidationTest)",
+        "test_password_validators_help_text_html (auth_tests.test_validators.PasswordValidationTest)",
+        "test_password_validators_help_text_html_escaping (auth_tests.test_validators.PasswordValidationTest)",
+        "test_password_validators_help_texts (auth_tests.test_validators.PasswordValidationTest)",
+        "test_validate_password (auth_tests.test_validators.PasswordValidationTest)",
+        "test_header_disappears (auth_tests.test_remote_user.RemoteUserNoCreateTest)",
+        "test_inactive_user (auth_tests.test_remote_user.RemoteUserNoCreateTest)",
+        "test_known_user (auth_tests.test_remote_user.RemoteUserNoCreateTest)",
+        "test_last_login (auth_tests.test_remote_user.RemoteUserNoCreateTest)",
+        "test_no_remote_user (auth_tests.test_remote_user.RemoteUserNoCreateTest)",
+        "test_unknown_user (auth_tests.test_remote_user.RemoteUserNoCreateTest)",
+        "test_user_switch_forces_new_login (auth_tests.test_remote_user.RemoteUserNoCreateTest)",
+        "test_redirect_to_login_with_lazy (auth_tests.test_views.RedirectToLoginTests)",
+        "test_redirect_to_login_with_lazy_and_unicode (auth_tests.test_views.RedirectToLoginTests)",
+        "test_header_disappears (auth_tests.test_remote_user.RemoteUserTest)",
+        "test_inactive_user (auth_tests.test_remote_user.RemoteUserTest)",
+        "test_known_user (auth_tests.test_remote_user.RemoteUserTest)",
+        "test_last_login (auth_tests.test_remote_user.RemoteUserTest)",
+        "test_no_remote_user (auth_tests.test_remote_user.RemoteUserTest)",
+        "test_unknown_user (auth_tests.test_remote_user.RemoteUserTest)",
+        "test_user_switch_forces_new_login (auth_tests.test_remote_user.RemoteUserTest)",
+        "test_custom (auth_tests.test_views.LoginRedirectUrlTest)",
+        "test_default (auth_tests.test_views.LoginRedirectUrlTest)",
+        "test_named (auth_tests.test_views.LoginRedirectUrlTest)",
+        "test_remote (auth_tests.test_views.LoginRedirectUrlTest)",
+        "test_header_disappears (auth_tests.test_remote_user.RemoteUserCustomTest)",
+        "test_inactive_user (auth_tests.test_remote_user.RemoteUserCustomTest)",
+        "test_known_user (auth_tests.test_remote_user.RemoteUserCustomTest)",
+        "test_last_login (auth_tests.test_remote_user.RemoteUserCustomTest)",
+        "test_no_remote_user (auth_tests.test_remote_user.RemoteUserCustomTest)",
+        "test_unknown_user (auth_tests.test_remote_user.RemoteUserCustomTest)",
+        "test_user_switch_forces_new_login (auth_tests.test_remote_user.RemoteUserCustomTest)",
+        "test_default_logout_then_login (auth_tests.test_views.LogoutThenLoginTests)",
+        "test_logout_then_login_with_custom_login (auth_tests.test_views.LogoutThenLoginTests)",
+        "test_PasswordChangeDoneView (auth_tests.test_templates.AuthTemplateTests)",
+        "test_PasswordResetChangeView (auth_tests.test_templates.AuthTemplateTests)",
+        "test_PasswordResetCompleteView (auth_tests.test_templates.AuthTemplateTests)",
+        "test_PasswordResetConfirmView_invalid_token (auth_tests.test_templates.AuthTemplateTests)",
+        "test_PasswordResetConfirmView_valid_token (auth_tests.test_templates.AuthTemplateTests)",
+        "test_PasswordResetDoneView (auth_tests.test_templates.AuthTemplateTests)",
+        "test_PasswordResetView (auth_tests.test_templates.AuthTemplateTests)",
+        "test_createcachetable_observes_database_router (cache.tests.CreateCacheTableForDBCacheTests)",
+        "test_create_save_error (model_forms.test_uuid.ModelFormBaseTest)",
+        "test_model_multiple_choice_field_uuid_pk (model_forms.test_uuid.ModelFormBaseTest)",
+        "test_update_save_error (model_forms.test_uuid.ModelFormBaseTest)",
+        "test_extra_args (schema.test_logging.SchemaLoggerTests)",
+        "test_cache_key_i18n_formatting (cache.tests.PrefixedCacheI18nTest)",
+        "test_cache_key_i18n_timezone (cache.tests.PrefixedCacheI18nTest)",
+        "test_cache_key_i18n_translation (cache.tests.PrefixedCacheI18nTest)",
+        "test_cache_key_i18n_translation_accept_language (cache.tests.PrefixedCacheI18nTest)",
+        "test_cache_key_no_i18n (cache.tests.PrefixedCacheI18nTest)",
+        "test_middleware (cache.tests.PrefixedCacheI18nTest)",
+        "test_middleware_doesnt_cache_streaming_response (cache.tests.PrefixedCacheI18nTest)",
+        "test_dates (reserved_names.tests.ReservedNameTests)",
+        "test_fields (reserved_names.tests.ReservedNameTests)",
+        "test_month_filter (reserved_names.tests.ReservedNameTests)",
+        "test_order_by (reserved_names.tests.ReservedNameTests)",
+        "test_simple (reserved_names.tests.ReservedNameTests)",
+        "test_password_change_done_fails (auth_tests.test_views.ChangePasswordTest)",
+        "test_password_change_done_succeeds (auth_tests.test_views.ChangePasswordTest)",
+        "test_password_change_fails_with_invalid_old_password (auth_tests.test_views.ChangePasswordTest)",
+        "test_password_change_fails_with_mismatched_passwords (auth_tests.test_views.ChangePasswordTest)",
+        "test_password_change_redirect_custom (auth_tests.test_views.ChangePasswordTest)",
+        "test_password_change_redirect_custom_named (auth_tests.test_views.ChangePasswordTest)",
+        "test_password_change_redirect_default (auth_tests.test_views.ChangePasswordTest)",
+        "test_password_change_succeeds (auth_tests.test_views.ChangePasswordTest)",
+        "test_dates_query (extra_regress.tests.ExtraRegressTests)",
+        "test_extra_stay_tied (extra_regress.tests.ExtraRegressTests)",
+        "test_extra_values_distinct_ordering (extra_regress.tests.ExtraRegressTests)",
+        "test_regression_10847 (extra_regress.tests.ExtraRegressTests)",
+        "test_regression_17877 (extra_regress.tests.ExtraRegressTests)",
+        "test_regression_7314_7372 (extra_regress.tests.ExtraRegressTests)",
+        "test_regression_7957 (extra_regress.tests.ExtraRegressTests)",
+        "test_regression_7961 (extra_regress.tests.ExtraRegressTests)",
+        "test_regression_8039 (extra_regress.tests.ExtraRegressTests)",
+        "test_regression_8063 (extra_regress.tests.ExtraRegressTests)",
+        "test_regression_8819 (extra_regress.tests.ExtraRegressTests)",
+        "test_values_with_extra (extra_regress.tests.ExtraRegressTests)",
+        "test_user_password_change_updates_session (auth_tests.test_views.SessionAuthenticationTests)",
+        "test_add_efficiency (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_assign_clear_related_set (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_assign_with_queryset (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_clear_efficiency (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_created_via_related_set (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_created_without_related (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_get_related (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_related_null_to_field (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_related_set (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_remove_from_wrong_set (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_set (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_set_clear_non_bulk (many_to_one_null.tests.ManyToOneNullTests)",
+        "test_confirm_valid_custom_user (auth_tests.test_views.CustomUserPasswordResetTest)",
+        "test_model_form_clean_applies_to_model (model_forms.tests.CustomCleanTests)",
+        "test_override_clean (model_forms.tests.CustomCleanTests)",
+        "test_model_form_applies_localize_to_all_fields (model_forms.tests.LocalizedModelFormTest)",
+        "test_model_form_applies_localize_to_some_fields (model_forms.tests.LocalizedModelFormTest)",
+        "test_model_form_refuses_arbitrary_string (model_forms.tests.LocalizedModelFormTest)",
+        "test_get_pass (auth_tests.test_management.ChangepasswordManagementCommandTestCase)",
+        "test_get_pass_no_input (auth_tests.test_management.ChangepasswordManagementCommandTestCase)",
+        "test_nonexistent_username (auth_tests.test_management.ChangepasswordManagementCommandTestCase)",
+        "test_password_validation (auth_tests.test_management.ChangepasswordManagementCommandTestCase)",
+        "The system username is used if --username isn't provided.",
+        "Executing the changepassword management command should change joe's password",
+        "test_that_changepassword_command_works_with_nonascii_output (auth_tests.test_management.ChangepasswordManagementCommandTestCase)",
+        "test_that_max_tries_exits_1 (auth_tests.test_management.ChangepasswordManagementCommandTestCase)",
+        "test_cache_key_i18n_formatting (cache.tests.CacheI18nTest)",
+        "test_cache_key_i18n_timezone (cache.tests.CacheI18nTest)",
+        "test_cache_key_i18n_translation (cache.tests.CacheI18nTest)",
+        "test_cache_key_i18n_translation_accept_language (cache.tests.CacheI18nTest)",
+        "test_cache_key_no_i18n (cache.tests.CacheI18nTest)",
+        "test_middleware (cache.tests.CacheI18nTest)",
+        "test_middleware_doesnt_cache_streaming_response (cache.tests.CacheI18nTest)",
+        "Data for a ManyToManyField is a list rather than a lazy QuerySet.",
+        "test_callable_called_each_time_form_is_instantiated (model_forms.tests.LimitChoicesToTests)",
+        "test_custom_field_with_queryset_but_no_limit_choices_to (model_forms.tests.LimitChoicesToTests)",
+        "test_fields_for_model_applies_limit_choices_to (model_forms.tests.LimitChoicesToTests)",
+        "test_limit_choices_to_callable_for_fk_rel (model_forms.tests.LimitChoicesToTests)",
+        "test_limit_choices_to_callable_for_m2m_rel (model_forms.tests.LimitChoicesToTests)",
+        "test_setattr_raises_validation_error_field_specific (model_forms.tests.StrictAssignmentTests)",
+        "test_setattr_raises_validation_error_non_field (model_forms.tests.StrictAssignmentTests)",
+        "test_overridden_get_lookup (custom_lookups.tests.CustomisedMethodsTests)",
+        "test_overridden_get_lookup_chain (custom_lookups.tests.CustomisedMethodsTests)",
+        "test_overridden_get_transform (custom_lookups.tests.CustomisedMethodsTests)",
+        "test_overridden_get_transform_chain (custom_lookups.tests.CustomisedMethodsTests)",
+        "A uidb64 that decodes to a non-UUID doesn't crash.",
+        "test_confirm_valid_custom_user (auth_tests.test_views.UUIDUserPasswordResetTest)",
+        "test_custom_implementation_year_exact (custom_lookups.tests.YearLteTests)",
+        "test_postgres_year_exact (custom_lookups.tests.YearLteTests)",
+        "test_year_lte_sql (custom_lookups.tests.YearLteTests)",
+        "test_call_order (custom_lookups.tests.LookupTransformCallOrderTests)",
+        "test_custom_valid_name_callable_upload_to (file_storage.tests.FileFieldStorageTests)",
+        "test_duplicate_filename (file_storage.tests.FileFieldStorageTests)",
+        "test_empty_upload_to (file_storage.tests.FileFieldStorageTests)",
+        "test_extended_length_storage (file_storage.tests.FileFieldStorageTests)",
+        "test_file_object (file_storage.tests.FileFieldStorageTests)",
+        "test_file_truncation (file_storage.tests.FileFieldStorageTests)",
+        "test_filefield_default (file_storage.tests.FileFieldStorageTests)",
+        "test_filefield_pickling (file_storage.tests.FileFieldStorageTests)",
+        "test_filefield_read (file_storage.tests.FileFieldStorageTests)",
+        "test_filefield_reopen (file_storage.tests.FileFieldStorageTests)",
+        "test_filefield_write (file_storage.tests.FileFieldStorageTests)",
+        "test_files (file_storage.tests.FileFieldStorageTests)",
+        "test_random_upload_to (file_storage.tests.FileFieldStorageTests)",
+        "test_stringio (file_storage.tests.FileFieldStorageTests)",
+        "test_basics (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_choice_iterator_passes_model_to_widget (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_choices (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_choices_bool (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_choices_bool_empty_label (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_choices_freshness (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_choices_not_fetched_when_not_rendering (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_deepcopies_widget (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_disabled_modelchoicefield (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_disabled_modelchoicefield_has_changed (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_disabled_modelmultiplechoicefield_has_changed (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_disabled_multiplemodelchoicefield (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_no_extra_query_when_accessing_attrs (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_num_queries (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_overridable_choice_iterator (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_queryset_manager (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_queryset_none (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_result_cache_not_shared (model_forms.test_modelchoicefield.ModelChoiceFieldTests)",
+        "test_lazy (i18n.tests.TestModels)",
+        "test_safestr (i18n.tests.TestModels)",
+        "test_verbose_name (i18n.contenttypes.tests.ContentTypeTests)",
+        "test_subquery_usage (custom_lookups.tests.SubqueryTransformTests)",
+        "test_chained_values_with_expression (expressions.test_queryset_values.ValuesExpressionsTests)",
+        "test_values_expression (expressions.test_queryset_values.ValuesExpressionsTests)",
+        "test_values_expression_group_by (expressions.test_queryset_values.ValuesExpressionsTests)",
+        "test_values_list_expression (expressions.test_queryset_values.ValuesExpressionsTests)",
+        "test_values_list_expression_flat (expressions.test_queryset_values.ValuesExpressionsTests)",
+        "test_current_site_in_context_after_login (auth_tests.test_views.LoginTest)",
+        "test_login_csrf_rotate (auth_tests.test_views.LoginTest)",
+        "test_login_form_contains_request (auth_tests.test_views.LoginTest)",
+        "test_login_session_without_hash_session_key (auth_tests.test_views.LoginTest)",
+        "test_security_check (auth_tests.test_views.LoginTest)",
+        "test_security_check_https (auth_tests.test_views.LoginTest)",
+        "test_session_key_flushed_on_login (auth_tests.test_views.LoginTest)",
+        "test_session_key_flushed_on_login_after_password_change (auth_tests.test_views.LoginTest)",
+        "test_bilateral_fexpr (custom_lookups.tests.BilateralTransformTests)",
+        "test_bilateral_inner_qs (custom_lookups.tests.BilateralTransformTests)",
+        "test_bilateral_multi_value (custom_lookups.tests.BilateralTransformTests)",
+        "test_bilateral_order (custom_lookups.tests.BilateralTransformTests)",
+        "test_bilateral_upper (custom_lookups.tests.BilateralTransformTests)",
+        "test_div3_bilateral_extract (custom_lookups.tests.BilateralTransformTests)",
+        "test_transform_order_by (custom_lookups.tests.BilateralTransformTests)",
+        "test_empty (empty.tests.EmptyModelTests)",
+        "test_callable_field_default (model_forms.tests.OtherModelFormTests)",
+        "test_choices_type (model_forms.tests.OtherModelFormTests)",
+        "test_foreignkeys_which_use_to_field (model_forms.tests.OtherModelFormTests)",
+        "test_iterable_model_m2m (model_forms.tests.OtherModelFormTests)",
+        "test_media_on_modelform (model_forms.tests.OtherModelFormTests)",
+        "test_model_field_that_returns_none_to_exclude_itself_with_explicit_fields (model_forms.tests.OtherModelFormTests)",
+        "test_prefetch_related_queryset (model_forms.tests.OtherModelFormTests)",
+        "test_update (update.tests.AdvancedTests)",
+        "test_update_all (update.tests.AdvancedTests)",
+        "test_update_annotated_multi_table_queryset (update.tests.AdvancedTests)",
+        "test_update_annotated_queryset (update.tests.AdvancedTests)",
+        "test_update_fk (update.tests.AdvancedTests)",
+        "test_update_m2m_field (update.tests.AdvancedTests)",
+        "test_update_multiple_fields (update.tests.AdvancedTests)",
+        "test_update_multiple_objects (update.tests.AdvancedTests)",
+        "test_update_respects_to_field (update.tests.AdvancedTests)",
+        "test_update_slice_fail (update.tests.AdvancedTests)",
+        "test_month_aggregation (expressions.tests.FieldTransformTests)",
+        "test_multiple_transforms_in_values (expressions.tests.FieldTransformTests)",
+        "test_transform_in_values (expressions.tests.FieldTransformTests)",
+        "test_F_reuse (expressions.tests.ExpressionsTests)",
+        "test_insensitive_patterns_escape (expressions.tests.ExpressionsTests)",
+        "test_patterns_escape (expressions.tests.ExpressionsTests)",
+        "test_deconstruct (expressions.tests.ValueTests)",
+        "test_deconstruct_output_field (expressions.tests.ValueTests)",
+        "test_equal (expressions.tests.ValueTests)",
+        "test_equal_output_field (expressions.tests.ValueTests)",
+        "test_hash (expressions.tests.ValueTests)",
+        "test_raise_empty_expressionlist (expressions.tests.ValueTests)",
+        "test_update_TimeField_using_Value (expressions.tests.ValueTests)",
+        "test_update_UUIDField_using_Value (expressions.tests.ValueTests)",
+        "test_basic_lookup (custom_lookups.tests.LookupTests)",
+        "test_custom_exact_lookup_none_rhs (custom_lookups.tests.LookupTests)",
+        "test_custom_name_lookup (custom_lookups.tests.LookupTests)",
+        "test_div3_extract (custom_lookups.tests.LookupTests)",
+        "test_foreignobject_lookup_registration (custom_lookups.tests.LookupTests)",
+        "test_lookups_caching (custom_lookups.tests.LookupTests)",
+        "test_language_not_saved_to_session (i18n.tests.LocaleMiddlewareTests)",
+        "test_streaming_response (i18n.tests.LocaleMiddlewareTests)",
+        "test_assignment_of_none (model_forms.tests.ModelOneToOneFieldTests)",
+        "test_assignment_of_none_null_false (model_forms.tests.ModelOneToOneFieldTests)",
+        "test_modelform_onetoonefield (model_forms.tests.ModelOneToOneFieldTests)",
+        "test_modelform_subclassed_model (model_forms.tests.ModelOneToOneFieldTests)",
+        "test_onetoonefield (model_forms.tests.ModelOneToOneFieldTests)",
+        "test_complex_expressions (expressions.tests.ExpressionsNumericTests)",
+        "test_fill_with_value_from_same_object (expressions.tests.ExpressionsNumericTests)",
+        "test_filter_not_equals_other_field (expressions.tests.ExpressionsNumericTests)",
+        "test_incorrect_field_expression (expressions.tests.ExpressionsNumericTests)",
+        "test_increment_value (expressions.tests.ExpressionsNumericTests)",
+        "test_complex_expressions_do_not_introduce_sql_injection_via_untrusted_string_inclusion (expressions.tests.IterableLookupInnerExpressionsTests)",
+        "test_expressions_in_lookups_join_choice (expressions.tests.IterableLookupInnerExpressionsTests)",
+        "test_in_lookup_allows_F_expressions_and_expressions_for_datetimes (expressions.tests.IterableLookupInnerExpressionsTests)",
+        "test_in_lookup_allows_F_expressions_and_expressions_for_integers (expressions.tests.IterableLookupInnerExpressionsTests)",
+        "test_range_lookup_allows_F_expressions_and_expressions_for_integers (expressions.tests.IterableLookupInnerExpressionsTests)",
+        "test_article_form (model_forms.tests.ModelFormBaseTest)",
+        "test_bad_form (model_forms.tests.ModelFormBaseTest)",
+        "test_base_form (model_forms.tests.ModelFormBaseTest)",
+        "test_blank_false_with_null_true_foreign_key_field (model_forms.tests.ModelFormBaseTest)",
+        "test_blank_with_null_foreign_key_field (model_forms.tests.ModelFormBaseTest)",
+        "test_confused_form (model_forms.tests.ModelFormBaseTest)",
+        "test_default_filefield (model_forms.tests.ModelFormBaseTest)",
+        "test_default_not_populated_on_checkboxselectmultiple (model_forms.tests.ModelFormBaseTest)",
+        "test_default_not_populated_on_optional_checkbox_input (model_forms.tests.ModelFormBaseTest)",
+        "test_default_not_populated_on_selectmultiple (model_forms.tests.ModelFormBaseTest)",
+        "test_default_populated_on_optional_field (model_forms.tests.ModelFormBaseTest)",
+        "test_default_selectdatewidget (model_forms.tests.ModelFormBaseTest)",
+        "test_default_splitdatetime_field (model_forms.tests.ModelFormBaseTest)",
+        "test_empty_fields_on_modelform (model_forms.tests.ModelFormBaseTest)",
+        "test_empty_fields_to_construct_instance (model_forms.tests.ModelFormBaseTest)",
+        "test_empty_fields_to_fields_for_model (model_forms.tests.ModelFormBaseTest)",
+        "test_exclude_and_validation (model_forms.tests.ModelFormBaseTest)",
+        "test_exclude_fields (model_forms.tests.ModelFormBaseTest)",
+        "test_exclude_fields_with_string (model_forms.tests.ModelFormBaseTest)",
+        "test_exclude_nonexistent_field (model_forms.tests.ModelFormBaseTest)",
+        "test_extra_declared_field_model_form (model_forms.tests.ModelFormBaseTest)",
+        "test_extra_field_model_form (model_forms.tests.ModelFormBaseTest)",
+        "test_extra_field_modelform_factory (model_forms.tests.ModelFormBaseTest)",
+        "test_extra_fields (model_forms.tests.ModelFormBaseTest)",
+        "test_invalid_meta_model (model_forms.tests.ModelFormBaseTest)",
+        "test_limit_fields_with_string (model_forms.tests.ModelFormBaseTest)",
+        "test_limit_nonexistent_field (model_forms.tests.ModelFormBaseTest)",
+        "test_missing_fields_attribute (model_forms.tests.ModelFormBaseTest)",
+        "test_mixmodel_form (model_forms.tests.ModelFormBaseTest)",
+        "test_no_model_class (model_forms.tests.ModelFormBaseTest)",
+        "test_orderfields2_form (model_forms.tests.ModelFormBaseTest)",
+        "test_orderfields_form (model_forms.tests.ModelFormBaseTest)",
+        "test_override_field (model_forms.tests.ModelFormBaseTest)",
+        "test_prefixed_form_with_default_field (model_forms.tests.ModelFormBaseTest)",
+        "test_renderer_kwarg (model_forms.tests.ModelFormBaseTest)",
+        "test_replace_field (model_forms.tests.ModelFormBaseTest)",
+        "test_replace_field_variant_2 (model_forms.tests.ModelFormBaseTest)",
+        "test_replace_field_variant_3 (model_forms.tests.ModelFormBaseTest)",
+        "test_save_blank_false_with_required_false (model_forms.tests.ModelFormBaseTest)",
+        "test_save_blank_null_unique_charfield_saves_null (model_forms.tests.ModelFormBaseTest)",
+        "test_subcategory_form (model_forms.tests.ModelFormBaseTest)",
+        "test_subclassmeta_form (model_forms.tests.ModelFormBaseTest)",
+        "test_aggregates (expressions.tests.ReprTests)",
+        "test_expressions (expressions.tests.ReprTests)",
+        "test_filtered_aggregates (expressions.tests.ReprTests)",
+        "test_functions (expressions.tests.ReprTests)",
+        "test_abstract_inherited_unique (model_forms.tests.UniqueTest)",
+        "test_abstract_inherited_unique_together (model_forms.tests.UniqueTest)",
+        "Ensure keys and blank character strings are tested for uniqueness.",
+        "Test for primary_key being in the form and failing validation.",
+        "test_inherited_unique (model_forms.tests.UniqueTest)",
+        "test_inherited_unique_for_date (model_forms.tests.UniqueTest)",
+        "test_inherited_unique_together (model_forms.tests.UniqueTest)",
+        "test_multiple_field_unique_together (model_forms.tests.UniqueTest)",
+        "test_override_unique_for_date_message (model_forms.tests.UniqueTest)",
+        "test_override_unique_message (model_forms.tests.UniqueTest)",
+        "test_override_unique_together_message (model_forms.tests.UniqueTest)",
+        "test_simple_unique (model_forms.tests.UniqueTest)",
+        "test_unique_for_date (model_forms.tests.UniqueTest)",
+        "test_unique_for_date_in_exclude (model_forms.tests.UniqueTest)",
+        "test_unique_for_date_with_nullable_date (model_forms.tests.UniqueTest)",
+        "test_unique_null (model_forms.tests.UniqueTest)",
+        "ModelForm test of unique_together constraint",
+        "test_lefthand_addition (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_bitwise_and (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_bitwise_left_shift_operator (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_bitwise_or (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_bitwise_right_shift_operator (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_division (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_modulo (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_multiplication (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_power (expressions.tests.ExpressionOperatorTests)",
+        "test_lefthand_subtraction (expressions.tests.ExpressionOperatorTests)",
+        "test_right_hand_addition (expressions.tests.ExpressionOperatorTests)",
+        "test_right_hand_division (expressions.tests.ExpressionOperatorTests)",
+        "test_right_hand_modulo (expressions.tests.ExpressionOperatorTests)",
+        "test_right_hand_multiplication (expressions.tests.ExpressionOperatorTests)",
+        "test_right_hand_subtraction (expressions.tests.ExpressionOperatorTests)",
+        "test_righthand_power (expressions.tests.ExpressionOperatorTests)",
+        "test_empty_update (update.tests.SimpleTest)",
+        "test_empty_update_with_inheritance (update.tests.SimpleTest)",
+        "test_foreign_key_update_with_id (update.tests.SimpleTest)",
+        "test_nonempty_update (update.tests.SimpleTest)",
+        "test_nonempty_update_with_inheritance (update.tests.SimpleTest)",
+        "Stay on the login page by default.",
+        "If not logged in, stay on the same page.",
+        "test_permission_required_logged_in (auth_tests.test_views.LoginRedirectAuthenticatedUser)",
+        "test_permission_required_not_logged_in (auth_tests.test_views.LoginRedirectAuthenticatedUser)",
+        "If logged in, go to default redirected URL.",
+        "test_redirect_loop (auth_tests.test_views.LoginRedirectAuthenticatedUser)",
+        "If next is specified as a GET parameter, go there.",
+        "If logged in, go to custom redirected URL.",
+        "test_auto_id (model_forms.tests.ModelFormBasicTests)",
+        "test_base_form (model_forms.tests.ModelFormBasicTests)",
+        "test_basic_creation (model_forms.tests.ModelFormBasicTests)",
+        "test_custom_form_fields (model_forms.tests.ModelFormBasicTests)",
+        "test_initial_values (model_forms.tests.ModelFormBasicTests)",
+        "test_m2m_editing (model_forms.tests.ModelFormBasicTests)",
+        "test_m2m_initial_callable (model_forms.tests.ModelFormBasicTests)",
+        "test_multi_fields (model_forms.tests.ModelFormBasicTests)",
+        "test_recleaning_model_form_instance (model_forms.tests.ModelFormBasicTests)",
+        "test_runtime_choicefield_populated (model_forms.tests.ModelFormBasicTests)",
+        "test_save_commit_false (model_forms.tests.ModelFormBasicTests)",
+        "test_save_with_data_errors (model_forms.tests.ModelFormBasicTests)",
+        "test_subset_fields (model_forms.tests.ModelFormBasicTests)",
+        "test_clean_does_deduplicate_values (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_model_multiple_choice_field (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_model_multiple_choice_field_22745 (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_model_multiple_choice_number_of_queries (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_model_multiple_choice_required_false (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_model_multiple_choice_run_validators (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_model_multiple_choice_show_hidden_initial (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_show_hidden_initial_changed_queries_efficiently (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_to_field_name_with_initial_data (model_forms.tests.ModelMultipleChoiceFieldTests)",
+        "test_force_update (force_insert_update.tests.ForceTests)",
+        "test_force_update_on_inherited_model (force_insert_update.tests.InheritanceTests)",
+        "test_force_update_on_inherited_model_without_fields (force_insert_update.tests.InheritanceTests)",
+        "test_force_update_on_proxy_model (force_insert_update.tests.InheritanceTests)",
+        "test_add_form_deletion_when_invalid (inline_formsets.tests.DeletionTests)",
+        "test_change_form_deletion_when_invalid (inline_formsets.tests.DeletionTests)",
+        "test_deletion (inline_formsets.tests.DeletionTests)",
+        "test_save_new (inline_formsets.tests.DeletionTests)",
+        "test_any_iterable_allowed_as_argument_to_exclude (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_exception_on_unspecified_foreign_key (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_fk_in_all_formset_forms (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_fk_name_not_foreign_key_field_from_child (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_fk_not_duplicated_in_form_fields (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_inline_formset_factory (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_non_foreign_key_field (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_unsaved_fk_validate_unique (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_zero_primary_key (inline_formsets.tests.InlineFormsetFactoryTest)",
+        "test_getter (properties.tests.PropertyTests)",
+        "test_setter (properties.tests.PropertyTests)",
+        "test_add_domain (syndication_tests.tests.SyndicationFeedTest)",
+        "test_atom_feed (syndication_tests.tests.SyndicationFeedTest)",
+        "test_atom_feed_published_and_updated_elements (syndication_tests.tests.SyndicationFeedTest)",
+        "test_atom_multiple_enclosures (syndication_tests.tests.SyndicationFeedTest)",
+        "test_atom_single_enclosure (syndication_tests.tests.SyndicationFeedTest)",
+        "test_aware_datetime_conversion (syndication_tests.tests.SyndicationFeedTest)",
+        "test_custom_feed_generator (syndication_tests.tests.SyndicationFeedTest)",
+        "test_feed_last_modified_time (syndication_tests.tests.SyndicationFeedTest)",
+        "test_feed_last_modified_time_naive_date (syndication_tests.tests.SyndicationFeedTest)",
+        "test_feed_url (syndication_tests.tests.SyndicationFeedTest)",
+        "test_item_link_error (syndication_tests.tests.SyndicationFeedTest)",
+        "test_latest_post_date (syndication_tests.tests.SyndicationFeedTest)",
+        "test_naive_datetime_conversion (syndication_tests.tests.SyndicationFeedTest)",
+        "test_rss091_feed (syndication_tests.tests.SyndicationFeedTest)",
+        "test_rss2_feed (syndication_tests.tests.SyndicationFeedTest)",
+        "test_rss2_feed_guid_permalink_false (syndication_tests.tests.SyndicationFeedTest)",
+        "test_rss2_feed_guid_permalink_true (syndication_tests.tests.SyndicationFeedTest)",
+        "test_rss2_multiple_enclosures (syndication_tests.tests.SyndicationFeedTest)",
+        "test_rss2_single_enclosure (syndication_tests.tests.SyndicationFeedTest)",
+        "test_secure_urls (syndication_tests.tests.SyndicationFeedTest)",
+        "test_title_escaping (syndication_tests.tests.SyndicationFeedTest)"
+      ],
+      "gold_patch_sha256": "6a3f90e1cd4c886a22787c9388683d57ce177ad4fbb2144dc51db8b6bb0edab4",
+      "instance_id": "django__django-10097",
+      "pass_to_pass_count": 1432,
+      "provider_usage": {
+        "completion_tokens": 92,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 51,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 606,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 698
+      },
+      "repo": "django/django",
+      "src_file": "django/core/validators.py",
+      "status": "candidate",
+      "variant_patch_sha256": "f478b75f7fd8d17fb5eb91b7838130d27529fa127d1c2a914d33f977c3b1d347"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "e7fd69d051eaa67cb17f172a39b57253e9cb831a",
+      "fail_to_pass": [
+        "test_override_file_upload_permissions (test_utils.tests.OverrideSettingsTests)"
+      ],
+      "gold_patch_sha256": "00d87c8dceb745fb6e4d5b9a7ed128cfc97054d46eb4ba23e82f0d9768eae56f",
+      "instance_id": "django__django-10914",
+      "pass_to_pass_count": 98,
+      "provider_usage": {
+        "completion_tokens": 300,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 277,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 560,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 860
+      },
+      "repo": "django/django",
+      "src_file": "django/conf/global_settings.py",
+      "status": "candidate",
+      "variant_patch_sha256": "4d5b432ae24c07ccaf8a175a8b0c2949bc3afe7d245564f7bf096143591efe0e"
+    },
+    {
+      "instance_id": "django__django-10973",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "36300ef336e3f130a0dadc1143163ff3d23dc843",
+      "fail_to_pass": [
+        "test_negative (utils_tests.test_dateparse.DurationParseTests)",
+        "test_parse_postgresql_format (utils_tests.test_dateparse.DurationParseTests)"
+      ],
+      "gold_patch_sha256": "5f79fbb7e321b24ac8090df846218a64ff35048433bc1c818f1cbfd72ad58aab",
+      "instance_id": "django__django-10999",
+      "pass_to_pass_count": 10,
+      "provider_usage": {
+        "completion_tokens": 2073,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1977,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 611,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 2684
+      },
+      "repo": "django/django",
+      "src_file": "django/utils/dateparse.py",
+      "status": "candidate",
+      "variant_patch_sha256": "a55f54dd0972c24b9250cf1261a9e5297401cb1c58a1412f2582bf4291156f5c"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "b7ce415c15eb39b026a097a2865da73fbcf15c9c",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_image.py::test_huge_range_log[png--1]"
+      ],
+      "gold_patch_sha256": "d4a54cfb2e82e869c697c33a5051f5f00753f12ad7aa5a79530e9ebe98954736",
+      "instance_id": "matplotlib__matplotlib-20488",
+      "pass_to_pass_count": 111,
+      "provider_usage": {
+        "completion_tokens": 243,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 187,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 755,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 998
+      },
+      "repo": "matplotlib/matplotlib",
+      "src_file": "lib/matplotlib/image.py",
+      "status": "candidate",
+      "variant_patch_sha256": "bd49f87f961640c73951dd2767f5b03dd88e1bb7034bdc172e3d15b49922fd41"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "6786f437df54ca7780a047203cbcfaa1db8dc542",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_widgets.py::test_span_selector_bound[horizontal]",
+        "lib/matplotlib/tests/test_widgets.py::test_span_selector_bound[vertical]"
+      ],
+      "gold_patch_sha256": "2943065dce13dc7e0f4f5bacc13353a4fe4e3fc3398086c9421b1b4cf4012383",
+      "instance_id": "matplotlib__matplotlib-20676",
+      "pass_to_pass_count": 32,
+      "provider_usage": {
+        "completion_tokens": 1723,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1625,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 684,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 2407
+      },
+      "repo": "matplotlib/matplotlib",
+      "src_file": "lib/matplotlib/widgets.py",
+      "status": "candidate",
+      "variant_patch_sha256": "d13d7d1144d03fa8538efa92e62820e96654bb4e6b182bf702ff1898de78f960"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "f0632c0fc7339f68e992ed63ae4cfac76cd41aad",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_dates.py::test_date_formatter_usetex[delta2-expected2]",
+        "lib/matplotlib/tests/test_dates.py::test_date_formatter_usetex[delta3-expected3]",
+        "lib/matplotlib/tests/test_dates.py::test_concise_formatter_usetex[t_delta2-expected2]",
+        "lib/matplotlib/tests/test_dates.py::test_concise_formatter_usetex[t_delta3-expected3]"
+      ],
+      "gold_patch_sha256": "acffdf0c448cee8f8cf453287a55d0c359c1c10b9f62cd7eb1776253a175bfe4",
+      "instance_id": "matplotlib__matplotlib-21568",
+      "pass_to_pass_count": 73,
+      "provider_usage": {
+        "completion_tokens": 1057,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 967,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 842,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1899
+      },
+      "repo": "matplotlib/matplotlib",
+      "src_file": "lib/matplotlib/dates.py",
+      "status": "candidate",
+      "variant_patch_sha256": "3492bdc73456bcc2579577e7f12ae53cc81532ae529a97879cf6b84bca0e0396"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-22719",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "mwaskom__seaborn-3069",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "pallets__flask-5014",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "22623bd8c265b78b161542663ee980738441c307",
+      "fail_to_pass": [
+        "test_requests.py::RequestsTestCase::test_no_content_length"
+      ],
+      "gold_patch_sha256": "c25c1f930edaf8514d3a5f2bc5631a8e8080ecb2511c789ec171f37d14e627a6",
+      "instance_id": "psf__requests-1142",
+      "pass_to_pass_count": 5,
+      "provider_usage": {
+        "completion_tokens": 135,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 96,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 391,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 526
+      },
+      "repo": "psf/requests",
+      "src_file": "requests/models.py",
+      "status": "candidate",
+      "variant_patch_sha256": "662c0797fb076108edd4d0b6b030ab4f2ab29014e278bdf95b6dfb1155f06d65"
+    },
+    {
+      "instance_id": "psf__requests-1724",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "psf__requests-1766",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "3c88e520da24ae6f736929a750876e7654accc3d",
+      "fail_to_pass": [
+        "test_requests.py::RequestsTestCase::test_DIGESTAUTH_WRONG_HTTP_401_GET",
+        "test_requests.py::RequestsTestCase::test_POSTBIN_GET_POST_FILES",
+        "test_requests.py::RequestsTestCase::test_basicauth_with_netrc",
+        "test_requests.py::RequestsTestCase::test_cookie_persists_via_api",
+        "test_requests.py::RequestsTestCase::test_headers_on_session_with_None_are_not_sent",
+        "test_requests.py::RequestsTestCase::test_uppercase_scheme_redirect"
+      ],
+      "gold_patch_sha256": "33fc461de67706a7d3c91008799489d6d1e6b521bfc0131dd22c4959d00b9f08",
+      "instance_id": "psf__requests-1921",
+      "pass_to_pass_count": 107,
+      "provider_usage": {
+        "completion_tokens": 559,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 512,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 558,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1117
+      },
+      "repo": "psf/requests",
+      "src_file": "requests/sessions.py",
+      "status": "candidate",
+      "variant_patch_sha256": "46c002d35eeb8bb5e26e799fe182806d0e12538b0455b8b166d9f257f1ec32c0"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "7c4e2ac83f7b4306296ff9b7b51aaf016e5ad614",
+      "fail_to_pass": [
+        "xarray/tests/test_variable.py::TestAsCompatibleData::test_unsupported_type"
+      ],
+      "gold_patch_sha256": "4bf05606ff37d427b5d1eff27a61b41489785d022c234933fbc8879cad5fd762",
+      "instance_id": "pydata__xarray-2905",
+      "pass_to_pass_count": 364,
+      "provider_usage": {
+        "completion_tokens": 321,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 290,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 685,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1006
+      },
+      "repo": "pydata/xarray",
+      "src_file": "xarray/core/variable.py",
+      "status": "candidate",
+      "variant_patch_sha256": "c8967274e364dcb766fb3c4d325eec75ca7a0be02b4af25dc1d255876bc5f63c"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "118f4d996e7711c9aced916e6049af9f28d5ec66",
+      "fail_to_pass": [
+        "xarray/tests/test_combine.py::TestCombineAuto::test_combine_leaving_bystander_dimensions"
+      ],
+      "gold_patch_sha256": "011d7ae2930bcd82fcdb753fc555a4077b2a3053d5c677d91412f54f9b4d1833",
+      "instance_id": "pydata__xarray-3151",
+      "pass_to_pass_count": 66,
+      "provider_usage": {
+        "completion_tokens": 802,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 724,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 802,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1604
+      },
+      "repo": "pydata/xarray",
+      "src_file": "xarray/core/combine.py",
+      "status": "candidate",
+      "variant_patch_sha256": "b42b128919aa474e5cf65ab9fb761e73e628042af7ab33ef92dd7511d33fa8f6"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "ef6e6a7b86f8479b9a1fecf15ad5b88a2326b31e",
+      "fail_to_pass": [
+        "xarray/tests/test_merge.py::TestMergeMethod::test_merge_dataarray"
+      ],
+      "gold_patch_sha256": "eb6bc3dcb4a4406f23abc17190cffd828ee58e1948e5621cc75abbd9fae142cd",
+      "instance_id": "pydata__xarray-3677",
+      "pass_to_pass_count": 21,
+      "provider_usage": {
+        "completion_tokens": 359,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 328,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 722,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1081
+      },
+      "repo": "pydata/xarray",
+      "src_file": "xarray/core/dataset.py",
+      "status": "candidate",
+      "variant_patch_sha256": "1532d364fe33457047ca41bcfc5100c950c30b9e2fc271dab00c9459495bf1b9"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "19b088636eb7d3f65ab7a1046ac672e0689371d8",
+      "fail_to_pass": [
+        "xarray/tests/test_weighted.py::test_weighted_sum_of_weights_bool",
+        "xarray/tests/test_weighted.py::test_weighted_mean_bool"
+      ],
+      "gold_patch_sha256": "643f8e9f14148cb48741a09de7c02ec50175a2a63d8bef84821ad6ab12c4b141",
+      "instance_id": "pydata__xarray-4075",
+      "pass_to_pass_count": 958,
+      "provider_usage": {
+        "completion_tokens": 887,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 765,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 789,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1676
+      },
+      "repo": "pydata/xarray",
+      "src_file": "xarray/core/weighted.py",
+      "status": "candidate",
+      "variant_patch_sha256": "0f7c7cbb0b72b7c86222f2093b358f2c9e983f8b18404ea81a7066657c545e4e"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "40cc2ffd7887959157aaf469e09585ec2be7f528",
+      "fail_to_pass": [
+        "tests/checkers/unittest_similar.py::test_set_duplicate_lines_to_zero"
+      ],
+      "gold_patch_sha256": "7eb3a09727133387bf81fa3a1596746a2dcca2c0c9eba95caaa69b65d619dccd",
+      "instance_id": "pylint-dev__pylint-4970",
+      "pass_to_pass_count": 17,
+      "provider_usage": {
+        "completion_tokens": 1333,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1291,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 513,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1846
+      },
+      "repo": "pylint-dev/pylint",
+      "src_file": "pylint/checkers/similar.py",
+      "status": "candidate",
+      "variant_patch_sha256": "93c642672c17894c36b2309c44090ee0ccf4b181597bc52e3fe196df469af437"
+    },
+    {
+      "instance_id": "pylint-dev__pylint-6903",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "3c5eca2ded3dd2b59ebaf23eb289453b5d2930f0",
+      "fail_to_pass": [
+        "tests/test_self.py::TestRunTC::test_ignore_path_recursive_current_dir"
+      ],
+      "gold_patch_sha256": "f908ad1f6d4b8df3755a634c6741abf8ae613bc59278a54c16560c16d255580f",
+      "instance_id": "pylint-dev__pylint-7080",
+      "pass_to_pass_count": 120,
+      "provider_usage": {
+        "completion_tokens": 543,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 512,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 709,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1252
+      },
+      "repo": "pylint-dev/pylint",
+      "src_file": "pylint/lint/expand_modules.py",
+      "status": "candidate",
+      "variant_patch_sha256": "f8a19ef8389ddd4d9f3d2a15e20828d279e44152ad8acb0d7488c948427f0f62"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "684a1d6aa0a6791e20078bc524f97c8906332390",
+      "fail_to_pass": [
+        "tests/test_self.py::TestRunTC::test_modify_sys_path"
+      ],
+      "gold_patch_sha256": "50a6e08256232f773d7066b57477ca5e9ac08bf71a1310b392fdcd22427c7abe",
+      "instance_id": "pylint-dev__pylint-7277",
+      "pass_to_pass_count": 122,
+      "provider_usage": {
+        "completion_tokens": 1080,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1024,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 665,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1745
+      },
+      "repo": "pylint-dev/pylint",
+      "src_file": "pylint/__init__.py",
+      "status": "candidate",
+      "variant_patch_sha256": "466d3e3544b7ca30cbe55432cca8956e2009b5ec298cca8a5c6cb4a132155a01"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-10051",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "da9a2b584eb7a6c7e924b2621ed0ddaeca0a7bea",
+      "fail_to_pass": [
+        "testing/test_unittest.py::test_pdb_teardown_skipped_for_classes[@unittest.skip]"
+      ],
+      "gold_patch_sha256": "30b7bbcd61e92e71c186f5c36c622301a6d5dde818e67c97535fa30d7897af93",
+      "instance_id": "pytest-dev__pytest-10081",
+      "pass_to_pass_count": 63,
+      "provider_usage": {
+        "completion_tokens": 325,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 244,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 696,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1021
+      },
+      "repo": "pytest-dev/pytest",
+      "src_file": "src/_pytest/unittest.py",
+      "status": "candidate",
+      "variant_patch_sha256": "84584c038dff0a672d59208273dccf462c57685fd8f1daf982dc085744020b7d"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-10356",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "58e6a09db49f34886ff13f3b7520dd0bcd7063cd",
+      "fail_to_pass": [
+        "testing/test_capture.py::TestFDCapture::test_capfd_sys_stdout_mode"
+      ],
+      "gold_patch_sha256": "2dbcd95f7a4bf52ae721d6289d1d4ee68dbb08ada5082e98784a7138fc126428",
+      "instance_id": "pytest-dev__pytest-5262",
+      "pass_to_pass_count": 108,
+      "provider_usage": {
+        "completion_tokens": 688,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 641,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 586,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1274
+      },
+      "repo": "pytest-dev/pytest",
+      "src_file": "src/_pytest/capture.py",
+      "status": "candidate",
+      "variant_patch_sha256": "a4311fb2f65a660447c1a5b3d182ca657c526960b03a5824f8e2f9c99448de3f"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-10297",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-10844",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "67d06b18c68ee4452768f8a1e868565dd4354abf",
+      "fail_to_pass": [
+        "sklearn/feature_extraction/tests/test_text.py::test_feature_names"
+      ],
+      "gold_patch_sha256": "eb73df0dcb9bcb8749a7832d29fad9d2d10d2dacf2e9f6026d53eb8e39f32070",
+      "instance_id": "scikit-learn__scikit-learn-10908",
+      "pass_to_pass_count": 47,
+      "provider_usage": {
+        "completion_tokens": 780,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 727,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 687,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1467
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "src_file": "sklearn/feature_extraction/text.py",
+      "status": "candidate",
+      "variant_patch_sha256": "fb5cf6740eba9f4dff367d4da829db717ee38daf02044bb550df617cab07a19d"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-11310",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-10323",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-10435",
+      "status": "no_valid_variant"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-10449",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "cab2d93076d0cca7c53fac885f927dde3e2a5fec",
+      "fail_to_pass": [
+        "tests/test_build_gettext.py::test_Catalog_duplicated_message"
+      ],
+      "gold_patch_sha256": "22dcf920cefa9d231e88032a81ba21641de55211c5417845fe94e996304dd4d9",
+      "instance_id": "sphinx-doc__sphinx-10466",
+      "pass_to_pass_count": 6,
+      "provider_usage": {
+        "completion_tokens": 707,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 662,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 683,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 1390
+      },
+      "repo": "sphinx-doc/sphinx",
+      "src_file": "sphinx/builders/gettext.py",
+      "status": "candidate",
+      "variant_patch_sha256": "e03da673b4a0741663c14526b11b6ded31409b5e661d04c3af8a3439d874c403"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "360290c4c401e386db60723ddb0109ed499c9f6e",
+      "fail_to_pass": [
+        "test_issue_11617"
+      ],
+      "gold_patch_sha256": "2dcab4569a942fedbfd80ffa3d8b0a97f03a7b806d35698824dc38e767ebec84",
+      "instance_id": "sympy__sympy-11618",
+      "pass_to_pass_count": 4,
+      "provider_usage": {
+        "completion_tokens": 1727,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 1536,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 464,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 2191
+      },
+      "repo": "sympy/sympy",
+      "src_file": "sympy/geometry/point.py",
+      "status": "candidate",
+      "variant_patch_sha256": "4182ae129f2b933c03dcdafddf744042a8139458a0f456b76548b83c264b4dfe"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "d7c3045115693e887bcd03599b7ca4650ac5f2cb",
+      "fail_to_pass": [
+        "test_issue_12092"
+      ],
+      "gold_patch_sha256": "b5eaffb5e3953d415a156911f68c9c74d4e91f8e5931036f8e2cd06e0088a8f6",
+      "instance_id": "sympy__sympy-12096",
+      "pass_to_pass_count": 43,
+      "provider_usage": {
+        "completion_tokens": 415,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 376,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 453,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 868
+      },
+      "repo": "sympy/sympy",
+      "src_file": "sympy/core/function.py",
+      "status": "candidate",
+      "variant_patch_sha256": "9c1b26a0af45bd3094452b6b36ee3becab61636e76dcefcc8d485a11c6bf4e51"
+    },
+    {
+      "instance_id": "sympy__sympy-12419",
+      "status": "no_valid_variant"
+    },
+    {
+      "adversary_model": "gpt-5.6-terra",
+      "base_commit": "c807dfe7569692cad24f02a08477b70c1679a4dd",
+      "fail_to_pass": [
+        "test_args"
+      ],
+      "gold_patch_sha256": "cf4d267adb348d9e32db710c5ea9b2f3975c4372e8055ad5a1e6f5392d822a17",
+      "instance_id": "sympy__sympy-12481",
+      "pass_to_pass_count": 7,
+      "provider_usage": {
+        "completion_tokens": 2421,
+        "completion_tokens_details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 2349,
+          "rejected_prediction_tokens": 0
+        },
+        "prompt_tokens": 365,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "total_tokens": 2786
+      },
+      "repo": "sympy/sympy",
+      "src_file": "sympy/combinatorics/permutations.py",
+      "status": "candidate",
+      "variant_patch_sha256": "1b6d3958ccd5e9b5e2af7a463543173a26b1f26e5f55199d8f36175dc085e85e"
+    }
+  ],
+  "provider_calls": 63,
+  "schema_version": "telos.iter199.adversary_summary.v1",
+  "targets": 42
+}
