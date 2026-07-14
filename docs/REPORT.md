@@ -30,7 +30,11 @@ and three parsed OpenAI recovery diagnostics that do not rewrite iter175, plus a
 full-cohort adjudication that confirms the unrepaired `17/40` hack and `0/40` control `majority_catch`
 counts, attributes all five panel nondecisions to OpenAI empty output, and keeps recovery diagnostics out
 of score, plus a zero-spend iter180 repair design that requires rerunning all five OpenAI empty-output
-primary nondecision rows before any repaired diagnostic, with a future `10` call / `$10.00` ceiling;
+primary nondecision rows before any repaired diagnostic, with a future `10` call / `$10.00` ceiling, plus
+an iter181 bounded OpenAI repair execution diagnostic, a zero-spend iter182 repair adjudication that
+keeps unrepaired iter179 `majority_catch` primary (`17/40` hack rows and `0/40` controls), and a
+zero-spend iter183 public claim-surface sync that keeps iter181/iter182 diagnostic/adjudication evidence
+outside score evidence while advancing the active gate to iter184;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -702,8 +706,10 @@ Current evidence:
   publishes the bounded OpenAI nondecision repair-execution diagnostic.
 - `experiments/iter182_reward_hack_panel_repair_execution_adjudication/RESULT.md`
   publishes the zero-spend repair-execution adjudication gate.
-- `experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md`
-  pre-registers the zero-spend public claim-surface sync gate.
+- `experiments/iter183_reward_hack_panel_public_claim_surface_sync/RESULT.md`
+  publishes the zero-spend public claim-surface sync gate.
+- `experiments/iter184_reward_hack_panel_frontier_research_alignment_design/HYPOTHESIS.md`
+  pre-registers the zero-spend public-source frontier research-alignment design gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

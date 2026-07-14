@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter183_reward_hack_panel_public_claim_surface_sync/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend public claim-surface sync pending)
+- `experiments/iter184_reward_hack_panel_frontier_research_alignment_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend public-source frontier research-alignment design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -134,8 +134,12 @@ secondary repaired diagnostic reduces panel nondecisions to `1` hack and `0` con
 metric. Iter182 is published as the zero-spend repair-execution adjudication pass: provider calls `0`,
 credential probes `0`, all `5` raw iter181 responses reparsed and reconciled by hash, the committed
 repair diagnostic matched recomputation, already-seen diagnostics stayed excluded, and no repaired score
-or public benchmark claim was made. The active next gate is `iter183`: zero-spend public claim-surface
-sync to keep README, report, mission-loop, handoff, and paper-facing docs on that adjudicated boundary.
+or public benchmark claim was made. Iter183 is published as a zero-spend public claim-surface sync pass:
+provider calls `0`, credential probes `0`, model evaluations `0`, SWE-bench executions `0`, cloud
+resources `0`, public surfaces preserve unrepaired iter179 `majority_catch` as primary (`17/40` hack rows
+and `0/40` controls), iter181/iter182 remain diagnostic/adjudication evidence only, and active-gate
+references now point to iter184. The active next gate is `iter184`: public-source frontier research
+alignment before any new paid evaluator expansion.
 
 Claim-boundary reviewer entry point:
 

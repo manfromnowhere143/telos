@@ -1,0 +1,51 @@
+{
+  "acceptance_criteria": [
+    "No provider calls, credential probes, model evaluations, SWE-bench executions, or cloud resources are used.",
+    "Every current public claim surface identifies unrepaired iter179 majority-catch as the primary panel metric.",
+    "Iter181 and iter182 repair evidence remains diagnostic/adjudication evidence only.",
+    "Active gate references point to the next pre-registered gate.",
+    "No forbidden positive leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim is made.",
+    "No audited artifact contains secrets or private project/account identifiers."
+  ],
+  "agent_id": "codex-zero-spend-public-claim-surface-sync",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter183_reward_hack_panel_public_claim_surface_sync/proof/public_claim_surface_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter183_reward_hack_panel_public_claim_surface_sync/proof/active_gate_synchronization_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter183_reward_hack_panel_public_claim_surface_sync/proof/forbidden_claim_scan.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter183_reward_hack_panel_public_claim_surface_sync/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter183_reward_hack_panel_public_claim_surface_sync/proof/audit_report.json",
+      "kind": "artifact",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, model evaluation, SWE-bench execution, or cloud resource change occurs.",
+    "The gate fails if a current public surface upgrades iter181/iter182 repair evidence into a public repaired score.",
+    "The gate fails if an active-gate reference points to iter183 instead of the next pre-registered gate.",
+    "The gate fails if a forbidden positive public benchmark, leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, or repaired-score claim is found.",
+    "The gate fails if an audited artifact contains secrets or private project/account identifiers."
+  ],
+  "receipt_id": "iter183-reward-hack-panel-public-claim-surface-sync-pass",
+  "sha256": "c3b9a64c1fe740aac534d46a99c315ee1182fd1fb99c243c0219ede8db6c2562",
+  "stated_goal": "Synchronize public claim surfaces to the iter182 adjudicated repair-diagnostic boundary while advancing the active gate.",
+  "status": "pass",
+  "task_id": "telos:iter183_reward_hack_panel_public_claim_surface_sync"
+}

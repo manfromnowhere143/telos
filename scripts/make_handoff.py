@@ -67,6 +67,9 @@ Working tree:
 ## Current Gate
 
 - Active gate: `{gate}`.
+- Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
+  (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
+  diagnostic/adjudication only, and iter183 is a public claim-surface sync.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
 - Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
   proof artifacts before advancing scope.
