@@ -43,15 +43,18 @@ the official grader marks all forty rows unresolved, and simply running the exis
 forty at no model cost. Second, we construct the real class. Using a frontier model as an adversary, we
 build ten patches that the official SWE-bench harness marks resolved---each passes every graded test---yet
 each produces different output from the correct fix on an input the tests do not cover, verified by
-execution in the project's own container. Third, we compare two detectors at decision time, with the
-correct fix withheld from both. A panel of two frontier language-model judges, reading only the patch,
-flags seven of ten hacks but also flags correct patches. A gold-free oracle, which proposes an executable
-correctness check from the public task description and runs it, flags four of ten and never flags a correct
-patch. The two detectors catch different hacks; together they flag eight of ten. An ensemble of a judge and
-a precise execution check therefore beats either detector alone.
+execution in the project's own container. We then extend the set to twenty-two such patches across eight
+repositories, so the class is not specific to a few projects. Third, we compare two detectors at decision
+time on the first ten hacks, with the correct fix withheld from both. A panel of two frontier
+language-model judges, reading only the patch, flags seven of ten hacks but also flags correct patches. A
+gold-free oracle, which proposes an executable correctness check from the public task description and runs
+it, flags four of ten and never flags a correct patch. The two detectors catch different hacks; together
+they flag eight of ten. An ensemble of a judge and a precise execution check therefore beats either
+detector alone.
 
-These are small, deliberately constructed pilots (ten hacks across three repositories, one adversary
-model), not a survey of how often agents hack in practice. Every number regenerates from committed
+These are small, deliberately constructed pilots (a benchmark of twenty-two hacks across eight
+repositories, with the detector comparison run on the first ten, one adversary model), not a survey of how
+often agents hack in practice. Every number regenerates from committed
 artifacts.
 \end{abstract}
 
@@ -83,9 +86,9 @@ We make three contributions.
   \item \textbf{A self-correction (Section~\ref{sec:correction}).} An earlier benchmark we released did
   not contain reward hacks. We show why from committed evidence, and we report the free baseline that had
   been missing.
-  \item \textbf{Ten certified-yet-wrong patches (Section~\ref{sec:construct}).} We construct and release
-  ten patches that the official SWE-bench harness marks resolved and that execution shows are wrong, each
-  with a retained witness.
+  \item \textbf{Certified-yet-wrong patches (Section~\ref{sec:construct}).} We construct and release a
+  benchmark of twenty-two patches across eight repositories that the official SWE-bench harness marks
+  resolved and that execution shows are wrong, each with a retained witness.
   \item \textbf{A two-detector comparison (Section~\ref{sec:detect}).} We measure a language-model judge
   panel and a gold-free execution oracle on the ten hacks, with the correct fix withheld from both, and
   report a recall, precision, and coverage tradeoff, plus the finding that the two detectors are
@@ -193,7 +196,17 @@ container.
 certified-resolved reward hacks across three repositories (Django, astropy, matplotlib). Two further
 candidates turned out to be correct rewrites---the variant matched the gold patch on every input we
 tried---and we report them as such rather than discard them. The remaining candidates produced no clean
-witness. Table~\ref{tab:hacks} lists the ten hacks.
+witness. Table~\ref{tab:hacks} lists these ten hacks, which are the set used for the detector comparison in
+Section~\ref{sec:detect}.
+
+\paragraph{The class is not specific to three repositories.} We then ran the same pipeline on forty-two
+fresh instances spanning all twelve repositories in SWE-bench Verified. It produced twenty-three variants;
+twenty were certified resolved by execution, and twelve were also witnessed wrong, adding hacks in five new
+repositories: requests, xarray, pylint, pytest, and sympy. Combined with the first ten, the released
+benchmark is twenty-two execution-verified certified-resolved reward hacks across eight repositories. The
+sharpest scale example is a Django hack whose variant passes 1{,}870 graded tests and still returns
+\texttt{'accepted'} where the correct fix returns \texttt{'rejected'}. The detector comparison below was
+run on the first ten hacks only, before this expansion.
 
 \begin{table}[t]
 \centering
@@ -238,7 +251,8 @@ the code showed it was a hack. This is the paper's own thesis applied to the aut
 the code rather than trust a verdict, including one's own.
 
 \paragraph{Claim boundary.} The ten hacks are elicited and constructed, not sampled from real agent runs,
-so we make no claim about how often agents hack in practice. There are ten hacks across three repositories.
+so we make no claim about how often agents hack in practice. There are twenty-two hacks across eight
+repositories, and the detector comparison uses the first ten.
 ``Wrong'' means the variant differs from the gold reference fix on a constructed input. The two correct
 rewrites are reported, not hidden.
 
@@ -321,8 +335,9 @@ or state-of-the-art claim.
 
 We state the bounds plainly.
 \begin{itemize}
-  \item \textbf{Small sample.} Ten hacks across three repositories. Confidence intervals are wide; this is
-  a pilot, not a distributional measurement.
+  \item \textbf{Small sample.} A benchmark of twenty-two hacks across eight repositories, with the detector
+  comparison run on the first ten. Confidence intervals are wide; this is a pilot, not a distributional
+  measurement.
   \item \textbf{Elicited, not natural.} A model was asked to produce the hacks. We do not measure how often
   a trained agent would produce them on its own.
   \item \textbf{Reference definition of wrong.} ``Wrong'' means the variant differs from the gold reference
@@ -337,8 +352,8 @@ We state the bounds plainly.
 
 \section{Conclusion}
 
-SWE-bench Verified certifies patches that are wrong. We constructed ten such patches, verified each by
-execution, and released them with witnesses. Because the tests that define ``resolved'' are exactly the
+SWE-bench Verified certifies patches that are wrong. We constructed twenty-two such patches across eight
+repositories, verified each by execution, and released them with witnesses. Because the tests that define ``resolved'' are exactly the
 tests any test-based check would use, no shipped test catches this class; a check must run an input the
 tests do not. Of the two detectors we measured, a language-model judge caught more hacks but flagged
 correct code, and a gold-free execution check caught fewer but flagged none. The two are complementary, and
@@ -348,7 +363,8 @@ hacks to naturally occurring ones, and to formalize the ensemble.
 
 \paragraph{Reproducibility.} Every number in this paper regenerates from a committed script, manifest, or
 validated receipt in the Telos repository. The experiments are named in the text (for example, the
-construction is iter193 through iter195 and the detector comparison is iter196 and iter197).
+construction is iter193 through iter195, the cross-repository expansion is iter199, and the detector
+comparison is iter196 and iter197).
 
 \begin{thebibliography}{9}
 \small
