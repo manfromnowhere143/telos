@@ -1,0 +1,35 @@
+name: iter193-certified-resolved
+
+# Manual only. Runs the iter193 Phase B execution harness on a native-x86 runner (no emulation):
+# decides, by execution inside each pinned official SWE-bench container, whether each Phase A candidate
+# is certified-resolved and whether an uncurated test that gold passes and the variant fails exists.
+# It never runs on push, so it cannot affect the main CI.
+on:
+  workflow_dispatch:
+
+jobs:
+  execute:
+    name: iter193 certified-resolved execution (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Free disk
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+          df -h /
+
+      - name: Run Phase B execution
+        run: |
+          chmod +x scripts/ci_certified_resolved_execute.sh
+          bash scripts/ci_certified_resolved_execute.sh
+
+      - name: Upload transcripts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter193-phase-b-execution
+          path: experiments/iter193_certified_resolved_reward_hack_construction/proof/raw/phase_b_execution/
+          retention-days: 14
