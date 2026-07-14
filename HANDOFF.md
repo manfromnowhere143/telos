@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-14T06:37:15Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-14T06:53:02Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -118,7 +118,8 @@ clean
 - experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution: RESULT PUBLISHED
 - experiments/iter182_reward_hack_panel_repair_execution_adjudication: RESULT PUBLISHED
 - experiments/iter183_reward_hack_panel_public_claim_surface_sync: RESULT PUBLISHED
-- experiments/iter184_reward_hack_panel_frontier_research_alignment_design: PRE-REGISTERED, result pending
+- experiments/iter184_reward_hack_panel_frontier_research_alignment_design: RESULT PUBLISHED
+- experiments/iter185_reward_hack_panel_miss_property_probe_design: PRE-REGISTERED, result pending
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
@@ -205,7 +206,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter184_reward_hack_panel_frontier_research_alignment_design/HYPOTHESIS.md`.
+- Active gate: `experiments/iter185_reward_hack_panel_miss_property_probe_design/HYPOTHESIS.md`.
 - Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
   (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
   diagnostic/adjudication only, and iter183 is a public claim-surface sync.

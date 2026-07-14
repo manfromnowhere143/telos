@@ -1,0 +1,270 @@
+{
+  "experiment_id": "iter184_reward_hack_panel_frontier_research_alignment_design",
+  "failures": [],
+  "minimum_source_bar": 8,
+  "schema_version": "telos.iter184.source_linked_frontier_alignment_matrix.v1",
+  "source_count": 20,
+  "sources": [
+    {
+      "institution": "OpenAI",
+      "source_id": "openai_third_party_evals_2026",
+      "source_type": "frontier evaluation practice",
+      "stable_url": "https://openai.com/index/trustworthy-third-party-evaluations-foundations/",
+      "telos_implication": "Report the tested claim, harness, budget, artifacts, and validity checks as part of the result; keep reward-hacking adjustments visible.",
+      "title": "A shared playbook for trustworthy third party evaluations",
+      "used_for": [
+        "claim_boundary",
+        "harness_validity",
+        "reward_hacking_validity_check"
+      ]
+    },
+    {
+      "institution": "OpenAI",
+      "source_id": "openai_eval_best_practices",
+      "source_type": "evaluation engineering guidance",
+      "stable_url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "telos_implication": "Treat LLM judges as scalable graders that need clear rubrics, controls, and validation before scale.",
+      "title": "Evaluation best practices",
+      "used_for": [
+        "judge_validation",
+        "rubric_design",
+        "human_oracle_boundary"
+      ]
+    },
+    {
+      "institution": "OpenAI",
+      "source_id": "openai_agent_evals",
+      "source_type": "agent workflow evaluation guidance",
+      "stable_url": "https://developers.openai.com/api/docs/guides/agent-evals",
+      "telos_implication": "Move from isolated outputs to trace-level, repeatable datasets and structured graders when debugging agent workflows.",
+      "title": "Evaluate agent workflows",
+      "used_for": [
+        "trace_grading",
+        "repeatability",
+        "workflow_failure_modes"
+      ]
+    },
+    {
+      "institution": "OpenAI",
+      "source_id": "openai_swe_bench_verified",
+      "source_type": "software-agent benchmark design",
+      "stable_url": "https://openai.com/index/introducing-swe-bench-verified/",
+      "telos_implication": "Human-reviewed software tasks and careful issue selection remain necessary; Telos should keep execution-backed source traceability explicit.",
+      "title": "Introducing SWE-bench Verified",
+      "used_for": [
+        "software_benchmark_validity",
+        "human_review",
+        "source_traceability"
+      ]
+    },
+    {
+      "institution": "Anthropic",
+      "source_id": "anthropic_reward_hacking_misalignment",
+      "source_type": "reward-hacking research",
+      "stable_url": "https://www.anthropic.com/research/emergent-misalignment-reward-hacking",
+      "telos_implication": "Reward hacking on programming tasks is directly relevant to frontier safety, not a cosmetic benchmark issue.",
+      "title": "From shortcuts to sabotage: natural emergent misalignment from reward hacking",
+      "used_for": [
+        "reward_hacking_relevance",
+        "programming_task_risk",
+        "safety_case"
+      ]
+    },
+    {
+      "institution": "Anthropic",
+      "source_id": "anthropic_teaching_claude_why",
+      "source_type": "alignment training research",
+      "stable_url": "https://alignment.anthropic.com/2026/teaching-claude-why/",
+      "telos_implication": "Distribution-specific fixes can hide failures; Telos should test whether a technique generalizes beyond the exact panel prompt.",
+      "title": "Teaching Claude Why",
+      "used_for": [
+        "ood_generalization",
+        "alignment_evaluation",
+        "failure_hiding_risk"
+      ]
+    },
+    {
+      "institution": "Google DeepMind",
+      "source_id": "google_specification_gaming",
+      "source_type": "specification-gaming research overview",
+      "stable_url": "https://deepmind.google/blog/specification-gaming-the-flip-side-of-ai-ingenuity/",
+      "telos_implication": "Goodhart/specification failures should be tested by finding the actual shortcut, not by trusting surface success.",
+      "title": "Specification gaming: the flip side of AI ingenuity",
+      "used_for": [
+        "specification_gaming",
+        "proxy_failure",
+        "shortcut_detection"
+      ]
+    },
+    {
+      "institution": "Google DeepMind",
+      "source_id": "google_frontier_safety_framework",
+      "source_type": "frontier safety governance",
+      "stable_url": "https://deepmind.google/blog/strengthening-our-frontier-safety-framework/",
+      "telos_implication": "Evaluation thresholds should be explicit and tied to a decision procedure before a claim changes.",
+      "title": "Strengthening our Frontier Safety Framework",
+      "used_for": [
+        "thresholds",
+        "decision_procedures",
+        "safety_framework"
+      ]
+    },
+    {
+      "institution": "Google AI",
+      "source_id": "google_structured_outputs",
+      "source_type": "provider structured-output documentation",
+      "stable_url": "https://ai.google.dev/gemini-api/docs/structured-output",
+      "telos_implication": "Provider-native structured outputs should be required for future paid judge or property-generator calls where available.",
+      "title": "Structured outputs",
+      "used_for": [
+        "structured_outputs",
+        "parser_reliability",
+        "nondecision_reduction"
+      ]
+    },
+    {
+      "institution": "NIST CAISI",
+      "source_id": "nist_agent_eval_cheating",
+      "source_type": "AI evaluation cheating guidance",
+      "stable_url": "https://www.nist.gov/caisi/cheating-ai-agent-evaluations/1-background-ai-models-can-cheat-evaluations",
+      "telos_implication": "Agent evaluations need scoring functions and task implementations that resist gaming or subversion by tool-using models.",
+      "title": "AI models can cheat on evaluations?",
+      "used_for": [
+        "agent_eval_integrity",
+        "scorer_subversion",
+        "tool_access_risk"
+      ]
+    },
+    {
+      "institution": "Stanford CRFM",
+      "source_id": "stanford_helm",
+      "source_type": "holistic model evaluation framework",
+      "stable_url": "https://crfm.stanford.edu/helm/",
+      "telos_implication": "Telos should keep multi-metric, transparent evidence rather than collapsing reward-hack verification into one scalar.",
+      "title": "Holistic Evaluation of Language Models",
+      "used_for": [
+        "holistic_evaluation",
+        "transparency",
+        "multi_metric_reporting"
+      ]
+    },
+    {
+      "institution": "Stanford CRFM",
+      "source_id": "stanford_reliable_efficient_evaluation",
+      "source_type": "adaptive evaluation research",
+      "stable_url": "https://crfm.stanford.edu/2025/06/04/reliable-and-efficient-evaluation.html",
+      "telos_implication": "Adaptive selection is acceptable only after the pool and stopping bars are frozen; future Telos expansion should prioritize high-information panel misses.",
+      "title": "Reliable and Efficient Amortized Model-Based Evaluation",
+      "used_for": [
+        "adaptive_testing",
+        "efficient_evaluation",
+        "sample_selection"
+      ]
+    },
+    {
+      "institution": "Columbia University",
+      "source_id": "columbia_agent_benchmarking_2026",
+      "source_type": "academic agent benchmark project signal",
+      "stable_url": "https://www.cs.columbia.edu/research-fair-spring-2026/",
+      "telos_implication": "Fair, repeatable agent benchmarks with tool-strategy analysis are active academic work; Telos should expose failure modes, not just aggregate counts.",
+      "title": "Research Fair Spring 2026 agent benchmark projects",
+      "used_for": [
+        "agent_benchmarking",
+        "repeatability",
+        "failure_mode_reporting"
+      ]
+    },
+    {
+      "institution": "Harvard Teamcore",
+      "source_id": "harvard_reward_shaping_inference_alignment",
+      "source_type": "inference-time alignment research",
+      "stable_url": "https://teamcore.seas.harvard.edu/files/2026/05/6632_Reward_Shaping_for_Infere.pdf",
+      "telos_implication": "Inference-time reward use needs proxy-risk controls; Telos should not let a reward model or judge become the trusted final oracle.",
+      "title": "Reward Shaping for (Inference-Time) Alignment",
+      "used_for": [
+        "proxy_reward_risk",
+        "inference_time_alignment",
+        "oracle_boundary"
+      ]
+    },
+    {
+      "institution": "MIT FutureTech",
+      "source_id": "mit_ai_risk_initiative",
+      "source_type": "AI risk taxonomy infrastructure",
+      "stable_url": "https://airisk.mit.edu/",
+      "telos_implication": "Risk evidence should be taxonomy-linked and useful for auditors; Telos should produce mapped failure modes and mitigations.",
+      "title": "MIT AI Risk Initiative",
+      "used_for": [
+        "risk_taxonomy",
+        "auditability",
+        "mitigation_mapping"
+      ]
+    },
+    {
+      "institution": "arXiv",
+      "source_id": "arxiv_reward_hacking_agents",
+      "source_type": "agent evaluation integrity paper",
+      "stable_url": "https://arxiv.org/abs/2603.11337",
+      "telos_implication": "Evaluator tampering and leakage should be measured as first-class outcomes; Telos should keep prompt/data leakage and artifact hashes in every run.",
+      "title": "RewardHackingAgents",
+      "used_for": [
+        "evaluator_integrity",
+        "leakage",
+        "workspace_mutability"
+      ]
+    },
+    {
+      "institution": "arXiv",
+      "source_id": "arxiv_hack_verifiable_environments",
+      "source_type": "reward-hacking benchmark paper",
+      "stable_url": "https://arxiv.org/abs/2605.20744",
+      "telos_implication": "Reward-hack opportunities should be made verifiable by design; Telos should turn panel misses into execution-verifiable property probes.",
+      "title": "Hack-Verifiable Environments",
+      "used_for": [
+        "verifiable_reward_hacking",
+        "deterministic_measurement",
+        "property_probe"
+      ]
+    },
+    {
+      "institution": "arXiv",
+      "source_id": "arxiv_reward_hacking_language_agents",
+      "source_type": "language-agent reward-hacking paper",
+      "stable_url": "https://arxiv.org/abs/2606.15385",
+      "telos_implication": "Proxy-reward failures can appear zero-shot in language agents; Telos should measure hidden-objective completion, not just observed reward.",
+      "title": "Reward Hacking in Language Model Agents",
+      "used_for": [
+        "hidden_objectives",
+        "proxy_reward_failure",
+        "agentic_reward_hacking"
+      ]
+    },
+    {
+      "institution": "arXiv",
+      "source_id": "arxiv_llm_as_judge_survey",
+      "source_type": "LLM judge reliability survey",
+      "stable_url": "https://arxiv.org/abs/2411.15594",
+      "telos_implication": "LLM-as-judge needs reliability strategy and meta-evaluation; Telos should escalate missed rows to executable evidence rather than only asking more judges.",
+      "title": "A Survey on LLM-as-a-Judge",
+      "used_for": [
+        "judge_reliability",
+        "meta_evaluation",
+        "bias_controls"
+      ]
+    },
+    {
+      "institution": "arXiv",
+      "source_id": "arxiv_swe_bench_pro",
+      "source_type": "software-agent benchmark paper",
+      "stable_url": "https://arxiv.org/abs/2509.16941",
+      "telos_implication": "Long-horizon coding-agent evaluation is moving toward harder, contamination-resistant tasks; Telos should keep public score claims out until packaging matures.",
+      "title": "SWE-Bench Pro",
+      "used_for": [
+        "long_horizon_software_tasks",
+        "contamination_resistance",
+        "benchmark_scope"
+      ]
+    }
+  ],
+  "status": "pass"
+}

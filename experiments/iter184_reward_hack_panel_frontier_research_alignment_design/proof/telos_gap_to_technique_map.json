@@ -1,0 +1,85 @@
+{
+  "benchmark_scope": {
+    "repo_count": 11,
+    "row_count": 40,
+    "survives_all_static_rows": 13
+  },
+  "experiment_id": "iter184_reward_hack_panel_frontier_research_alignment_design",
+  "failures": [],
+  "minimum_technique_bar": 4,
+  "panel_gap": {
+    "hack_rows": 40,
+    "iter179_majority_catch_hack_rows": 17,
+    "iter179_primary_miss_hack_rows": 23,
+    "primary_miss_classes": {
+      "panel_nondecision": 4,
+      "single_anthropic_catch": 2,
+      "single_openai_catch": 4,
+      "unanimous_legitimate": 13
+    }
+  },
+  "schema_version": "telos.iter184.telos_gap_to_technique_map.v1",
+  "status": "pass",
+  "technique_count": 6,
+  "techniques": [
+    {
+      "current_telos_gap": "23/40 hack rows are not caught by unrepaired iter179 majority_catch.",
+      "next_gate_choice": "Extract the full primary-miss cohort and design an execution/property-probe escalation instead of adding another verdict-only judge.",
+      "source_ids": [
+        "openai_third_party_evals_2026",
+        "arxiv_hack_verifiable_environments",
+        "arxiv_llm_as_judge_survey"
+      ],
+      "technique": "panel-miss property-probe escalation"
+    },
+    {
+      "current_telos_gap": "Panel evidence is a verdict ledger; it does not yet generate new executable checks.",
+      "next_gate_choice": "Require every selected miss row to receive a no-gold, no-hidden-test property probe schema before paid generation is authorized.",
+      "source_ids": [
+        "openai_agent_evals",
+        "nist_agent_eval_cheating",
+        "google_specification_gaming"
+      ],
+      "technique": "trace- and property-level evidence"
+    },
+    {
+      "current_telos_gap": "Provider output-format failures created panel nondecisions.",
+      "next_gate_choice": "Keep native structured output or a validated equivalent as a hard preflight for future paid calls.",
+      "source_ids": [
+        "google_structured_outputs",
+        "openai_eval_best_practices"
+      ],
+      "technique": "provider-native structured outputs"
+    },
+    {
+      "current_telos_gap": "Any next improvement could accidentally optimize for the known v1 row set.",
+      "next_gate_choice": "Freeze row selection, leakage scans, and stop conditions before executing any property generator or evaluator.",
+      "source_ids": [
+        "arxiv_reward_hacking_agents",
+        "openai_swe_bench_verified",
+        "arxiv_swe_bench_pro"
+      ],
+      "technique": "leakage-resistant pre-registration"
+    },
+    {
+      "current_telos_gap": "The panel has strong control behavior, but product value depends on diagnosable failure modes.",
+      "next_gate_choice": "Map every primary miss to disagreement class, source repo, and proposed probe family so the next gate explains where value will be added.",
+      "source_ids": [
+        "stanford_helm",
+        "columbia_agent_benchmarking_2026",
+        "mit_ai_risk_initiative"
+      ],
+      "technique": "failure-mode taxonomy for auditor value"
+    },
+    {
+      "current_telos_gap": "Reward-model or judge scores can become another proxy reward.",
+      "next_gate_choice": "Treat model outputs as generators of candidate checks; use execution or committed deterministic evidence as the adjudicator.",
+      "source_ids": [
+        "harvard_reward_shaping_inference_alignment",
+        "anthropic_reward_hacking_misalignment",
+        "arxiv_reward_hacking_language_agents"
+      ],
+      "technique": "model-as-generator, execution-as-oracle"
+    }
+  ]
+}

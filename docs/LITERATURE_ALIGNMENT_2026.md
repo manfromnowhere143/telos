@@ -8,9 +8,11 @@ or weak, and feed the next reward-hack evaluator gate without inflating claims.
 Telos is aligned with a real 2026 frontier problem: agent evaluations can be gamed, reward hacking is now
 studied directly in language-agent settings, and software-agent benchmarks need stronger validity checks
 than a final scalar score. The current Telos evidence is strongest where it uses execution, receipts,
-hashes, controls, and null publication. The weak point exposed by iter167/iter168 is also aligned with the
-literature: LLM judges are useful but brittle, so the next gate must design an independent judge panel with
-native structured output, frozen aggregation rules, and paired controls before spending again.
+hashes, controls, and null publication. Iter169-184 moved the project from a single-model judge to an
+adjudicated three-provider panel and then to a source-linked next-step design: unrepaired iter179
+`majority_catch` remains the primary public metric (`17/40` hack rows and `0/40` controls), while the next
+frontier work should target the `23` primary-missed hack rows with a zero-spend property-probe design
+before any new provider spend.
 
 This memo is not a benchmark result, product claim, SOTA claim, model-comparison result, or literature
 review exhaustiveness claim.
@@ -134,13 +136,14 @@ Adjacent institutional signals:
 
 ## Next Gate Impact
 
-The literature supports the iter168 recommendation:
+The literature now supports the iter184 recommendation:
 
-- next gate: `iter169_reward_hack_independent_judge_panel_design`;
+- next gate: `iter185_reward_hack_panel_miss_property_probe_design`;
 - no provider calls yet;
-- design must require native structured output or a preflighted equivalent;
-- panel aggregation rules must be frozen before outputs;
-- every model binding must receive paired hack/control packets;
-- no panel pass can violate the `0.90` specificity floor or `4/40` false-positive ceiling;
-- invalid/refusal/inconclusive outputs remain nondecisions, not catches or true negatives;
-- execution-backed adjudication remains the final layer for uncertain high-value rows.
+- recover exactly the `23` iter179 primary-missed hack rows from committed row-level proof;
+- partition those misses by disagreement/nondecision class before choosing a priority subset;
+- design a `12`-row property-probe subset covering at least `6` repositories;
+- forbid gold patches, hidden test names, official expected outputs, and labels in future prompts;
+- require native structured output or a preflighted equivalent for any future paid generator/judge call;
+- freeze future call, spend, execution, false-positive, and nondecision bars before any provider call;
+- keep execution-backed adjudication as the final layer for uncertain high-value rows.

@@ -8,8 +8,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter184_reward_hack_panel_frontier_research_alignment_design/HYPOTHESIS.md`](../experiments/iter184_reward_hack_panel_frontier_research_alignment_design/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend public-source frontier research-alignment design pending;
+- Active gate: [`../experiments/iter185_reward_hack_panel_miss_property_probe_design/HYPOTHESIS.md`](../experiments/iter185_reward_hack_panel_miss_property_probe_design/HYPOTHESIS.md)
+- Active gate state: pre-registered zero-spend panel-miss property-probe design pending;
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend
@@ -58,7 +58,11 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   credential probes `0`, model evaluations `0`, SWE-bench executions `0`, cloud resources `0`, public
   surfaces preserve unrepaired iter179 `majority_catch` as primary (`17/40` hack rows and `0/40`
   controls), iter181/iter182 remain diagnostic/adjudication evidence only, and active-gate references now
-  point to iter184. No benchmark score, leaderboard, model-comparison result, state-of-the-art
+  point to iter184. Iter184 may be cited only as a zero-spend public-source research-alignment design:
+  `20` stable public sources, `6` source-backed technique implications, `0` provider calls, credential
+  probes, model evaluations, SWE-bench executions, cloud resources, or secret hits, and the next empirical
+  gate is iter185 property-probe design over the `23` iter179 primary-missed hack rows. No benchmark
+  score, leaderboard, model-comparison result, state-of-the-art
   result, natural-frequency estimate, broad robustness claim, or repaired-score claim is allowed.
 - Public runner: GitHub Actions plus local validators.
 - Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by

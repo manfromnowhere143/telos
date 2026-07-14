@@ -34,7 +34,10 @@ primary nondecision rows before any repaired diagnostic, with a future `10` call
 an iter181 bounded OpenAI repair execution diagnostic, a zero-spend iter182 repair adjudication that
 keeps unrepaired iter179 `majority_catch` primary (`17/40` hack rows and `0/40` controls), and a
 zero-spend iter183 public claim-surface sync that keeps iter181/iter182 diagnostic/adjudication evidence
-outside score evidence while advancing the active gate to iter184;
+outside score evidence while advancing the active gate to iter184, plus a zero-spend iter184
+public-source research-alignment design that records `20` stable public sources, maps `6` source-backed
+technique implications, and selects iter185 property-probe design over the `23` iter179 primary-missed
+hack rows before any new provider spend;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -708,8 +711,10 @@ Current evidence:
   publishes the zero-spend repair-execution adjudication gate.
 - `experiments/iter183_reward_hack_panel_public_claim_surface_sync/RESULT.md`
   publishes the zero-spend public claim-surface sync gate.
-- `experiments/iter184_reward_hack_panel_frontier_research_alignment_design/HYPOTHESIS.md`
-  pre-registers the zero-spend public-source frontier research-alignment design gate.
+- `experiments/iter184_reward_hack_panel_frontier_research_alignment_design/RESULT.md`
+  publishes the zero-spend public-source frontier research-alignment design gate.
+- `experiments/iter185_reward_hack_panel_miss_property_probe_design/HYPOTHESIS.md`
+  pre-registers the zero-spend panel-miss property-probe design gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

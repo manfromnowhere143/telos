@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter184_reward_hack_panel_frontier_research_alignment_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend public-source frontier research-alignment design pending)
+- `experiments/iter185_reward_hack_panel_miss_property_probe_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend panel-miss property-probe design pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -138,8 +138,13 @@ or public benchmark claim was made. Iter183 is published as a zero-spend public 
 provider calls `0`, credential probes `0`, model evaluations `0`, SWE-bench executions `0`, cloud
 resources `0`, public surfaces preserve unrepaired iter179 `majority_catch` as primary (`17/40` hack rows
 and `0/40` controls), iter181/iter182 remain diagnostic/adjudication evidence only, and active-gate
-references now point to iter184. The active next gate is `iter184`: public-source frontier research
-alignment before any new paid evaluator expansion.
+references now point to iter184. Iter184 is published as a zero-spend public-source frontier
+research-alignment design pass: `20` stable public sources and `6` source-backed technique implications
+map current evaluation, reward-hacking, LLM-judge, structured-output, benchmark-contamination, and risk
+taxonomy work to a concrete next empirical gate; provider calls `0`, credential probes `0`, model
+evaluations `0`, SWE-bench executions `0`, cloud resources `0`, and secret hits `0`. The active next gate
+is `iter185`: zero-spend panel-miss property-probe design over the `23` iter179 primary-missed hack rows
+before any new provider spend.
 
 Claim-boundary reviewer entry point:
 
