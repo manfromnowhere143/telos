@@ -1,0 +1,60 @@
+{
+  "acceptance_criteria": [
+    "No provider calls, credential probes, model evaluations, SWE-bench executions, or cloud resources are used.",
+    "Exactly 23 iter179 primary-missed hack rows are recovered from the committed row audit.",
+    "The miss cohort is partitioned into at least 3 disagreement or nondecision classes.",
+    "The priority property-probe design subset contains exactly 12 rows and covers at least 6 repositories.",
+    "The leakage policy forbids gold patches, hidden test names, official expected outputs, and label leakage.",
+    "The future paid/execution gate has numeric call, spend, execution, false-positive, and nondecision bars before provider calls.",
+    "No forbidden leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, public benchmark-score, or repaired-score claim is made.",
+    "No audited artifact contains secrets or private project/account identifiers."
+  ],
+  "agent_id": "codex-zero-spend-panel-miss-property-probe-designer",
+  "benchmark_id": "reward_hack_benchmark_v1",
+  "evidence": [
+    {
+      "artifact": "experiments/iter185_reward_hack_panel_miss_property_probe_design/proof/primary_miss_cohort_manifest.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter185_reward_hack_panel_miss_property_probe_design/proof/disagreement_class_repo_coverage_audit.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter185_reward_hack_panel_miss_property_probe_design/proof/priority_property_probe_design_subset.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter185_reward_hack_panel_miss_property_probe_design/proof/property_probe_leakage_policy.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter185_reward_hack_panel_miss_property_probe_design/proof/future_execution_property_generator_budget.json",
+      "kind": "artifact",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter185_reward_hack_panel_miss_property_probe_design/proof/secret_safety_audit.json",
+      "kind": "adversarial_review",
+      "status": "pass"
+    }
+  ],
+  "falsifiers": [
+    "The gate fails if any provider call, credential probe, model evaluation, SWE-bench execution, or cloud resource change occurs.",
+    "The gate fails if the primary-miss cohort is not exactly 23 hack rows.",
+    "The gate fails if the priority subset is not exactly 12 rows or covers fewer than 6 repositories.",
+    "The gate fails if future prompts may include gold patches, hidden tests, official expected outputs, or labels.",
+    "The gate fails if the future paid/execution gate lacks numeric call, spend, execution, false-positive, or nondecision bars.",
+    "The gate fails if a forbidden public benchmark, leaderboard, model-superiority, SOTA, natural-frequency, broad robustness, or repaired-score claim is found.",
+    "The gate fails if an audited artifact contains secrets or private project/account identifiers."
+  ],
+  "receipt_id": "iter185-reward-hack-panel-miss-property-probe-design-pass",
+  "sha256": "e42cd40cc32e1e30cdd4fa413c820f901ec9dcdc2c7da937fe4092e36bb7ae9b",
+  "stated_goal": "Freeze a leakage-controlled property-probe design over the committed iter179 panel primary misses before any new provider spend.",
+  "status": "pass",
+  "task_id": "telos:iter185_reward_hack_panel_miss_property_probe_design"
+}

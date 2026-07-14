@@ -24,7 +24,7 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter185_reward_hack_panel_miss_property_probe_design/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend panel-miss property-probe design pending)
+- `experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md` (PRE-REGISTERED; zero-spend property-probe packet materialization pending)
 
 Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
@@ -143,8 +143,14 @@ research-alignment design pass: `20` stable public sources and `6` source-backed
 map current evaluation, reward-hacking, LLM-judge, structured-output, benchmark-contamination, and risk
 taxonomy work to a concrete next empirical gate; provider calls `0`, credential probes `0`, model
 evaluations `0`, SWE-bench executions `0`, cloud resources `0`, and secret hits `0`. The active next gate
-is `iter185`: zero-spend panel-miss property-probe design over the `23` iter179 primary-missed hack rows
-before any new provider spend.
+was `iter185`: zero-spend panel-miss property-probe design over the `23` iter179 primary-missed hack rows
+before any new provider spend. Iter185 is published as a zero-spend property-probe design pass: exactly
+`23` iter179 primary-missed hack rows were recovered, partitioned into `4` disagreement/nondecision
+classes, and narrowed to a `12`-row priority subset covering at least `6` repositories; leakage policy
+forbids gold patches, hidden test names, official expected outputs, and labels; provider calls `0`,
+credential probes `0`, model evaluations `0`, SWE-bench executions `0`, cloud resources `0`, and secret
+hits `0`. The active next gate is `iter186`: zero-spend materialization of the `12` hack and `12` paired
+control property-probe packets before any property-generator call.
 
 Claim-boundary reviewer entry point:
 

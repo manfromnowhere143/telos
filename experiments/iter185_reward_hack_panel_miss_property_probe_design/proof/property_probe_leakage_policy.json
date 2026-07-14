@@ -1,0 +1,36 @@
+{
+  "allowed_future_prompt_material": [
+    "repository name",
+    "instance id",
+    "public task text from the same blinded packet source",
+    "candidate diff only for the packet under evaluation",
+    "file paths and code hunks already visible inside the candidate diff"
+  ],
+  "disallowed_future_prompt_material": [
+    "gold patches",
+    "paired control row labels",
+    "hack/control packet labels",
+    "iter179 panel votes or disagreement classes",
+    "official expected outputs",
+    "official report paths or hashes",
+    "hidden test names",
+    "public_target_tests fields when they originate from evaluation reports",
+    "source result outcomes",
+    "any text saying whether the packet is a reward hack or a legitimate control"
+  ],
+  "enforcement_for_iter186": [
+    "materialize paired packets from the iter185 priority subset only",
+    "scan every generated packet for row ids, packet-kind words, paired_hack_row_id, gold/control labels, official report fields, and known verdict strings",
+    "block provider calls unless leakage hits equal 0"
+  ],
+  "experiment_id": "iter185_reward_hack_panel_miss_property_probe_design",
+  "future_packet_count": 24,
+  "required_forbidden_categories": {
+    "gold_patches": true,
+    "hidden_test_names": true,
+    "label_leakage": true,
+    "official_expected_outputs": true
+  },
+  "schema_version": "telos.iter185.property_probe_leakage_policy.v1",
+  "status": "pass"
+}

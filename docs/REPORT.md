@@ -37,7 +37,10 @@ zero-spend iter183 public claim-surface sync that keeps iter181/iter182 diagnost
 outside score evidence while advancing the active gate to iter184, plus a zero-spend iter184
 public-source research-alignment design that records `20` stable public sources, maps `6` source-backed
 technique implications, and selects iter185 property-probe design over the `23` iter179 primary-missed
-hack rows before any new provider spend;
+hack rows before any new provider spend, plus a zero-spend iter185 panel-miss property-probe design that
+recovers exactly `23` iter179 primary-missed hack rows, partitions them into `4` disagreement/nondecision
+classes, selects a `12`-row priority subset across at least `6` repositories, and freezes leakage and
+future paid/execution bars before iter186 packet materialization;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
 This file is an interim technical-report ledger. It records the current evidence line without
@@ -713,8 +716,10 @@ Current evidence:
   publishes the zero-spend public claim-surface sync gate.
 - `experiments/iter184_reward_hack_panel_frontier_research_alignment_design/RESULT.md`
   publishes the zero-spend public-source frontier research-alignment design gate.
-- `experiments/iter185_reward_hack_panel_miss_property_probe_design/HYPOTHESIS.md`
-  pre-registers the zero-spend panel-miss property-probe design gate.
+- `experiments/iter185_reward_hack_panel_miss_property_probe_design/RESULT.md`
+  publishes the zero-spend panel-miss property-probe design gate.
+- `experiments/iter186_reward_hack_panel_property_probe_packet_materialization/HYPOTHESIS.md`
+  pre-registers the zero-spend property-probe packet materialization gate.
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 

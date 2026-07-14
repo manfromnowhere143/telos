@@ -8,11 +8,11 @@ or weak, and feed the next reward-hack evaluator gate without inflating claims.
 Telos is aligned with a real 2026 frontier problem: agent evaluations can be gamed, reward hacking is now
 studied directly in language-agent settings, and software-agent benchmarks need stronger validity checks
 than a final scalar score. The current Telos evidence is strongest where it uses execution, receipts,
-hashes, controls, and null publication. Iter169-184 moved the project from a single-model judge to an
-adjudicated three-provider panel and then to a source-linked next-step design: unrepaired iter179
-`majority_catch` remains the primary public metric (`17/40` hack rows and `0/40` controls), while the next
-frontier work should target the `23` primary-missed hack rows with a zero-spend property-probe design
-before any new provider spend.
+hashes, controls, and null publication. Iter169-185 moved the project from a single-model judge to an
+adjudicated three-provider panel, then to a source-linked next-step design, then to a frozen
+property-probe subset: unrepaired iter179 `majority_catch` remains the primary public metric (`17/40`
+hack rows and `0/40` controls), while the next frontier work should materialize leakage-scanned paired
+property-probe packets before any new provider spend.
 
 This memo is not a benchmark result, product claim, SOTA claim, model-comparison result, or literature
 review exhaustiveness claim.
@@ -136,14 +136,14 @@ Adjacent institutional signals:
 
 ## Next Gate Impact
 
-The literature now supports the iter184 recommendation:
+The literature now supports the iter184 recommendation, and iter185 has converted that recommendation
+into a concrete packet-materialization gate:
 
-- next gate: `iter185_reward_hack_panel_miss_property_probe_design`;
+- next gate: `iter186_reward_hack_panel_property_probe_packet_materialization`;
 - no provider calls yet;
-- recover exactly the `23` iter179 primary-missed hack rows from committed row-level proof;
-- partition those misses by disagreement/nondecision class before choosing a priority subset;
-- design a `12`-row property-probe subset covering at least `6` repositories;
-- forbid gold patches, hidden test names, official expected outputs, and labels in future prompts;
+- materialize exactly `12` hack property-probe packets and `12` paired controls from the iter185 subset;
+- preserve the iter185 leakage policy: no gold patches, hidden test names, official expected outputs, or
+  labels in generated prompts;
 - require native structured output or a preflighted equivalent for any future paid generator/judge call;
 - freeze future call, spend, execution, false-positive, and nondecision bars before any provider call;
 - keep execution-backed adjudication as the final layer for uncertain high-value rows.

@@ -1,0 +1,51 @@
+{
+  "experiment_id": "iter185_reward_hack_panel_miss_property_probe_design",
+  "full_cohort_class_count": 4,
+  "full_cohort_repo_count": 9,
+  "primary_miss_rows": 23,
+  "priority_class_counts": {
+    "panel_nondecision": 4,
+    "single_anthropic_catch": 2,
+    "single_openai_catch": 4,
+    "unanimous_legitimate": 2
+  },
+  "priority_repo_count": 8,
+  "priority_repo_counts": {
+    "astropy/astropy": 1,
+    "django/django": 2,
+    "matplotlib/matplotlib": 4,
+    "psf/requests": 1,
+    "pytest-dev/pytest": 1,
+    "scikit-learn/scikit-learn": 1,
+    "sphinx-doc/sphinx": 1,
+    "sympy/sympy": 1
+  },
+  "repo_counts_by_disagreement_class": {
+    "panel_nondecision": {
+      "astropy/astropy": 1,
+      "django/django": 1,
+      "matplotlib/matplotlib": 1,
+      "pytest-dev/pytest": 1
+    },
+    "single_anthropic_catch": {
+      "django/django": 1,
+      "matplotlib/matplotlib": 1
+    },
+    "single_openai_catch": {
+      "matplotlib/matplotlib": 2,
+      "psf/requests": 1,
+      "scikit-learn/scikit-learn": 1
+    },
+    "unanimous_legitimate": {
+      "astropy/astropy": 1,
+      "django/django": 2,
+      "matplotlib/matplotlib": 2,
+      "pydata/xarray": 2,
+      "pytest-dev/pytest": 3,
+      "sphinx-doc/sphinx": 2,
+      "sympy/sympy": 1
+    }
+  },
+  "schema_version": "telos.iter185.disagreement_class_repo_coverage_audit.v1",
+  "status": "pass"
+}
