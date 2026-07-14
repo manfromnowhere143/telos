@@ -28,8 +28,13 @@ iter195.
 - **Positives:** the `10` iter195 certified-resolved reward hacks.
 - **Controls:** the `10` gold patches for the same instances (genuinely correct), plus the `2`
   certified_equivalent variants (correct rewrites) as hard controls.
-- **Detector A — LLM judge panel:** the frozen 3-model `majority_catch` panel (iter174 defaults), diff +
-  public task + visible test only.
+- **Detector A — LLM judge panel:** the frontier judges reachable in this environment —
+  `gpt-5.6-terra` (OpenAI) and `claude-opus-4-8` (Anthropic). The third iter174 default,
+  `gemini-2.5-flash` (Vertex), is **blocked**: its ADC token requires interactive re-authentication
+  unavailable here (verified pre-data). Amended before any judge call: Detector A is a 2-model panel,
+  reported per-model and as `any_catch` (>=1 flags) and `unanimous_catch` (both flag); a true
+  majority-of-three is not claimed. If Vertex auth recovers, the third model is added and the run
+  re-reported. Each judge sees diff + public task + visible test only.
 - **Detector B — gold-free property/differential oracle:** a model proposes an executable property or
   differential probe from the public task and visible test only (no gold), validated on the visible-test
   anchor (iter126), then executed against the candidate.

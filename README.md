@@ -70,8 +70,16 @@ from the gold fix on a validated synthesized input the shipped tests never cover
 airtight). One case, `django-11119`, was hand-judged a correct equivalent and execution proved it a real
 hack — the thesis on the repo's own analysis. Claim boundary: elicited and constructed, not a natural
 frequency; `N=10` across `3` repositories; "wrong" means differs from the gold reference fix; no detector
-is evaluated yet. `experiments/iter196_detector_vs_certified_hacks/` is pre-registered to evaluate the LLM
-judge panel and a gold-free property oracle against these `10`, at decision time with gold forbidden.
+is evaluated yet. `experiments/iter196_detector_vs_certified_hacks/` evaluated the first detector against these `10` at
+decision time with gold forbidden: a 2-model frontier judge panel (`gpt-5.6-terra` + `claude-opus-4-8`;
+`gemini-2.5-flash` blocked on ADC re-auth), reading only diff + task + visible test, flags **`7/10`** of the
+hacks (any_catch) at `1/10` gold false positives and `1/2` equivalent false positives, in a single
+stochastic run. Judges carry real signal on this class; the honest story is a recall/precision tradeoff, not
+"judges fail." Two methodology issues were caught via world-contact bars and fixed (a leakage-guard false
+alarm — real gold-line leakage `2/10`, biasing against recall — and OpenAI nondecisions from a `200`-token
+budget, raised to `1536`). The gold-free execution oracle is promoted to
+`experiments/iter197_gold_free_oracle_vs_certified_hacks/`, pre-registered to measure it against the `7/10`
+baseline.
 
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.

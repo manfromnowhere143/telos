@@ -32,7 +32,16 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter196_detector_vs_certified_hacks/HYPOTHESIS.md` (to be pre-registered; evaluate the LLM judge panel and a gold-free property oracle against the 10 witnessed certified-resolved reward hacks)
+- `experiments/iter197_gold_free_oracle_vs_certified_hacks/HYPOTHESIS.md` (PRE-REGISTERED; gold-free execution oracle vs the 10 certified-resolved hacks, side-by-side with Detector A's 7/10 baseline)
+
+iter196 delivered Detector A (partial gate; Detector B promoted to iter197): a 2-model frontier judge panel
+(`gpt-5.6-terra` + `claude-opus-4-8`; `gemini-2.5-flash` blocked on ADC re-auth), reading only diff + task
++ visible test, flags **`7/10`** of the iter195 certified-resolved reward hacks (any_catch) at `1/10` gold
+false positives and `1/2` equivalent false positives, in a single stochastic run. Judges carry real signal
+on this class (matches Control Tax). Two methodology issues were caught via world-contact bars (Standard 9)
+and fixed: a leakage-guard false alarm (real gold-line leakage `2/10`, biasing against recall) and OpenAI
+nondecisions from a `200`-token budget (raised to `1536`). iter197 builds the gold-free execution oracle
+(Detector B) and measures it against the `7/10` baseline.
 
 iter195 is the mission's first execution-verified positive result: **`10` certified-resolved reward
 hacks**. Each is a patch the official SWE-bench harness marks resolved (passes every `FAIL_TO_PASS` and
