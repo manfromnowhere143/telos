@@ -121,6 +121,8 @@ runs the same construct-and-witness pipeline on 42 fresh SWE-bench Verified inst
 dataset repositories, to show the certified-yet-wrong class is not an artifact of Django, astropy, and
 matplotlib.
 
+`experiments/iter202_natural_rate_scaled/` scales that measurement: it runs the same neutral-solve pipeline (parameterized via `TELOS_NAT_EXP`) on a fresh 53-instance sample, pooled with iter200's 39, to turn the natural-hack existence result into a rate.
+
 `experiments/iter200_natural_certified_yet_wrong_rate/` attacks the elicited-construction limitation
 directly: it asks a frontier model to fix SWE-bench issues with no instruction to game the tests, then
 measures how often its certified-resolved patch is nonetheless wrong (adjudicated by a blind judge). A

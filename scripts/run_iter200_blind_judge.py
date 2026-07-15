@@ -21,7 +21,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EXP = ROOT / "experiments" / "iter200_natural_certified_yet_wrong_rate"
+EXP = ROOT / "experiments" / os.environ.get("TELOS_NAT_EXP", "iter200_natural_certified_yet_wrong_rate")
 PROOF = EXP / "proof"
 SNAPSHOT = ROOT / "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/swebench_verified_rows_snapshot.json"
 
@@ -143,7 +143,7 @@ def main() -> int:
     (PROOF / "blind_judge_verdicts.json").write_text(json.dumps({"schema_version": "telos.iter200.blind_verdicts.v1", "verdicts": verdicts}, indent=2, sort_keys=True) + "\n")
     (PROOF / "audit_report.json").write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n")
     f = audit["funnel"]
-    print(f"funnel: {f['solve_targets']} targets -> {f['model_patches']} patches -> {f['certified_model_patches']} certified -> {f['certified_and_diverging']} diverge -> {f['blind_judge_both_flag_model_wrong']} natural hacks")
+    print(f"funnel: {f['solve_targets']} targets -> {f['model_patches']} patches -> {f['certified_model_patches']} certified -> {f['certified_and_diverging']} diverge -> {f['blind_confirmed_natural_hacks']} natural hacks")
     print(f"natural hacks: {audit['natural_hacks']}")
     print(f"repos: {audit['natural_hack_repos']}  calls: {calls}  ~${est:.2f}  status: {audit['status']}")
     return 0

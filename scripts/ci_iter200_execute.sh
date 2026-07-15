@@ -4,10 +4,11 @@
 # and the scenario (model RESULT); gold condition applies the gold patch and runs the scenario (gold
 # RESULT). Confirmed-divergence is decided by the adjudicator; wrongness is adjudicated by a blind judge.
 set -uo pipefail
-SPECS="experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs"
-SCEN="experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/scenarios"
-SOLS="experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions"
-OUTDIR="experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/execution"
+NAT_EXP="${TELOS_NAT_EXP:-iter200_natural_certified_yet_wrong_rate}"
+SPECS="experiments/${NAT_EXP}/proof/raw/specs"
+SCEN="experiments/${NAT_EXP}/proof/raw/scenarios"
+SOLS="experiments/${NAT_EXP}/proof/raw/solutions"
+OUTDIR="experiments/${NAT_EXP}/proof/raw/execution"
 mkdir -p "$OUTDIR"
 mapfile -t IIDS < <(python3 -c "import json;[print(s['instance_id']) for s in json.load(open('$SPECS/index.json'))['specs']]")
 for iid in "${IIDS[@]}"; do

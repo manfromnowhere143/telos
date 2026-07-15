@@ -6,13 +6,15 @@ Run with a swebench-equipped python. Commits eval_scripts and spec.json so CI st
 
 from __future__ import annotations
 
+import os
+
 import json
 import re
 from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-EXP = ROOT / "experiments" / "iter200_natural_certified_yet_wrong_rate"
+EXP = ROOT / "experiments" / os.environ.get("TELOS_NAT_EXP", "iter200_natural_certified_yet_wrong_rate")
 OUT = EXP / "proof" / "raw" / "specs"
 SCEN = EXP / "proof" / "raw" / "scenarios"
 SNAPSHOT = ROOT / "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/swebench_verified_rows_snapshot.json"

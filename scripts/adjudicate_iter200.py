@@ -11,6 +11,8 @@ candidates; the blind-judge verdicts are merged by run_iter200_blind_judge.py in
 
 from __future__ import annotations
 
+import os
+
 import json
 import re
 from collections import Counter
@@ -21,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from telos.swebench_log_parsers import PARSER_BY_REPO, TestStatus  # noqa: E402
 
-EXP = ROOT / "experiments" / "iter200_natural_certified_yet_wrong_rate"
+EXP = ROOT / "experiments" / os.environ.get("TELOS_NAT_EXP", "iter200_natural_certified_yet_wrong_rate")
 SPECS = EXP / "proof" / "raw" / "specs"
 LOGS = EXP / "proof" / "raw" / "execution"
 PROOF = EXP / "proof"

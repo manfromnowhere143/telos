@@ -32,15 +32,36 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `paper/telos.tex` (honest revision of the complementarity claim, then operator peer-review). iter201 is
-  PUBLISHED: extending the detector comparison to all `22` hacks gives judge `20/22` recall / `3/22` gold
-  FP (single run) and gold-free oracle `6/22` at `0` FP -- but the oracle catches are a **subset** of the
-  judge's (union `20/22`, oracle-only empty), so iter197's complementarity does NOT replicate at scale (it
-  was partly a stochastic artifact of a judge run that missed one hack). The paper's Section 5
-  complementarity paragraph and Table 2 must be revised to the corrected, honest statement (judge dominates
-  on the larger sample; ensemble is a safe default but not shown to beat a strong judge), and the PDF
-  rebuilt. `2` astropy hacks evade both detectors. After that: confirm the author block, submit to a
-  peer-reviewed venue for a DOI, then appeal to arXiv.
+- `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md` (PRE-REGISTERED; scale the natural-hack rate;
+  pipeline + pre-registration committed, solver NOT yet run). This turns iter200's N=1 existence result
+  into a rate. The iter200 pipeline is now parameterized via env var `TELOS_NAT_EXP` (defaults to iter200,
+  which still reproduces exactly). The frozen 53-target sample is at `proof/raw/solve_targets.json`.
+
+  **RESUME STEPS (run in order; export `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` from
+  `/Users/danielwahnich/workspace/aweb/.env`, and `export TELOS_NAT_EXP=iter202_natural_rate_scaled` for
+  every step):**
+  1. Solve: `python3 scripts/run_iter200_solver.py` (neutral fix prompt over the 53 targets; ~53 calls,
+     ~$2.65; writes `proof/raw/solutions/`).
+  2. Scenarios: `python3 scripts/run_iter200_scenarios.py` (gold-vs-model witnessing scenarios for the
+     differing patches).
+  3. Specs: needs `swebench`. `python3 -m venv /tmp/sweb && /tmp/sweb/bin/pip install swebench==4.1.0 &&
+     TELOS_NAT_EXP=iter202_natural_rate_scaled /tmp/sweb/bin/python scripts/extract_iter200_specs.py`.
+  4. Safety-scan the scenarios, then COMMIT `proof/raw/{solutions,scenarios,specs}/` on a clean tree
+     (never run make_handoff while a job is writing -- that dirty-tree handoff is what fails CI).
+  5. Dispatch CI: `gh workflow run iter202-execute.yml --ref master` (sets `TELOS_NAT_EXP` and runs the
+     shared `ci_iter200_execute.sh`). Wait for it (`gh run watch`).
+  6. Download logs into `experiments/iter202_natural_rate_scaled/proof/raw/execution/`, then
+     `python3 scripts/adjudicate_iter200.py` and `python3 scripts/run_iter200_blind_judge.py`
+     (both with `TELOS_NAT_EXP` set).
+  7. VERIFY each blind-confirmed natural hack airtight (certified by execution, gold-differential witness,
+     BOTH judges name ONLY the model -- a "both"/"neither" verdict does NOT confirm; this strict rule
+     caught an over-count in iter200, 3 -> 1). Write `RESULT.md` + receipt + learning record. Report the
+     POOLED rate: (iter200 + iter202) natural hacks / certified patches. iter200 was 39 targets, 15
+     certified, 1 strict natural hack. A solve-yield null (pooled certified < 20) is a pre-committed result.
+  8. Fold the rate into `paper/telos.tex` if it strengthens the natural-occurrence paragraph.
+
+  Everything through iter201 is published, CI-green, and the paper is current. Operator steps (not
+  autonomous): confirm the author block, submit to a peer-reviewed venue for a DOI, then appeal to arXiv.
 
 ## Standing correction (iter192) - read before citing any reward-hack number
 

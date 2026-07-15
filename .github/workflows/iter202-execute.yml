@@ -1,0 +1,25 @@
+name: iter202-execute
+on:
+  workflow_dispatch:
+jobs:
+  execute:
+    name: iter202 certify + witness scaled natural solves (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      TELOS_NAT_EXP: iter202_natural_rate_scaled
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free disk
+        run: sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+      - name: Run iter202 execution
+        run: |
+          chmod +x scripts/ci_iter200_execute.sh
+          bash scripts/ci_iter200_execute.sh
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter202-execution
+          path: experiments/iter202_natural_rate_scaled/proof/raw/execution/
+          retention-days: 14

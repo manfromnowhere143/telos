@@ -8,6 +8,8 @@ Reads OPENAI_API_KEY. Ceiling: <=50 calls, <=$15.00.
 
 from __future__ import annotations
 
+import os
+
 import hashlib
 import importlib.util
 import json
@@ -16,7 +18,7 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-EXP = ROOT / "experiments" / "iter200_natural_certified_yet_wrong_rate"
+EXP = ROOT / "experiments" / os.environ.get("TELOS_NAT_EXP", "iter200_natural_certified_yet_wrong_rate")
 SOLS = EXP / "proof" / "raw" / "solutions"
 STAGE = EXP / "proof" / "raw" / "scenarios"
 SNAPSHOT = (
