@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-15T05:53:44Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-15T06:34:17Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -136,7 +136,7 @@ clean
 - experiments/iter198_findings_paper_synthesis_and_accessibility: RESULT PUBLISHED
 - experiments/iter199_benchmark_expansion_across_repos: RESULT PUBLISHED
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
-- experiments/iter200_natural_certified_yet_wrong_rate: PRE-REGISTERED, result pending
+- experiments/iter200_natural_certified_yet_wrong_rate: RESULT PUBLISHED
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
 - experiments/iter21_opponent_collision_control: RESULT PUBLISHED
 - experiments/iter22_semantic_mutation_guard: RESULT PUBLISHED
@@ -221,7 +221,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `experiments/iter200_natural_certified_yet_wrong_rate/HYPOTHESIS.md`.
+- Active gate: `paper/telos.tex`.
 - Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
   (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
   diagnostic/adjudication only. Iter190 is a null pre-spend property-generator

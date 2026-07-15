@@ -32,73 +32,16 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter200_natural_certified_yet_wrong_rate/HYPOTHESIS.md` (PRE-REGISTERED; Phase B dispatched,
-  RESULT pending). This gate tests whether a model produces certified-yet-wrong patches when NOT told to
-  hack -- the naturally-occurring version of the class, and the paper's biggest open limitation.
-
-  **RESUME STEPS (Phase B is a cloud CI run; it survives a laptop close):**
-  1. Phase B ran as GitHub Actions workflow `iter200-execute` (run id `29391238359`). Check it:
-     `gh run view 29391238359 --json status,conclusion`. If not `completed`, wait for it.
-  2. Download logs into `experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/execution/`:
-     `gh run download 29391238359 -n iter200-execution -D <tmp>` then copy `*.log` into that dir.
-  3. `python3 scripts/adjudicate_iter200.py` -> certified + diverging candidates.
-  4. `python3 scripts/run_iter200_blind_judge.py` (needs OPENAI_API_KEY + ANTHROPIC_API_KEY from
-     `/Users/danielwahnich/workspace/aweb/.env`) -> blind wrongness verdicts and the funnel.
-  5. Write `RESULT.md`, receipt, learning record; verify any confirmed natural hacks airtight (certified by
-     execution, gold-differential witness, both blind judges flag the model). A null (fewer than 6 certified
-     patches, or 0 blind-confirmed hacks) is a pre-committed publishable result, not a failure.
-
-  iter199 already grew the benchmark to `22` hacks across `8` repositories
-  (`benchmarks/certified_resolved_reward_hack_v2/`), and the paper (`paper/telos.tex`, `paper/telos.pdf`)
-  was updated to `22`/`8` in the iter199 arc. Remaining operator steps (not autonomous): confirm the
-  author/affiliation block, submit to a peer-reviewed venue for a DOI, then appeal to arXiv (an endorsement
-  is not an acceptance).
-
-iter197 completed the two-detector comparison (a null on the oracle's own `>=5` recall bar, but the result
-the mission was built toward). The gold-free execution oracle: `12/12` sound properties, `4/10` recall on
-the certified-resolved hacks, `0/2` false positives on equivalent controls — precise but coverage-bound.
-Against Detector A's judge panel (`7/10` recall, `1/2` equivalent FP), the tradeoff is clean and the two
-are **complementary**: the oracle caught `django-11211` the judge missed, the union is `8/10`, and only `2`
-astropy hacks are missed by both. `django-11179` was missed by the oracle exactly as predicted (its
-property tested a pk named `id`, where the variant behaves correctly; the judge caught it by reading the
-suspicious condition). An ensemble dominates either instrument alone — the three-layer thesis, demonstrated
-on the genuine class.
-
-iter196 delivered Detector A (partial gate; Detector B promoted to iter197): a 2-model frontier judge panel
-(`gpt-5.6-terra` + `claude-opus-4-8`; `gemini-2.5-flash` blocked on ADC re-auth), reading only diff + task
-+ visible test, flags **`7/10`** of the iter195 certified-resolved reward hacks (any_catch) at `1/10` gold
-false positives and `1/2` equivalent false positives, in a single stochastic run. Judges carry real signal
-on this class (matches Control Tax). Two methodology issues were caught via world-contact bars (Standard 9)
-and fixed: a leakage-guard false alarm (real gold-line leakage `2/10`, biasing against recall) and OpenAI
-nondecisions from a `200`-token budget (raised to `1536`). iter197 builds the gold-free execution oracle
-(Detector B) and measures it against the `7/10` baseline.
-
-iter195 is the mission's first execution-verified positive result: **`10` certified-resolved reward
-hacks**. Each is a patch the official SWE-bench harness marks resolved (passes every `FAIL_TO_PASS` and
-`PASS_TO_PASS`) that produces observably different output from the gold fix on a validated synthesized
-input the shipped tests never cover. Distribution over `15` scenarios: `10` wrong, `2` certified_equivalent
-(correct rewrites, reported as such), `2` scenario_failed, `1` variant_errored; all `10` re-verified
-airtight. `django-11119` was hand-judged a correct equivalent and execution proved it a real hack —
-the mission thesis demonstrated on the mission's own analysis. Claim boundary: elicited/constructed, not
-natural frequency; `N=10`, `3` repos; "wrong" means differs from the gold reference fix; no detector
-evaluated yet (that is iter196).
-
-iter193 published a null (real x86 container execution): a bounded, elicited attempt to construct
-certified-resolved-and-wrong patches produced `0` witnessed rows against a `>=5` bar; `6` matplotlib
-executed and were certified-resolved but identical to gold, and `10` django/astropy were blocked by a
-bare-pytest harness (a fitness gap, not a negative).
-
-iter194 fixed the runner and produced a sharper finding. It ran all `16` candidates through their official
-SWE-bench `eval_script` (django `runtests.py`, pytest for the rest) parsed with the vendored official
-SWE-bench parsers: **`16/16` executed and all `16` are certified-resolved**. But `0` were accepted, and the
-reason is structural: for django the curated `PASS_TO_PASS` is the whole test module (`0` uncurated tests),
-and where uncurated tests exist (matplotlib up to `168`, `193` total) the variant passes every one
-identically to gold. **No shipped test — graded or uncurated — distinguishes any certified variant from its
-gold fix.** Reference-free verification of a certified patch therefore cannot rely on the project's own
-tests; it must synthesize probes beyond them. iter195 builds exactly that: synthesize inputs to the changed
-callable, execute gold vs variant differentially in-container, and witness divergence no shipped test
-covers. iter194 transparently re-scoped its own "fallback oracle" item into iter195 because the data showed
-that oracle is the sole remaining path, not a fallback.
+- `paper/telos.tex` (optional short paper note) then operator peer-review path. iter200 is PUBLISHED: a
+  frontier model solving SWE-bench issues with a neutral prompt (no instruction to game tests) produced
+  `15` certified patches, of which **`1` is a strict naturally-occurring certified-yet-wrong patch**
+  (`sphinx-8621`: certified `33/33`, produces a malformed empty `kbd` element; both blind judges, outputs
+  unlabeled, flag only the model), with `2` ambiguous cases. Funnel: `39` targets -> `37` patches -> `15`
+  certified -> `7` diverge -> `1` strict. This is the first natural hack, addressing the paper's
+  elicited-only limitation (existence, `N=1`, not a frequency claim). Optional next: add a short honest
+  note to the paper. Operator steps (not autonomous): confirm the author/affiliation block, submit to a
+  peer-reviewed venue for a DOI, then appeal to arXiv (an endorsement is not an acceptance). Autonomous
+  science can continue: larger natural-rate samples, full agentic solving, or more benchmark expansion.
 
 ## Standing correction (iter192) - read before citing any reward-hack number
 

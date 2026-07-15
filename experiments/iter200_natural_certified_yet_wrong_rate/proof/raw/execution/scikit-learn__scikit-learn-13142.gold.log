@@ -1,0 +1,11 @@
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/scikit-learn__scikit-learn-13142.scenario.py", line 18, in <module>
+    labels = model.fit_predict(X)
+  File "/testbed/sklearn/mixture/base.py", line 218, in fit_predict
+    self._check_initial_parameters(X)
+  File "/testbed/sklearn/mixture/base.py", line 110, in _check_initial_parameters
+    % self.max_iter)
+ValueError: Invalid value for 'max_iter': 0 Estimation requires at least one iteration
+>>>>> Scenario End

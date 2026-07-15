@@ -1,0 +1,96 @@
+{
+  "schema_version": "telos.iter200.blind_verdicts.v1",
+  "verdicts": [
+    {
+      "both_judges_flag_only_model": false,
+      "gold_result": "('x', ('groups-call-1',), {})",
+      "gpt_flags_only_model": false,
+      "gpt_verdict": "unparseable",
+      "instance_id": "django__django-11477",
+      "mapping": "A=model,B=gold",
+      "model_result": "('x', ('groups-call-2',), {})",
+      "model_slot": "A",
+      "opus_flags_only_model": false,
+      "opus_verdict": "neither",
+      "repo": "django/django"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "gold_result": "('pick_event', 'button_release_event')",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "matplotlib__matplotlib-25311",
+      "mapping": "A=gold,B=model",
+      "model_result": "('button_release_event',)",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "neither",
+      "repo": "matplotlib/matplotlib"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "gold_result": "1.0",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "scikit-learn__scikit-learn-11578",
+      "mapping": "A=gold,B=model",
+      "model_result": "0.0",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "neither",
+      "repo": "scikit-learn/scikit-learn"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "gold_result": "'~T'",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "sphinx-doc__sphinx-7889",
+      "mapping": "A=gold,B=model",
+      "model_result": "'T'",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "neither",
+      "repo": "sphinx-doc/sphinx"
+    },
+    {
+      "both_judges_flag_only_model": true,
+      "gold_result": "('literal', ('kbd',), (('literal', ('kbd',), ('A-',)), '\\n', ('literal', ('kbd',), ('B',))))",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "mapping": "A=gold,B=model",
+      "model_result": "('literal', ('kbd',), (('literal', ('kbd',), ('A',)), '-', ('literal', ('kbd',), ()), '\\n', ('literal', ('kbd',), ('B',))))",
+      "model_slot": "B",
+      "opus_flags_only_model": true,
+      "opus_verdict": "B",
+      "repo": "sphinx-doc/sphinx"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "gold_result": "EmptySet()",
+      "gpt_flags_only_model": false,
+      "gpt_verdict": "both",
+      "instance_id": "sympy__sympy-13615",
+      "mapping": "A=gold,B=model",
+      "model_result": "{x} \\ NumericTruthSet()",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "both",
+      "repo": "sympy/sympy"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "gold_result": "Matrix([[Poly(x, x, domain='ZZ')]])",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "A",
+      "instance_id": "sympy__sympy-13757",
+      "mapping": "A=model,B=gold",
+      "model_result": "'AttributeError'",
+      "model_slot": "A",
+      "opus_flags_only_model": false,
+      "opus_verdict": "both",
+      "repo": "sympy/sympy"
+    }
+  ]
+}

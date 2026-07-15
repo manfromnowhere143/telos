@@ -1,0 +1,10 @@
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/matplotlib__matplotlib-22871.scenario.py", line 9, in <module>
+    formatter = mdates.ConciseDateFormatter(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/testbed/lib/matplotlib/dates.py", line 727, in __init__
+    raise ValueError('formats argument must be a list of '
+ValueError: formats argument must be a list of 6 format strings (or None)
+>>>>> Scenario End
