@@ -1,13 +1,15 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-15T14:12:15Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-15T21:10:59Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 TELOS is a standalone repository at `/Users/danielwahnich/workspace/telos`. Run every TELOS command from this repository.
 
 ## Repository State
 
 ```text
-branch: master
+source_branch: agent/iter200-corrected-denominator-result
+source_commit: 159e1cbd65452c991ea629c22b0d8cf5d044c56f
+publication_target: master
 ```
 
 Working tree:
@@ -36,7 +38,7 @@ clean
 - experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication: RESULT PUBLISHED
 - experiments/iter106_external_benchmark_pilot_materialization_after_design: RESULT PUBLISHED
 - experiments/iter107_external_benchmark_pilot_execution_after_materialization: RESULT PUBLISHED
-- experiments/iter108_external_benchmark_pilot_adjudication_after_execution: PRE-REGISTERED, result pending
+- experiments/iter108_external_benchmark_pilot_adjudication_after_execution: HYPOTHESIS ONLY (inactive or superseded)
 - experiments/iter109_real_trajectory_tamper_detection_pilot: RESULT PUBLISHED
 - experiments/iter10_provider_auth_recovery: RESULT PUBLISHED
 - experiments/iter110_adversarial_hardening_hacker_fixer_loop: RESULT PUBLISHED
@@ -93,7 +95,7 @@ clean
 - experiments/iter157_paper_plain_language_completion: RESULT PUBLISHED
 - experiments/iter158_reward_hack_moonshot_design: RESULT PUBLISHED
 - experiments/iter159_reward_hack_blinded_packet_materialization: RESULT PUBLISHED
-- experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED
+- experiments/iter15_provider_strict_diff_rerun: RESULT PUBLISHED (FAIL)
 - experiments/iter160_reward_hack_judge_parser_preflight: RESULT PUBLISHED
 - experiments/iter161_reward_hack_single_model_judge_execution: RESULT PUBLISHED
 - experiments/iter162_reward_hack_legitimate_control_design: RESULT PUBLISHED
@@ -101,7 +103,7 @@ clean
 - experiments/iter164_reward_hack_single_model_control_evaluation: RESULT PUBLISHED
 - experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery: RESULT PUBLISHED
 - experiments/iter166_reward_hack_moonshot_evaluator_family_design: RESULT PUBLISHED
-- experiments/iter167_reward_hack_skeptical_judge_calibration: RESULT PUBLISHED
+- experiments/iter167_reward_hack_skeptical_judge_calibration: RESULT PUBLISHED (FAIL)
 - experiments/iter168_reward_hack_skeptical_judge_null_adjudication: RESULT PUBLISHED
 - experiments/iter169_reward_hack_independent_judge_panel_design: RESULT PUBLISHED
 - experiments/iter16_provider_workspace_hygiene_control: RESULT PUBLISHED
@@ -128,25 +130,25 @@ clean
 - experiments/iter189_telos_mission_evidence_data_process_audit: RESULT PUBLISHED
 - experiments/iter18_provider_behavior_depth_control: RESULT PUBLISHED
 - experiments/iter190_reward_hack_property_generator_bounded_execution: RESULT PUBLISHED
-- experiments/iter191_reward_hack_property_execution_contract_design: PRE-REGISTERED, result pending
+- experiments/iter191_reward_hack_property_execution_contract_design: HYPOTHESIS ONLY (inactive or superseded)
 - experiments/iter192_reward_hack_benchmark_construct_validity_audit: RESULT PUBLISHED
 - experiments/iter193_certified_resolved_reward_hack_construction: RESULT PUBLISHED
 - experiments/iter194_certified_resolved_oracle_and_runner_fix: RESULT PUBLISHED
 - experiments/iter195_synthesized_input_differential_oracle: RESULT PUBLISHED
 - experiments/iter196_detector_vs_certified_hacks: RESULT PUBLISHED
-- experiments/iter197_gold_free_oracle_vs_certified_hacks: RESULT PUBLISHED
+- experiments/iter197_gold_free_oracle_vs_certified_hacks: RESULT PUBLISHED (FAIL)
 - experiments/iter198_findings_paper_synthesis_and_accessibility: RESULT PUBLISHED
 - experiments/iter199_benchmark_expansion_across_repos: RESULT PUBLISHED
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
 - experiments/iter200_natural_certified_yet_wrong_rate: RESULT PUBLISHED
-- experiments/iter201_detectors_on_full_benchmark: RESULT PUBLISHED
-- experiments/iter202_natural_rate_scaled: PRE-REGISTERED, result pending
+- experiments/iter201_detectors_on_full_benchmark: RESULT PUBLISHED (FAIL)
+- experiments/iter202_natural_rate_scaled: HYPOTHESIS ACTIVE, result pending
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
 - experiments/iter21_opponent_collision_control: RESULT PUBLISHED
 - experiments/iter22_semantic_mutation_guard: RESULT PUBLISHED
-- experiments/iter23_tail_semantics_falsification: RESULT PUBLISHED
+- experiments/iter23_tail_semantics_falsification: RESULT PUBLISHED (FAIL)
 - experiments/iter24_tail_safety_control: RESULT PUBLISHED
-- experiments/iter25_tail_safety_mutation_guard: RESULT PUBLISHED
+- experiments/iter25_tail_safety_mutation_guard: RESULT PUBLISHED (FAIL)
 - experiments/iter26_own_tail_redundancy_mutation_guard: RESULT PUBLISHED
 - experiments/iter27_semantic_claim_boundary_matrix: RESULT PUBLISHED
 - experiments/iter28_public_claim_surface_guard: RESULT PUBLISHED
@@ -226,17 +228,43 @@ clean
 ## Current Gate
 
 - Active gate: `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`.
-- Standing detector result (iter201): the judge catches `20/22` certified-yet-wrong patches with
-  `3/22` gold false positives; the gold-free oracle catches `6/22` with zero false positives, and its
-  catches are a subset of the judge's. The earlier complementarity result did not replicate at scale.
-- Standing natural-occurrence result (iter200): one strict confirmed case exists. Its historical `1/15`
-  denominator is conditional on scenario eligibility and is being corrected before any pooled rate.
+- Standing detector correction: iter197 and iter201 are protocol `FAIL`, with retained exploratory
+  diagnostics. Both property prompts used candidate-diff-derived locators. Iter197 additionally violated
+  its visible-anchor and independent-control requirements; iter201 explicitly registered gold validation,
+  so gold use there is an interpretation limit rather than another deviation. The accurate label is
+  **locator-assisted, gold-validated property pipeline**. Iter196 has no confirmed property-only catch:
+  `django-11211` was judge-unadjudicated. Iter201 retains judge
+  catches `20/22` with `8/88` unparseable responses (`5/22` hack rows, `3/22` gold rows). Report
+  gold-control flags as `3/22` observed lower, `6/22` worst-case missing upper, and `3/19` complete-case.
+  The property pipeline catches `6/22`, all within the judge set; no independent property false-positive
+  estimate or ensemble benefit is established. All `44` judge rows were fresh, but the judge phase lacks an
+  independent pre-output Git freeze. The retained artifact contains parsed labels and nondecision markers,
+  not raw response text; prompt truncation and digest-unpinned historical property containers are disclosed.
+- Standing iter200 result: this is an exploratory, nonrandom, gold-localized convenience sample. Its
+  deterministic builder excludes all `66` unique iter193 Phase-A/iter199 target IDs before deriving `200`
+  compatible rows across `9` repositories and the ordered `39`-target cohort. Its strict two-judge-only-model
+  rule and missingness summaries were adopted after the original result, and a
+  pre-output freeze is not independently timestamped in Git. The corrected denominator is complete (`37`
+  valid/executed, `24` certified, `k=1`, `u=6`). Report `1/24` confirmed lower, `7/24` worst case over those
+  six declared missing outcomes, and `1/18` complete-case sensitivity. The historical `1/15` is
+  scenario-eligible chronology only. The `54` legacy execution logs lack explicit image/exit provenance
+  and are accepted only as a frozen exact-byte corpus; the `20` backfill logs have stronger provenance.
+  The retained blind-judge bundle stores parsed labels and derived booleans, not raw response text; exact
+  response substance and parser fidelity cannot be re-audited.
 - Iter202 cohort correction: the 53 IDs are disjoint from iter200, but `27/53` have defined prior-result
-  exposure and `10/53` have provider-call-ledger exposure; both preregistered sensitivities are mandatory.
-- No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
-- Next action: follow the amended resume order in `CONTINUITY.md`: correct and backfill iter200's
-  certification denominator before retaining any iter202 solver output, then publish `RESULT.md` with
-  proof artifacts before advancing scope.
+  exposure and `10/53` have provider-call-ledger exposure; both pre-result-declared sensitivities are mandatory.
+  Iter202 has no retained solver output. Its first Git freeze followed the disclosed interrupted provider
+  contact, so this is a pre-result protocol freeze, not conventional prospective preregistration. The
+  interrupted no-output invocation is conservatively charged as `53` calls and `$2.65` in the ledger.
+- Iter202 execution chain: hardening is complete. The paid path is bound to an exact-byte runtime manifest,
+  an exact valid-solution-ordinal-modulo-eight certification partition (at most seven rows per shard), a
+  `9,030`-second bounded-process ceiling per shard, immutable per-attempt checkpoints, eight shard receipts,
+  and one aggregate receipt from a single repository, workflow, run, attempt, and commit. Incomplete
+  coverage, partial evidence, and mixed attempts fail closed.
+- No population-frequency, model-comparison, leaderboard, deployment, or state-of-the-art result is claimed.
+- Next action: commit and push the complete hardened evidence unit, require green primary-branch CI, and
+  only then follow the exact `CONTINUITY.md` resume sequence. Retain no iter202 solver output before that
+  publication gate, and do not alter the frozen protocol while resuming it.
 - Autonomous goal-tracking note: if the operator explicitly asks for a persistent
   autonomous run, use the session goal tracker if available; otherwise continue
   from `CONTINUITY.md`, this handoff, the active `HYPOTHESIS.md`, and the learning
@@ -248,10 +276,21 @@ clean
 Run:
 
 ```bash
+python3 -m compileall telos scripts tests
 ruff check .
 pytest -q
+python3 scripts/validate_json.py
 python3 scripts/validate_docs.py
 python3 scripts/validate_mission_loop.py
+python3 scripts/validate_supply_chain.py
+python3 scripts/validate_detector_methodology_correction.py
+python3 scripts/validate_iter200_corrected_result.py
+python3 scripts/build_iter200_solve_targets.py --check
+python3 scripts/build_iter202_solve_targets.py --check
+python3 scripts/audit_iter202_sample_overlap.py --check
+python3 scripts/build_iter202_image_lock.py --check
+python3 scripts/validate_iter202_scenario_safety.py
+python3 scripts/validate_iter202_runtime_freeze.py --check
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py
@@ -464,8 +503,6 @@ python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilo
 python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
-python3 scripts/build_iter202_solve_targets.py --check
-python3 scripts/audit_iter202_sample_overlap.py --check
-python3 scripts/validate_handoff.py
 python3 scripts/make_handoff.py
+python3 scripts/validate_handoff.py
 ```
