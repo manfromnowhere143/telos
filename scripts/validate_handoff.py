@@ -12,12 +12,34 @@ import sys
 ROOT = Path.cwd()
 HANDOFF = ROOT / "HANDOFF.md"
 CONTINUITY = ROOT / "CONTINUITY.md"
+REPOSITORY_DECLARATION = (
+    "TELOS is a standalone repository at "
+    "`/Users/danielwahnich/workspace/telos`."
+)
+FORBIDDEN_WORKSPACE_LABEL = "a" + "web"
+
+
+def worktree_changes_except_handoff(status: str) -> list[str]:
+    """Return porcelain rows that cannot be caused by regenerating HANDOFF.md itself."""
+
+    changes = []
+    for row in status.splitlines():
+        path = row[3:] if len(row) >= 4 else ""
+        if path == "HANDOFF.md":
+            continue
+        changes.append(row)
+    return changes
 
 
 def main() -> int:
     failures: list[str] = []
     handoff = HANDOFF.read_text(encoding="utf-8")
     continuity = CONTINUITY.read_text(encoding="utf-8")
+
+    if REPOSITORY_DECLARATION not in handoff:
+        failures.append("HANDOFF.md does not declare the standalone TELOS repository")
+    if FORBIDDEN_WORKSPACE_LABEL in handoff.casefold():
+        failures.append("HANDOFF.md names an unrelated workspace")
 
     handoff_match = re.search(r"Active gate: `([^`]+)`", handoff)
     continuity_match = re.search(r"Current gate:\n\n- `([^`]+)`", continuity)
@@ -41,8 +63,14 @@ def main() -> int:
         capture_output=True,
         text=True,
         check=False,
-    ).stdout.strip()
-    if "Working tree:\n\n```text\nclean\n```" not in handoff and not status:
+    ).stdout.rstrip()
+    declares_clean = "Working tree:\n\n```text\nclean\n```" in handoff
+    relevant_changes = worktree_changes_except_handoff(status)
+    if declares_clean and relevant_changes:
+        failures.append(
+            "HANDOFF.md records a clean working tree while non-handoff changes exist"
+        )
+    if not declares_clean and not relevant_changes:
         failures.append("HANDOFF.md does not record a clean working tree")
 
     if failures:

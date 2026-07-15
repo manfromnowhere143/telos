@@ -1,9 +1,11 @@
 {
   "base_commit": "a64cf2d5476e7bbda099b34c40b7be1880dbd39a",
+  "eval_script_sha256": "934e9075d284ed8988126d3b731134cf1682355c18de76aa4a90cbc4adf5d8b9",
   "fail_to_pass": [
     "xarray/tests/test_dataset.py::TestDataset::test_to_stacked_array_to_unstacked_dataset"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-4094:latest",
   "instance_id": "pydata__xarray-4094",
   "pass_to_pass": [
@@ -870,5 +872,6 @@
     "xarray/tests/test_dataset.py::test_subclass_slots",
     "xarray/tests/test_dataset.py::test_weakref"
   ],
-  "repo": "pydata/xarray"
+  "repo": "pydata/xarray",
+  "scenario_available": true
 }

@@ -1,9 +1,11 @@
 {
   "base_commit": "430fb1db88843300fb4baae3edc499bbfe073b0c",
+  "eval_script_sha256": "256cc58d49087b0b1bd04d14678210607d4948f95108bb82fead5044addb2226",
   "fail_to_pass": [
     "lib/matplotlib/tests/test_pickle.py::test_complete[png]"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-25311:latest",
   "instance_id": "matplotlib__matplotlib-25311",
   "pass_to_pass": [
@@ -189,5 +191,6 @@
     "lib/matplotlib/tests/test_pickle.py::test_dynamic_norm",
     "lib/matplotlib/tests/test_pickle.py::test_vertexselector"
   ],
-  "repo": "matplotlib/matplotlib"
+  "repo": "matplotlib/matplotlib",
+  "scenario_available": true
 }

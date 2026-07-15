@@ -1,9 +1,11 @@
 {
   "base_commit": "f57fe3f4b3f2cab225749e1b3b38ae1bf80b62f0",
+  "eval_script_sha256": "50a2215bd0a6a0c6fad64a6dcb6af94ee836a365a3a0f8f793999e26805a66bd",
   "fail_to_pass": [
     "test_coth"
   ],
   "framework": "sympy_bintest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-13480:latest",
   "instance_id": "sympy__sympy-13480",
   "pass_to_pass": [
@@ -51,5 +53,6 @@
     "test_derivs",
     "test_sinh_expansion"
   ],
-  "repo": "sympy/sympy"
+  "repo": "sympy/sympy",
+  "scenario_available": true
 }

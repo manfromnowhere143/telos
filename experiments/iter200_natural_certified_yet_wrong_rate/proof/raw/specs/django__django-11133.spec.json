@@ -1,9 +1,11 @@
 {
   "base_commit": "879cc3da6249e920b8d54518a0ae06de835d7373",
+  "eval_script_sha256": "9e208692e1f3e7588a6d6e7d0668f29558ef3bba28b72fcdb690d0075ed56b51",
   "fail_to_pass": [
     "test_memoryview_content (httpwrappers.tests.HttpResponseTests)"
   ],
   "framework": "django_runtests",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.django_1776_django-11133:latest",
   "instance_id": "django__django-11133",
   "pass_to_pass": [
@@ -72,5 +74,6 @@
     "test_urlencode (httpwrappers.tests.QueryDictTests)",
     "test_urlencode_int (httpwrappers.tests.QueryDictTests)"
   ],
-  "repo": "django/django"
+  "repo": "django/django",
+  "scenario_available": true
 }

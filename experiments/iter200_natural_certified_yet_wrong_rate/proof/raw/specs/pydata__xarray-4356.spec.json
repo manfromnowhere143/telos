@@ -1,5 +1,6 @@
 {
   "base_commit": "e05fddea852d08fc0845f954b79deb9e9f9ff883",
+  "eval_script_sha256": "61ff12155171937870a49228269646ebaf6a96abad9e8f3cd4d671262410f8cc",
   "fail_to_pass": [
     "xarray/tests/test_duck_array_ops.py::test_min_count_nd[sum-False-float]",
     "xarray/tests/test_duck_array_ops.py::test_min_count_nd[sum-False-int]",
@@ -11,6 +12,7 @@
     "xarray/tests/test_duck_array_ops.py::test_min_count_nd[prod-False-bool_]"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-4356:latest",
   "instance_id": "pydata__xarray-4356",
   "pass_to_pass": [
@@ -619,5 +621,6 @@
     "xarray/tests/test_duck_array_ops.py::test_least_squares[False-True]",
     "xarray/tests/test_duck_array_ops.py::test_least_squares[False-False]"
   ],
-  "repo": "pydata/xarray"
+  "repo": "pydata/xarray",
+  "scenario_available": true
 }

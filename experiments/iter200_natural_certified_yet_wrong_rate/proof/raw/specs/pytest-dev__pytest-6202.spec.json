@@ -1,9 +1,11 @@
 {
   "base_commit": "3a668ea6ff24b0c8f00498c3144c63bac561d925",
+  "eval_script_sha256": "3be481e544d934575c46857149011bf95107fd58870708dd3589e18349430b8a",
   "fail_to_pass": [
     "testing/test_collection.py::Test_genitems::test_example_items1"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-6202:latest",
   "instance_id": "pytest-dev__pytest-6202",
   "pass_to_pass": [
@@ -80,5 +82,6 @@
     "testing/test_collection.py::test_does_not_eagerly_collect_packages",
     "testing/test_collection.py::test_does_not_put_src_on_path"
   ],
-  "repo": "pytest-dev/pytest"
+  "repo": "pytest-dev/pytest",
+  "scenario_available": true
 }

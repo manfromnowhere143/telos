@@ -1,9 +1,11 @@
 {
   "base_commit": "732d89c2940156bdc0e200bb36dc38b5e424bcba",
+  "eval_script_sha256": "09e171654d676b8c638d29c5bdd9e16c6aec62e54e1ce83f1e96903c94f65ed1",
   "fail_to_pass": [
     "astropy/units/tests/test_quantity_annotations.py::test_return_annotation_none"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.astropy_1776_astropy-7336:latest",
   "instance_id": "astropy__astropy-7336",
   "pass_to_pass": [
@@ -347,5 +349,6 @@
     "astropy/units/tests/test_quantity_decorator.py::test_args_None",
     "astropy/units/tests/test_quantity_decorator.py::test_args_None_kwarg"
   ],
-  "repo": "astropy/astropy"
+  "repo": "astropy/astropy",
+  "scenario_available": true
 }

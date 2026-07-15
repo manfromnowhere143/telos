@@ -1,0 +1,23 @@
+{
+  "schema_version": "telos.iter202.process_history.v1",
+  "events": [
+    {
+      "event_id": "interrupted_pre_handoff_solver_invocation",
+      "started_at_utc": "2026-07-15T12:18:21Z",
+      "stopped_at_utc": "2026-07-15T12:22:04Z",
+      "exit_code": 144,
+      "evidence_basis": "Sanitized prior-session process record; provider responses and the source transcript are not retained in this repository.",
+      "completion_summary_retained": false,
+      "provider_outputs_retained": false,
+      "provider_outputs_used": false,
+      "minimum_provider_requests_initiated": 1,
+      "completed_provider_calls_exact": null,
+      "estimated_spend_usd_exact": null,
+      "conservative_ceiling_charge": {
+        "provider_calls": 53,
+        "estimated_spend_usd": 2.65,
+        "spend_semantics": "Estimated bookkeeping charge at $0.05 per possible call; not recovered actual spend."
+      }
+    }
+  ]
+}

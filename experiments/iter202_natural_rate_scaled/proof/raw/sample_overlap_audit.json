@@ -1,0 +1,867 @@
+{
+  "audit_scope": "Committed pre-iter202 artifacts present in this repository; source snapshots and candidate-pool inventories alone do not count as result-bearing exposure.",
+  "claim_boundary": "The 53 iter202 IDs are disjoint from iter200's analyzed neutral-solve targets, but the cohort is not mission-history fresh. Prior-use strata are descriptive sensitivity analyses, not evidence of causal contamination or a general model frequency.",
+  "evidence_sources": {
+    "pooling_disjointness": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solve_targets.json",
+    "prior_local_result_artifacts": [
+      "experiments/iter109_real_trajectory_tamper_detection_pilot/proof/clean_decisions.json",
+      "experiments/iter109_real_trajectory_tamper_detection_pilot/proof/hack_decisions.json",
+      "experiments/iter139_property_derivability/proof/derivability.json",
+      "experiments/iter148_protocol_effect_replication/proof/replication_results.json",
+      "experiments/iter150_gold_free_oracle_rate/proof/goldfree_oracle_run_d.json"
+    ],
+    "prior_provider_call_ledgers": [
+      "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/aborted_detector_evasion_acceptance_run/model_call_ledger.jsonl",
+      "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/aborted_full_patch_prompt_run/model_call_ledger.jsonl",
+      "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/aborted_unsanitized_pool_run/model_call_ledger.jsonl",
+      "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/model_call_ledger.jsonl",
+      "experiments/iter155_adaptive_reward_hack_expansion/proof/raw/model_call_ledger.jsonl",
+      "experiments/iter161_reward_hack_single_model_judge_execution/proof/provider_call_ledger.jsonl",
+      "experiments/iter164_reward_hack_single_model_control_evaluation/proof/provider_call_ledger.jsonl",
+      "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/provider_call_ledger.jsonl",
+      "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/provider_call_ledger.jsonl",
+      "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/provider_call_ledger.jsonl",
+      "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/provider_call_ledger.jsonl",
+      "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/provider_call_ledger.jsonl"
+    ],
+    "recent_elicited_disjointness": [
+      "experiments/iter193_certified_resolved_reward_hack_construction/proof/raw/phase_a_candidates/phase_a_summary.json",
+      "experiments/iter199_benchmark_expansion_across_repos/proof/raw/targets.json"
+    ],
+    "released_v1_benchmark": "benchmarks/reward_hack_benchmark_v1/reward_hack_benchmark_v1.jsonl"
+  },
+  "experiment_id": "iter202_natural_rate_scaled",
+  "frozen_target_count": 53,
+  "ordered_hash_serialization": "UTF-8 instance IDs joined by LF with one trailing LF",
+  "ordered_target_ids_sha256": "702b34f0af76b6246bbad02cd9964379a53229c153b7140641481edc69503149",
+  "overlap_ids": {
+    "iter193_or_iter199_elicited_targets": [],
+    "iter200_neutral_solve": [],
+    "no_prior_outcome_exposure": [
+      "matplotlib__matplotlib-25332",
+      "pytest-dev__pytest-7521",
+      "scikit-learn__scikit-learn-13779",
+      "scikit-learn__scikit-learn-14894",
+      "scikit-learn__scikit-learn-25747",
+      "sphinx-doc__sphinx-8638",
+      "sphinx-doc__sphinx-8721",
+      "sphinx-doc__sphinx-9230",
+      "sphinx-doc__sphinx-9258",
+      "sphinx-doc__sphinx-9591",
+      "sphinx-doc__sphinx-9698",
+      "sympy__sympy-13798",
+      "sympy__sympy-14711",
+      "sympy__sympy-14976",
+      "sympy__sympy-15017",
+      "sympy__sympy-15349",
+      "sympy__sympy-15875",
+      "sympy__sympy-16450",
+      "sympy__sympy-16766",
+      "sympy__sympy-16886",
+      "sympy__sympy-17139",
+      "sympy__sympy-17630",
+      "sympy__sympy-18189",
+      "sympy__sympy-18763",
+      "sympy__sympy-19040",
+      "sympy__sympy-19346"
+    ],
+    "prior_local_result_artifacts": [
+      "django__django-11490",
+      "django__django-11555",
+      "django__django-11790",
+      "django__django-11815",
+      "django__django-11880",
+      "django__django-11951",
+      "django__django-11964",
+      "django__django-11999",
+      "django__django-12050",
+      "django__django-12125",
+      "django__django-12143",
+      "django__django-12193",
+      "django__django-12209",
+      "django__django-12262",
+      "django__django-12273",
+      "django__django-12276",
+      "sympy__sympy-17655"
+    ],
+    "prior_outcome_exposed_union": [
+      "django__django-11490",
+      "django__django-11555",
+      "django__django-11790",
+      "django__django-11815",
+      "django__django-11880",
+      "django__django-11951",
+      "django__django-11964",
+      "django__django-11999",
+      "django__django-12050",
+      "django__django-12125",
+      "django__django-12143",
+      "django__django-12193",
+      "django__django-12209",
+      "django__django-12262",
+      "django__django-12273",
+      "django__django-12276",
+      "matplotlib__matplotlib-26113",
+      "matplotlib__matplotlib-26291",
+      "matplotlib__matplotlib-26342",
+      "pydata__xarray-6461",
+      "pydata__xarray-6721",
+      "pydata__xarray-7233",
+      "pytest-dev__pytest-7982",
+      "scikit-learn__scikit-learn-13439",
+      "scikit-learn__scikit-learn-14053",
+      "scikit-learn__scikit-learn-14141",
+      "sympy__sympy-17655"
+    ],
+    "prior_provider_call_ledgers": [
+      "matplotlib__matplotlib-26113",
+      "matplotlib__matplotlib-26291",
+      "matplotlib__matplotlib-26342",
+      "pydata__xarray-6461",
+      "pydata__xarray-6721",
+      "pydata__xarray-7233",
+      "pytest-dev__pytest-7982",
+      "scikit-learn__scikit-learn-13439",
+      "scikit-learn__scikit-learn-14053",
+      "scikit-learn__scikit-learn-14141"
+    ],
+    "released_v1_benchmark_rows": [
+      "matplotlib__matplotlib-26342",
+      "scikit-learn__scikit-learn-14141"
+    ]
+  },
+  "provider_ledger_resolution": {
+    "all_rows_resolved_without_conflict": true,
+    "identity_map_sources": [
+      {
+        "path": "benchmarks/reward_hack_benchmark_v1/reward_hack_benchmark_v1.jsonl",
+        "role": "row_id_to_instance_id",
+        "row_count": 40,
+        "sha256": "b83bf0febd19269881e5fe214f8457a3ca052e65960f58ad4393da3fe7a21159"
+      },
+      {
+        "path": "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/legitimate_controls_v1.jsonl",
+        "role": "row_id_to_instance_id",
+        "row_count": 40,
+        "sha256": "6f30de458771b35d78c55031d682928d3f809cb682ac298bf1f87b81e4a0c5c5"
+      },
+      {
+        "path": "benchmarks/reward_hack_benchmark_v1/blinded_model_judge_packets_v1/packets.jsonl",
+        "role": "packet_id_to_instance_id",
+        "row_count": 40,
+        "sha256": "f73f62c9216bb94442580f17b5f2575fd10252cc62610583c8ea1fac4f6069b2"
+      },
+      {
+        "path": "benchmarks/reward_hack_benchmark_v1/legitimate_controls_v1/blinded_control_packets_v1/packets.jsonl",
+        "role": "packet_id_to_instance_id",
+        "row_count": 40,
+        "sha256": "3acc27834319468937e0e614e9e94066833e0bf12046a5b2c017fc209d573a5b"
+      }
+    ],
+    "ledger_file_count": 12,
+    "ledger_row_count": 771,
+    "ledgers": [
+      {
+        "iter202_overlap_count": 0,
+        "iter202_overlap_ids": [],
+        "mapping_mode_row_counts": {
+          "direct_call_id": 14
+        },
+        "path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/aborted_detector_evasion_acceptance_run/model_call_ledger.jsonl",
+        "resolved_instance_count": 5,
+        "row_count": 14,
+        "schema_versions": [
+          "<absent>"
+        ],
+        "sha256": "b5d1a294acc0be7c2c055d8a9c17bdda185504e93d0b5b81cc23f91ac60dbf73"
+      },
+      {
+        "iter202_overlap_count": 0,
+        "iter202_overlap_ids": [],
+        "mapping_mode_row_counts": {
+          "direct_call_id": 7
+        },
+        "path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/aborted_full_patch_prompt_run/model_call_ledger.jsonl",
+        "resolved_instance_count": 3,
+        "row_count": 7,
+        "schema_versions": [
+          "<absent>"
+        ],
+        "sha256": "715b1d7fcf91df0ee685d08235b18dfeb290202e2ea312b45cd3d388861479c0"
+      },
+      {
+        "iter202_overlap_count": 0,
+        "iter202_overlap_ids": [],
+        "mapping_mode_row_counts": {
+          "direct_call_id": 3
+        },
+        "path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/aborted_unsanitized_pool_run/model_call_ledger.jsonl",
+        "resolved_instance_count": 1,
+        "row_count": 3,
+        "schema_versions": [
+          "<absent>"
+        ],
+        "sha256": "f669cdd438496bb88ae3a34c84bb617a9f61c851f66de269cd07f966a402a509"
+      },
+      {
+        "iter202_overlap_count": 7,
+        "iter202_overlap_ids": [
+          "pydata__xarray-6461",
+          "pydata__xarray-6721",
+          "pydata__xarray-7233",
+          "pytest-dev__pytest-7982",
+          "scikit-learn__scikit-learn-13439",
+          "scikit-learn__scikit-learn-14053",
+          "scikit-learn__scikit-learn-14141"
+        ],
+        "mapping_mode_row_counts": {
+          "direct_call_id": 300
+        },
+        "path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/model_call_ledger.jsonl",
+        "resolved_instance_count": 96,
+        "row_count": 300,
+        "schema_versions": [
+          "<absent>"
+        ],
+        "sha256": "7f65fdcd4e810e01972a3d8223192775be853614d1515fdfab3d1f17ae5571ab"
+      },
+      {
+        "iter202_overlap_count": 3,
+        "iter202_overlap_ids": [
+          "matplotlib__matplotlib-26113",
+          "matplotlib__matplotlib-26291",
+          "matplotlib__matplotlib-26342"
+        ],
+        "mapping_mode_row_counts": {
+          "direct_call_id": 38
+        },
+        "path": "experiments/iter155_adaptive_reward_hack_expansion/proof/raw/model_call_ledger.jsonl",
+        "resolved_instance_count": 12,
+        "row_count": 38,
+        "schema_versions": [
+          "<absent>"
+        ],
+        "sha256": "6e1c0b29ef0b8c2013dc0dad562964444d9cecacc99d5ff6ff637b913b15a80a"
+      },
+      {
+        "iter202_overlap_count": 2,
+        "iter202_overlap_ids": [
+          "matplotlib__matplotlib-26342",
+          "scikit-learn__scikit-learn-14141"
+        ],
+        "mapping_mode_row_counts": {
+          "packet_id": 40,
+          "row_id": 40
+        },
+        "path": "experiments/iter161_reward_hack_single_model_judge_execution/proof/provider_call_ledger.jsonl",
+        "resolved_instance_count": 40,
+        "row_count": 40,
+        "schema_versions": [
+          "telos.iter161.provider_call_ledger_row.v1"
+        ],
+        "sha256": "500a3ae3cb7b452431ef95464e8c8afce8ffffd6da5415f7ec44860054ce3a8d"
+      },
+      {
+        "iter202_overlap_count": 0,
+        "iter202_overlap_ids": [],
+        "mapping_mode_row_counts": {
+          "packet_id": 16,
+          "row_id": 16
+        },
+        "path": "experiments/iter164_reward_hack_single_model_control_evaluation/proof/provider_call_ledger.jsonl",
+        "resolved_instance_count": 16,
+        "row_count": 16,
+        "schema_versions": [
+          "telos.iter164.provider_call_ledger_row.v1"
+        ],
+        "sha256": "a4454adce42c13294b3fbc057632bed633c90bb07b798a742c6c6ed1d3f0b4c1"
+      },
+      {
+        "iter202_overlap_count": 2,
+        "iter202_overlap_ids": [
+          "matplotlib__matplotlib-26342",
+          "scikit-learn__scikit-learn-14141"
+        ],
+        "mapping_mode_row_counts": {
+          "packet_id": 25,
+          "row_id": 25
+        },
+        "path": "experiments/iter165_reward_hack_control_evaluation_rate_limit_recovery/proof/provider_call_ledger.jsonl",
+        "resolved_instance_count": 25,
+        "row_count": 25,
+        "schema_versions": [
+          "telos.iter165.provider_call_ledger_row.v1"
+        ],
+        "sha256": "454968a15d7dc00dd1992fb2541447e20d0ab0fe93df05debe76f7e6aaabd64b"
+      },
+      {
+        "iter202_overlap_count": 2,
+        "iter202_overlap_ids": [
+          "matplotlib__matplotlib-26342",
+          "scikit-learn__scikit-learn-14141"
+        ],
+        "mapping_mode_row_counts": {
+          "packet_id": 80,
+          "row_id": 80
+        },
+        "path": "experiments/iter167_reward_hack_skeptical_judge_calibration/proof/provider_call_ledger.jsonl",
+        "resolved_instance_count": 40,
+        "row_count": 80,
+        "schema_versions": [
+          "telos.iter167.provider_call_ledger_row.v1"
+        ],
+        "sha256": "cbb1eab6d2b0dcc5ed94a7d1493eba876cf8a99a3d1aa700c130cfeba280fc9d"
+      },
+      {
+        "iter202_overlap_count": 1,
+        "iter202_overlap_ids": [
+          "scikit-learn__scikit-learn-14141"
+        ],
+        "mapping_mode_row_counts": {
+          "packet_id": 120
+        },
+        "path": "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/provider_call_ledger.jsonl",
+        "resolved_instance_count": 20,
+        "row_count": 120,
+        "schema_versions": [
+          "telos.iter175.provider_call_ledger.v1"
+        ],
+        "sha256": "79df9b59150c1e3dc49ee008f7cc804aab67959ff62002b7694aceb1ffa901aa"
+      },
+      {
+        "iter202_overlap_count": 1,
+        "iter202_overlap_ids": [
+          "matplotlib__matplotlib-26342"
+        ],
+        "mapping_mode_row_counts": {
+          "packet_id": 123
+        },
+        "path": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/provider_call_ledger.jsonl",
+        "resolved_instance_count": 22,
+        "row_count": 123,
+        "schema_versions": [
+          "telos.iter178.provider_call_ledger.v1"
+        ],
+        "sha256": "e7e0b92b61dc28cb3cfeda4c1a96f43495279fa14dbba0af57b833e12cb64985"
+      },
+      {
+        "iter202_overlap_count": 0,
+        "iter202_overlap_ids": [],
+        "mapping_mode_row_counts": {
+          "packet_id": 5
+        },
+        "path": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/provider_call_ledger.jsonl",
+        "resolved_instance_count": 4,
+        "row_count": 5,
+        "schema_versions": [
+          "telos.iter181.provider_call_ledger.v1"
+        ],
+        "sha256": "ae0936d446d9cd70911f1615908a5b4c8270a989bfe01b1a491ccc89d345ee46"
+      }
+    ]
+  },
+  "required_result_sensitivity": {
+    "primary": "all 53 frozen analyzed target IDs",
+    "prior_outcome_exposure_split": {
+      "exposed_attempts": 27,
+      "unexposed_attempts": 26
+    },
+    "prior_provider_call_ledger_split": {
+      "exposed_attempts": 10,
+      "without_ledger_evidence_attempts": 43
+    },
+    "rule": "Report the same k/N missing-outcome quantities within each split; do not describe the cohort as unused across the mission."
+  },
+  "same_rule_replacement_feasibility": {
+    "decision": "Retain the frozen IDs. A 53-row no-overlap replacement exists only by changing the registered per-repository weighting after provider initiation; the unchanged cap can select at most 43.",
+    "eligible_universe": 161,
+    "eligible_without_prior_outcome_exposure": 66,
+    "frozen_per_repo_cap": 16,
+    "maximum_unexposed_rows_selectable_under_frozen_cap": 43,
+    "per_repo": [
+      {
+        "eligible": 111,
+        "eligible_without_prior_outcome_exposure": 28,
+        "repo": "django/django",
+        "selectable_without_prior_outcome_exposure_under_cap": 16
+      },
+      {
+        "eligible": 4,
+        "eligible_without_prior_outcome_exposure": 1,
+        "repo": "matplotlib/matplotlib",
+        "selectable_without_prior_outcome_exposure_under_cap": 1
+      },
+      {
+        "eligible": 3,
+        "eligible_without_prior_outcome_exposure": 0,
+        "repo": "pydata/xarray",
+        "selectable_without_prior_outcome_exposure_under_cap": 0
+      },
+      {
+        "eligible": 2,
+        "eligible_without_prior_outcome_exposure": 1,
+        "repo": "pytest-dev/pytest",
+        "selectable_without_prior_outcome_exposure_under_cap": 1
+      },
+      {
+        "eligible": 6,
+        "eligible_without_prior_outcome_exposure": 3,
+        "repo": "scikit-learn/scikit-learn",
+        "selectable_without_prior_outcome_exposure_under_cap": 3
+      },
+      {
+        "eligible": 6,
+        "eligible_without_prior_outcome_exposure": 6,
+        "repo": "sphinx-doc/sphinx",
+        "selectable_without_prior_outcome_exposure_under_cap": 6
+      },
+      {
+        "eligible": 29,
+        "eligible_without_prior_outcome_exposure": 27,
+        "repo": "sympy/sympy",
+        "selectable_without_prior_outcome_exposure_under_cap": 16
+      }
+    ],
+    "required_rows": 53,
+    "same_rule_disjoint_replacement_available": false
+  },
+  "schema_version": "telos.iter202.sample_overlap_audit.v1",
+  "summary": {
+    "iter193_or_iter199_elicited_target_overlap": 0,
+    "iter200_neutral_solve_overlap": 0,
+    "no_prior_outcome_exposure": 26,
+    "prior_local_result_artifact_overlap": 17,
+    "prior_outcome_exposed_union": 27,
+    "prior_provider_call_ledger_overlap": 10,
+    "released_v1_benchmark_row_overlap": 2
+  },
+  "targets": [
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-11490",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-11555",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-11790",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-11815",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-11880",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-11951",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-11964",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-11999",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-12050",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-12125",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-12143",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-12193",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-12209",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-12262",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-12273",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "django__django-12276",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "django/django"
+    },
+    {
+      "categories": [],
+      "instance_id": "matplotlib__matplotlib-25332",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "matplotlib/matplotlib"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger"
+      ],
+      "instance_id": "matplotlib__matplotlib-26113",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "matplotlib/matplotlib"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger"
+      ],
+      "instance_id": "matplotlib__matplotlib-26291",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "matplotlib/matplotlib"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger",
+        "released_v1_benchmark_row"
+      ],
+      "instance_id": "matplotlib__matplotlib-26342",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "matplotlib/matplotlib"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger"
+      ],
+      "instance_id": "pydata__xarray-6461",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "pydata/xarray"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger"
+      ],
+      "instance_id": "pydata__xarray-6721",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "pydata/xarray"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger"
+      ],
+      "instance_id": "pydata__xarray-7233",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "pydata/xarray"
+    },
+    {
+      "categories": [],
+      "instance_id": "pytest-dev__pytest-7521",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "pytest-dev/pytest"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger"
+      ],
+      "instance_id": "pytest-dev__pytest-7982",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "pytest-dev/pytest"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger"
+      ],
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "scikit-learn/scikit-learn"
+    },
+    {
+      "categories": [],
+      "instance_id": "scikit-learn__scikit-learn-13779",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "scikit-learn/scikit-learn"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger"
+      ],
+      "instance_id": "scikit-learn__scikit-learn-14053",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "scikit-learn/scikit-learn"
+    },
+    {
+      "categories": [
+        "prior_provider_call_ledger",
+        "released_v1_benchmark_row"
+      ],
+      "instance_id": "scikit-learn__scikit-learn-14141",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": true,
+      "repo": "scikit-learn/scikit-learn"
+    },
+    {
+      "categories": [],
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "scikit-learn/scikit-learn"
+    },
+    {
+      "categories": [],
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "scikit-learn/scikit-learn"
+    },
+    {
+      "categories": [],
+      "instance_id": "sphinx-doc__sphinx-8638",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sphinx-doc/sphinx"
+    },
+    {
+      "categories": [],
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sphinx-doc/sphinx"
+    },
+    {
+      "categories": [],
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sphinx-doc/sphinx"
+    },
+    {
+      "categories": [],
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sphinx-doc/sphinx"
+    },
+    {
+      "categories": [],
+      "instance_id": "sphinx-doc__sphinx-9591",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sphinx-doc/sphinx"
+    },
+    {
+      "categories": [],
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sphinx-doc/sphinx"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-13798",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-14711",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-14976",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-15017",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-15349",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-15875",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-16450",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-16766",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-16886",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-17139",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-17630",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [
+        "prior_local_result_artifact"
+      ],
+      "instance_id": "sympy__sympy-17655",
+      "prior_outcome_exposed": true,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-18189",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-18763",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-19040",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    },
+    {
+      "categories": [],
+      "instance_id": "sympy__sympy-19346",
+      "prior_outcome_exposed": false,
+      "prior_provider_call_ledger": false,
+      "repo": "sympy/sympy"
+    }
+  ]
+}

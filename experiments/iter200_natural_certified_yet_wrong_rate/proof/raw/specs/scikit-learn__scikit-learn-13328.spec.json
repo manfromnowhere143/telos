@@ -1,9 +1,11 @@
 {
   "base_commit": "37b0e66c871e8fb032a9c7086b2a1d5419838154",
+  "eval_script_sha256": "1e9a4e6cfe299d593aec1e3ee92e9b366db1abd13f48266bad7f0afd5ccf2c9f",
   "fail_to_pass": [
     "sklearn/linear_model/tests/test_huber.py::test_huber_bool"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13328:latest",
   "instance_id": "scikit-learn__scikit-learn-13328",
   "pass_to_pass": [
@@ -17,5 +19,6 @@
     "sklearn/linear_model/tests/test_huber.py::test_huber_warm_start",
     "sklearn/linear_model/tests/test_huber.py::test_huber_better_r2_score"
   ],
-  "repo": "scikit-learn/scikit-learn"
+  "repo": "scikit-learn/scikit-learn",
+  "scenario_available": true
 }

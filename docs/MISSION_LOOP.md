@@ -8,8 +8,15 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate: [`../experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md`](../experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md)
-- Active gate state: pre-registered zero-spend property-execution contract design pending;
+- Active gate:
+  [`../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`](../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md)
+- Active gate state: pre-registered natural-rate scale run with a pre-result amendment. Before any retained
+  iter202 solver output, certify every valid patch independently of scenario availability, backfill the
+  ten iter200 rows omitted by the old denominator, freeze the exact model, and disclose the interrupted
+  invocation conservatively in the call/spend ledger. The frozen cohort is disjoint from iter200 but not
+  unused mission-wide (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the
+  predeclared sensitivity splits are mandatory. `CONTINUITY.md` is the exact resume authority.
+- Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
   positives, specificity `1.0`, balanced detection `0.5375`), iter166 may be cited only as a zero-spend

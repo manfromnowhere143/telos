@@ -1,9 +1,11 @@
 {
   "base_commit": "39d0fdd9096f7dceccbc8f82e1eda7dd64717a8e",
+  "eval_script_sha256": "4377d9706acaf9ca53b0be93cc7aaf262bbac6a24cb0f79bf76ba68451ffe25a",
   "fail_to_pass": [
     "tests/test_requests.py::TestRequests::test_invalid_url[InvalidURL-http://.example.com]"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.psf_1776_requests-5414:latest",
   "instance_id": "psf__requests-5414",
   "pass_to_pass": [
@@ -138,5 +140,6 @@
     "tests/test_requests.py::TestPreparingURLs::test_parameters_for_nonstandard_schemes[mailto:user@example.org-params2-mailto:user@example.org]",
     "tests/test_requests.py::TestPreparingURLs::test_parameters_for_nonstandard_schemes[mailto:user@example.org-params3-mailto:user@example.org]"
   ],
-  "repo": "psf/requests"
+  "repo": "psf/requests",
+  "scenario_available": true
 }

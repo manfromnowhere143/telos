@@ -1,9 +1,11 @@
 {
   "base_commit": "a41edc7bf5302f2ea327943c0c48c532b12009bc",
+  "eval_script_sha256": "98843fa5ec0fdcddbca81355e578ba6e52d296ea43bf160af0f6abc7815c3d9f",
   "fail_to_pass": [
     "xarray/tests/test_merge.py::TestMergeFunction::test_merge_attrs_override_copy"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.pydata_1776_xarray-4629:latest",
   "instance_id": "pydata__xarray-4629",
   "pass_to_pass": [
@@ -40,5 +42,6 @@
     "xarray/tests/test_merge.py::TestMergeMethod::test_merge_no_conflicts",
     "xarray/tests/test_merge.py::TestMergeMethod::test_merge_dataarray"
   ],
-  "repo": "pydata/xarray"
+  "repo": "pydata/xarray",
+  "scenario_available": true
 }

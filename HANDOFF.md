@@ -1,11 +1,13 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-15T12:23:11Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-15T14:08:45Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+
+TELOS is a standalone repository at `/Users/danielwahnich/workspace/telos`. Run every TELOS command from this repository.
 
 ## Repository State
 
 ```text
-branch: master
+branch: agent/iter202-prereg-denominator-correction
 ```
 
 Working tree:
@@ -224,13 +226,16 @@ clean
 ## Current Gate
 
 - Active gate: `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`.
-- Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
-  (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
-  diagnostic/adjudication only. Iter190 is a null pre-spend property-generator
-  execution-surface result: `24` planned calls were frozen, provider calls were `0`,
-  and local/container execution attempts were `0/20`.
+- Standing detector result (iter201): the judge catches `20/22` certified-yet-wrong patches with
+  `3/22` gold false positives; the gold-free oracle catches `6/22` with zero false positives, and its
+  catches are a subset of the judge's. The earlier complementarity result did not replicate at scale.
+- Standing natural-occurrence result (iter200): one strict confirmed case exists. Its historical `1/15`
+  denominator is conditional on scenario eligibility and is being corrected before any pooled rate.
+- Iter202 cohort correction: the 53 IDs are disjoint from iter200, but `27/53` have defined prior-result
+  exposure and `10/53` have provider-call-ledger exposure; both preregistered sensitivities are mandatory.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
-- Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
+- Next action: follow the amended resume order in `CONTINUITY.md`: correct and backfill iter200's
+  certification denominator before retaining any iter202 solver output, then publish `RESULT.md` with
   proof artifacts before advancing scope.
 - Autonomous goal-tracking note: if the operator explicitly asks for a persistent
   autonomous run, use the session goal tracker if available; otherwise continue
@@ -459,6 +464,8 @@ python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilo
 python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
+python3 scripts/build_iter202_solve_targets.py --check
+python3 scripts/audit_iter202_sample_overlap.py --check
 python3 scripts/validate_handoff.py
 python3 scripts/make_handoff.py
 ```
