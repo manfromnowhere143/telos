@@ -1,0 +1,26 @@
+diff --git a/sympy/sets/sets.py b/sympy/sets/sets.py
+--- a/sympy/sets/sets.py
++++ b/sympy/sets/sets.py
+@@ -217,7 +217,20 @@ def _complement(self, other):
+             return S.EmptySet
+ 
+         elif isinstance(other, FiniteSet):
+-            return FiniteSet(*[el for el in other if self.contains(el) != True])
++            outside = []
++            unknown = []
++            for el in other:
++                contains = self.contains(el)
++                if contains is False or contains is S.false:
++                    outside.append(el)
++                elif contains is not True and contains is not S.true:
++                    unknown.append(el)
++
++            result = FiniteSet(*outside)
++            if unknown:
++                result = Union(result, Complement(FiniteSet(*unknown), self,
++                                                  evaluate=False))
++            return result
+ 
+     def symmetric_difference(self, other):
+         """
+

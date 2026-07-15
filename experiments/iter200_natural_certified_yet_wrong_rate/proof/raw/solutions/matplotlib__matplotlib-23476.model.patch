@@ -1,0 +1,14 @@
+diff --git a/lib/matplotlib/figure.py b/lib/matplotlib/figure.py
+--- a/lib/matplotlib/figure.py
++++ b/lib/matplotlib/figure.py
+@@ -3023,6 +3023,9 @@ def __getstate__(self):
+         # Set cached renderer to None -- it can't be pickled.
+         state["_cachedRenderer"] = None
+ 
++        # Restore the dpi to the original value, as the dpi may have been
++        # modified by the backend to account for the device pixel ratio.
++        state["_dpi"] = state["_original_dpi"]
+         # add version information to the state
+         state['__mpl_version__'] = mpl.__version__
+ 
+

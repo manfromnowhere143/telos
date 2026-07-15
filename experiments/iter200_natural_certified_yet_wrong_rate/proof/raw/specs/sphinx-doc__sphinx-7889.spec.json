@@ -1,0 +1,17 @@
+{
+  "base_commit": "ec9af606c6cfa515f946d74da9b51574f2f9b16f",
+  "fail_to_pass": [
+    "tests/test_ext_autodoc_mock.py::test_MockObject"
+  ],
+  "framework": "pytest",
+  "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-7889:latest",
+  "instance_id": "sphinx-doc__sphinx-7889",
+  "pass_to_pass": [
+    "tests/test_ext_autodoc_mock.py::test_MockModule",
+    "tests/test_ext_autodoc_mock.py::test_mock",
+    "tests/test_ext_autodoc_mock.py::test_mock_does_not_follow_upper_modules",
+    "tests/test_ext_autodoc_mock.py::test_abc_MockObject",
+    "tests/test_ext_autodoc_mock.py::test_mock_decorator"
+  ],
+  "repo": "sphinx-doc/sphinx"
+}

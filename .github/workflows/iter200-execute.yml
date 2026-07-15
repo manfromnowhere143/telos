@@ -1,0 +1,24 @@
+name: iter200-execute
+on:
+  workflow_dispatch:
+jobs:
+  execute:
+    name: iter200 certify + witness neutral solves (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free disk
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+      - name: Run iter200 execution
+        run: |
+          chmod +x scripts/ci_iter200_execute.sh
+          bash scripts/ci_iter200_execute.sh
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter200-execution
+          path: experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/execution/
+          retention-days: 14

@@ -101,6 +101,12 @@ runs the same construct-and-witness pipeline on 42 fresh SWE-bench Verified inst
 dataset repositories, to show the certified-yet-wrong class is not an artifact of Django, astropy, and
 matplotlib.
 
+`experiments/iter200_natural_certified_yet_wrong_rate/` attacks the elicited-construction limitation
+directly: it asks a frontier model to fix SWE-bench issues with no instruction to game the tests, then
+measures how often its certified-resolved patch is nonetheless wrong (adjudicated by a blind judge). A
+positive result is the first naturally-occurring certified-yet-wrong patch; a null is an honest bound on
+how often the class arises unprompted.
+
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.
 
