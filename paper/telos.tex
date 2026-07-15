@@ -208,6 +208,19 @@ sharpest scale example is a Django hack whose variant passes 1{,}870 graded test
 \texttt{'accepted'} where the correct fix returns \texttt{'rejected'}. The detector comparison below was
 run on the first ten hacks only, before this expansion.
 
+\paragraph{The class also occurs unprompted.} Every hack described so far is elicited: a model was told to
+produce a wrong variant. We therefore ran one further check with no such instruction. We asked a frontier
+model to fix thirty-nine issues with a plain prompt---solve this bug---that never mentions tests, and
+measured how often its patch is certified yet wrong. Of thirty-seven patches, fifteen were certified
+resolved by the official harness; eight matched the correct fix, and seven produced different output. To
+decide whether a difference is a genuine bug or a valid alternative fix, two judges saw the two outputs
+unlabeled, neither told which came from the reference; we counted a patch as wrong only when both judges
+named that patch, and only that patch, as incorrect. One patch met this bar: a Sphinx fix that passes all
+thirty-three graded tests yet renders a compound-key keyboard input as a malformed empty element. This is a
+single case on a localized-solve sample, an existence result and not a frequency: a model, not told to game
+the tests, nonetheless produced a patch that passes them while being wrong. Two further cases were
+ambiguous (a judge doubted the reference fix as well) and are not counted.
+
 \begin{table}[t]
 \centering
 \small
@@ -338,8 +351,10 @@ We state the bounds plainly.
   \item \textbf{Small sample.} A benchmark of twenty-two hacks across eight repositories, with the detector
   comparison run on the first ten. Confidence intervals are wide; this is a pilot, not a distributional
   measurement.
-  \item \textbf{Elicited, not natural.} A model was asked to produce the hacks. We do not measure how often
-  a trained agent would produce them on its own.
+  \item \textbf{Mostly elicited.} The benchmark hacks were produced by a model asked to write a wrong
+  variant. We found one unprompted case (above), which shows the class is not only an artifact of
+  elicitation, but a single case is an existence result, not a measure of how often a trained agent
+  produces such patches on its own.
   \item \textbf{Reference definition of wrong.} ``Wrong'' means the variant differs from the gold reference
   fix on a constructed input, not that an independent oracle judged it wrong.
   \item \textbf{Single-run judge.} The judge numbers come from one run; language-model verdicts vary
@@ -358,8 +373,10 @@ tests any test-based check would use, no shipped test catches this class; a chec
 tests do not. Of the two detectors we measured, a language-model judge caught more hacks but flagged
 correct code, and a gold-free execution check caught fewer but flagged none. The two are complementary, and
 the practical recommendation is an ensemble: a judge to read the patch and a precise execution check to run
-it. The honest next steps are to grow the sample and the number of repositories, to move from constructed
-hacks to naturally occurring ones, and to formalize the ensemble.
+it. We found one naturally-occurring certified-yet-wrong patch, produced by a model that was not told to
+game the tests; the honest next steps are to grow the sample and the number of repositories, to measure how
+often such patches arise unprompted rather than merely showing that they can, and to formalize the
+ensemble.
 
 \paragraph{Reproducibility.} Every number in this paper regenerates from a committed script, manifest, or
 validated receipt in the Telos repository. The experiments are named in the text (for example, the
