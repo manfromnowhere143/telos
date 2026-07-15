@@ -28,6 +28,9 @@ def write_json(path: Path, value: dict) -> None:
 
 @pytest.fixture
 def github_environment(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:
+    # These receipts use a synthetic run identity. Never inherit a real runner's
+    # live-checkout binding mode into the offline fixture.
+    monkeypatch.delenv("GITHUB_ACTIONS", raising=False)
     monkeypatch.setenv("GITHUB_RUN_ID", RUN_ID)
     monkeypatch.setenv("GITHUB_RUN_ATTEMPT", RUN_ATTEMPT)
     monkeypatch.setenv("GITHUB_SHA", GITHUB_SHA)
@@ -40,6 +43,72 @@ def github_environment(monkeypatch: pytest.MonkeyPatch) -> dict[str, str]:
         "sha": GITHUB_SHA,
         "workflow_ref": GITHUB_WORKFLOW_REF,
     }
+
+
+def test_current_checkout_binding_skips_git_outside_actions(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.delenv("GITHUB_ACTIONS", raising=False)
+
+    def unexpected_run(*_args, **_kwargs):
+        raise AssertionError("offline receipt validation must not invoke git")
+
+    monkeypatch.setattr(collection.subprocess, "run", unexpected_run)
+    collection._require_current_checkout_sha({"sha": GITHUB_SHA})
+
+
+def test_current_checkout_binding_accepts_exact_actions_sha(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+
+    def exact_head(*_args, **_kwargs):
+        return subprocess.CompletedProcess(
+            args=["git", "rev-parse", "HEAD"],
+            returncode=0,
+            stdout=f"{GITHUB_SHA}\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(collection.subprocess, "run", exact_head)
+    collection._require_current_checkout_sha({"sha": GITHUB_SHA})
+
+
+def test_current_checkout_binding_rejects_actions_sha_mismatch(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+
+    def different_head(*_args, **_kwargs):
+        return subprocess.CompletedProcess(
+            args=["git", "rev-parse", "HEAD"],
+            returncode=0,
+            stdout=f"{'b' * 40}\n",
+            stderr="",
+        )
+
+    monkeypatch.setattr(collection.subprocess, "run", different_head)
+    with pytest.raises(
+        collection.ExecutionCollectionError,
+        match="checked-out commit .* differs from GITHUB_SHA",
+    ):
+        collection._require_current_checkout_sha({"sha": GITHUB_SHA})
+
+
+def test_current_checkout_binding_rejects_git_failure(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+
+    def failed_git(*_args, **_kwargs):
+        raise subprocess.CalledProcessError(128, ["git", "rev-parse", "HEAD"])
+
+    monkeypatch.setattr(collection.subprocess, "run", failed_git)
+    with pytest.raises(
+        collection.ExecutionCollectionError,
+        match="cannot bind receipt to checked-out commit",
+    ):
+        collection._require_current_checkout_sha({"sha": GITHUB_SHA})
 
 
 def make_sources(tmp_path: Path, count: int = 13) -> tuple[Path, Path, list[str]]:
