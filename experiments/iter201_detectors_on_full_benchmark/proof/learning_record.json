@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter201_detectors_on_full_benchmark/proof/audit_report.json",
+    "experiments/iter201_detectors_on_full_benchmark/proof/judge_panel_22_results.json",
+    "experiments/iter201_detectors_on_full_benchmark/proof/oracle_22_per_property.json",
+    "experiments/iter201_detectors_on_full_benchmark/proof/raw/properties/properties_summary.json",
+    "experiments/iter201_detectors_on_full_benchmark/proof/valid/receipt_detectors_on_full_benchmark.json"
+  ],
+  "experiment_id": "iter201_detectors_on_full_benchmark",
+  "insight": "Detector comparison extended to all 22 hacks: judge 20/22 recall (single run, 3/22 gold FP; caught 12/12 new + 8/10 original), gold-free oracle 6/22 (20/21 sound, all catches airtight). KEY REVISION: iter197's complementarity (oracle caught 1 the judge missed, union 8/10>7) does NOT replicate at scale -- on 22 the oracle catches are a SUBSET of the judge's (oracle-only empty, union 20=judge 20). The iter197 complementarity was partly a stochastic artifact of a judge run that missed django-11211. Honest statement: judge high but variable recall; oracle precise but coverage-bound; ensemble is a safe default but not shown to beat a strong judge. 2 astropy hacks evade both. Paper complementarity claim corrected downward.",
+  "next_action": "fold the corrected 22-hack detector comparison into paper/telos.tex (Section 5, Table 2): judge 20/22, oracle 6/22, oracle subset of judge, complementarity does not replicate at scale; rebuild the PDF; then the operator peer-review path",
+  "result_path": "experiments/iter201_detectors_on_full_benchmark/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pass"
+}

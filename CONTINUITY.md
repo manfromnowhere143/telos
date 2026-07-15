@@ -32,28 +32,15 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter201_detectors_on_full_benchmark/HYPOTHESIS.md` (detector comparison on all 22 hacks;
-  oracle CI dispatched, RESULT pending). Detector A (judge) is DONE: on all 22 certified-resolved hacks +
-  22 gold controls, any_catch recall `20/22`, false positives `3/22` (single run; committed at
-  `proof/judge_panel_22_results.json`). Detector B (gold-free oracle) is executing.
-
-  **RESUME STEPS (the oracle CI is a cloud run; it survives a laptop close):**
-  1. Oracle Phase B is GitHub Actions workflow `iter201-oracle` (run id `29404983357`). Check it:
-     `gh run view 29404983357 --json status,conclusion`. If not `completed`, wait.
-  2. Download logs into `experiments/iter201_detectors_on_full_benchmark/proof/raw/execution/`:
-     `gh run download 29404983357 -n iter201-oracle-execution -D <tmp>` then copy `*.log` into that dir.
-  3. `python3 scripts/adjudicate_iter201.py` -> oracle recall on 22 + combined judge/oracle side-by-side
-     and complementarity.
-  4. Write `RESULT.md`, receipt, learning record (verify the oracle-caught hacks airtight: property sound
-     on gold, fails on variant). Then fold the 22-hack detector comparison into `paper/telos.tex`
-     (Section 5, Table 2) and rebuild `paper/telos.pdf`.
-  5. IMPORTANT ordering: never run `scripts/make_handoff.py` or commit while a background job is writing
-     the tree; commit all files first, then regenerate the handoff on a clean tree (a dirty-tree handoff
-     fails CI).
-
-  Everything through iter200 is published and the paper is current for that state. The remaining operator
-  steps (not autonomous) are unchanged: confirm the author block, submit to a peer-reviewed venue for a
-  DOI, then appeal to arXiv.
+- `paper/telos.tex` (honest revision of the complementarity claim, then operator peer-review). iter201 is
+  PUBLISHED: extending the detector comparison to all `22` hacks gives judge `20/22` recall / `3/22` gold
+  FP (single run) and gold-free oracle `6/22` at `0` FP -- but the oracle catches are a **subset** of the
+  judge's (union `20/22`, oracle-only empty), so iter197's complementarity does NOT replicate at scale (it
+  was partly a stochastic artifact of a judge run that missed one hack). The paper's Section 5
+  complementarity paragraph and Table 2 must be revised to the corrected, honest statement (judge dominates
+  on the larger sample; ensemble is a safe default but not shown to beat a strong judge), and the PDF
+  rebuilt. `2` astropy hacks evade both detectors. After that: confirm the author block, submit to a
+  peer-reviewed venue for a DOI, then appeal to arXiv.
 
 ## Standing correction (iter192) - read before citing any reward-hack number
 
