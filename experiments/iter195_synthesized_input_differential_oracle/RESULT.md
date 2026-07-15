@@ -16,8 +16,10 @@ prints one deterministic `RESULT=` line. `15/16` scenarios generated. Gold is pe
 labelling); a detector in a later gate may not see it.
 
 Phase B (GitHub Actions `iter195-differential`, native-x86, run `29345772579`, `success`): each scenario
-ran inside its pinned SWE-bench container under gold and under the variant. Raw logs for all `30` runs are
-retained.
+ran under the same instance-specific SWE-bench container tag for gold and the variant. Raw logs for all
+`30` runs are retained. **Standing provenance correction (2026-07-15):** the runner selected mutable
+`:latest` tags and retained no resolved image digest, so exact historical container bytes cannot be
+reconstructed.
 
 ## Result
 
@@ -29,7 +31,8 @@ retained.
 | variant_errored | `1` | variant raised where gold ran clean (not counted as wrong output) |
 
 Validated scenarios (gold ran clean): `13/15` (bar `>= 8`). Accepted: `10` (bar `>= 5`). All `10` were
-re-verified airtight: both conditions applied cleanly, zero tracebacks, clean divergent `RESULT=` lines.
+re-verified for clean application, zero tracebacks, and divergent retained `RESULT=` lines. Historical
+receipt wording calling this “airtight” refers to those checks, not immutable image provenance.
 
 ### The 10 witnessed certified-resolved reward hacks
 

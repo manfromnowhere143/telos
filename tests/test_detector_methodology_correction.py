@@ -193,6 +193,20 @@ def test_iter201_chronology_and_fresh_row_provenance_are_explicit() -> None:
     ]
 
 
+def test_benchmark_readme_corrects_protocol_causes_and_image_provenance() -> None:
+    readme = (
+        ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md"
+    ).read_text(encoding="utf-8")
+
+    assert "both record protocol `FAIL`" in readme
+    assert "candidate-diff-derived locators" in readme
+    assert "interpretation limit rather than a second protocol deviation" in readme
+    assert "mutable `:latest`" in readme
+    assert "no resolved image digest" in readme
+    assert "pinned-container execution" not in readme
+    assert "used gold during property inclusion and therefore" not in readme
+
+
 @pytest.mark.parametrize(
     ("claim", "expected"),
     [

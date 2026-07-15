@@ -13,10 +13,12 @@ the iter192 certified-resolved target set, each a 1:1 line substitution of the g
 block so it applies wherever gold applies. Phase A asserts nothing; it only proposes.
 
 Phase B (GitHub Actions `iter193-certified-resolved`, native-x86, run `29335042025`, `success`): each
-candidate was executed inside its pinned official SWE-bench container. The variant and gold were each run
-over the instance's full test module, and the graded set (`FAIL_TO_PASS ∪ PASS_TO_PASS`) was checked under
-the variant. Raw transcripts for all `16` candidates are retained under
-`proof/raw/phase_b_execution/`.
+candidate was executed under its instance-specific official SWE-bench container tag. The variant and gold
+were each run over the instance's full test module, and the graded set
+(`FAIL_TO_PASS ∪ PASS_TO_PASS`) was checked under the variant. Raw transcripts for all `16` candidates are
+retained under `proof/raw/phase_b_execution/`. **Standing provenance correction (2026-07-15):** the runner
+selected mutable `:latest` tags and retained no resolved image digest, so exact historical container bytes
+cannot be reconstructed.
 
 ## Result
 
@@ -46,7 +48,7 @@ produced no witness either way.
 The django and astropy candidates produced no usable execution data, for project-specific reasons visible
 in the transcripts:
 
-- **django (8):** the pinned testbed environment has no `pytest` (`No module named pytest`); django tests
+- **django (8):** the selected testbed environment has no `pytest` (`No module named pytest`); django tests
   run through `tests/runtests.py` with a settings module, not a bare `pytest` invocation.
 - **astropy (2):** the module imported before pytest's assertion rewriter engaged and the `-rA` full-module
   capture produced no per-test lines under astropy's collection.

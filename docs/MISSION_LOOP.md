@@ -19,8 +19,13 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   `1/15` is retained only as scenario-eligible chronology. The paid path now fails closed through an
   exact eight-shard certification partition, atomic attempt checkpoints, an exact-byte runtime manifest,
   and one aggregate receipt bound to a single repository, workflow, run, attempt, commit, spec index, and
-  runtime manifest. Mixed attempts and incomplete certification coverage are rejected. Provider execution
-  remains blocked until this hardened state is committed and primary-branch CI is green. The frozen cohort
+  runtime manifest. Mixed attempts and incomplete certification coverage are rejected. Hardened evidence
+  PR `#3` merged as `3a3368635e397d540cf98fc0f19d443661cc0fef`, and primary-branch CI run `29451691560`
+  passed. Provider-free Node 24 backfill run `29452243832` reproduced the exact specs and validated all `37`
+  committed execution pairs in the complete `74`-log corpus with zero model-provider calls; it did not
+  re-execute the containers. No iter202 output exists. Every paid start requires clean green `master`, the
+  exact cheap-first/freeze preflight, and both required provider credentials together; generated
+  `HANDOFF.md` owns the current branch and credential-status snapshot. The frozen cohort
   is disjoint from iter200 but not unused
   mission-wide (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the
   pre-result-declared sensitivity splits remain mandatory. `CONTINUITY.md` is the exact resume authority.
@@ -36,6 +41,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   estimate or ensemble gain is established. Its `44` judge rows were fresh, but the judge phase has no
   independently timestamped pre-output Git freeze; raw response text is unavailable and input truncation is
   measured.
+- Historical container-provenance boundary: iter193--iter199 construction/witness execution and
+  iter197/iter201 property execution used instance-specific mutable `:latest` tags without retaining
+  resolved image digests. The logs remain execution evidence, but exact historical image bytes cannot be
+  reconstructed.
 - Iter200 claim boundary: its neutral-solve cohort is a nonrandom, gold-localized convenience sample. The
   deterministic builder excludes the `66` unique iter193 Phase-A/iter199 target IDs before deriving `200`
   compatible rows across `9` repositories and the ordered `39`-target cohort. The strict two-judge-only-model

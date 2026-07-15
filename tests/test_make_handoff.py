@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import importlib.util
 from pathlib import Path
+import re
 import subprocess
 
 import pytest
@@ -51,6 +52,104 @@ def test_repository_banner_is_explicit_and_self_contained() -> None:
         "Run every TELOS command from this repository."
     )
     assert ("a" + "web") not in banner.casefold()
+
+
+def test_operational_handoff_evidence_is_pinned_to_published_runs() -> None:
+    make_handoff = load_make_handoff_module()
+
+    assert make_handoff.HARDENING_PULL_REQUEST == 3
+    assert (
+        make_handoff.HARDENING_MERGE_COMMIT
+        == "3a3368635e397d540cf98fc0f19d443661cc0fef"
+    )
+    assert make_handoff.PRIMARY_CI_RUN_ID == "29451691560"
+    assert (
+        make_handoff.NODE24_BACKFILL_SOURCE_COMMIT
+        == "b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe"
+    )
+    assert make_handoff.NODE24_BACKFILL_RUN_ID == "29452243832"
+
+
+def test_rendered_handoff_records_the_exact_ordered_operational_gate(
+    tmp_path: Path, monkeypatch
+) -> None:
+    make_handoff = load_make_handoff_module()
+    source_commit = "b" * 40
+    source_branch = "agent/iter202-operational-handoff"
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(make_handoff, "current_branch", lambda: source_branch)
+    monkeypatch.setattr(
+        make_handoff,
+        "source_provenance",
+        lambda _branch: (source_branch, source_commit),
+    )
+    monkeypatch.setattr(make_handoff, "run", lambda _args: "")
+    monkeypatch.setattr(
+        make_handoff,
+        "active_gate",
+        lambda: "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
+    )
+    monkeypatch.setattr(make_handoff, "experiment_status", lambda _gate: [])
+
+    make_handoff.main()
+    handoff = (tmp_path / "HANDOFF.md").read_text(encoding="utf-8")
+
+    for evidence in (
+        "3a3368635e397d540cf98fc0f19d443661cc0fef",
+        "29451691560",
+        "b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe",
+        "29452243832",
+        "`CONTINUITY.md` resume step 1 is satisfied",
+        "`OPENAI_API_KEY` and `ANTHROPIC_API_KEY` absent",
+        "No retained iter202 solver or scenario output exists",
+    ):
+        assert evidence in handoff
+
+    environment = re.search(
+        r"- Exact resume environment after both credentials are present:\n\n"
+        r"  ```bash\n(.*?)\n  ```",
+        handoff,
+        re.DOTALL,
+    )
+    assert environment is not None
+    environment_lines = environment.group(1).splitlines()
+    assert environment_lines[0] == "  export TELOS_NAT_EXP=iter202_natural_rate_scaled"
+    assert len(environment_lines) == 14
+    assert all(line.endswith(chr(92)) for line in environment_lines[1:-1])
+    variable_names = [environment_lines[1].split()[1]] + [
+        line.strip().split()[0] for line in environment_lines[2:]
+    ]
+    assert variable_names == [
+        "TELOS_ADVERSARY_MODEL",
+        "TELOS_NAT_OPENAI_JUDGE_MODEL",
+        "TELOS_NAT_OPENAI_JUDGE_ENDPOINT",
+        "TELOS_NAT_OPENAI_JUDGE_MAX_COMPLETION_TOKENS",
+        "TELOS_NAT_ANTHROPIC_JUDGE_MODEL",
+        "TELOS_NAT_ANTHROPIC_JUDGE_ENDPOINT",
+        "TELOS_NAT_ANTHROPIC_JUDGE_API_VERSION",
+        "TELOS_NAT_ANTHROPIC_JUDGE_MAX_TOKENS",
+        "TELOS_NAT_JUDGE_TEMPERATURE",
+        "TELOS_NAT_JUDGE_PARSER_RULE",
+        "TELOS_NAT_JUDGE_DECISION_RULE",
+        "TELOS_NAT_REUSE_JUDGES",
+        "TELOS_NAT_RERUN_JUDGES",
+    ]
+
+    next_action_start = handoff.index("- Next action:")
+    next_action_end = handoff.index("- Autonomous goal-tracking note:")
+    next_action = " ".join(handoff[next_action_start:next_action_end].split())
+    ordered_markers = (
+        "primary-branch CI",
+        "cheap-first suite",
+        "`HYPOTHESIS.md` and `PREREGISTRATION_AMENDMENT.md`",
+        "Only after those checks pass",
+        "load both provider credentials",
+        "53-call solver in the foreground",
+    )
+    assert [next_action.index(marker) for marker in ordered_markers] == sorted(
+        next_action.index(marker) for marker in ordered_markers
+    )
+    assert ("a" + "web") not in handoff.casefold()
 
 
 def test_handoff_status_filter_allows_only_its_own_regeneration() -> None:

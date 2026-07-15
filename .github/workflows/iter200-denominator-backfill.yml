@@ -12,7 +12,7 @@ jobs:
       TELOS_NAT_EXP: iter200_natural_certified_yet_wrong_rate
       TELOS_NAT_SKIP_EXISTING: "1"
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.11.15"
@@ -40,7 +40,7 @@ jobs:
           bash scripts/ci_iter200_execute.sh
       - name: Upload logs
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: iter200-denominator-backfill
           path: experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/execution/

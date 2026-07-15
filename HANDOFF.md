@@ -1,14 +1,14 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-15T21:18:55Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-15T22:04:38Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 TELOS is a standalone repository at `/Users/danielwahnich/workspace/telos`. Run every TELOS command from this repository.
 
 ## Repository State
 
 ```text
-source_branch: agent/iter200-corrected-denominator-result
-source_commit: ea914ec2a248038320cee106f4f8530d9675c0a1
+source_branch: agent/iter202-operational-handoff
+source_commit: ddbae5a1da8011eadc9a788e5cebebbcca916163
 publication_target: master
 ```
 
@@ -261,10 +261,45 @@ clean
   `9,030`-second bounded-process ceiling per shard, immutable per-attempt checkpoints, eight shard receipts,
   and one aggregate receipt from a single repository, workflow, run, attempt, and commit. Incomplete
   coverage, partial evidence, and mixed attempts fail closed.
+- Publication/readiness evidence: hardened evidence PR `#3` merged as
+  `3a3368635e397d540cf98fc0f19d443661cc0fef`; primary-branch CI run `29451691560` succeeded at that merge.
+  Provider-free backfill run `29452243832` succeeded at source commit
+  `b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe` with pinned Node 24-native action revisions. It reproduced and
+  hash-verified the exact specs under Python `3.11.15` and all `73` locked distributions, then validated all
+  `37` committed execution pairs in the complete `74`-log corpus with zero model-provider calls. It reused
+  the committed logs and did not re-execute containers.
+- Frozen protocol checkpoint: `CONTINUITY.md` resume step 1 is satisfied by hardened evidence PR
+  `#3` and primary-branch CI run `29451691560`. Keep that frozen file
+  byte-identical; after this separate operational follow-up is merged and green, resume at its step 2.
+- Current execution blocker: the latest secret-safe operator-environment audit found both
+  `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` absent. No retained iter202 solver or scenario output exists.
+  Never begin a one-provider or otherwise partial paid run; load both credentials without printing values.
+- Exact resume environment after both credentials are present:
+
+  ```bash
+  export TELOS_NAT_EXP=iter202_natural_rate_scaled
+  unset TELOS_ADVERSARY_MODEL \
+    TELOS_NAT_OPENAI_JUDGE_MODEL \
+    TELOS_NAT_OPENAI_JUDGE_ENDPOINT \
+    TELOS_NAT_OPENAI_JUDGE_MAX_COMPLETION_TOKENS \
+    TELOS_NAT_ANTHROPIC_JUDGE_MODEL \
+    TELOS_NAT_ANTHROPIC_JUDGE_ENDPOINT \
+    TELOS_NAT_ANTHROPIC_JUDGE_API_VERSION \
+    TELOS_NAT_ANTHROPIC_JUDGE_MAX_TOKENS \
+    TELOS_NAT_JUDGE_TEMPERATURE \
+    TELOS_NAT_JUDGE_PARSER_RULE \
+    TELOS_NAT_JUDGE_DECISION_RULE \
+    TELOS_NAT_REUSE_JUDGES \
+    TELOS_NAT_RERUN_JUDGES
+  ```
 - No population-frequency, model-comparison, leaderboard, deployment, or state-of-the-art result is claimed.
-- Next action: commit and push the complete hardened evidence unit, require green primary-branch CI, and
-  only then follow the exact `CONTINUITY.md` resume sequence. Retain no iter202 solver output before that
-  publication gate, and do not alter the frozen protocol while resuming it.
+- Next action: require this operational follow-up to merge without rewriting source ancestry and pass
+  primary-branch CI. If those checks are already green when resuming, start from clean `master`; rerun the
+  cheap-first suite, both target-manifest checks, and the sample-overlap audit; then reread the active
+  `HYPOTHESIS.md` and `PREREGISTRATION_AMENDMENT.md`. Only after those checks pass, load both provider
+  credentials, apply the exact environment cleanup above, run the 53-call solver in the foreground, then
+  scenarios, and follow the exact spec-publication, eight-shard execution, collection, adjudication, judging,
+  and reporting sequence. Do not alter the frozen protocol while resuming it.
 - Autonomous goal-tracking note: if the operator explicitly asks for a persistent
   autonomous run, use the session goal tracker if available; otherwise continue
   from `CONTINUITY.md`, this handoff, the active `HYPOTHESIS.md`, and the learning
@@ -281,6 +316,7 @@ ruff check .
 pytest -q
 python3 scripts/validate_json.py
 python3 scripts/validate_docs.py
+python3 scripts/validate_current_paper.py
 python3 scripts/validate_mission_loop.py
 python3 scripts/validate_supply_chain.py
 python3 scripts/validate_detector_methodology_correction.py
