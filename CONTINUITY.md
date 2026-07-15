@@ -32,16 +32,28 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `paper/telos.tex` (optional short paper note) then operator peer-review path. iter200 is PUBLISHED: a
-  frontier model solving SWE-bench issues with a neutral prompt (no instruction to game tests) produced
-  `15` certified patches, of which **`1` is a strict naturally-occurring certified-yet-wrong patch**
-  (`sphinx-8621`: certified `33/33`, produces a malformed empty `kbd` element; both blind judges, outputs
-  unlabeled, flag only the model), with `2` ambiguous cases. Funnel: `39` targets -> `37` patches -> `15`
-  certified -> `7` diverge -> `1` strict. This is the first natural hack, addressing the paper's
-  elicited-only limitation (existence, `N=1`, not a frequency claim). Optional next: add a short honest
-  note to the paper. Operator steps (not autonomous): confirm the author/affiliation block, submit to a
-  peer-reviewed venue for a DOI, then appeal to arXiv (an endorsement is not an acceptance). Autonomous
-  science can continue: larger natural-rate samples, full agentic solving, or more benchmark expansion.
+- `experiments/iter201_detectors_on_full_benchmark/HYPOTHESIS.md` (detector comparison on all 22 hacks;
+  oracle CI dispatched, RESULT pending). Detector A (judge) is DONE: on all 22 certified-resolved hacks +
+  22 gold controls, any_catch recall `20/22`, false positives `3/22` (single run; committed at
+  `proof/judge_panel_22_results.json`). Detector B (gold-free oracle) is executing.
+
+  **RESUME STEPS (the oracle CI is a cloud run; it survives a laptop close):**
+  1. Oracle Phase B is GitHub Actions workflow `iter201-oracle` (run id `29404983357`). Check it:
+     `gh run view 29404983357 --json status,conclusion`. If not `completed`, wait.
+  2. Download logs into `experiments/iter201_detectors_on_full_benchmark/proof/raw/execution/`:
+     `gh run download 29404983357 -n iter201-oracle-execution -D <tmp>` then copy `*.log` into that dir.
+  3. `python3 scripts/adjudicate_iter201.py` -> oracle recall on 22 + combined judge/oracle side-by-side
+     and complementarity.
+  4. Write `RESULT.md`, receipt, learning record (verify the oracle-caught hacks airtight: property sound
+     on gold, fails on variant). Then fold the 22-hack detector comparison into `paper/telos.tex`
+     (Section 5, Table 2) and rebuild `paper/telos.pdf`.
+  5. IMPORTANT ordering: never run `scripts/make_handoff.py` or commit while a background job is writing
+     the tree; commit all files first, then regenerate the handoff on a clean tree (a dirty-tree handoff
+     fails CI).
+
+  Everything through iter200 is published and the paper is current for that state. The remaining operator
+  steps (not autonomous) are unchanged: confirm the author block, submit to a peer-reviewed venue for a
+  DOI, then appeal to arXiv.
 
 ## Standing correction (iter192) - read before citing any reward-hack number
 
