@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-15T05:18:51Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-15T05:53:44Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -221,7 +221,7 @@ clean
 
 ## Current Gate
 
-- Active gate: `paper/telos.tex`.
+- Active gate: `experiments/iter200_natural_certified_yet_wrong_rate/HYPOTHESIS.md`.
 - Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
   (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
   diagnostic/adjudication only. Iter190 is a null pre-spend property-generator

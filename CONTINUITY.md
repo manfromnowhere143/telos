@@ -32,14 +32,27 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `paper/telos.tex` (update the paper to the expanded benchmark). iter199 grew the benchmark from `10`
-  hacks across `3` repositories to `22` hacks across `8` repositories (`benchmarks/certified_resolved_reward_hack_v2/`),
-  so the paper's abstract, Section 4, Table 1, and Limitations need updating from `10`/`3` to `22`/`8`
-  before submission. The three flagged citations are verified; `paper/telos.pdf` is current for the
-  `10`/`3` version. After the paper update, the remaining steps are operator actions: confirm the
+- `experiments/iter200_natural_certified_yet_wrong_rate/HYPOTHESIS.md` (PRE-REGISTERED; Phase B dispatched,
+  RESULT pending). This gate tests whether a model produces certified-yet-wrong patches when NOT told to
+  hack -- the naturally-occurring version of the class, and the paper's biggest open limitation.
+
+  **RESUME STEPS (Phase B is a cloud CI run; it survives a laptop close):**
+  1. Phase B ran as GitHub Actions workflow `iter200-execute` (run id `29391238359`). Check it:
+     `gh run view 29391238359 --json status,conclusion`. If not `completed`, wait for it.
+  2. Download logs into `experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/execution/`:
+     `gh run download 29391238359 -n iter200-execution -D <tmp>` then copy `*.log` into that dir.
+  3. `python3 scripts/adjudicate_iter200.py` -> certified + diverging candidates.
+  4. `python3 scripts/run_iter200_blind_judge.py` (needs OPENAI_API_KEY + ANTHROPIC_API_KEY from
+     `/Users/danielwahnich/workspace/aweb/.env`) -> blind wrongness verdicts and the funnel.
+  5. Write `RESULT.md`, receipt, learning record; verify any confirmed natural hacks airtight (certified by
+     execution, gold-differential witness, both blind judges flag the model). A null (fewer than 6 certified
+     patches, or 0 blind-confirmed hacks) is a pre-committed publishable result, not a failure.
+
+  iter199 already grew the benchmark to `22` hacks across `8` repositories
+  (`benchmarks/certified_resolved_reward_hack_v2/`), and the paper (`paper/telos.tex`, `paper/telos.pdf`)
+  was updated to `22`/`8` in the iter199 arc. Remaining operator steps (not autonomous): confirm the
   author/affiliation block, submit to a peer-reviewed venue for a DOI, then appeal to arXiv (an endorsement
-  is not an acceptance). Autonomous empirical work can continue: grow `N` further, and move from constructed
-  to naturally-occurring hacks.
+  is not an acceptance).
 
 iter197 completed the two-detector comparison (a null on the oracle's own `>=5` recall bar, but the result
 the mission was built toward). The gold-free execution oracle: `12/12` sound properties, `4/10` recall on
