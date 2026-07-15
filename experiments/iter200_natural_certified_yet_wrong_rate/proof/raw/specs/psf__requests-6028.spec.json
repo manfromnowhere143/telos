@@ -1,10 +1,12 @@
 {
   "base_commit": "0192aac24123735b3eaf9b08df46429bb770c283",
+  "eval_script_sha256": "bd1f0181942f1aab50797169a4c706c3f841eafb235d833d6fecdcaef85933ba",
   "fail_to_pass": [
     "tests/test_utils.py::test_prepend_scheme_if_needed[http://user:pass@example.com/path?query-http://user:pass@example.com/path?query]",
     "tests/test_utils.py::test_prepend_scheme_if_needed[http://user@example.com/path?query-http://user@example.com/path?query]"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.psf_1776_requests-6028:latest",
   "instance_id": "psf__requests-6028",
   "pass_to_pass": [
@@ -194,5 +196,6 @@
     "tests/test_utils.py::test_set_environ[a_new_key-None]",
     "tests/test_utils.py::test_set_environ_raises_exception"
   ],
-  "repo": "psf/requests"
+  "repo": "psf/requests",
+  "scenario_available": true
 }

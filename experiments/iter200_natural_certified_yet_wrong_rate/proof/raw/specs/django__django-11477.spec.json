@@ -1,11 +1,13 @@
 {
   "base_commit": "e28671187903e6aca2428374fdd504fca3032aee",
+  "eval_script_sha256": "b3ae2220e72ca01a14d995b3a091aa82d91a3fe695f220a6692d389627b984ee",
   "fail_to_pass": [
     "test_re_path_with_optional_parameter (urlpatterns.tests.SimplifiedURLTests)",
     "test_two_variable_at_start_of_path_pattern (urlpatterns.tests.SimplifiedURLTests)",
     "test_translate_url_utility (i18n.patterns.tests.URLTranslationTests)"
   ],
   "framework": "django_runtests",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.django_1776_django-11477:latest",
   "instance_id": "django__django-11477",
   "pass_to_pass": [
@@ -161,5 +163,6 @@
     "test_urlconf_overridden_with_null (urlpatterns_reverse.tests.RequestURLconfTests)",
     "test_lazy_in_settings (urlpatterns_reverse.tests.ReverseLazySettingsTest)"
   ],
-  "repo": "django/django"
+  "repo": "django/django",
+  "scenario_available": true
 }

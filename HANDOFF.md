@@ -1,17 +1,91 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-15T12:23:11Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-15T14:04:23Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+
+TELOS is a standalone repository at `/Users/danielwahnich/workspace/telos`. Run every TELOS command from this repository.
 
 ## Repository State
 
 ```text
-branch: master
+branch: agent/iter202-prereg-denominator-correction
 ```
 
 Working tree:
 
 ```text
-clean
+ M CONTINUITY.md
+ M README.md
+ M docs/MISSION_LOOP.md
+ M experiments/iter200_natural_certified_yet_wrong_rate/RESULT.md
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/astropy__astropy-7336.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/django__django-11133.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/django__django-11477.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/index.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/matplotlib__matplotlib-22871.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/matplotlib__matplotlib-23476.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/matplotlib__matplotlib-24970.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/matplotlib__matplotlib-25311.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/psf__requests-5414.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/psf__requests-6028.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pydata__xarray-4094.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pydata__xarray-4356.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pydata__xarray-4629.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pydata__xarray-4966.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pytest-dev__pytest-5631.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pytest-dev__pytest-5809.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pytest-dev__pytest-6202.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pytest-dev__pytest-7432.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/scikit-learn__scikit-learn-11578.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/scikit-learn__scikit-learn-13135.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/scikit-learn__scikit-learn-13142.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/scikit-learn__scikit-learn-13328.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sphinx-doc__sphinx-7889.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sphinx-doc__sphinx-8621.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sympy__sympy-13480.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sympy__sympy-13551.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sympy__sympy-13615.spec.json
+ M experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sympy__sympy-13757.spec.json
+ M experiments/iter202_natural_rate_scaled/HYPOTHESIS.md
+ M experiments/iter202_natural_rate_scaled/proof/raw/solve_targets.json
+ M mission/loop.json
+ M paper/README.md
+ M scripts/adjudicate_iter200.py
+ M scripts/ci_iter200_execute.sh
+ M scripts/extract_iter200_specs.py
+ M scripts/make_handoff.py
+ M scripts/run_iter200_blind_judge.py
+ M scripts/run_iter200_scenarios.py
+ M scripts/run_iter200_solver.py
+ M scripts/validate_handoff.py
+ M tests/test_make_handoff.py
+?? .github/workflows/iter200-denominator-backfill.yml
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/astropy__astropy-14539.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/astropy__astropy-14539.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/django__django-11066.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/django__django-11066.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/django__django-11451.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/django__django-11451.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/matplotlib__matplotlib-22865.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/matplotlib__matplotlib-22865.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pydata__xarray-4695.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/pydata__xarray-4695.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/scikit-learn__scikit-learn-12585.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/scikit-learn__scikit-learn-12585.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sphinx-doc__sphinx-8269.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sphinx-doc__sphinx-8269.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sphinx-doc__sphinx-8459.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sphinx-doc__sphinx-8459.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sphinx-doc__sphinx-8595.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sphinx-doc__sphinx-8595.spec.json
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sympy__sympy-13647.eval_script.sh
+?? experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/sympy__sympy-13647.spec.json
+?? experiments/iter202_natural_rate_scaled/PREREGISTRATION_AMENDMENT.md
+?? experiments/iter202_natural_rate_scaled/proof/raw/process_history.json
+?? experiments/iter202_natural_rate_scaled/proof/raw/sample_overlap_audit.json
+?? requirements/
+?? scripts/audit_iter202_sample_overlap.py
+?? scripts/build_iter202_solve_targets.py
+?? tests/test_natural_rate_pipeline.py
 ```
 
 ## Experiments
@@ -224,13 +298,16 @@ clean
 ## Current Gate
 
 - Active gate: `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`.
-- Reward-hack panel public metric: unrepaired iter179 `majority_catch` remains primary
-  (`17/40` hack rows, `0/40` controls); iter181/iter182 repair evidence is
-  diagnostic/adjudication only. Iter190 is a null pre-spend property-generator
-  execution-surface result: `24` planned calls were frozen, provider calls were `0`,
-  and local/container execution attempts were `0/20`.
+- Standing detector result (iter201): the judge catches `20/22` certified-yet-wrong patches with
+  `3/22` gold false positives; the gold-free oracle catches `6/22` with zero false positives, and its
+  catches are a subset of the judge's. The earlier complementarity result did not replicate at scale.
+- Standing natural-occurrence result (iter200): one strict confirmed case exists. Its historical `1/15`
+  denominator is conditional on scenario eligibility and is being corrected before any pooled rate.
+- Iter202 cohort correction: the 53 IDs are disjoint from iter200, but `27/53` have defined prior-result
+  exposure and `10/53` have provider-call-ledger exposure; both preregistered sensitivities are mandatory.
 - No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
-- Next action: run the active gate exactly as pre-registered, then publish `RESULT.md` with
+- Next action: follow the amended resume order in `CONTINUITY.md`: correct and backfill iter200's
+  certification denominator before retaining any iter202 solver output, then publish `RESULT.md` with
   proof artifacts before advancing scope.
 - Autonomous goal-tracking note: if the operator explicitly asks for a persistent
   autonomous run, use the session goal tracker if available; otherwise continue
@@ -459,6 +536,8 @@ python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilo
 python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
+python3 scripts/build_iter202_solve_targets.py --check
+python3 scripts/audit_iter202_sample_overlap.py --check
 python3 scripts/validate_handoff.py
 python3 scripts/make_handoff.py
 ```

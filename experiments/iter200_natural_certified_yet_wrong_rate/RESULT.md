@@ -1,10 +1,19 @@
 # Iteration 200 Result - Do Models Produce Certified-Yet-Wrong Patches Unprompted?
 
-Status: `PASS` (positive). A frontier model, asked to fix SWE-bench issues with **no instruction to game
-the tests**, produced at least one patch that the official harness certifies as resolved and that both
-blind judges independently rule wrong. This is the first naturally-occurring certified-yet-wrong patch in
-the program. The magnitude is small and reported honestly: `1` strict case out of `15` certified model
-patches, not the looser `3` an inflated reading would give.
+> **Standing denominator correction (2026-07-15; backfill pending):** the published `1/15` is conditional
+> on the scenario-eligible cohort that the original pipeline executed, not an all-certified-patch rate.
+> Nine exact-gold model patches and one differing patch without a scenario were incorrectly omitted before
+> official certification. The strict one-case existence result remains supported, but `1/15` must not be
+> pooled or cited as the corrected rate. The pre-output iter202 amendment preserves this historical result
+> and requires official-harness backfill of all ten omitted patches before publishing the corrected
+> denominator.
+
+Historical status: `PASS` (conditional positive; denominator backfill pending). A frontier model, asked to
+fix SWE-bench issues with **no instruction to game the tests**, produced at least one patch that the
+official harness certifies as resolved and that both blind judges independently rule wrong. This is the
+first naturally-occurring certified-yet-wrong patch in the program. In the historical scenario-eligible
+execution cohort, the magnitude was `1` strict case out of `15` certified model patches, not the looser
+`3` an inflated reading would give. The corrected all-valid-patch rate is not yet known.
 
 Provider calls `81` (`~$4.19`, all Phase A + blind judging). Execution is CI Docker only (run
 `29391238359`, `success`).
@@ -16,7 +25,7 @@ Provider calls `81` (`~$4.19`, all Phase A + blind judging). Execution is CI Doc
 | frozen solve targets (single-added-run, 9 repos) | `39` |
 | model produced a patch (neutral "fix this" prompt) | `37` |
 | model patch certified-resolved (passes all graded tests) | `15` |
-| certified and identical-behavior to gold (correct) | `8` |
+| certified with no observed divergence on the retained scenario | `8` |
 | certified and behaviorally diverges from gold | `7` |
 | **strict natural hack (both blind judges flag only the model)** | **`1`** |
 
@@ -55,8 +64,9 @@ separately rather than claimed.
 ## What this establishes
 
 The certified-yet-wrong class is not only constructible under elicitation (iter192-iter199); it also
-occurs when a frontier model solves an issue **unprompted**. On this bounded sample, `1` of `15` certified
-model patches was a strict, blind-confirmed natural hack, with `2` further ambiguous cases. This directly
+occurs when a frontier model solves an issue **unprompted**. In the historical scenario-eligible execution
+cohort, `1` of `15` certified model patches was a strict, blind-confirmed natural hack, with `2` further
+ambiguous cases. This directly
 addresses the paper's central limitation -- that all prior hacks were elicited -- with a small but real
 naturally-occurring instance.
 
@@ -82,9 +92,10 @@ sample is small; the `1` strict case is an existence result, not a frequency est
 - `proof/audit_report.json` -- the funnel and strict/ambiguous/mixed breakdown
 - `proof/valid/receipt_natural_certified_yet_wrong.json`
 
-Regenerate the adjudication (blind judge re-calls providers; verdicts are stochastic) with:
+After all 37 corrected-denominator execution logs are present, regenerate without new judge calls by
+binding and reusing the committed verdicts:
 
 ```bash
 python3 scripts/adjudicate_iter200.py
-python3 scripts/run_iter200_blind_judge.py
+TELOS_NAT_REUSE_JUDGES=1 python3 scripts/run_iter200_blind_judge.py
 ```

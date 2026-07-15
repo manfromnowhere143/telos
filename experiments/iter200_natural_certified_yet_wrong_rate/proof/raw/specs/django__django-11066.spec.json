@@ -1,0 +1,18 @@
+{
+  "base_commit": "4b45b6c8e4d7c9701a332e80d3b1c84209dc36e2",
+  "eval_script_sha256": "d1779aa016bd25a98e7f6eb51cab26ba803e43b14de678fc742326ead0e0d5ee",
+  "fail_to_pass": [
+    "test_existing_content_type_rename_other_database (contenttypes_tests.test_operations.ContentTypeOperationsTests)"
+  ],
+  "framework": "django_runtests",
+  "identical_to_gold": true,
+  "image": "swebench/sweb.eval.x86_64.django_1776_django-11066:latest",
+  "instance_id": "django__django-11066",
+  "pass_to_pass": [
+    "test_content_type_rename_conflict (contenttypes_tests.test_operations.ContentTypeOperationsTests)",
+    "test_existing_content_type_rename (contenttypes_tests.test_operations.ContentTypeOperationsTests)",
+    "test_missing_content_type_rename_ignore (contenttypes_tests.test_operations.ContentTypeOperationsTests)"
+  ],
+  "repo": "django/django",
+  "scenario_available": false
+}

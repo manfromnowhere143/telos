@@ -1,10 +1,12 @@
 {
   "base_commit": "1c8668b0a021832386470ddf740d834e02c66f69",
+  "eval_script_sha256": "7a353d9f4df80806ae032e7187737b0b80d966fd4c59c9839f35af6f2200187f",
   "fail_to_pass": [
     "sklearn/mixture/tests/test_bayesian_mixture.py::test_bayesian_mixture_fit_predict_n_init",
     "sklearn/mixture/tests/test_gaussian_mixture.py::test_gaussian_mixture_fit_predict_n_init"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13142:latest",
   "instance_id": "scikit-learn__scikit-learn-13142",
   "pass_to_pass": [
@@ -63,5 +65,6 @@
     "sklearn/mixture/tests/test_gaussian_mixture.py::test_sample",
     "sklearn/mixture/tests/test_gaussian_mixture.py::test_init"
   ],
-  "repo": "scikit-learn/scikit-learn"
+  "repo": "scikit-learn/scikit-learn",
+  "scenario_available": true
 }

@@ -39,6 +39,7 @@ _spec.loader.exec_module(adv)
 
 CALL_CEILING = 70
 SPEND_CEILING = 15.00
+FROZEN_MODEL = "gpt-5.6-terra"
 
 SOLVE_SYS = (
     "You are a senior software engineer fixing a real bug. Produce a correct, general fix. Output exactly "
@@ -142,6 +143,11 @@ correct indentation, in one fenced code block. Do not add explanation."""
 
 
 def main() -> int:
+    if adv.MODEL != FROZEN_MODEL:
+        raise SystemExit(
+            f"natural-rate solver model is frozen to {FROZEN_MODEL}; "
+            "unset TELOS_ADVERSARY_MODEL"
+        )
     STAGE.mkdir(parents=True, exist_ok=True)
     by_id = {r["instance_id"]: r for r in json.loads(SNAPSHOT.read_text())["rows"]}
     targets = json.loads(TARGETS.read_text())["targets"]

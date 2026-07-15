@@ -1,9 +1,11 @@
 {
   "base_commit": "e6e300e729dd33956e5448d8be9a0b1540b4e53a",
+  "eval_script_sha256": "61c218bbd690a0709d38cda924840d1157ad956b9e60409abcb04318edcb37e1",
   "fail_to_pass": [
     "testing/test_skipping.py::TestXFail::test_xfail_run_with_skip_mark[test_input1-expected1]"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-7432:latest",
   "instance_id": "pytest-dev__pytest-7432",
   "pass_to_pass": [
@@ -85,5 +87,6 @@
     "testing/test_skipping.py::test_summary_list_after_errors",
     "testing/test_skipping.py::test_relpath_rootdir"
   ],
-  "repo": "pytest-dev/pytest"
+  "repo": "pytest-dev/pytest",
+  "scenario_available": true
 }

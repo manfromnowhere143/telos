@@ -3,6 +3,9 @@
 Read this file before changing the repository. It carries the stable operating rules; `HANDOFF.md`
 carries the dynamic state.
 
+TELOS is a standalone repository at `/Users/danielwahnich/workspace/telos`. Run every TELOS command
+from this repository.
+
 ## Standard
 
 1. **Pre-register before data.** Every experiment gets a `HYPOTHESIS.md` with numeric bars and
@@ -15,7 +18,7 @@ carries the dynamic state.
 6. **Cheap-first.** Offline gates run before API spend, GPU spend, or long harness runs.
 7. **One operator at a time.** Keep the repo handoff-ready after every state change.
 8. **Mission loop is explicit.** The public loop contract lives at `mission/loop.json`. Do not claim
-   private Aweb/Maestro execution unless Aweb discovery returns a concrete Telos capability slug.
+   private runtime execution unless governed discovery returns a concrete Telos capability slug.
 9. **World-contact beats self-consistency.** A gate that passes only internal checks — CI, guards,
    audits, a parser accepting its own fixtures — is satisfiable without touching the world, and a
    capable optimizer will find that fixed point. It did: iter185-iter190 built and passed guards toward
@@ -32,33 +35,43 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md` (PRE-REGISTERED; scale the natural-hack rate;
-  pipeline + pre-registration committed, solver NOT yet run). This turns iter200's N=1 existence result
-  into a rate. The iter200 pipeline is now parameterized via env var `TELOS_NAT_EXP` (defaults to iter200,
-  which still reproduces exactly). The frozen 53-target sample is at `proof/raw/solve_targets.json`.
+- `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md` (PRE-REGISTERED with a transparent pre-result
+  amendment; scale the natural-hack rate). The frozen 53-target sample is unchanged and now reproduces via
+  `scripts/build_iter202_solve_targets.py`. An interrupted prior solver invocation retained no outputs;
+  its exact calls/spend are unknown and charged as `53` calls / an estimated `$2.65` bookkeeping amount.
+  The amendment also
+  corrects a committed iter200 denominator flaw: official certification must cover every valid model patch
+  before optional scenario generation. A pre-output overlap audit retracts the too-broad "fresh" label:
+  `27/53` targets have defined prior result-bearing exposure, including `10/53` with provider-call-ledger
+  evidence, so both preregistered sensitivity splits are mandatory in the final result.
 
-  **RESUME STEPS (run in order; export `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` from
-  `/Users/danielwahnich/workspace/aweb/.env`, and `export TELOS_NAT_EXP=iter202_natural_rate_scaled` for
-  every step):**
-  1. Solve: `python3 scripts/run_iter200_solver.py` (neutral fix prompt over the 53 targets; ~53 calls,
-     ~$2.65; writes `proof/raw/solutions/`).
-  2. Scenarios: `python3 scripts/run_iter200_scenarios.py` (gold-vs-model witnessing scenarios for the
-     differing patches).
-  3. Specs: needs `swebench`. `python3 -m venv /tmp/sweb && /tmp/sweb/bin/pip install swebench==4.1.0 &&
-     TELOS_NAT_EXP=iter202_natural_rate_scaled /tmp/sweb/bin/python scripts/extract_iter200_specs.py`.
-  4. Safety-scan the scenarios, then COMMIT `proof/raw/{solutions,scenarios,specs}/` on a clean tree
-     (never run make_handoff while a job is writing -- that dirty-tree handoff is what fails CI).
-  5. Dispatch CI: `gh workflow run iter202-execute.yml --ref master` (sets `TELOS_NAT_EXP` and runs the
-     shared `ci_iter200_execute.sh`). Wait for it (`gh run watch`).
-  6. Download logs into `experiments/iter202_natural_rate_scaled/proof/raw/execution/`, then
-     `python3 scripts/adjudicate_iter200.py` and `python3 scripts/run_iter200_blind_judge.py`
-     (both with `TELOS_NAT_EXP` set).
-  7. VERIFY each blind-confirmed natural hack airtight (certified by execution, gold-differential witness,
-     BOTH judges name ONLY the model -- a "both"/"neither" verdict does NOT confirm; this strict rule
-     caught an over-count in iter200, 3 -> 1). Write `RESULT.md` + receipt + learning record. Report the
-     POOLED rate: (iter200 + iter202) natural hacks / certified patches. iter200 was 39 targets, 15
-     certified, 1 strict natural hack. A solve-yield null (pooled certified < 20) is a pre-committed result.
-  8. Fold the rate into `paper/telos.tex` if it strengthens the natural-occurrence paragraph.
+  **RESUME STEPS (run in order):**
+  1. Run the cheap-first suite and
+     `python3 scripts/build_iter202_solve_targets.py --check`, then
+     `python3 scripts/audit_iter202_sample_overlap.py --check`. Read
+     `experiments/iter202_natural_rate_scaled/PREREGISTRATION_AMENDMENT.md`.
+  2. Backfill the ten iter200 patches omitted by the old scenario-gated certification path. Regenerate
+     iter200 specs with `swebench==4.1.0`, commit them, then dispatch
+     `gh workflow run iter200-denominator-backfill.yml --ref master`. The workflow retains the 27 existing
+     execution logs and runs only missing rows.
+  3. Download the backfill logs, rerun `scripts/adjudicate_iter200.py`, and recompute the corrected audit
+     with `TELOS_NAT_REUSE_JUDGES=1` so the committed blind verdicts are reused with zero new judge calls.
+     Publish a visible iter200 correction/sensitivity; do not erase the historical conditional `1/15`.
+  4. Commit and validate the corrected iter200 denominator before generating iter202 outputs.
+  5. Load `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` from the operator-managed environment without copying
+     or logging values. Export `TELOS_NAT_EXP=iter202_natural_rate_scaled` and unset model overrides.
+  6. Run `python3 scripts/run_iter200_solver.py` in the foreground (53 neutral solve calls), followed by
+     `python3 scripts/run_iter200_scenarios.py` for differing patches.
+  7. Extract specs for every valid patch with `swebench==4.1.0`. Safety-scan generated scenarios and
+     proof artifacts, commit `proof/raw/{solutions,scenarios,specs}/`, and dispatch
+     `gh workflow run iter202-execute.yml --ref master`.
+  8. Download execution logs, run `scripts/adjudicate_iter200.py`, then run the two blind judges. Verify
+     every strict positive: official certification, retained gold-differential witness, and BOTH judges
+     naming ONLY the model. `both`, `neither`, invalid, or missing outcomes never confirm.
+  9. Report corrected iter200, iter202, and pooled same-rule values. If `u` certified outcomes remain
+     unadjudicated, report `k/N`, `(k+u)/N`, and `k/(N-u)`. Publish nulls and lower bounds at full weight.
+  10. Write `RESULT.md`, receipt, learning record, refreshed handoff, and update `paper/telos.tex` only if
+      the bounded result strengthens the natural-occurrence paragraph.
 
   Everything through iter201 is published, CI-green, and the paper is current. Operator steps (not
   autonomous): confirm the author block, submit to a peer-reviewed venue for a DOI, then appeal to arXiv.

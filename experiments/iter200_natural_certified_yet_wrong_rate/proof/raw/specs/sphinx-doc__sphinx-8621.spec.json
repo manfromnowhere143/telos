@@ -1,10 +1,12 @@
 {
   "base_commit": "21698c14461d27933864d73e6fba568a154e83b3",
+  "eval_script_sha256": "39f1258d1f8eb13c3c361a338a7b457c1aa7b06d806e9e87474d099c35d118d7",
   "fail_to_pass": [
     "tests/test_markup.py::test_inline[verify-:kbd:`Alt+^`-<p><kbd",
     "tests/test_markup.py::test_inline[verify-:kbd:`-`-<p><kbd"
   ],
   "framework": "tox",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8621:latest",
   "instance_id": "sphinx-doc__sphinx-8621",
   "pass_to_pass": [
@@ -40,5 +42,6 @@
     "tests/test_markup.py::test_default_role1",
     "tests/test_markup.py::test_default_role2"
   ],
-  "repo": "sphinx-doc/sphinx"
+  "repo": "sphinx-doc/sphinx",
+  "scenario_available": true
 }

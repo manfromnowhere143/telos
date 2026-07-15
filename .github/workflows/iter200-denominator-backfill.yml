@@ -1,0 +1,34 @@
+name: iter200-denominator-backfill
+on:
+  workflow_dispatch:
+jobs:
+  execute:
+    name: iter200 certify omitted denominator rows (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      TELOS_NAT_EXP: iter200_natural_certified_yet_wrong_rate
+      TELOS_NAT_SKIP_EXISTING: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free disk
+        run: sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+      - name: Reproduce official evaluation scripts
+        run: |
+          python3 -m venv /tmp/telos-swebench
+          /tmp/telos-swebench/bin/python -m pip install --upgrade pip
+          /tmp/telos-swebench/bin/python -m pip install swebench==4.1.0
+          /tmp/telos-swebench/bin/python -m pip install --force-reinstall --no-deps --require-hashes -r requirements/iter200-swebench.txt
+          /tmp/telos-swebench/bin/python scripts/extract_iter200_specs.py
+          git diff --exit-code -- experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/specs/
+      - name: Run denominator backfill
+        run: |
+          chmod +x scripts/ci_iter200_execute.sh
+          bash scripts/ci_iter200_execute.sh
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter200-denominator-backfill
+          path: experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/execution/
+          retention-days: 14

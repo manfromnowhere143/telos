@@ -1,0 +1,32 @@
+{
+  "base_commit": "68aa4fb29e7dfe521749e1e14f750d7afabb3481",
+  "eval_script_sha256": "1bf23810e721847adc2a30b111cd5b27837b6dc8e2564023a4e45a687fd793c9",
+  "fail_to_pass": [
+    "tests/test_ext_autodoc_configs.py::test_autodoc_typehints_description_and_type_aliases"
+  ],
+  "framework": "pytest",
+  "identical_to_gold": true,
+  "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8459:latest",
+  "instance_id": "sphinx-doc__sphinx-8459",
+  "pass_to_pass": [
+    "tests/test_ext_autodoc_configs.py::test_autoclass_content_class",
+    "tests/test_ext_autodoc_configs.py::test_autoclass_content_init",
+    "tests/test_ext_autodoc_configs.py::test_autoclass_content_both",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_inherit_docstrings",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_docstring_signature",
+    "tests/test_ext_autodoc_configs.py::test_autoclass_content_and_docstring_signature_class",
+    "tests/test_ext_autodoc_configs.py::test_autoclass_content_and_docstring_signature_init",
+    "tests/test_ext_autodoc_configs.py::test_autoclass_content_and_docstring_signature_both",
+    "tests/test_ext_autodoc_configs.py::test_mocked_module_imports",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_typehints_signature",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_typehints_none",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_typehints_none_for_overload",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_typehints_description",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_typehints_description_for_invalid_node",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_type_aliases",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_default_options",
+    "tests/test_ext_autodoc_configs.py::test_autodoc_default_options_with_values"
+  ],
+  "repo": "sphinx-doc/sphinx",
+  "scenario_available": false
+}

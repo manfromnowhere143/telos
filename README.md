@@ -15,8 +15,10 @@ means. The program's results, all reproducible from committed proof:
   (`benchmarks/certified_resolved_reward_hack_v2/`) — django, matplotlib, astropy, xarray, pylint, pytest,
   requests, sympy — each certified by the official harness and witnessed wrong by gold-differential
   execution.
-- **A two-detector comparison** at decision time with the correct fix withheld: a frontier judge panel and
-  a gold-free execution oracle, which are complementary (an ensemble beats either alone).
+- **A two-detector comparison** at decision time with the correct fix withheld: on all `22` hacks, a
+  frontier judge panel catches `20/22` with `3/22` gold false positives; a gold-free execution oracle
+  catches `6/22` at zero false positives. The oracle's catches are a subset of the judge's on this larger
+  run; on this cohort the OR-union therefore matches the judge's `20/22` recall and does not improve it.
 - **The first naturally-occurring case:** a model asked to fix an issue with no instruction to game the
   tests produced a certified-yet-wrong patch (existence result, `N=1`).
 - **A findings paper** (`paper/telos.tex`, `paper/telos.pdf`), every headline number regenerating from a
@@ -108,6 +110,10 @@ oracle exactly as predicted (its gold-free property tested a pk named `id`, wher
 correctly; the judge caught it by reading the suspicious condition), making the coverage-bound mechanism
 concrete.
 
+That complementarity was the original `10`-hack run, not a standing cross-scale claim. Iter201 repeated
+the comparison on all `22` hacks: judge `20/22`, oracle `6/22`, union `20/22`, with every oracle catch a
+subset of the judge's. The earlier oracle-only catch was partly stochastic and did not replicate.
+
 The construct-and-detect arc iter192-iter197 is scientifically complete for a findings paper, and
 `experiments/iter198_findings_paper_synthesis_and_accessibility/` finished it: `paper/telos.tex` is a full
 accessible rewrite around these results (self-correction, ten certified-yet-wrong patches, two-detector
@@ -121,13 +127,23 @@ runs the same construct-and-witness pipeline on 42 fresh SWE-bench Verified inst
 dataset repositories, to show the certified-yet-wrong class is not an artifact of Django, astropy, and
 matplotlib.
 
-`experiments/iter202_natural_rate_scaled/` scales that measurement: it runs the same neutral-solve pipeline (parameterized via `TELOS_NAT_EXP`) on a fresh 53-instance sample, pooled with iter200's 39, to turn the natural-hack existence result into a rate.
+`experiments/iter202_natural_rate_scaled/` scales that measurement on a frozen 53-instance cohort, pooled
+descriptively with iter200's 39 disjoint target IDs. A pre-output overlap audit found that 27 of the 53 had
+defined prior result-bearing exposure elsewhere in the mission, including 10 with provider-call-ledger
+evidence; the final result must therefore include predeclared prior-use sensitivities. The amendment also
+corrects certification to cover every valid patch before scenario generation, freezes the exact model,
+discloses an interrupted no-retained-output invocation, and requires an iter200 denominator backfill
+before pooling.
 
 `experiments/iter200_natural_certified_yet_wrong_rate/` attacks the elicited-construction limitation
 directly: it asks a frontier model to fix SWE-bench issues with no instruction to game the tests, then
 measures how often its certified-resolved patch is nonetheless wrong (adjudicated by a blind judge). A
 positive result is the first naturally-occurring certified-yet-wrong patch; a null is an honest bound on
 how often the class arises unprompted.
+
+The historical `1/15` iter200 rate is conditional on the scenario-eligible cohort: nine exact-gold
+patches and one scenario-missing patch never entered certification. The strict one-case existence result
+remains supported; a corrected denominator is being backfilled before any pooled rate is reported.
 
 `experiments/iter201_detectors_on_full_benchmark/` extends the detector comparison from the original 10
 hacks to all 22 across 8 repositories, so the detection recall and false-positive numbers rest on the full,

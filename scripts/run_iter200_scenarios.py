@@ -31,9 +31,15 @@ _spec.loader.exec_module(scen)
 
 CALL_CEILING = 50
 SPEND_CEILING = 15.00
+FROZEN_MODEL = "gpt-5.6-terra"
 
 
 def main() -> int:
+    if scen.MODEL != FROZEN_MODEL:
+        raise SystemExit(
+            f"natural-rate scenario model is frozen to {FROZEN_MODEL}; "
+            "unset TELOS_ADVERSARY_MODEL"
+        )
     STAGE.mkdir(parents=True, exist_ok=True)
     by_id = {r["instance_id"]: r for r in json.loads(SNAPSHOT.read_text())["rows"]}
     summary = json.loads((SOLS / "solve_summary.json").read_text())

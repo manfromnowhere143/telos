@@ -1,9 +1,11 @@
 {
   "base_commit": "a3011dfd1aaa2487cce8aa7369475533133ef777",
+  "eval_script_sha256": "10ebe515a4cbb2e23bd64153ae2f272bcb1ac72bab0990155cb0808a22775be5",
   "fail_to_pass": [
     "lib/matplotlib/tests/test_colors.py::test_index_dtype[uint8]"
   ],
   "framework": "pytest",
+  "identical_to_gold": false,
   "image": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24970:latest",
   "instance_id": "matplotlib__matplotlib-24970",
   "pass_to_pass": [
@@ -261,5 +263,6 @@
     "lib/matplotlib/tests/test_colors.py::test_color_sequences",
     "lib/matplotlib/tests/test_colors.py::test_cm_set_cmap_error"
   ],
-  "repo": "matplotlib/matplotlib"
+  "repo": "matplotlib/matplotlib",
+  "scenario_available": true
 }

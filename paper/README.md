@@ -1,13 +1,12 @@
 # Telos paper (findings draft)
 
-> **Status: clean rewrite complete (iter198), not yet submitted.** `telos.tex` was fully rewritten on
-> 2026-07-14 around the corrected arc iter192-iter197: an earlier benchmark that did not contain reward
-> hacks (corrected in place), ten execution-verified certified-resolved reward hacks, and a two-detector
-> comparison (judge panel `7/10`, gold-free oracle `4/10` at perfect precision, complementary union
-> `8/10`). Every headline number was cross-checked to regenerate from a committed `experiments/*/proof/`
-> artifact. The draft applies an accessibility pass (every term defined on first use, plain declarative
-> prose) in response to the readability feedback that preceded the sibling Sentinel arXiv rejection.
-> `telos.pdf` is rebuilt from this source with `tectonic`.
+> **Status: current through iter201, not yet submitted.** `telos.tex` now reports the corrected
+> iter192 foundation, `22` execution-verified certified-resolved reward hacks across `8` repositories,
+> the full-cohort detector comparison (judge `20/22`, oracle `6/22`, union `20/22`), and the strict
+> one-case naturally-occurring existence result. The original 10-row oracle-only complement did not
+> replicate at scale, so no standing claim says the ensemble beats the strong judge. Iter202's amended
+> natural-rate measurement and iter200 denominator backfill are pending and must not be folded into the
+> paper until their committed evidence passes. `telos.pdf` is rebuilt from this source with `tectonic`.
 >
 > **Before any external submission:** the three previously-flagged citations (Control Tax
 > arXiv:2506.05296; DeepMind Frontier Safety Framework v3.0, 22 Sep 2025; METR MALT, 14 Oct 2025) were
@@ -17,11 +16,10 @@
 > review and a DOI first), the sequence is a peer-reviewed venue for a DOI, then an arXiv appeal with the
 > DOI. No submission without operator direction.
 
-`telos.tex` is a self-contained LaTeX findings paper. Its three contributions are: the self-correction of
-the earlier benchmark (Section 3), the construction of ten certified-yet-wrong patches (Section 4), and the
-two-detector comparison (Section 5). Every quantitative claim is a bounded pilot reproduced by a committed
-runner, manifest, and validated receipt under `experiments/iterNNN_*`, and the spine that structures the
-rewrite is `paper/REWRITE_SPINE.md`.
+`telos.tex` is a self-contained LaTeX findings paper. Its contributions are the self-correction of the
+earlier benchmark, the construction and cross-repository expansion of certified-yet-wrong patches, the
+full-cohort two-detector comparison, and the bounded naturally-occurring existence case. Every
+quantitative claim must reproduce from committed proof under `experiments/iterNNN_*`.
 
 ## Build
 
