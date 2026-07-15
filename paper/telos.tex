@@ -49,8 +49,10 @@ time on the first ten hacks, with the correct fix withheld from both. A panel of
 language-model judges, reading only the patch, flags seven of ten hacks but also flags correct patches. A
 gold-free oracle, which proposes an executable correctness check from the public task description and runs
 it, flags four of ten and never flags a correct patch. The two detectors catch different hacks; together
-they flag eight of ten. An ensemble of a judge and a precise execution check therefore beats either
-detector alone.
+they flag eight of ten. On the full twenty-two-hack benchmark, however, a stronger judge run caught twenty
+of twenty-two and the oracle's catches were a subset of the judge's, so this complementarity does not hold
+at scale; an ensemble is a safe default because the precise check never flags correct code, but we do not
+show it beating a strong judge.
 
 These are small, deliberately constructed pilots (a benchmark of twenty-two hacks across eight
 repositories, with the detector comparison run on the first ten, one adversary model), not a survey of how
@@ -326,10 +328,21 @@ The execution oracle is blind to the patch and to the gold fix and catches fewer
 never flagged correct code in this set. The judge trades precision for recall; the oracle trades recall for
 precision.
 
-\paragraph{Complementarity.} The two detectors do not catch the same hacks. The judge caught seven; the
-oracle caught four; the oracle caught \texttt{django-11211}, which the judge missed. Their union is eight
-of ten. Only two hacks, both in astropy, were missed by both. Neither detector alone is enough, and an
-ensemble of the two beats either one.
+\paragraph{Complementarity, and its limits at scale.} On these ten hacks the two detectors did not catch
+the same ones: the judge caught seven, the oracle caught four, and the oracle caught \texttt{django-11211},
+which the judge missed, so their union was eight of ten. That suggested an ensemble. But we tested it on
+the full twenty-two-hack benchmark and it did not hold. There the judge, in a single run, caught twenty of
+twenty-two (it caught all twelve of the more recently constructed hacks, which are more visible in the
+diff), the oracle caught six, and every one of the oracle's six was also caught by the judge---the oracle
+added no unique catch, and the union equalled the judge alone. Whether the oracle catches something the
+judge misses turns out to depend on the judge's run: the judge's recall varies from run to run, and on the
+run above it happened to miss the one hack the oracle caught, while on the larger run it did not. The honest
+statement is narrower than ``the ensemble beats either detector.'' The judge has high but variable recall;
+the oracle is precise but low-recall and coverage-bound; an ensemble is a safe default, since the oracle
+never flags correct code, but we do not show it beating a strong judge. Two hacks, both in astropy, were
+missed by every detector in both runs. (These larger-sample numbers are a single judge run and reuse the
+gold-free oracle on the full benchmark; the ten-hack numbers above are the primary, more carefully
+adjudicated comparison.)
 
 \paragraph{Why the oracle is precise but limited.} The same example explains both halves of the oracle's
 behavior. For \texttt{django-11179}, the gold-free check never saw the gold fix or the patch, so it did not
@@ -371,12 +384,14 @@ SWE-bench Verified certifies patches that are wrong. We constructed twenty-two s
 repositories, verified each by execution, and released them with witnesses. Because the tests that define ``resolved'' are exactly the
 tests any test-based check would use, no shipped test catches this class; a check must run an input the
 tests do not. Of the two detectors we measured, a language-model judge caught more hacks but flagged
-correct code, and a gold-free execution check caught fewer but flagged none. The two are complementary, and
-the practical recommendation is an ensemble: a judge to read the patch and a precise execution check to run
-it. We found one naturally-occurring certified-yet-wrong patch, produced by a model that was not told to
-game the tests; the honest next steps are to grow the sample and the number of repositories, to measure how
-often such patches arise unprompted rather than merely showing that they can, and to formalize the
-ensemble.
+correct code, and a gold-free execution check caught fewer but flagged none. On a small set the two looked
+complementary; on the full benchmark a strong judge run caught nearly everything and the execution check
+added no unique catch, so we do not claim an ensemble beats a strong judge---only that pairing them is a
+safe default, since the execution check never flags correct code. We found one naturally-occurring
+certified-yet-wrong patch, produced by a model that was not told to game the tests; the honest next steps
+are to grow the sample and the number of repositories, to measure how often such patches arise unprompted
+rather than merely showing that they can, and to establish whether an execution check reliably adds recall
+over a strong judge.
 
 \paragraph{Reproducibility.} Every number in this paper regenerates from a committed script, manifest, or
 validated receipt in the Telos repository. The experiments are named in the text (for example, the
