@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-15T21:15:57Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-15T21:18:55Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 TELOS is a standalone repository at `/Users/danielwahnich/workspace/telos`. Run every TELOS command from this repository.
 
@@ -8,7 +8,7 @@ TELOS is a standalone repository at `/Users/danielwahnich/workspace/telos`. Run 
 
 ```text
 source_branch: agent/iter200-corrected-denominator-result
-source_commit: 6de9734e18e139332693341a719fbd896d196f9a
+source_commit: ea914ec2a248038320cee106f4f8530d9675c0a1
 publication_target: master
 ```
 
