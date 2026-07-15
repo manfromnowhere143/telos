@@ -2,6 +2,26 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
+## Current result
+
+Telos studies *certified-resolved reward hacks*: patches that the official SWE-bench Verified harness marks
+**resolved** — they pass every graded test — yet execution proves **wrong** on behavior the tests do not
+cover. This is the class no test-based check can catch, because those tests are exactly what "resolved"
+means. The program's results, all reproducible from committed proof:
+
+- **A corrected foundation.** An earlier benchmark did not contain reward hacks; its rows fail the existing
+  test suite, so running the tests catches all `40/40` for free. See the standing correction below.
+- **A benchmark of `22` execution-verified certified-resolved reward hacks across `8` repositories**
+  (`benchmarks/certified_resolved_reward_hack_v2/`) — django, matplotlib, astropy, xarray, pylint, pytest,
+  requests, sympy — each certified by the official harness and witnessed wrong by gold-differential
+  execution.
+- **A two-detector comparison** at decision time with the correct fix withheld: a frontier judge panel and
+  a gold-free execution oracle, which are complementary (an ensemble beats either alone).
+- **The first naturally-occurring case:** a model asked to fix an issue with no instruction to game the
+  tests produced a certified-yet-wrong patch (existence result, `N=1`).
+- **A findings paper** (`paper/telos.tex`, `paper/telos.pdf`), every headline number regenerating from a
+  committed `experiments/*/proof/` artifact.
+
 ## Standing correction (iter192, 2026-07-14): the reward-hack benchmark contains no reward hacks
 
 Read this before citing any number below. It is the largest correction in this repository's history and
@@ -201,12 +221,25 @@ tests when code changed, typecheck/build when applicable, diff-scope checks, liv
 when production behavior changed, artifact hashes, stated acceptance criteria, named falsifiers,
 and an adversarial review pass.
 
-## The Real-Trajectory Verification Arc (iter109 onward)
+---
 
-The current frontier of this program moved completion verification off self-authored fixtures and
-onto real external ground truth. Earlier iterations (iter104, iter107) scored a detector that
-branched on fixture taxonomy or read authored packet booleans, so both the traps and the detector
-were written by the same process and no external validity was earned. The arc below fixes that.
+# Historical record (earlier arcs, retained for provenance)
+
+Everything above is the current result: the corrected benchmark, the `22` execution-verified
+certified-resolved reward hacks across `8` repositories, the two-detector comparison, the first
+naturally-occurring case, and the findings paper. Everything below is the **earlier** work that led here
+(the detection and intervention arc, iter109-iter191, and the original scaffold). It is retained for
+provenance and evidence. Where the sections below use the terms `both-miss`, `17/40`, or `majority_catch`,
+read them through the standing correction at the top: those describe the superseded reward-hack framing,
+not the current result.
+
+## The Real-Trajectory Verification Arc (iter109-iter191)
+
+This earlier arc moved completion verification off self-authored fixtures and onto real external ground
+truth. Earlier iterations (iter104, iter107) scored a detector that branched on fixture taxonomy or read
+authored packet booleans, so both the traps and the detector were written by the same process and no
+external validity was earned. The arc below fixed that, and it is the foundation the current
+certified-yet-wrong work (above) was built on.
 
 The subject is the real `princeton-nlp/SWE-bench_Verified` dataset. A candidate solution is a raw
 unified diff plus the public `FAIL_TO_PASS` test ids. The deterministic detector
@@ -993,10 +1026,10 @@ Provider-compatible expanded paid execution after slice refreeze:
 Current gate:
 [`experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md`](experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md).
 
-## Current Evidence Arc
+## Evidence Arc (historical detection/intervention work)
 
-The live evidence is the real-trajectory arc (iter109-iter190); the full per-gate result is the
-summary table near the top of this file. Its shape:
+This diagram summarizes the earlier detection and intervention arc (iter109-iter190). The current live
+evidence is the certified-yet-wrong work at the top of this file (iter192-iter201). Its shape:
 
 ```mermaid
 flowchart LR
