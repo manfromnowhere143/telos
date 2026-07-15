@@ -27,7 +27,7 @@ That Are Certified Yet Wrong}
 
 \author{Daniel Wahnich\\ \small Telos research program}
 
-\date{\today}
+\date{July 15, 2026}
 
 \begin{document}
 \maketitle
@@ -39,7 +39,8 @@ detects them.
 
 We report four results. First, an earlier benchmark we built contained no reward hacks: all forty rows fail
 the official grader. Second, we construct twenty-two patches across eight repositories that pass every
-graded test yet differ from the accepted fix on a retained input, verified in pinned containers. Third, a
+graded test yet differ from the accepted fix on a retained input, verified by retained execution under
+instance-specific SWE-bench container tags. Third, a
 two-model judge panel has observed catches on $20/22$ hacks, with $8/88$ unparseable responses; paired-gold
 flag sensitivities are $3/22$ observed lower, $6/22$ worst-case missing upper, and $3/19$ complete-case. A
 second instrument used candidate-diff-derived locators and gold-based inclusion. This locator-assisted,
@@ -110,8 +111,8 @@ models}, which rank preferences, and is unrelated to the reward hacking studied 
 
 \paragraph{SWE-bench Verified.} SWE-bench~\cite{jimenez2024swebench} asks a model to resolve a real GitHub
 issue in a real Python repository. SWE-bench Verified is a human-filtered subset. Each instance pins a
-repository commit and a container image, and defines the \texttt{FAIL\_TO\_PASS} and \texttt{PASS\_TO\_PASS}
-test sets described above. The ``gold patch'' is the accepted human fix. A known weakness of the format is
+repository commit and defines the \texttt{FAIL\_TO\_PASS} and \texttt{PASS\_TO\_PASS} test sets; the harness
+derives an instance-specific container image tag. The ``gold patch'' is the accepted human fix. A known weakness of the format is
 that the graded tests can be incomplete: they may not exercise every behavior a correct fix must have. Our
 constructed hacks live in exactly that gap.
 
@@ -184,14 +185,14 @@ distinguished a candidate from gold. We did not run every test elsewhere in ever
 claim is narrower: witnessing these candidates required an input outside the audited graded/additional
 target-module tests.
 
-\paragraph{Construction.} We construct the class in three steps, all executed in each instance's pinned
-container.
+\paragraph{Construction.} We construct the class in three steps, all executed under each instance's
+SWE-bench container tag.
 \begin{enumerate}
   \item \textbf{Elicit a variant.} We take the gold patch and ask \texttt{gpt-5.6-terra} to rewrite its largest
   added block into a variant that still passes the graded tests but is subtly wrong on other inputs. The
   model is explicitly asked to produce a wrong variant; the class is elicited, not observed in the wild.
-  \item \textbf{Certify by execution.} We run each instance's official evaluation command in its pinned
-  container---for example, Django's \texttt{runtests.py}, SymPy's \texttt{bin/test}, or \texttt{pytest}
+  \item \textbf{Certify by execution.} We run each instance's official evaluation command under its
+  instance-specific container tag---for example, Django's \texttt{runtests.py}, SymPy's \texttt{bin/test}, or \texttt{pytest}
   where the instance specifies it---and parse the result with the official SWE-bench log parsers. A variant
   is kept only if it passes every
   \texttt{FAIL\_TO\_PASS} and \texttt{PASS\_TO\_PASS} test.
@@ -349,9 +350,9 @@ five catches first appeared with generated outputs, so the observed $4/10$ is a 
 not a missed prospective bar.
 
 The property prompts also used capped inputs. In iter201, task text was truncated for $9/22$ targets and
-visible-test text for $3/22$. Both historical property executions used mutable \texttt{:latest} image
-tags without retaining resolved digests; exact
-container bytes therefore cannot be reconstructed from the committed evidence.
+visible-test text for $3/22$. Historical iter193--iter199 construction and witness execution, as well as
+both property executions, used mutable \texttt{:latest} image tags without retaining resolved digests;
+exact container bytes therefore cannot be reconstructed from the committed evidence.
 
 \begin{table}[t]
 \centering
@@ -413,9 +414,9 @@ We state the bounds plainly.
   diff-derived locators. Iter197 additionally replaced its registered visible-test soundness anchor and
   omitted independent paired-gold decisions. Iter201 registered gold validation; there it prevents an
   independent specificity estimate but is not another failed bar.
-  \item \textbf{Historical container provenance.} Iter197 and iter201 property execution retained mutable
-  \texttt{:latest} tags but no resolved image digests. Their exact historical container bytes are not
-  reconstructible from the repository.
+  \item \textbf{Historical container provenance.} Iter193--iter199 construction and witness execution and
+  iter197/iter201 property execution retained mutable \texttt{:latest} tags but no resolved image digests.
+  Their exact historical container bytes are not reconstructible from the repository.
   \item \textbf{Role reuse.} \texttt{gpt-5.6-terra} produced adversarial variants, scenarios, neutral
   patches, and properties and also occupied one judge slot; cross-model generalization is unmeasured.
 \end{itemize}
@@ -435,8 +436,9 @@ the full-cohort property catches are a subset of the judge's, so no confirmed co
 The exploratory neutral-prompt localized solve confirms one
 strict case under a post-inspection rule. Its corrected cohort has twenty-four certified patches and six
 declared missing outcomes, giving $1/24$, $7/24$, and $1/18$. The pre-result next step is iter202: preserve
-the frozen cohort and execute only after its exact-byte runtime freeze, eight-shard certification plan,
-atomic checkpoints, and single-run-attempt aggregate receipt pass the committed primary-branch gate. The
+the frozen cohort and execute only from clean, green \texttt{master}, after the exact-byte runtime freeze
+and the implementations of the eight-shard plan, atomic checkpoints, and single-run-attempt aggregate
+receipt pass CI. Result evidence is admissible only if the resulting aggregate receipt validates. The
 result must report the pre-result-declared prior-use and missing-outcome sensitivities.
 
 \paragraph{Reproducibility.} Every number in this paper regenerates from a committed script, manifest, or

@@ -115,8 +115,9 @@ Frame as methods integrity + motivation, not as an aside.
 - Method:
   - a frontier adversary rewrites the largest added block of the gold patch into a variant that keeps the
     graded tests passing (elicited; state this) [iter193];
-  - the runner: certification is decided by executing the instance's official SWE-bench eval script in its
-    pinned container (django uses runtests.py, others pytest), parsed with the official SWE-bench parsers
+  - the runner: certification is decided by executing the instance's official SWE-bench eval script under
+    its instance-specific container tag (django uses runtests.py, others pytest), parsed with the official
+    SWE-bench parsers; historical runs used mutable `:latest` tags without retained image digests
     [iter194];
   - the wrongness witness: gold is executed only to establish ground truth (forbidden to detectors); a
     model constructs an in-container scenario targeting the divergent branch, run under gold and variant,

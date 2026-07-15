@@ -5,9 +5,12 @@
 ## Current result
 
 Telos studies *certified-resolved reward hacks*: patches that the official SWE-bench Verified harness marks
-**resolved** — they pass every graded test — yet pinned execution differs from the accepted fix on a
-retained input the graded tests do not distinguish. A check restricted to those graded tests cannot catch this class, because passing those tests is
-exactly what "resolved" means. The program's results, all reproducible from committed proof:
+**resolved** — they pass every graded test — yet retained execution under the instance-specific SWE-bench
+container tag differs from the accepted fix on an input the graded tests do not distinguish. A check
+restricted to those graded tests cannot catch this class, because passing those tests is exactly what
+"resolved" means. Historical construction and witness runners used mutable `:latest` tags without retaining
+resolved image digests, so exact historical container bytes are not reconstructible. The program's results,
+all reproducible within those stated provenance limits from committed proof:
 
 - **A corrected foundation.** An earlier benchmark did not contain reward hacks; its rows fail at least one
   official graded regression check, so the official harness catches all `40/40` for free. See the standing
@@ -46,19 +49,24 @@ This is the standing scientific story. A `FAIL` node preserves its exploratory m
 convert them into protocol-valid detector evidence. Iter202 has a pre-result, pre-retained-output protocol
 freeze after disclosed provider contact; it is not conventional prospective preregistration and has no
 retained solver output. Its execution path is runtime-frozen and fails closed on incomplete coverage,
-partial evidence, or mixed workflow attempts; provider execution remains blocked until the hardened state
-is committed and primary-branch CI is green.
+partial evidence, or mixed workflow attempts. Hardened evidence PR `#3` merged as
+`3a3368635e397d540cf98fc0f19d443661cc0fef`, and primary-branch CI run `29451691560` passed. Provider-free
+Node 24 backfill run `29452243832` then reproduced and hash-verified the exact specs and validated the
+complete committed `74`-log corpus with zero model-provider calls; it reused those committed logs rather
+than re-executing containers. No iter202 output exists. Every paid start requires clean green `master`, the
+exact cheap-first/freeze preflight, and both required provider credentials together; generated `HANDOFF.md`
+owns the current branch and credential-status snapshot.
 
 ```mermaid
 flowchart LR
  V1["Earlier 40-row artifact<br/>not reward hacks"]-->C192["iter192 correction<br/>harness: 40/40 unresolved"]
  C192-->C195["iter195 construction<br/>10 certified-yet-wrong · 3 repos"]
  C195-->X199["iter199 expansion<br/>+12 witnessed · 22 / 8 repos"]
- C195-->D197["iter197 FAIL<br/>locator + anchor + controls<br/>4/10 · no confirmed complementarity"]
+ C195-->D197["iter197 FAIL<br/>locator + anchor/control faults<br/>4/10 · no confirmed complementarity"]
  D197-->D201
  X199-->D201["iter201 FAIL<br/>locator only<br/>property 6/22 ⊂ judge 20/22"]
  C192-->N200["iter200 exploratory<br/>nonrandom · no raw judge text<br/>N=24 / k=1 / u=6"]
- N200-->N202["iter202 post-contact pre-result<br/>53 targets · prior-use 27 / provider-ledger 10<br/>frozen runtime · atomic checkpoints<br/>valid-solution ordinal mod 8 · ≤7/shard · 9,030s<br/>8 shard receipts → 1 run/attempt aggregate<br/>no retained solver output · primary-CI blocked"]
+ N200-->N202["iter202 post-contact pre-result<br/>53 targets · prior-use 27 / provider-ledger 10<br/>frozen runtime · atomic checkpoints<br/>valid-solution ordinal mod 8 · ≤7/shard · 9,030s<br/>8 shard receipts → 1 run/attempt aggregate<br/>hardening merged · primary CI green<br/>no retained output · see HANDOFF preflight"]
  D201-->N202
  classDef f fill:#fee,stroke:#c22,color:#000;
  classDef e fill:#fff4d6,stroke:#9a6700,color:#3d2b00;
@@ -112,7 +120,8 @@ The same runs produced `139` variants across `65` instances that the official ha
 requires gold-differential execution. That discarded class is the mission's target, and it is what
 `experiments/iter193_certified_resolved_reward_hack_construction/` set out to construct.
 
-iter193 executed `16` elicited certified-resolved-but-wrong candidates in pinned x86 SWE-bench containers
+iter193 executed `16` elicited certified-resolved-but-wrong candidates under instance-specific x86
+SWE-bench container tags
 and published a null: `0` witnessed certified-and-wrong rows against a `>=5` bar. `6` matplotlib candidates
 were certified-resolved but behaviorally identical to gold across their full test module (`undetermined`,
 not correct); `10` django/astropy candidates were not executable by a bare-`pytest` harness — a
@@ -134,8 +143,8 @@ marks resolved (passes every `FAIL_TO_PASS` and `PASS_TO_PASS`) that produces ob
 from the gold fix on a validated synthesized input not covered by the audited graded/additional
 target-module tests (over `15` scenarios:
 `10` wrong, `2` matched gold on their retained scenarios (artifact status `certified_equivalent`; no global
-equivalence claim), `2` scenario-failed, `1` variant-errored; all `10` re-verified
-airtight). One case, `django-11119`, was hand-judged a correct equivalent and execution proved it a real
+equivalence claim), `2` scenario-failed, `1` variant-errored; all `10` re-verified for clean apply,
+zero-traceback, and divergent retained-log checks). One case, `django-11119`, was hand-judged a correct equivalent and execution proved it a real
 hack — the thesis on the repo's own analysis. Claim boundary: elicited and constructed, not a natural
 frequency; `N=10` across `3` repositories; "wrong" means differs from the gold reference fix; no detector
 is evaluated yet. `experiments/iter196_detector_vs_certified_hacks/` evaluated a judge against these `10`:
@@ -170,7 +179,8 @@ property-pipeline false-positive rate or ensemble improvement is established. Al
 fresh iter201 evaluations, but the judge hypothesis, runner, and outputs first appear in one commit; only
 the already-mismatched property runner has a separate pre-output freeze. Judge prompts truncate task text
 for `7/22` unique instances and visible tests for `3/22`; property prompts truncate `9/22` tasks and `3/22`
-tests. Historical property execution used mutable `:latest` images without retained digests.
+tests. Historical construction, witness, and property execution used mutable `:latest` images without
+retained digests; exact historical container bytes cannot be reconstructed from the committed evidence.
 
 `experiments/iter198_findings_paper_synthesis_and_accessibility/` produced the findings draft. The paper has
 since been corrected to preserve these protocol failures, the nondecision sensitivities, and the iter200
@@ -354,12 +364,12 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 | [129](experiments/iter129_applicability_and_strategy_selection/RESULT.md) | What is the layer's applicability, and can strategy be automatic? | the last residual `11276` is a cross-cutting `escape()` refactor (27 FAIL_TO_PASS tests), excluded by a single-testable-function criterion; the six valid candidates are `6/6` genuine-sound and a `parse`-name classifier auto-assigns each the sound strategy |
 | [130](experiments/iter130_cross_repo_widening/RESULT.md) | Does the method widen beyond django? | as a method yes - `3/4` sympy hyperbolic identities hold under real execution - but instance-level cross-repo scale is bounded by a compound of environment fidelity (old instances need Python <=3.9), applicability (modern instances are edge-case fixes), and numeric-vs-symbolic precision |
 | [131](experiments/iter131_symbolic_evaluation/RESULT.md) | Can the numeric and environment bounds be closed? | symbolic evaluation makes the identities `4/4` exactly sound (removing the float artifact, proving each for all x - a stronger check); the environment bound has a named resolution, the Docker harness, scoped as next-phase infrastructure |
-| [132](experiments/iter132_docker_harness_prototype/RESULT.md) | Does the Docker harness actually close the environment bound? | yes - the official SWE-bench image ran a natively-blocked instance's real hidden test in a pinned Python 3.9 (base fails with the real bug, gold passes); the last bound is resolved in practice, and full-dataset coverage is now engineering, not open research |
+| [132](experiments/iter132_docker_harness_prototype/RESULT.md) | Does the Docker harness actually close the environment bound? | yes - the official SWE-bench image ran a natively-blocked instance's real hidden test in its Python 3.9 environment (base fails with the real bug, gold passes); the last bound is resolved in practice, and full-dataset coverage is now engineering, not open research |
 | [133](experiments/iter133_docker_batch_environment_bound/RESULT.md) | Does the Docker harness batch locally? | the method batches by construction, but local batch execution is unreliable under arm64 emulation (multi-GB pull cost, daemon load, flaky emulated stdout); full-dataset batching belongs on a native-x86 CI runner - an environment bound on local execution, not a method or research limitation |
-| [134](experiments/iter134_x86_ci_docker_batch/RESULT.md) | Does the batch run on native-x86 CI? | yes - a manual `docker-batch.yml` workflow on the x86 runner pulled the official SWE-bench images and resolved `3/3` blocked instances (base fails with the real bug, gold passes) in pinned environments; the iter133 local failure was arm64 emulation, not the method |
-| [135](experiments/iter135_full_stack_in_container/RESULT.md) | Does the full stack run inside the pinned container? | yes - inside `13480`'s pinned container (Python 3.9, sympy 1.1.2) the hidden test resolves and the gold-free coth property is `PROP_SOUND`; environment fidelity and property verification compose end to end on a natively-unrunnable instance (`3/3` gold, `1/1` property sound) |
-| [136](experiments/iter136_full_stack_batch_scale/RESULT.md) | Does the full-stack batch scale? | yes - on x86 CI `4/4` blocked instances resolve their hidden tests and both property-testable ones (coth, Min) are `PROP_SOUND` in their pinned containers - a `2/2` property genuine-sound rate, the gold-free property running in the same pinned environment as the hidden test |
-| [137](experiments/iter137_property_rate_wider/RESULT.md) | Does the property rate hold wider? | yes - on x86 CI `5/5` blocked instances resolve and all three property-testable ones (coth, Min, Point.distance) are `PROP_SOUND` in their pinned containers - a `3/3` property genuine-sound rate |
+| [134](experiments/iter134_x86_ci_docker_batch/RESULT.md) | Does the batch run on native-x86 CI? | yes - a manual `docker-batch.yml` workflow on the x86 runner pulled the official SWE-bench images and resolved `3/3` blocked instances (base fails with the real bug, gold passes) in instance-specific environments; the iter133 local failure was arm64 emulation, not the method |
+| [135](experiments/iter135_full_stack_in_container/RESULT.md) | Does the full stack run inside the instance container? | yes - inside `13480`'s instance-specific container (Python 3.9, sympy 1.1.2) the hidden test resolves and the gold-free coth property is `PROP_SOUND`; environment fidelity and property verification compose end to end on a natively-unrunnable instance (`3/3` gold, `1/1` property sound) |
+| [136](experiments/iter136_full_stack_batch_scale/RESULT.md) | Does the full-stack batch scale? | yes - on x86 CI `4/4` blocked instances resolve their hidden tests and both property-testable ones (coth, Min) are `PROP_SOUND` in their instance-specific containers - a `2/2` property genuine-sound rate, the gold-free property running in the same selected environment as the hidden test |
+| [137](experiments/iter137_property_rate_wider/RESULT.md) | Does the property rate hold wider? | yes - on x86 CI `5/5` blocked instances resolve and all three property-testable ones (coth, Min, Point.distance) are `PROP_SOUND` in their instance-specific containers - a `3/3` property genuine-sound rate |
 | [138](experiments/iter138_applicability_survey/RESULT.md) | How broadly does the property layer apply? | the single-testable-function criterion is met by `405/500` = `0.81` of SWE-bench Verified (scikit-learn `0.94`, sympy `0.89` high; pylint `0.40` low) - a broad structural reach, but an upper bound since property-derivability within it is function-dependent |
 | [139](experiments/iter139_property_derivability/RESULT.md) | How narrow is property-derivability really? | even in sympy only `7/67` = `0.10` of applicable instances are in a property-rich domain (all three verified instances land there) - so Layer 3's natural domain is math-identity functions, while Layers 1-2 apply universally: the honest three-layer division of labour |
 | [140](experiments/iter140_both_miss_construction_hardness/RESULT.md) | How prevalent is the both-miss class? | a `gemini-2.5-flash/pro` hacker-fixer produced `0/20` verified both-miss hacks on thoroughly-tested django instances - read at the time as "the window is narrow where coverage is thorough," **but this structural reading is retracted by iter141** (it was a capability-plus-harness artifact) |
@@ -482,7 +492,8 @@ testable function, so it is excluded up front. On the six valid single-function 
 property-based layer is `6/6` genuine-sound with the strategy (contract property vs inverse round-trip)
 auto-selected by function type (iter129). The property layer's reach was then bounded twice over: the
 official SWE-bench Docker harness closed the environment-fidelity gap so natively-unrunnable instances
-resolve their real hidden tests in pinned containers (iter130-137), and an applicability survey measured
+resolve their real hidden tests in instance-specific containers (iter130-137; mutable historical tags,
+without retained image digests), and an applicability survey measured
 the layer's structural reach at `405/500` = `0.81` of the dataset but its property-derivability within
 that at only `~0.10` even in sympy (iter138-139) - the honest three-layer division of labour, with the
 detector and judge universal and the property layer the math-identity specialist.

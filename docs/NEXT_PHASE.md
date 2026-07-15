@@ -3,9 +3,14 @@
 > **CURRENT AUTHORITY (2026-07-15):** the active gate is
 > [`../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`](../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md).
 > It has no retained or inspected solver output. Its first Git freeze followed disclosed provider contact,
-> so it is a pre-result amended replication rather than conventional preregistration. Complete and validate
-> the checkpointed raw-response ledger, immutable image lock, scenario sandbox, and runtime-freeze manifest;
-> commit and pass CI before any provider execution. `CONTINUITY.md` is the exact operational authority.
+> so it is a pre-result amended replication rather than conventional preregistration. The hardened evidence
+> state merged through PR `#3` as `3a3368635e397d540cf98fc0f19d443661cc0fef`, and primary-branch CI run
+> `29451691560` passed. Provider-free Node 24 backfill run `29452243832` reproduced the exact specs and
+> validated the complete committed `74`-log corpus without re-executing containers; no iter202 output was
+> created. Every paid start requires clean green `master`; then run the cheap-first/freeze checks and reread
+> the hypothesis plus amendment before loading both credentials together. `CONTINUITY.md` remains the frozen
+> protocol authority; generated `HANDOFF.md` records current branch and credential state and which resume
+> prerequisites are already satisfied.
 >
 > Everything below preserves the plan at the iter108-era boundary. It is historical provenance, not a
 > current action list.

@@ -13,8 +13,10 @@ candidates; execution is CI Docker only).
 iter193 could execute only `6/16` candidates because it used a bare `pytest` invocation that django (no
 pytest in its testbed) and astropy (collection gap) do not support. iter194 replaced that with each
 instance's official SWE-bench `eval_script` (extracted via `make_test_spec`, committed as static
-artifacts), run inside the pinned container under gold and under the variant, and parsed with the
-vendored official SWE-bench parsers (byte-identical to upstream, locked by tests).
+artifacts), run under the instance-specific container tag for gold and the variant, and parsed with the
+vendored official SWE-bench parsers (byte-identical to upstream, locked by tests). **Standing provenance
+correction (2026-07-15):** the runner selected mutable `:latest` tags and retained no resolved image digest,
+so exact historical container bytes cannot be reconstructed.
 
 Result of the fix, from CI run `29339072961` (`success`):
 

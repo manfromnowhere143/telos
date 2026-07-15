@@ -56,3 +56,26 @@ def test_active_denominator_backfill_uses_node24_action_revisions() -> None:
         "actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6"
         in workflow
     )
+
+
+def test_historical_design_and_learning_docs_defer_to_current_authorities() -> None:
+    architecture = (ROOT / "docs/ARCHITECTURE.md").read_text(encoding="utf-8")
+    learning = (ROOT / "docs/LEARNING_ENGINE.md").read_text(encoding="utf-8")
+    learning_flat = " ".join(learning.split())
+
+    assert "**Historical foundational design.**" in architecture
+    assert "original design boundary" in architecture
+    assert "The first benchmark target will freeze" not in architecture
+    assert "Generated `HANDOFF.md` owns the current operational action" in learning_flat
+    assert "authoritative next-action reader" not in learning
+
+
+def test_paper_revision_date_and_build_metadata_are_reproducible() -> None:
+    source = (ROOT / "paper/telos.tex").read_text(encoding="utf-8")
+    readme = (ROOT / "paper/README.md").read_text(encoding="utf-8")
+    readme_flat = " ".join(readme.split())
+
+    assert r"\date{July 15, 2026}" in source
+    assert r"\date{\today}" not in source
+    assert "SOURCE_DATE_EPOCH=1784073600 tectonic telos.tex" in readme
+    assert "Two consecutive Tectonic builds must have identical SHA-256 digests" in readme_flat

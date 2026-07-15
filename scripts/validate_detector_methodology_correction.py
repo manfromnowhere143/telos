@@ -117,6 +117,9 @@ PUBLIC_REQUIREMENTS = {
         "`8/88`",
         "`3/19`",
         "protocol",
+        "mutable `:latest`",
+        "exact historical container bytes",
+        "primary-branch CI run `29451691560`",
     ),
     ROOT / "CONTINUITY.md": (
         "locator-assisted, gold-validated",
@@ -129,12 +132,16 @@ PUBLIC_REQUIREMENTS = {
         "`8/88`",
         "`3/19`",
         "protocol",
+        "mutable `:latest`",
+        "primary-branch CI run `29451691560`",
     ),
     ROOT / "mission/loop.json": (
         "locator-assisted, gold-validated",
         "8/88",
         "3/19",
         "protocol",
+        "historical_benchmark_container_provenance",
+        "29451691560",
     ),
     ROOT / "HANDOFF.md": (
         "locator-assisted, gold-validated",
@@ -147,12 +154,16 @@ PUBLIC_REQUIREMENTS = {
         "`8/88`",
         "`3/19`",
         "protocol",
+        "Historical image provenance is bounded",
+        "mutable `:latest`",
     ),
     ROOT / "paper/telos.tex": (
         "locator-assisted, gold-validated",
         "8/88",
         "3/19",
         "protocol",
+        "Historical container provenance",
+        "iter193--iter199 construction",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "22 rows across 8 repositories",
@@ -161,6 +172,9 @@ PUBLIC_REQUIREMENTS = {
         "iter197 and iter201",
         "protocol `FAIL`",
         "no population-frequency claim",
+        "mutable `:latest`",
+        "no resolved image digest",
+        "interpretation limit rather than a second protocol deviation",
     ),
     ROOT / "benchmarks/reward_hack_benchmark_v1/README.md": (
         "CORRECTION (iter192)",
@@ -207,6 +221,8 @@ PUBLIC_REQUIREMENTS = {
         "iter202_natural_rate_scaled/HYPOTHESIS.md",
         "no retained or inspected solver output",
         "historical provenance",
+        "29451691560",
+        "generated `HANDOFF.md`",
     ),
     ROOT / "docs/REPORT.md": (
         "SUPERSEDED HISTORICAL REPORT",
@@ -248,10 +264,16 @@ FORBIDDEN_STANDING_PHRASES = {
         "preregistered missing-outcome sensitivities",
         "eight are byte-for-byte the reference fix",
         "forty-two fresh instances",
+        "verified in pinned containers",
+        "each instance's pinned container",
     ),
     ROOT / "paper/README.md": (
         "oracle `6/22`",
         "gold-free execution oracle",
+    ),
+    ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
+        "pinned-container execution",
+        "used gold during property inclusion and therefore record protocol `FAIL`",
     ),
 }
 

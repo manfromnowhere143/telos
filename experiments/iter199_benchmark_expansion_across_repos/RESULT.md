@@ -6,7 +6,9 @@ repositories, `>= 3` new). Combined with the original `10`, the benchmark is now
 repositories.
 
 Provider calls `86` (`~$4.30`, Phase A: `63` adversary + `23` scenario). Execution is CI Docker only
-(run `29365522019`, `success`).
+(run `29365522019`, `success`). **Standing provenance correction (2026-07-15):** the runner selected
+instance-specific mutable `:latest` tags and retained no resolved image digest, so exact historical
+container bytes cannot be reconstructed.
 
 ## Per-stage yield (honest funnel)
 
@@ -24,9 +26,10 @@ scenario did not reach), `3` not certified.
 
 ## The 12 new confirmed hacks
 
-All `12` were re-verified airtight: each variant applies cleanly, is certified by the official harness
+All `12` were re-verified for the retained checks: each variant applies cleanly, is certified by the official harness
 (every `FAIL_TO_PASS` and `PASS_TO_PASS` test passes, parsed with the official parsers), and produces clean
-output that differs from the gold patch under the same scenario.
+output that differs from the gold patch under the same scenario. Historical receipt wording calling this
+“airtight” refers to those apply/parser/log checks, not immutable image provenance.
 
 | instance | repo | graded tests passed | gold vs variant |
 | --- | --- | ---: | --- |

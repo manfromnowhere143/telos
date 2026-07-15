@@ -1,5 +1,9 @@
 # Architecture
 
+> **Historical foundational design.** This document preserves the iter00-era system model. The root
+> `README.md`, `docs/MISSION_LOOP.md`, and generated `HANDOFF.md` are the current result and operational
+> authorities; future-tense statements below describe the original design boundary.
+
 Telos is a protocol for measuring whether an autonomous agent completed the real task. It is not a
 replacement for benchmarks. It is a verification layer that can sit around benchmarks whose final
 scores are too thin to prove completion quality.
@@ -66,7 +70,7 @@ Evidence kinds are intentionally small:
 
 ## Measurement
 
-The first benchmark target will freeze one primary metric. Candidate metrics:
+The first benchmark target was designed to freeze one primary metric. Its candidate metrics were:
 
 | metric | meaning |
 |---|---|
@@ -76,7 +80,7 @@ The first benchmark target will freeze one primary metric. Candidate metrics:
 | unsupported-claim rate | final answer claims verification without artifact support |
 | stop correctness | agent stops after completion instead of continuing to churn |
 
-The exact metric is not chosen until `iter00_target_survey` completes.
+At this historical boundary, the exact metric remained pending until `iter00_target_survey` completed.
 
 ## Failure Taxonomy
 

@@ -13,7 +13,7 @@
 > `6/22`, all within the judge catch set; it supplies no independent false-positive estimate or ensemble
 > gain. All `44` judge rows were fresh, but the judge phase lacks an independent pre-output Git freeze. The
 > artifact retains parsed labels and nondecision markers, not raw response text; prompt truncation and
-> digest-unpinned historical property containers are disclosed. Iter200
+> digest-unpinned historical construction, witness, and property containers are disclosed. Iter200
 > is an exploratory, nonrandom, gold-localized convenience sample with a post-inspection
 > strict rule and no independently timestamped pre-output Git freeze. Its corrected denominator is `N=24`,
 > `k=1`, `u=6`; report `1/24` confirmed lower, `7/24` as the worst case over those six declared missing
@@ -24,8 +24,13 @@
 > Iter202 has a pre-result, pre-retained-output protocol freeze after disclosed provider contact; it is not
 > conventional prospective preregistration. Its paid path is now bound to an exact-byte runtime manifest,
 > exact eight-shard certification, atomic attempt checkpoints, and one aggregate receipt from a single
-> repository/workflow/run/attempt/commit. Provider execution remains blocked until that state passes the
-> committed primary-branch gate. `telos.pdf` is rebuilt from this source.
+> repository/workflow/run/attempt/commit. Hardened evidence PR `#3` merged as
+> `3a3368635e397d540cf98fc0f19d443661cc0fef`, primary-branch CI run `29451691560` passed, and provider-free
+> Node 24 backfill run `29452243832` reproduced the exact specs and validated the complete committed
+> `74`-log corpus without re-executing containers or calling model providers. Iter202 still has no retained
+> output. Every paid start requires clean green `master`, the exact cheap-first/freeze preflight, and both
+> credentials together; generated `HANDOFF.md` owns the current branch and credential-status snapshot.
+> `telos.pdf` is rebuilt from this source.
 >
 > **Before any external submission:** the three previously-flagged citations (Control Tax
 > arXiv:2506.05296; DeepMind Frontier Safety Framework v3.0, 22 Sep 2025; METR MALT, 14 Oct 2025) were
@@ -45,8 +50,8 @@ Standard `pdflatex` (no bibtex needed - references are a manual `thebibliography
 
 ```
 cd paper
-pdflatex telos.tex
-pdflatex telos.tex   # second pass resolves \ref and \cite numbers
+SOURCE_DATE_EPOCH=1784073600 pdflatex telos.tex
+SOURCE_DATE_EPOCH=1784073600 pdflatex telos.tex   # second pass resolves \ref and \cite numbers
 ```
 
 Or with `tectonic` (single command, resolves references automatically; this is what produces the
@@ -54,8 +59,11 @@ committed `telos.pdf`):
 
 ```
 cd paper
-tectonic telos.tex
+SOURCE_DATE_EPOCH=1784073600 tectonic telos.tex
 ```
+
+The fixed epoch is 2026-07-15 00:00:00 UTC, matching the explicit manuscript revision date and making PDF
+metadata reproducible. Two consecutive Tectonic builds must have identical SHA-256 digests.
 
 Packages used are all arXiv-standard: `inputenc`, `fontenc`, `amsmath`, `amssymb`, `booktabs`, `array`,
 `float`, `graphicx`, `geometry`, `microtype`, `placeins`, `hyperref`, and `xcolor`. There are no external
@@ -83,6 +91,10 @@ assets or figures.
   deriving the `200`-row compatible pool and frozen `39`-target cohort. Keep `1/24`, `7/24`, and `1/18` together,
   and do not upgrade them into a population frequency, model score, leaderboard, broad robustness, or
   deployment claim.
+- **Historical image provenance is bounded.** Iter193--iter199 construction/witness runs and iter197/iter201
+  property runs selected instance-specific mutable `:latest` tags and retained no resolved image digests.
+  The execution logs remain evidence of those runs, but their exact historical container bytes cannot be
+  reconstructed.
 
 ## Provenance
 
