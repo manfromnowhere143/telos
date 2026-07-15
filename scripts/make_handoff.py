@@ -309,10 +309,10 @@ if test ! -e "$EXECUTION_DIR"; then
   gh run download "$RUN_ID" --name "iter203-execution-complete-$RUN_ID-attempt-$RUN_ATTEMPT" --dir "$EXECUTION_DIR"
 fi
 test -d "$EXECUTION_DIR"
-python3 -I -S scripts/collect_iter203_execution.py check \
-  --execution-dir "$EXECUTION_DIR" \
-  --aggregate-receipt "$EXECUTION_DIR/_telos_iter203_execution_complete.receipt.json" \
-  --spec-index experiments/iter203_iter202_safety_recovery/proof/raw/specs/index.json \
+python3 -I -S scripts/collect_iter203_execution.py check \\
+  --execution-dir "$EXECUTION_DIR" \\
+  --aggregate-receipt "$EXECUTION_DIR/_telos_iter203_execution_complete.receipt.json" \\
+  --spec-index experiments/iter203_iter202_safety_recovery/proof/raw/specs/index.json \\
   --runtime-manifest experiments/iter203_iter202_safety_recovery/proof/raw/runtime_manifest.json
 python3 -I -S scripts/adjudicate_iter203_safety_recovery.py
 python3 -I -S scripts/run_iter203_safety_recovery_blind_judge.py

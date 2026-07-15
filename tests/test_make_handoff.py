@@ -189,6 +189,8 @@ def test_rendered_handoff_records_the_exact_ordered_operational_gate(
     assert dispatch.index("scripts/collect_iter203_execution.py check") < dispatch.index(
         "scripts/adjudicate_iter203_safety_recovery.py"
     )
+    assert 'scripts/collect_iter203_execution.py check \\\n' in dispatch
+    assert '--execution-dir "$EXECUTION_DIR" \\\n' in dispatch
     assert dispatch.index("scripts/adjudicate_iter203_safety_recovery.py") < dispatch.index(
         "scripts/run_iter203_safety_recovery_blind_judge.py"
     )
