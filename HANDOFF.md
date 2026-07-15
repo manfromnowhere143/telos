@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-15T08:37:12Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: 2026-07-15T09:05:46Z by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 
 ## Repository State
 
@@ -11,7 +11,7 @@ branch: master
 Working tree:
 
 ```text
-clean
+?? experiments/iter201_detectors_on_full_benchmark/proof/raw/
 ```
 
 ## Experiments
@@ -137,6 +137,7 @@ clean
 - experiments/iter199_benchmark_expansion_across_repos: RESULT PUBLISHED
 - experiments/iter19_provider_final_inspection_control: RESULT PUBLISHED
 - experiments/iter200_natural_certified_yet_wrong_rate: RESULT PUBLISHED
+- experiments/iter201_detectors_on_full_benchmark: PRE-REGISTERED, result pending
 - experiments/iter20_behavior_semantic_verification: RESULT PUBLISHED
 - experiments/iter21_opponent_collision_control: RESULT PUBLISHED
 - experiments/iter22_semantic_mutation_guard: RESULT PUBLISHED

@@ -107,6 +107,10 @@ measures how often its certified-resolved patch is nonetheless wrong (adjudicate
 positive result is the first naturally-occurring certified-yet-wrong patch; a null is an honest bound on
 how often the class arises unprompted.
 
+`experiments/iter201_detectors_on_full_benchmark/` extends the detector comparison from the original 10
+hacks to all 22 across 8 repositories, so the detection recall and false-positive numbers rest on the full,
+repository-diverse benchmark.
+
 Everything below this section predates the correction. Read the iteration prose as a record of what was
 done, not as a standing claim.
 
