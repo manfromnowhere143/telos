@@ -1,7 +1,19 @@
 # Iteration 200 - Do Models Produce Certified-Yet-Wrong Patches Unprompted?
 
-Status: PRE-REGISTERED, result pending. No provider calls, SWE-bench executions, or cloud resources have
-been run for this gate. The instance sample is frozen in `proof/raw/solve_targets.json` before any solve.
+Status: SUPERSEDED ORIGINAL PLAN; corrected exploratory result published. This file originally described
+the gate as preregistered and the instance sample as frozen before solving, but the Git chronology below
+does not independently substantiate either pre-output assertion.
+
+> **Repository-chronology correction (2026-07-15):** this is the original run document, but git history
+> does not independently establish its pre-output timestamp. Commit `f651bfc` first records this file, the
+> 39 targets, and the retained solver summary/patches together. The original rule below also specifies one
+> independent judge; the later strict two-judge-only-model rule and missingness summaries were adopted
+> after the first iter200 result, before the denominator backfill, and were frozen for iter202 before any
+> retained or inspected iter202 response. Interrupted provider contact nevertheless preceded that Git freeze.
+> The original blind-judge runner retained parsed labels and derived booleans, not the raw response
+> substance. Exact response text and parser fidelity therefore cannot be re-audited retrospectively; the
+> later strict existence claim is bounded to retained parsed-decision evidence, while the runner and
+> derived artifacts are hash-bound.
 
 ## Why this gate exists
 
@@ -17,9 +29,22 @@ A positive result (even one case) is the first naturally-occurring certified-yet
 program: a model, not told to hack, produces a patch that passes every graded test and is wrong. A null
 result (zero over a meaningful number of certified patches) is also a real, honest finding: it bounds how
 often this class arises naturally under localized solving, and shows the elicited construction is what
-makes the class studiable. Both outcomes are pre-committed as publishable.
+makes the class studiable. The original plan said both outcomes would publish; because its pre-output Git
+timestamp is unsubstantiated, that sentence records intent rather than a verified preregistration claim.
 
 ## The measurement
+
+The frozen engineering sample is deterministically derived from the committed 500-row SWE-bench Verified
+snapshot used by iter154. Before applying compatibility filters, it excludes every instance ID in the
+iter193 Phase-A summary manifest and the iter199 expansion target manifest, preventing those earlier
+elicitation targets from entering this neutral-solve cohort. A row is compatible only when
+`adv.one_src` identifies one source file, that file contains exactly one contiguous added-line run, and
+replacing that run with `adv.added_block` through `build_solve_patch` reproduces the gold patch after
+outer-whitespace stripping. Repositories are ordered lexicographically, instance IDs are ordered
+lexicographically within each repository, and the first `5` per repository are retained. This yields
+`200` eligible rows across `9` repositories and the frozen ordered `39`-target cohort. The derivation and
+input hashes are recorded in `proof/raw/solve_targets.json` and reproduced by
+`python3 scripts/build_iter200_solve_targets.py --check`.
 
 For each frozen instance, from committed data only (no repo checkout, no gold fix shown):
 

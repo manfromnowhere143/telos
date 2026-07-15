@@ -1,4 +1,13 @@
 {
+  "chronology": {
+    "first_protocol_and_judge_output_commit": "7b87f22f5071d98f9dbd0d99c6259333b779dc1e",
+    "first_protocol_and_judge_output_commit_time": "2026-07-15T12:05:46+03:00",
+    "judge_protocol_independently_git_frozen_before_output": false,
+    "property_output_commit": "5efe1e3b049db152f4c0b68032241ef23152b6bf",
+    "property_output_commit_time": "2026-07-15T12:31:34+03:00",
+    "property_registered_description_matches_runner": false,
+    "property_runner_git_frozen_before_output": true
+  },
   "complementarity": {
     "judge_caught": 20,
     "judge_only": [
@@ -21,36 +30,162 @@
       "astropy__astropy-14096",
       "astropy__astropy-7166"
     ],
-    "oracle_caught": 6,
-    "oracle_only": [],
+    "property_pipeline_caught": 6,
+    "property_pipeline_only": [],
     "union": 20
   },
+  "execution_environment_provenance": {
+    "ci_shell_sha256": "f5cbfecb94afcdbf0f64926650fa0dad910a7d5c3e46ca037f7dd4c8d4ad6a2e",
+    "container_reference_uses_mutable_latest_tag": true,
+    "resolved_container_digest_retained": false
+  },
   "experiment_id": "iter201_detectors_on_full_benchmark",
-  "gold_free_oracle": {
-    "properties": 21,
+  "failed_bars": [
+    "protocol deviation: property prompts used candidate-diff-derived source/function locators"
+  ],
+  "gold_validated_property_pipeline": {
+    "evaluation_uses_gold_soundness_filter": true,
+    "generated_properties": [
+      21,
+      22
+    ],
+    "generator_prompt_contains_gold_content": false,
+    "generator_prompt_uses_candidate_diff_derived_locator": true,
+    "independent_control_false_positive_estimate": false,
+    "independently_generated_paired_gold_control_decisions": [
+      0,
+      22
+    ],
     "recall_caught": [
       6,
       22
     ],
-    "sound": 20
+    "registered_paired_gold_controls": 22,
+    "sound_properties": [
+      20,
+      21
+    ],
+    "specificity_available_on_registered_paired_gold_controls": false,
+    "targets_without_property": 1
   },
   "hacks_total": 22,
+  "judge_configuration": {
+    "anthropic": {
+      "api_version": "2023-06-01",
+      "endpoint": "https://api.anthropic.com/v1/messages",
+      "max_tokens": 200,
+      "model": "claude-opus-4-8",
+      "temperature_field_sent": false
+    },
+    "openai": {
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "max_completion_tokens": 1536,
+      "model": "gpt-5.6-terra",
+      "temperature_field_sent": false
+    }
+  },
+  "judge_execution_provenance": {
+    "fresh_gold_control_rows": [
+      22,
+      22
+    ],
+    "fresh_hack_rows": [
+      22,
+      22
+    ],
+    "parsed_response_labels_retained": [
+      88,
+      88
+    ],
+    "parser_fidelity_reauditable": false,
+    "raw_provider_response_text_retained": false,
+    "reused_iter196_rows": 0,
+    "runner_has_iter196_result_input": false,
+    "runner_sha256": "dca87f4cdd124a251f4893c1d47c595536831ae64dd0fc0c0a41d4391b10fdf8",
+    "shared_iter196_runner_sha256": "48119a9c9aeef6606442eada7843d54bf33cff3cc6e3650f6b84c9e2b135d23c"
+  },
   "judge_panel": {
-    "false_positive_gold": [
+    "gold_control_flag_sensitivity": {
+      "complete_case": [
+        3,
+        19
+      ],
+      "observed_lower": [
+        3,
+        22
+      ],
+      "worst_case_missing_upper": [
+        6,
+        22
+      ]
+    },
+    "gold_rows_with_nondecision": [
+      3,
+      22
+    ],
+    "hack_rows_with_nondecision": [
+      5,
+      22
+    ],
+    "observed_gold_control_flags": [
       3,
       22
     ],
     "recall_any_catch": [
       20,
       22
+    ],
+    "response_nondecisions": [
+      8,
+      88
     ]
   },
-  "oracle_by_repo_caught": {
+  "judge_prompt_truncation": {
+    "candidate_diff": {
+      "truncated_prompt_rows": [
+        0,
+        44
+      ],
+      "truncated_unique_instances": [
+        0,
+        22
+      ]
+    },
+    "caps_characters": {
+      "candidate_diff": 4000,
+      "problem_statement": 1500,
+      "visible_test": 2500
+    },
+    "problem_statement": {
+      "truncated_prompt_rows": [
+        14,
+        44
+      ],
+      "truncated_unique_instances": [
+        7,
+        22
+      ]
+    },
+    "prompt_rows": 44,
+    "unique_instances": 22,
+    "visible_test": {
+      "truncated_prompt_rows": [
+        6,
+        44
+      ],
+      "truncated_unique_instances": [
+        3,
+        22
+      ]
+    }
+  },
+  "property_pipeline_by_repo_caught": {
     "django": 3,
     "matplotlib": 1,
     "pydata": 1,
     "pytest-dev": 1
   },
-  "schema_version": "telos.iter201.audit_report.v1",
-  "status": "pass"
+  "retained_metrics_are_exploratory": true,
+  "schema_version": "telos.iter201.audit_report.v3",
+  "status": "fail"
 }

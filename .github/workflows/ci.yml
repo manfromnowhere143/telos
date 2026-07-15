@@ -4,26 +4,37 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   verify:
     name: verify py${{ matrix.python-version }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.11", "3.12"]
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
+          cache-dependency-path: requirements-ci.txt
 
       - name: Install verification tools
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install pytest ruff
+          wheelhouse="$(mktemp -d /tmp/telos-ci-wheelhouse.XXXXXX)"
+          export PIP_DISABLE_PIP_VERSION_CHECK=1
+          python -m pip download \
+            --no-cache-dir --require-hashes --only-binary=:all: \
+            --dest "$wheelhouse" -r requirements-ci.txt
+          python -m pip install \
+            --no-index --find-links "$wheelhouse" \
+            --no-cache-dir --require-hashes --only-binary=:all: \
+            -r requirements-ci.txt
 
       - name: Compile
         run: python3 -m compileall telos scripts tests
@@ -42,6 +53,61 @@ jobs:
 
       - name: Mission loop guard
         run: python3 scripts/validate_mission_loop.py
+
+      - name: Supply-chain guard
+        run: python3 scripts/validate_supply_chain.py
+
+      - name: Regenerate corrected detector artifacts without providers
+        run: |
+          env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u GOOGLE_API_KEY \
+            python3 scripts/adjudicate_iter197.py
+          env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u GOOGLE_API_KEY \
+            python3 scripts/adjudicate_iter201.py
+          git diff --exit-code -- \
+            experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/audit_report.json \
+            experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/iter197_per_property.json \
+            experiments/iter201_detectors_on_full_benchmark/proof/audit_report.json \
+            experiments/iter201_detectors_on_full_benchmark/proof/oracle_22_per_property.json
+
+      - name: Detector methodology-correction guard
+        run: python3 scripts/validate_detector_methodology_correction.py
+
+      - name: Regenerate corrected iter200 artifacts without providers
+        run: |
+          env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u GOOGLE_API_KEY \
+            TELOS_NAT_EXP=iter200_natural_certified_yet_wrong_rate \
+            python3 scripts/adjudicate_iter200.py
+          env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u GOOGLE_API_KEY \
+            -u TELOS_NAT_RERUN_JUDGES \
+            TELOS_NAT_EXP=iter200_natural_certified_yet_wrong_rate \
+            TELOS_NAT_REUSE_JUDGES=1 \
+            python3 scripts/run_iter200_blind_judge.py
+          git diff --exit-code -- \
+            experiments/iter200_natural_certified_yet_wrong_rate/proof/audit_report.json \
+            experiments/iter200_natural_certified_yet_wrong_rate/proof/blind_judge_verdicts.json \
+            experiments/iter200_natural_certified_yet_wrong_rate/proof/divergence_candidates.json \
+            experiments/iter200_natural_certified_yet_wrong_rate/proof/iter200_per_candidate.json
+
+      - name: Iter200 corrected-result guard
+        run: python3 scripts/validate_iter200_corrected_result.py
+
+      - name: Iter200 frozen-target reproduction guard
+        run: python3 scripts/build_iter200_solve_targets.py --check
+
+      - name: Iter202 frozen-target guard
+        run: python3 scripts/build_iter202_solve_targets.py --check
+
+      - name: Iter202 prior-use overlap guard
+        run: python3 scripts/audit_iter202_sample_overlap.py --check
+
+      - name: Iter202 immutable-image guard
+        run: python3 scripts/build_iter202_image_lock.py --check
+
+      - name: Iter202 generated-scenario safety guard
+        run: python3 scripts/validate_iter202_scenario_safety.py
+
+      - name: Iter202 complete-runtime freeze guard
+        run: python3 scripts/validate_iter202_runtime_freeze.py --check
 
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
@@ -678,3 +744,10 @@ jobs:
 
       - name: Handoff guard
         run: python3 scripts/validate_handoff.py
+
+      - name: Full clean-tree guard
+        run: |
+          if [ -n "$(git status --short)" ]; then
+            git status --short
+            exit 1
+          fi

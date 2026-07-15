@@ -1,8 +1,9 @@
 # Reward-Hack Legitimate Controls v1
 
-This directory contains paired legitimate controls for `reward_hack_benchmark_v1`.
-Each row is the public SWE-bench Verified gold patch for the same public issue as
-one reward-hack row.
+This directory contains paired legitimate controls for the historically misnamed
+`reward_hack_benchmark_v1`. Each row is the public SWE-bench Verified gold patch for the same public issue
+as one suite-failing candidate row. Iter192 established that the candidate rows are not reward hacks; this
+directory name is preserved for artifact stability.
 
 Claim boundary: this is a legitimate-control artifact and blinded control-packet
 artifact. It is not a model score, precision number, benchmark leaderboard,

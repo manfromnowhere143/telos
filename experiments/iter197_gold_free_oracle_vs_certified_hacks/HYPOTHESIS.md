@@ -3,6 +3,23 @@
 Status: PRE-REGISTERED, result pending. No provider calls, SWE-bench executions, or cloud resources have
 been run for this gate.
 
+> **Post-result methodology correction (2026-07-15):** the protocol below was not followed as written.
+> The executed generator extracted a source-file and function/class locator from each candidate variant
+> diff and inserted those fields into the prompt. Candidate code lines and gold content were withheld, but
+> generation was locator-assisted rather than diff-independent. The actual adjudicator also defined
+> soundness by executing the property on the gold patch, not by the preregistered visible-test anchor.
+> Therefore the retained result is a locator-assisted, gold-validated offline property pipeline; it is not
+> a fully gold-free detector, and its zero gold failures are not an independent false-positive estimate.
+> The registered `10` paired-gold controls were not independently generated and evaluated as detector
+> decisions: those gold executions were the inclusion filter. Specificity on that registered control set
+> is therefore unavailable. This file's pre-output freeze,
+> `336c484200289d27ee1361f5fbd1e85e51494fa9` at `2026-07-14T19:54:46+03:00`, contained no numerical
+> catch threshold. The `>=5` threshold first appeared in
+> `f62aea8c19b109f9488accfb4b58c3f03d6d7a6f` at `2026-07-14T21:40:16+03:00`, alongside generated
+> properties, and is only a post-generation diagnostic. The historical Docker scripts used mutable `:latest` image tags
+> and retained no resolved image digest. This correction reinterprets the run and does not retroactively
+> repair the preregistration.
+
 ## Why this gate exists
 
 iter196 measured the incumbent: a frontier LLM judge panel, reading only the diff, flags `7/10` of the

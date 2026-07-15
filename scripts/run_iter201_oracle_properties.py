@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""iter201: gold-free property generation for all 22 benchmark hacks (Detector B extension).
+"""iter201: locator-assisted property generation for all 22 benchmark hacks (Detector B extension).
 
-Reuses the iter197 property generator (gold-free: public task + visible test only) over the full 22-hack
-benchmark. Reads OPENAI_API_KEY. Ceiling: <=40 calls, <=$10.
+Reuses the iter197 generator over the full 22-hack benchmark. Each prompt includes the public task,
+visible test, and a source/function locator extracted from the candidate diff header; candidate code lines
+and gold content are withheld. Subsequent offline adjudication validates each property on gold. Reads
+OPENAI_API_KEY. Ceiling: <=40 calls, <=$10.
 """
 
 from __future__ import annotations

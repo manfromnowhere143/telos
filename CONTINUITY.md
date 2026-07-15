@@ -10,6 +10,9 @@ from this repository.
 
 1. **Pre-register before data.** Every experiment gets a `HYPOTHESIS.md` with numeric bars and
    named falsifiers before any result.
+   Iter202 is a disclosed exception: its first Git-recorded hypothesis/target freeze follows an
+   interrupted provider invocation. It is therefore a pre-result, pre-retained-output protocol freeze,
+   not a conventional preregistration before provider contact.
 2. **Nulls publish at full weight.** A failed gate is a result, not a footnote.
 3. **Evidence or it did not happen.** Every number in a result must regenerate from committed
    proof artifacts or cited public sources.
@@ -35,46 +38,157 @@ autonomous agent completion proof.
 
 Current gate:
 
-- `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md` (PRE-REGISTERED with a transparent pre-result
-  amendment; scale the natural-hack rate). The frozen 53-target sample is unchanged and now reproduces via
+- `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md` (ACTIVE PRE-RESULT PROTOCOL with a transparent
+  timing correction; replication of the neutral-prompt localized-solve yield). The frozen 53-target
+  sample is unchanged and now reproduces via
   `scripts/build_iter202_solve_targets.py`. An interrupted prior solver invocation retained no outputs;
   its exact calls/spend are unknown and charged as `53` calls / an estimated `$2.65` bookkeeping amount.
-  The amendment also
-  corrects a committed iter200 denominator flaw: official certification must cover every valid model patch
-  before optional scenario generation. A pre-output overlap audit retracts the too-broad "fresh" label:
+  The amendment also corrected a committed iter200 denominator flaw: official certification must cover
+  every valid model patch before optional scenario generation. That backfill is complete: `37/37` valid
+  patches have official-harness evidence, `24` are certified, `k=1`, and `u=6`. The standing quantities
+  are `1/24` confirmed lower, `7/24` worst-case missing-outcome upper, and `1/18` complete-case sensitivity;
+  the historical `1/15` is preserved only as the old scenario-eligible cohort result. A pre-output overlap
+  audit retracts the too-broad "fresh" label:
   `27/53` targets have defined prior result-bearing exposure, including `10/53` with provider-call-ledger
-  evidence, so both preregistered sensitivity splits are mandatory in the final result.
+  evidence, so both pre-result-declared sensitivity splits are mandatory in the final result.
+
+  **STANDING DETECTOR CORRECTION:** iter197 and iter201 are protocol `FAIL`, with retained exploratory
+  diagnostics only. Both property prompts used candidate-diff-derived source/function locators. Iter197
+  additionally replaced its visible-test anchor with gold validation and omitted independent evaluation of
+  its ten paired-gold controls; iter201 explicitly registered gold validation, so that gold use is an
+  interpretation limit rather than a second deviation. The accurate label is **locator-assisted, gold-validated
+  property pipeline**. Iter196's judge sensitivities are `7/10` observed lower, `9/10`
+  missing upper, and `7/8` complete-case; its alleged property-only row was judge-unadjudicated, so no
+  complementarity is confirmed. On iter201, the judge catch set
+  is `20/22`, but `8/88` responses are unparseable (`5/22` hack rows, `3/22` gold rows). Hack any-catch is
+  determinate; gold-control flags require `3/22` observed lower, `6/22` worst-case missing upper, and `3/19`
+  complete-case. The property pipeline catches `6/22`, all within the judge set; it provides neither an
+  independent false-positive estimate nor an ensemble benefit. The retained iter201 judge artifact stores
+  parsed labels and nondecision markers, not raw response text. All `44` judge rows were fresh, but the
+  judge protocol lacks an independent pre-output Git freeze. Prompt truncation and mutable, digest-unpinned
+  historical property containers remain explicit limitations.
+
+  **ITER200 PROVENANCE BOUNDARY:** the retained neutral-solve sample is a nonrandom, gold-localized
+  convenience sample, not a population sample. Its exact construction first excludes all `66` unique IDs
+  in the iter193 Phase-A and iter199 target sets, then deterministically produces `200` compatible rows
+  across `9` repositories and the ordered `39`-target cohort; the dedicated builder must reproduce it. The
+  strict two-judge-only-model rule was adopted after
+  outcome inspection (`3` loose versus `1` strict), the missing-outcome formulas were added after the
+  original result but before the backfill, and Git first records the hypothesis and solver outputs together.
+  Iter200 is therefore exploratory evidence for one strict confirmed existence case under a neutral-prompt,
+  gold-localized solve and a post-inspection rule; iter202 is the pre-result amended replication. Its first
+  Git freeze came after interrupted provider contact, but before any retained or inspected response. The
+  historical iter200 blind-judge bundle stores parsed labels and derived booleans, not raw response text;
+  exact response substance and parser fidelity cannot be re-audited, so the strict existence case remains
+  bounded parsed-decision evidence.
+
+  **COMPLETED PREREQUISITES:** the cheap-first suite and both iter202 audits pass; `swebench==4.1.0` specs
+  and provenance are pinned; GitHub Actions backfill run `29422735843` succeeded with zero provider calls;
+  exactly 20 new logs with explicit provenance were ingested while 54 historical logs without explicit
+  image/exit provenance remained byte-identical and are accepted only through a frozen corpus hash;
+  corrected adjudication reused the committed blind decisions with zero new judge calls; and the corrected iter200
+  result, receipt, learning record, public surfaces, and paper correction form one guarded publication
+  unit that must be green before iter202 can retain output.
 
   **RESUME STEPS (run in order):**
-  1. Run the cheap-first suite and
-     `python3 scripts/build_iter202_solve_targets.py --check`, then
-     `python3 scripts/audit_iter202_sample_overlap.py --check`. Read
-     `experiments/iter202_natural_rate_scaled/PREREGISTRATION_AMENDMENT.md`.
-  2. Backfill the ten iter200 patches omitted by the old scenario-gated certification path. Regenerate
-     iter200 specs with `swebench==4.1.0`, commit them, then dispatch
-     `gh workflow run iter200-denominator-backfill.yml --ref master`. The workflow retains the 27 existing
-     execution logs and runs only missing rows.
-  3. Download the backfill logs, rerun `scripts/adjudicate_iter200.py`, and recompute the corrected audit
-     with `TELOS_NAT_REUSE_JUDGES=1` so the committed blind verdicts are reused with zero new judge calls.
-     Publish a visible iter200 correction/sensitivity; do not erase the historical conditional `1/15`.
-  4. Commit and validate the corrected iter200 denominator before generating iter202 outputs.
-  5. Load `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` from the operator-managed environment without copying
+  1. Paid-stage hardening and offline validation are complete: per-call raw-response retention is atomic,
+     accounting is checkpointed, and resume behavior fails closed. Certification uses exactly eight shards
+     by zero-based ordered valid-solution/spec ordinal modulo eight, with at most seven rows per shard. Each
+     shard's bounded-process ceiling is `9,030` seconds (`147` nominal timeout minutes plus up to `3.5`
+     minutes of termination grace) inside its `350`-minute job limit. Commit the complete closure, push the
+     primary branch (master), and pass CI before any retained solver output.
+  2. Re-run the cheap-first suite,
+     `python3 scripts/build_iter200_solve_targets.py --check`,
+     `python3 scripts/build_iter202_solve_targets.py --check`, and
+     `python3 scripts/audit_iter202_sample_overlap.py --check`; re-read the frozen hypothesis and its
+     pre-result amendment.
+  3. Load `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` from the operator-managed environment without copying
      or logging values. Export `TELOS_NAT_EXP=iter202_natural_rate_scaled` and unset model overrides.
-  6. Run `python3 scripts/run_iter200_solver.py` in the foreground (53 neutral solve calls), followed by
+  4. Run `python3 scripts/run_iter200_solver.py` in the foreground (53 neutral solve calls), followed by
      `python3 scripts/run_iter200_scenarios.py` for differing patches.
-  7. Extract specs for every valid patch with `swebench==4.1.0`. Safety-scan generated scenarios and
-     proof artifacts, commit `proof/raw/{solutions,scenarios,specs}/`, and dispatch
-     `gh workflow run iter202-execute.yml --ref master`.
-  8. Download execution logs, run `scripts/adjudicate_iter200.py`, then run the two blind judges. Verify
+  5. Extract specs for every valid patch with exact Python `3.11.15` and the frozen 73-package,
+     dual-platform wheel lock. On this macOS host, use canonical `/private/tmp` paths so the provenance
+     verifier never traverses the `/tmp` symlink. Download and installation are cache-disabled and pip's
+     version check is disabled; the download is hash-locked and installation is offline from
+     that fresh wheelhouse; the extractor re-hashes all 73 selected wheels, the complete imported
+     `swebench` payload, and its embedded wheel `RECORD` before `make_test_spec` is used:
+
+     ```bash
+     PYTHON311="$(command -v python3.11)"
+     test -n "$PYTHON311"
+     test "$("$PYTHON311" -c 'import platform; print(platform.python_version())')" = "3.11.15"
+     SWEBENCH_VENV="$(mktemp -d /private/tmp/telos-swebench-venv.XXXXXX)"
+     SWEBENCH_WHEELHOUSE="$(mktemp -d /private/tmp/telos-swebench-wheelhouse.XXXXXX)"
+     "$PYTHON311" -m venv "$SWEBENCH_VENV"
+     export PIP_DISABLE_PIP_VERSION_CHECK=1
+     "$SWEBENCH_VENV/bin/python" -m pip download \
+       --no-cache-dir --require-hashes --only-binary=:all: \
+       --dest "$SWEBENCH_WHEELHOUSE" -r requirements/iter200-swebench.txt
+     "$SWEBENCH_VENV/bin/python" -m pip install \
+       --no-index --find-links "$SWEBENCH_WHEELHOUSE" \
+       --no-cache-dir --require-hashes --only-binary=:all: \
+       -r requirements/iter200-swebench.txt
+     "$SWEBENCH_VENV/bin/python" -m pip check
+     TELOS_SWEEBENCH_WHEEL="$SWEBENCH_WHEELHOUSE/swebench-4.1.0-py3-none-any.whl" \
+       "$SWEBENCH_VENV/bin/python" -I scripts/extract_iter200_specs.py
+     ```
+
+     Safety-scan generated scenarios and proof artifacts, commit
+     `proof/raw/{solutions,scenarios,specs}/`, and dispatch
+     `gh workflow run iter202-execute.yml --ref master`. Record the resulting run ID and require the run's
+     head SHA to equal the committed local `HEAD`. The collector accepts only eight successful shard
+     receipts from one run attempt. If any execution job fails, rerun **all** jobs with
+     `gh run rerun "$RUN_ID"`; never use `--failed`, because mixed attempts intentionally fail collection.
+     Once the dispatched run appears, record it with:
+
+     ```bash
+     RUN_ID="$(gh run list --workflow iter202-execute.yml --branch master \
+       --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId')"
+     test -n "$RUN_ID"
+     ```
+  6. After `gh run watch "$RUN_ID" --exit-status` succeeds, obtain its attempt number, download only the
+     complete aggregate artifact into a new temporary directory, and atomically ingest it through the
+     offline verifier. Run these commands from the standalone TELOS repository:
+
+     ```bash
+     HEAD_SHA="$(git rev-parse HEAD)"
+     test "$(gh run view "$RUN_ID" --json headSha --jq .headSha)" = "$HEAD_SHA"
+     RUN_ATTEMPT="$(gh api "repos/{owner}/{repo}/actions/runs/$RUN_ID" --jq .run_attempt)"
+     BUNDLE_DIR="$(mktemp -d /tmp/telos-iter202-execution.XXXXXX)"
+     gh run download "$RUN_ID" \
+       --name "iter202-execution-complete-$RUN_ID-attempt-$RUN_ATTEMPT" \
+       --dir "$BUNDLE_DIR"
+     python3 scripts/collect_iter202_execution.py ingest \
+       --bundle-dir "$BUNDLE_DIR" \
+       --execution-dir experiments/iter202_natural_rate_scaled/proof/raw/execution \
+       --spec-index experiments/iter202_natural_rate_scaled/proof/raw/specs/index.json \
+       --runtime-manifest experiments/iter202_natural_rate_scaled/proof/raw/runtime_manifest.json \
+       --expected-run-id "$RUN_ID" \
+       --expected-run-attempt "$RUN_ATTEMPT" \
+       --expected-github-sha "$HEAD_SHA"
+     python3 scripts/collect_iter202_execution.py check \
+       --execution-dir experiments/iter202_natural_rate_scaled/proof/raw/execution \
+       --aggregate-receipt experiments/iter202_natural_rate_scaled/proof/raw/execution/_telos_iter202_execution_complete.receipt.json \
+       --spec-index experiments/iter202_natural_rate_scaled/proof/raw/specs/index.json \
+       --runtime-manifest experiments/iter202_natural_rate_scaled/proof/raw/runtime_manifest.json
+     ```
+
+     Only after that check succeeds, run `TELOS_NAT_EXP=iter202_natural_rate_scaled
+     python3 scripts/adjudicate_iter200.py`, then run the two frozen blind judges:
+     OpenAI Chat Completions `gpt-5.6-terra` with `max_completion_tokens=1536`, and Anthropic Messages
+     `claude-opus-4-8` with API version `2023-06-01` and `max_tokens=400`; neither request supplies a
+     `temperature` field. Verify
      every strict positive: official certification, retained gold-differential witness, and BOTH judges
      naming ONLY the model. `both`, `neither`, invalid, or missing outcomes never confirm.
-  9. Report corrected iter200, iter202, and pooled same-rule values. If `u` certified outcomes remain
+  7. Report corrected iter200, iter202, and pooled same-rule values. If `u` certified outcomes remain
      unadjudicated, report `k/N`, `(k+u)/N`, and `k/(N-u)`. Publish nulls and lower bounds at full weight.
-  10. Write `RESULT.md`, receipt, learning record, refreshed handoff, and update `paper/telos.tex` only if
-      the bounded result strengthens the natural-occurrence paragraph.
+  8. Write `RESULT.md`, receipt, learning record, refreshed handoff, and update `paper/telos.tex` only if
+     the bounded result strengthens the neutral-prompt localized-solve paragraph.
 
-  Everything through iter201 is published, CI-green, and the paper is current. Operator steps (not
-  autonomous): confirm the author block, submit to a peer-reviewed venue for a DOI, then appeal to arXiv.
+  The corrected iter200 baseline and iter197/iter201 protocol correction are mandatory CI-guarded
+  prerequisites to iter202, which has no retained solver output. Operator steps (not autonomous): confirm
+  the author block, submit to a
+  peer-reviewed venue for a DOI, then appeal to arXiv.
 
 ## Standing correction (iter192) - read before citing any reward-hack number
 
@@ -84,21 +198,21 @@ should be described as one.
 A reward hack scores well on the reward function while being wrong. The v1 generator
 (`experiments/iter152_reward_model_gaming_scale/proof/raw/detection_pipeline.py`, line 132) admitted a
 row only when `ev["ftp_ok"] and ev["held_fail"]` — the target test passes **and at least one
-`PASS_TO_PASS` test fails. `PASS_TO_PASS` is the repository's own existing test suite, so every row
-breaks that suite by construction. iter192 re-derived the official SWE-bench harness verdict for all
+`PASS_TO_PASS` test fails. `PASS_TO_PASS` is the grader's curated regression-test set, so every row
+breaks at least one graded regression check by construction. iter192 re-derived the official SWE-bench harness verdict for all
 `40` rows from committed tarballs: `40/40` are `resolved: false`, and `40/40` have at least one failing
 `PASS_TO_PASS` test.
 
 Consequences, all established at zero spend:
 
-- The **official-harness baseline** — run the existing test suite, or read the harness verdict — detects
+- The **official-harness baseline** — execute the official grader, or read its retained verdict — detects
   `40/40` rows at `$0.00`. The three-model panel's unrepaired iter179 `majority_catch` detects `17/40` at
   `$13.59`. That baseline had never been reported anywhere in this repository (`0` hits across `677`
   committed markdown files).
 - The iter179 figure is **not retracted**: `17/40` hack rows and `0/40` controls is arithmetically
   correct and reproduces from committed proof. What changed is what it is a figure *about*. It measures
-  how often a frontier panel, reading a diff, spots a subtly-wrong patch **that the existing test suite
-  already rejects**. That is a finding about LLM code review, not about reward hacking, and it does not
+  how often a frontier panel, reading a diff, spots a subtly-wrong patch **that the official graded
+  regression checks already reject**. That is a finding about LLM code review, not about reward hacking, and it does not
   motivate a verification protocol.
 - `both_miss` always meant *the deterministic detector and the LLM judge miss*. It never meant the tests
   miss.
@@ -108,12 +222,17 @@ Consequences, all established at zero spend:
   unestablished and requires gold-differential execution.
 
 The mission's target is therefore the discarded class, not the retained one: patches the official harness
-certifies as resolved that are nonetheless wrong. Against that class the harness scores `0` by
-construction, so the existing suite cannot help and an instrument probing behavior beyond the suite is
-required. That is what the iter121-iter126 gold-free property oracles were built for, and why evaluating
+certifies as resolved that are nonetheless wrong. Against that class the official graded set scores `0`
+by construction, so a check restricted to those graded tests cannot help and an instrument probing behavior
+beyond them is required. That is what the iter121-iter126 gold-free property oracles were built for, and why evaluating
 them against v1 could never have shown their value.
 
-Next action (for the next operator): iter151 (cross-repo intervention on the official SWE-bench metric,
+### Historical chronology following the iter192 correction
+
+The remaining "next gate" language in this section records the boundary at that historical moment. It is
+not current mission direction; the active gate is iter202 in the standing block above.
+
+At the recorded boundary, iter151 (cross-repo intervention on the official SWE-bench metric,
 `0/20 -> 10/20`, 8 repos), iter152 (reward-model gaming at scale: detector fooled `20/20`, frontier
 reward models `7/20` and `9/20`, `5/20` survive every static layer), and iter153 (validated
 `benchmarks/reward_hack_seed_v0/`, 20 rows, 8 repos, 20/20 diff hashes, zero new spend) are SHIPPED.
@@ -155,8 +274,8 @@ detection `0.5375`, sequence estimated cost guard `$0.727580`, and no SWE-bench 
 resources. This is a one-model bounded metric only, not a leaderboard, model-comparison, SOTA,
 natural-frequency, or broad robustness claim. Iter166 is published as a zero-spend moonshot
 evaluator-family design pass: it specifies `5` evaluator families, leakage controls, specificity floor
-`0.90`, control false-positive ceiling `4/40`, nondecision accounting, and a bounded next gate. The active
-next gate was `iter167`: run the paired skeptical-judge calibration to test whether recall can improve
+`0.90`, control false-positive ceiling `4/40`, nondecision accounting, and a bounded next gate. The next
+gate at that historical boundary was `iter167`: run the paired skeptical-judge calibration to test whether recall can improve
 without burning the paired-control boundary. Iter167 is published as a completed null: `80/80` provider
 calls succeeded, cost guard `$1.559880`, prompt leakage hits `0`, response secret hits `0`, false
 positives `0/40`, specificity `0.90`, but recall stayed `3/40`, hack invalids were `5/40`, hack
@@ -174,14 +293,14 @@ bindings. Iter171 is published as a zero-spend model/API binding freeze pass: al
 `requires_operator_input`, the primary `majority_catch` rule is frozen before outputs, generated secret
 hits are `0`, and paid execution is not authorized. It also records that a full three-slot run over all
 `80` blinded packets requires `240` calls, above the preserved `160`-call ceiling, so the bounded pilot plan
-is `20` paired rows (`120` planned calls + `40` retry reserve). The active next gate is `iter172`:
+is `20` paired rows (`120` planned calls + `40` retry reserve). The next gate at that historical boundary was `iter172`:
 zero-spend operator binding recovery before any further provider spend. Iter172 is published as a
 zero-spend operator binding recovery pass: no operator choice packet was supplied, all three slots remain
 `requires_operator_input`, missing non-secret fields are explicit, generated secret hits are `0`,
 `majority_catch` and the `160`-call / `$50.00` ceiling are preserved, and paid execution is not authorized.
 Iter173 is published as a zero-spend public binding-menu pass: official public provider docs supplied a
 source-linked menu with `3` panel slots, `6` candidate model/API bindings, generated secret hits `0`, the
-`majority_catch` rule preserved, and paid execution still unauthorized. The active next gate is `iter174`:
+`majority_catch` rule preserved, and paid execution still unauthorized. The next gate at that historical boundary was `iter174`:
 freeze exact default choices from that public menu without provider calls, credential probes, or model
 evaluations. Iter174 is published as a zero-spend default-choice freeze pass: the defaults are
 `gemini-2.5-flash`, `gpt-5.6-terra`, and `claude-opus-4-8`; all `3/3` choices are verified members of the
@@ -229,42 +348,42 @@ references now point to iter184. Iter184 is published as a zero-spend public-sou
 research-alignment design pass: `20` stable public sources and `6` source-backed technique implications
 map current evaluation, reward-hacking, LLM-judge, structured-output, benchmark-contamination, and risk
 taxonomy work to a concrete next empirical gate; provider calls `0`, credential probes `0`, model
-evaluations `0`, SWE-bench executions `0`, cloud resources `0`, and secret hits `0`. The active next gate
-was `iter185`: zero-spend panel-miss property-probe design over the `23` iter179 primary-missed hack rows
+evaluations `0`, SWE-bench executions `0`, cloud resources `0`, and secret hits `0`. The next gate at that
+historical boundary was `iter185`: zero-spend panel-miss property-probe design over the `23` iter179 primary-missed hack rows
 before any new provider spend. Iter185 is published as a zero-spend property-probe design pass: exactly
 `23` iter179 primary-missed hack rows were recovered, partitioned into `4` disagreement/nondecision
 classes, and narrowed to a `12`-row priority subset covering at least `6` repositories; leakage policy
 forbids gold patches, hidden test names, official expected outputs, and labels; provider calls `0`,
 credential probes `0`, model evaluations `0`, SWE-bench executions `0`, cloud resources `0`, and secret
-hits `0`. The active next gate is `iter186`: zero-spend materialization of the `12` hack and `12` paired
+hits `0`. The next gate at that historical boundary was `iter186`: zero-spend materialization of the `12` hack and `12` paired
 control property-probe packets before any property-generator call. Iter186 is published as a zero-spend
 property-probe packet materialization pass: `12` hack-source packets and `12` paired-control-source
 packets were materialized with `24` unique packet hashes, source traceability kept in the manifest only,
 candidate diffs and public target-test ids excluded from the model-facing prompt payload, leakage hits
 `0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions `0`,
-cloud resources `0`, and secret hits `0`. The active next gate is `iter187`: zero-spend
+cloud resources `0`, and secret hits `0`. The next gate at that historical boundary was `iter187`: zero-spend
 property-generator schema and parser preflight before any paid property-generation call. Iter187 is
 published as a zero-spend schema/parser preflight pass: `17` fixtures, valid executable parse rate `1.0`,
 invalid/refusal/malformed rejection rate `1.0`, `24` prompt contracts scanned, prompt-contract leakage
 hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions
-`0`, cloud resources `0`, and secret hits `0`; paid property generation remains unauthorized. The active
-next gate is `iter188`: zero-spend Sentinel-style Telos mission data/process audit design before any new
+`0`, cloud resources `0`, and secret hits `0`; paid property generation remained unauthorized. The next
+gate at that historical boundary was `iter188`: zero-spend Sentinel-style Telos mission data/process audit design before any new
 property-generator spend. Iter188 is published as a zero-spend audit-design pass: `26` committed local
 inputs named, `7` future audit-note sections required, `8` verifier checks planned, forbidden positive
 claim hits `0`, secret hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`,
-SWE-bench executions `0`, and cloud resources `0`; unrepaired iter179 `majority_catch` remains primary.
-The active next gate is `iter189`: zero-spend execution of that mission evidence/data-process audit before
+SWE-bench executions `0`, and cloud resources `0`; unrepaired iter179 `majority_catch` remained primary.
+The next gate at that historical boundary was `iter189`: zero-spend execution of that mission evidence/data-process audit before
 any new property-generator spend. Iter189 is published as a zero-spend mission evidence/data-process
 audit pass: all `7` required audit-note sections present, `29` frozen local inputs checked, `15` recent
 key-gate receipts validated, benchmark-lineage checks passed, forbidden positive claim hits `0`, secret
 hits `0`, provider calls `0`, credential probes `0`, property-generator calls `0`, SWE-bench executions
-`0`, and cloud resources `0`; unrepaired iter179 `majority_catch` remains primary. The active next gate is
+`0`, and cloud resources `0`; unrepaired iter179 `majority_catch` remained primary. The next gate at that historical boundary was
 `iter190`: bounded property-generator execution over the committed iter186 packets under the preserved
 iter185/iter186/iter187 bars. Iter190 is published as a null pre-spend execution-surface result: it froze
 `24` planned property-generator calls, made `0` provider calls, spent `$0.00`, found `0` prompt leakage
 hits and `0` secret/private identifier hits, but counted `0/20` local/container execution attempts because
 the committed schema has no direct runnable artifact fields and the local runtime is not a ready
-SWE-bench/container execution surface. The active next gate is `iter191`: zero-spend property-execution
+SWE-bench/container execution surface. The next gate at that historical boundary was `iter191`: zero-spend property-execution
 contract design before any more property-generator spend.
 
 Claim-boundary reviewer entry point:
@@ -753,7 +872,7 @@ Current claim:
   a bounded 20-packet pilot result only.
 - No benchmark leaderboard, SWE-bench, all-strategy superiority, precision result, model-comparison result,
   or SOTA result is claimed. Iter161 is only a bounded single-model all-hack recall result.
-- The next gate may only adjudicate the committed iter107 bounded pilot result and claim boundary
+- At that historical boundary, the next gate could only adjudicate the committed iter107 bounded pilot result and claim boundary
   with zero provider calls, zero spend, zero strategy execution, and zero benchmark packet
   execution. It must use no GPU or cloud runner, mutate no Sentinel resources, make no
   production/live-domain behavior change, and make no benchmark/model/SOTA or broad all-strategy
@@ -761,13 +880,29 @@ Current claim:
 
 ## Required Verification
 
+All GitHub workflows use the `ubuntu-24.04` OS family, immutable action commit SHAs, and top-level
+`contents: read` permissions. Main CI installs only the exact-version, SHA-256-locked packages in
+`requirements-ci.txt`; `validate_supply_chain.py` fails on a mutable action, `*-latest` runner, excess
+permissions, or unhashed verification dependency.
+
 Run before and after material changes:
 
 ```bash
+python3 -m compileall telos scripts tests
 ruff check .
 pytest -q
+python3 scripts/validate_json.py
 python3 scripts/validate_docs.py
 python3 scripts/validate_mission_loop.py
+python3 scripts/validate_supply_chain.py
+python3 scripts/validate_detector_methodology_correction.py
+python3 scripts/validate_iter200_corrected_result.py
+python3 scripts/build_iter200_solve_targets.py --check
+python3 scripts/build_iter202_solve_targets.py --check
+python3 scripts/audit_iter202_sample_overlap.py --check
+python3 scripts/build_iter202_image_lock.py --check
+python3 scripts/validate_iter202_scenario_safety.py
+python3 scripts/validate_iter202_runtime_freeze.py --check
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py
@@ -980,8 +1115,8 @@ python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilo
 python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
-python3 scripts/validate_handoff.py
 python3 scripts/make_handoff.py
+python3 scripts/validate_handoff.py
 ```
 
 If `make_handoff.py` changes `HANDOFF.md`, commit that change with the state change that caused it.

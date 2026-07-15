@@ -1,7 +1,25 @@
 # Iteration 201 - Detectors on the Full 22-Hack Benchmark
 
-Status: PRE-REGISTERED, result pending. No provider calls, SWE-bench executions, or cloud resources have
-been run for this gate.
+Historical status text: “PRE-REGISTERED, result pending; no provider calls or executions run.” That status
+is not independently established for the judge phase. The first Git commit containing this file,
+`7b87f22f5071d98f9dbd0d99c6259333b779dc1e` at `2026-07-15T12:05:46+03:00`, also contains the judge
+runner and all retained judge outputs.
+
+> **Post-result methodology correction (2026-07-15):** the original Detector B description below is not
+> the protocol the code executed. `scripts/run_iter201_oracle_properties.py` extracted a source-file and
+> function/class locator from each candidate variant diff and inserted those locator fields into the
+> property prompt. Candidate code lines and gold content were withheld, but generation was locator-assisted,
+> not diff-independent. Offline soundness used the gold patch as the original design explicitly specified,
+> so that use is not a second protocol deviation; it does make the pipeline gold-validated and means its
+> zero gold failures are not an independent false-positive estimate. Separately, `8/88` judge responses
+> were unparseable; the post-result control sensitivity is `3/22` observed flags, `6/22` worst-case missing,
+> and `3/19` complete-case. These corrections reinterpret retained outputs; they do not alter this
+> historical protocol text or claim a prospective repair. The property runner was Git-frozen in
+> `7b87f22f5071d98f9dbd0d99c6259333b779dc1e` before the property outputs first appeared in
+> `5efe1e3b049db152f4c0b68032241ef23152b6bf`, but that runner already contained the locator deviation, so
+> its code did not match the registered diff-independent description. The judge phase has no separate
+> pre-output Git freeze. Its artifact retains `88/88` parsed labels but no raw response text, preventing
+> re-audit of exact response substance and parser fidelity.
 
 ## Why this gate exists
 
@@ -25,9 +43,18 @@ paired gold controls:
    the gold control and executed against the candidate in its pinned container; a sound property that fails
    on the hack catches it. Report recall on the `22` hacks and false positives on the controls.
 
-The `10` iter195 hacks reuse their iter196/iter197 verdicts where the inputs are unchanged; the `12`
-iter199 hacks are newly evaluated. All verdicts are recomputed here so the `22`-row numbers are internally
-consistent, and the judge run is a single stochastic sample (disclosed).
+Despite the historical reuse sentence in the first version of this file, the committed judge runner has no
+iter196-result input or copy path: it calls both providers for every one of the `22` hack rows and all `22`
+paired gold-control rows. The retained iter201 artifact therefore records a fresh parsed label pair for all
+`44` rows (`88` calls), not reused iter196 labels. It remains one stochastic sample, and the raw response
+text was not retained.
+
+The shared judge prompt capped task/test/diff inputs at `1500`/`2500`/`4000` characters. Across `44`
+prompts, task text was truncated in `14/44` (`7/22` unique instances), visible tests in `6/44` (`3/22`),
+and candidate diffs in `0/44`. The property execution shell used mutable `:latest` container tags and
+retained no resolved image digest. Finally, the `22` paired gold executions were used in the registered
+property-soundness role, not as independently generated property-detector decisions. This satisfies the
+registered gold-validation step but cannot supply an independent specificity estimate.
 
 ## Numeric Bars
 

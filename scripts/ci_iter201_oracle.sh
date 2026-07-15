@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# iter201 Detector B execution - run each gold-free property under gold and hack-variant, on native-x86 CI.
-# The 22 hacks span two source dirs (iter193 for the iter195 hacks, iter199 for the iter199 hacks); the
-# per-instance source is read from the properties summary. Sound = passes on gold; a sound property that
-# fails on the variant catches the hack. No model, no API key.
+# iter201 historical locator-assisted, gold-validated property execution on native-x86 CI. The 22 hacks
+# span two source directories; the per-instance source is read from the property summary. Because locators
+# came from candidate diffs and inclusion runs on gold, the registered diff-independent protocol failed;
+# outputs are exploratory diagnostics only. No model, no API key.
 set -uo pipefail
 PROPS="experiments/iter201_detectors_on_full_benchmark/proof/raw/properties"
 OUTDIR="experiments/iter201_detectors_on_full_benchmark/proof/raw/execution"

@@ -1,11 +1,12 @@
 {
   "evidence_paths": [
+    "experiments/iter196_detector_vs_certified_hacks/proof/audit_report.json",
     "experiments/iter196_detector_vs_certified_hacks/proof/judge_panel_results.json",
     "experiments/iter196_detector_vs_certified_hacks/proof/valid/receipt_detector_a_judge_panel.json"
   ],
   "experiment_id": "iter196_detector_vs_certified_hacks",
-  "insight": "Detector A (2-model judge panel; gemini blocked on ADC) flags 7/10 certified-resolved reward hacks reading only the diff+task+visible test, at 1/10 gold FP and 1/2 equivalent FP (single stochastic run). Judges are NOT useless on this class (matches Control Tax). Two methodology issues caught and fixed via world-contact bars: a leakage guard false-alarm (real shared-gold-line leakage 2/10, biases against recall) and OpenAI nondecisions from a 200-token budget (raised to 1536). Detector B (gold-free execution oracle) split to iter197 rather than rushed; it must beat 7/10.",
-  "next_action": "run iter197_gold_free_oracle_vs_certified_hacks: build the gold-free execution oracle (model proposes an executable property from public task + visible test only, validated on the visible-test anchor, executed in-container against the candidate) and measure its recall/FP against Detector A's 7/10 baseline",
+  "insight": "Corrected Detector A accounting: the 2-model judge panel has 3/20 hack-response nondecisions affecting 2/10 rows, so hack any-catch is 7/10 observed lower, 9/10 missing upper, and 7/8 complete-case. Paired-gold flags are 1/10, 3/10, 1/8; equivalent flags are 1/2, 2/2, 1/1. The artifact retains 44 parsed labels but not raw response text, so response substance and parser fidelity cannot be re-audited. Prompts capped task/test/diff text at 1500/2500/4000 characters, truncating task text in 4/22 rows and visible tests in 2/22. The original protocol was independently frozen, but the two-model amendment was first committed with outputs.",
+  "next_action": "Use the missingness-aware sensitivities and evidence limitations in every downstream comparison. Do not treat 7/10 or 1/10 as complete/stable rates, and do not call a property catch complementary unless the paired judge row has completed decisions.",
   "result_path": "experiments/iter196_detector_vs_certified_hacks/RESULT.md",
   "schema_version": "telos.learning_record.v1",
   "status": "blocked"

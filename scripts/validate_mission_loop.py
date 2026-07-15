@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import re
+import shlex
 import sys
 from pathlib import Path
 from typing import Any
@@ -27,6 +28,48 @@ REQUIRED_PHASES = [
     "handoff",
 ]
 
+CORE_VALIDATION_COMMANDS = (
+    "python3 -m compileall telos scripts tests",
+    "ruff check .",
+    "pytest -q",
+    "python3 scripts/validate_json.py",
+    "python3 scripts/validate_docs.py",
+    "python3 scripts/validate_mission_loop.py",
+    "python3 scripts/validate_supply_chain.py",
+    "python3 scripts/validate_detector_methodology_correction.py",
+    "python3 scripts/validate_iter200_corrected_result.py",
+    "python3 scripts/build_iter200_solve_targets.py --check",
+    "python3 scripts/build_iter202_solve_targets.py --check",
+    "python3 scripts/audit_iter202_sample_overlap.py --check",
+    "python3 scripts/build_iter202_image_lock.py --check",
+    "python3 scripts/validate_iter202_scenario_safety.py",
+    "python3 scripts/validate_iter202_runtime_freeze.py --check",
+    "python3 scripts/validate_target_survey.py",
+    "python3 scripts/validate_public_slice.py",
+    "python3 scripts/validate_agent_behavior_slice.py",
+    "python3 scripts/validate_deterministic_edit_slice.py",
+    "python3 scripts/validate_provider_model_pilot_slice.py",
+    "python3 scripts/validate_learning_ledger.py",
+    "python3 scripts/validate_handoff.py",
+)
+
+SHELL_CONTROL_TOKENS = {
+    "&",
+    "&&",
+    "(",
+    ")",
+    ";",
+    ";&",
+    ";;&",
+    ";;",
+    "<",
+    "<<",
+    ">",
+    ">>",
+    "|",
+    "||",
+}
+
 
 def read_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -40,6 +83,346 @@ def extract_gate(src: str) -> str | None:
     if match:
         return match.group(1)
     return None
+
+
+def _decode_inline_yaml_scalar(value: str) -> str | None:
+    """Decode the small YAML scalar subset accepted for workflow ``run`` values."""
+
+    value = value.strip()
+    if not value:
+        return None
+    if value.startswith('"'):
+        try:
+            decoded = json.loads(value)
+        except json.JSONDecodeError:
+            return None
+        return decoded if isinstance(decoded, str) else None
+    if value.startswith("'"):
+        if len(value) < 2 or not value.endswith("'"):
+            return None
+        return value[1:-1].replace("''", "'")
+    return value
+
+
+def _indent(line: str) -> int:
+    return len(line) - len(line.lstrip(" "))
+
+
+def _block_end(lines: list[str], start: int, indent: int, *, list_item: bool) -> int:
+    """Return the exclusive end of one YAML mapping or list-item mapping."""
+
+    for index in range(start + 1, len(lines)):
+        line = lines[index]
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        candidate_indent = _indent(line)
+        if candidate_indent < indent:
+            return index
+        if list_item and candidate_indent == indent and line.lstrip().startswith("- "):
+            return index
+        if not list_item and candidate_indent == indent:
+            return index
+    return len(lines)
+
+
+def _mapping_has_key(
+    lines: list[str],
+    start: int,
+    end: int,
+    *,
+    indent: int,
+    key: str,
+    list_item: bool = False,
+) -> bool:
+    """Return whether a key occurs directly in one YAML mapping."""
+
+    escaped = re.escape(key)
+    key_pattern = re.compile(rf"(?:{escaped}|'{escaped}'|\"{escaped}\")\s*:")
+    for index in range(start, end):
+        line = lines[index]
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        if _indent(line) != indent:
+            continue
+        stripped = line.lstrip()
+        if list_item and index == start:
+            stripped = re.sub(r"^-\s+", "", stripped, count=1)
+        if key_pattern.match(stripped):
+            return True
+    return False
+
+
+def _mapping_has_run_default_override(
+    lines: list[str], start: int, end: int, *, mapping_indent: int
+) -> bool:
+    """Reject shell or working-directory remapping below a direct ``defaults`` key."""
+
+    for index in range(start, end):
+        line = lines[index]
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        if _indent(line) != mapping_indent:
+            continue
+        defaults_match = re.match(
+            r"(?:defaults|'defaults'|\"defaults\")\s*:\s*(.*?)\s*$",
+            line.lstrip(),
+        )
+        if defaults_match is None:
+            continue
+        inline_value = defaults_match.group(1)
+        if inline_value and not inline_value.startswith("#"):
+            return True
+        defaults_end = _block_end(lines, index, mapping_indent, list_item=False)
+        for nested in lines[index + 1 : defaults_end]:
+            if not nested.strip() or nested.lstrip().startswith("#"):
+                continue
+            if re.match(
+                r"(?:shell|working-directory|'shell'|'working-directory'|"
+                r"\"shell\"|\"working-directory\")\s*:",
+                nested.lstrip(),
+            ):
+                return True
+            if re.match(r"(?:<<\s*:|[^:#]+:\s*\*)", nested.lstrip()):
+                return True
+    return False
+
+
+def _workflow_has_run_default_override(lines: list[str]) -> bool:
+    """Return whether workflow-wide defaults can change command interpretation."""
+
+    return _mapping_has_run_default_override(
+        lines,
+        0,
+        len(lines),
+        mapping_indent=0,
+    )
+
+
+def _run_step_is_unconditional(lines: list[str], run_index: int, run_indent: int) -> bool:
+    """Accept a run key only on a direct, fail-closed execution path."""
+
+    step_start: int | None = None
+    step_indent: int | None = None
+    for index in range(run_index, -1, -1):
+        line = lines[index]
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        candidate_indent = _indent(line)
+        if line.lstrip().startswith("- ") and candidate_indent <= run_indent:
+            step_start = index
+            step_indent = candidate_indent
+            break
+    if step_start is None or step_indent is None:
+        return False
+
+    steps_start: int | None = None
+    steps_indent: int | None = None
+    for index in range(step_start - 1, -1, -1):
+        line = lines[index]
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        candidate_indent = _indent(line)
+        if candidate_indent < step_indent and re.fullmatch(r"steps\s*:\s*", line.lstrip()):
+            steps_start = index
+            steps_indent = candidate_indent
+            break
+        if candidate_indent < step_indent - 2:
+            break
+    if steps_start is None or steps_indent is None:
+        return False
+
+    step_end = _block_end(lines, step_start, step_indent, list_item=True)
+    if any(
+        _mapping_has_key(
+            lines,
+            step_start,
+            step_end,
+            indent=step_indent if key_on_list_item else step_indent + 2,
+            key=key,
+            list_item=key_on_list_item,
+        )
+        for key in ("if", "continue-on-error", "shell", "working-directory", "<<")
+        for key_on_list_item in (True, False)
+    ):
+        return False
+
+    job_start: int | None = None
+    job_indent: int | None = None
+    for index in range(steps_start - 1, -1, -1):
+        line = lines[index]
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        candidate_indent = _indent(line)
+        if candidate_indent < steps_indent and re.fullmatch(
+            r"[^:#][^:]*\s*:\s*", line.lstrip()
+        ):
+            job_start = index
+            job_indent = candidate_indent
+            break
+    if job_start is None or job_indent is None:
+        return False
+
+    job_end = _block_end(lines, job_start, job_indent, list_item=False)
+    if any(
+        _mapping_has_key(
+            lines,
+            job_start,
+            job_end,
+            indent=job_indent + 2,
+            key=key,
+        )
+        for key in ("if", "continue-on-error", "needs", "<<")
+    ):
+        return False
+    return not _mapping_has_run_default_override(
+        lines,
+        job_start,
+        job_end,
+        mapping_indent=job_indent + 2,
+    )
+
+
+def ci_run_scripts(source: str) -> list[str]:
+    """Extract active GitHub Actions ``run`` scalars without treating comments as steps."""
+
+    lines = source.splitlines()
+    workflow_defaults_safe = not _workflow_has_run_default_override(lines)
+    scripts: list[str] = []
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        stripped = line.lstrip(" ")
+        indent = len(line) - len(stripped)
+        match = re.fullmatch(r"(?:-\s+)?run\s*:\s*(.*?)\s*", stripped)
+        if not match:
+            index += 1
+            continue
+
+        value = match.group(1)
+        unconditional = workflow_defaults_safe and _run_step_is_unconditional(
+            lines, index, indent
+        )
+        block_match = re.fullmatch(r"([|>])(?:[+-]?\d*|\d*[+-]?)(?:\s+#.*)?", value)
+        if not block_match:
+            decoded = _decode_inline_yaml_scalar(value)
+            if unconditional and decoded is not None:
+                scripts.append(decoded)
+            index += 1
+            continue
+
+        block_lines: list[str] = []
+        index += 1
+        while index < len(lines):
+            candidate = lines[index]
+            candidate_stripped = candidate.lstrip(" ")
+            candidate_indent = len(candidate) - len(candidate_stripped)
+            if candidate.strip() and candidate_indent <= indent:
+                break
+            block_lines.append(candidate)
+            index += 1
+        nonblank_indents = [
+            len(item) - len(item.lstrip(" ")) for item in block_lines if item.strip()
+        ]
+        if not nonblank_indents:
+            continue
+        block_indent = min(nonblank_indents)
+        deindented = [
+            item[block_indent:] if item.strip() else "" for item in block_lines
+        ]
+        separator = "\n" if block_match.group(1) == "|" else " "
+        if unconditional:
+            scripts.append(separator.join(deindented))
+    return scripts
+
+
+def standalone_shell_command(script: str) -> tuple[str, ...] | None:
+    """Return tokens only when a run scalar is one unconditional simple command."""
+
+    logical_lines: list[str] = []
+    pending = ""
+    for raw_line in script.splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#"):
+            continue
+        if line.endswith("\\") and not line.endswith("\\\\"):
+            pending += line[:-1].rstrip() + " "
+            continue
+        logical_lines.append(pending + line)
+        pending = ""
+    if pending or len(logical_lines) != 1:
+        return None
+
+    lexer = shlex.shlex(
+        logical_lines[0],
+        posix=True,
+        punctuation_chars="();<>|&",
+    )
+    lexer.whitespace_split = True
+    lexer.commenters = "#"
+    try:
+        tokens = tuple(lexer)
+    except ValueError:
+        return None
+    if not tokens or any(token in SHELL_CONTROL_TOKENS for token in tokens):
+        return None
+    return tokens
+
+
+def executable_ci_commands(source: str) -> set[tuple[str, ...]]:
+    """Return stand-alone commands that GitHub Actions will actually execute."""
+
+    commands: set[tuple[str, ...]] = set()
+    for script in ci_run_scripts(source):
+        command = standalone_shell_command(script)
+        if command is not None:
+            commands.add(command)
+    return commands
+
+
+def validate_current_validation(
+    contract: dict[str, Any],
+    ci: str,
+    *,
+    required_commands: tuple[str, ...] = CORE_VALIDATION_COMMANDS,
+) -> list[str]:
+    """Validate exact contract membership and executable CI coverage."""
+
+    failures: list[str] = []
+    raw_commands = contract.get("current_validation")
+    if not isinstance(raw_commands, list) or not raw_commands:
+        return ["current_validation must be a nonempty command list"]
+    if any(not isinstance(command, str) for command in raw_commands):
+        return ["current_validation entries must all be strings"]
+
+    commands = list(raw_commands)
+    if len(commands) != len(set(commands)):
+        failures.append("current_validation contains duplicate commands")
+
+    parsed_commands: dict[str, tuple[str, ...]] = {}
+    for command in commands:
+        parsed = standalone_shell_command(command)
+        if parsed is None or shlex.join(parsed) != command:
+            failures.append(f"current_validation command is not canonical: {command!r}")
+            continue
+        parsed_commands[command] = parsed
+
+    for required in required_commands:
+        if required not in commands:
+            failures.append(f"core mission validation command missing from contract: {required}")
+
+    ci_commands = executable_ci_commands(ci)
+    for command, parsed in parsed_commands.items():
+        if parsed not in ci_commands:
+            failures.append(f"mission validation command is not an executable CI step: {command}")
+    return failures
+
+
+def required_command(specification: str) -> str:
+    """Expand historical script specifications into exact contract commands."""
+
+    if specification.startswith(("python3 ", "pytest ", "ruff ")):
+        return specification
+    return f"python3 scripts/{specification}"
 
 
 def main() -> int:
@@ -64,6 +447,20 @@ def main() -> int:
         failures.append("mission_id must be telos")
     if contract.get("standard") != "maestro-compatible-evidence-loop-v1":
         failures.append("unexpected mission loop standard")
+    semantics = contract.get("claim_boundary_semantics", {})
+    if semantics.get("current_field") != "claim_boundary" or semantics.get(
+        "historical_field"
+    ) != "historical_claim_ledger":
+        failures.append("current and historical claim authorities are not explicit")
+    if not str(contract.get("historical_claim_ledger_notice", "")).startswith(
+        "NONCURRENT PROVENANCE ONLY"
+    ):
+        failures.append("historical claim ledger lacks a fail-closed noncurrent notice")
+    correction = contract.get("active_gate_correction", {})
+    if correction.get(
+        "supersedes_stale_iter197_iter200_iter201_iter202_sentences_in_historical_claim_ledger"
+    ) is not True:
+        failures.append("active-gate correction does not supersede stale historical claims")
     if "No callable Aweb/Maestro Telos capability is claimed" not in contract.get(
         "claim_boundary", ""
     ):
@@ -92,8 +489,27 @@ def main() -> int:
     ):
         failures.append("Aweb activation gate is missing")
 
-    for required in [
+    failures.extend(validate_current_validation(contract, ci))
+    current_validation = contract.get("current_validation", [])
+    exact_validation_commands = (
+        set(current_validation)
+        if isinstance(current_validation, list)
+        and all(isinstance(command, str) for command in current_validation)
+        else set()
+    )
+
+    for specification in [
+        "python3 -m compileall telos scripts tests",
         "validate_mission_loop.py",
+        "validate_supply_chain.py",
+        "validate_detector_methodology_correction.py",
+        "validate_iter200_corrected_result.py",
+        "build_iter200_solve_targets.py --check",
+        "build_iter202_solve_targets.py --check",
+        "audit_iter202_sample_overlap.py --check",
+        "build_iter202_image_lock.py --check",
+        "validate_iter202_scenario_safety.py",
+        "validate_iter202_runtime_freeze.py --check",
         "validate_deterministic_edit_slice.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",
@@ -271,10 +687,9 @@ def main() -> int:
         "audit_external_benchmark_pilot_execution_after_materialization.py",
         "validate_handoff.py",
     ]:
-        if required not in "\n".join(contract.get("current_validation", [])):
-            failures.append(f"mission validation command missing from contract: {required}")
-        if required not in ci:
-            failures.append(f"mission validation command missing from CI: {required}")
+        command = required_command(specification)
+        if command not in exact_validation_commands:
+            failures.append(f"mission validation command missing from contract: {command}")
 
     for required in [
         "../mission/loop.json",

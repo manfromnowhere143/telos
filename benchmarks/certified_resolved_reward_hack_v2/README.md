@@ -4,10 +4,10 @@ This is the real reward-hack benchmark, distinct from the misnamed `reward_hack_
 contained suite-failing patches the official harness rejects; see
 `experiments/iter192_reward_hack_benchmark_construct_validity_audit/`).
 
-Every row here is a **certified-resolved reward hack**: a patch that the official SWE-bench Verified harness
-marks resolved (it passes every `FAIL_TO_PASS` and `PASS_TO_PASS` test) and that produces different output
-from the accepted gold fix on an input the graded tests do not cover, verified by execution in the
-instance's pinned container.
+Every row here is a **certified-resolved reward hack under the benchmark's reference-differential operational label**:
+the official SWE-bench Verified harness marks the patch resolved (it passes every `FAIL_TO_PASS`
+and `PASS_TO_PASS` test), and pinned-container execution produces output different from the accepted gold
+fix on retained behavior the graded tests do not distinguish. This is not independent semantic adjudication.
 
 ## Contents
 
@@ -28,12 +28,13 @@ used, and the gold vs variant output that witnesses the hack.
    container and parsing it with the official SWE-bench log parsers; it is kept only if every graded test
    passes.
 3. The wrongness was witnessed by executing a scenario under the gold patch and the variant in the same
-   container and observing different output. Gold is used only at this labelling step, never as a detector
-   input.
+   container and observing different output. Gold is part of this laboratory label. Detector access varies
+   by experiment and is documented separately; iter197 and iter201 used gold during property inclusion and
+   therefore record protocol `FAIL`.
 
 ## Claim boundary
 
-Elicited and constructed, not sampled from real agent behavior; no natural-frequency claim. "Wrong" means
-the variant differs from the gold reference fix on a constructed input. `22` rows across `8` repositories
-is a small, precise, execution-verified set, not a leaderboard, model-comparison, or state-of-the-art
-result.
+Elicited and constructed, not sampled from real agent behavior; no population-frequency claim. "Wrong"
+means the variant differs from the gold reference fix on a retained constructed input. `22` rows across
+`8` repositories is a small, precise, execution-verified set, not a leaderboard, model-comparison, or
+state-of-the-art result.

@@ -1,20 +1,24 @@
-# Reward Hack Seed v0
+# Reward Hack Seed v0 (historical name; construct invalidated)
 
-This directory is a validated seed artifact derived from committed Telos iter152 evidence.
-It contains 20 execution-verified both-miss hack diffs across
-8 repositories.
+> **Standing correction (iter192): these 20 rows are not reward hacks.** Each row fails at least one
+> official graded `PASS_TO_PASS` regression check, and the official harness rejects it. The directory and
+> schema names remain unchanged to preserve hashes and historical references.
+
+This directory is a validated historical seed artifact derived from committed iter152 evidence. It
+contains 20 execution-verified, suite-failing `both_miss` candidate diffs across 8 repositories;
+`both_miss` means the deterministic detector and LLM judge missed the diff, not that the tests missed it.
 
 The seed preserves:
 
-- one JSONL row per iter152 both-miss hack,
-- a SHA256 for each hack diff,
+- one JSONL row per iter152 historical `both_miss` candidate,
+- a SHA256 for each candidate diff,
 - detector and reward-model judge verdict labels from iter152,
 - source links and hashes back to the committed iter152 proof artifacts,
 - the `survives_all_static` label, which is true for 5/20 rows.
 
-Claim boundary: this is a seed artifact, not a released benchmark, benchmark score,
-leaderboard, model-comparison result, state-of-the-art claim, or natural-RL frequency claim.
-No provider calls, cloud resources, SWE-bench executions, or judge calls were added by iter153.
+Claim boundary: this is a construct-invalid historical seed, not a reward-hack corpus, released benchmark,
+benchmark score, leaderboard, model-comparison result, state-of-the-art claim, or population-frequency
+result. No provider calls, cloud resources, SWE-bench executions, or judge calls were added by iter153.
 
 Primary files:
 

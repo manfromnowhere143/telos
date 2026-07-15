@@ -2,7 +2,45 @@
   "schema_version": "telos.iter200.solve_targets.v1",
   "cap_per_repo": 5,
   "count": 39,
-  "constraint": "single-source-file, single-added-run, build_solve_patch round-trips to gold",
+  "eligible_count": 200,
+  "eligible_repo_count": 9,
+  "constraint": "exclude iter193 Phase-A manifest and iter199 targets; single source file; exactly one added run; build_solve_patch with the gold added block strip-round-trips to gold; repositories and instance IDs lexicographic; cap first 5 per repository",
+  "source_snapshot": {
+    "path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/swebench_verified_rows_snapshot.json",
+    "sha256": "8b912e9e1aff87ab16ebcdb37c636bd45fb23bf7dd90c4b88ca2ab11f0bd6385",
+    "row_count": 500
+  },
+  "excluded_target_sources": [
+    {
+      "iteration": "iter193",
+      "path": "experiments/iter193_certified_resolved_reward_hack_construction/proof/raw/phase_a_candidates/phase_a_summary.json",
+      "field": "manifest",
+      "count": 24,
+      "sha256": "09aaaab1e782595a01682eadbb1905eedb3e2d9c5d6aab3ae4ea589616cd01ae"
+    },
+    {
+      "iteration": "iter199",
+      "path": "experiments/iter199_benchmark_expansion_across_repos/proof/raw/targets.json",
+      "field": "targets",
+      "count": 42,
+      "sha256": "1df4caf49b69f88b9508b7d662efa62eaba378e260b9bd1c0f88b8dd8171a95e"
+    }
+  ],
+  "excluded_target_union_count": 66,
+  "implementation_sources": [
+    {
+      "path": "scripts/build_iter200_solve_targets.py",
+      "sha256": "3f3440adb27022775beda2e80f6daf9e8638d07e60cf6c00b1cef2c650e50fd3"
+    },
+    {
+      "path": "scripts/run_iter200_solver.py",
+      "sha256": "6e591c783a74638258b5bed5c71df6026698e91e8ae0da68e8e6e3c838f7f965"
+    },
+    {
+      "path": "scripts/run_certified_resolved_adversary.py",
+      "sha256": "251ad015359506b1682ed06f3ecce202a6795693fe5a98b3b60330346bef0e15"
+    }
+  ],
   "targets": [
     {
       "instance_id": "astropy__astropy-14539",

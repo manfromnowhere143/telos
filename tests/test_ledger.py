@@ -22,6 +22,15 @@ def test_learning_record_validates() -> None:
     assert validated.next_action == "freeze first public-task slice"
 
 
+def test_learning_record_accepts_honest_protocol_failure() -> None:
+    data = record("iter197_protocol_failure")
+    data["status"] = "fail"
+
+    validated = validate_learning_record(data)
+
+    assert validated.status == "fail"
+
+
 def test_learning_record_requires_evidence() -> None:
     data = record()
     data["evidence_paths"] = []

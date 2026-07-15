@@ -1,2 +1,4 @@
 # Official SWE-bench eval scripts are committed byte-for-byte; preserve upstream whitespace.
 experiments/**/proof/raw/specs/*.eval_script.sh -whitespace
+# Raw harness transcripts are immutable evidence and retain terminal formatting bytes.
+experiments/**/proof/raw/execution/*.log -whitespace

@@ -1,8 +1,8 @@
 # Mission Loop
 
-Telos runs as a public evidence loop. The loop is compatible with Aweb/Maestro
-orchestration, but the repository does not claim a private Aweb runner until a concrete capability
-slug exists in Aweb discovery.
+Telos runs as a public evidence loop from its standalone repository. Historical orchestration
+discovery records remain provenance only; they do not change the repository boundary or establish a
+private runtime.
 
 Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
@@ -10,12 +10,41 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 - Active gate:
   [`../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`](../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md)
-- Active gate state: pre-registered natural-rate scale run with a pre-result amendment. Before any retained
-  iter202 solver output, certify every valid patch independently of scenario availability, backfill the
-  ten iter200 rows omitted by the old denominator, freeze the exact model, and disclose the interrupted
-  invocation conservatively in the call/spend ledger. The frozen cohort is disjoint from iter200 but not
-  unused mission-wide (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the
-  predeclared sensitivity splits are mandatory. `CONTINUITY.md` is the exact resume authority.
+- Active gate state: pre-result amended neutral-prompt localized-solve replication with no retained or
+  inspected iter202 solver output. The first Git freeze followed the disclosed interrupted provider
+  invocation, so this is not conventional preregistration before provider contact. The iter200 prerequisite is complete: all
+  `37` valid patches have official-harness
+  evidence, `24` are certified, `k=1`, and `u=6`; the standing descriptive quantities are `1/24`
+  confirmed lower, `7/24` worst-case missing-outcome upper, and `1/18` complete-case sensitivity. The old
+  `1/15` is retained only as scenario-eligible chronology. The paid path now fails closed through an
+  exact eight-shard certification partition, atomic attempt checkpoints, an exact-byte runtime manifest,
+  and one aggregate receipt bound to a single repository, workflow, run, attempt, commit, spec index, and
+  runtime manifest. Mixed attempts and incomplete certification coverage are rejected. Provider execution
+  remains blocked until this hardened state is committed and primary-branch CI is green. The frozen cohort
+  is disjoint from iter200 but not unused
+  mission-wide (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the
+  pre-result-declared sensitivity splits remain mandatory. `CONTINUITY.md` is the exact resume authority.
+- Standing detector correction: iter197 and iter201 are protocol `FAIL`, with retained exploratory
+  diagnostics only. Both property prompts used candidate-diff-derived locators. Iter197 also violated its
+  visible-anchor rule and omitted independent paired-gold decisions; iter201 explicitly registered gold
+  validation, so gold use there is an interpretation limit, not another deviation. The accurate label is
+  **locator-assisted, gold-validated property pipeline**. Iter196's apparent property-only row was
+  judge-unadjudicated, so no complementarity is confirmed. Iter201's judge
+  catches `20/22`, with `8/88` unparseable responses (`5/22` hack rows, `3/22` gold rows); report
+  gold-control flags as `3/22` observed lower, `6/22` worst-case missing upper, and `3/19` complete-case.
+  The property pipeline catches `6/22`, all within the judge catch set; no independent property false-positive
+  estimate or ensemble gain is established. Its `44` judge rows were fresh, but the judge phase has no
+  independently timestamped pre-output Git freeze; raw response text is unavailable and input truncation is
+  measured.
+- Iter200 claim boundary: its neutral-solve cohort is a nonrandom, gold-localized convenience sample. The
+  deterministic builder excludes the `66` unique iter193 Phase-A/iter199 target IDs before deriving `200`
+  compatible rows across `9` repositories and the ordered `39`-target cohort. The strict two-judge-only-model
+  rule and missingness summaries were adopted after the original result, and the
+  hypothesis/output freeze is not independently timestamped in Git. Treat `1/24`, `7/24`, and `1/18` as
+  exploratory descriptive sensitivities. Its blind-judge artifact retains parsed labels and derived
+  booleans, not raw response text, so exact response substance and parser fidelity cannot be re-audited.
+  Iter202 is a pre-result protocol freeze after disclosed provider contact, not conventional prospective
+  preregistration.
 - Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false

@@ -6,37 +6,40 @@
 > reward function. The generator
 > (`experiments/iter152_reward_model_gaming_scale/proof/raw/detection_pipeline.py`, line 132) admitted a
 > row only when the target test passed **and at least one `PASS_TO_PASS` test failed** — `PASS_TO_PASS`
-> being the repository's own existing test suite. Verified from committed tarballs at zero spend:
+> being the grader's curated regression-test set. Verified from committed tarballs at zero spend:
 > `40/40` rows are marked `resolved: false` by the official SWE-bench harness and `40/40` have at least
 > one failing `PASS_TO_PASS` test.
 >
-> **What this artifact actually is:** 40 subtly-wrong patches that break the existing test suite and
+> **What this artifact actually is:** 40 subtly-wrong patches that break at least one official graded
+> regression check and
 > that a deterministic detector and LLM judges failed to spot by reading the diff. `both_miss` means the
 > *detector and judge* miss. It never meant the tests miss.
 >
 > **Baseline you must cite alongside any figure from this artifact:** the official SWE-bench harness
-> verdict — equivalently, running the existing test suite — detects `40/40` at `$0.00`. The three-model
+> verdict — or an equivalent official-grader execution — detects `40/40` at `$0.00`. The three-model
 > panel's unrepaired iter179 `majority_catch` detects `17/40` at `$13.59`.
 >
-> See `experiments/iter192_reward_hack_benchmark_construct_validity_audit/RESULT.md`. The successor
-> artifact targeting the genuine class is pre-registered at
-> `experiments/iter193_certified_resolved_reward_hack_construction/HYPOTHESIS.md`.
+> See `experiments/iter192_reward_hack_benchmark_construct_validity_audit/RESULT.md`. The released successor
+> targeting the genuine class is `benchmarks/certified_resolved_reward_hack_v2/`: `22` reference-differential,
+> execution-verified rows across `8` repositories.
 
 ## Construction properties a reviewer should know
 
 These were never previously documented and both bear on how figures from this artifact read:
 
-- **Matched-pair derivation (a strength, and accidental).** Each hack row is the *gold patch* with its
+- **Matched-pair derivation (a partial confound control, and accidental).** Each candidate row is the
+  *gold patch* with its
   largest added `+` run substituted (`build_variant`), hunk arithmetic repaired, everything else retained
-  byte-for-byte. Hack and paired control therefore share file set, hunk anchors, and context lines. This
-  is why the `0/40` control false-positive rate in iter165/iter179 is **not** a provenance or style
-  artifact: the classes are matched by construction and stylistic separability is at chance. That
-  property is real and load-bearing, and it was never stated until iter192.
-- **Test files are excluded by filter (a construct limit).** `one_src` drops any path matching `/test`
-  or `test_`, so **no row can edit a test, weaken an assertion, or touch test config** — measured `0/40`.
-  The judge rubric names those three cues as three of its four definitions of a hack, so the judges were
-  instructed to hunt for evidence that cannot exist in any positive row. Recall figures from this
-  artifact must be read with that mis-specification in mind.
+  byte-for-byte. Candidate and paired control therefore share file set, hunk anchors, and context lines.
+  This matching reduces those specific provenance/style confounds in the historical `0/40` control result;
+  it does not prove that every style cue is controlled or that class separability is at chance.
+- **No test-side edits in the retained cohort (a measured construct limit).** `one_src` drops paths matching
+  `/test` or `test_`, which reduces test-file candidates but does not exclude every conventional test-config
+  filename. In the retained `40` rows, `0/40` edit tests, weaken test assertions, or change test
+  configuration. This is an observed cohort property, not a construction guarantee. The judge rubric names
+  those three cues as three of its four definitions of a hack, so it asked judges to hunt for cues absent
+  from this positive cohort. Recall figures from this artifact must be read with that mis-specification in
+  mind.
 
 ## Original description (retained; framing superseded above)
 

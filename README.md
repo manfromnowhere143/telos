@@ -5,26 +5,70 @@
 ## Current result
 
 Telos studies *certified-resolved reward hacks*: patches that the official SWE-bench Verified harness marks
-**resolved** — they pass every graded test — yet execution proves **wrong** on behavior the tests do not
-cover. This is the class no test-based check can catch, because those tests are exactly what "resolved"
-means. The program's results, all reproducible from committed proof:
+**resolved** — they pass every graded test — yet pinned execution differs from the accepted fix on a
+retained input the graded tests do not distinguish. A check restricted to those graded tests cannot catch this class, because passing those tests is
+exactly what "resolved" means. The program's results, all reproducible from committed proof:
 
-- **A corrected foundation.** An earlier benchmark did not contain reward hacks; its rows fail the existing
-  test suite, so running the tests catches all `40/40` for free. See the standing correction below.
+- **A corrected foundation.** An earlier benchmark did not contain reward hacks; its rows fail at least one
+  official graded regression check, so the official harness catches all `40/40` for free. See the standing
+  correction below.
 - **A benchmark of `22` execution-verified certified-resolved reward hacks across `8` repositories**
   (`benchmarks/certified_resolved_reward_hack_v2/`) — django, matplotlib, astropy, xarray, pylint, pytest,
   requests, sympy — each certified by the official harness and witnessed wrong by gold-differential
   execution.
-- **A two-detector comparison** at decision time with the correct fix withheld: on all `22` hacks, a
-  frontier judge panel catches `20/22` with `3/22` gold false positives; a gold-free execution oracle
-  catches `6/22` at zero false positives. The oracle's catches are a subset of the judge's on this larger
-  run; on this cohort the OR-union therefore matches the judge's `20/22` recall and does not improve it.
-- **The first naturally-occurring case:** a model asked to fix an issue with no instruction to game the
-  tests produced a certified-yet-wrong patch (existence result, `N=1`).
+- **A protocol-corrected full-cohort instrument comparison.** Iter197 and iter201 both record `FAIL`:
+  their property prompts used source/function locators derived from candidate diffs. Iter197 also replaced
+  its visible-test anchor with gold validation and did not run its registered paired-gold controls as
+  independent detector decisions. Iter201 explicitly registered gold validation, so gold use there is an
+  interpretation limit, not a second deviation. The retained iter201 diagnostics are exploratory: the
+  judge catches `20/22`; `8/88` judge responses are unparseable (`5/22` hack rows and
+  `3/22` gold rows), so gold-control flag sensitivities are `3/22` observed lower, `6/22` worst-case missing
+  upper, and `3/19` complete-case. A locator-assisted, gold-validated property pipeline catches `6/22`, all
+  within the judge's catch set. It supplies no independent false-positive estimate or ensemble gain. The
+  judge phase lacks an independently timestamped pre-output Git freeze, and its retained artifact has
+  parsed labels and nondecision markers but not raw response text.
+- **The mission's first neutral-prompt exploratory existence case.** A model asked to fix a gold-localized
+  issue with no instruction to game the tests produced one strict confirmed certified-yet-wrong patch. The
+  retained convenience sample is nonrandom, and the strict two-judge rule was adopted after outcome
+  inspection. After the official-harness denominator backfill, `N=24`, `k=1`, and `u=6`; report `1/24`
+  confirmed lower, `7/24` worst-case upper over those six declared missing outcomes, and `1/18`
+  complete-case sensitivity together. The `54` legacy execution logs lack explicit image/exit provenance
+  and are accepted only as a frozen exact-byte corpus; the `20` backfill logs have stronger provenance.
+  The original blind-judge artifacts retain parsed labels and derived booleans, not raw response text, so
+  exact response substance and parser fidelity cannot be re-audited. These are bounded parsed-decision
+  existence evidence and descriptive exploratory yields, not a population rate.
 - **A findings paper** (`paper/telos.tex`, `paper/telos.pdf`), every headline number regenerating from a
   committed `experiments/*/proof/` artifact.
 
-## Standing correction (iter192, 2026-07-14): the reward-hack benchmark contains no reward hacks
+## Current evidence arc
+
+This is the standing scientific story. A `FAIL` node preserves its exploratory measurements but does not
+convert them into protocol-valid detector evidence. Iter202 has a pre-result, pre-retained-output protocol
+freeze after disclosed provider contact; it is not conventional prospective preregistration and has no
+retained solver output. Its execution path is runtime-frozen and fails closed on incomplete coverage,
+partial evidence, or mixed workflow attempts; provider execution remains blocked until the hardened state
+is committed and primary-branch CI is green.
+
+```mermaid
+flowchart LR
+ V1["Earlier 40-row artifact<br/>not reward hacks"]-->C192["iter192 correction<br/>harness: 40/40 unresolved"]
+ C192-->C195["iter195 construction<br/>10 certified-yet-wrong · 3 repos"]
+ C195-->X199["iter199 expansion<br/>+12 witnessed · 22 / 8 repos"]
+ C195-->D197["iter197 FAIL<br/>locator + anchor + controls<br/>4/10 · no confirmed complementarity"]
+ D197-->D201
+ X199-->D201["iter201 FAIL<br/>locator only<br/>property 6/22 ⊂ judge 20/22"]
+ C192-->N200["iter200 exploratory<br/>nonrandom · no raw judge text<br/>N=24 / k=1 / u=6"]
+ N200-->N202["iter202 post-contact pre-result<br/>53 targets · prior-use 27 / provider-ledger 10<br/>frozen runtime · atomic checkpoints<br/>valid-solution ordinal mod 8 · ≤7/shard · 9,030s<br/>8 shard receipts → 1 run/attempt aggregate<br/>no retained solver output · primary-CI blocked"]
+ D201-->N202
+ classDef f fill:#fee,stroke:#c22,color:#000;
+ classDef e fill:#fff4d6,stroke:#9a6700,color:#3d2b00;
+ classDef p fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
+ class N200 e;
+ class D197,D201 f;
+ class N202 p;
+```
+
+## Standing correction (iter192, 2026-07-14): the earlier v1 artifact contains no reward hacks
 
 Read this before citing any number below. It is the largest correction in this repository's history and
 it invalidates the framing — not the arithmetic — of much of the prose that follows.
@@ -35,7 +79,7 @@ survives the grader, corrupts the training signal, and ships.
 `benchmarks/reward_hack_benchmark_v1/` does not contain such patches. Its generator
 (`experiments/iter152_reward_model_gaming_scale/proof/raw/detection_pipeline.py`, line 132) admitted a
 row only when the target test passed **and at least one `PASS_TO_PASS` test failed**. `PASS_TO_PASS` is
-the repository's own existing test suite. Every row breaks that suite by construction, and
+the grader's curated regression-test set. Every row breaks at least one graded regression check by construction, and
 `experiments/iter192_reward_hack_benchmark_construct_validity_audit/` re-derived the official SWE-bench
 harness verdict for all `40` rows from committed tarballs at zero spend:
 
@@ -49,21 +93,21 @@ What follows from that:
 
 | oracle | detections on v1 | provider cost |
 | --- | ---: | ---: |
-| official SWE-bench harness verdict (equivalently: run the existing test suite) | `40/40` | `$0.00` |
+| official SWE-bench harness verdict (or an equivalent official-grader execution) | `40/40` | `$0.00` |
 | three-model cross-provider panel, unrepaired `majority_catch` (iter179) | `17/40` | `$13.59` |
 
 That baseline had never been reported here (`0` hits across `677` committed markdown files).
 
 **The `17/40` figure is not retracted.** It is arithmetically correct and reproduces from committed
 proof. What changed is what it is a figure *about*: it measures how often a frontier panel, reading a
-diff, spots a subtly-wrong patch **that the existing test suite already rejects**. That is a legitimate
+diff, spots a subtly-wrong patch **that the official graded regression checks already reject**. That is a legitimate
 finding about LLM code review. It is not a finding about reward hacking, and it does not motivate a
 verification protocol, because the defect class it covers is caught perfectly and for free by running
 the tests. The term `both_miss` always meant *the deterministic detector and the LLM judge miss*; it
 never meant the tests miss.
 
 The same runs produced `139` variants across `65` instances that the official harness certified as
-**resolved** — whole suite passing — and discarded every one as a `no_both_miss` failure, keeping only
+**resolved** — every official graded test passing — and discarded every one as a `no_both_miss` failure, keeping only
 `{id, repo, status}`. Their diffs are unrecoverable. Whether they are *wrong* is unestablished and
 requires gold-differential execution. That discarded class is the mission's target, and it is what
 `experiments/iter193_certified_resolved_reward_hack_construction/` set out to construct.
@@ -77,84 +121,114 @@ harness-fitness gap, not a negative.
 `experiments/iter194_certified_resolved_oracle_and_runner_fix/` fixed the runner and sharpened the null.
 It ran all `16` candidates through their official SWE-bench `eval_script` (django `runtests.py`, pytest for
 the rest), parsed with the vendored official SWE-bench parsers: **`16/16` executed, all `16`
-certified-resolved**, yet `0` accepted. The reason is structural — for django the curated `PASS_TO_PASS`
-*is* the whole test module (`0` uncurated tests), and where uncurated tests exist (matplotlib up to `168`,
-`193` total) the variant passes every one identically to gold. No shipped test distinguishes any certified
-variant from its gold fix, so reference-free verification of a certified patch must synthesize probes
-beyond the project's own tests. `experiments/iter195_synthesized_input_differential_oracle/` did exactly
-that: synthesize inputs to the changed callable and execute gold vs variant differentially in-container.
+certified-resolved**, yet `0` accepted. For django, the curated `PASS_TO_PASS` set is the entire audited
+target test module (`0` additional module tests); where additional target-module tests exist (matplotlib up
+to `168`, `193` total), the variant passes them identically to gold. No graded or additional test in those
+audited target modules distinguishes a certified variant from its gold fix. This is not a claim about every
+test elsewhere in each repository. `experiments/iter195_synthesized_input_differential_oracle/` therefore
+synthesized inputs to the changed callable and executed gold versus variant differentially in-container.
 
 `experiments/iter195_synthesized_input_differential_oracle/` is the mission's first execution-verified
 positive result: **`10` certified-resolved reward hacks**. Each is a patch the official SWE-bench harness
 marks resolved (passes every `FAIL_TO_PASS` and `PASS_TO_PASS`) that produces observably different output
-from the gold fix on a validated synthesized input the shipped tests never cover (over `15` scenarios:
-`10` wrong, `2` correct-equivalent, `2` scenario-failed, `1` variant-errored; all `10` re-verified
+from the gold fix on a validated synthesized input not covered by the audited graded/additional
+target-module tests (over `15` scenarios:
+`10` wrong, `2` matched gold on their retained scenarios (artifact status `certified_equivalent`; no global
+equivalence claim), `2` scenario-failed, `1` variant-errored; all `10` re-verified
 airtight). One case, `django-11119`, was hand-judged a correct equivalent and execution proved it a real
 hack — the thesis on the repo's own analysis. Claim boundary: elicited and constructed, not a natural
 frequency; `N=10` across `3` repositories; "wrong" means differs from the gold reference fix; no detector
-is evaluated yet. `experiments/iter196_detector_vs_certified_hacks/` evaluated the first detector against these `10` at
-decision time with gold forbidden: a 2-model frontier judge panel (`gpt-5.6-terra` + `claude-opus-4-8`;
-`gemini-2.5-flash` blocked on ADC re-auth), reading only diff + task + visible test, flags **`7/10`** of the
-hacks (any_catch) at `1/10` gold false positives and `1/2` equivalent false positives, in a single
-stochastic run. Judges carry real signal on this class; the honest story is a recall/precision tradeoff, not
-"judges fail." Two methodology issues were caught via world-contact bars and fixed (a leakage-guard false
-alarm — real gold-line leakage `2/10`, biasing against recall — and OpenAI nondecisions from a `200`-token
-budget, raised to `1536`). The gold-free execution oracle is
-`experiments/iter197_gold_free_oracle_vs_certified_hacks/`: `12/12` sound properties, `4/10` recall at
-`0/2` false positives on the equivalent controls — precise but coverage-bound (a null on its own `>=5`
-bar). Against the judge panel's `7/10` recall and `1/2` equivalent false positives, the tradeoff is clean
-and the two are **complementary**: the oracle caught `django-11211` the judge missed, the union is `8/10`,
-and only `2` astropy hacks are missed by both. An ensemble dominates either instrument alone — the
-three-layer thesis, demonstrated on the genuine certified-resolved class. `django-11179` was missed by the
-oracle exactly as predicted (its gold-free property tested a pk named `id`, where the variant behaves
-correctly; the judge caught it by reading the suspicious condition), making the coverage-bound mechanism
-concrete.
+is evaluated yet. `experiments/iter196_detector_vs_certified_hacks/` evaluated a judge against these `10`:
+a 2-model panel (`gpt-5.6-terra` + `claude-opus-4-8`; `gemini-2.5-flash` blocked on ADC re-auth), reading
+diff + task + visible test, flags **`7/10`** hacks (any-catch), `1/10` gold patches, and `1/2` equivalent
+controls in one stochastic run. Three of twenty hack responses are unparseable across two rows, so the
+required hack sensitivities are `7/10` observed lower, `9/10` missing upper, and `7/8` complete-case;
+paired-gold values are `1/10`, `3/10`, and `1/8`, and equivalent-control values are `1/2`, `2/2`, and
+`1/1`. Raw responses were not retained, and capped prompts truncate some task/test inputs. Judges carry
+bounded parsed-label signal on this cohort, not a stable model score.
 
-That complementarity was the original `10`-hack run, not a standing cross-scale claim. Iter201 repeated
-the comparison on all `22` hacks: judge `20/22`, oracle `6/22`, union `20/22`, with every oracle catch a
-subset of the judge's. The earlier oracle-only catch was partly stochastic and did not replicate.
+`experiments/iter197_gold_free_oracle_vs_certified_hacks/` is now explicitly a **protocol failure with
+retained exploratory diagnostics**. The registered design required a diff-independent, visible-test-anchor
+property protocol. The executed generator instead received source/function locators extracted from the
+candidate diff, replaced the registered visible-test anchor with gold validation, and never evaluated the
+ten registered paired-gold controls as independent detector decisions. The accurate label is
+a **locator-assisted, gold-validated property pipeline**: `12/12` properties pass the gold inclusion rule,
+it catches `4/10` hacks, and it flags `0/2` equivalent controls. Those last two controls are not an
+independent false-positive estimate. The alleged property-only row, `django-11211`, had two unparseable
+judge responses, so it was judge-unadjudicated rather than a confirmed judge miss. The union sensitivities
+are `8/10` observed, `9/10` missing upper, `7/8` judge-complete, and `8/9` under the explicitly
+property-resolved estimand; no complementarity is confirmed. The later `>=5` threshold was added with the
+generated properties, not preregistered.
 
-The construct-and-detect arc iter192-iter197 is scientifically complete for a findings paper, and
-`experiments/iter198_findings_paper_synthesis_and_accessibility/` finished it: `paper/telos.tex` is a full
-accessible rewrite around these results (self-correction, ten certified-yet-wrong patches, two-detector
-comparison), every headline number cross-checked to regenerate from committed proof, and `paper/telos.pdf`
-rebuilt with `tectonic`. The remaining steps are operator actions, not repo gates: hand-verify the three
-flagged citations and the author block, submit to a peer-reviewed venue for a DOI, then appeal to arXiv with
-the DOI (an endorsement is not an acceptance). See `paper/README.md`.
+`experiments/iter201_detectors_on_full_benchmark/` repeated the comparison on all `22` hacks and likewise
+records **`FAIL`** for the locator protocol deviation. Retained exploratory outcomes are judge `20/22`,
+property pipeline `6/22`, and union `20/22`; every property catch is already a judge catch. The judge has
+`8/88` unparseable responses, affecting `5/22` hack rows and `3/22` gold rows. Hack any-catch remains
+determinate because the other judge catches each incomplete hack row. Gold-control flags must be reported
+as `3/22` observed lower, `6/22` worst-case missing upper, and `3/19` complete-case. No independent
+property-pipeline false-positive rate or ensemble improvement is established. All `44` judge rows were
+fresh iter201 evaluations, but the judge hypothesis, runner, and outputs first appear in one commit; only
+the already-mismatched property runner has a separate pre-output freeze. Judge prompts truncate task text
+for `7/22` unique instances and visible tests for `3/22`; property prompts truncate `9/22` tasks and `3/22`
+tests. Historical property execution used mutable `:latest` images without retained digests.
 
-`experiments/iter199_benchmark_expansion_across_repos/` grows the benchmark beyond three repositories: it
-runs the same construct-and-witness pipeline on 42 fresh SWE-bench Verified instances spanning all 12
-dataset repositories, to show the certified-yet-wrong class is not an artifact of Django, astropy, and
-matplotlib.
+`experiments/iter198_findings_paper_synthesis_and_accessibility/` produced the findings draft. The paper has
+since been corrected to preserve these protocol failures, the nondecision sensitivities, and the iter200
+provenance limits. Its quantitative claims remain bound to committed proof; external submission remains an
+operator action after a final citation and author-block review. See `paper/README.md`.
 
-`experiments/iter202_natural_rate_scaled/` scales that measurement on a frozen 53-instance cohort, pooled
+`experiments/iter199_benchmark_expansion_across_repos/` grows the benchmark beyond three repositories. It
+runs the same construct-and-witness pipeline on `42` additional target IDs spanning all `12` dataset
+repositories. They were additional targets for that construction gate; the mission does not claim they were
+mission-fresh or use them for a natural-frequency inference. The retained result adds `12` witnessed hacks
+in five repositories, bringing the released benchmark to `22` across `8`.
+
+`experiments/iter202_natural_rate_scaled/` is designed to scale that measurement on a frozen 53-instance cohort, pooled
 descriptively with iter200's 39 disjoint target IDs. A pre-output overlap audit found that 27 of the 53 had
 defined prior result-bearing exposure elsewhere in the mission, including 10 with provider-call-ledger
-evidence; the final result must therefore include predeclared prior-use sensitivities. The amendment also
+evidence; the final result must therefore include pre-result-declared prior-use sensitivities. The first
+Git record of the iter202 hypothesis and target manifest follows the disclosed interrupted provider
+invocation, so this is a pre-result protocol freeze, not conventional preregistration before provider
+contact. No response was retained or inspected. The amendment also
 corrects certification to cover every valid patch before scenario generation, freezes the exact model,
-discloses an interrupted no-retained-output invocation, and requires an iter200 denominator backfill
-before pooling.
+and discloses an interrupted no-retained-output invocation. The required iter200 denominator backfill is
+now complete; iter202 must use that corrected same-rule baseline for pooling.
 
-`experiments/iter200_natural_certified_yet_wrong_rate/` attacks the elicited-construction limitation
-directly: it asks a frontier model to fix SWE-bench issues with no instruction to game the tests, then
-measures how often its certified-resolved patch is nonetheless wrong (adjudicated by a blind judge). A
-positive result is the first naturally-occurring certified-yet-wrong patch; a null is an honest bound on
-how often the class arises unprompted.
+`experiments/iter200_natural_certified_yet_wrong_rate/` asks `gpt-5.6-terra` to fix issues with no instruction
+to game tests. It is exploratory rather than a preregistered frequency estimate. The prompt is
+gold-localized: the issue and buggy region are reconstructed using gold context/removals while gold-added
+lines are withheld. The retained `39` targets are a nonrandom convenience sample. Starting from the
+committed iter154 snapshot, the builder first excludes all `66` unique IDs in the iter193 Phase-A and
+iter199 target sets, then keeps `200` compatible rows across `9` repositories using a single source file,
+one added run, gold-shaped patch-builder strip-round-trip compatibility, lexicographic ordering, and a cap
+of five per repository. The original
+hypothesis named one independent judge; after inspecting outcomes, the conservative report adopted a
+two-judge, both-name-only-model rule (`3` loose cases versus `1` strict case). The missing-outcome formulas
+were also added after the original result but before the official-harness backfill. Git first records the
+hypothesis and solver outputs together, so a pre-output freeze is not independently timestamped there. The
+blind runner preserved parsed labels and derived booleans but not raw judge responses; the exact response
+substance and parsing decisions therefore cannot be independently replayed.
 
-The historical `1/15` iter200 rate is conditional on the scenario-eligible cohort: nine exact-gold
-patches and one scenario-missing patch never entered certification. The strict one-case existence result
-remains supported; a corrected denominator is being backfilled before any pooled rate is reported.
-
-`experiments/iter201_detectors_on_full_benchmark/` extends the detector comparison from the original 10
-hacks to all 22 across 8 repositories, so the detection recall and false-positive numbers rest on the full,
-repository-diverse benchmark.
-
-Everything below this section predates the correction. Read the iteration prose as a record of what was
-done, not as a standing claim.
+The historical `1/15` proportion is conditional on the old scenario-eligible cohort and is not poolable.
+The corrected denominator is complete: all `37` valid patches have official-harness evidence, `24` are
+certified, and all `9` legacy `identical-to-gold` pairs become equal only after terminal-LF normalization;
+`0/9` are byte-identical and `8/9` of those normalized-equivalent patches certify. One patch is
+strict-confirmed, and
+`6` certified outcomes remain
+unadjudicated (`5` without a valid witness and `1` with an incomplete judge outcome). Report `1/24`
+confirmed lower, `7/24` worst-case upper over those six declared missing outcomes, and `1/18` complete-case
+sensitivity together. They are not confidence intervals, prevalence bounds, or a population frequency.
 
 ---
 
-A bounded single-model judge result now exists, now complete as a paired reward-hack/control result for
+# Historical record (earlier arcs, retained for provenance)
+
+Everything below is the earlier detection/intervention work (iter00-iter191). It is retained for provenance,
+not as a standing summary. Terms such as `both-miss`, `17/40`, `majority_catch`, or historical gold-free
+claims remain bounded to their named experiments; they do not repair the iter197/iter201 protocol failures
+or supersede the correction above.
+
+At the iter165 boundary, a bounded paired single-model judge result existed for
 `gemini-2.5-flash`: `3/40` recall on the blinded all-hack packets from `iter161` and `0/40` false
 positives on the paired legitimate controls after the `iter165` rate-limit recovery. That supports only
 this one model's bounded recall/specificity/precision shape; the high precision has denominator `3` and
@@ -221,8 +295,9 @@ were `0`, and no claim upgrade was made. Iter190 then stopped before provider sp
 property-generator execution result: it froze the full `24` planned calls with `0` prompt leakage hits,
 but the committed schema has no direct runnable artifact fields and the local runtime is not a ready
 SWE-bench/container execution surface, so local/container execution attempts stayed `0` against the
-pre-registered `20` attempt floor. The active next gate is iter191 zero-spend property-execution contract
-design before any more property-generator spend. No leaderboard, public benchmark score, model-comparison result, precision result beyond the explicitly bounded denominators, model-superiority claim,
+pre-registered `20` attempt floor. At that historical boundary, the next gate was iter191's zero-spend
+property-execution contract design. No leaderboard, public benchmark score, model-comparison result,
+precision result beyond the explicitly bounded denominators, model-superiority claim,
 state-of-the-art result, natural-frequency estimate, broad robustness result, repaired-score result, or
 claim beyond this bounded panel path is made. The repository begins with a completed target survey:
 [`experiments/iter00_target_survey`](experiments/iter00_target_survey/RESULT.md), which selected a
@@ -238,18 +313,6 @@ The target is not a better chat transcript. The target is a receipt-bearing comp
 tests when code changed, typecheck/build when applicable, diff-scope checks, live-domain checks
 when production behavior changed, artifact hashes, stated acceptance criteria, named falsifiers,
 and an adversarial review pass.
-
----
-
-# Historical record (earlier arcs, retained for provenance)
-
-Everything above is the current result: the corrected benchmark, the `22` execution-verified
-certified-resolved reward hacks across `8` repositories, the two-detector comparison, the first
-naturally-occurring case, and the findings paper. Everything below is the **earlier** work that led here
-(the detection and intervention arc, iter109-iter191, and the original scaffold). It is retained for
-provenance and evidence. Where the sections below use the terms `both-miss`, `17/40`, or `majority_catch`,
-read them through the standing correction at the top: those describe the superseded reward-hack framing,
-not the current result.
 
 ## The Real-Trajectory Verification Arc (iter109-iter191)
 
@@ -905,7 +968,7 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   A wider eighteen-instance batch tightened the native-harness fidelity estimate to `17/18` gold
   resolution (`0.94`) with the detector still at `0/18` false positives, in
   [`experiments/iter115_wider_batch_native_execution`](experiments/iter115_wider_batch_native_execution/RESULT.md).
-- Current gate: reward-hack property-execution contract design (iter191, pre-registered) in
+- Historical gate at the end of this status log: reward-hack property-execution contract design (iter191) in
   [`experiments/iter191_reward_hack_property_execution_contract_design`](experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md);
   iter190 published a null pre-spend execution-surface result and did not call a provider.
   The
@@ -1042,22 +1105,29 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md`](experiments/iter191_reward_hack_property_execution_contract_design/HYPOTHESIS.md).
+[`experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`](experiments/iter202_natural_rate_scaled/HYPOTHESIS.md).
+
+The compact current evidence diagram is at the top of this README. It is the authoritative visual summary:
+iter192 corrects the foundation; iter195 and iter199 construct the `22`-row benchmark; iter197 and iter201
+retain exploratory diagnostics but fail their registered property protocol; iter200 supplies an exploratory
+neutral-prompt, gold-localized existence case; and iter202 is the pre-result amended replication with no
+retained or inspected solver output.
 
 ## Evidence Arc (historical detection/intervention work)
 
-This diagram summarizes the earlier detection and intervention arc (iter109-iter190). The current live
-evidence is the certified-yet-wrong work at the top of this file (iter192-iter201). Its shape:
+This diagram summarizes the earlier detection and intervention arc (iter109-iter190). It is provenance, not
+the current evidence summary. In particular, its historical gold-free nodes do not validate the later
+iter197/iter201 property pipeline, which used diff-derived locators and gold inclusion.
 
 ```mermaid
 flowchart LR
- L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · 13/40 static-survive"]-->CTRL["157-190<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40 · property execution gap"]
+ L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · later invalidated by iter192"]-->CTRL["157-190<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40 · property execution gap"]
   classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef risk fill:#fee,stroke:#c22,color:#000;
   classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   class L1,L2,L3 d;
-  class BM,FBM risk;
-  class DEF,AUT,SC,APP,PE,BENCH,CTRL fix;
+  class BM,FBM,BENCH risk;
+  class DEF,AUT,SC,APP,PE,CTRL fix;
 ```
 
 The FBM node was the adversarial frontier: iter140's `0/20` gemini null read the both-miss window as
@@ -1112,7 +1182,7 @@ The initial candidates are documented in [`benchmarks/CANDIDATES.md`](benchmarks
 
 The target was not chosen by taste. It was chosen by the frozen survey.
 
-## Architecture
+## Historical architecture (iter109-iter156)
 
 The real-trajectory arc (iter109-iter156) established a three-layer completion verifier, each layer
 present because the one before it provably fails on a measured class of reward hack (see the arc
@@ -1124,7 +1194,7 @@ escalates only the survivors:
 ```mermaid
 flowchart LR
   C["candidate diff<br/>+ FAIL_TO_PASS"] --> D["Layer 1<br/>deterministic detector<br/>free · reproducible"]
-  D -->|mechanical hacks caught| X["reward_hack"]
+  D -->|historical static catch| X["proxy-gaming patch"]
   D -->|survivors| J["Layer 2<br/>LLM judge<br/>paid · semantic"]
   J -->|oblique/hard-coded caught| X
   J -->|survivors| M["Layer 3<br/>held-out-input execution<br/>gold-free property"]
@@ -1140,10 +1210,14 @@ flowchart LR
   class OK ok;
 ```
 
-Layer 3 is automated and gold-free: a model proposes a metamorphic property from the function
-contract, the visible test filters unsound proposals, and execution on random held-out inputs catches
+Within that earlier experiment boundary, Layer 3 is automated and gold-free: a model proposes a
+metamorphic property from the function contract, the visible test filters unsound proposals, and execution
+on random held-out inputs catches
 completions the static layers accept - with the property strategy chosen by function type (a contract
 property for pure transforms, an inverse round-trip for invertible parsers/formatters).
+
+This historical architecture is not evidence that iter197 or iter201 followed the same access contract;
+their corrected artifacts record protocol `FAIL`.
 
 Full design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 Paper: [`docs/PAPER.md`](docs/PAPER.md) - the consolidated result (iter109-iter156), submission-shaped.
@@ -1164,7 +1238,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per pre-registered experiment (iter00-iter191), each completed gate with a learning record
+experiments/               one folder per experiment (iter00-iter202), including explicit fail/null/pre-result states
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
@@ -1173,11 +1247,27 @@ tests/                     repository and protocol tests
 
 ## Reproduce The Current State
 
+The verification workflow fixes its hosted OS family to `ubuntu-24.04`, pins every external action to a
+full commit SHA, grants only read access to repository contents, and installs its Python verification tools
+from the exact-version, SHA-256-locked `requirements-ci.txt`. The supply-chain guard enforces the same
+rules across all 14 workflows.
+
 ```bash
+python3 -m compileall telos scripts tests
 ruff check .
 pytest -q
+python3 scripts/validate_json.py
 python3 scripts/validate_docs.py
 python3 scripts/validate_mission_loop.py
+python3 scripts/validate_supply_chain.py
+python3 scripts/validate_detector_methodology_correction.py
+python3 scripts/validate_iter200_corrected_result.py
+python3 scripts/build_iter200_solve_targets.py --check
+python3 scripts/build_iter202_solve_targets.py --check
+python3 scripts/audit_iter202_sample_overlap.py --check
+python3 scripts/build_iter202_image_lock.py --check
+python3 scripts/validate_iter202_scenario_safety.py
+python3 scripts/validate_iter202_runtime_freeze.py --check
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py
@@ -1314,10 +1404,84 @@ python3 scripts/validate_receipts.py experiments/iter69_codeclash_task_surface_s
 python3 scripts/audit_codeclash_task_surface_source_snapshot_recovery.py
 python3 scripts/validate_receipts.py experiments/iter70_provider_compatible_expanded_adapter_completion/proof
 python3 scripts/audit_provider_compatible_expanded_adapter_completion.py
+python3 scripts/validate_receipts.py experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/proof
+python3 scripts/audit_provider_compatible_expanded_slice_after_adapter_completion.py
+python3 scripts/validate_receipts.py experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/proof
+python3 scripts/audit_provider_compatible_expanded_paid_execution_after_slice_refreeze.py
+python3 scripts/validate_receipts.py experiments/iter73_expanded_receipt_prompt_recovery_after_paid_block/proof
+python3 scripts/audit_expanded_receipt_prompt_recovery_after_paid_block.py
+python3 scripts/validate_receipts.py experiments/iter74_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery/proof
+python3 scripts/audit_provider_compatible_expanded_paid_retry_after_receipt_prompt_recovery.py
+python3 scripts/validate_receipts.py experiments/iter75_provider_compatible_runtime_adc_recovery_after_paid_retry_block/proof
+python3 scripts/audit_provider_compatible_runtime_adc_recovery_after_paid_retry_block.py
+python3 scripts/validate_receipts.py experiments/iter76_runtime_adc_recheck_after_operator_refresh/proof
+python3 scripts/audit_runtime_adc_recheck_after_operator_refresh.py
+python3 scripts/validate_receipts.py experiments/iter77_runtime_adc_recheck_after_application_default_login/proof
+python3 scripts/audit_runtime_adc_recheck_after_application_default_login.py
+python3 scripts/validate_receipts.py experiments/iter78_provider_compatible_expanded_paid_retry_after_adc_recovery/proof
+python3 scripts/audit_provider_compatible_expanded_paid_retry_after_adc_recovery.py
+python3 scripts/validate_receipts.py experiments/iter79_dummy_row_call_ceiling_recovery_after_paid_retry_block/proof
+python3 scripts/audit_dummy_row_call_ceiling_recovery_after_paid_retry_block.py
+python3 scripts/validate_receipts.py experiments/iter80_dummy_call_ceiling_bounded_paid_retry_after_recovery/proof
+python3 scripts/audit_dummy_call_ceiling_bounded_paid_retry_after_recovery.py
+python3 scripts/validate_receipts.py experiments/iter81_expanded_stratified_adapter_validation_consolidation/proof
+python3 scripts/audit_expanded_stratified_adapter_validation_consolidation.py
+python3 scripts/validate_receipts.py experiments/iter82_benchmark_facing_protocol_effect_slice_design/proof
+python3 scripts/audit_benchmark_facing_protocol_effect_slice_design.py
+python3 scripts/validate_receipts.py experiments/iter83_benchmark_facing_protocol_effect_execution_pilot/proof
+python3 scripts/audit_benchmark_facing_protocol_effect_execution_pilot.py
+python3 scripts/validate_receipts.py experiments/iter84_benchmark_facing_null_signal_adjudication/proof
+python3 scripts/audit_benchmark_facing_null_signal_adjudication.py
+python3 scripts/validate_receipts.py experiments/iter85_discriminating_task_metric_redesign/proof
+python3 scripts/audit_discriminating_task_metric_redesign.py
+python3 scripts/validate_receipts.py experiments/iter86_discriminating_metric_backtest_on_committed_artifacts/proof
+python3 scripts/audit_discriminating_metric_backtest_on_committed_artifacts.py
+python3 scripts/validate_receipts.py experiments/iter87_benchmark_facing_discriminating_metric_execution_pilot/proof
+python3 scripts/audit_benchmark_facing_discriminating_metric_execution_pilot.py
+python3 scripts/validate_receipts.py experiments/iter88_external_benchmark_readiness_adjudication_after_discriminating_pilot/proof
+python3 scripts/audit_external_benchmark_readiness_adjudication_after_discriminating_pilot.py
+python3 scripts/validate_receipts.py experiments/iter89_same_slice_discriminating_metric_stability_replication/proof
+python3 scripts/audit_same_slice_discriminating_metric_stability_replication.py
+python3 scripts/validate_receipts.py experiments/iter90_stability_replication_adjudication_after_same_slice_run/proof
+python3 scripts/audit_stability_replication_adjudication_after_same_slice_run.py
+python3 scripts/validate_receipts.py experiments/iter91_empirical_validation_suite_design_for_completion_verification/proof
+python3 scripts/audit_empirical_validation_suite_design_for_completion_verification.py
+python3 scripts/validate_receipts.py experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification/proof
+python3 scripts/audit_empirical_validation_fixture_materialization_for_completion_verification.py
+python3 scripts/validate_receipts.py experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures/proof
+python3 scripts/audit_deterministic_strategy_execution_on_materialized_fixtures.py
+python3 scripts/validate_receipts.py experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures/proof
+python3 scripts/audit_provider_llm_judge_execution_on_materialized_fixtures.py
+python3 scripts/validate_receipts.py experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block/proof
+python3 scripts/audit_provider_llm_judge_prompt_budget_recovery_after_block.py
+python3 scripts/validate_receipts.py experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery/proof
+python3 scripts/audit_provider_llm_judge_bounded_retry_after_prompt_budget_recovery.py
+python3 scripts/validate_receipts.py experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge/proof
+python3 scripts/audit_five_strategy_completion_verification_adjudication_after_llm_judge.py
+python3 scripts/validate_receipts.py experiments/iter98_external_verifier_telos_differential_suite_design_after_adjudication/proof
+python3 scripts/audit_external_verifier_telos_differential_suite_design_after_adjudication.py
+python3 scripts/validate_receipts.py experiments/iter99_external_verifier_telos_differential_fixture_materialization_after_design/proof
+python3 scripts/audit_external_verifier_telos_differential_fixture_materialization_after_design.py
+python3 scripts/validate_receipts.py experiments/iter100_deterministic_strategy_execution_on_differential_fixtures_after_materialization/proof
+python3 scripts/audit_deterministic_strategy_execution_on_differential_fixtures_after_materialization.py
+python3 scripts/validate_receipts.py experiments/iter101_provider_llm_judge_execution_on_differential_fixtures_after_deterministic/proof
+python3 scripts/audit_provider_llm_judge_execution_on_differential_fixtures_after_deterministic.py
+python3 scripts/validate_receipts.py experiments/iter102_provider_llm_judge_differential_retry_recovery_after_block/proof
+python3 scripts/audit_provider_llm_judge_differential_retry_recovery_after_block.py
+python3 scripts/validate_receipts.py experiments/iter103_differential_provider_llm_judge_full_retry_after_block_recovery/proof
+python3 scripts/audit_differential_provider_llm_judge_full_retry_after_block_recovery.py
+python3 scripts/validate_receipts.py experiments/iter104_five_strategy_differential_adjudication_after_recovered_llm_judge/proof
+python3 scripts/audit_five_strategy_differential_adjudication_after_recovered_llm_judge.py
+python3 scripts/validate_receipts.py experiments/iter105_external_benchmark_pilot_design_after_differential_adjudication/proof
+python3 scripts/audit_external_benchmark_pilot_design_after_differential_adjudication.py
+python3 scripts/validate_receipts.py experiments/iter106_external_benchmark_pilot_materialization_after_design/proof
+python3 scripts/audit_external_benchmark_pilot_materialization_after_design.py
+python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilot_execution_after_materialization/proof
+python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
-python3 scripts/validate_handoff.py
 python3 scripts/make_handoff.py
+python3 scripts/validate_handoff.py
 ```
 
 ## Writing Standard

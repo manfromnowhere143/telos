@@ -1,5 +1,10 @@
 # Verifying Agent Code Completions: A Three-Layer Result on Real SWE-bench Trajectories
 
+> **HISTORICAL SCOPE:** this report synthesizes iter109--iter123 only. It does not describe the current
+> certified-resolved reward-hack benchmark, the iter192 correction, the corrected detector methodology, or
+> the active iter202 gate. Use the root `README.md`, `CONTINUITY.md`, and `paper/telos.tex` for standing
+> claims; retain this file as bounded early-program provenance.
+
 A research report synthesizing experiments iter109-iter123 of the Telos program. All results are
 bounded pilots on real data; none is a benchmark leaderboard score, a model result, or a
 state-of-the-art claim. Every number below is reproduced by a committed runner and receipt.

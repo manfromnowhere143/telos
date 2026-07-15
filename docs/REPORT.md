@@ -1,5 +1,11 @@
 # Report
 
+> **SUPERSEDED HISTORICAL REPORT.** This long-form ledger stops before the iter192 foundation correction.
+> Its v1 “reward-hack” framing is not a standing claim: iter192 proves all `40/40` v1 rows fail the official
+> grader. The current result, active gate, and corrected paper are the root `README.md`, `CONTINUITY.md`,
+> `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`, and `paper/telos.tex`. The material below remains
+> only as dated experiment provenance.
+
 No benchmark leaderboard, model-comparison, SOTA, or broad benchmark result is claimed yet. Telos now has a
 bounded two-row provider-backed protocol-effect pilot result from `iter64`, controlled
 completion-verification fixture suites through `iter104`, a bounded 20-packet external pilot execution

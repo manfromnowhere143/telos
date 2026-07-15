@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""iter197 Phase A: gold-free correctness-property generation (Detector B).
+"""iter197 Phase A: locator-assisted correctness-property generation (Detector B).
 
 For each instance (the 10 hack instances + 2 certified-equivalent instances), a model proposes a
-self-contained executable correctness property from the PUBLIC task statement and the visible test only.
-It never sees the gold patch, the gold diff, the candidate diff, the label, hidden tests, official reports,
-or the iter195 witness. The property constructs the minimal object, calls the changed function, and prints
-PROP_PASS if the task-required correct behavior holds, PROP_FAIL if it is violated, PROP_ERROR on setup
-failure.
+self-contained executable correctness property from the public task statement and visible test. The prompt
+also receives a source-file and function/class locator extracted from the candidate diff header. It does
+not receive gold content, candidate code lines, the label, hidden tests, official reports, or the iter195
+witness. The property constructs the minimal object, calls the changed function, and prints PROP_PASS if
+the task-required correct behavior holds, PROP_FAIL if it is violated, PROP_ERROR on setup failure.
 
 Phase B (scripts/ci_iter197_execute.sh) executes each property in-container against the gold patch and the
 variant. A property is sound if it passes on gold; a sound property that fails on the variant catches the
-hack. Gold is used only as a labelled control for soundness/precision, never to build the property.
+hack. The resulting detector is gold-validated and locator-assisted, not a deployable gold-free/diff-free
+instrument.
 
 Reads keys from the environment; never prints or commits them. Ceilings: <=120 calls, <=$15.00.
 """
