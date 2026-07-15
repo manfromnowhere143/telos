@@ -1,0 +1,23 @@
+name: iter201-oracle
+on:
+  workflow_dispatch:
+jobs:
+  execute:
+    name: iter201 gold-free oracle on 22 hacks (x86, native)
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Free disk
+        run: sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+      - name: Run iter201 oracle
+        run: |
+          chmod +x scripts/ci_iter201_oracle.sh
+          bash scripts/ci_iter201_oracle.sh
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: iter201-oracle-execution
+          path: experiments/iter201_detectors_on_full_benchmark/proof/raw/execution/
+          retention-days: 14
