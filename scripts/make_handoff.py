@@ -4,11 +4,14 @@
 from __future__ import annotations
 
 from datetime import UTC, datetime
+import json
 from pathlib import Path
 import re
+import shlex
 import subprocess
 
 TELOS_REPOSITORY = "/Users/danielwahnich/workspace/telos"
+PUBLICATION_TARGET = "master"
 
 
 def repository_banner() -> str:
@@ -20,11 +23,58 @@ def repository_banner() -> str:
 
 def run(args: list[str]) -> str:
     result = subprocess.run(args, capture_output=True, text=True, check=False)
+    if result.returncode != 0:
+        diagnostic = result.stderr.strip() or result.stdout.strip() or "no diagnostic"
+        raise RuntimeError(
+            f"command failed with exit {result.returncode}: {shlex.join(args)}: {diagnostic}"
+        )
     # Preserve the leading status column emitted by `git status --short`; only trim line endings.
-    text = result.stdout.rstrip()
-    if not text and result.stderr.strip():
-        text = result.stderr.strip()
-    return text
+    return result.stdout.rstrip()
+
+
+def current_branch() -> str:
+    """Return one attached branch name or fail rather than publishing ambiguous state."""
+
+    branch = run(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+    if not branch or "\n" in branch or branch == "HEAD":
+        raise RuntimeError(f"cannot generate handoff from branch state: {branch!r}")
+    return branch
+
+
+def current_commit() -> str:
+    commit = run(["git", "rev-parse", "HEAD"])
+    if not re.fullmatch(r"[0-9a-f]{40}", commit):
+        raise RuntimeError(f"cannot resolve an immutable source commit: {commit!r}")
+    return commit
+
+
+def source_provenance(branch: str) -> tuple[str, str]:
+    """Bind a feature handoff to its immutable source commit, including after publication."""
+
+    if branch != PUBLICATION_TARGET:
+        return branch, current_commit()
+
+    handoff = Path("HANDOFF.md")
+    if not handoff.exists():
+        raise RuntimeError("cannot regenerate a publication-target handoff without source provenance")
+    text = handoff.read_text(encoding="utf-8")
+    source_branch_match = re.search(r"^source_branch: (\S+)$", text, re.MULTILINE)
+    source_commit_match = re.search(r"^source_commit: ([0-9a-f]{40})$", text, re.MULTILINE)
+    if not source_branch_match or not source_commit_match:
+        raise RuntimeError("existing handoff lacks immutable source provenance")
+    source_branch = source_branch_match.group(1)
+    source_commit = source_commit_match.group(1)
+    if source_branch == PUBLICATION_TARGET:
+        raise RuntimeError("handoff source branch must be a non-publication feature branch")
+    ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", source_commit, "HEAD"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if ancestor.returncode != 0:
+        raise RuntimeError("existing handoff source commit is not an ancestor of publication HEAD")
+    return source_branch, source_commit
 
 
 def normalize_worktree_status(raw_status: str) -> str:
@@ -42,13 +92,21 @@ def normalize_worktree_status(raw_status: str) -> str:
     return "\n".join(lines) or "clean"
 
 
-def experiment_status() -> list[str]:
+def experiment_status(gate: str) -> list[str]:
     rows = []
+    active_experiment = Path(gate).parent
     for path in sorted(Path("experiments").glob("iter*/")):
-        if (path / "RESULT.md").exists():
-            status = "RESULT PUBLISHED"
+        result = path / "RESULT.md"
+        if result.exists():
+            result_head = result.read_text(encoding="utf-8")[:2000]
+            if re.search(r"^status:\s*[`*_]*fail\b", result_head, re.IGNORECASE | re.MULTILINE):
+                status = "RESULT PUBLISHED (FAIL)"
+            else:
+                status = "RESULT PUBLISHED"
+        elif path == active_experiment and (path / "HYPOTHESIS.md").exists():
+            status = "HYPOTHESIS ACTIVE, result pending"
         elif (path / "HYPOTHESIS.md").exists():
-            status = "PRE-REGISTERED, result pending"
+            status = "HYPOTHESIS ONLY (inactive or superseded)"
         else:
             status = "artifacts only"
         rows.append(f"- {path.as_posix().rstrip('/')}: {status}")
@@ -57,18 +115,26 @@ def experiment_status() -> list[str]:
 
 def active_gate() -> str:
     continuity = Path("CONTINUITY.md").read_text(encoding="utf-8")
-    match = re.search(r"Current gate:\n\n- `([^`]+)`", continuity)
-    if match:
-        return match.group(1)
-    return "experiments/iter03_codeclash_smoke/HYPOTHESIS.md"
+    matches = re.findall(r"Current gate:\n\n- `([^`]+)`", continuity)
+    if len(matches) != 1:
+        raise RuntimeError("CONTINUITY.md does not declare exactly one parseable current gate")
+    continuity_gate = matches[0]
+    contract = json.loads(Path("mission/loop.json").read_text(encoding="utf-8"))
+    contract_gate = contract.get("active_gate")
+    if contract_gate != continuity_gate:
+        raise RuntimeError("CONTINUITY.md and mission/loop.json active gates disagree")
+    if not Path(continuity_gate).is_file():
+        raise RuntimeError(f"active gate does not exist: {continuity_gate}")
+    return continuity_gate
 
 
 def main() -> None:
     now = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
-    branch = run(["git", "rev-parse", "--abbrev-ref", "HEAD"]) or "git branch unavailable"
+    branch = current_branch()
+    source_branch, source_commit = source_provenance(branch)
     status = normalize_worktree_status(run(["git", "status", "--short"]))
-    rows = "\n".join(experiment_status()) or "- no experiments yet"
     gate = active_gate()
+    rows = "\n".join(experiment_status(gate)) or "- no experiments yet"
     content = f"""# HANDOFF - dynamic state snapshot
 
 Generated: {now} by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
@@ -78,7 +144,9 @@ Generated: {now} by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
 ## Repository State
 
 ```text
-branch: {branch}
+source_branch: {source_branch}
+source_commit: {source_commit}
+publication_target: {PUBLICATION_TARGET}
 ```
 
 Working tree:
@@ -94,17 +162,43 @@ Working tree:
 ## Current Gate
 
 - Active gate: `{gate}`.
-- Standing detector result (iter201): the judge catches `20/22` certified-yet-wrong patches with
-  `3/22` gold false positives; the gold-free oracle catches `6/22` with zero false positives, and its
-  catches are a subset of the judge's. The earlier complementarity result did not replicate at scale.
-- Standing natural-occurrence result (iter200): one strict confirmed case exists. Its historical `1/15`
-  denominator is conditional on scenario eligibility and is being corrected before any pooled rate.
+- Standing detector correction: iter197 and iter201 are protocol `FAIL`, with retained exploratory
+  diagnostics. Both property prompts used candidate-diff-derived locators. Iter197 additionally violated
+  its visible-anchor and independent-control requirements; iter201 explicitly registered gold validation,
+  so gold use there is an interpretation limit rather than another deviation. The accurate label is
+  **locator-assisted, gold-validated property pipeline**. Iter196 has no confirmed property-only catch:
+  `django-11211` was judge-unadjudicated. Iter201 retains judge
+  catches `20/22` with `8/88` unparseable responses (`5/22` hack rows, `3/22` gold rows). Report
+  gold-control flags as `3/22` observed lower, `6/22` worst-case missing upper, and `3/19` complete-case.
+  The property pipeline catches `6/22`, all within the judge set; no independent property false-positive
+  estimate or ensemble benefit is established. All `44` judge rows were fresh, but the judge phase lacks an
+  independent pre-output Git freeze. The retained artifact contains parsed labels and nondecision markers,
+  not raw response text; prompt truncation and digest-unpinned historical property containers are disclosed.
+- Standing iter200 result: this is an exploratory, nonrandom, gold-localized convenience sample. Its
+  deterministic builder excludes all `66` unique iter193 Phase-A/iter199 target IDs before deriving `200`
+  compatible rows across `9` repositories and the ordered `39`-target cohort. Its strict two-judge-only-model
+  rule and missingness summaries were adopted after the original result, and a
+  pre-output freeze is not independently timestamped in Git. The corrected denominator is complete (`37`
+  valid/executed, `24` certified, `k=1`, `u=6`). Report `1/24` confirmed lower, `7/24` worst case over those
+  six declared missing outcomes, and `1/18` complete-case sensitivity. The historical `1/15` is
+  scenario-eligible chronology only. The `54` legacy execution logs lack explicit image/exit provenance
+  and are accepted only as a frozen exact-byte corpus; the `20` backfill logs have stronger provenance.
+  The retained blind-judge bundle stores parsed labels and derived booleans, not raw response text; exact
+  response substance and parser fidelity cannot be re-audited.
 - Iter202 cohort correction: the 53 IDs are disjoint from iter200, but `27/53` have defined prior-result
-  exposure and `10/53` have provider-call-ledger exposure; both preregistered sensitivities are mandatory.
-- No benchmark leaderboard, broad benchmark, model, or SOTA result is claimed yet.
-- Next action: follow the amended resume order in `CONTINUITY.md`: correct and backfill iter200's
-  certification denominator before retaining any iter202 solver output, then publish `RESULT.md` with
-  proof artifacts before advancing scope.
+  exposure and `10/53` have provider-call-ledger exposure; both pre-result-declared sensitivities are mandatory.
+  Iter202 has no retained solver output. Its first Git freeze followed the disclosed interrupted provider
+  contact, so this is a pre-result protocol freeze, not conventional prospective preregistration. The
+  interrupted no-output invocation is conservatively charged as `53` calls and `$2.65` in the ledger.
+- Iter202 execution chain: hardening is complete. The paid path is bound to an exact-byte runtime manifest,
+  an exact valid-solution-ordinal-modulo-eight certification partition (at most seven rows per shard), a
+  `9,030`-second bounded-process ceiling per shard, immutable per-attempt checkpoints, eight shard receipts,
+  and one aggregate receipt from a single repository, workflow, run, attempt, and commit. Incomplete
+  coverage, partial evidence, and mixed attempts fail closed.
+- No population-frequency, model-comparison, leaderboard, deployment, or state-of-the-art result is claimed.
+- Next action: commit and push the complete hardened evidence unit, require green primary-branch CI, and
+  only then follow the exact `CONTINUITY.md` resume sequence. Retain no iter202 solver output before that
+  publication gate, and do not alter the frozen protocol while resuming it.
 - Autonomous goal-tracking note: if the operator explicitly asks for a persistent
   autonomous run, use the session goal tracker if available; otherwise continue
   from `CONTINUITY.md`, this handoff, the active `HYPOTHESIS.md`, and the learning
@@ -116,10 +210,21 @@ Working tree:
 Run:
 
 ```bash
+python3 -m compileall telos scripts tests
 ruff check .
 pytest -q
+python3 scripts/validate_json.py
 python3 scripts/validate_docs.py
 python3 scripts/validate_mission_loop.py
+python3 scripts/validate_supply_chain.py
+python3 scripts/validate_detector_methodology_correction.py
+python3 scripts/validate_iter200_corrected_result.py
+python3 scripts/build_iter200_solve_targets.py --check
+python3 scripts/build_iter202_solve_targets.py --check
+python3 scripts/audit_iter202_sample_overlap.py --check
+python3 scripts/build_iter202_image_lock.py --check
+python3 scripts/validate_iter202_scenario_safety.py
+python3 scripts/validate_iter202_runtime_freeze.py --check
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py
@@ -332,10 +437,8 @@ python3 scripts/validate_receipts.py experiments/iter107_external_benchmark_pilo
 python3 scripts/audit_external_benchmark_pilot_execution_after_materialization.py
 python3 scripts/validate_learning_ledger.py
 python3 scripts/validate_json.py
-python3 scripts/build_iter202_solve_targets.py --check
-python3 scripts/audit_iter202_sample_overlap.py --check
-python3 scripts/validate_handoff.py
 python3 scripts/make_handoff.py
+python3 scripts/validate_handoff.py
 ```
 """
     Path("HANDOFF.md").write_text(content, encoding="utf-8")

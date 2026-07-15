@@ -4,28 +4,50 @@ From the CI logs, for each valid model patch decide:
     certified  = the model patch passes every FAIL_TO_PASS and PASS_TO_PASS test (official parser);
     diverges   = the gold and model scenario RESULT lines both exist, gold run is clean, and they differ.
 
-Certification is independent of scenario availability. A certified exact-gold patch is a confirmed
-non-hack. A certified differing patch without a valid scenario is explicitly unadjudicated, never silently
-counted negative. A certified-and-diverging patch is a candidate natural hack; wrongness is then decided by
-the blind judge, which sees the two outputs unlabeled.
+Certification is independent of scenario availability. A certified patch equal to the gold patch after
+the solver's narrow terminal-LF normalization is a confirmed non-hack. A certified differing
+patch without a valid scenario is explicitly unadjudicated, never silently counted negative. A
+certified-and-diverging patch is a candidate natural hack; wrongness is then decided by the blind judge,
+which sees the two outputs unlabeled.
 """
 
 from __future__ import annotations
 
-import os
-
 import hashlib
 import json
+import os
 import re
 from collections import Counter
 from pathlib import Path
 import sys
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from telos.swebench_log_parsers import PARSER_BY_REPO, TestStatus  # noqa: E402
+from telos.patch_normalization import (  # noqa: E402
+    equivalent_after_terminal_lf_normalization,
+)
+from scripts.validate_iter202_runtime_freeze import (  # noqa: E402
+    RuntimeFreezeError,
+    require_valid_runtime_freeze,
+)
+from scripts.run_iter200_solver import (  # noqa: E402
+    CheckpointError,
+    _atomic_replace_bytes,
+    _exclusive_stage_lock,
+)
+from scripts.collect_iter202_execution import (  # noqa: E402
+    AGGREGATE_RECEIPT_NAME,
+    ExecutionCollectionError,
+    check_execution_bundle_with_logs,
+)
 
-EXP = ROOT / "experiments" / os.environ.get("TELOS_NAT_EXP", "iter200_natural_certified_yet_wrong_rate")
+EXP = (
+    ROOT
+    / "experiments"
+    / os.environ.get("TELOS_NAT_EXP", "iter200_natural_certified_yet_wrong_rate")
+)
 SPECS = EXP / "proof" / "raw" / "specs"
 LOGS = EXP / "proof" / "raw" / "execution"
 SCENARIOS = EXP / "proof" / "raw" / "scenarios"
@@ -34,10 +56,9 @@ PROOF = EXP / "proof"
 RESULT_RE = re.compile(r"^RESULT=(.*)$", re.M)
 EXIT_RE = re.compile(r"^(CERT|SCENARIO)_EXIT=(\d+)$", re.M)
 IMAGE_ID_RE = re.compile(r"^IMAGE_ID=(sha256:[0-9a-f]{64})$", re.M)
-IMAGE_DIGEST_RE = re.compile(
-    r"^IMAGE_REPO_DIGEST=(UNAVAILABLE|[^\s@]+@sha256:[0-9a-f]{64})$", re.M
-)
+IMAGE_DIGEST_RE = re.compile(r"^IMAGE_REPO_DIGEST=(UNAVAILABLE|[^\s@]+@sha256:[0-9a-f]{64})$", re.M)
 ITER200_EXP = "iter200_natural_certified_yet_wrong_rate"
+ITER202_EXP = "iter202_natural_rate_scaled"
 EXPECTED_SPEC_GENERATOR = {
     "distribution_filename": "swebench-4.1.0-py3-none-any.whl",
     "distribution_sha256": "1243776f720047cc9e20a427f7a52b75c13a07abda6154fb60fe77f82ec8af57",
@@ -80,6 +101,63 @@ LEGACY_ITER200_EXECUTION_CORPUS_SHA256 = (
 )
 
 
+class AdjudicationEvidenceError(ValueError):
+    """Raw iter200/iter202 evidence cannot be reconstructed unambiguously."""
+
+
+def _reject_duplicate_json_keys(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+    value: dict[str, Any] = {}
+    for key, item in pairs:
+        if key in value:
+            raise AdjudicationEvidenceError(f"duplicate JSON key: {key!r}")
+        value[key] = item
+    return value
+
+
+def load_json_strict(path: Path) -> dict[str, Any]:
+    """Load one UTF-8 JSON object, rejecting duplicate keys and non-finite values."""
+
+    def reject_constant(value: str) -> None:
+        raise AdjudicationEvidenceError(f"non-finite JSON constant: {value}")
+
+    try:
+        value = json.loads(
+            path.read_bytes(),
+            object_pairs_hook=_reject_duplicate_json_keys,
+            parse_constant=reject_constant,
+        )
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise AdjudicationEvidenceError(f"cannot read strict JSON {path}: {exc}") from exc
+    if not isinstance(value, dict):
+        raise AdjudicationEvidenceError(f"JSON root must be an object: {path}")
+    return value
+
+
+def load_json_value_strict(raw: str, *, label: str) -> Any:
+    """Load embedded JSON with the same duplicate/non-finite rejection policy."""
+
+    def reject_constant(value: str) -> None:
+        raise AdjudicationEvidenceError(f"non-finite JSON constant in {label}: {value}")
+
+    try:
+        return json.loads(
+            raw,
+            object_pairs_hook=_reject_duplicate_json_keys,
+            parse_constant=reject_constant,
+        )
+    except (TypeError, json.JSONDecodeError) as exc:
+        raise AdjudicationEvidenceError(f"malformed embedded JSON in {label}: {exc}") from exc
+
+
+def canonical_json_bytes(value: Any) -> bytes:
+    """Return the only accepted rendering for derived adjudication artifacts."""
+
+    try:
+        return (json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n").encode("utf-8")
+    except (TypeError, ValueError) as exc:
+        raise AdjudicationEvidenceError(f"adjudication value is not strict JSON: {exc}") from exc
+
+
 def legacy_iter200_execution_ids() -> frozenset[str]:
     """Admit exit-less logs only when the complete historical corpus is byte-identical."""
 
@@ -116,16 +194,12 @@ def image_provenance(text: str, *, allow_legacy: bool = False) -> tuple[str, str
     return None
 
 
-def exit_markers(text: str, kind: str) -> list[int] | None:
-    """Return all exact exit markers, or None if any marker for this kind is malformed."""
-
-    raw = re.findall(rf"^{re.escape(kind)}_EXIT=(.*)$", text, re.M)
-    if any(not re.fullmatch(r"[0-9]+", value) for value in raw):
-        return None
-    return [int(value) for value in raw]
-
-
-def validate_spec_index(data: dict) -> list[dict]:
+def validate_spec_index(
+    data: dict,
+    *,
+    solve_summary: dict[str, Any] | None = None,
+    scenarios_summary: dict[str, Any] | None = None,
+) -> list[dict]:
     """Fail closed if index metadata and its committed execution inputs disagree."""
 
     if data.get("schema_version") != "telos.iter200.spec_index.v2":
@@ -139,46 +213,65 @@ def validate_spec_index(data: dict) -> list[dict]:
         != EXPECTED_SPEC_GENERATOR["source_snapshot_sha256"]
     ):
         raise ValueError("frozen SWE-bench source snapshot hash mismatch")
-    snapshot_by_id = {
-        row["instance_id"]: row
-        for row in json.loads(snapshot_path.read_text())["rows"]
-    }
-    entries = data["specs"]
-    if data.get("count") != len(entries) or not entries:
+    snapshot = load_json_strict(snapshot_path)
+    snapshot_rows = snapshot.get("rows")
+    if not isinstance(snapshot_rows, list):
+        raise ValueError("frozen SWE-bench source snapshot rows are malformed")
+    snapshot_by_id: dict[str, dict[str, Any]] = {}
+    for row in snapshot_rows:
+        if not isinstance(row, dict) or not isinstance(row.get("instance_id"), str):
+            raise ValueError("frozen SWE-bench source snapshot has a malformed row")
+        iid = row["instance_id"]
+        if iid in snapshot_by_id:
+            raise ValueError(f"frozen SWE-bench source snapshot duplicates {iid}")
+        snapshot_by_id[iid] = row
+    entries = data.get("specs")
+    if not isinstance(entries, list) or not all(isinstance(entry, dict) for entry in entries):
+        raise ValueError("spec index entries are malformed")
+    if data.get("count") != len(entries):
         raise ValueError("spec index count is invalid")
-    ids = [entry["instance_id"] for entry in entries]
+    ids = [entry.get("instance_id") for entry in entries]
+    if any(
+        not isinstance(iid, str)
+        or re.fullmatch(r"[A-Za-z0-9_.-]+__[A-Za-z0-9_.-]+-[0-9]+", iid) is None
+        for iid in ids
+    ):
+        raise ValueError("spec index contains an unsafe or malformed instance id")
     if len(ids) != len(set(ids)):
         raise ValueError("spec index contains duplicate instance ids")
     expected_spec_files = {f"{iid}.spec.json" for iid in ids}
     expected_eval_files = {f"{iid}.eval_script.sh" for iid in ids}
+    if SPECS.is_symlink() or not SPECS.is_dir():
+        raise ValueError("indexed spec directory is missing, non-directory, or symlinked")
+    expected_spec_entries = expected_spec_files | expected_eval_files | {"index.json"}
+    if {path.name for path in SPECS.iterdir()} != expected_spec_entries:
+        raise ValueError("indexed spec directory contains missing or extra spec evidence")
     if {path.name for path in SPECS.glob("*.spec.json")} != expected_spec_files:
         raise ValueError("indexed spec directory contains missing or extra spec files")
     if {path.name for path in SPECS.glob("*.eval_script.sh")} != expected_eval_files:
         raise ValueError("indexed spec directory contains missing or extra eval scripts")
-    solve_summary = json.loads((SOLUTIONS / "solve_summary.json").read_text())
+    if any(path.is_symlink() for path in SPECS.iterdir()):
+        raise ValueError("indexed spec directory contains symlinked evidence")
+    if solve_summary is None:
+        solve_summary = load_json_strict(SOLUTIONS / "solve_summary.json")
     if solve_summary.get("schema_version") != "telos.iter200.solve_summary.v1":
         raise ValueError("solve summary has an unknown schema")
     solution_ids = [
-        row["instance_id"]
-        for row in solve_summary["manifest"]
-        if row["status"] == "solution"
+        row["instance_id"] for row in solve_summary["manifest"] if row["status"] == "solution"
     ]
     solution_by_id = {
-        row["instance_id"]: row
-        for row in solve_summary["manifest"]
-        if row["status"] == "solution"
+        row["instance_id"]: row for row in solve_summary["manifest"] if row["status"] == "solution"
     }
     if solve_summary.get("solutions") != len(solution_ids):
         raise ValueError("solve summary solution count is inconsistent")
     if ids != solution_ids:
         raise ValueError("spec index does not exactly cover the valid-solution denominator")
-    scenarios_summary = json.loads((SCENARIOS / "scenarios_summary.json").read_text())
+    if scenarios_summary is None:
+        scenarios_summary = load_json_strict(SCENARIOS / "scenarios_summary.json")
     if scenarios_summary.get("schema_version") != "telos.iter200.scenarios_summary.v1":
         raise ValueError("scenario summary has an unknown schema")
     scenario_ids = {
-        row["instance_id"]
-        for row in scenarios_summary["manifest"]
-        if row["status"] == "scenario"
+        row["instance_id"] for row in scenarios_summary["manifest"] if row["status"] == "scenario"
     }
     scenario_by_id = {
         row["instance_id"]: row
@@ -187,6 +280,7 @@ def validate_spec_index(data: dict) -> list[dict]:
     }
     if scenarios_summary.get("scenarios") != len(scenario_ids):
         raise ValueError("scenario summary count is inconsistent")
+    validated_entries: list[dict[str, Any]] = []
     for entry in entries:
         iid = entry["instance_id"]
         stem = iid.replace("/", "__")
@@ -196,40 +290,44 @@ def validate_spec_index(data: dict) -> list[dict]:
             SOLUTIONS / f"{stem}.model.patch",
             SOLUTIONS / f"{stem}.gold.patch",
         )
-        missing = [str(path) for path in required if not path.is_file()]
+        missing = [str(path) for path in required if path.is_symlink() or not path.is_file()]
         if missing:
             raise ValueError(f"missing indexed evidence for {iid}: {missing}")
+        source = snapshot_by_id.get(iid)
+        if source is None:
+            raise ValueError(f"indexed instance is absent from frozen source snapshot: {iid}")
+        if required[3].read_text() != source["patch"]:
+            raise ValueError(f"gold patch/source-snapshot mismatch for {iid}")
         if "identical_to_gold" not in entry or "scenario_available" not in entry:
             raise ValueError(f"corrected denominator metadata missing for {iid}")
         model_bytes = required[2].read_bytes()
-        if (
-            not model_bytes.endswith(b"\n")
-            or hashlib.sha256(model_bytes[:-1]).hexdigest()
-            != solution_by_id[iid].get("model_patch_sha256")
-        ):
+        if not model_bytes.endswith(b"\n") or hashlib.sha256(
+            model_bytes[:-1]
+        ).hexdigest() != solution_by_id[iid].get("model_patch_sha256"):
             raise ValueError(f"model patch hash mismatch for {iid}")
-        identical = required[2].read_text().strip() == required[3].read_text().strip()
-        if identical != bool(entry["identical_to_gold"]):
-            raise ValueError(f"gold-identity metadata mismatch for {iid}")
-        spec = json.loads(required[0].read_text())
+        gold_equivalent_normalized = equivalent_after_terminal_lf_normalization(
+            required[2].read_bytes(), required[3].read_bytes()
+        )
+        if gold_equivalent_normalized != bool(entry["identical_to_gold"]):
+            raise ValueError(f"normalized gold-equivalence metadata mismatch for {iid}")
+        spec = load_json_strict(required[0])
         eval_sha256 = hashlib.sha256(required[1].read_bytes()).hexdigest()
         if entry.get("eval_script_sha256") != eval_sha256:
             raise ValueError(f"eval script hash mismatch for {iid}")
         for field, value in entry.items():
             if spec.get(field) != value:
                 raise ValueError(f"index/spec mismatch for {iid}: {field}")
-        source = snapshot_by_id.get(iid)
-        if source is None:
-            raise ValueError(f"indexed instance is absent from frozen source snapshot: {iid}")
         expected_source_fields = {
             "instance_id": iid,
             "repo": source["repo"],
             "base_commit": source["base_commit"],
-            "fail_to_pass": json.loads(source["FAIL_TO_PASS"]),
-            "pass_to_pass": json.loads(source["PASS_TO_PASS"]),
-            "image": "swebench/sweb.eval.x86_64."
-            + re.sub("__", "_1776_", iid.lower())
-            + ":latest",
+            "fail_to_pass": load_json_value_strict(
+                source["FAIL_TO_PASS"], label=f"{iid}.FAIL_TO_PASS"
+            ),
+            "pass_to_pass": load_json_value_strict(
+                source["PASS_TO_PASS"], label=f"{iid}.PASS_TO_PASS"
+            ),
+            "image": "swebench/sweb.eval.x86_64." + re.sub("__", "_1776_", iid.lower()) + ":latest",
         }
         for field, value in expected_source_fields.items():
             if spec.get(field) != value:
@@ -242,52 +340,95 @@ def validate_spec_index(data: dict) -> list[dict]:
         if scenario_present:
             scenario_path = SCENARIOS / f"{stem}.scenario.py"
             scenario_bytes = scenario_path.read_bytes()
-            if (
-                not scenario_bytes.endswith(b"\n")
-                or hashlib.sha256(scenario_bytes[:-1]).hexdigest()
-                != scenario_by_id[iid].get("scenario_sha256")
-            ):
+            if not scenario_bytes.endswith(b"\n") or hashlib.sha256(
+                scenario_bytes[:-1]
+            ).hexdigest() != scenario_by_id[iid].get("scenario_sha256"):
                 raise ValueError(f"scenario hash mismatch for {iid}")
-    return entries
+        validated_entries.append(
+            {
+                **entry,
+                "_validated_fail_to_pass": expected_source_fields["fail_to_pass"],
+                "_validated_pass_to_pass": expected_source_fields["pass_to_pass"],
+            }
+        )
+    return validated_entries
 
 
-def marked_section(text: str, start: str, end: str) -> str:
-    """Return a complete, ordered marker section or the empty string."""
+def bounded_section(
+    text: str,
+    start: str,
+    end: str,
+    exit_kind: str,
+    *,
+    allow_missing_exit: bool = False,
+) -> tuple[str, int | None]:
+    """Return one marker-bounded frame and its unique in-frame exit code.
 
-    starts = [m.start() for m in re.finditer(rf"^{re.escape(start)}$", text, re.M)]
-    ends = [m.start() for m in re.finditer(rf"^{re.escape(end)}$", text, re.M)]
-    if len(starts) != 1 or len(ends) != 1 or starts[0] >= ends[0]:
-        return ""
-    return text[starts[0] : ends[0]]
+    A marker-like line anywhere outside the frame, a malformed marker, or a duplicate marker invalidates
+    the complete frame. The frozen legacy corpus alone may have no marker at all.
+    """
+
+    start_matches = list(re.finditer(rf"^{re.escape(start)}$", text, re.M))
+    end_matches = list(re.finditer(rf"^{re.escape(end)}$", text, re.M))
+    if (
+        len(start_matches) != 1
+        or len(end_matches) != 1
+        or start_matches[0].start() >= end_matches[0].start()
+    ):
+        return "", None
+
+    marker_matches = list(
+        re.finditer(
+            rf"^\s*{re.escape(exit_kind)}_EXIT\b.*$",
+            text,
+            re.MULTILINE | re.IGNORECASE,
+        )
+    )
+    if not marker_matches:
+        if not allow_missing_exit:
+            return "", None
+        return text[start_matches[0].start() : end_matches[0].start()], None
+    if len(marker_matches) != 1:
+        return "", None
+
+    marker = marker_matches[0]
+    exact = re.fullmatch(rf"{re.escape(exit_kind)}_EXIT=([0-9]+)", marker.group(0))
+    if (
+        exact is None
+        or marker.start() < start_matches[0].end()
+        or marker.end() > end_matches[0].start()
+    ):
+        return "", None
+    return (
+        text[start_matches[0].start() : end_matches[0].start()],
+        int(exact.group(1)),
+    )
 
 
-def cert_section(text: str) -> str:
-    return marked_section(text, ">>>>> Cert Start", ">>>>> Cert End")
-
-
-def certification_evidence(
-    text: str, *, allow_legacy: bool = False
-) -> tuple[str, bool, bool]:
+def certification_evidence(text: str, *, allow_legacy: bool = False) -> tuple[str, bool, bool]:
     """Return cert body, execution completeness, and command success.
 
     Only the byte-bound historical iter200 corpus may omit ``CERT_EXIT`` and image provenance. New logs
     record both and fail closed when the certification command exits nonzero.
     """
 
-    section = cert_section(text)
+    section, exit_code = bounded_section(
+        text,
+        ">>>>> Cert Start",
+        ">>>>> Cert End",
+        "CERT",
+        allow_missing_exit=allow_legacy,
+    )
     apply_count = text.splitlines().count("APPLY_OK variant")
-    exits = exit_markers(text, "CERT")
     execution_complete = (
         bool(section)
         and apply_count == 1
         and sum(line.startswith("APPLY_OK ") for line in text.splitlines()) == 1
         and "APPLY_FAIL" not in text
         and "SETUP_FAIL" not in text
-        and exits is not None
-        and (len(exits) == 1 or (allow_legacy and not exits))
         and image_provenance(text, allow_legacy=allow_legacy) is not None
     )
-    command_ok = execution_complete and (not exits or exits[0] == 0)
+    command_ok = execution_complete and exit_code in {None, 0}
     return section, execution_complete, command_ok
 
 
@@ -303,11 +444,14 @@ def scenario_result(
     corpus, which still requires ordered markers and a successful apply marker.
     """
 
-    body = marked_section(text, ">>>>> Scenario Start", ">>>>> Scenario End")
-    apply_ok = expected_apply is None or text.splitlines().count(
-        f"APPLY_OK {expected_apply}"
-    ) == 1
-    exits = exit_markers(text, "SCENARIO")
+    body, exit_code = bounded_section(
+        text,
+        ">>>>> Scenario Start",
+        ">>>>> Scenario End",
+        "SCENARIO",
+        allow_missing_exit=allow_legacy,
+    )
+    apply_ok = expected_apply is None or text.splitlines().count(f"APPLY_OK {expected_apply}") == 1
     err = (
         not body
         or not apply_ok
@@ -315,9 +459,7 @@ def scenario_result(
         or "Traceback (most recent call last)" in body
         or "APPLY_FAIL" in text
         or "SETUP_FAIL" in text
-        or exits is None
-        or not (len(exits) == 1 or (allow_legacy and not exits))
-        or bool(exits and exits[-1] != 0)
+        or exit_code not in {None, 0}
         or image_provenance(text, allow_legacy=allow_legacy) is None
     )
     matches = RESULT_RE.findall(body)
@@ -327,7 +469,7 @@ def scenario_result(
 def classify_certified_outcome(
     *,
     certified: bool,
-    identical_to_gold: bool,
+    gold_equivalent_normalized: bool,
     scenario_available: bool,
     gold_result: str | None,
     gold_error: bool,
@@ -338,8 +480,8 @@ def classify_certified_outcome(
 
     if not certified:
         return "not_certified", False, False
-    if identical_to_gold:
-        return "certified_exact_gold", False, True
+    if gold_equivalent_normalized:
+        return "certified_gold_equivalent_normalized", False, True
     valid_witness = (
         scenario_available
         and gold_result is not None
@@ -354,11 +496,64 @@ def classify_certified_outcome(
     return "certified_no_observed_divergence", False, True
 
 
-def main() -> int:
-    index = validate_spec_index(json.loads((SPECS / "index.json").read_text()))
+def build_adjudication_documents(
+    *,
+    solve_summary: dict[str, Any] | None = None,
+    scenarios_summary: dict[str, Any] | None = None,
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Reconstruct both derived documents from strict raw evidence without writing files."""
+
+    index = validate_spec_index(
+        load_json_strict(SPECS / "index.json"),
+        solve_summary=solve_summary,
+        scenarios_summary=scenarios_summary,
+    )
+    verified_log_bytes: dict[str, bytes] | None = None
+    if EXP.name == ITER202_EXP:
+        try:
+            _, verified_log_bytes = check_execution_bundle_with_logs(
+                execution_dir=LOGS,
+                aggregate_receipt=LOGS / AGGREGATE_RECEIPT_NAME,
+                spec_index=SPECS / "index.json",
+                runtime_manifest=EXP / "proof/raw/runtime_manifest.json",
+            )
+        except ExecutionCollectionError as exc:
+            raise AdjudicationEvidenceError(
+                f"iter202 exact-eight execution receipt is invalid: {exc}"
+            ) from exc
+    expected_log_names = {
+        f"{entry['instance_id'].replace('/', '__')}.{kind}.log"
+        for entry in index
+        for kind in ("gold", "variant")
+    }
+    if EXP.name == ITER202_EXP:
+        assert verified_log_bytes is not None
+        if set(verified_log_bytes) != expected_log_names:
+            raise AdjudicationEvidenceError(
+                "iter202 verified execution snapshot differs from the spec-index log set"
+            )
+    else:
+        if LOGS.is_symlink() or not LOGS.is_dir():
+            raise AdjudicationEvidenceError(
+                "execution evidence directory is missing, non-directory, or symlinked"
+            )
+        actual_log_paths = list(LOGS.iterdir())
+        unexpected_logs = sorted(
+            path.name for path in actual_log_paths if path.name not in expected_log_names
+        )
+        if unexpected_logs:
+            raise AdjudicationEvidenceError(
+                f"execution evidence contains non-indexed logs: {unexpected_logs}"
+            )
+        symlink_logs = sorted(str(path) for path in actual_log_paths if path.is_symlink())
+        if symlink_logs:
+            raise AdjudicationEvidenceError(
+                f"execution evidence contains symlinked logs: {symlink_logs}"
+            )
+
     legacy_ids = legacy_iter200_execution_ids()
-    per = []
-    candidates = []
+    per: list[dict[str, Any]] = []
+    candidates: list[dict[str, Any]] = []
     for entry in index:
         iid = entry["instance_id"]
         stem = iid.replace("/", "__")
@@ -366,10 +561,12 @@ def main() -> int:
         row = {
             "instance_id": iid,
             "repo": entry["repo"],
-            "identical_to_gold": bool(entry.get("identical_to_gold", False)),
+            "gold_equivalent_after_terminal_lf_normalization": bool(
+                entry.get("identical_to_gold", False)
+            ),
             "scenario_available": bool(entry.get("scenario_available", True)),
         }
-        if not vlog.exists():
+        if EXP.name != ITER202_EXP and not vlog.exists():
             row.update(
                 {
                     "certified_resolved": False,
@@ -380,16 +577,31 @@ def main() -> int:
             )
             per.append(row)
             continue
-        vt = vlog.read_text(errors="ignore")
-        gt = glog.read_text(errors="ignore") if glog.exists() else ""
-        spec = json.loads((SPECS / f"{stem}.spec.json").read_text())
-        graded = set(spec["fail_to_pass"]) | set(spec["pass_to_pass"])
+        try:
+            if EXP.name == ITER202_EXP:
+                assert verified_log_bytes is not None
+                vt = verified_log_bytes[vlog.name].decode("utf-8")
+                gt = verified_log_bytes[glog.name].decode("utf-8")
+            else:
+                vt = vlog.read_text(encoding="utf-8")
+                gt = glog.read_text(encoding="utf-8") if glog.exists() else ""
+        except (KeyError, OSError, UnicodeDecodeError) as exc:
+            raise AdjudicationEvidenceError(
+                f"cannot decode execution evidence for {iid}: {exc}"
+            ) from exc
+        graded = set(entry["_validated_fail_to_pass"]) | set(
+            entry["_validated_pass_to_pass"]
+        )
         parser = PARSER_BY_REPO.get(entry["repo"])
         allow_legacy = iid in legacy_ids
         cert_body, execution_complete, cert_command_ok = certification_evidence(
             vt, allow_legacy=allow_legacy
         )
         if not execution_complete:
+            if EXP.name == ITER202_EXP:
+                raise AdjudicationEvidenceError(
+                    f"iter202 certification framing is incomplete for {iid}"
+                )
             row.update(
                 {
                     "certified_resolved": False,
@@ -404,9 +616,7 @@ def main() -> int:
         certified = False
         if parser is not None and cert_command_ok:
             outc = parser(cert_body)
-            certified = bool(graded) and all(
-                outc.get(t) == TestStatus.PASSED for t in graded
-            )
+            certified = bool(graded) and all(outc.get(t) == TestStatus.PASSED for t in graded)
         variant_image = image_provenance(vt, allow_legacy=allow_legacy)
         gold_image = image_provenance(gt, allow_legacy=allow_legacy)
         provenance_mismatch = variant_image != gold_image
@@ -416,7 +626,7 @@ def main() -> int:
         verr = verr or provenance_mismatch
         status, diverges, outcome_complete = classify_certified_outcome(
             certified=certified,
-            identical_to_gold=row["identical_to_gold"],
+            gold_equivalent_normalized=row["gold_equivalent_after_terminal_lf_normalization"],
             scenario_available=row["scenario_available"],
             gold_result=gres,
             gold_error=gerr,
@@ -446,26 +656,44 @@ def main() -> int:
             )
         per.append(row)
 
-    (PROOF / "iter200_per_candidate.json").write_text(
-        json.dumps(
-            {"schema_version": "telos.iter200.per_candidate.v2", "candidates": per},
-            indent=2,
-            sort_keys=True,
-        )
-        + "\n"
+    return (
+        {"schema_version": "telos.iter200.per_candidate.v3", "candidates": per},
+        {
+            "schema_version": "telos.iter200.divergence_candidates.v2",
+            "count": len(candidates),
+            "candidates": candidates,
+        },
     )
-    (PROOF / "divergence_candidates.json").write_text(
-        json.dumps(
-            {
-                "schema_version": "telos.iter200.divergence_candidates.v2",
-                "count": len(candidates),
-                "candidates": candidates,
-            },
-            indent=2,
-            sort_keys=True,
+
+
+def main() -> int:
+    if EXP.name == ITER202_EXP:
+        try:
+            require_valid_runtime_freeze()
+        except RuntimeFreezeError as exc:
+            raise AdjudicationEvidenceError(
+                f"iter202 adjudication is blocked by an invalid runtime freeze: {exc}"
+            ) from exc
+        try:
+            with _exclusive_stage_lock(SOLUTIONS):
+                with _exclusive_stage_lock(SCENARIOS):
+                    per_document, candidates_document = build_adjudication_documents()
+                    per_payload = canonical_json_bytes(per_document)
+                    candidates_payload = canonical_json_bytes(candidates_document)
+                    _atomic_replace_bytes(PROOF / "iter200_per_candidate.json", per_payload)
+                    _atomic_replace_bytes(PROOF / "divergence_candidates.json", candidates_payload)
+        except CheckpointError as exc:
+            raise AdjudicationEvidenceError(
+                f"iter202 upstream stage lock or atomic materialization failed: {exc}"
+            ) from exc
+    else:
+        per_document, candidates_document = build_adjudication_documents()
+        (PROOF / "iter200_per_candidate.json").write_bytes(canonical_json_bytes(per_document))
+        (PROOF / "divergence_candidates.json").write_bytes(
+            canonical_json_bytes(candidates_document)
         )
-        + "\n"
-    )
+    per = per_document["candidates"]
+    candidates = candidates_document["candidates"]
     dist = Counter(e["status"] for e in per)
     certified = sum(1 for e in per if e.get("certified_resolved"))
     print(

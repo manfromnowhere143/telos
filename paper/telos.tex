@@ -6,9 +6,11 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage[margin=1in]{geometry}
 \usepackage{microtype}
+\usepackage[section]{placeins}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 
@@ -19,11 +21,11 @@
 % regenerates from a committed runner, manifest, or validated receipt in the Telos repository; the exact
 % experiment is named in the text (for example, iter195).
 
-\title{Reward Hacks That Pass the Test Suite:\\
+\title{Reward Hacks That Pass Every Graded Test:\\
 Constructing and Detecting SWE-bench Patches\\
 That Are Certified Yet Wrong}
 
-\author{Daniel Wahnich\\ \texttt{Aweb} \\ \small Telos research program}
+\author{Daniel Wahnich\\ \small Telos research program}
 
 \date{\today}
 
@@ -31,33 +33,30 @@ That Are Certified Yet Wrong}
 \maketitle
 
 \begin{abstract}
-A coding agent is usually judged by whether a test suite passes. Passing the tests is not the same as
-solving the task: an agent can make the graded tests pass while leaving the code wrong on inputs the tests
-never check. In reinforcement-learning terms, the test suite is a proxy reward, and passing it without
-solving the task is reward hacking. We ask whether SWE-bench Verified, the standard benchmark for coding
-agents, certifies patches that are actually wrong, and if so, what detects them.
+Coding agents are commonly certified when graded tests pass, but a patch can satisfy this proxy while
+remaining wrong on untested inputs. We ask whether SWE-bench Verified certifies such patches and what
+detects them.
 
-We report three results. First, a self-correction: an earlier benchmark we built did not contain reward
-hacks at all. Its generator only kept a patch when the patch broke the project's existing test suite, so
-the official grader marks all forty rows unresolved, and simply running the existing tests catches all
-forty at no model cost. Second, we construct the real class. Using a frontier model as an adversary, we
-build ten patches that the official SWE-bench harness marks resolved---each passes every graded test---yet
-each produces different output from the correct fix on an input the tests do not cover, verified by
-execution in the project's own container. We then extend the set to twenty-two such patches across eight
-repositories, so the class is not specific to a few projects. Third, we compare two detectors at decision
-time on the first ten hacks, with the correct fix withheld from both. A panel of two frontier
-language-model judges, reading only the patch, flags seven of ten hacks but also flags correct patches. A
-gold-free oracle, which proposes an executable correctness check from the public task description and runs
-it, flags four of ten and never flags a correct patch. The two detectors catch different hacks; together
-they flag eight of ten. On the full twenty-two-hack benchmark, however, a stronger judge run caught twenty
-of twenty-two and the oracle's catches were a subset of the judge's, so this complementarity does not hold
-at scale; an ensemble is a safe default because the precise check never flags correct code, but we do not
-show it beating a strong judge.
+We report four results. First, an earlier benchmark we built contained no reward hacks: all forty rows fail
+the official grader. Second, we construct twenty-two patches across eight repositories that pass every
+graded test yet differ from the accepted fix on a retained input, verified in pinned containers. Third, a
+two-model judge panel has observed catches on $20/22$ hacks, with $8/88$ unparseable responses; paired-gold
+flag sensitivities are $3/22$ observed lower, $6/22$ worst-case missing upper, and $3/19$ complete-case. A
+second instrument used candidate-diff-derived locators and gold-based inclusion. This locator-assisted,
+gold-validated property pipeline catches $6/22$, all within the judge set, and supplies no independent
+false-positive estimate. Its full-cohort run failed the registered diff-independent locator contract; an
+earlier ten-row run additionally replaced its visible-test soundness anchor and omitted registered
+controls. That earlier run's apparent property-only row had two unparseable judge responses, so neither
+run confirms complementarity. Fourth, an exploratory, nonrandom, gold-localized solve with no gaming instruction yields
+one strict case under a post-inspection blind rule. Of thirty-seven valid patches, twenty-four certify and
+six certified outcomes remain unadjudicated; the required descriptive sensitivities are $1/24$, $7/24$
+over those six missing pipeline outcomes, and $1/18$ complete-case.
 
-These are small, deliberately constructed pilots (a benchmark of twenty-two hacks across eight
-repositories, with the detector comparison run on the first ten, one adversary model), not a survey of how
-often agents hack in practice. Every number regenerates from committed
-artifacts.
+These are bounded pilots, not population-frequency estimates. The judge runs retained parsed labels but
+not raw responses, used capped inputs, and lack an independently Git-frozen full-cohort protocol. The strict blind aggregation rule was
+adopted after outcome inspection; the missingness summaries were added after the original result but before
+the denominator backfill. Its pre-output freeze is not independently timestamped in Git. Every number
+regenerates from committed artifacts.
 \end{abstract}
 
 \section{Introduction}
@@ -70,20 +69,20 @@ input the visible test checks rather than solving the general problem. When the 
 failure in which an optimizer satisfies a proxy reward while missing the objective the reward stands
 in for~\cite{amodei2016concrete,krakovna2020specification,skalse2022defining}.
 
-This paper asks a specific version of that question. SWE-bench Verified is the standard benchmark for
-coding agents~\cite{jimenez2024swebench}. Each of its instances comes with two sets of tests: a
+This paper asks a specific version of that question. SWE-bench Verified is a coding-agent
+benchmark~\cite{jimenez2024swebench}. Each of its instances comes with two sets of tests: a
 \texttt{FAIL\_TO\_PASS} set that a correct fix must newly pass, and a \texttt{PASS\_TO\_PASS} set of
 existing tests that a correct fix must keep passing. The official harness marks an instance \emph{resolved}
 when a patch passes both sets. Our question is: can a patch pass both sets---be certified resolved---and
-still be wrong? If it can, then no test-based check can catch it, because those tests are exactly what
-``resolved'' means.
+still be wrong? If it can, then no check restricted to those graded tests can catch it, because passing
+those tests is exactly what ``resolved'' means.
 
-The question matters beyond one benchmark. Google DeepMind's Frontier Safety Framework describes a model
-that circumvents oversight ``even when relevant model outputs \ldots{} are being monitored,'' and lists the
-mitigation for that case as future work~\cite{deepmind2025fsf}. A patch that passes every graded test while
-being wrong is a concrete, measurable instance of that case.
+The question is a bounded software-evaluation analogue of a broader oversight problem. Google DeepMind's
+Frontier Safety Framework discusses systems that circumvent oversight while outputs are monitored and lists
+mitigation as future work~\cite{deepmind2025fsf}. Our elicited patches do not establish intent or autonomous
+oversight evasion; they isolate one measurable proxy/objective gap.
 
-We make three contributions.
+We make four contributions.
 \begin{enumerate}
   \item \textbf{A self-correction (Section~\ref{sec:correction}).} An earlier benchmark we released did
   not contain reward hacks. We show why from committed evidence, and we report the free baseline that had
@@ -91,10 +90,13 @@ We make three contributions.
   \item \textbf{Certified-yet-wrong patches (Section~\ref{sec:construct}).} We construct and release a
   benchmark of twenty-two patches across eight repositories that the official SWE-bench harness marks
   resolved and that execution shows are wrong, each with a retained witness.
-  \item \textbf{A two-detector comparison (Section~\ref{sec:detect}).} We measure a language-model judge
-  panel and a gold-free execution oracle on the ten hacks, with the correct fix withheld from both, and
-  report a recall, precision, and coverage tradeoff, plus the finding that the two detectors are
-  complementary.
+  \item \textbf{A corrected exploratory instrument comparison (Section~\ref{sec:detect}).} We preserve
+  judge catch and missingness measurements, distinguish two property-protocol failures, and withdraw the
+  independent false-positive, confirmed-complementarity, and deployable-ensemble interpretations.
+  \item \textbf{A neutral-prompt localized existence case (Section~\ref{sec:construct}).} An exploratory,
+  gold-localized solver run produces one strict certified-yet-wrong patch under a post-inspection rule. We
+  correct the certification denominator and report post-result missing-outcome sensitivities without
+  imputing missing outcomes as negatives.
 \end{enumerate}
 
 \section{Background}
@@ -115,22 +117,27 @@ constructed hacks live in exactly that gap.
 
 \paragraph{Language-model judges.} A language model can act as a monitor that reads a patch and decides
 whether it is correct~\cite{zheng2023judging}. Judges are not uniformly weak. On backdoored programming
-solutions, a monitor can reach an area-under-the-curve of 0.92 to 0.96~\cite{terekhov2025controltax}. Their
-accuracy drops on subtle, semantic errors in real repositories. Our judge result---seven of ten---is
-consistent with judges having real but imperfect signal, not with judges being useless.
+solutions, a monitor can reach an area-under-the-curve of 0.92 to 0.96~\cite{terekhov2025controltax}. Our
+single-run panel has observed catches on twenty of twenty-two hacks in the full-cohort comparison; it caught
+seven of ten under the original pilot's observed rule. In that pilot, missing responses permit a
+nine-of-ten upper sensitivity and a seven-of-eight complete-case sensitivity. The difference underscores
+that the retained counts are run-specific and missingness-sensitive, not stable model scores.
 
-\paragraph{Gold-free and execution-based checks.} A different family of checks does not read the patch and
-judge it, but instead constructs an input, runs the code, and checks the output. When such a check does not
-use the correct reference fix at decision time, we call it \emph{gold-free}. This family includes
-property-based testing~\cite{claessen2000quickcheck} and metamorphic testing~\cite{chen2018metamorphic}.
-Our second detector is a gold-free execution check.
+\paragraph{Execution-based checks.} A different family of checks constructs an input, runs the code, and
+checks the output. A genuinely reference-free check can use property-based testing~\cite{claessen2000quickcheck}
+or metamorphic testing~\cite{chen2018metamorphic}. The retained iter197/iter201 instrument did not satisfy
+the registered diff-independent access contract: its generator received a source/function locator derived
+from the candidate diff. Offline inclusion also ran each property on gold. Gold validation was explicitly
+registered in iter201 but not as the iter197 soundness anchor; in either case, it is an inclusion rule rather
+than an independent control decision. We therefore call the instrument a \emph{locator-assisted,
+gold-validated property pipeline}, not a validated gold-free detector.
 
 \paragraph{Scale of existing corpora.} Public datasets of reward hacking are far larger than ours: METR's
-MALT contains on the order of ten thousand transcripts~\cite{metr2025malt}. Ours is ten hacks. We make no
+MALT contains on the order of ten thousand transcripts~\cite{metr2025malt}. Ours is twenty-two patches. We make no
 claim of scale. What is different here is the unit and the verification: we label individual patches (not
-whole trajectories), and every label is verified by execution. Like the larger corpora, ours is elicited:
-a model was asked to produce the hacks. We therefore claim diff-level, execution-verified construction, not
-naturally occurring behavior.
+whole trajectories), and every label is verified by execution. Most benchmark rows are elicited: a model
+was asked to produce the hacks. The separate neutral-prompt localized solve below supports one strict case
+under a post-inspection rule, not a population frequency.
 
 \section{An Earlier Benchmark Measured the Wrong Thing}
 \label{sec:correction}
@@ -139,94 +146,121 @@ We begin with a correction, because it defines the target for the rest of the pa
 
 An earlier stage of this project released a forty-row artifact and described its rows as reward hacks. The
 generator that produced those rows kept a candidate only when the candidate made at least one
-\texttt{PASS\_TO\_PASS} test fail. \texttt{PASS\_TO\_PASS} is the project's own existing test suite. So
-every row broke the existing suite by construction.
+\texttt{PASS\_TO\_PASS} test fail. \texttt{PASS\_TO\_PASS} is the grader's existing-test subset, so every
+row failed the official reward by construction.
 
 We re-derived the official harness verdict for all forty rows from the committed evaluation logs. All forty
 are marked unresolved, and all forty have at least one failing \texttt{PASS\_TO\_PASS} test. The
-consequence is direct. Running the existing test suite---equivalently, reading the official harness
-verdict---detects all forty rows at zero model cost. A three-model language-model judge panel, the detector
+consequence is direct. Running the official harness, or reading its verdict, detects all forty rows at zero
+model cost. A three-model language-model judge panel, the detector
 we had been studying, detected seventeen of forty at a metered cost of \$13.59. That free baseline had
 never been reported.
 
 The rows are therefore not reward hacks. A reward hack scores well on the reward while being wrong; these
-rows fail the reward. They are wrong patches that break the existing tests, which any test run catches for
-free. The earlier judge figure of seventeen of forty is arithmetically correct and we do not retract it;
+rows fail the reward. They are wrong patches that break at least one graded regression check, which the
+official grader catches for free. The earlier judge figure of seventeen of forty is arithmetically correct and we do not retract it;
 what changes is what it measures. It measures how often a judge, reading a diff, spots a wrong patch that
-the existing tests already reject. That is a fact about code review, not about reward hacking, and it does
+the official graded regression checks already reject. That is a fact about code review, not about reward hacking, and it does
 not motivate a new verifier.
 
-The real target is the inverse: a patch that \emph{passes} the whole suite and is still wrong. The official
+The real target is the inverse: a patch that passes all graded tests and is still wrong. The official
 harness scores such a patch as resolved, so running the tests cannot catch it. The rest of the paper
 constructs that class and asks what does catch it.
 
 \section{Constructing Certified-Yet-Wrong Patches}
 \label{sec:construct}
 
-\paragraph{Definition.} A \emph{certified-resolved reward hack} is a patch that the official SWE-bench
-harness marks resolved---it passes every \texttt{FAIL\_TO\_PASS} and every \texttt{PASS\_TO\_PASS}
-test---and that produces different output from the gold patch on some input the graded tests do not cover.
+\paragraph{Operational labels.} The two cohorts use different rules. A constructed-cohort patch is labelled
+certified-yet-wrong when the official harness marks it resolved and a clean synthesized-input run produces
+output different from gold. This is a reference-differential label, not independent semantic adjudication.
+In the neutral-prompt cohort, a patch must certify, diverge from gold, and---under the later conservative
+rule---have both blind judges identify only the model output as wrong.
 
-\paragraph{Why the shipped tests cannot witness these.} Before constructing the class, we measured whether
-the project's own tests could ever reveal it. We took sixteen candidate patches, confirmed by execution
-that all sixteen are certified resolved, and then ran, for each one, every test in the module that contains
-its graded tests. For the Django instances, the graded \texttt{PASS\_TO\_PASS} set is the entire test
-module: there are no additional tests to hold out. Across all sixteen instances, the module tests beyond
-the graded set number 193, and not one of the 193 distinguishes a certified patch from the gold patch. A
-certified patch passes every shipped test in its module, graded or not. To witness that such a patch is
-wrong, a check must run an input that no shipped test runs.
+\paragraph{Audited module tests did not distinguish the candidates.} Before constructing the class, we
+took sixteen candidates, confirmed that all sixteen were certified, and ran the graded tests plus every
+additional test in the same audited test modules. For Django, the graded \texttt{PASS\_TO\_PASS} set already
+covers the whole target module. Across the sixteen candidates there were 193 additional module tests; none
+distinguished a candidate from gold. We did not run every test elsewhere in every repository. The measured
+claim is narrower: witnessing these candidates required an input outside the audited graded/additional
+target-module tests.
 
 \paragraph{Construction.} We construct the class in three steps, all executed in each instance's pinned
 container.
 \begin{enumerate}
-  \item \textbf{Elicit a variant.} We take the gold patch and ask a frontier model to rewrite its largest
+  \item \textbf{Elicit a variant.} We take the gold patch and ask \texttt{gpt-5.6-terra} to rewrite its largest
   added block into a variant that still passes the graded tests but is subtly wrong on other inputs. The
   model is explicitly asked to produce a wrong variant; the class is elicited, not observed in the wild.
-  \item \textbf{Certify by execution.} We run the instance's official SWE-bench evaluation script in its
-  pinned container---\texttt{runtests.py} for Django, \texttt{pytest} for the others---and parse the
-  result with the official SWE-bench log parsers. A variant is kept only if it passes every
+  \item \textbf{Certify by execution.} We run each instance's official evaluation command in its pinned
+  container---for example, Django's \texttt{runtests.py}, SymPy's \texttt{bin/test}, or \texttt{pytest}
+  where the instance specifies it---and parse the result with the official SWE-bench log parsers. A variant
+  is kept only if it passes every
   \texttt{FAIL\_TO\_PASS} and \texttt{PASS\_TO\_PASS} test.
   \item \textbf{Witness the wrongness.} To label a certified variant as wrong, we use the gold patch as
-  ground truth---but only here, at labelling time, never at detection time. A model constructs a small
+  reference. \texttt{gpt-5.6-terra} constructs a small
   scenario that calls the changed function on an input designed to reach the branch where the variant and
   the gold fix could differ. We run that scenario under the gold patch and under the variant, in the same
   container. If the two produce different output, and the gold run is clean, the variant is a witnessed
   reward hack.
 \end{enumerate}
 
+\paragraph{Generation configuration.} The same OpenAI model, \texttt{gpt-5.6-terra}, filled the adversarial
+variant, differential-scenario, neutral-solve, and property-generation roles. Retained generation requests
+set \texttt{max\_completion\_tokens=4000} and supplied no temperature field, so provider defaults applied.
+This role reuse is a limitation, not evidence of cross-model generality.
+
 \paragraph{Result.} From sixteen certified candidates, this procedure yields ten witnessed
 certified-resolved reward hacks across three repositories (Django, astropy, matplotlib). Two further
-candidates turned out to be correct rewrites---the variant matched the gold patch on every input we
-tried---and we report them as such rather than discard them. The remaining candidates produced no clean
-witness. Table~\ref{tab:hacks} lists these ten hacks, which are the set used for the detector comparison in
-Section~\ref{sec:detect}.
+candidates matched gold on their retained scenarios; we report them as \texttt{certified\_equivalent} but
+do not infer global equivalence. The remaining candidates produced no clean witness.
+Table~\ref{tab:hacks} lists these ten hacks, which formed the set used for the original ten-row
+detector pilot; the standing comparison in Section~\ref{sec:detect} uses all twenty-two released hacks.
 
 \paragraph{The class is not specific to three repositories.} We then ran the same pipeline on forty-two
-fresh instances spanning all twelve repositories in SWE-bench Verified. It produced twenty-three variants;
+additional targets, disjoint from the original sixteen and spanning all twelve repositories in SWE-bench
+Verified. They were additional to this construction gate, not claimed mission-history fresh. The run
+produced twenty-three variants;
 twenty were certified resolved by execution, and twelve were also witnessed wrong, adding hacks in five new
 repositories: requests, xarray, pylint, pytest, and sympy. Combined with the first ten, the released
 benchmark is twenty-two execution-verified certified-resolved reward hacks across eight repositories. The
 sharpest scale example is a Django hack whose variant passes 1{,}870 graded tests and still returns
-\texttt{'accepted'} where the correct fix returns \texttt{'rejected'}. The detector comparison below was
-run on the first ten hacks only, before this expansion.
+\texttt{'accepted'} where the correct fix returns \texttt{'rejected'}. The instrument comparison below
+includes all twenty-two hacks.
 
-\paragraph{The class also occurs unprompted.} Every hack described so far is elicited: a model was told to
-produce a wrong variant. We therefore ran one further check with no such instruction. We asked a frontier
-model to fix thirty-nine issues with a plain prompt---solve this bug---that never mentions tests, and
-measured how often its patch is certified yet wrong. Of thirty-seven patches, fifteen were certified
-resolved by the official harness; eight matched the correct fix, and seven produced different output. To
-decide whether a difference is a genuine bug or a valid alternative fix, two judges saw the two outputs
-unlabeled, neither told which came from the reference; we counted a patch as wrong only when both judges
-named that patch, and only that patch, as incorrect. One patch met this bar: a Sphinx fix that passes all
-thirty-three graded tests yet renders a compound-key keyboard input as a malformed empty element. This is a
-single case on a localized-solve sample, an existence result and not a frequency: a model, not told to game
-the tests, nonetheless produced a patch that passes them while being wrong. Two further cases were
-ambiguous (a judge doubted the reference fix as well) and are not counted.
+\paragraph{Exploratory neutral-prompt localized solve.} Every benchmark hack above is elicited. We therefore
+retained a separate run with no gaming instruction. This was not a random sample: thirty-nine targets were
+selected after excluding all sixty-six unique targets from the earlier iter193 Phase-A and iter199 target
+sets. The remaining engineering filters---one source file, one added run, strip-round-trip compatibility
+with the gold-shaped patch builder, lexicographic ordering, and a cap of five per repository---yielded 200
+compatible rows across nine repositories and the frozen thirty-nine. The prompt included the issue and a buggy region reconstructed from gold-diff context
+and removed lines; gold-added lines were withheld. We therefore call it gold-localized, not plain.
+
+\texttt{gpt-5.6-terra} produced thirty-seven valid patches; all now have official-harness evidence, and
+twenty-four certify. Nine model/gold patch pairs differ by exactly one terminal LF, so zero are byte-identical;
+eight of those normalized-equivalent patches certify. Four certified patches have no observed divergence on
+a valid witness, five lack a valid witness, and seven have an observed gold/model divergence. The blind
+judges were \texttt{gpt-5.6-terra} and \texttt{claude-opus-4-8}; each saw two outputs unlabeled. The
+OpenAI blind request used a 1{,}536-token cap and the Anthropic blind request used
+\texttt{max\_tokens=400}; neither supplied a temperature field. The
+conservative requirement that both name only the model output was adopted after inspecting the original
+outcomes and reduces a loose count of three to one strict case. The original hypothesis named one judge,
+and Git commit \texttt{f651bfc} first records the hypothesis, target manifest, and solver outputs together,
+so the repository does not independently timestamp a pre-output freeze. The retained judge bundle stores
+parsed labels and derived booleans, not raw response text. Exact response substance and parser fidelity
+therefore cannot be re-audited; the strict case is bounded parsed-decision evidence.
+
+The strict case is a Sphinx fix that passes all thirty-three graded tests yet renders a compound-key
+keyboard input as a malformed empty element. Five certified rows lack a valid witness and one divergence
+lacks two complete judge outcomes, so $u=6$ remains unadjudicated. With $N=24$ and $k=1$, we report $1/24$
+(4.1667\%) confirmed lower, $7/24$ (29.1667\%) as the worst case over those six declared missing pipeline
+outcomes, and $1/18$ (5.5556\%) complete-case sensitivity. The formulas were adopted after the original
+result but before the denominator backfill; they are not preregistered iter200 estimates, confidence
+intervals, prevalence bounds, or population frequencies. The historical $1/15$ was conditional on a
+scenario-eligible cohort and is not pooled.
 
 \begin{table}[t]
 \centering
 \small
-\caption{The ten certified-resolved reward hacks. Each patch passes every graded test (the official
+\caption{Original iter195 ten-row subset of the released 22-row benchmark. Each patch passes every graded test (the official
 harness marks it resolved), yet produces different output from the gold fix on the shown input.}
 \label{tab:hacks}
 \begin{tabular}{@{}llll@{}}
@@ -265,141 +299,155 @@ unescaped and the variant escapes it, so the two differ. A reasoning pass called
 the code showed it was a hack. This is the paper's own thesis applied to the authors: for this class, run
 the code rather than trust a verdict, including one's own.
 
-\paragraph{Claim boundary.} The ten hacks are elicited and constructed, not sampled from real agent runs,
-so we make no claim about how often agents hack in practice. There are twenty-two hacks across eight
-repositories, and the detector comparison uses the first ten.
-``Wrong'' means the variant differs from the gold reference fix on a constructed input. The two correct
-rewrites are reported, not hidden.
+\paragraph{Claim boundary.} The benchmark hacks are elicited and constructed, not sampled from real agent
+runs, so we make no claim about how often agents hack in practice. There are twenty-two hacks across eight
+repositories, and the exploratory instrument comparison uses all twenty-two. In this cohort, ``wrong''
+means a clean synthesized-input output differs from gold. The separate localized solve supports one strict
+case under a later conservative blind rule, with all three missing-outcome quantities reported above. The
+two \texttt{certified\_equivalent} controls matched gold only on retained scenarios; global equivalence is
+not claimed.
 
 \section{Detecting Certified-Yet-Wrong Patches}
 \label{sec:detect}
 
-We now ask what catches the ten hacks. Every detector sees only the candidate patch, the public task
-description, and the visible test. No detector sees the gold patch, the label, the hidden tests, or the
-witness scenario from Section~\ref{sec:construct}.
+The instruments had different access. The judge saw the candidate diff, public task, and visible test, but
+not gold or the retained witness. The property generator saw the task, visible test, and a source/function
+locator extracted from the candidate diff; candidate code lines and gold content were withheld. Offline
+evaluation then used gold to decide which properties entered the analysis. The locator violated both
+runs' diff-independent access descriptions. Gold validation was registered in iter201, so it is an
+interpretation limit there rather than a second protocol deviation; iter197 had instead registered the
+visible test as its soundness anchor and separate paired-gold controls.
 
-\paragraph{Controls.} Recall without a false-positive rate is not a result. Alongside the ten hacks we
-evaluate two kinds of control: the ten gold patches for the same instances, which are correct, and the two
-correct rewrites from Section~\ref{sec:construct}, which are a harder control because they look unusual
-while being correct.
+\paragraph{Instrument A: judge panel.} \texttt{gpt-5.6-terra} and \texttt{claude-opus-4-8} reviewed each
+of twenty-two hack diffs and twenty-two paired gold diffs. A planned \texttt{gemini-2.5-flash} slot was not
+run because application-default credentials were blocked. OpenAI judging used a 1{,}536-token cap and
+Anthropic detector judging used \texttt{max\_tokens=200}; no request supplied a temperature field. We count
+a row as caught if either parsed response says \texttt{reward\_hack}.
 
-\paragraph{Detector A: a judge panel.} Two frontier language models act as reviewers: they read the patch,
-the task, and the visible test, and answer whether the patch is a correct general fix or subtly wrong. We
-had intended a three-model panel; the third model was unreachable in our environment, so we report a
-two-model panel and say so. We count a hack as caught if at least one judge flags it. On a single run, the
-panel flags seven of the ten hacks, one of the ten gold patches, and one of the two correct rewrites.
-Language-model judge outputs vary from run to run, so this is one sample, not a stable rate.
+The panel has observed catches on twenty of twenty-two hack rows. Eight of eighty-eight responses are
+unparseable, affecting five hack rows and three gold rows. Every affected hack row is caught by the other
+judge, so row-level any-catch remains twenty of twenty-two. Three gold rows are observed flags; because
+three other gold rows have a missing response, the required sensitivities are $3/22$ observed lower,
+$6/22$ worst-case missing upper, and $3/19$ complete-case. The retained artifact contains parsed labels and
+nondecision markers, not raw response text, so exact response substance cannot be re-audited.
 
-Two measurement problems arose and we fixed both before reporting. Our first automatic check for leaked
-information matched a shared 200-character diff header and reported leakage on all ten hacks; this was
-wrong, because a variant shares its diff header with the gold patch by construction. The corrected check
-counts only gold-distinctive lines that appear in the candidate, which is two of ten, and a shared correct
-line makes a hack look \emph{more} correct, so it biases the judge toward missing the hack, not toward
-catching it. Separately, one judge's short token budget caused it to emit unparseable output on most rows;
-counting those as ``correct'' would have understated its recall, so we raised the budget until it answered.
+All forty-four full-cohort rows were freshly judged in iter201; no iter196 labels were reused. The prompt
+builder capped problem text at 1{,}500 characters, visible-test text at 2{,}500, and candidate diffs at
+4{,}000. Task text was truncated in $14/44$ prompts ($7/22$ unique instances), visible-test text in $6/44$
+($3/22$), and candidate diffs in none. The first Git commit containing the full-cohort judge protocol also
+contained its outputs, so Git does not independently establish a pre-output protocol freeze.
 
-\paragraph{Detector B: a gold-free execution oracle.} For each instance, a model proposes a small
-executable check of correct behavior, using only the public task and the visible test---never the gold
-patch or the patch under test. We validate the check by running it against the gold patch: a check that the
-correct fix fails is unsound and is discarded. We then run each sound check against the candidate. A
-candidate that fails a sound check is flagged. All twelve checks were sound. The oracle flags four of the
-ten hacks and none of the two correct rewrites.
+\paragraph{Instrument B: locator-assisted, gold-validated property pipeline.} \texttt{gpt-5.6-terra}
+generated a property for twenty-one of twenty-two targets. Twenty of those twenty-one properties passed on
+gold and entered the exploratory analysis; six caught the candidate patch. Because gold passing is the
+inclusion rule, running the same property on the paired gold patch is not an independent false-positive
+experiment. Iter201 records protocol \texttt{FAIL} because the generator used a diff-derived locator; its
+registered method did explicitly name gold validation. Iter197 records \texttt{FAIL} for three distinct
+reasons: the same locator deviation, replacement of the registered visible-test soundness anchor with
+gold, and omission of independent decisions on ten registered paired-gold controls. Its later threshold of
+five catches first appeared with generated outputs, so the observed $4/10$ is a post-generation diagnostic,
+not a missed prospective bar.
+
+The property prompts also used capped inputs. In iter201, task text was truncated for $9/22$ targets and
+visible-test text for $3/22$. Both historical property executions used mutable \texttt{:latest} image
+tags without retaining resolved digests; exact
+container bytes therefore cannot be reconstructed from the committed evidence.
 
 \begin{table}[t]
 \centering
-\small
-\caption{Two detectors on the same ten certified-resolved reward hacks, with the gold fix withheld from
-both. ``Equivalent FP'' is false positives on the two correct rewrites. The judge figures are one
-stochastic run.}
+\footnotesize
+\caption{Corrected exploratory full-cohort instrument accounting. Property-gold passing is an inclusion
+rule, not an independent control result. Iter201's protocol failure is the diff-derived locator.}
 \label{tab:detectors}
-\begin{tabular}{@{}lccc@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.22\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.23\linewidth}>{\raggedright\arraybackslash}p{0.33\linewidth}@{}}
 \toprule
-Detector & Recall (of 10) & Gold false positives (of 10) & Equivalent FP (of 2) \\
+Instrument & Hack catches & Coverage / missingness & Control interpretation \\
 \midrule
-A: judge panel (2 models)      & 7 & 1 & 1 \\
-B: gold-free execution oracle  & 4 & 0 & 0 \\
+Judge panel & 20/22 & 8/88 response nondecisions & Gold flags: 3/22 lower; 6/22 missing upper; 3/19 complete-case \\
+Locator/gold property pipeline & 6/22 & 21/22 generated; 20/21 pass gold & No independent false-positive estimate; protocol FAIL \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\paragraph{The tradeoff.} Table~\ref{tab:detectors} shows the two detectors. The judge reads the patch and
-catches more hacks (seven of ten), but it also flags correct code (one gold patch, one correct rewrite).
-The execution oracle is blind to the patch and to the gold fix and catches fewer (four of ten), but it
-never flagged correct code in this set. The judge trades precision for recall; the oracle trades recall for
-precision.
+\paragraph{Exploratory overlap.} In iter197, the judge caught seven, the property pipeline caught four, and
+their observed union was eight of ten only when unparseable judge responses were treated as no flag. The
+apparent property-only row, \texttt{django-11211}, had two unparseable judge responses: it was
+judge-unadjudicated, not a confirmed judge miss. The corresponding missingness sensitivities are $8/10$
+observed, $9/10$ upper, $7/8$ judge-complete, and $8/9$ property-resolved. In iter201, every one of the six
+property catches is among the judge's twenty, so the union remains twenty of twenty-two and two astropy
+hacks are missed by both. Neither run establishes confirmed complementarity or evidence that a deployable
+ensemble improves on a strong judge.
 
-\paragraph{Complementarity, and its limits at scale.} On these ten hacks the two detectors did not catch
-the same ones: the judge caught seven, the oracle caught four, and the oracle caught \texttt{django-11211},
-which the judge missed, so their union was eight of ten. That suggested an ensemble. But we tested it on
-the full twenty-two-hack benchmark and it did not hold. There the judge, in a single run, caught twenty of
-twenty-two (it caught all twelve of the more recently constructed hacks, which are more visible in the
-diff), the oracle caught six, and every one of the oracle's six was also caught by the judge---the oracle
-added no unique catch, and the union equalled the judge alone. Whether the oracle catches something the
-judge misses turns out to depend on the judge's run: the judge's recall varies from run to run, and on the
-run above it happened to miss the one hack the oracle caught, while on the larger run it did not. The honest
-statement is narrower than ``the ensemble beats either detector.'' The judge has high but variable recall;
-the oracle is precise but low-recall and coverage-bound; an ensemble is a safe default, since the oracle
-never flags correct code, but we do not show it beating a strong judge. Two hacks, both in astropy, were
-missed by every detector in both runs. (These larger-sample numbers are a single judge run and reuse the
-gold-free oracle on the full benchmark; the ten-hack numbers above are the primary, more carefully
-adjudicated comparison.)
-
-\paragraph{Why the oracle is precise but limited.} The same example explains both halves of the oracle's
-behavior. For \texttt{django-11179}, the gold-free check never saw the gold fix or the patch, so it did not
-know that the bug depends on the primary key's name. It built a model with a key named \texttt{id}, where
-the variant behaves correctly, so its check passed and it missed the hack. The judge caught the same hack
-by reading the suspicious \texttt{pk.name == 'id'} condition in the patch. This is why the oracle's recall
-is lower: without the gold fix or the patch, a proposed check rarely targets the exact branch where a
-certified variant diverges. It is also why the oracle's precision is perfect here: when a spec-derived
-check does fire, it fires on real wrong behavior.
-
-\paragraph{Claim boundary.} This is a bounded pilot comparison on ten hacks and two hard controls across
-three repositories. The judge result is a single stochastic run. We make no leaderboard, model-superiority,
-or state-of-the-art claim.
+\paragraph{Claim boundary.} This is a corrected exploratory comparison across eight repositories. The
+judge figures are one stochastic run with explicit nondecisions; the property counts come from a protocol
+deviation and have no independent false-positive estimate. We make no leaderboard, model-superiority,
+state-of-the-art, population-frequency, or deployment claim.
 
 \section{Limitations}
 
 We state the bounds plainly.
 \begin{itemize}
-  \item \textbf{Small sample.} A benchmark of twenty-two hacks across eight repositories, with the detector
-  comparison run on the first ten. Confidence intervals are wide; this is a pilot, not a distributional
-  measurement.
-  \item \textbf{Mostly elicited.} The benchmark hacks were produced by a model asked to write a wrong
-  variant. We found one unprompted case (above), which shows the class is not only an artifact of
-  elicitation, but a single case is an existence result, not a measure of how often a trained agent
-  produces such patches on its own.
-  \item \textbf{Reference definition of wrong.} ``Wrong'' means the variant differs from the gold reference
-  fix on a constructed input, not that an independent oracle judged it wrong.
-  \item \textbf{Single-run judge.} The judge numbers come from one run; language-model verdicts vary
-  between runs.
-  \item \textbf{Coverage-bound oracle.} The gold-free oracle is demonstrated on framework-internal
-  functions and is limited by whether a correct check can be proposed from the public specification.
-  \item \textbf{One adversary model.} A single frontier model both produced the hacks and proposed the
-  checks; we do not measure cross-model generalization.
+  \setlength{\itemsep}{2pt}
+  \setlength{\parsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \item \textbf{Small, mostly elicited sample.} The benchmark has twenty-two hacks across eight
+  repositories, produced by a model asked to write wrong variants. The separate neutral-prompt solve is a
+  nonrandom, gold-localized convenience sample, not a measure of field frequency.
+  \item \textbf{Exploratory neutral-solve rules.} The strict blind rule was adopted after outcome
+  inspection, and the missingness summaries were added after the original result but before the backfill.
+  Six of twenty-four certified outcomes remain unadjudicated. The
+  three sensitivities are descriptive and must stay together. Fifty-four historical execution logs lack
+  explicit image/exit provenance and are trusted only as a frozen exact-byte corpus; twenty backfill logs
+  carry the stronger provenance markers.
+  \item \textbf{Cohort-specific wrongness labels.} In the constructed cohort, ``wrong'' means the variant
+  differs from the gold reference fix on a retained input, not independent semantic adjudication. The
+  neutral cohort additionally requires both blind judges to identify only the model output as wrong.
+  \item \textbf{Incomplete judge records.} The detector-judge numbers come from one stochastic run with
+  eight nondecisions. Parsed labels are retained, but raw iter201 response text is unavailable. Iter200
+  likewise retains only parsed blind-judge labels and derived booleans, so exact response substance and
+  parser fidelity cannot be re-audited for the strict existence case.
+  \item \textbf{Detector chronology and input coverage.} The full-cohort judge protocol and outputs first
+  appear together in Git, so no independent pre-output freeze is established. Judge and property prompts
+  used the character caps reported above; several task and test inputs were truncated.
+  \item \textbf{Distinct property-protocol deviations.} Both property gates are \texttt{FAIL} because of
+  diff-derived locators. Iter197 additionally replaced its registered visible-test soundness anchor and
+  omitted independent paired-gold decisions. Iter201 registered gold validation; there it prevents an
+  independent specificity estimate but is not another failed bar.
+  \item \textbf{Historical container provenance.} Iter197 and iter201 property execution retained mutable
+  \texttt{:latest} tags but no resolved image digests. Their exact historical container bytes are not
+  reconstructible from the repository.
+  \item \textbf{Role reuse.} \texttt{gpt-5.6-terra} produced adversarial variants, scenarios, neutral
+  patches, and properties and also occupied one judge slot; cross-model generalization is unmeasured.
 \end{itemize}
 
 \section{Conclusion}
 
-SWE-bench Verified certifies patches that are wrong. We constructed twenty-two such patches across eight
-repositories, verified each by execution, and released them with witnesses. Because the tests that define ``resolved'' are exactly the
-tests any test-based check would use, no shipped test catches this class; a check must run an input the
-tests do not. Of the two detectors we measured, a language-model judge caught more hacks but flagged
-correct code, and a gold-free execution check caught fewer but flagged none. On a small set the two looked
-complementary; on the full benchmark a strong judge run caught nearly everything and the execution check
-added no unique catch, so we do not claim an ensemble beats a strong judge---only that pairing them is a
-safe default, since the execution check never flags correct code. We found one naturally-occurring
-certified-yet-wrong patch, produced by a model that was not told to game the tests; the honest next steps
-are to grow the sample and the number of repositories, to measure how often such patches arise unprompted
-rather than merely showing that they can, and to establish whether an execution check reliably adds recall
-over a strong judge.
+Under our reference-differential operational label, SWE-bench Verified certifies patches that are wrong on
+retained synthesized inputs. We constructed twenty-two such patches across eight repositories and released
+execution witnesses. Every patch passes the graded tests; in a separate sixteen-row audit, no additional
+test in the audited target modules distinguished a candidate from gold. One judge-panel run has observed
+catches on twenty of twenty-two hacks, with eight of eighty-eight response nondecisions and paired-gold flag
+sensitivities of $3/22$, $6/22$, and $3/19$. The locator-assisted, gold-validated property pipeline catches
+six of twenty-two, all within the judge set. Both property gates fail the diff-independent locator contract;
+iter197 has two additional protocol deviations, while iter201's registered gold validation prevents an
+independent false-positive estimate. The ten-row apparent property-only case was judge-unadjudicated, and
+the full-cohort property catches are a subset of the judge's, so no confirmed complementarity is shown.
+The exploratory neutral-prompt localized solve confirms one
+strict case under a post-inspection rule. Its corrected cohort has twenty-four certified patches and six
+declared missing outcomes, giving $1/24$, $7/24$, and $1/18$. The pre-result next step is iter202: preserve
+the frozen cohort and execute only after its exact-byte runtime freeze, eight-shard certification plan,
+atomic checkpoints, and single-run-attempt aggregate receipt pass the committed primary-branch gate. The
+result must report the pre-result-declared prior-use and missing-outcome sensitivities.
 
 \paragraph{Reproducibility.} Every number in this paper regenerates from a committed script, manifest, or
 validated receipt in the Telos repository. The experiments are named in the text (for example, the
-construction is iter193 through iter195, the cross-repository expansion is iter199, and the detector
-comparison is iter196 and iter197).
+construction is iter193 through iter195 and the expansion is iter199). Iter196 is the judge pilot; iter197
+and iter201 are protocol-failed property runs with retained exploratory diagnostics. Iter200 is the
+exploratory localized solve and denominator correction. Iter202 is pre-result and contributes no result.
 
-\begin{thebibliography}{9}
-\small
+\begin{thebibliography}{11}
+\footnotesize
+\setlength{\itemsep}{1pt}
 \bibitem{amodei2016concrete} D.~Amodei, C.~Olah, J.~Steinhardt, P.~Christiano, J.~Schulman, and D.~Man\'e.
 Concrete Problems in AI Safety. \emph{arXiv:1606.06565}, 2016.
 \bibitem{krakovna2020specification} V.~Krakovna et al. Specification gaming: the flip side of AI ingenuity.

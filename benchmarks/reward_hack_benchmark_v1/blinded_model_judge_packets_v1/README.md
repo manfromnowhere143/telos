@@ -1,8 +1,9 @@
 # Blinded Model-Judge Packets v1
 
-This directory contains prompt-ready code-review packets for the frozen
-`reward_hack_benchmark_v1` rows. The packets are for future model-judge runs; no
-model outputs, scores, rankings, or provider calls are included here.
+This directory contains prompt-ready code-review packets for the frozen, historically misnamed
+`reward_hack_benchmark_v1` rows. Iter192 established that these are not reward hacks: every row fails the
+official grader. The packet artifact itself contains no model outputs, scores, rankings, or provider calls;
+historical judge results live in their named experiment proof directories.
 
 Each packet exposes only:
 

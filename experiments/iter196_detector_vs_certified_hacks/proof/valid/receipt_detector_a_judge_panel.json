@@ -2,8 +2,10 @@
   "acceptance_criteria": [
     "Judges see only diff + public task + visible test; never gold patch, label, hidden tests, official reports, or iter195 witness.",
     "Provider calls <=160 and spend <=$25.00; no undeleted cloud resources.",
-    "Recall on 10 hacks and FP on 12 controls reported per model with raw per-row verdicts retained.",
+    "Parsed-label sensitivities on 10 hacks and 12 controls are reported with nondecisions explicit.",
     "Nondecisions counted separately from legitimate (not conflated).",
+    "Raw provider response text was not retained, so response substance and parser fidelity are disclosed as unavailable for re-audit.",
+    "Prompt caps and exact truncation counts are reported.",
     "Real gold-fix leakage measured (gold-distinctive added lines, not shared headers) and reported per row.",
     "Result flagged partial: Detector B (gold-free oracle) is not run here and is promoted to iter197.",
     "No leaderboard, model-superiority, SOTA, natural-frequency, or benchmark-size claim; single-run variance disclosed."
@@ -14,13 +16,19 @@
     {
       "artifact": "experiments/iter196_detector_vs_certified_hacks/proof/judge_panel_results.json",
       "kind": "test",
-      "notes": "44 calls, ~$2.64. any_catch recall 7/10; per-model gpt 7 opus 6; gold FP 1/10; equiv FP 1/2. Per-row verdicts + shared_gold_lines retained.",
+      "notes": "44 calls, ~$2.64. The artifact retains 44 parsed labels and shared-gold-line fields, but no raw provider response text. Observed any-catch is 7/10 hacks, 1/10 paired gold flags, and 1/2 equivalent flags.",
+      "status": "pass"
+    },
+    {
+      "artifact": "experiments/iter196_detector_vs_certified_hacks/proof/audit_report.json",
+      "kind": "adversarial_review",
+      "notes": "Recomputed missingness: hacks 7/10 observed, 9/10 upper, 7/8 complete; gold 1/10, 3/10, 1/8; equivalent 1/2, 2/2, 1/1. Prompt task/test/diff caps are 1500/2500/4000 with exact truncation counts.",
       "status": "pass"
     },
     {
       "artifact": "experiments/iter196_detector_vs_certified_hacks/RESULT.md",
       "kind": "adversarial_review",
-      "notes": "Two methodology issues caught via world-contact bars and fixed: leakage-guard false alarm (real 2/10, biases against recall) and OpenAI 200-token nondecisions (raised to 1536).",
+      "notes": "The retained run used OpenAI's 1536-token cap, but still contains 7/44 response nondecisions across all cohorts; the result reports sensitivities rather than silently treating them as legitimate.",
       "status": "pass"
     },
     {
@@ -34,11 +42,13 @@
     "Any judge prompt contains the gold patch as a reference, a label, a hidden test name, an official report, or the iter195 witness.",
     "A reported recall/FP number does not regenerate from retained per-row verdicts.",
     "Nondecisions are counted as legitimate verdicts.",
+    "The observed 7/10 hack or 1/10 gold count is presented as complete without missing-outcome sensitivities.",
+    "Raw response substance, parser fidelity, or the two-model amendment's independent pre-output Git freeze is claimed to be established.",
     "The result claims the both-detector bar was met, or presents a single run as a stable rate.",
     "The result presents a leaderboard, model-superiority, SOTA, natural-frequency, or benchmark-size claim."
   ],
   "receipt_id": "telos-iter196-detector-a-judge-panel",
-  "sha256": "1029c2dfa371dd89a40246179bd0f5ccec43600ec124951f6c162e861f02255b",
+  "sha256": "3293912645fd1562aaf0c69513e0089fd7a862641bc0d458250bbaf7f12318e4",
   "stated_goal": "Measure a frontier LLM judge panel's recall and false-positive rate on the 10 certified-resolved reward hacks and paired controls, at decision time with gold forbidden. (Detector B pending.)",
   "status": "blocked",
   "task_id": "iter196_detector_vs_certified_hacks"

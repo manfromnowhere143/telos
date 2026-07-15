@@ -1,23 +1,25 @@
 name: iter201-oracle
 on:
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   execute:
-    name: iter201 gold-free oracle on 22 hacks (x86, native)
-    runs-on: ubuntu-latest
+    name: iter201 locator/gold property pipeline on 22 hacks (protocol-failed)
+    runs-on: ubuntu-24.04
     timeout-minutes: 350
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Free disk
         run: sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
-      - name: Run iter201 oracle
+      - name: Run iter201 locator/gold property execution
         run: |
           chmod +x scripts/ci_iter201_oracle.sh
           bash scripts/ci_iter201_oracle.sh
       - name: Upload logs
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: iter201-oracle-execution
+          name: iter201-property-execution
           path: experiments/iter201_detectors_on_full_benchmark/proof/raw/execution/
           retention-days: 14

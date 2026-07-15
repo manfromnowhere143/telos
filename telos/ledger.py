@@ -17,7 +17,7 @@ class LedgerValidationError(ValueError):
     """Raised when a learning record is malformed."""
 
 
-VALID_STATUSES = {"pass", "null", "blocked", "pending"}
+VALID_STATUSES = {"pass", "fail", "null", "blocked", "pending"}
 
 
 @dataclass(frozen=True)

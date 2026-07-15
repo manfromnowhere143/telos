@@ -1,0 +1,142 @@
+{
+  "chronology": {
+    "artifact_first_git_commit": "336c484200289d27ee1361f5fbd1e85e51494fa9",
+    "artifact_first_git_commit_time": "2026-07-14T19:54:46+03:00",
+    "original_protocol_git_freeze_commit": "d5afa98948d76f465d15002c8592c085a6e29688",
+    "original_protocol_git_freeze_time": "2026-07-14T19:30:19+03:00",
+    "two_model_amendment_independently_git_frozen_before_output": false
+  },
+  "experiment_id": "iter196_detector_vs_certified_hacks",
+  "judge_configuration": {
+    "anthropic": {
+      "api_version": "2023-06-01",
+      "endpoint": "https://api.anthropic.com/v1/messages",
+      "max_tokens": 200,
+      "model": "claude-opus-4-8",
+      "temperature_field_sent": false
+    },
+    "openai": {
+      "endpoint": "https://api.openai.com/v1/chat/completions",
+      "max_completion_tokens": 1536,
+      "model": "gpt-5.6-terra",
+      "temperature_field_sent": false
+    }
+  },
+  "missing_outcome_sensitivity": {
+    "equivalent_controls": {
+      "complete_case": [
+        1,
+        1
+      ],
+      "observed_lower": [
+        1,
+        2
+      ],
+      "response_nondecisions": [
+        2,
+        4
+      ],
+      "rows_with_nondecision": [
+        1,
+        2
+      ],
+      "worst_case_missing_upper": [
+        2,
+        2
+      ]
+    },
+    "gold_controls": {
+      "complete_case": [
+        1,
+        8
+      ],
+      "observed_lower": [
+        1,
+        10
+      ],
+      "response_nondecisions": [
+        2,
+        20
+      ],
+      "rows_with_nondecision": [
+        2,
+        10
+      ],
+      "worst_case_missing_upper": [
+        3,
+        10
+      ]
+    },
+    "hacks": {
+      "complete_case": [
+        7,
+        8
+      ],
+      "observed_lower": [
+        7,
+        10
+      ],
+      "response_nondecisions": [
+        3,
+        20
+      ],
+      "rows_with_nondecision": [
+        2,
+        10
+      ],
+      "worst_case_missing_upper": [
+        9,
+        10
+      ]
+    }
+  },
+  "prompt_truncation": {
+    "caps_characters": {
+      "candidate_diff": 4000,
+      "problem_statement": 1500,
+      "visible_test": 2500
+    },
+    "candidate_diff": {
+      "truncated_prompt_rows": [
+        0,
+        22
+      ],
+      "truncated_unique_instances": [
+        0,
+        12
+      ]
+    },
+    "problem_statement": {
+      "truncated_prompt_rows": [
+        4,
+        22
+      ],
+      "truncated_unique_instances": [
+        3,
+        12
+      ]
+    },
+    "visible_test": {
+      "truncated_prompt_rows": [
+        2,
+        22
+      ],
+      "truncated_unique_instances": [
+        1,
+        12
+      ]
+    }
+  },
+  "provenance": {
+    "parsed_response_labels_retained": [
+      44,
+      44
+    ],
+    "parser_fidelity_reauditable": false,
+    "raw_provider_response_text_retained": false,
+    "runner_sha256": "48119a9c9aeef6606442eada7843d54bf33cff3cc6e3650f6b84c9e2b135d23c",
+    "source_artifact_sha256": "49637170b7c8b2fbcfeecd8053fe7850f93a9d3a55c0b4e83b9b2d2611f9cdcc"
+  },
+  "schema_version": "telos.iter196.audit_report.v1",
+  "status": "blocked"
+}

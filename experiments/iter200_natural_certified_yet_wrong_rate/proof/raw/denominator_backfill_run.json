@@ -1,0 +1,72 @@
+{
+  "artifact": {
+    "archive_digest": "sha256:65a38060f584f762b272fc7c7299ee15b554c20eb4dd252b29ae48310dbd4374",
+    "artifact_id": 8346537395,
+    "downloaded_outside_repository": "/tmp/telos-iter200-run-29422735843",
+    "expires_at": "2026-07-29T14:35:40Z",
+    "name": "iter200-denominator-backfill",
+    "regular_file_count": 74,
+    "size_bytes": 228303,
+    "symlink_count": 0,
+    "unexpected_file_count": 0
+  },
+  "backfill": {
+    "corpus_digest_algorithm": "SHA-256 over each lexicographically sorted basename encoded as UTF-8, then one NUL byte, then the file's exact bytes",
+    "full_74_log_corpus_sha256": "06c0b0db9b7595aee85875cd8d43f9ccd511342bddef1a06c0d394aa5e70c5b7",
+    "frozen_log_count": 54,
+    "frozen_54_log_corpus_sha256": "ce0120cd6bbd338d435b60f70c30ffe7a42709db27d2ee73a50c810be473b3ce",
+    "frozen_logs_byte_identical": true,
+    "new_log_count": 20,
+    "new_20_log_corpus_sha256": "0b40f5854a54cca605675da8fda84f8bc2f175d1fd401bb7e03542f8d99dfa6d",
+    "new_target_count": 10,
+    "provider_calls": 0
+  },
+  "checks": [
+    "workflow completed with conclusion=success at the expected head SHA",
+    "artifact contained exactly 37 gold and 37 variant regular logs",
+    "all 54 pre-existing logs matched byte-for-byte",
+    "only the 20 missing logs were ingested",
+    "every new variant log contained image provenance, APPLY_OK, ordered certification markers, numeric CERT_EXIT, and SCENARIO_UNAVAILABLE",
+    "every new gold log contained matching image provenance and SCENARIO_UNAVAILABLE",
+    "no provider-model endpoint was called"
+  ],
+  "experiment_id": "iter200_natural_certified_yet_wrong_rate",
+  "new_logs": {
+    "astropy__astropy-14539.gold.log": "b44c7e3dd8a1eb79cfad114edeb2348d39226dabf5f610f8f398cb3fc818a9dd",
+    "astropy__astropy-14539.variant.log": "194b4029a1fe48919189a4d4c70c7d94c1afdba10db660ab37cec229c3afe6f3",
+    "django__django-11066.gold.log": "91e6650ea46ce0b6f23476bbb92762b4b94053a8fbbc86da2727a496720bc51c",
+    "django__django-11066.variant.log": "6959f1a97fc3fb2d26023cc0ac8469d9b7df97f950cb2c8a1feddb77e7089799",
+    "django__django-11451.gold.log": "97b94e6ee09757b746fa929685caa93ad5d86accbe7d0da4300fda8eb5cb658a",
+    "django__django-11451.variant.log": "ff71a16049a143d4b94a048fec32af58de2f77d64fe4a89c1a8a71fd4e6454a3",
+    "matplotlib__matplotlib-22865.gold.log": "dba736b8808081d5f6a99290d8abdb48ffd8f00e4c51abf8db072661cdd49e40",
+    "matplotlib__matplotlib-22865.variant.log": "648faab95a6cf9f8867f2760156e0e0245f2d9c85986a1e04f615a4e53b0204d",
+    "pydata__xarray-4695.gold.log": "23244cf8b59deebe63bcf89868ccb3e619dbc5cb70be65a54291b1cd2026427e",
+    "pydata__xarray-4695.variant.log": "cb4a8e5e58ee0f97769dcbc20f3e128ed2a8283da56955130ae0f3b0aee10d76",
+    "scikit-learn__scikit-learn-12585.gold.log": "690eb2ec1c18950d6187abe709f1c90041528cbc48011f83d2c7336765e6c10b",
+    "scikit-learn__scikit-learn-12585.variant.log": "ef23d72955632737c10fcbb28d9923339c6ae03b6e0864ad05a8634a52df69ab",
+    "sphinx-doc__sphinx-8269.gold.log": "03bae148fd4ac2c14b3ec4ca4663182ad993428fd1cdf444c7b024fd821acf89",
+    "sphinx-doc__sphinx-8269.variant.log": "0f05aeb403202352148ef64d29bc8830278b4f203023719f094084af653db144",
+    "sphinx-doc__sphinx-8459.gold.log": "ee5272a95be433eb849beae380bafc31ebe84ee469f8b2a93f11701782779759",
+    "sphinx-doc__sphinx-8459.variant.log": "d96875a20f798628590a138ef4df70b48b4cc31ceaf6d04490632f701b654dc4",
+    "sphinx-doc__sphinx-8595.gold.log": "58e276833f294ef0a68842f0ee44565bf0c35927bee26f1cf8ffad8001a3c746",
+    "sphinx-doc__sphinx-8595.variant.log": "eb7cc12fa2bb920ff8e32063b46c3568393fe626d37f332d4bd05533def3fb3d",
+    "sympy__sympy-13647.gold.log": "442cc69751b4ac7a7483808d16d969b599173cd4f424eb41ea2a40d8eade3ad6",
+    "sympy__sympy-13647.variant.log": "fcdc28ed892f3580aa63d01bd4b6b0197a93804458d294d98a7242a7cff7945e"
+  },
+  "schema_version": "telos.iter200.denominator_backfill_run.v1",
+  "workflow": {
+    "artifact_job_conclusion": "success",
+    "artifact_job_id": 87377116386,
+    "branch": "master",
+    "conclusion": "success",
+    "created_at": "2026-07-15T14:15:18Z",
+    "event": "workflow_dispatch",
+    "head_sha": "fc955a5caf20dc1ed53ef71b83797ba75315afb5",
+    "repository": "manfromnowhere143/telos",
+    "run_id": 29422735843,
+    "status": "completed",
+    "updated_at": "2026-07-15T14:35:45Z",
+    "url": "https://github.com/manfromnowhere143/telos/actions/runs/29422735843",
+    "workflow_file": ".github/workflows/iter200-denominator-backfill.yml"
+  }
+}

@@ -1,5 +1,11 @@
 # Three Layers of Agent-Completion Verification
 
+> **SUPERSEDED HISTORICAL DRAFT.** This document stops at iter156 and is not the current manuscript or a
+> current claim source. Iter192 later proved that the `40`-row v1 artifact discussed below contains no
+> reward hacks because every row fails the official grader. The current methodology-corrected manuscript is
+> `paper/telos.tex`; its status and claim boundary are in `paper/README.md` and the root `README.md`. The
+> prose below is retained only to preserve the earlier research chronology.
+
 A plain-language paper draft for the Telos program, current through `iter156`.
 
 This is a bounded findings paper. It is not a SWE-bench leaderboard result, not a public benchmark score,

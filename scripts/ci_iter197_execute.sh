@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# iter197 Phase B - execute each gold-free correctness property in its pinned container under gold and
-# variant. A property is sound if it prints PROP_PASS on the gold patch (correct code satisfies it); a
-# sound property that prints PROP_FAIL on the variant catches the hack. No model, no API key.
+# iter197 Phase B - historical locator-assisted, gold-validated property execution. The generator used a
+# candidate-diff-derived locator and this stage filters on gold, so the registered diff-independent protocol
+# failed; outputs are exploratory diagnostics only. No model, no API key.
 set -uo pipefail
 
 PROPS="experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/raw/properties"

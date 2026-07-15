@@ -107,8 +107,9 @@ def build_manifest() -> dict:
             "excludes iter193/199/200"
         ),
         "pooled_with": (
-            "iter200 (39 attempts; corrected certified denominator pending official backfill; "
-            "1 strict confirmed case)"
+            "iter200 (39 attempted patches; official-harness backfill complete: "
+            "37 valid patches, corrected certified N=24, k=1 strict confirmed case, "
+            "u=6 declared missing outcomes)"
         ),
         "targets": targets,
     }

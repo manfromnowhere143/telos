@@ -1,5 +1,18 @@
 # Telos findings paper — rewrite spine (iter198 scaffolding)
 
+> **SUPERSEDED HISTORICAL SCAFFOLD.** This file preserves the plan used at the iter198 boundary; it is not
+> a current claim source or writing instruction. Iter197 and iter201 now record protocol `FAIL`: the
+> retained property pipeline used candidate-diff-derived locators and gold-based inclusion, so its accurate
+> label is **locator-assisted, gold-validated property pipeline**, not a validated gold-free detector. On
+> the full 22-row cohort, judge/property/union catches are `20/22`, `6/22`, and `20/22`; the property-only
+> set is empty, no independent property false-positive estimate exists, and no ensemble-dominance claim is
+> supported. Iter200 is exploratory, nonrandom, and gold-localized under a post-inspection strict rule.
+> The apparent iter197 property-only row was judge-unadjudicated, its `>=5` threshold was added after
+> property generation, and the registered paired-gold decisions were not run independently. The historical
+> complementarity and preregistered-threshold statements below are therefore false current claims, retained
+> only as superseded scaffolding.
+> The current manuscript and claim boundary are `paper/telos.tex`, `paper/README.md`, and the root README.
+
 This is the analytical skeleton for the iter198 accessible rewrite. It fixes, before any prose is written,
 the structure, the exact number and claim boundary that belongs in each section, and the accessibility
 rules. The prose pass fills this in; it does not re-decide it. Every number below is cited to the committed

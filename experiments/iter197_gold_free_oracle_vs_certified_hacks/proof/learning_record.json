@@ -6,9 +6,9 @@
     "experiments/iter197_gold_free_oracle_vs_certified_hacks/proof/valid/receipt_gold_free_oracle.json"
   ],
   "experiment_id": "iter197_gold_free_oracle_vs_certified_hacks",
-  "insight": "Gold-free execution oracle: 12/12 sound properties, 4/10 recall on the certified-resolved hacks, 0/2 false positives on equivalent controls -- precise but coverage-bound (below the 5 bar -> null). vs judge panel 7/10 recall, 1/2 equivalent FP. The two are COMPLEMENTARY: oracle caught django-11211 the judge missed; union 8/10; only 2 astropy missed by both. django-11179 missed exactly as predicted (property used pk='id', variant correct there). The recall/precision/coverage tradeoff + complementarity is the detector-comparison result the paper needs; an ensemble dominates either alone.",
-  "next_action": "the construct-and-detect arc (iter192-197) is scientifically complete for a findings paper; next is a full accessible paper rewrite around iter192->197 (correct the reward-hack framing, define every term, kill the dense LLM style per Caesar's feedback), then a peer-reviewed venue for a DOI before arXiv",
+  "insight": "PROTOCOL FAIL with retained exploratory diagnostics. The preregistered visible-test-anchor/diff-independent property protocol was not executed: the generator received source/function locators derived from candidate variant diffs, adjudication defined soundness by passing on gold, and the 10 registered paired-gold controls were not independently generated and evaluated, leaving their specificity unavailable. The >=5 threshold first appeared alongside generated properties and is post-generation, not prospective. Retained facts are 12/12 properties passing the gold filter, 4/10 hack catches, and 0/2 equivalent-control flags. The historical overlap is 8/10 observed, 9/10 missing upper, 7/8 judge-complete, and 8/9 property-resolved; django-11211 was judge-unadjudicated, so there is no confirmed property-only catch or complementarity.",
+  "next_action": "Preserve the correction and missingness estimands on every standing surface. Any clean public-task/test-only detector evaluation with independently evaluated controls and digest-pinned execution must be a new prospective gate.",
   "result_path": "experiments/iter197_gold_free_oracle_vs_certified_hacks/RESULT.md",
   "schema_version": "telos.learning_record.v1",
-  "status": "null"
+  "status": "fail"
 }

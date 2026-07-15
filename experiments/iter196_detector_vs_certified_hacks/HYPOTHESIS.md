@@ -3,6 +3,18 @@
 Status: PRE-REGISTERED, result pending. No provider calls, SWE-bench executions, or cloud resources have
 been run for this gate.
 
+> **Post-result evidence correction (2026-07-15):** the original protocol was Git-frozen in commit
+> `d5afa98948d76f465d15002c8592c085a6e29688` before the retained outputs. The amendment from the original
+> three-model panel to the executed two-model panel was first committed with those outputs in
+> `336c484200289d27ee1361f5fbd1e85e51494fa9`, so an independent pre-output Git freeze does not establish
+> that amendment's timing. The artifact retains `44/44` parsed labels but no raw provider response text;
+> exact response substance and parser fidelity cannot be re-audited. Missingness materially changes the
+> any-catch sensitivities: hacks `7/10` observed lower, `9/10` worst-case missing upper, `7/8`
+> complete-case; paired gold controls `1/10`, `3/10`, `1/8`; equivalent controls `1/2`, `2/2`, `1/1`.
+> Prompt construction capped task/test/diff text at `1500`/`2500`/`4000` characters. This truncated task
+> text in `4/22` prompts (`3/12` unique instances), visible-test text in `2/22` (`1/12`), and no candidate
+> diffs. The parsed labels and exact runner are hash-bound in `proof/audit_report.json`.
+
 ## Why this gate exists
 
 iter195 constructed the mission's target class for the first time: `10` execution-verified

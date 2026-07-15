@@ -1,6 +1,16 @@
 # Next Phase
 
-## Current Action
+> **CURRENT AUTHORITY (2026-07-15):** the active gate is
+> [`../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`](../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md).
+> It has no retained or inspected solver output. Its first Git freeze followed disclosed provider contact,
+> so it is a pre-result amended replication rather than conventional preregistration. Complete and validate
+> the checkpointed raw-response ledger, immutable image lock, scenario sandbox, and runtime-freeze manifest;
+> commit and pass CI before any provider execution. `CONTINUITY.md` is the exact operational authority.
+>
+> Everything below preserves the plan at the iter108-era boundary. It is historical provenance, not a
+> current action list.
+
+## Superseded Historical Action (iter108 boundary)
 
 Run `iter108_external_benchmark_pilot_adjudication_after_execution`
 exactly as frozen in
