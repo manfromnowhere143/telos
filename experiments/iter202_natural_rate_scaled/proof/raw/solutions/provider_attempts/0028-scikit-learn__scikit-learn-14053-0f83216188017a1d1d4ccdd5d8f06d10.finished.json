@@ -1,0 +1,31 @@
+{
+  "attempt_id": "0f83216188017a1d1d4ccdd5d8f06d10",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "scikit-learn__scikit-learn-14053",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1120,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 532,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1652
+    }
+  },
+  "raw_response": "```python\n    if feature_names:\n        feature_names_ = [\n            feature_names[i] if i != _tree.TREE_UNDEFINED else None\n            for i in tree_.feature\n        ]\n    else:\n        feature_names_ = [\n            \"feature_{}\".format(i) if i != _tree.TREE_UNDEFINED else None\n            for i in tree_.feature\n        ]\n```",
+  "raw_response_sha256": "9ebc38ebe8a2dafa37416119f9f38627bc583154f6dc59746778db5a67f181bf",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 28,
+  "started_record_sha256": "6fb61b204a61e4d191b546968526555ecf98666bcb35de54d345547ba5db4cee"
+}

@@ -1,0 +1,31 @@
+{
+  "attempt_id": "8f78cbecaf59753616f1ad8f4588c464",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-12193",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1676,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1536,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 694,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2370
+    }
+  },
+  "raw_response": "```python\nfrom django.conf import settings\n\nif not settings.configured:\n    settings.configure(\n        SECRET_KEY=\"test\",\n        INSTALLED_APPS=[],\n        DATABASES={\"default\": {\"ENGINE\": \"django.db.backends.sqlite3\", \"NAME\": \":memory:\"}},\n    )\n\nimport django\n\ndjango.setup()\n\nfrom django.forms.widgets import CheckboxInput\n\nresults = iter((True, False))\nwidget = CheckboxInput(check_test=lambda value: next(results, False))\ncontext = widget.get_context(\"field\", \"value\", {})\n\nprint(\"RESULT=\" + repr(context[\"widget\"][\"attrs\"]))\n```",
+  "raw_response_sha256": "34d8ffb2b579c83921db6f26e035071caa704ab71f19b5e2fa52f85d695c142a",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 9,
+  "started_record_sha256": "4ea01aa0064806a055c55b7320230f57fa0f54abd5e50a52999a1366e0e9ab4b"
+}

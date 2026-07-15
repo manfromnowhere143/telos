@@ -10,12 +10,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "214e95f386977e58cf3cd94c867e9b8b8a04dab9f772e1340939f73ad1cf704c"
-EXPECTED_PDF_SHA256 = "42df96a12e1e4efb1c23a31c7dc9a288bbb5eabe7d1f67c94f26d2f6637222e6"
+EXPECTED_SOURCE_SHA256 = "df7ea5289a5fe3e94667588d0c2baf5924a9e38864dc8a61680d9ebd90c459b6"
+EXPECTED_PDF_SHA256 = "076bff2ba9af0771dc5238e7b78158b58b1abfdf35b58bb39c044d193c16a72a"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
-        r"\date{July 15, 2026}",
+        r"\date{July 16, 2026}",
         "twenty-two patches across eight repositories",
         "$20/22$",
         "$8/88$",
@@ -28,20 +28,20 @@ REQUIRED_TEXT = {
         "iter193--iter199 construction",
         r"mutable \texttt{:latest}",
         "exact historical container bytes",
-        r"clean, green \texttt{master}",
-        "resulting aggregate receipt validates",
+        "scenario-safety protocol/execution null",
+        "post-provider iter203 recovery",
     ),
     ROOT / "paper/README.md": (
-        "current through corrected iter200; iter202 remains pre-result",
+        "current through corrected iter200; iter202 is a safety null and iter203 remains pre-result",
         "Historical image provenance is bounded",
-        "SOURCE_DATE_EPOCH=1784073600 tectonic telos.tex",
+        "SOURCE_DATE_EPOCH=1784160000 tectonic telos.tex",
         "29451691560",
         "29452243832",
     ),
     ROOT / "README.md": (
         "22` execution-verified certified-resolved reward hacks across `8` repositories",
         "exact historical container bytes are not reconstructible",
-        "no retained output · see HANDOFF preflight",
+        "iter202 provider-complete safety null",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "reference-differential operational label",

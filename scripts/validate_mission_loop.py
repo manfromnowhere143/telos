@@ -34,6 +34,7 @@ CORE_VALIDATION_COMMANDS = (
     "pytest -q",
     "python3 scripts/validate_json.py",
     "python3 scripts/validate_docs.py",
+    "python3 scripts/validate_current_paper.py",
     "python3 scripts/validate_mission_loop.py",
     "python3 scripts/validate_supply_chain.py",
     "python3 scripts/validate_detector_methodology_correction.py",
@@ -42,8 +43,9 @@ CORE_VALIDATION_COMMANDS = (
     "python3 scripts/build_iter202_solve_targets.py --check",
     "python3 scripts/audit_iter202_sample_overlap.py --check",
     "python3 scripts/build_iter202_image_lock.py --check",
-    "python3 scripts/validate_iter202_scenario_safety.py",
-    "python3 scripts/validate_iter202_runtime_freeze.py --check",
+    "python3 scripts/build_iter203_safety_recovery.py --check",
+    "python3 scripts/build_iter203_runtime_manifest.py --check",
+    "python3 scripts/validate_iter203_publication_safety.py --check",
     "python3 scripts/validate_target_survey.py",
     "python3 scripts/validate_public_slice.py",
     "python3 scripts/validate_agent_behavior_slice.py",
@@ -83,6 +85,104 @@ def extract_gate(src: str) -> str | None:
     if match:
         return match.group(1)
     return None
+
+
+def validate_gate_bindings(
+    contract: dict[str, Any], continuity: str, handoff: str, *, root: Path = ROOT
+) -> list[str]:
+    """Bind the additive active gate separately from frozen runtime authority."""
+
+    failures: list[str] = []
+    active_gate = contract.get("active_gate")
+    frozen_upstream_gate = contract.get("frozen_upstream_gate")
+    continuity_gate = extract_gate(continuity)
+    if frozen_upstream_gate != continuity_gate:
+        failures.append("contract frozen upstream gate does not match CONTINUITY.md")
+    if active_gate != extract_gate(handoff):
+        failures.append("contract active gate does not match HANDOFF.md")
+    if not isinstance(active_gate, str) or not (root / active_gate).exists():
+        failures.append("contract active gate path does not exist")
+    if not isinstance(frozen_upstream_gate, str) or not (root / frozen_upstream_gate).exists():
+        failures.append("contract frozen upstream gate path does not exist")
+    if active_gate == frozen_upstream_gate:
+        failures.append("active gate must be distinct from the frozen upstream gate")
+    handoff_frozen = re.findall(
+        r"Frozen upstream gate recorded by runtime-bound `CONTINUITY\.md`: `([^`]+)`",
+        handoff,
+    )
+    if handoff_frozen != [frozen_upstream_gate]:
+        failures.append("HANDOFF.md does not bind the contract frozen upstream gate exactly once")
+    return failures
+
+
+def validate_iter203_recovery_state(contract: dict[str, Any]) -> list[str]:
+    """Validate the evidence-bounded provider, safety, and recovery state."""
+
+    failures: list[str] = []
+    expected_provider = {
+        "solver_calls": 53,
+        "scenario_calls": 39,
+        "model_patches": 50,
+        "scenario_programs": 38,
+        "original_absent_scenarios": 1,
+        "scenario_executions": 0,
+        "official_certification_executions": 0,
+    }
+    state = contract.get("current_gate_state", {})
+    if state.get("iter202_retained_provider_stage") != expected_provider:
+        failures.append("iter202 retained provider-stage counts are not exact")
+    expected_safety = {
+        "status": "scenario_safety_protocol_execution_null",
+        "safe_programs": 29,
+        "rejected_programs": 9,
+        "findings": 21,
+        "rate_quantities": "no N, k, or u",
+    }
+    if state.get("iter202_safety_gate") != expected_safety:
+        failures.append("iter202 safety-null disposition is not exact")
+    recovery = state.get("iter203_recovery", {})
+    if recovery.get("status") != "post_provider_pre_execution_bridge_and_specs_ready":
+        failures.append("iter203 recovery readiness status is not exact")
+    if recovery.get("certification_denominator") != "all 50 valid model patches":
+        failures.append("iter203 recovery does not retain the all-patch denominator")
+    if "unresolved, never negative" not in recovery.get("missingness_rule", ""):
+        failures.append("iter203 recovery missingness rule is not fail closed")
+
+    claim = contract.get("claim_boundary", "")
+    for fragment in (
+        "iter203 is the active",
+        "53/53 solver calls",
+        "39/39 eligible scenario calls",
+        "50 model patches",
+        "38 extracted scenario programs",
+        "admitted 29 programs and rejected 9 with 21 findings",
+        "scenario-safety protocol/execution null",
+        "no N, k, or u",
+        "certifies all 50 valid patches",
+        "unresolved rather than negative",
+        "frozen iter202 workflow must not be dispatched",
+    ):
+        if fragment not in claim:
+            failures.append(f"claim boundary missing iter203 recovery fact: {fragment}")
+
+    required_sources = {
+        "experiments/iter202_natural_rate_scaled/RESULT.md",
+        "experiments/iter202_natural_rate_scaled/proof/learning_record.json",
+        "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
+        "experiments/iter203_iter202_safety_recovery/UPSTREAM_PROTOCOL_NULL.md",
+        "experiments/iter203_iter202_safety_recovery/proof/learning_record.json",
+        ".github/workflows/iter203-execute.yml",
+        "scripts/build_iter203_safety_recovery.py",
+        "scripts/build_iter203_runtime_manifest.py",
+        "scripts/validate_iter203_publication_safety.py",
+        "scripts/collect_iter203_execution.py",
+        "experiments/iter203_iter202_safety_recovery/proof/raw/runtime_manifest.json",
+        "experiments/iter203_iter202_safety_recovery/proof/pre_execution_publication_safety.json",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter203 source-of-truth set is incomplete")
+    return failures
 
 
 def _decode_inline_yaml_scalar(value: str) -> str | None:
@@ -467,12 +567,8 @@ def main() -> int:
         failures.append("claim boundary must forbid unverified Aweb/Maestro runtime claims")
 
     active_gate = contract.get("active_gate")
-    if active_gate != extract_gate(continuity):
-        failures.append("contract active gate does not match CONTINUITY.md")
-    if active_gate != extract_gate(handoff):
-        failures.append("contract active gate does not match HANDOFF.md")
-    if not isinstance(active_gate, str) or not (ROOT / active_gate).exists():
-        failures.append("contract active gate path does not exist")
+    failures.extend(validate_gate_bindings(contract, continuity, handoff))
+    failures.extend(validate_iter203_recovery_state(contract))
 
     phases = [phase.get("phase") for phase in contract.get("loop", [])]
     if phases != REQUIRED_PHASES:
@@ -508,8 +604,9 @@ def main() -> int:
         "build_iter202_solve_targets.py --check",
         "audit_iter202_sample_overlap.py --check",
         "build_iter202_image_lock.py --check",
-        "validate_iter202_scenario_safety.py",
-        "validate_iter202_runtime_freeze.py --check",
+        "build_iter203_safety_recovery.py --check",
+        "build_iter203_runtime_manifest.py --check",
+        "validate_iter203_publication_safety.py --check",
         "validate_deterministic_edit_slice.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",

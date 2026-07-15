@@ -1,0 +1,31 @@
+{
+  "attempt_id": "c55d698c8bdf5268f153b8ede937cf4c",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "scikit-learn__scikit-learn-14053",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1143,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 860,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2003
+    }
+  },
+  "raw_response": "```python\nfrom sklearn.tree import DecisionTreeClassifier, export_text\n\n\nclass FeatureNames(list):\n    def __init__(self):\n        super().__init__([\"sentinel\"])\n        self.calls = 0\n\n    def __bool__(self):\n        self.calls += 1\n        return self.calls == 1\n\n\ntree = DecisionTreeClassifier(random_state=0).fit([[0], [1]], [0, 1])\nprint(\"RESULT=\" + repr(export_text(tree, feature_names=FeatureNames())))\n```",
+  "raw_response_sha256": "cce9eb86b79a7b15009a116e650a7c219d1b3e0eb9c2f0fffb862402b3d1bdcb",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 22,
+  "started_record_sha256": "357458bce8abbff0afa180a2e066265d5b0ae589e3437e943554538f48f59842"
+}

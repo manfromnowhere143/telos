@@ -30,6 +30,13 @@ RUNNER_ALLOWLIST = {"ubuntu-24.04"}
 SETUP_UV_ACTION = "astral-sh/setup-uv"
 SETUP_PYTHON_ACTION = "actions/setup-python"
 ITER200_BACKFILL = "iter200-denominator-backfill.yml"
+WORKFLOW_PERMISSION_EXCEPTIONS = {
+    "iter203-execute.yml": {
+        "actions": "read",
+        "checks": "read",
+        "contents": "read",
+    }
+}
 PIP_OPERATION = re.compile(
     r"(?i)(?P<command>(?:[^\s;|&]*/)?python(?:3(?:\.\d+)*)?\s+-m\s+pip|"
     r"(?:[^\s;|&]*/)?pip(?:3(?:\.\d+)*)?)\s+"
@@ -228,9 +235,12 @@ def validate_workflow(path: Path) -> list[str]:
             )
 
     if document is not None:
-        if document.get("permissions") != {"contents": "read"}:
+        expected_permissions = WORKFLOW_PERMISSION_EXCEPTIONS.get(
+            path.name, {"contents": "read"}
+        )
+        if document.get("permissions") != expected_permissions:
             failures.append(
-                f"{label}: top-level permissions must be exactly contents: read"
+                f"{label}: top-level permissions must be exactly {expected_permissions}"
             )
         jobs = document.get("jobs")
         if not isinstance(jobs, dict) or not jobs:

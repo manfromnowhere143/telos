@@ -1,0 +1,31 @@
+{
+  "attempt_id": "58ffecf252ee38531aafa9be835610cc",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-12143",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 2275,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 2047,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 860,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 3135
+    }
+  },
+  "raw_response": "```python\nfrom types import SimpleNamespace\n\nfrom django.conf import settings\n\nif not settings.configured:\n    settings.configure(\n        SECRET_KEY=\"test\",\n        INSTALLED_APPS=[],\n        DATABASES={\"default\": {\"ENGINE\": \"django.db.backends.sqlite3\", \"NAME\": \":memory:\"}},\n        DEFAULT_AUTO_FIELD=\"django.db.models.AutoField\",\n    )\n\nimport django\n\ndjango.setup()\n\nfrom django.contrib.admin import ModelAdmin\nfrom django.contrib.admin.sites import AdminSite\nfrom django.db import models\nfrom django.http import QueryDict\n\n\nclass Probe(models.Model):\n    class Meta:\n        app_label = \"probe\"\n\n\nrequest = SimpleNamespace(\n    POST=QueryDict(\"items%5B0%5D-0-id=literal&items0-1-id=decoy\")\n)\nadmin = ModelAdmin(Probe, AdminSite())\nresult = admin._get_edited_object_pks(request, \"items[0]\")\n\nprint(\"RESULT={!r}\".format(result))\n```",
+  "raw_response_sha256": "6869c70f7736b5718e784ae8726916d26ebee7d18468e2ee1338f39a17345548",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 8,
+  "started_record_sha256": "a2bb7003dea86ee3c213bce5c85d75c367694391b3bf611331c9a91bfca87ced"
+}

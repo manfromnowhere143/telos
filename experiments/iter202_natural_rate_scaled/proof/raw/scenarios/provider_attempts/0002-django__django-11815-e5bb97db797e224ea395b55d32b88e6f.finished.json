@@ -1,0 +1,31 @@
+{
+  "attempt_id": "e5bb97db797e224ea395b55d32b88e6f",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-11815",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 935,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 853,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 840,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1775
+    }
+  },
+  "raw_response": "```python\nfrom enum import Enum\n\nfrom django.db.migrations.serializer import EnumSerializer\n\nQuotedNameEnum = Enum(\"QuotedNameEnum\", {\"O'REILLY\": \"value\"})\nserialized, _ = EnumSerializer(QuotedNameEnum[\"O'REILLY\"]).serialize()\n\nprint(\"RESULT=%r\" % serialized)\n```",
+  "raw_response_sha256": "015cce7736e7a59ee3d9881944186a5110357b792a634d67bff6643cd2f985a3",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 2,
+  "started_record_sha256": "2d9e964f3ce974eea187bbfa64b5bf557f287dd15214be85f4cdfbe3b2df6daf"
+}

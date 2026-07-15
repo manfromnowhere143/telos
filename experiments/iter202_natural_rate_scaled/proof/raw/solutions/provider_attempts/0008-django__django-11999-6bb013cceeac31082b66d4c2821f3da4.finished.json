@@ -1,0 +1,31 @@
+{
+  "attempt_id": "6bb013cceeac31082b66d4c2821f3da4",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-11999",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 291,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 184,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 348,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 639
+    }
+  },
+  "raw_response": "```python\n        if self.choices is not None:\n            # Don't override a get_FOO_display() method defined explicitly on\n            # this class, but don't check methods inherited from inheritance\n            # hierarchy, as the function is generated for each field.\n            if 'get_%s_display' % self.name not in cls.__dict__:\n                setattr(cls, 'get_%s_display' % self.name,\n                        partialmethod(cls._get_FIELD_display, field=self))\n```",
+  "raw_response_sha256": "e164d67aa9d34c5bacddba57ebd38fa05eb5f29eea36808a661fe49992e96326",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 8,
+  "started_record_sha256": "2cd92c7ad3f49caffa96d674ec6f84574b80a807f8668446469a0037f060f3b5"
+}

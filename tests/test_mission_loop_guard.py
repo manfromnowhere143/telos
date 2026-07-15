@@ -23,6 +23,44 @@ def rendered_commands(module, source: str) -> set[str]:
     return {shlex.join(command) for command in module.executable_ci_commands(source)}
 
 
+def test_recovery_gate_binding_preserves_distinct_frozen_upstream(tmp_path: Path) -> None:
+    guard = load_guard_module()
+    active = "experiments/iter203/HYPOTHESIS.md"
+    frozen = "experiments/iter202/HYPOTHESIS.md"
+    for gate in (active, frozen):
+        path = tmp_path / gate
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("# Gate\n", encoding="utf-8")
+    contract = {"active_gate": active, "frozen_upstream_gate": frozen}
+    continuity = f"Current gate:\n\n- `{frozen}`\n"
+    handoff = (
+        f"Active gate: `{active}`\n"
+        "Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: "
+        f"`{frozen}`\n"
+    )
+
+    assert guard.validate_gate_bindings(
+        contract, continuity, handoff, root=tmp_path
+    ) == []
+    same_gate = {"active_gate": frozen, "frozen_upstream_gate": frozen}
+    assert "active gate must be distinct from the frozen upstream gate" in (
+        guard.validate_gate_bindings(same_gate, continuity, handoff, root=tmp_path)
+    )
+
+
+def test_committed_recovery_state_is_evidence_bounded() -> None:
+    guard = load_guard_module()
+    contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
+
+    assert guard.validate_iter203_recovery_state(contract) == []
+    contract["current_gate_state"]["iter202_retained_provider_stage"][
+        "scenario_executions"
+    ] = 1
+    assert "iter202 retained provider-stage counts are not exact" in (
+        guard.validate_iter203_recovery_state(contract)
+    )
+
+
 def test_ci_command_parser_accepts_only_standalone_active_run_steps() -> None:
     guard = load_guard_module()
     source = """

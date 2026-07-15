@@ -1,0 +1,31 @@
+{
+  "attempt_id": "13c492aeaa64c22e7bb6d0bd85064018",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-12050",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 609,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 501,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 856,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1465
+    }
+  },
+  "raw_response": "```python\nfrom django.conf import settings\n\nif not settings.configured:\n    settings.configure(\n        SECRET_KEY=\"test\",\n        INSTALLED_APPS=[],\n        DATABASES={\"default\": {\"ENGINE\": \"django.db.backends.sqlite3\", \"NAME\": \":memory:\"}},\n    )\n\nimport django\ndjango.setup()\n\nfrom django.db.models.sql.query import Query\n\nresult = Query(None).resolve_lookup_value([\"sentinel\"], None, True, False)\nprint(\"RESULT=\" + repr(result))\n```",
+  "raw_response_sha256": "c53ec8d342fc08c8931fef2c4e23300b8adbd379b3a3738573e35c2e3feb0705",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 6,
+  "started_record_sha256": "05ac441843d74aabffe4f8ad8a57c936626328f3acb722fe2097929b43e5b5e9"
+}

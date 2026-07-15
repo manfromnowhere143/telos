@@ -1,0 +1,31 @@
+{
+  "attempt_id": "a460be245c48c943655494d6b20bcc16",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "matplotlib__matplotlib-26113",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1123,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1025,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 652,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1775
+    }
+  },
+  "raw_response": "```python\n            if mincnt is None:\n                mincnt = 0\n            accum = np.array(\n                [reduce_C_function(acc) if len(acc) >= mincnt else np.nan\n                 for Cs_at_i in [Cs_at_i1, Cs_at_i2]\n                 for acc in Cs_at_i[1:]],  # [1:] drops out-of-range points.\n                float)\n```",
+  "raw_response_sha256": "69df9c696194252f24b479aa56ae6e4742d9d60c5643beee2f45b92d993ebbe3",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 18,
+  "started_record_sha256": "b02baf0602172ae5d2807da20153ac887430b48e16df7a9dfae6b5e861ec9630"
+}

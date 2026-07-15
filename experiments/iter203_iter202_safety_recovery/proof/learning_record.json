@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
+    "experiments/iter203_iter202_safety_recovery/UPSTREAM_PROTOCOL_NULL.md",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/safety_recovery_bridge/upstream_inventory.json",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/safety_recovery_bridge/scenario_disposition.json",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/runtime_manifest.json",
+    "experiments/iter203_iter202_safety_recovery/proof/pre_execution_publication_safety.json"
+  ],
+  "experiment_id": "iter203_iter202_safety_recovery",
+  "insight": "Iter203 is an active post-provider/pre-execution recovery protocol, not a result. Its sealed bridge reproduces the complete retained provider inventory, projects exactly 29 byte-identical safety-admitted scenarios, keeps 9 rejected and one absent scenario unresolved, and prepares all 50 valid patches for official certification. No execution, adjudication, blind judging, or rate claim exists yet.",
+  "next_action": "Commit and publish the iter203 recovery source through review; require green primary-branch CI; dispatch the canonical workflow at most once; verify the complete same-attempt execution corpus; adjudicate all certified patches; and blind-judge only safe witnessed divergences before reporting k, N, u, mandatory sensitivities, and the corrected pooled analysis.",
+  "result_path": "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pending"
+}

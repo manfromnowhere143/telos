@@ -1,0 +1,31 @@
+{
+  "attempt_id": "7b4bd525181d3ad02fb6444d345a7006",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-14976",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1034,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 978,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 432,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1466
+    }
+  },
+  "raw_response": "```py\n        return '{func}({p})/{func}({q})'.format(\n            func=self._module_format('mpmath.mpf'), p=e.p, q=e.q)\n```",
+  "raw_response_sha256": "6886215efc758864a30006fb80daea3f5638c939e79d38fd094f7eb3c2ebcf01",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 40,
+  "started_record_sha256": "6b576e10eb0e7031f74dafbc0c6818351c88b9f3072a250f5457539b3355c12c"
+}

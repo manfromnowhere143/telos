@@ -1,0 +1,31 @@
+{
+  "attempt_id": "503fc76b1ba8b90801a999f641f7f91c",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "scikit-learn__scikit-learn-14894",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1190,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 968,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 1062,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 1059,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2252
+    }
+  },
+  "raw_response": "```python\nimport numpy as np\nfrom scipy import sparse\nfrom sklearn.svm import SVR\n\nX = sparse.csr_matrix(\n    np.array(\n        [\n            [0, 1, 0, 0],\n            [0, 0, 0, 1],\n            [0, 0, 1, 0],\n            [0, 0, 0, 1],\n        ]\n    )\n)\ny = np.array([0.04, 0.04, 0.10, 0.16])\n\nmodel = SVR(\n    C=316.227766017,\n    epsilon=0.1,\n    gamma=1.0,\n    kernel=\"linear\",\n    max_iter=15000,\n    tol=0.001,\n)\nmodel.fit(X, y)\n\ncoef = getattr(model, \"dual_coef_\", None)\nresult = None if coef is None else (tuple(coef.shape), coef.nnz)\nprint(\"RESULT=\" + repr(result))\n```",
+  "raw_response_sha256": "726c6b1714dec0b76ea96a3c50842296a6c5869a9940b85333c379c01d73aae3",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 24,
+  "started_record_sha256": "592c4c17ce165304adfe4cf5b0a832278e60ec99ba3fd14192bc98959d3e84af"
+}

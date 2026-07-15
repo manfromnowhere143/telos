@@ -1,16 +1,19 @@
 # Next Phase
 
-> **CURRENT AUTHORITY (2026-07-15):** the active gate is
-> [`../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`](../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md).
-> It has no retained or inspected solver output. Its first Git freeze followed disclosed provider contact,
-> so it is a pre-result amended replication rather than conventional preregistration. The hardened evidence
-> state merged through PR `#3` as `3a3368635e397d540cf98fc0f19d443661cc0fef`, and primary-branch CI run
-> `29451691560` passed. Provider-free Node 24 backfill run `29452243832` reproduced the exact specs and
-> validated the complete committed `74`-log corpus without re-executing containers; no iter202 output was
-> created. Every paid start requires clean green `master`; then run the cheap-first/freeze checks and reread
-> the hypothesis plus amendment before loading both credentials together. `CONTINUITY.md` remains the frozen
-> protocol authority; generated `HANDOFF.md` records current branch and credential state and which resume
-> prerequisites are already satisfied.
+> **CURRENT AUTHORITY (2026-07-16):** the active gate is
+> [`../experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md`](../experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md).
+> Iter202 retained `50` patches and `38` scenario programs after completing its provider stages. Its frozen
+> static-safety guard then rejected `9` programs with `21` findings, admitted `29`, and stopped the batch
+> before any scenario or certification execution; one eligible patch already had an original missing
+> scenario. Iter202 is preserved as a scenario-safety protocol/execution null, with no rate `N`, `k`, or
+> `u`; its disposition is recorded in
+> [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md).
+> Iter203 is the separately sealed post-provider recovery: verify every upstream byte and checkpoint,
+> certify all `50` patches, execute only safety-admitted copies, and retain rejected or missing witnesses as
+> unresolved. Do not repair, regenerate, rerun, relabel, mount, or execute an unsafe iter202 scenario.
+> `CONTINUITY.md` is an exact-byte iter202 runtime artifact and remains unchanged; the iter203 hypothesis and
+> generated `HANDOFF.md` govern the active recovery. No recovery execution may start until its source is
+> committed, reviewed, merged, and green on the primary branch.
 >
 > Everything below preserves the plan at the iter108-era boundary. It is historical provenance, not a
 > current action list.

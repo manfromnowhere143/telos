@@ -1,0 +1,31 @@
+{
+  "attempt_id": "6d659c5d2daa8c1f902fbffba55caecb",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "pydata__xarray-7233",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 883,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 686,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 850,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1733
+    }
+  },
+  "raw_response": "```python\nimport xarray as xr\n\nda = xr.DataArray(range(24), dims=\"time\").assign_coords(\n    day=(\"time\", [365 * i for i in range(24)])\n)\nds = da.to_dataset(name=\"T\")\n\ncalls = [0]\noriginal_set_coords = xr.Dataset.set_coords\n\n\ndef counted_set_coords(self, *args, **kwargs):\n    calls[0] += 1\n    return original_set_coords(self, *args, **kwargs)\n\n\nxr.Dataset.set_coords = counted_set_coords\ntry:\n    result = ds.coarsen(time=12).construct(time=(\"year\", \"month\"))\nfinally:\n    xr.Dataset.set_coords = original_set_coords\n\nprint(\n    \"RESULT=\"\n    + repr(\n        (\n            calls[0],\n            tuple(result.coords),\n            tuple(result.data_vars),\n            tuple(result.sizes.items()),\n        )\n    )\n)\n```",
+  "raw_response_sha256": "2a2bc64244deb2194f4318ef4bc5ee9e517ebe897fcaf69fd0fcffede243c254",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 18,
+  "started_record_sha256": "9ee81d344d7757a0c9892f1b17fd398f87602a7f469e45ec4290285b3bc7f475"
+}

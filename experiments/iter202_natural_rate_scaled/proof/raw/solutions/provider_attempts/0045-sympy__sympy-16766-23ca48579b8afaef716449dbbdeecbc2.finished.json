@@ -1,0 +1,31 @@
+{
+  "attempt_id": "23ca48579b8afaef716449dbbdeecbc2",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-16766",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 507,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 450,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 337,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 844
+    }
+  },
+  "raw_response": "```python\n    def _print_Indexed(self, expr):\n        base, *index = expr.args\n        return \"{}[{}]\".format(str(base), \", \".join([self._print(ind) for ind in index]))\n```",
+  "raw_response_sha256": "cc9199aa5c548a13084b994f8c3eb6bba0eb6ced33011cab45eb5cc59a558aad",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 45,
+  "started_record_sha256": "31c564456e08428a8f4aeb1589aeb94a66abdac283160d8d47f82b9a2f7f1f44"
+}

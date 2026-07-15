@@ -1,0 +1,31 @@
+{
+  "attempt_id": "228df99d95c2a8d01917c0fbd5e8e773",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "pytest-dev__pytest-7982",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1325,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1177,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 652,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1977
+    }
+  },
+  "raw_response": "```python\nimport os\nimport tempfile\n\nfrom _pytest.pathlib import visit\n\nwith tempfile.TemporaryDirectory() as root:\n    os.mkdir(os.path.join(root, \"target\"))\n    with open(os.path.join(root, \"target\", \"leaf.txt\"), \"w\", encoding=\"utf-8\"):\n        pass\n    os.symlink(\"target\", os.path.join(root, \"link\"), target_is_directory=True)\n\n    result = [\n        os.path.relpath(entry.path, root).replace(os.sep, \"/\")\n        for entry in visit(root, lambda entry: True)\n    ]\n\nprint(\"RESULT=\" + repr(result))\n```",
+  "raw_response_sha256": "b284200281efc2d3f2ff8514474b728bc148b1f9a641613a6915c2fe6311a8e8",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 19,
+  "started_record_sha256": "3a5624c35d6a179c528a1a7a3438f9fc23f1a9edb4defe7d9d089c5afa4e9fef"
+}

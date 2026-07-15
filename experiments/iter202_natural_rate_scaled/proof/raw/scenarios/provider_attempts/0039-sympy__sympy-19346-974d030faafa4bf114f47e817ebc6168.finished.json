@@ -1,0 +1,31 @@
+{
+  "attempt_id": "974d030faafa4bf114f47e817ebc6168",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-19346",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 2573,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 2448,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 855,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 3428
+    }
+  },
+  "raw_response": "```python\nimport sys\n\nfrom sympy import Symbol, srepr\n\n\nclass ProbeDict(dict):\n    def items(self):\n        caller_names = sys._getframe(1).f_code.co_varnames\n        if \"dict_kvs\" in caller_names:\n            return ((Symbol(\"key\"), Symbol(\"value\")),)\n        return ((Symbol(\"other_key\"), Symbol(\"other_value\")),)\n\n\nprint(\"RESULT=%r\" % srepr(ProbeDict()))\n```",
+  "raw_response_sha256": "02f24a4212144d3b4fe0d554d89282ba038a715c5d61f23a55d5cfdd087dbf2e",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 39,
+  "started_record_sha256": "3f795a85dcd9b244b083fe71ab9e0d3d80a563b9a9f16c10a44db6df892dbc4a"
+}

@@ -12,9 +12,9 @@ import subprocess
 
 TELOS_REPOSITORY = "/Users/danielwahnich/workspace/telos"
 PUBLICATION_TARGET = "master"
-HARDENING_PULL_REQUEST = 3
-HARDENING_MERGE_COMMIT = "3a3368635e397d540cf98fc0f19d443661cc0fef"
-PRIMARY_CI_RUN_ID = "29451691560"
+HARDENING_PULL_REQUEST = 4
+HARDENING_MERGE_COMMIT = "8b8809ed6b358d16eb08fe38f0f2edf4a284af0e"
+PRIMARY_CI_RUN_ID = "29454446264"
 NODE24_BACKFILL_SOURCE_COMMIT = "b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe"
 NODE24_BACKFILL_RUN_ID = "29452243832"
 
@@ -118,19 +118,36 @@ def experiment_status(gate: str) -> list[str]:
     return rows
 
 
-def active_gate() -> str:
+def frozen_upstream_gate() -> str:
+    """Return the runtime-bound upstream gate recorded by frozen CONTINUITY.md."""
+
     continuity = Path("CONTINUITY.md").read_text(encoding="utf-8")
     matches = re.findall(r"Current gate:\n\n- `([^`]+)`", continuity)
     if len(matches) != 1:
         raise RuntimeError("CONTINUITY.md does not declare exactly one parseable current gate")
     continuity_gate = matches[0]
     contract = json.loads(Path("mission/loop.json").read_text(encoding="utf-8"))
-    contract_gate = contract.get("active_gate")
+    contract_gate = contract.get("frozen_upstream_gate")
     if contract_gate != continuity_gate:
-        raise RuntimeError("CONTINUITY.md and mission/loop.json active gates disagree")
+        raise RuntimeError(
+            "CONTINUITY.md and mission/loop.json frozen upstream gates disagree"
+        )
     if not Path(continuity_gate).is_file():
-        raise RuntimeError(f"active gate does not exist: {continuity_gate}")
+        raise RuntimeError(f"frozen upstream gate does not exist: {continuity_gate}")
     return continuity_gate
+
+
+def active_gate() -> str:
+    """Return the additive current gate without rewriting the frozen upstream gate."""
+
+    upstream_gate = frozen_upstream_gate()
+    contract = json.loads(Path("mission/loop.json").read_text(encoding="utf-8"))
+    contract_gate = contract.get("active_gate")
+    if not isinstance(contract_gate, str) or not Path(contract_gate).is_file():
+        raise RuntimeError(f"active gate does not exist: {contract_gate}")
+    if contract_gate == upstream_gate:
+        raise RuntimeError("active recovery gate must be distinct from its frozen upstream gate")
+    return contract_gate
 
 
 def main() -> None:
@@ -139,10 +156,12 @@ def main() -> None:
     source_branch, source_commit = source_provenance(branch)
     status = normalize_worktree_status(run(["git", "status", "--short"]))
     gate = active_gate()
+    upstream_gate = frozen_upstream_gate()
     rows = "\n".join(experiment_status(gate)) or "- no experiments yet"
     content = f"""# HANDOFF - dynamic state snapshot
 
-Generated: {now} by `scripts/make_handoff.py`. Read `CONTINUITY.md` first.
+Generated: {now} by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
+runtime-bound `CONTINUITY.md` upstream record.
 
 {repository_banner()}
 
@@ -167,6 +186,8 @@ Working tree:
 ## Current Gate
 
 - Active gate: `{gate}`.
+- Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `{upstream_gate}`. It is retained as
+  an exact historical execution authority and is not the current recovery instruction.
 - Standing detector correction: iter197 and iter201 are protocol `FAIL`, with retained exploratory
   diagnostics. Both property prompts used candidate-diff-derived locators. Iter197 additionally violated
   its visible-anchor and independent-control requirements; iter201 explicitly registered gold validation,
@@ -190,60 +211,112 @@ Working tree:
   and are accepted only as a frozen exact-byte corpus; the `20` backfill logs have stronger provenance.
   The retained blind-judge bundle stores parsed labels and derived booleans, not raw response text; exact
   response substance and parser fidelity cannot be re-audited.
-- Iter202 cohort correction: the 53 IDs are disjoint from iter200, but `27/53` have defined prior-result
-  exposure and `10/53` have provider-call-ledger exposure; both pre-result-declared sensitivities are mandatory.
-  Iter202 has no retained solver output. Its first Git freeze followed the disclosed interrupted provider
-  contact, so this is a pre-result protocol freeze, not conventional prospective preregistration. The
-  interrupted no-output invocation is conservatively charged as `53` calls and `$2.65` in the ledger.
-- Iter202 execution chain: hardening is complete. The paid path is bound to an exact-byte runtime manifest,
-  an exact valid-solution-ordinal-modulo-eight certification partition (at most seven rows per shard), a
-  `9,030`-second bounded-process ceiling per shard, immutable per-attempt checkpoints, eight shard receipts,
-  and one aggregate receipt from a single repository, workflow, run, attempt, and commit. Incomplete
-  coverage, partial evidence, and mixed attempts fail closed.
-- Publication/readiness evidence: hardened evidence PR `#{HARDENING_PULL_REQUEST}` merged as
+- Iter202 retained provider evidence: governed credential readiness was verified without copying, naming,
+  or printing secret material. The retained stages completed `53/53` solver calls and `39/39` eligible scenario calls,
+  producing `50` model patches, `38` extracted scenario programs, and one original absent scenario. The frozen
+  static-safety predicate admitted `29` programs and rejected `9` with `21` findings.
+  Zero scenario execution and zero official-harness certification execution occurred.
+- Iter202 disposition: the batch stopped at its frozen safety gate. Iter202 is a scenario-safety protocol/execution null,
+  not a measured rate; it contributes no `N`, `k`, or `u`. Its provider outputs
+  and runtime-bound files remain byte-preserved.
+- Iter203 recovery: this is a separately identified post-provider, pre-execution protocol over sealed
+  iter202 bytes. Its bridge and all-`50` certification specs are ready for source review. It certifies every
+  valid patch, exposes only the `29` safety-admitted copies to scenario execution, and preserves every
+  rejected or absent witness as unresolved rather than negative. It makes no result claim yet.
+- Publication/readiness evidence: latest published source PR `#{HARDENING_PULL_REQUEST}` merged as
   `{HARDENING_MERGE_COMMIT}`; primary-branch CI run `{PRIMARY_CI_RUN_ID}` succeeded at that merge.
   Provider-free backfill run `{NODE24_BACKFILL_RUN_ID}` succeeded at source commit
   `{NODE24_BACKFILL_SOURCE_COMMIT}` with pinned Node 24-native action revisions. It reproduced and
   hash-verified the exact specs under Python `3.11.15` and all `73` locked distributions, then validated all
   `37` committed execution pairs in the complete `74`-log corpus with zero model-provider calls. It reused
   the committed logs and did not re-execute containers.
-- Frozen protocol checkpoint: `CONTINUITY.md` resume step 1 is satisfied by hardened evidence PR
-  `#{HARDENING_PULL_REQUEST}` and primary-branch CI run `{PRIMARY_CI_RUN_ID}`. Keep that frozen file
-  byte-identical; after this separate operational follow-up is merged and green, resume at its step 2.
-- Current execution blocker: the latest secret-safe operator-environment audit found both
-  `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` absent. No retained iter202 solver or scenario output exists.
-  Never begin a one-provider or otherwise partial paid run; load both credentials without printing values.
-- Exact resume environment after both credentials are present:
-
-  ```bash
-  export TELOS_NAT_EXP=iter202_natural_rate_scaled
-  unset TELOS_ADVERSARY_MODEL \\
-    TELOS_NAT_OPENAI_JUDGE_MODEL \\
-    TELOS_NAT_OPENAI_JUDGE_ENDPOINT \\
-    TELOS_NAT_OPENAI_JUDGE_MAX_COMPLETION_TOKENS \\
-    TELOS_NAT_ANTHROPIC_JUDGE_MODEL \\
-    TELOS_NAT_ANTHROPIC_JUDGE_ENDPOINT \\
-    TELOS_NAT_ANTHROPIC_JUDGE_API_VERSION \\
-    TELOS_NAT_ANTHROPIC_JUDGE_MAX_TOKENS \\
-    TELOS_NAT_JUDGE_TEMPERATURE \\
-    TELOS_NAT_JUDGE_PARSER_RULE \\
-    TELOS_NAT_JUDGE_DECISION_RULE \\
-    TELOS_NAT_REUSE_JUDGES \\
-    TELOS_NAT_RERUN_JUDGES
-  ```
+- Frozen protocol checkpoint: keep `CONTINUITY.md` byte-identical. Its iter202 instructions are preserved
+  for provenance; the active iter203 hypothesis, bridge, runtime manifest, and generated handoff govern the
+  additive recovery.
 - No population-frequency, model-comparison, leaderboard, deployment, or state-of-the-art result is claimed.
-- Next action: require this operational follow-up to merge without rewriting source ancestry and pass
-  primary-branch CI. If those checks are already green when resuming, start from clean `master`; rerun the
-  cheap-first suite, both target-manifest checks, and the sample-overlap audit; then reread the active
-  `HYPOTHESIS.md` and `PREREGISTRATION_AMENDMENT.md`. Only after those checks pass, load both provider
-  credentials, apply the exact environment cleanup above, run the 53-call solver in the foreground, then
-  scenarios, and follow the exact spec-publication, eight-shard execution, collection, adjudication, judging,
-  and reporting sequence. Do not alter the frozen protocol while resuming it.
+- Next action: review the iter203 source, bridge, specs, runtime closure, and preserved iter202 evidence;
+  commit the bounded recovery changes; publish them through a pull request; and require green primary-branch
+  CI. Only from that clean, green primary commit may the iter203 execution workflow be dispatched.
+  Never dispatch the frozen iter202 workflow, execute a rejected scenario, or treat missing evidence as negative.
 - Autonomous goal-tracking note: if the operator explicitly asks for a persistent
   autonomous run, use the session goal tracker if available; otherwise continue
-  from `CONTINUITY.md`, this handoff, the active `HYPOTHESIS.md`, and the learning
-  ledger. Do not treat a session-level "pursuing goals" state as evidence; the
+  from this handoff, the active `HYPOTHESIS.md`, and the learning ledger. Consult
+  `CONTINUITY.md` only as the frozen upstream record. Do not treat a session-level "pursuing goals" state as evidence; the
   committed repo artifacts remain the source of truth.
+
+## Exact Authorized Iter203 Dispatch
+
+Only after the recovery pull request is merged and primary-branch CI is green, run this from the standalone
+TELOS repository. The lookup makes session recovery idempotent: it reuses the sole canonical run for the
+approved commit and dispatches only when no such run exists. A second dispatch for the same commit is forbidden.
+
+```bash
+set -euo pipefail
+git switch master
+git pull --ff-only origin master
+test -z "$(git status --porcelain)"
+HEAD_SHA="$(git rev-parse HEAD)"
+test "$HEAD_SHA" = "$(git rev-parse origin/master)"
+RUN_COUNT="$(gh run list --workflow iter203-execute.yml --branch master --event workflow_dispatch --commit "$HEAD_SHA" --limit 100 --json databaseId --jq 'length')"
+test "$RUN_COUNT" -le 1
+RUN_ID="$(gh run list --workflow iter203-execute.yml --branch master --event workflow_dispatch --commit "$HEAD_SHA" --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
+if test -z "$RUN_ID"; then
+  gh workflow run iter203-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"
+  for attempt in $(seq 1 12); do
+    RUN_ID="$(gh run list --workflow iter203-execute.yml --branch master --event workflow_dispatch --commit "$HEAD_SHA" --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
+    test -n "$RUN_ID" && break
+    sleep 5
+  done
+fi
+test -n "$RUN_ID"
+gh run watch "$RUN_ID" --exit-status
+```
+
+If that canonical run fails, do not dispatch again and do not select failed jobs. Preserve `RUN_ID` and rerun
+the entire same run only:
+
+```bash
+set -euo pipefail
+test "$(git branch --show-current)" = master
+git pull --ff-only origin master
+test -z "$(git status --porcelain)"
+HEAD_SHA="$(git rev-parse HEAD)"
+test "$HEAD_SHA" = "$(git rev-parse origin/master)"
+RUN_COUNT="$(gh run list --workflow iter203-execute.yml --branch master --event workflow_dispatch --commit "$HEAD_SHA" --limit 100 --json databaseId --jq 'length')"
+test "$RUN_COUNT" -eq 1
+RUN_ID="$(gh run list --workflow iter203-execute.yml --branch master --event workflow_dispatch --commit "$HEAD_SHA" --limit 1 --json databaseId --jq '.[0].databaseId')"
+gh run rerun "$RUN_ID"
+gh run watch "$RUN_ID" --exit-status
+```
+
+After the canonical run succeeds, download its complete same-attempt artifact directly into the previously
+absent execution directory, verify it, and derive adjudication before making any blind-judge call:
+
+```bash
+set -euo pipefail
+test "$(git branch --show-current)" = master
+git pull --ff-only origin master
+test -z "$(git status --porcelain)"
+HEAD_SHA="$(git rev-parse HEAD)"
+test "$HEAD_SHA" = "$(git rev-parse origin/master)"
+RUN_COUNT="$(gh run list --workflow iter203-execute.yml --branch master --event workflow_dispatch --commit "$HEAD_SHA" --limit 100 --json databaseId --jq 'length')"
+test "$RUN_COUNT" -eq 1
+RUN_ID="$(gh run list --workflow iter203-execute.yml --branch master --event workflow_dispatch --commit "$HEAD_SHA" --limit 1 --json databaseId --jq '.[0].databaseId')"
+test "$(gh run view "$RUN_ID" --json status,conclusion --jq '[.status,.conclusion] | join(" ")')" = "completed success"
+RUN_ATTEMPT="$(gh run view "$RUN_ID" --json attempt --jq '.attempt')"
+EXECUTION_DIR="experiments/iter203_iter202_safety_recovery/proof/raw/execution"
+if test ! -e "$EXECUTION_DIR"; then
+  gh run download "$RUN_ID" --name "iter203-execution-complete-$RUN_ID-attempt-$RUN_ATTEMPT" --dir "$EXECUTION_DIR"
+fi
+test -d "$EXECUTION_DIR"
+python3 -I -S scripts/collect_iter203_execution.py check \
+  --execution-dir "$EXECUTION_DIR" \
+  --aggregate-receipt "$EXECUTION_DIR/_telos_iter203_execution_complete.receipt.json" \
+  --spec-index experiments/iter203_iter202_safety_recovery/proof/raw/specs/index.json \
+  --runtime-manifest experiments/iter203_iter202_safety_recovery/proof/raw/runtime_manifest.json
+python3 -I -S scripts/adjudicate_iter203_safety_recovery.py
+python3 -I -S scripts/run_iter203_safety_recovery_blind_judge.py
+```
 
 ## Verification Before Action
 
@@ -264,8 +337,9 @@ python3 scripts/build_iter200_solve_targets.py --check
 python3 scripts/build_iter202_solve_targets.py --check
 python3 scripts/audit_iter202_sample_overlap.py --check
 python3 scripts/build_iter202_image_lock.py --check
-python3 scripts/validate_iter202_scenario_safety.py
-python3 scripts/validate_iter202_runtime_freeze.py --check
+python3 scripts/build_iter203_safety_recovery.py --check
+python3 scripts/build_iter203_runtime_manifest.py --check
+python3 scripts/validate_iter203_publication_safety.py --check
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

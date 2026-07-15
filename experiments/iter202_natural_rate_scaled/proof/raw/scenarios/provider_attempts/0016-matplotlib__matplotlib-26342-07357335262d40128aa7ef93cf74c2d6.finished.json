@@ -1,0 +1,31 @@
+{
+  "attempt_id": "07357335262d40128aa7ef93cf74c2d6",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "matplotlib__matplotlib-26342",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1167,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 784,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1951
+    }
+  },
+  "raw_response": "```python\nimport matplotlib\n\nmatplotlib.use(\"Agg\")\n\nfrom matplotlib import pyplot as plt\nfrom matplotlib.path import Path\n\nfig, ax = plt.subplots()\ncs = ax.contour([[0.0, 1.0], [1.0, 0.0]], levels=[0.5])\n\nreplacement = Path([[2.0, 3.0], [4.0, 5.0]])\ncs.set_paths([replacement])\n\nresult = (\n    len(cs.get_paths()),\n    cs.get_paths()[0].vertices.tolist(),\n    bool(cs.stale),\n)\nprint(f\"RESULT={result!r}\")\n```",
+  "raw_response_sha256": "a1b3df0fb5a30e29fa1c0294c94ef8bf3686f5fa76615aad8976d8deaa97af90",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 16,
+  "started_record_sha256": "4bcbc0f9538a759d6955f267fe7da8365779b03a47b645e4d77bbf52f70cabd6"
+}

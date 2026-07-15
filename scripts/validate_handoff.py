@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import os
 from pathlib import Path
 import re
@@ -14,11 +15,51 @@ import sys
 ROOT = Path.cwd()
 HANDOFF = ROOT / "HANDOFF.md"
 CONTINUITY = ROOT / "CONTINUITY.md"
+MISSION_CONTRACT = ROOT / "mission" / "loop.json"
 REPOSITORY_DECLARATION = (
     "TELOS is a standalone repository at "
     "`/Users/danielwahnich/workspace/telos`."
 )
 FORBIDDEN_WORKSPACE_LABEL = "a" + "web"
+REQUIRED_RECOVERY_FACTS = (
+    "governed credential readiness was verified",
+    "`53/53` solver calls",
+    "`39/39` eligible scenario calls",
+    "`50` model patches",
+    "`38` extracted scenario programs",
+    "one original absent scenario",
+    "admitted `29` programs and rejected `9` with `21` findings",
+    "Zero scenario execution and zero official-harness certification execution occurred",
+    "scenario-safety protocol/execution null",
+    "separately identified post-provider, pre-execution protocol",
+    "bridge and all-`50` certification specs are ready",
+    "Never dispatch the frozen iter202 workflow",
+    "A second dispatch for the same commit is forbidden",
+    'gh workflow run iter203-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
+    'gh run rerun "$RUN_ID"',
+    "scripts/collect_iter203_execution.py check",
+    "scripts/adjudicate_iter203_safety_recovery.py",
+    "scripts/run_iter203_safety_recovery_blind_judge.py",
+)
+
+
+def recovery_content_failures(handoff: str) -> list[str]:
+    """Reject stale recovery state and any credential-identifying handoff text."""
+
+    failures = []
+    for fact in REQUIRED_RECOVERY_FACTS:
+        if fact not in handoff:
+            failures.append(f"HANDOFF.md is missing bounded recovery fact: {fact}")
+    if re.search(r"\b[A-Z][A-Z0-9_]*(?:KEY|TOKEN|SECRET)\b", handoff):
+        failures.append("HANDOFF.md names a credential variable")
+    if re.search(
+        r"\bcredentials?\b.{0,80}\b(?:absent|missing|unavailable|not present)\b|"
+        r"\b(?:absent|missing|unavailable)\b.{0,80}\bcredentials?\b",
+        handoff,
+        re.IGNORECASE | re.DOTALL,
+    ):
+        failures.append("HANDOFF.md describes credentials as unavailable")
+    return failures
 
 
 def worktree_changes_except_handoff(status: str) -> list[str]:
@@ -161,28 +202,55 @@ def main() -> int:
     failures: list[str] = []
     handoff = HANDOFF.read_text(encoding="utf-8")
     continuity = CONTINUITY.read_text(encoding="utf-8")
+    try:
+        contract = json.loads(MISSION_CONTRACT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        failures.append(f"cannot load mission gate contract: {exc}")
+        contract = {}
 
     if REPOSITORY_DECLARATION not in handoff:
         failures.append("HANDOFF.md does not declare the standalone TELOS repository")
     if FORBIDDEN_WORKSPACE_LABEL in handoff.casefold():
         failures.append("HANDOFF.md names an unrelated workspace")
+    failures.extend(recovery_content_failures(handoff))
 
     handoff_matches = re.findall(r"Active gate: `([^`]+)`", handoff)
+    frozen_matches = re.findall(
+        r"Frozen upstream gate recorded by runtime-bound `CONTINUITY\.md`: `([^`]+)`",
+        handoff,
+    )
     continuity_matches = re.findall(r"Current gate:\n\n- `([^`]+)`", continuity)
     if len(handoff_matches) != 1:
         failures.append("HANDOFF.md must name exactly one active gate")
     if len(continuity_matches) != 1:
         failures.append("CONTINUITY.md must name exactly one current gate")
+    if len(frozen_matches) != 1:
+        failures.append("HANDOFF.md must name exactly one frozen upstream gate")
 
-    if len(handoff_matches) == 1 and len(continuity_matches) == 1:
+    if len(handoff_matches) == 1:
         handoff_gate = handoff_matches[0]
-        continuity_gate = continuity_matches[0]
-        if handoff_gate != continuity_gate:
+        contract_gate = contract.get("active_gate")
+        if handoff_gate != contract_gate:
             failures.append(
-                f"active gate mismatch: HANDOFF={handoff_gate} CONTINUITY={continuity_gate}"
+                f"active gate mismatch: HANDOFF={handoff_gate} contract={contract_gate}"
             )
         if not (ROOT / handoff_gate).is_file():
             failures.append(f"active gate file does not exist: {handoff_gate}")
+
+    if len(frozen_matches) == 1 and len(continuity_matches) == 1:
+        handoff_frozen_gate = frozen_matches[0]
+        continuity_gate = continuity_matches[0]
+        contract_frozen_gate = contract.get("frozen_upstream_gate")
+        if handoff_frozen_gate != continuity_gate or contract_frozen_gate != continuity_gate:
+            failures.append(
+                "frozen upstream gate mismatch: "
+                f"HANDOFF={handoff_frozen_gate} CONTINUITY={continuity_gate} "
+                f"contract={contract_frozen_gate}"
+            )
+        if not (ROOT / handoff_frozen_gate).is_file():
+            failures.append(f"frozen upstream gate file does not exist: {handoff_frozen_gate}")
+        if len(handoff_matches) == 1 and handoff_matches[0] == handoff_frozen_gate:
+            failures.append("active gate must be distinct from the frozen upstream gate")
 
     try:
         state = declared_repository_state(handoff)

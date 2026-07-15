@@ -1,0 +1,31 @@
+{
+  "attempt_id": "fb596f6de28c48779eb1a46132eaf3be",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sphinx-doc__sphinx-9591",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1086,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 505,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1591
+    }
+  },
+  "raw_response": "```python\n        typ = self.options.get('type')\n        if typ:\n            signode += addnodes.desc_annotation(\n                typ, ': ', *self._parse_annotation(typ)\n            )\n\n        return fullname, prefix\n```",
+  "raw_response_sha256": "53923f477edbe24921e330498dba6cbcfa9d50fd4c7e1288f64c644414b10a4e",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 36,
+  "started_record_sha256": "97f8b4349c95044dc51dba450b1237d9940ef64145fc42a873cccab00d13b7e7"
+}

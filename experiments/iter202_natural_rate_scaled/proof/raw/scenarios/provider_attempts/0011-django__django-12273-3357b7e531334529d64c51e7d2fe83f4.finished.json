@@ -1,0 +1,31 @@
+{
+  "attempt_id": "3357b7e531334529d64c51e7d2fe83f4",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-12273",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1234,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1086,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 768,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2002
+    }
+  },
+  "raw_response": "```python\nfrom django.conf import settings\n\nsettings.configure(\n    INSTALLED_APPS=[],\n    DATABASES={\"default\": {\"ENGINE\": \"django.db.backends.sqlite3\", \"NAME\": \":memory:\"}},\n)\n\nimport django\ndjango.setup()\n\nfrom django.db import models\n\n\nclass Item(models.Model):\n    uid = models.AutoField(primary_key=True)\n\n    class Meta:\n        app_label = \"testapp\"\n\n\nclass Derived(Item):\n    class Meta:\n        app_label = \"testapp\"\n\n\nobj = Derived(uid=7, item_ptr_id=7)\nobj.pk = None\nprint(\"RESULT=%r\" % obj.uid)\n```",
+  "raw_response_sha256": "c1c630983f4fe399b01274af65ef6f51a87a344d066dc9ef5799cdebbc8ed2f7",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 11,
+  "started_record_sha256": "eb3364414d50aaba7e7b9968c188a1c9c19eaea8447bae2102b54fa15605937e"
+}

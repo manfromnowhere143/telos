@@ -1,0 +1,31 @@
+{
+  "attempt_id": "06c1e8bd16c378fd59379831f3f518bc",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "pydata__xarray-7233",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 547,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 512,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 639,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1186
+    }
+  },
+  "raw_response": "```python\n        should_be_coords = set(self.obj.coords)\n        result = reshaped.set_coords(should_be_coords)\n```",
+  "raw_response_sha256": "9f8616734892e5a8f63ba38e6f41a320aa99d79773c36522266e508b91d1929c",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 23,
+  "started_record_sha256": "80bd0592fb3903a274d2613f3a929529fae55c3712c90d68195a23c76dbe7ae0"
+}

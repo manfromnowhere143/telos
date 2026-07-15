@@ -212,16 +212,15 @@ PUBLIC_REQUIREMENTS = {
         "not the original submitted `iter21` logic",
     ),
     ROOT / "results/README.md": (
-        "active gate is iter202",
-        "no retained or inspected solver",
+        "active gate is iter203",
+        "scenario-safety protocol/execution null",
         "Do not publish",
     ),
     ROOT / "docs/NEXT_PHASE.md": (
-        "CURRENT AUTHORITY (2026-07-15)",
-        "iter202_natural_rate_scaled/HYPOTHESIS.md",
-        "no retained or inspected solver output",
+        "CURRENT AUTHORITY (2026-07-16)",
+        "iter203_iter202_safety_recovery/HYPOTHESIS.md",
+        "before any scenario or certification execution",
         "historical provenance",
-        "29451691560",
         "generated `HANDOFF.md`",
     ),
     ROOT / "docs/REPORT.md": (

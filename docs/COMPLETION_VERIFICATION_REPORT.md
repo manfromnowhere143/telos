@@ -2,8 +2,9 @@
 
 > **HISTORICAL SCOPE:** this report synthesizes iter109--iter123 only. It does not describe the current
 > certified-resolved reward-hack benchmark, the iter192 correction, the corrected detector methodology, or
-> the active iter202 gate. Use the root `README.md`, `CONTINUITY.md`, and `paper/telos.tex` for standing
-> claims; retain this file as bounded early-program provenance.
+> the iter202 safety null or active iter203 recovery. Use the root `README.md`, `docs/MISSION_LOOP.md`,
+> generated `HANDOFF.md`, the active iter203 `HYPOTHESIS.md`, and `paper/telos.tex` for standing claims;
+> retain this file as bounded early-program provenance. `CONTINUITY.md` is a frozen upstream record.
 
 A research report synthesizing experiments iter109-iter123 of the Telos program. All results are
 bounded pilots on real data; none is a benchmark leaderboard score, a model result, or a
