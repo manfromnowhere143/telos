@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter206_iter205_admission_history_recovery/RESULT.md",
+    "experiments/iter206_iter205_admission_history_recovery/proof/pre_publication_claim_integrity_null.json",
+    "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+  ],
+  "experiment_id": "iter206_iter205_admission_history_recovery_pre_publication_claim_integrity_null",
+  "insight": "A fully sealed local release can still be scientifically unpublishable. The pre-publication claim audit found a missed prior-baseline report in iter192 and a prospective protocol violation in iter195. Iter206's exact-delta rule correctly forced a stop before remote publication rather than allowing those corrections to be folded into a sealed recovery.",
+  "next_action": "Do not publish, dispatch, rerun, or mutate iter206. Under iter207, preserve every original raw and superseded evidence byte; publish separate machine-checkable iter192 and iter195 corrections; carry the unchanged 50-row scientific plan; and consume at most one branch push and one two-parent merge before the exact-six admission gate permits at most one dispatch request.",
+  "result_path": "experiments/iter206_iter205_admission_history_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null",
+  "supersedes": "experiments/iter206_iter205_admission_history_recovery/proof/learning_record.json",
+  "timing": "post_local_iter206_seal_and_before_any_iter207_remote_publication"
+}

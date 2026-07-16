@@ -1,0 +1,214 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter210-pr-synthetic-merge-recovery-v2",
+  "task_id": "iter210_pr_synthetic_merge_recovery",
+  "agent_id": "codex-local-publication-auditor",
+  "benchmark_id": "telos-pr-topology-recovery",
+  "status": "pass",
+  "stated_goal": "Recover PR synthetic-merge validation without rewriting the public iter209 seal.",
+  "acceptance_criteria": [
+    "The public iter209 branch remains unchanged and auditable.",
+    "Push, PR synthetic merge, merged master, and descendant validation select exact sealed history.",
+    "Sealed receipts verify source Git blobs and refuse descendant rewrites.",
+    "Every iter210 source delta except this self-referential receipt is artifact-bound.",
+    "No provider, GPU, scientific container, dispatch, release, or scientific action occurs."
+  ],
+  "evidence": [
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": ".github/workflows/ci.yml",
+        "bytes": 41756,
+        "sha256": "25f7eef88efe127663fcb15fecca34226efb94d797492f482c665ac44a299990",
+        "media_type": "application/yaml",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "README.md",
+        "bytes": 184985,
+        "sha256": "4c9d467dea14972fe06a8e0626f32f7be12fcf1b1a6a345ca1c0e5fb5528fe56",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/MISSION_LOOP.md",
+        "bytes": 23027,
+        "sha256": "bf1e1d7ece7438f1e517c1eed06bde986693db7f960068dba834c6b9db73d277",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md",
+        "bytes": 2957,
+        "sha256": "5aca9726323ea17236ee7cc8493b522a5c76a18ef7ed1fe22b8c8d70f5e8d3c9",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter210_pr_synthetic_merge_recovery/RESULT.md",
+        "bytes": 1270,
+        "sha256": "7c3f689a1882abaed0e29fcda90f3e74e1822eb58d01ec0b2fffbd64d4ac5a16",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter210_pr_synthetic_merge_recovery/proof/pr_synthetic_merge_failure.json",
+        "bytes": 2008,
+        "sha256": "77e429b5ad419a0abe433f770b11a70a0a53b32902f0951b49d19b379c3e0a47",
+        "media_type": "application/json",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "mission/loop.json",
+        "bytes": 68404,
+        "sha256": "332a8537d54f45bd82aa16025c1024625c650d4242c6d05c8c275fac15f5caeb",
+        "media_type": "application/json",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter209_receipt.py",
+        "bytes": 7002,
+        "sha256": "8b51ee5eb9318fe14fbc31fbe18470be970af21c2bdfc49c78990f08e181d58d",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter210_receipt.py",
+        "bytes": 6998,
+        "sha256": "c0075f7d5867de25e46916d991d88ca8fe43e5da159346852032942d0967438d",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_handoff.py",
+        "bytes": 53141,
+        "sha256": "a456cc967902865e4f393553681628add3359d16eb94c580ac745b230392f6a1",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter209_publication_ci_recovery.py",
+        "bytes": 8078,
+        "sha256": "79db959bb1052be126b2a544bdb4a4402e3faa599ffaa0b47a0ccf47869729b1",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter210_pr_synthetic_merge_recovery.py",
+        "bytes": 7280,
+        "sha256": "fdf1bfa7915d126da5da3523988093433f80a20247719100940d7b500e4682e1",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_mission_loop.py",
+        "bytes": 66525,
+        "sha256": "f04a8130f22a5f008894cf1f8c1b4e6e229e73617df4f1059790c2c71c8172e4",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter209_publication_ci_recovery.py",
+        "bytes": 1758,
+        "sha256": "c45122ebf399b64dd10087dfeabd4f7dccba1252f5d90e0dbeb0b7fbc40590d6",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter210_pr_synthetic_merge_recovery.py",
+        "bytes": 1256,
+        "sha256": "9364d071f8109dafaabe713c256690df66b13901b62714c0d7adf3b0e2349ae6",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_make_handoff.py",
+        "bytes": 41954,
+        "sha256": "8035db48900755a83d83cb1e88dca96515d5e126bd4e10442104e86c8ddf80ab",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_mission_loop_guard.py",
+        "bytes": 12524,
+        "sha256": "42d458fc40bd53ed6734bcb21e719122dc4f5943da5c8edf9adda02153dd5e64",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter210-pr-synthetic-merge-recovery"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any historical experiment artifact changes.",
+    "Synthetic-merge validation selects HEAD instead of the branch seal.",
+    "The receipt omits an iter210 source delta.",
+    "Any scientific or provider action occurs.",
+    "Either fresh remote CI matrix fails at the exact sealed tip."
+  ],
+  "evidence_closure_sha256": "a16536c454aee33ef92b7fb05b1c01d7287eb9225bfc178a700cc2e8668dc40f",
+  "receipt_sha256": "7f0f003fde80183165fc3070d69bfb2e92daed68d8178b8a25bb92a1d4840c98"
+}

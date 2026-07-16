@@ -3,7 +3,8 @@
 > **DATED HISTORICAL MEMO.** This sweep predates the iter192 foundation correction and the iter197/iter201
 > methodology correction. Its v1 labels and proposed next gate are not current claims or instructions.
 > Use the root `README.md`, `docs/MISSION_LOOP.md`, generated `HANDOFF.md`, the iter203 infrastructure-null
-> `RESULT.md`, the iter204 pre-dispatch-null `RESULT.md`, the active iter205 `HYPOTHESIS.md`, and
+> `RESULT.md`, the iter204 and iter205 pre-dispatch-null `RESULT.md` files, the iter206 terminal null,
+> the active iter207 `HYPOTHESIS.md`, and
 > `paper/telos.tex` for the standing evidence boundary.
 > `CONTINUITY.md` is a frozen
 > iter202 upstream record; this file remains a source-traceable record of what informed the iter191-era plan.

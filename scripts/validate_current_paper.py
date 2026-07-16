@@ -10,13 +10,26 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "e47095ddc32c2eebf4454c072770ed0052c79ba008bea8d13d9f137e0cb778f4"
-EXPECTED_PDF_SHA256 = "baf7b34101893e0b8b9633c8762af39b6845be941bd4933cbd50edbbbc975511"
+EXPECTED_SOURCE_SHA256 = "383f00dc8fb835c83f3b8b27bd5b58c1999017af61976a6dcf76f085e5daa0b8"
+EXPECTED_PDF_SHA256 = "75888392584a093d5d2e82ef5d969ffc88211bd4bb3d970dd7a1256981d9671d"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
         r"\date{July 16, 2026}",
-        "twenty-two patches across eight repositories",
+        "Certified-Resolved SWE-bench Patches",
+        "twenty-two constructed patches across eight repositories",
+        r"conservatively adjudicate iter192's overbroad novelty interpretation \texttt{FAIL}",
+        "literal v1-specific",
+        "falsifier remains indeterminate",
+        r"estimated spend guard of \$13.128090, not a provider invoice",
+        r"\$13.59 rounded through-repair total",
+        "Iter195 protocol failure",
+        "supplied both gold and variant hunks",
+        "not a validated synthesized-input oracle",
+        "post-provider, pre-execution stated design",
+        "partial, protocol-blocked result",
+        "shared-gold-line diagnostic on four hack prompts",
+        "does not establish effect direction or magnitude",
         "$20/22$",
         "$8/88$",
         "$3/19$",
@@ -25,18 +38,29 @@ REQUIRED_TEXT = {
         "$1/18$",
         "locator-assisted,",
         "gold-validated property pipeline",
-        "iter193--iter199 construction",
+        "iter193--iter199 construction and witness execution",
         r"mutable \texttt{:latest}",
         "exact historical container bytes",
-        "scenario-safety protocol/execution null",
-        "post-provider iter203 recovery",
-        "Iter203 is an execution-infrastructure null",
-        "public workflow-dispatch count is zero",
-        "Iter204 is a pre-dispatch infrastructure null",
-        "Iter205 is the pending workflow-context recovery",
+        "We therefore make no priority or state-of-the-art claim",
+        "forensic real-task case series",
+        "no causal direction or magnitude is established",
+        "fresh tasks, pre-authored consequence tests",
+        r"\bibitem{openai2026pro}",
+        r"\bibitem{zhao2026specbench}",
+        r"\bibitem{atinafu2026rewardhackingagents}",
+        r"\bibitem{roth2026hackverifiable}",
+        r"\bibitem{rabanser2026reliability}",
+        r"\bibitem{lynch2026misalignment}",
+        "Iter202 through iter207 produced only safety, infrastructure,",
     ),
     ROOT / "paper/README.md": (
-        "current through the iter204 pre-dispatch infrastructure null; iter205 remains pre-result",
+        "iter207 is a sealed local correction baseline; iter208 passed local forensic correction",
+        "Iter192's overbroad novelty interpretation is conservatively adjudicated `FAIL`",
+        "literal v1-specific falsifier trigger is indeterminate",
+        "Iter195 is protocol `FAIL`",
+        "design is post-provider and pre-execution",
+        "partial/protocol-blocked Detector A only",
+        "shared-gold-line diagnostic triggers",
         "Historical image provenance is bounded",
         "SOURCE_DATE_EPOCH=1784160000 tectonic telos.tex",
         "29451691560",
@@ -44,25 +68,55 @@ REQUIRED_TEXT = {
         "29460393525",
         "29465584664",
         "29465924803",
+        "29468769187",
+        "314141096",
         "stderr was not retained",
-        "public `workflow_dispatch` run count is exactly zero",
+        "both complete histories are empty",
+        "comparison establishes an effect direction or magnitude",
+        "frozen closure snapshot",
+        "No iter205 dispatch request was issued",
+        "no dispatch API response or rejection exists",
+        "bibliography contains eighteen entries",
     ),
     ROOT / "README.md": (
-        "22` execution-verified certified-resolved reward hacks across `8` repositories",
+        "22`-row, `8`-repository reference-differential corpus",
+        "Iter192 is conservatively adjudicated `FAIL`",
+        "literal v1-specific",
+        "falsifier remains indeterminate",
+        "$13.128090` for `240` score-producing calls",
+        "iter195 gate",
+        "not independently adjudicated semantic ground truth",
+        "Iter206 was sealed locally",
+        "iter207_claim_integrity_and_admission_recovery",
         "exact historical container bytes are not reconstructible",
         "provider-complete safety null",
+        "Publication CI recovery PASS locally — fresh seal pending",
+        "Artifact-bound receipt v2",
+        "post-seal forensic correction",
+        "iter209 publication CI recovery",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
-        "reference-differential operational label",
+        "certified-resolved reference-differential witness under the benchmark's operational label",
+        "semantic ground-truth set",
         "mutable `:latest`",
         "no resolved image digest",
         "interpretation limit rather than a second protocol deviation",
     ),
     ROOT / "experiments/iter195_synthesized_input_differential_oracle/RESULT.md": (
+        "Standing protocol correction (2026-07-16)",
+        "Status: `FAIL` against the frozen protocol",
         "Standing provenance correction (2026-07-15)",
-        "not immutable image provenance",
+        "retained no resolved image digest",
+    ),
+    ROOT / "experiments/iter192_reward_hack_benchmark_construct_validity_audit/RESULT.md": (
+        "conservative novelty adjudication `FAIL`",
+        "literal frozen falsifier 5 trigger indeterminate",
+        "$13.128090` for `240` score-producing calls",
+        "not a provider invoice",
     ),
     ROOT / "experiments/iter199_benchmark_expansion_across_repos/RESULT.md": (
+        "Standing chronology correction (2026-07-16)",
+        "independently Git-frozen before provider output",
         "Standing provenance correction (2026-07-15)",
         "not immutable image provenance",
     ),
@@ -73,10 +127,32 @@ FORBIDDEN_TEXT = {
         r"\date{\today}",
         "verified in pinned containers",
         "each instance's pinned container",
+        "No iter205 request, API rejection",
+        "pre-request admission-history null",
+        "Every number in this paper regenerates",
+        r"iter192 audit is protocol \texttt{FAIL}",
+        r"metered cost of \$13.59",
+        "depress recall",
+        "possible downward recall bias",
+        "may bias recall downward",
+    ),
+    ROOT / "paper/README.md": (
+        "No iter205 request, API rejection",
+        "No iter205 API request",
+        "pre-request admission-history null",
+        "Iter192 is protocol `FAIL`",
+        "depress recall",
+        "possible downward recall bias",
+        "may bias recall downward",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "pinned-container execution",
         "used gold during property inclusion and therefore record protocol `FAIL`",
+    ),
+    ROOT / "README.md": (
+        "iter192 is strict protocol `FAIL`",
+        "unrepaired `majority_catch` (iter179) | `17/40` | `$13.59`",
+        "may bias recall downward",
     ),
 }
 
@@ -88,12 +164,12 @@ def sha256(path: Path) -> str:
 def validate() -> list[str]:
     failures: list[str] = []
     for path, snippets in REQUIRED_TEXT.items():
-        text = path.read_text(encoding="utf-8")
+        text = " ".join(path.read_text(encoding="utf-8").split())
         for snippet in snippets:
             if snippet not in text:
                 failures.append(f"{path.relative_to(ROOT)} missing current paper text: {snippet}")
     for path, snippets in FORBIDDEN_TEXT.items():
-        text = path.read_text(encoding="utf-8")
+        text = " ".join(path.read_text(encoding="utf-8").split())
         for snippet in snippets:
             if snippet in text:
                 failures.append(f"{path.relative_to(ROOT)} retains stale paper text: {snippet}")

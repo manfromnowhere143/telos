@@ -1,0 +1,82 @@
+{
+  "admission_mismatch": {
+    "added_iter204_push_parse_failure_run_ids": [
+      29468669956,
+      29468768706
+    ],
+    "expected_iter204_total_run_count": 2,
+    "mismatch_class": "upstream_append_only_push_parse_history_exceeded_exact_frozen_count",
+    "observed_iter204_total_run_count": 4,
+    "predicate_path": "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+    "preflight_stage": "read_only_before_any_iter205_dispatch_request",
+    "workflow_dispatch_run_count_in_iter204": 0
+  },
+  "approved_source": {
+    "feature_head_sha": "a336b4909329d392f6db5f6098792e07a17f28cb",
+    "merge_commit_sha": "4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f",
+    "primary_ci": {
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 87527499496,
+          "name": "verify py3.12"
+        },
+        {
+          "conclusion": "success",
+          "id": 87527499530,
+          "name": "verify py3.11"
+        }
+      ],
+      "run_attempt": 1,
+      "run_id": 29468769187,
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29468769187"
+    },
+    "primary_ref": "refs/heads/master",
+    "publication_pull_request": 7
+  },
+  "dispatch_request": {
+    "attempted": false,
+    "request_count": 0,
+    "workflow_dispatch_job_count": 0,
+    "workflow_dispatch_run_count": 0
+  },
+  "evidence_class": "locally_observed_read_only_preflight_control_flow_plus_canonicalized_public_github_api_snapshots",
+  "experiment_id": "iter205_iter204_workflow_context_recovery",
+  "next_gate": {
+    "path": "experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md",
+    "status": "pending_separately_versioned_admission_history_recovery"
+  },
+  "provider_accounting": {
+    "judge_calls": 0,
+    "scenario_calls": 0,
+    "solver_calls": 0
+  },
+  "public_admission_metadata_manifest_path": "experiments/iter205_iter204_workflow_context_recovery/proof/raw/public_admission_metadata/manifest.json",
+  "public_admission_metadata_manifest_sha256": "6d2216038c7e1f19337795be806bf77eb39150a9be119828bc2967ed160c72ba",
+  "schema_version": "telos.iter205.pre_dispatch_admission_null.v1",
+  "scientific_evidence": {
+    "adjudication_executions": 0,
+    "certification_executions": 0,
+    "container_create_or_run_invocations": 0,
+    "judge_executions": 0,
+    "k": null,
+    "n": null,
+    "patch_applications": 0,
+    "scenario_executions": 0,
+    "scientific_artifacts": 0,
+    "u": null
+  },
+  "status": "pre_dispatch_admission_null",
+  "timing": "post_merge_green_primary_ci_and_read_only_pre_dispatch_admission",
+  "workflow_source": {
+    "frozen_hypothesis_sha256": "2b00f43f581176eaf4e134c7e3e3b2a9981f0767545a1f1b21397458bb215395",
+    "frozen_publication_safety_sha256": "1ba7adbea2fb6cf12488e8cf9a3438daadd22809d3d9944ae331bc031587d7da",
+    "frozen_runtime_manifest_sha256": "1d427fd8e778282127ee8d782c6eb6bb8d6d44e781edceb50ad078474968b04a",
+    "name": "iter205-execute",
+    "path": ".github/workflows/iter205-execute.yml",
+    "sha256": "0bbc39c8b4abbe6ae7dcbd4f9dc5710f835ff06522d8c137b622a9ad6a5a0ad5",
+    "workflow_id": 314141096,
+    "workflow_state": "active"
+  }
+}

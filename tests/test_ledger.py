@@ -77,12 +77,18 @@ def test_discovery_includes_additive_adjudication_records(tmp_path) -> None:
     proof.mkdir(parents=True)
     canonical = proof / "learning_record.json"
     terminal = proof / "learning_record.pre_dispatch_null.json"
+    admission = proof / "learning_record.pre_dispatch_admission_null.json"
     ignored = proof / "other.json"
     canonical.write_text("{}\n", encoding="utf-8")
     terminal.write_text("{}\n", encoding="utf-8")
+    admission.write_text("{}\n", encoding="utf-8")
     ignored.write_text("{}\n", encoding="utf-8")
 
-    assert discover_learning_record_paths(tmp_path) == [canonical, terminal]
+    assert discover_learning_record_paths(tmp_path) == [
+        canonical,
+        admission,
+        terminal,
+    ]
 
 
 def test_additive_terminal_record_supersedes_pending_next_action() -> None:
@@ -98,28 +104,28 @@ def test_additive_terminal_record_supersedes_pending_next_action() -> None:
     ) == "do not dispatch iter204; advance to iter205"
 
 
-def test_active_gate_selects_iter205_instead_of_frozen_pending_iter204() -> None:
-    iter204 = record("iter204_recovery")
-    iter204["status"] = "pending"
-    iter204["result_path"] = "experiments/iter204_recovery/HYPOTHESIS.md"
-    iter204["next_action"] = "dispatch iter204"
-    iter205 = record("iter205_recovery")
-    iter205["status"] = "pending"
-    iter205["result_path"] = "experiments/iter205_recovery/HYPOTHESIS.md"
-    iter205["next_action"] = "validate and dispatch iter205 once"
+def test_active_gate_selects_iter206_instead_of_closed_iter205() -> None:
+    iter205 = record("iter205_recovery_pre_dispatch_null")
+    iter205["status"] = "null"
+    iter205["result_path"] = "experiments/iter205_recovery/RESULT.md"
+    iter205["next_action"] = "do not dispatch iter205"
+    iter206 = record("iter206_recovery")
+    iter206["status"] = "pending"
+    iter206["result_path"] = "experiments/iter206_recovery/HYPOTHESIS.md"
+    iter206["next_action"] = "validate and dispatch iter206 once"
     active = select_active_learning_record(
-        [validate_learning_record(iter204), validate_learning_record(iter205)],
-        "experiments/iter205_recovery/HYPOTHESIS.md",
+        [validate_learning_record(iter205), validate_learning_record(iter206)],
+        "experiments/iter206_recovery/HYPOTHESIS.md",
     )
 
-    assert active.experiment_id == "iter205_recovery"
-    assert active.next_action == "validate and dispatch iter205 once"
+    assert active.experiment_id == "iter206_recovery"
+    assert active.next_action == "validate and dispatch iter206 once"
 
 
 @pytest.mark.parametrize("failure", ["missing", "duplicate", "completed", "mismatch"])
 def test_active_gate_binding_fails_closed(failure: str) -> None:
-    gate = "experiments/iter205_recovery/HYPOTHESIS.md"
-    data = record("iter205_recovery")
+    gate = "experiments/iter206_recovery/HYPOTHESIS.md"
+    data = record("iter206_recovery")
     data["status"] = "pending"
     data["result_path"] = gate
     rows = [validate_learning_record(data)]
@@ -131,14 +137,14 @@ def test_active_gate_binding_fails_closed(failure: str) -> None:
         data["status"] = "null"
         rows = [validate_learning_record(data)]
     elif failure == "mismatch":
-        data["experiment_id"] = "iter205_other"
+        data["experiment_id"] = "iter206_other"
         rows = [validate_learning_record(data)]
 
     with pytest.raises(LedgerValidationError):
         select_active_learning_record(rows, gate)
 
 
-def test_committed_active_learning_record_is_iter205() -> None:
+def test_committed_active_learning_record_is_iter207() -> None:
     contract = json.loads((ROOT / "mission/loop.json").read_text(encoding="utf-8"))
     records = [
         load_learning_record(path, root=ROOT)
@@ -147,11 +153,11 @@ def test_committed_active_learning_record_is_iter205() -> None:
 
     active = select_active_learning_record(records, contract["active_gate"])
 
-    assert active.experiment_id == "iter205_iter204_workflow_context_recovery"
+    assert active.experiment_id == "iter207_claim_integrity_and_admission_recovery"
     assert active.status == "pending"
 
 
-def test_validator_prints_active_iter205_action_not_obsolete_iter204_dispatch() -> None:
+def test_validator_prints_active_iter207_action_not_obsolete_predecessor_dispatch() -> None:
     completed = subprocess.run(
         ["python3", "scripts/validate_learning_ledger.py"],
         cwd=ROOT,
@@ -160,6 +166,7 @@ def test_validator_prints_active_iter205_action_not_obsolete_iter204_dispatch() 
         text=True,
     )
 
-    assert "active=iter205_iter204_workflow_context_recovery" in completed.stdout
-    assert "active_next=Complete and adversarially validate the additive iter205 source" in completed.stdout
-    assert "then make the first global iter204 dispatch" not in completed.stdout
+    assert "active=iter207_claim_integrity_and_admission_recovery" in completed.stdout
+    assert "active_next=Finish and adversarially validate every iter207 correction" in completed.stdout
+    assert "dispatch iter205" not in completed.stdout
+    assert "dispatch iter206" not in completed.stdout

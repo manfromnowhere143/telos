@@ -659,16 +659,18 @@ def test_runtime_manifest_chain_of_custody_matches_iter205_collector_and_workflo
     }
 
 
-def test_runtime_manifest_and_current_publication_receipt_reproduce() -> None:
-    assert runtime.validate_committed_manifest() == []
-    assert publication.validate_frozen_iter204_receipt()["scanned_file_count"] == 381
-    expected = publication.canonical_json_bytes(publication.build_audit())
-    assert publication.AUDIT.read_bytes() == expected
-    assert contract.validate_all() == []
+def test_iter205_runtime_and_publication_receipts_remain_frozen_after_null() -> None:
+    assert hashlib.sha256(runtime.MANIFEST.read_bytes()).hexdigest() == (
+        "1d427fd8e778282127ee8d782c6eb6bb8d6d44e781edceb50ad078474968b04a"
+    )
+    assert hashlib.sha256(publication.AUDIT.read_bytes()).hexdigest() == (
+        "1ba7adbea2fb6cf12488e8cf9a3438daadd22809d3d9944ae331bc031587d7da"
+    )
+    assert contract.validate_source_contract() == []
 
 
 def test_runtime_manifest_covers_recursive_learning_guard_imports() -> None:
-    document = runtime.build_manifest()
+    document = json.loads(runtime.MANIFEST.read_text())
 
     assert runtime.local_python_import_gaps(document["files"]) == []
     required_package_closure = {

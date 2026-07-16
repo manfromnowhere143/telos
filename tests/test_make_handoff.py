@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import importlib.util
 import json
 from pathlib import Path
@@ -9,9 +10,9 @@ import subprocess
 import pytest
 
 
-def load_make_handoff_module():
-    path = Path(__file__).resolve().parents[1] / "scripts" / "make_handoff.py"
-    spec = importlib.util.spec_from_file_location("make_handoff", path)
+def load_module(name: str):
+    path = Path(__file__).resolve().parents[1] / "scripts" / f"{name}.py"
+    spec = importlib.util.spec_from_file_location(name, path)
     assert spec is not None
     assert spec.loader is not None
     module = importlib.util.module_from_spec(spec)
@@ -19,47 +20,66 @@ def load_make_handoff_module():
     return module
 
 
-def load_validate_handoff_module():
-    path = Path(__file__).resolve().parents[1] / "scripts" / "validate_handoff.py"
-    spec = importlib.util.spec_from_file_location("validate_handoff", path)
-    assert spec is not None
-    assert spec.loader is not None
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-def test_normalize_worktree_status_filters_handoff_self_write() -> None:
-    make_handoff = load_make_handoff_module()
+def test_normalize_worktree_status_filters_only_handoff_self_write() -> None:
+    make_handoff = load_module("make_handoff")
 
     assert make_handoff.normalize_worktree_status(" M HANDOFF.md") == "clean"
-    assert make_handoff.normalize_worktree_status("M HANDOFF.md") == "clean"
+    assert make_handoff.normalize_worktree_status("M  HANDOFF.md") == "clean"
     assert (
         make_handoff.normalize_worktree_status(" M README.md\n M HANDOFF.md")
         == " M README.md"
     )
-    assert make_handoff.normalize_worktree_status(" M CONTINUITY.md") == (
-        " M CONTINUITY.md"
-    )
+    assert make_handoff.normalize_worktree_status("?? new.txt") == "?? new.txt"
 
 
 def test_repository_banner_is_explicit_and_self_contained() -> None:
-    make_handoff = load_make_handoff_module()
+    make_handoff = load_module("make_handoff")
 
-    banner = make_handoff.repository_banner()
-    assert banner == (
+    assert make_handoff.repository_banner() == (
         "TELOS is a standalone repository. Resolve its root with "
         "`git rev-parse --show-toplevel`, then run every TELOS command from that root."
     )
-    assert ("a" + "web") not in banner.casefold()
+    assert ("a" + "web") not in make_handoff.repository_banner().casefold()
 
 
-def test_active_and_frozen_upstream_gates_are_independently_bound(
+def test_experiment_status_is_publication_neutral(
     tmp_path: Path, monkeypatch
 ) -> None:
-    make_handoff = load_make_handoff_module()
+    make_handoff = load_module("make_handoff")
     monkeypatch.chdir(tmp_path)
-    active = "experiments/iter204/HYPOTHESIS.md"
+    null_exp = tmp_path / "experiments/iter206_terminal_null"
+    fail_exp = tmp_path / "experiments/iter195_protocol_failure"
+    ordinary_exp = tmp_path / "experiments/iter190_recorded_result"
+    for path in (null_exp, fail_exp, ordinary_exp):
+        path.mkdir(parents=True)
+    (null_exp / "RESULT.md").write_text(
+        "# Result\n\nStatus: **TERMINAL NULL; WITHOUT PUBLICATION**.\n",
+        encoding="utf-8",
+    )
+    (fail_exp / "RESULT.md").write_text(
+        "# Result\n\nStatus: **FAIL**.\n", encoding="utf-8"
+    )
+    (ordinary_exp / "RESULT.md").write_text(
+        "# Result\n\nStatus: **COMPLETE**.\n", encoding="utf-8"
+    )
+
+    rows = make_handoff.experiment_status("experiments/iter207/HYPOTHESIS.md")
+
+    assert any("iter206_terminal_null: RESULT RECORDED (TERMINAL NULL" in row for row in rows)
+    assert any("iter195_protocol_failure: RESULT RECORDED (FAIL)" in row for row in rows)
+    assert any(
+        "iter190_recorded_result: RESULT RECORDED (publication not implied)" in row
+        for row in rows
+    )
+    assert all("RESULT PUBLISHED" not in row for row in rows)
+
+
+def test_active_and_frozen_gates_are_independently_bound(
+    tmp_path: Path, monkeypatch
+) -> None:
+    make_handoff = load_module("make_handoff")
+    monkeypatch.chdir(tmp_path)
+    active = "experiments/iter206/HYPOTHESIS.md"
     frozen = "experiments/iter202/HYPOTHESIS.md"
     for gate in (active, frozen):
         path = tmp_path / gate
@@ -77,52 +97,174 @@ def test_active_and_frozen_upstream_gates_are_independently_bound(
 
     assert make_handoff.frozen_upstream_gate() == frozen
     assert make_handoff.active_gate() == active
-
     contract.write_text(
         json.dumps({"active_gate": active, "frozen_upstream_gate": active}),
         encoding="utf-8",
     )
-    with pytest.raises(RuntimeError, match="frozen upstream gates disagree"):
+    with pytest.raises(RuntimeError, match="frozen gates disagree"):
         make_handoff.active_gate()
 
 
-def test_operational_handoff_evidence_is_pinned_to_published_runs() -> None:
-    make_handoff = load_make_handoff_module()
+def test_iter205_and_iter207_operational_anchors_are_exact() -> None:
+    make_handoff = load_module("make_handoff")
 
-    assert make_handoff.HARDENING_PULL_REQUEST == 5
-    assert (
-        make_handoff.HARDENING_MERGE_COMMIT
-        == "5c409f79c9333206cff9ed80d59c08aa347110f6"
-    )
-    assert make_handoff.PRIMARY_CI_RUN_ID == "29460293066"
-    assert (
-        make_handoff.NODE24_BACKFILL_SOURCE_COMMIT
-        == "b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe"
-    )
-    assert make_handoff.NODE24_BACKFILL_RUN_ID == "29452243832"
-    assert make_handoff.ITER203_RUN_ID == "29460393525"
-    assert make_handoff.ITER203_RUN_ATTEMPT == "1"
-    assert (
-        make_handoff.ITER204_MERGE_COMMIT
-        == "c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446"
-    )
-    assert make_handoff.ITER204_PRIMARY_CI_RUN_ID == "29465925393"
     assert make_handoff.ITER204_WORKFLOW_ID == "314113289"
     assert make_handoff.ITER204_FEATURE_PUSH_RUN_ID == "29465584664"
     assert make_handoff.ITER204_PRIMARY_PUSH_RUN_ID == "29465924803"
-    assert (
-        make_handoff.ITER204_RUNTIME_MANIFEST_SHA256
-        == "bf2062825e604d9439b0d29375d7e5219a1064ae4a33701efb74a62f81a59a45"
+    assert make_handoff.ITER205_PULL_REQUEST == "7"
+    assert make_handoff.ITER205_FEATURE_COMMIT == (
+        "a336b4909329d392f6db5f6098792e07a17f28cb"
+    )
+    assert make_handoff.ITER205_MERGE_COMMIT == (
+        "4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f"
+    )
+    assert make_handoff.ITER205_PRIMARY_CI_RUN_ID == "29468769187"
+    assert make_handoff.ITER205_WORKFLOW_ID == "314141096"
+    assert make_handoff.ITER205_FEATURE_PUSH_RUN_ID == "29468669956"
+    assert make_handoff.ITER205_PRIMARY_PUSH_RUN_ID == "29468768706"
+    assert make_handoff.ITER207_BRANCH == (
+        "agent/iter207-claim-integrity-admission-recovery"
     )
 
 
-def test_rendered_handoff_records_the_exact_ordered_operational_gate(
+def test_iter206_workflow_authorization_v2_binds_exact_release_ci_pair() -> None:
+    root = Path(__file__).resolve().parents[1]
+    workflow = (root / ".github/workflows/iter206-execute.yml").read_text(
+        encoding="utf-8"
+    )
+    prefix = workflow.split("concurrency:", 1)[0]
+    inputs = re.findall(r"^      ([a-z0-9_]+):\n        description:", prefix, re.MULTILINE)
+    assert inputs == [
+        "expected_primary_sha",
+        "expected_workflow_id",
+        "expected_iter204_release_run_id",
+        "expected_iter204_primary_run_id",
+    ]
+
+    lines = workflow.splitlines()
+    start = next(i for i, line in enumerate(lines) if line == "          import base64")
+    end = next(i for i, line in enumerate(lines[start:], start) if line == "          PY")
+    source = "\n".join(line[10:] for line in lines[start:end]) + "\n"
+    module = ast.parse(source)
+
+    authorization = next(
+        node.value
+        for node in ast.walk(module)
+        if isinstance(node, ast.Assign)
+        and any(isinstance(target, ast.Name) and target.id == "authorization" for target in node.targets)
+    )
+    assert isinstance(authorization, ast.Dict)
+    authorization_fields = {
+        ast.literal_eval(key): value
+        for key, value in zip(authorization.keys, authorization.values, strict=True)
+    }
+    assert set(authorization_fields) == {
+        "approved_commit_sha",
+        "current_run_attempt",
+        "current_run_id",
+        "iter204_admission_history_sha256",
+        "iter204_dispatch_count",
+        "iter204_primary_run_id",
+        "iter204_release_run_id",
+        "iter204_workflow_id",
+        "iter205_all_event_count",
+        "iter205_dispatch_count",
+        "iter205_workflow_id",
+        "iter206_workflow_id",
+        "merge_first_parent",
+        "merge_second_parent",
+        "primary_ci_event",
+        "primary_ci_head_branch",
+        "primary_ci_run_attempt",
+        "primary_ci_run_id",
+        "primary_ci_workflow_path",
+        "release_ci_head_sha",
+        "release_ci_runs",
+        "required_checks",
+        "schema_version",
+    }
+    assert ast.literal_eval(authorization_fields["schema_version"]) == (
+        "telos.iter206.primary_ci_authorization.v2"
+    )
+
+    release_function = next(
+        node
+        for node in module.body
+        if isinstance(node, ast.FunctionDef) and node.name == "exact_release_ci_run"
+    )
+    run_keys = {
+        "conclusion",
+        "event",
+        "head_branch",
+        "head_repository",
+        "head_sha",
+        "id",
+        "path",
+        "required_jobs",
+        "run_attempt",
+        "status",
+    }
+    job_keys = {
+        "conclusion",
+        "head_sha",
+        "id",
+        "name",
+        "run_attempt",
+        "status",
+    }
+    dict_key_sets = []
+    for node in ast.walk(release_function):
+        if isinstance(node, ast.Dict) and all(
+            isinstance(key, ast.Constant) and isinstance(key.value, str)
+            for key in node.keys
+        ):
+            dict_key_sets.append({key.value for key in node.keys})
+    assert run_keys in dict_key_sets
+    assert job_keys in dict_key_sets
+    assert {"full_name"} in dict_key_sets
+    assert 'head_repository = row.get("head_repository")' in source
+    assert 'head_repository.get("full_name") != repository' in source
+    assert 'len({job["id"] for job in required_jobs}) != 2' in source
+    assert 'selected_checks[0]["id"] == selected_checks[1]["id"]' in source
+
+    release_assignment = next(
+        node.value
+        for node in module.body
+        if isinstance(node, ast.Assign)
+        and any(
+            isinstance(target, ast.Name) and target.id == "release_ci_runs"
+            for target in node.targets
+        )
+    )
+    assert isinstance(release_assignment, ast.List)
+    assert [ast.literal_eval(call.args[0]) for call in release_assignment.elts] == [
+        "push",
+        "pull_request",
+    ]
+
+    old = (root / ".github/workflows/iter205-execute.yml").read_text(encoding="utf-8")
+    old_tail = "  smoke:\n" + old.split("  smoke:\n", 1)[1]
+    new_tail = "  smoke:\n" + workflow.split("  smoke:\n", 1)[1]
+    normalized = (
+        new_tail.replace(
+            "iter206_iter205_admission_history_recovery",
+            "iter205_iter204_workflow_context_recovery",
+        )
+        .replace("ITER206", "ITER205")
+        .replace("iter206", "iter205")
+    )
+    assert normalized == old_tail
+
+
+def test_rendered_handoff_is_exact_six_fail_closed_and_single_dispatch(
     tmp_path: Path, monkeypatch
 ) -> None:
-    make_handoff = load_make_handoff_module()
-    validate_handoff = load_validate_handoff_module()
+    make_handoff = load_module("make_handoff")
+    validate_handoff = load_module("validate_handoff")
     source_commit = "b" * 40
-    source_branch = "agent/iter205-workflow-context-recovery"
+    source_branch = "agent/iter207-claim-integrity-admission-recovery"
+    active = "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+    frozen = "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md"
     monkeypatch.chdir(tmp_path)
     monkeypatch.setattr(make_handoff, "current_branch", lambda: source_branch)
     monkeypatch.setattr(
@@ -131,331 +273,314 @@ def test_rendered_handoff_records_the_exact_ordered_operational_gate(
         lambda _branch: (source_branch, source_commit),
     )
     monkeypatch.setattr(make_handoff, "run", lambda _args: "")
-    monkeypatch.setattr(
-        make_handoff,
-        "active_gate",
-        lambda: "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
-    )
-    monkeypatch.setattr(
-        make_handoff,
-        "frozen_upstream_gate",
-        lambda: "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
-    )
+    monkeypatch.setattr(make_handoff, "active_gate", lambda: active)
+    monkeypatch.setattr(make_handoff, "frozen_upstream_gate", lambda: frozen)
     monkeypatch.setattr(make_handoff, "experiment_status", lambda _gate: [])
 
     make_handoff.main()
     handoff = (tmp_path / "HANDOFF.md").read_text(encoding="utf-8")
 
-    for evidence in (
-        "5c409f79c9333206cff9ed80d59c08aa347110f6",
-        "29460293066",
-        "b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe",
-        "29452243832",
-        "access authorization succeeded",
-        "`53/53` solver calls",
-        "`39/39` eligible scenario calls",
-        "`50` model patches",
-        "`38` extracted scenario programs",
-        "admitted `29` programs and rejected `9` with `21` findings",
-        "Zero scenario execution and zero official-harness certification execution occurred",
-        "scenario-safety protocol/execution null",
-        "workflow run `29460393525`, attempt `1`",
-        "execution-infrastructure null",
-        "exactly two iter204 workflow records",
-        "push parse-failure run `29465584664`",
-        "push parse-failure run `29465924803`",
-        "zero jobs and zero artifacts",
-        "zero `workflow_dispatch` runs",
-        "false to say that iter204 has zero workflow runs",
-        "at least one locally observed dispatch API request returned HTTP `422`",
-        "no run ID, no run attempt, and no public workflow-dispatch job or run log",
-        "no provider process, container create/run invocation",
-        "contributes no `N`, `k`, or `u`; those quantities are absent, not zero",
-        "Never reconstruct that frozen manifest from the current tree",
-        "empty complete iter205 all-event and dispatch histories",
-        "transient read-only query failure before the request does not consume iter205's request allowance",
-        "Once execution reaches the request command, never re-enter this block",
-        "discovery poll timeout or temporarily absent run is not by itself a null",
-        "No observation ever authorizes another request",
-        "closes iter205 and requires iter206",
-        'gh workflow run iter205-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
-        "actions/workflows/iter205-execute.yml/runs",
-        "scripts/collect_iter205_execution.py check",
-        "scripts/adjudicate_iter205_workflow_context_recovery.py",
-        "scripts/run_iter205_workflow_context_recovery_blind_judge.py",
-        "scripts/validate_iter203_infrastructure_null.py",
-        "scripts/validate_iter204_pre_dispatch_null.py",
-        "scripts/build_iter205_runtime_manifest.py --check",
-        "scripts/validate_iter205_publication_safety.py --check",
-        "scripts/validate_iter205_runtime_recovery.py",
-    ):
-        assert evidence in handoff
     assert validate_handoff.recovery_content_failures(handoff) == []
-
-    assert (
-        "Active gate: `experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`"
-        in handoff
-    )
+    assert make_handoff.repository_banner() in handoff
+    assert f"Active gate: `{active}`" in handoff
     assert (
         "Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: "
-        "`experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`"
+        f"`{frozen}`"
     ) in handoff
+    assert "two-row closure snapshot" in handoff
+    assert "four-row iter205 admission baseline" in handoff
+    assert "No iter205 dispatch request was issued" in handoff
+    assert "pre-dispatch admission-history null" in handoff
+    assert "no dispatch API response or rejection exists" in handoff
+    assert "`1/24` confirmed lower, `7/24` worst-case missing upper" in handoff
+    assert "`1/18` complete-case" in handoff
+    assert "pre-publication claim-integrity null" in handoff
+    assert "conservatively adjudicates conceptual novelty `FAIL`" in handoff
+    assert "literal v1-specific falsifier" in handoff
+    normalized_handoff = " ".join(handoff.split())
+    assert "only `23` discarded iter152 IDs are decision-bound" in normalized_handoff
+    assert (
+        "Of the iter192/iter195 correction pair, only iter195 is a strict protocol `FAIL`"
+        in normalized_handoff
+    )
+    assert "`$13.128090`, not a provider invoice" in handoff
+    assert "corpus is not independent semantic ground truth" in handoff
+    assert "## Iter207 Local Seal and Exact Pickup Boundary" in handoff
+    assert "source commit A" in handoff
+    assert "publication-safety receipt and then the runtime manifest" in handoff
+    assert "seal commit B" in handoff
+    assert "push A and B together" in handoff
+    assert "Never regenerate it after that point" in handoff
+    assert (
+        "Push branch `agent/iter207-claim-integrity-admission-recovery` exactly once"
+        in handoff
+    )
+    assert "Merge exactly once with a two-parent merge commit" in handoff
+    assert ("a" + "web") not in handoff.casefold()
     assert re.search(r"\b[A-Z][A-Z0-9_]*(?:KEY|TOKEN|SECRET)\b", handoff) is None
 
-    next_action_start = handoff.index("- Next action:")
-    next_action_end = handoff.index("- Autonomous goal-tracking note:")
-    next_action = " ".join(handoff[next_action_start:next_action_end].split())
-    ordered_markers = (
-        "review the exact iter204 pre-dispatch null",
-        "commit the recovery",
-        "pull request",
-        "green primary-branch CI",
-        "preflight authorize one iter205 dispatch request",
-    )
-    assert [next_action.index(marker) for marker in ordered_markers] == sorted(
-        next_action.index(marker) for marker in ordered_markers
-    )
-    assert "Never dispatch the frozen iter202, iter203, or iter204" in next_action
-    dispatch = handoff[handoff.index("## Exact Authorized Iter205 Dispatch") :]
-    assert dispatch.index("git switch master") < dispatch.index(
-        "gh workflow run iter205-execute.yml"
-    )
-    assert 'gh run rerun "$RUN_ID"' not in dispatch
-    assert "gh workflow run iter203-execute.yml" not in dispatch
+    assert handoff.count("gh workflow run iter207-execute.yml") == 1
+    assert "gh workflow run iter206-execute.yml" not in handoff
+    assert "gh workflow run iter205-execute.yml" not in handoff
     assert "gh workflow run iter204-execute.yml" not in handoff
-    assert "## Exact Authorized Iter204 Dispatch" not in handoff
-    assert "scripts/collect_iter204_execution.py check" not in handoff
-    assert "scripts/adjudicate_iter204_infrastructure_recovery.py" not in handoff
-    assert "scripts/run_iter204_infrastructure_recovery_blind_judge.py" not in handoff
-    assert handoff.count("gh workflow run iter205-execute.yml") == 1
-    bash_blocks = re.findall(r"```bash\n(.*?)\n```", dispatch, re.DOTALL)
-    dispatch_block, observe_block, failure_block, success_block, resume_block = bash_blocks[:5]
+    assert 'gh run rerun "$RUN_ID"' not in handoff
+    assert "scripts/collect_iter205_execution.py check" not in handoff
 
-    assert "iter205-execute\t.github/workflows/iter205-execute.yml\tactive" in dispatch_block
-    assert 'test "$ITER205_ALL_COUNT" -eq 0' in dispatch_block
-    assert 'test "$ITER205_DISPATCH_COUNT" -eq 0' in dispatch_block
-    assert dispatch_block.count("gh workflow run iter205-execute.yml") == 1
-    assert dispatch_block.index('test "$ITER205_ALL_COUNT" -eq 0') < dispatch_block.index(
-        "gh workflow run iter205-execute.yml"
-    )
-    assert dispatch_block.index('test "$ITER205_DISPATCH_COUNT" -eq 0') < dispatch_block.index(
-        "gh workflow run iter205-execute.yml"
-    )
-    assert "actions/workflows/314113289/runs" in dispatch_block
-    assert "29465584664\tpush\tcompleted\tfailure\t1" in dispatch_block
-    assert "29465924803\tpush\tcompleted\tfailure\t1" in dispatch_block
-    assert 'test "$ITER204_DISPATCH_COUNT" -eq 0' in dispatch_block
-    assert "actions/runs/$ITER204_RUN_ID/jobs" in dispatch_block
-    assert "actions/runs/$ITER204_RUN_ID/artifacts" in dispatch_block
-    assert "verify py3.11\tcompleted\tsuccess" in dispatch_block
-    assert "verify py3.12\tcompleted\tsuccess" in dispatch_block
-    head_jq_source = (
-        r'".workflow_runs[] | select(.head_sha == \"$HEAD_SHA\") | '
-        r'[.id,.status,.conclusion,.event,.head_sha,.run_attempt] | @tsv"'
-    )
-    assert f"--jq {head_jq_source}" in dispatch_block
-    head_jq_semantics = subprocess.run(
-        ["bash", "-c", f'HEAD_SHA={"a" * 40}; set -- {head_jq_source}; printf %s "$1"'],
-        text=True,
-        capture_output=True,
-        check=False,
-    )
-    assert head_jq_semantics.returncode == 0, head_jq_semantics.stderr
-    assert head_jq_semantics.stdout == (
-        '.workflow_runs[] | select(.head_sha == "' + "a" * 40 + '") | '
-        '[.id,.status,.conclusion,.event,.head_sha,.run_attempt] | @tsv'
-    )
-    assert "printf '%s\\n'" in dispatch_block
-    assert "printf '%s\n'" not in dispatch_block
-    assert 'test "$ITER205_ALL_COUNT" -eq 1' in dispatch_block
-    assert 'test "$ITER205_DISPATCH_COUNT" -eq 1' in dispatch_block
-    assert "workflow_dispatch\t" in dispatch_block
-    assert "\t1\t.github/workflows/iter205-execute.yml" in dispatch_block
-    assert 'gh run watch "$RUN_ID"' not in dispatch_block
-    assert 'gh run download "$RUN_ID"' not in dispatch_block
-    assert "canonical run discovery is incomplete; never reissue it" in dispatch_block
-    assert "exit 75" in dispatch_block
-    assert "APPROVED_SHA=%s" in dispatch_block
-    assert "actions/workflows/ci.yml/runs" in dispatch_block
+    dispatch_text = handoff[handoff.index("## Exact Authorized Iter207 Dispatch") :]
+    bash_blocks = re.findall(r"```bash\n(.*?)\n```", dispatch_text, re.DOTALL)
+    assert len(bash_blocks) == 6
+    dispatch, observe, failure, success, resume, verification = bash_blocks
+    for operational_block in bash_blocks[:5]:
+        assert operational_block.count("workflow_history_payload()") == 1
+        assert operational_block.count("|| return 1") == 5
+        assert "-f page=1 -f per_page=100" in operational_block
+
+    assert dispatch.count("gh workflow run iter207-execute.yml") == 1
+    for required_input in validate_handoff.ITER207_INPUTS:
+        assert dispatch.count(required_input) == 1
+    assert dispatch.count("workflow_history_payload()") == 1
+    assert "[(.total_count | type), (.workflow_runs | type)] | @tsv" in dispatch
+    assert ".total_count == (.workflow_runs | length)" in dispatch
+    assert "ITER206_ALL_PAYLOAD=" in dispatch
+    assert "ITER206_DISPATCH_PAYLOAD=" in dispatch
+    assert 'test "$ITER205_ALL_COUNT" -eq 0' in dispatch
+    assert 'test "$ITER205_DISPATCH_COUNT" -eq 0' in dispatch
+    assert 'test "$ITER206_ALL_COUNT" -eq 0' in dispatch
+    assert 'test "$ITER206_DISPATCH_COUNT" -eq 0' in dispatch
+    assert 'test "$ITER207_ALL_COUNT" -eq 0' in dispatch
+    assert 'test "$ITER207_DISPATCH_COUNT" -eq 0' in dispatch
+    assert 'workflow_history_payload "314113289"' in dispatch
+    assert 'test "$ITER204_ALL_COUNT" -eq 6' in dispatch
+    assert 'test "$ITER204_DISPATCH_COUNT" -eq 0' in dispatch
+    assert "1\t29465584664\t314113289" in dispatch
+    assert "2\t29465924803\t314113289" in dispatch
+    assert "3\t29468669956\t314113289" in dispatch
+    assert "4\t29468768706\t314113289" in dispatch
+    assert "agent/iter207-claim-integrity-admission-recovery" in dispatch
+    assert "actions/runs/$ITER204_RUN_ID/attempts/1/jobs" in dispatch
+    assert "actions/runs/$ITER204_RUN_ID/artifacts" in dispatch
+    assert "grep -E 'HTTP[^0-9]*404'" in dispatch
+    assert "verify py3.11\tsuccess" in dispatch
+    assert "verify py3.12\tsuccess" in dispatch
+    assert dispatch.count("verify_release_ci()") == 1
+    assert dispatch.count('RELEASE_PUSH_CI_RUN_ID="$(verify_release_ci push)"') == 1
     assert (
-        'git merge-base --is-ancestor '
-        'c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446 "$HEAD_SHA"'
-        in dispatch_block
+        dispatch.count(
+            'RELEASE_PULL_REQUEST_CI_RUN_ID="$(verify_release_ci pull_request)"'
+        )
+        == 1
     )
+    assert '-f head_sha="$SECOND_PARENT"' in dispatch
+    assert ".head_repository.full_name] | @tsv" in dispatch
+    assert "completed\tmanfromnowhere143/telos" in dispatch
+    assert "verify py3.11\tsuccess\t" in dispatch
+    assert "verify py3.12\tsuccess\t" in dispatch
+    assert "[.total_count, (.workflow_runs | length)] | @tsv" in dispatch
+    assert "[.total_count, (.jobs | length)] | @tsv" in dispatch
+    assert ".status,.html_url] | @tsv" in dispatch
+    assert (
+        'test "$html_url" = "https://github.com/$REPO/actions/runs/$run_id/job/$job_id"'
+        in dispatch
+    )
+    assert "repos/$REPO/commits/$HEAD_SHA/check-runs" in dispatch
+    assert "PRIMARY_CHECK_HISTORY_COMPLETE" in dispatch
+    assert 'PRIMARY_PY311_CHECK_ID="$(verify_primary_check \'verify py3.11\')"' in dispatch
+    assert 'PRIMARY_PY312_CHECK_ID="$(verify_primary_check \'verify py3.12\')"' in dispatch
+    assert "github-actions" in dispatch
+    assert 'test "$RELEASE_PUSH_CI_RUN_ID" != "$RELEASE_PULL_REQUEST_CI_RUN_ID"' in dispatch
+    assert 'test "$FIRST_PARENT" = "4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f"' in dispatch
+    assert dispatch.index("scripts/audit_iter207_claim_integrity.py --check") < (
+        dispatch.index("gh workflow run iter207-execute.yml")
+    )
+    assert dispatch.index("scripts/validate_iter206_pre_publication_null.py") < (
+        dispatch.index("gh workflow run iter207-execute.yml")
+    )
+    assert dispatch.index('test "$ITER204_HISTORY" = "$EXPECTED_ITER204_HISTORY"') < dispatch.index(
+        "gh workflow run iter207-execute.yml"
+    )
+    assert dispatch.index('RELEASE_PUSH_CI_RUN_ID="$(verify_release_ci push)"') < dispatch.index(
+        "gh workflow run iter207-execute.yml"
+    )
+    assert dispatch.index(
+        'RELEASE_PULL_REQUEST_CI_RUN_ID="$(verify_release_ci pull_request)"'
+    ) < dispatch.index("gh workflow run iter207-execute.yml")
+    assert dispatch.index("verify py3.12") < dispatch.index(
+        "gh workflow run iter207-execute.yml"
+    )
+    assert 'gh run watch "$RUN_ID"' not in dispatch
+    assert 'gh run download "$RUN_ID"' not in dispatch
+    assert "run discovery is incomplete; never reissue it" in dispatch
+    assert "\t.github/workflows/iter207-execute.yml\t1\t1" in dispatch
 
-    assert "gh workflow run iter205-execute.yml" not in observe_block
-    assert 'gh run watch "$RUN_ID" || true' in observe_block
-    assert 'if test "${RUN_STATE%% *}" != completed' in observe_block
-    assert 'if test "$RUN_CONCLUSION" != success' in observe_block
-    assert "exit 75" in observe_block
-    assert "exit 20" in observe_block
-    assert 'test "$ITER205_ALL_COUNT" -eq 1' in observe_block
-    assert 'test "$ITER205_DISPATCH_COUNT" -eq 1' in observe_block
-    assert "iter205-execute\t.github/workflows/iter205-execute.yml\tactive" in observe_block
-    assert "verify py3.11\tcompleted\tsuccess" in observe_block
-    assert "workflow_dispatch\t" in observe_block
-    approved_jq_source = (
-        r'".workflow_runs[] | select(.head_sha == \"$APPROVED_SHA\") | '
-        r'[.id,.status,.conclusion,.event,.head_sha,.run_attempt] | @tsv"'
-    )
-    assert f"--jq {approved_jq_source}" in observe_block
-    approved_jq_semantics = subprocess.run(
-        [
-            "bash",
-            "-c",
-            f'APPROVED_SHA={"c" * 40}; set -- {approved_jq_source}; printf %s "$1"',
-        ],
-        text=True,
-        capture_output=True,
-        check=False,
-    )
-    assert approved_jq_semantics.returncode == 0, approved_jq_semantics.stderr
-    assert approved_jq_semantics.stdout == (
-        '.workflow_runs[] | select(.head_sha == "' + "c" * 40 + '") | '
-        '[.id,.status,.conclusion,.event,.head_sha,.run_attempt] | @tsv'
-    )
+    assert "gh workflow run iter207-execute.yml" not in observe
+    assert observe.count("workflow_history_payload()") == 1
+    assert 'gh run watch "$RUN_ID" || true' in observe
+    assert 'test "$ITER207_ALL_COUNT" -eq 1' in observe
+    assert 'test "$ITER207_DISPATCH_COUNT" -eq 1' in observe
+    assert 'workflow_history_payload "$ITER206_WORKFLOW_ID"' in observe
+    assert 'if test "${RUN_STATE%% *}" != completed' in observe
+    assert "repeat only this read-only observation block" in observe
+    assert "exit 75" in observe
+    assert "exit 20" in observe
 
-    assert "gh workflow run iter205-execute.yml" not in failure_block
-    assert 'gh run rerun "$RUN_ID"' not in failure_block
-    assert 'test "$(gh run view "$RUN_ID" --json attempt --jq \'.attempt\')" -eq 1' in failure_block
-    assert 'test "$(gh run view "$RUN_ID" --json status --jq \'.status\')" = completed' in failure_block
-    assert 'if test "$RUN_CONCLUSION" = success' in failure_block
-    assert 'test "$ITER205_ALL_COUNT" -eq 1' in failure_block
-    assert 'test "$ITER205_DISPATCH_COUNT" -eq 1' in failure_block
-    assert ".iter205-null-stage.XXXXXX" in failure_block
-    assert "! -name SHA256SUMS" in failure_block
-    assert failure_block.index('gh run download "$RUN_ID"') < failure_block.index(
+    assert "gh workflow run iter207-execute.yml" not in failure
+    assert 'gh run rerun "$RUN_ID"' not in failure
+    assert failure.count("workflow_history_payload()") == 1
+    assert "ITER207_WORKFLOW_BINDING=" in failure
+    assert "APPROVED_SHA=" in failure
+    assert "RUN_BINDING=" in failure
+    assert 'test "$(git rev-parse HEAD)" = "$APPROVED_SHA"' in failure
+    assert ".iter207-null-stage.XXXXXX" in failure
+    assert "! -name SHA256SUMS" in failure
+    assert failure.index('gh run download "$RUN_ID"') < failure.index(
         'mv "$STAGE" "$NULL_DIR"'
     )
 
-    assert "gh workflow run iter205-execute.yml" not in success_block
-    assert 'test "$(gh run view "$RUN_ID" --json status,conclusion' in success_block
-    assert 'test "$RUN_ATTEMPT" -eq 1' in success_block
-    assert 'git diff --quiet "$APPROVED_SHA" -- telos scripts' in success_block
-    assert "scripts/build_iter205_runtime_manifest.py --check" in success_block
-    assert ".iter205-execution-stage.XXXXXX" in success_block
-    assert success_block.index('gh run download "$RUN_ID"') < success_block.index(
-        "scripts/collect_iter205_execution.py check"
+    assert "gh workflow run iter207-execute.yml" not in success
+    assert success.count("workflow_history_payload()") == 1
+    assert "ITER207_WORKFLOW_BINDING=" in success
+    assert ".iter207-execution-stage.XXXXXX" in success
+    assert success.index('gh run download "$RUN_ID"') < success.index(
+        "scripts/collect_iter207_execution.py check"
     )
-    assert success_block.index("scripts/collect_iter205_execution.py check") < success_block.index(
+    assert success.index("scripts/collect_iter207_execution.py check") < success.index(
         'mv "$STAGE" "$EXECUTION_DIR"'
     )
-    assert success_block.index('mv "$STAGE" "$EXECUTION_DIR"') < success_block.index(
-        "scripts/adjudicate_iter205_workflow_context_recovery.py"
+    assert success.index('mv "$STAGE" "$EXECUTION_DIR"') < success.index(
+        "scripts/adjudicate_iter207_claim_integrity_and_admission_recovery.py"
     )
 
-    assert "gh workflow run iter205-execute.yml" not in resume_block
-    assert 'gh run download "$RUN_ID"' not in resume_block
-    assert 'test -d "$EXECUTION_DIR"' in resume_block
-    assert 'test ! -L "$EXECUTION_DIR"' in resume_block
-    assert resume_block.index("scripts/collect_iter205_execution.py check") < resume_block.index(
-        "scripts/adjudicate_iter205_workflow_context_recovery.py"
+    assert 'gh run download "$RUN_ID"' not in resume
+    assert resume.count("workflow_history_payload()") == 1
+    assert 'test -z "$(git status --porcelain)"' in resume
+    assert "git diff --quiet" not in resume
+    assert 'test -d "$EXECUTION_DIR"' in resume
+    assert resume.index("scripts/collect_iter207_execution.py check") < resume.index(
+        "scripts/adjudicate_iter207_claim_integrity_and_admission_recovery.py"
     )
-    assert resume_block.index("scripts/adjudicate_iter205_workflow_context_recovery.py") < resume_block.index(
-        "scripts/run_iter205_workflow_context_recovery_blind_judge.py"
+    assert resume.index(
+        "scripts/adjudicate_iter207_claim_integrity_and_admission_recovery.py"
+    ) < resume.index(
+        "scripts/run_iter207_claim_integrity_and_admission_recovery_blind_judge.py"
     )
-    assert 'scripts/collect_iter205_execution.py check \\\n' in dispatch
-    assert '--execution-dir "$STAGE" \\\n' in dispatch
-    assert dispatch.index("scripts/adjudicate_iter205_workflow_context_recovery.py") < dispatch.index(
-        "scripts/run_iter205_workflow_context_recovery_blind_judge.py"
-    )
-    assert '"completed success"' in dispatch
-    continuation_lines = [line for line in dispatch.splitlines() if line.endswith("\\")]
+    assert "scripts/validate_iter205_pre_dispatch_null.py" in verification
+    assert "scripts/validate_iter206_pre_publication_null.py" in verification
+    assert "scripts/audit_iter207_claim_integrity.py --check" in verification
+    assert "scripts/build_iter207_runtime_manifest.py --check" in verification
+    assert "scripts/validate_handoff.py" in verification
+    assert "python3 scripts/make_handoff.py" not in verification
+
+    continuation_lines = [line for line in dispatch_text.splitlines() if line.endswith("\\")]
     assert continuation_lines
     assert all(not line.endswith("\\\\") for line in continuation_lines)
     for block in bash_blocks:
         syntax = subprocess.run(
-            ["bash", "-n"],
-            input=block,
-            text=True,
-            capture_output=True,
-            check=False,
+            ["bash", "-n"], input=block, text=True, capture_output=True, check=False
         )
         assert syntax.returncode == 0, syntax.stderr
-    assert ("a" + "web") not in handoff.casefold()
 
 
-def test_handoff_status_filter_allows_only_its_own_regeneration() -> None:
-    validate_handoff = load_validate_handoff_module()
-
-    assert validate_handoff.worktree_changes_except_handoff(" M HANDOFF.md") == []
-    assert validate_handoff.worktree_changes_except_handoff("M  HANDOFF.md") == []
-    assert validate_handoff.worktree_changes_except_handoff(
-        " M HANDOFF.md\n M README.md"
-    ) == [" M README.md"]
-
-
-def test_handoff_recovery_content_rejects_stale_or_identifying_credential_text() -> None:
-    validate_handoff = load_validate_handoff_module()
-    bounded = "\n".join(validate_handoff.REQUIRED_RECOVERY_FACTS)
+def test_handoff_recovery_guard_rejects_retry_stale_and_credential_text() -> None:
+    make_handoff = load_module("make_handoff")
+    validate_handoff = load_module("validate_handoff")
+    bounded = make_handoff.render_handoff(
+        generated="2026-07-16T00:00:00Z",
+        source_branch="agent/iter207-claim-integrity-admission-recovery",
+        source_commit="a" * 40,
+        worktree="clean",
+        experiments="- bounded fixture",
+        gate="experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
+        upstream_gate="experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
+    )
 
     assert validate_handoff.recovery_content_failures(bounded) == []
     assert "HANDOFF.md names a credential variable" in (
         validate_handoff.recovery_content_failures(bounded + "\nPROVIDER_API_KEY")
     )
-    assert "HANDOFF.md describes access or account capacity as unavailable" in (
-        validate_handoff.recovery_content_failures(bounded + "\nCredentials are missing.")
-    )
-    assert "HANDOFF.md describes access or account capacity as unavailable" in (
-        validate_handoff.recovery_content_failures(bounded + "\nQuota is unavailable.")
+    assert "HANDOFF.md describes account or execution capacity as unavailable" in (
+        validate_handoff.recovery_content_failures(bounded + "\nCredits are missing.")
     )
     assert "HANDOFF.md names a credential location" in (
         validate_handoff.recovery_content_failures(bounded + "\nUse the credential file.")
     )
-    unsafe_dispatch = bounded.replace(
-        "Never dispatch the frozen iter202, iter203, or iter204",
-        "Dispatch the sealed workflows now.",
-    )
-    assert (
-        "HANDOFF.md is missing bounded recovery fact: "
-        "Never dispatch the frozen iter202, iter203, or iter204"
-    ) in (
-        validate_handoff.recovery_content_failures(unsafe_dispatch)
-    )
     assert "HANDOFF.md authorizes a forbidden workflow rerun" in (
         validate_handoff.recovery_content_failures(bounded + '\ngh run rerun "$RUN_ID"')
     )
-    assert "HANDOFF.md authorizes the sealed iter203 workflow" in (
+    assert "HANDOFF.md authorizes a forbidden workflow rerun" in (
+        validate_handoff.recovery_content_failures(bounded + "\ngh run rerun 12345")
+    )
+    assert "HANDOFF.md authorizes a sealed predecessor workflow: iter205-execute.yml" in (
         validate_handoff.recovery_content_failures(
-            bounded + "\ngh workflow run iter203-execute.yml"
+            bounded + "\ngh workflow run iter205-execute.yml"
         )
     )
-    assert "HANDOFF.md authorizes the sealed iter204 workflow" in (
+    assert "HANDOFF.md authorizes a sealed predecessor workflow: iter206-execute.yml" in (
         validate_handoff.recovery_content_failures(
-            bounded + "\ngh workflow run iter204-execute.yml"
+            bounded
+            + '\ngh workflow run ".github/workflows/iter206-execute.yml" --ref master'
         )
     )
-    assert "HANDOFF.md must contain exactly one iter205 dispatch command" in (
+    assert "HANDOFF.md authorizes a sealed predecessor workflow: iter203-execute.yml" in (
         validate_handoff.recovery_content_failures(
-            bounded + '\ngh workflow run iter205-execute.yml --ref master'
+            bounded + "\ngh workflow run \\\n  .github/workflows/iter203-execute.yml"
         )
     )
-    assert "HANDOFF.md retains stale iter204 operational instruction" in "\n".join(
+    assert "HANDOFF.md authorizes a sealed predecessor workflow: iter204-execute.yml" in (
         validate_handoff.recovery_content_failures(
-            bounded + "\nscripts/collect_iter204_execution.py check"
+            bounded
+            + "\ngh api -X POST repos/o/r/actions/workflows/"
+            "iter204-execute.yml/dispatches"
         )
+    )
+    assert "HANDOFF.md must contain exactly one iter207 dispatch command" in (
+        validate_handoff.recovery_content_failures(
+            bounded + "\ngh workflow run iter207-execute.yml"
+        )
+    )
+    assert "HANDOFF.md must contain exactly one iter207 dispatch command" in (
+        validate_handoff.recovery_content_failures(
+            bounded + "\ngh workflow run .github/workflows/iter207-execute.yml"
+        )
+    )
+    assert "HANDOFF.md must bind exactly one iter207 dispatch input" in "\n".join(
+        validate_handoff.recovery_content_failures(
+            bounded + '\n-f expected_primary_sha="$HEAD_SHA"'
+        )
+    )
+    assert "HANDOFF.md retains stale predecessor instruction" in "\n".join(
+        validate_handoff.recovery_content_failures(
+            bounded + "\nscripts/collect_iter205_execution.py check"
+        )
+    )
+    iter206_zero = 'test "$ITER206_ALL_COUNT" -eq 0'
+    moved_after_dispatch = bounded.replace(iter206_zero, "", 1) + f"\n{iter206_zero}\n"
+    assert "must prove each exact invariant before dispatch" in "\n".join(
+        validate_handoff.recovery_content_failures(moved_after_dispatch)
     )
 
 
-def test_handoff_snapshot_parser_is_exact() -> None:
-    validate_handoff = load_validate_handoff_module()
+def test_handoff_status_parsers_are_exact() -> None:
+    validate_handoff = load_module("validate_handoff")
 
+    assert validate_handoff.worktree_changes_except_handoff(" M HANDOFF.md") == []
+    assert validate_handoff.worktree_changes_except_handoff(
+        " M HANDOFF.md\n M README.md"
+    ) == [" M README.md"]
     assert validate_handoff.declared_worktree_changes(
-        "# Handoff\n\nWorking tree:\n\n```text\nclean\n```\n"
+        "Working tree:\n\n```text\nclean\n```\n"
     ) == []
     assert validate_handoff.declared_worktree_changes(
-        "# Handoff\n\nWorking tree:\n\n```text\n M README.md\n?? new.txt\n```\n"
+        "Working tree:\n\n```text\n M README.md\n?? new.txt\n```\n"
     ) == [" M README.md", "?? new.txt"]
-    duplicate = (
-        "Working tree:\n\n```text\nclean\n```\n\n"
-        "Working tree:\n\n```text\nclean\n```\n"
-    )
     with pytest.raises(ValueError, match="exactly one working-tree snapshot"):
-        validate_handoff.declared_worktree_changes(duplicate)
+        validate_handoff.declared_worktree_changes(
+            "Working tree:\n\n```text\nclean\n```\n" * 2
+        )
 
 
-def test_handoff_generator_fails_closed_on_git_error(monkeypatch) -> None:
-    make_handoff = load_make_handoff_module()
+def test_handoff_generator_and_validator_fail_closed_on_git_errors(monkeypatch) -> None:
+    make_handoff = load_module("make_handoff")
+    validate_handoff = load_module("validate_handoff")
 
     def failed_run(args, **kwargs):
         return subprocess.CompletedProcess(args, 128, stdout="", stderr="fatal: no repository")
@@ -463,188 +588,171 @@ def test_handoff_generator_fails_closed_on_git_error(monkeypatch) -> None:
     monkeypatch.setattr(make_handoff.subprocess, "run", failed_run)
     with pytest.raises(RuntimeError, match="exit 128.*fatal: no repository"):
         make_handoff.run(["git", "status", "--short"])
-
-
-def test_handoff_generator_rejects_detached_head(monkeypatch) -> None:
-    make_handoff = load_make_handoff_module()
-    monkeypatch.setattr(make_handoff, "run", lambda _args: "HEAD")
-
-    with pytest.raises(RuntimeError, match="cannot generate handoff"):
-        make_handoff.current_branch()
-
-
-def test_handoff_generator_freezes_feature_source_and_preserves_it_on_master(
-    tmp_path: Path, monkeypatch
-) -> None:
-    make_handoff = load_make_handoff_module()
-    source_commit = "a" * 40
-    monkeypatch.setattr(make_handoff, "current_commit", lambda: source_commit)
-    assert make_handoff.source_provenance("agent/research-gate") == (
-        "agent/research-gate",
-        source_commit,
-    )
-
-    monkeypatch.chdir(tmp_path)
-    (tmp_path / "HANDOFF.md").write_text(
-        "source_branch: agent/research-gate\n"
-        f"source_commit: {source_commit}\n"
-        "publication_target: master\n",
-        encoding="utf-8",
-    )
-    monkeypatch.setattr(
-        make_handoff.subprocess,
-        "run",
-        lambda *_args, **_kwargs: subprocess.CompletedProcess([], 0, "", ""),
-    )
-    assert make_handoff.source_provenance("master") == (
-        "agent/research-gate",
-        source_commit,
-    )
-
-    monkeypatch.setattr(
-        make_handoff.subprocess,
-        "run",
-        lambda *_args, **_kwargs: subprocess.CompletedProcess([], 1, "", ""),
-    )
-    with pytest.raises(RuntimeError, match="not an ancestor"):
-        make_handoff.source_provenance("master")
-
-
-def test_declared_branch_parser_is_exact() -> None:
-    validate_handoff = load_validate_handoff_module()
-    source_commit = "a" * 40
-    handoff = """# Handoff
-
-## Repository State
-
-```text
-source_branch: agent/research-gate
-source_commit: SOURCE_COMMIT
-publication_target: master
-```
-""".replace("SOURCE_COMMIT", source_commit)
-
-    assert validate_handoff.declared_branch(handoff) == "agent/research-gate"
-    assert validate_handoff.declared_repository_state(handoff) == {
-        "source_branch": "agent/research-gate",
-        "source_commit": source_commit,
-        "publication_target": "master",
-    }
-    with pytest.raises(ValueError, match="non-master feature branch"):
-        validate_handoff.declared_repository_state(
-            handoff.replace("agent/research-gate", "master")
-        )
-    with pytest.raises(ValueError, match="full lowercase Git commit"):
-        validate_handoff.declared_repository_state(
-            handoff.replace(source_commit, "a" * 39)
-        )
-    with pytest.raises(ValueError, match="publication_target must be master"):
-        validate_handoff.declared_repository_state(
-            handoff.replace("publication_target: master", "publication_target: main")
-        )
-
-
-def test_handoff_validator_fails_closed_on_git_error(monkeypatch) -> None:
-    validate_handoff = load_validate_handoff_module()
-
-    def failed_run(args, **kwargs):
-        return subprocess.CompletedProcess(args, 128, stdout="", stderr="fatal: no repository")
-
     monkeypatch.setattr(validate_handoff.subprocess, "run", failed_run)
     with pytest.raises(RuntimeError, match="exit 128.*fatal: no repository"):
         validate_handoff.git_output(["git", "status", "--short"])
 
 
-def test_handoff_ancestry_distinguishes_miss_from_git_failure(monkeypatch) -> None:
-    validate_handoff = load_validate_handoff_module()
-
-    monkeypatch.setattr(
-        validate_handoff.subprocess,
-        "run",
-        lambda *_args, **_kwargs: subprocess.CompletedProcess([], 1, "", ""),
-    )
-    assert validate_handoff.git_is_ancestor("a" * 40, "b" * 40) is False
-
-    monkeypatch.setattr(
-        validate_handoff.subprocess,
-        "run",
-        lambda *_args, **_kwargs: subprocess.CompletedProcess(
-            [], 128, "", "fatal: bad object"
-        ),
-    )
-    with pytest.raises(RuntimeError, match="exit 128.*fatal: bad object"):
-        validate_handoff.git_is_ancestor("a" * 40, "b" * 40)
-
-
-def test_handoff_validator_uses_github_source_branch_on_detached_head(monkeypatch) -> None:
-    validate_handoff = load_validate_handoff_module()
-    monkeypatch.setattr(validate_handoff, "git_output", lambda _args: "HEAD")
-    monkeypatch.setenv("GITHUB_ACTIONS", "true")
-    monkeypatch.setenv("GITHUB_HEAD_REF", "agent/research-gate")
-    monkeypatch.setenv("GITHUB_REF_NAME", "123/merge")
-
-    assert validate_handoff.current_branch() == "agent/research-gate"
-
-
-def test_handoff_validator_uses_github_push_branch_and_rejects_local_detachment(
-    monkeypatch,
-) -> None:
-    validate_handoff = load_validate_handoff_module()
-    monkeypatch.setattr(validate_handoff, "git_output", lambda _args: "HEAD")
-    monkeypatch.setenv("GITHUB_ACTIONS", "true")
-    monkeypatch.delenv("GITHUB_HEAD_REF", raising=False)
-    monkeypatch.setenv("GITHUB_REF_NAME", "master")
-    assert validate_handoff.current_branch() == "master"
-
-    monkeypatch.delenv("GITHUB_ACTIONS")
-    with pytest.raises(RuntimeError, match="cannot verify handoff branch"):
-        validate_handoff.current_branch()
-
-
-def test_publication_lineage_accepts_only_source_or_master_with_ancestry(
-    monkeypatch,
-) -> None:
-    validate_handoff = load_validate_handoff_module()
+def test_source_provenance_allows_only_the_exact_iter207_branch(monkeypatch) -> None:
+    make_handoff = load_module("make_handoff")
     source_commit = "a" * 40
-    head_commit = "b" * 40
-    state = {
-        "source_branch": "agent/research-gate",
+    monkeypatch.setattr(make_handoff, "current_commit", lambda: source_commit)
+    assert make_handoff.source_provenance(make_handoff.ITER207_BRANCH) == (
+        make_handoff.ITER207_BRANCH,
+        source_commit,
+    )
+    with pytest.raises(RuntimeError, match="only on the exact iter207 source branch"):
+        make_handoff.source_provenance("agent/research-gate")
+    with pytest.raises(RuntimeError, match="only on the exact iter207 source branch"):
+        make_handoff.source_provenance("master")
+
+
+def test_handoff_generation_requires_an_exact_clean_source_commit(
+    tmp_path: Path, monkeypatch
+) -> None:
+    make_handoff = load_module("make_handoff")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(make_handoff, "current_branch", lambda: make_handoff.ITER207_BRANCH)
+    monkeypatch.setattr(
+        make_handoff,
+        "source_provenance",
+        lambda _branch: (make_handoff.ITER207_BRANCH, "a" * 40),
+    )
+    monkeypatch.setattr(make_handoff, "run", lambda _args: " M README.md")
+
+    with pytest.raises(RuntimeError, match="exact clean source commit"):
+        make_handoff.main()
+    assert not (tmp_path / "HANDOFF.md").exists()
+
+
+def test_declared_repository_state_and_publication_lineage_are_exact(monkeypatch) -> None:
+    # This test controls the publication topology explicitly. Do not inherit the
+    # runner's synthetic pull-request merge mode before the test enables it below.
+    monkeypatch.delenv("GITHUB_ACTIONS", raising=False)
+    monkeypatch.delenv("GITHUB_EVENT_NAME", raising=False)
+    validate_handoff = load_module("validate_handoff")
+    source_commit = "a" * 40
+    seal_commit = "b" * 40
+    merge_commit = "c" * 40
+    handoff = f"""## Repository State
+
+```text
+source_branch: {validate_handoff.ITER207_BRANCH}
+source_commit: {source_commit}
+publication_target: master
+```
+"""
+    state = validate_handoff.declared_repository_state(handoff)
+    assert state == {
+        "source_branch": validate_handoff.ITER207_BRANCH,
         "source_commit": source_commit,
         "publication_target": "master",
     }
-    monkeypatch.setattr(validate_handoff, "git_output", lambda _args: "")
-    monkeypatch.setattr(validate_handoff, "git_is_ancestor", lambda *_args: True)
+    with pytest.raises(ValueError, match="exact iter207 feature branch"):
+        validate_handoff.declared_repository_state(
+            handoff.replace(validate_handoff.ITER207_BRANCH, "agent/research-gate")
+        )
 
+    def exact_git_output(args: list[str]) -> str:
+        if args[:3] == ["git", "check-ref-format", "--branch"]:
+            return ""
+        if args[:5] == ["git", "rev-list", "--parents", "-n", "1"]:
+            commit = args[5]
+            if commit == source_commit:
+                return f"{source_commit} {validate_handoff.ITER206_SEAL_COMMIT}"
+            if commit == seal_commit:
+                return f"{seal_commit} {source_commit}"
+            if commit == merge_commit:
+                return (
+                    f"{merge_commit} {validate_handoff.ITER205_MERGE_COMMIT} "
+                    f"{seal_commit}"
+                )
+        if args[:4] == ["git", "diff", "--name-only", "--no-renames"]:
+            return "README.md\nscripts/validate_handoff.py"
+        if args[:4] == ["git", "diff", "--name-status", "--no-renames"]:
+            return "\n".join(validate_handoff.ITER207_SEAL_DIFF)
+        raise AssertionError(args)
+
+    monkeypatch.setattr(validate_handoff, "git_output", exact_git_output)
     assert validate_handoff.publication_lineage_failures(
-        state, "agent/research-gate", head_commit
+        state, validate_handoff.ITER207_BRANCH, seal_commit
     ) == []
     assert validate_handoff.publication_lineage_failures(
-        state, "master", head_commit
+        state, "master", merge_commit
     ) == []
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "pull_request")
     assert validate_handoff.publication_lineage_failures(
-        state, "agent/unrelated", head_commit
-    ) == [
-        "HANDOFF.md branch is outside its publication lineage: "
-        "source=agent/research-gate target=master actual=agent/unrelated"
-    ]
+        state, validate_handoff.ITER207_BRANCH, merge_commit
+    ) == []
+    monkeypatch.delenv("GITHUB_ACTIONS")
+    monkeypatch.delenv("GITHUB_EVENT_NAME")
+    assert "actual=agent/unrelated" in validate_handoff.publication_lineage_failures(
+        state, "agent/unrelated", seal_commit
+    )[0]
 
-    monkeypatch.setattr(validate_handoff, "git_is_ancestor", lambda *_args: False)
-    assert validate_handoff.publication_lineage_failures(
-        state, "master", head_commit
-    ) == [
-        "HANDOFF.md source_commit is not an ancestor of repository HEAD: "
-        f"source_commit={source_commit} HEAD={head_commit}"
-    ]
+    def extra_seal_file(args: list[str]) -> str:
+        output = exact_git_output(args)
+        if args[:4] == ["git", "diff", "--name-status", "--no-renames"]:
+            return output + "\nM\tREADME.md"
+        return output
+
+    monkeypatch.setattr(validate_handoff, "git_output", extra_seal_file)
+    assert "must change exactly" in "\n".join(
+        validate_handoff.publication_lineage_failures(
+            state, validate_handoff.ITER207_BRANCH, seal_commit
+        )
+    )
+
+    def derived_path_in_source(args: list[str]) -> str:
+        if args[:4] == ["git", "diff", "--name-only", "--no-renames"]:
+            return "HANDOFF.md\nREADME.md"
+        return exact_git_output(args)
+
+    monkeypatch.setattr(validate_handoff, "git_output", derived_path_in_source)
+    assert "source commit A changes derived seal paths" in "\n".join(
+        validate_handoff.publication_lineage_failures(
+            state, validate_handoff.ITER207_BRANCH, seal_commit
+        )
+    )
+
+    def wrong_seal_parent(args: list[str]) -> str:
+        if (
+            args[:5] == ["git", "rev-list", "--parents", "-n", "1"]
+            and args[5] == seal_commit
+        ):
+            return f"{seal_commit} {'d' * 40}"
+        return exact_git_output(args)
+
+    monkeypatch.setattr(validate_handoff, "git_output", wrong_seal_parent)
+    assert "seal commit B must be the single direct child" in "\n".join(
+        validate_handoff.publication_lineage_failures(
+            state, validate_handoff.ITER207_BRANCH, seal_commit
+        )
+    )
+
+    def wrong_source_parent(args: list[str]) -> str:
+        if (
+            args[:5] == ["git", "rev-list", "--parents", "-n", "1"]
+            and args[5] == source_commit
+        ):
+            return f"{source_commit} {'d' * 40}"
+        return exact_git_output(args)
+
+    monkeypatch.setattr(validate_handoff, "git_output", wrong_source_parent)
+    assert "source commit A must be the single direct child" in "\n".join(
+        validate_handoff.publication_lineage_failures(
+            state, validate_handoff.ITER207_BRANCH, seal_commit
+        )
+    )
 
 
-def test_handoff_validator_rejects_declared_branch_mismatch(
+def test_validator_main_rejects_publication_lineage_mismatch(
     tmp_path: Path, monkeypatch, capsys
 ) -> None:
-    validate_handoff = load_validate_handoff_module()
-    gate = tmp_path / "active.md"
-    gate.write_text("# Active gate\n", encoding="utf-8")
-    frozen_gate = tmp_path / "frozen.md"
-    frozen_gate.write_text("# Frozen gate\n", encoding="utf-8")
+    validate_handoff = load_module("validate_handoff")
+    (tmp_path / "active.md").write_text("# Active\n", encoding="utf-8")
+    (tmp_path / "frozen.md").write_text("# Frozen\n", encoding="utf-8")
     continuity = tmp_path / "CONTINUITY.md"
     continuity.write_text("Current gate:\n\n- `frozen.md`\n", encoding="utf-8")
     contract = tmp_path / "mission" / "loop.json"
@@ -663,7 +771,7 @@ def test_handoff_validator_rejects_declared_branch_mismatch(
 ## Repository State
 
 ```text
-source_branch: declared-branch
+source_branch: {validate_handoff.ITER207_BRANCH}
 source_commit: {"a" * 40}
 publication_target: master
 ```
@@ -681,17 +789,219 @@ Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `frozen.md`
 """,
         encoding="utf-8",
     )
-
     monkeypatch.setattr(validate_handoff, "ROOT", tmp_path)
     monkeypatch.setattr(validate_handoff, "HANDOFF", handoff)
     monkeypatch.setattr(validate_handoff, "CONTINUITY", continuity)
     monkeypatch.setattr(validate_handoff, "MISSION_CONTRACT", contract)
     monkeypatch.setattr(validate_handoff, "current_branch", lambda: "actual-branch")
     monkeypatch.setattr(validate_handoff, "current_commit", lambda: "b" * 40)
-    monkeypatch.setattr(validate_handoff, "git_is_ancestor", lambda *_args: True)
     monkeypatch.setattr(validate_handoff, "git_output", lambda _args: "")
 
     assert validate_handoff.main() == 1
-    assert "source=declared-branch target=master actual=actual-branch" in (
-        capsys.readouterr().out
+    assert (
+        f"source={validate_handoff.ITER207_BRANCH} target=master actual=actual-branch"
+        in capsys.readouterr().out
     )
+
+
+def iter208_handoff_fixture(validate_handoff) -> tuple[str, dict[str, str]]:
+    runtime = "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+    publication = "experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md"
+    frozen = "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md"
+    contract = {
+        "active_gate": runtime,
+        "active_publication_gate": publication,
+        "frozen_upstream_gate": frozen,
+    }
+    handoff = f"""# HANDOFF
+
+{validate_handoff.REPOSITORY_DECLARATION}
+
+## Repository State
+
+```text
+handoff_schema: {validate_handoff.ITER208_HANDOFF_SCHEMA}
+source_branch: {validate_handoff.ITER208_BRANCH}
+source_commit: {"a" * 40}
+predecessor_seal: {validate_handoff.ITER208_PREDECESSOR_SEAL}
+publication_target: master
+```
+
+Active gate: `{runtime}`
+Active publication gate: `{publication}`
+Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `{frozen}`
+
+Local correction status: **PASS; publication seal pending**.
+No provider call, GPU run, scientific container run, workflow dispatch, or release is authorized.
+TCP-1 remains design-only and unexecuted.
+Merge requires green non-scientific branch and pull-request CI at the unchanged seal tip.
+The receipt proves byte identity, not authorship, external chronology, or semantic truth.
+
+```bash
+python3 scripts/validate_iter208_post_seal_forensic_correction.py
+python3 scripts/validate_handoff.py
+pytest -q
+```
+"""
+    return handoff, contract
+
+
+def test_iter208_handoff_content_is_publication_only() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter208_handoff_fixture(validate_handoff)
+
+    assert validate_handoff.iter208_content_failures(handoff, contract) == []
+
+
+def test_iter208_handoff_rejects_dispatch_and_unrelated_workspace() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter208_handoff_fixture(validate_handoff)
+    unsafe = handoff + "\ngh workflow run iter207-execute.yml\n" + ("a" + "web")
+
+    failures = validate_handoff.iter208_content_failures(unsafe, contract)
+    assert "HANDOFF.md authorizes a workflow dispatch or rerun" in failures
+    assert "HANDOFF.md names an unrelated workspace" in failures
+
+
+def test_iter208_handoff_rejects_wrong_source_branch() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, _contract = iter208_handoff_fixture(validate_handoff)
+    wrong = handoff.replace(validate_handoff.ITER208_BRANCH, "agent/unrelated")
+
+    with pytest.raises(ValueError, match="source branch differs"):
+        validate_handoff.iter208_declared_repository_state(wrong)
+
+
+def iter209_handoff_fixture(validate_handoff) -> tuple[str, dict[str, str]]:
+    runtime = "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+    publication = "experiments/iter209_publication_ci_recovery/HYPOTHESIS.md"
+    frozen = "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md"
+    contract = {
+        "active_gate": runtime,
+        "active_publication_gate": publication,
+        "frozen_upstream_gate": frozen,
+    }
+    handoff = f"""# HANDOFF
+
+{validate_handoff.REPOSITORY_DECLARATION}
+
+## Repository State
+
+```text
+handoff_schema: {validate_handoff.ITER209_HANDOFF_SCHEMA}
+source_branch: {validate_handoff.ITER209_BRANCH}
+source_commit: {"a" * 40}
+predecessor_seal: {validate_handoff.ITER209_PREDECESSOR_SEAL}
+publication_target: master
+```
+
+Active gate: `{runtime}`
+Active publication gate: `{publication}`
+Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `{frozen}`
+
+Local recovery status: **PASS; fresh publication seal pending**.
+The failed iter208 branch remains unchanged.
+No provider request, GPU run, scientific container run, workflow dispatch, release, or scientific execution is authorized.
+Merge requires green non-scientific push and pull-request CI at the unchanged iter209 seal tip.
+The receipt proves byte identity, not authorship, external chronology, or semantic truth.
+
+```bash
+python3 scripts/build_iter209_receipt.py --check
+python3 scripts/validate_iter209_publication_ci_recovery.py
+python3 scripts/validate_handoff.py
+pytest -q
+```
+"""
+    return handoff, contract
+
+
+def test_iter209_handoff_content_is_publication_only() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter209_handoff_fixture(validate_handoff)
+
+    assert validate_handoff.iter209_content_failures(handoff, contract) == []
+
+
+def test_iter209_handoff_rejects_dispatch_and_unrelated_workspace() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter209_handoff_fixture(validate_handoff)
+    unsafe = handoff + "\ngh workflow run iter207-execute.yml\n" + ("a" + "web")
+
+    failures = validate_handoff.iter209_content_failures(unsafe, contract)
+    assert "HANDOFF.md authorizes a workflow dispatch or rerun" in failures
+    assert "HANDOFF.md names an unrelated workspace" in failures
+
+
+def test_iter209_handoff_rejects_wrong_source_branch() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, _contract = iter209_handoff_fixture(validate_handoff)
+    wrong = handoff.replace(validate_handoff.ITER209_BRANCH, "agent/unrelated")
+
+    with pytest.raises(ValueError, match="source branch differs"):
+        validate_handoff.iter209_declared_repository_state(wrong)
+
+
+def iter210_handoff_fixture(validate_handoff) -> tuple[str, dict[str, str]]:
+    runtime = "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+    publication = "experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md"
+    frozen = "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md"
+    contract = {
+        "active_gate": runtime,
+        "active_publication_gate": publication,
+        "frozen_upstream_gate": frozen,
+    }
+    handoff = f"""# HANDOFF
+
+{validate_handoff.REPOSITORY_DECLARATION}
+
+## Repository State
+
+```text
+handoff_schema: {validate_handoff.ITER210_HANDOFF_SCHEMA}
+source_branch: {validate_handoff.ITER210_BRANCH}
+source_commit: {"a" * 40}
+predecessor_seal: {validate_handoff.ITER210_PREDECESSOR_SEAL}
+publication_target: master
+```
+
+Active gate: `{runtime}`
+Active publication gate: `{publication}`
+Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `{frozen}`
+
+Local recovery status: **PASS; fresh publication seal pending**.
+The failed iter209 branch remains unchanged.
+No provider request, GPU run, scientific container run, workflow dispatch, release, or scientific execution is authorized.
+Merge requires green non-scientific push and pull-request CI at the unchanged iter210 seal tip.
+The receipt proves byte identity, not authorship, external chronology, or semantic truth.
+
+```bash
+python3 scripts/build_iter210_receipt.py --check
+python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py
+python3 scripts/validate_handoff.py
+pytest -q
+```
+"""
+    return handoff, contract
+
+
+def test_iter210_handoff_content_is_publication_only() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter210_handoff_fixture(validate_handoff)
+    assert validate_handoff.iter210_content_failures(handoff, contract) == []
+
+
+def test_iter210_handoff_rejects_dispatch_and_unrelated_workspace() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter210_handoff_fixture(validate_handoff)
+    unsafe = handoff + "\ngh workflow run iter207-execute.yml\n" + ("a" + "web")
+    failures = validate_handoff.iter210_content_failures(unsafe, contract)
+    assert "HANDOFF.md authorizes a workflow dispatch or rerun" in failures
+    assert "HANDOFF.md names an unrelated workspace" in failures
+
+
+def test_iter210_handoff_rejects_wrong_source_branch() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, _contract = iter210_handoff_fixture(validate_handoff)
+    wrong = handoff.replace(validate_handoff.ITER210_BRANCH, "agent/unrelated")
+    with pytest.raises(ValueError, match="source branch differs"):
+        validate_handoff.iter210_declared_repository_state(wrong)

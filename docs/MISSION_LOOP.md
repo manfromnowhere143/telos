@@ -8,17 +8,22 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate:
-  [`../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`](../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md)
+- Sealed runtime/admission gate:
+  [`../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md`](../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md)
+- Active publication-recovery gate:
+  [`../experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md`](../experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md)
 - Frozen upstream disposition:
   [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md)
-- Active gate state: post-provider, pre-scientific-output infrastructure recovery over sealed iter202 and
+- Runtime baseline state: post-provider, pre-scientific-output infrastructure recovery over sealed iter202 and
   iter203 bytes. The retained iter202 provider stages completed `53/53` solver calls and `39/39` eligible
   scenario calls, producing
   `50` valid patches, `38` extracted scenarios, and one original missing scenario. Before any scenario or
   certification execution, the frozen safety predicate returned `21` findings across `9` programs; `29`
   programs had zero findings. Iter202 is therefore a scenario-safety protocol/execution null and has no
-  rate denominator or numerator. Iter203 preserved and replay-validated that null, then made one canonical
+  rate denominator or numerator. A separate interrupted invocation retained no outputs and is conservatively
+  charged `53` calls and an estimated `$2.65`; together with the retained later run, conservative bookkeeping
+  is `145` charged calls and `$7.25` estimated-or-charged, explicitly not exact actual usage. Iter203
+  preserved and replay-validated that null, then made one canonical
   execution attempt from green `master` in workflow run `29460393525`, attempt `1`. Authorization, source,
   bridge, runtime, image-pull, and image-digest checks passed; all `50/50` first Docker `run` invocations
   returned exit `125` across eight independent runners before any in-container command. Collection was
@@ -33,28 +38,89 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   Iter204 separately versioned that additive recovery and preserved the same `50` patches, exact row order,
   safety dispositions, missingness rules, certification definitions, and judge contract. Its source merged
   as `c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446`; primary CI run `29465925393` passed both required jobs.
-  The iter204 workflow could not be parsed. The public API retains two failed `push` records,
+  The iter204 workflow could not be parsed. Its frozen closure snapshot retains two failed `push` records,
   `29465584664` and `29465924803`, each at attempt `1` with zero jobs and zero artifacts; log download
   returns `404`. At least one locally observed authorized dispatch API request returned HTTP `422` with
   line `318`, column `36`, identifying `runner.temp` in job-level `env`. The exact request count is not
-  auditable from public metadata, so only a lower bound of one is claimed. A subsequent public query found
-  exactly zero iter204 `workflow_dispatch` runs. No provider or container call, patch application,
+  auditable from public metadata, so only a lower bound of one is claimed. The closure query found exactly
+  zero iter204 `workflow_dispatch` runs. No provider or container call, patch application,
   certification, scenario, adjudication, or judge stage occurred. Iter204 is a pre-dispatch infrastructure
   null with no `N`, `k`, or `u`; the two `push` records are infrastructure metadata, not scientific
-  attempts. The source-parse fault occurred before any access or billing gate. Under iter204's frozen
-  source-correction rule, recovery must advance to the separately versioned iter205 workflow-context gate;
+  attempts. Under iter204's frozen source-correction rule, recovery advanced to the separately versioned iter205 workflow-context gate;
   iter204 cannot be retried or mutated.
+
+  Iter205 feature head `a336b4909329d392f6db5f6098792e07a17f28cb` merged as
+  `4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f`; primary CI run `29468769187` passed both required jobs. The
+  server accepted workflow `314141096` as active at its exact name and path, and both its complete all-event
+  and dispatch histories are empty. Its read-only preflight stopped before the dispatch request command because
+  iter204's append-only history had grown from its frozen two-row closure snapshot to four rows during
+  iter205 branch and primary publication. No iter205 dispatch request was issued, and no dispatch API
+  response or rejection exists. There was no iter205 workflow run, provider process, container, patch,
+  certification, scenario, adjudication, or judge process. Iter205 is therefore a
+  pre-dispatch admission-history null with no `N`, `k`, or `u`.
+
+  Iter206 was sealed locally but stopped as a pre-publication claim-integrity null before any branch push,
+  pull request, merge, workflow run, dispatch request, provider call, container, or scientific execution.
+  The audit flagged an apparent iter192 prior-baseline contradiction and the iter195 contradiction recorded
+  below. Iter207's deeper patch-custody audit narrowed the former to a novelty-scope ambiguity. Iter206's
+  exact-delta rule required a separately versioned successor. Iter206 has no `N`, `k`, or `u`.
+
+  Iter207 is the immutable local correction and admission-recovery baseline. It added machine-checked claim
+  corrections while preserving the exact fixed scientific/runtime plan. Its historical publication and
+  dispatch envelope was never exercised and is superseded for publication by iter208; no iter207 branch
+  push, merge, workflow run, dispatch, provider call, container run, or scientific execution occurred.
+
+  Iter208 is the sealed post-seal forensic correction. It preserves every iter207 and historical experiment
+  byte while correcting the current paper and README, adding artifact-bound receipt v2, recording the 2026
+  frontier comparison, synchronizing project boundaries, and designing TCP-1 without executing it. Its exact
+  branch tip `a2c2863cf993cb6dd39d2fada8d58e4796929120` was published once. Push CI run `29491806574`
+  and pull-request CI run `29491841840` exposed two non-scientific validator defects, so draft PR `#8` was
+  not merged and the iter208 branch remains unchanged.
+
+  Iter209 is the sealed additive publication-CI recovery. It binds the iter208 remote failure identities, makes the
+  iter65 source-hash audit read the exact historical Git tree, isolates the publication-lineage unit test
+  from ambient GitHub mode, and makes iter208 receipt validation descendant-safe. Push CI run `29493772108`
+  passed both jobs. Pull-request CI run `29494386126` then exposed one synthetic-merge branch-tip assumption
+  in the new iter209 guard, so draft PR `#9` was not merged and its branch remains unchanged.
+
+  Iter210 is the active additive PR synthetic-merge recovery. It resolves the exact iter209 public seal on
+  descendants, makes sealed receipt checking Git-blob-bound, and derives its own source/seal identity from
+  the handoff plus Git parents. It changes no scientific artifact or result and authorizes no provider, GPU,
+  scientific container, workflow-dispatch, release, or scientific action.
 
   The iter200 prerequisite remains complete: all `37` valid patches have official-harness evidence, `24`
   are certified, `k=1`, and `u=6`; the standing descriptive quantities are `1/24` confirmed lower, `7/24`
   worst-case missing-outcome upper, and `1/18` complete-case sensitivity. The old `1/15` is retained only
-  as scenario-eligible chronology. Provider-free Node 24 backfill run `29452243832` reproduced the exact
-  specs and validated all `37` committed execution pairs in the complete `74`-log corpus without
-  re-executing containers. The frozen cohort remains disjoint from iter200 but not unused mission-wide
+  as scenario-eligible chronology. GitHub Actions run `29422735843` executed the exact official-harness
+  denominator backfill. Provider-free Node 24 run `29452243832` is retained only as a historical operational
+  assertion that the specs and `74`-log corpus were validated without re-executing containers; no committed
+  run receipt independently binds that run ID. The frozen
+  cohort remains disjoint from iter200 but not unused mission-wide
   (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the pre-result-declared
   sensitivity splits remain mandatory. `CONTINUITY.md` remains an exact-byte frozen iter202 upstream
-  artifact; the iter203 and iter204 results plus the iter205 hypothesis govern recovery. `HANDOFF.md` must
-  be regenerated after iter205 is sealed before it can govern the next action sequence.
+  artifact; the iter203--iter206 terminal results, iter207--iter209 seals, and iter210 hypothesis govern
+  recovery. Iter210 has one dependency order: finish and validate all mutable recovery source and evidence;
+  create its source commit; derive the receipt and handoff from that commit; then create a minimal
+  handoff-only seal before fresh branch publication. No scientific dispatch is authorized by that sequence.
+- Standing construction correction: iter192 is conservatively adjudicated `FAIL` on its overbroad novelty
+  interpretation; the literal v1-specific falsifier trigger is indeterminate because iter151 retained no
+  accepted patch bytes. Iter151 had already reported the same class-level `0/20` test-suite precursor, and
+  nineteen instance IDs overlap. The retrospective `40/40` unresolved count remains. Historical tarballs contain `139` harness-resolved
+  hack-tagged evaluations across `65` instance IDs; disposition evidence binds only `23` discarded iter152
+  IDs (`17` overlapping the harness-resolved set), not all `139`. Conceptual firstness is
+  withdrawn. Iter195 is strict protocol `FAIL`: its executed scenario generator received gold and variant
+  hunks, generated one targeted scenario per candidate, and did not meet its frozen no-gold, `10/20`
+  per-candidate validation, or raw-prompt-retention bars. Its `10` retained divergences are exploratory
+  gold-assisted reference-differential witnesses. Iter196 is partial and protocol-blocked. Iter198's original
+  accuracy gate is superseded as `FAIL`. Iter199 contributes `12` more retained witnesses, but its stated
+  design was first recorded post-provider and pre-execution rather than independently preregistered. The
+  released `22`-row corpus is therefore constructed reference-differential evidence, not independent semantic
+  adjudication.
+- Standing cost correction: iter179's unrepaired `17/40` panel score uses `240` score-producing calls with
+  a conservative estimated spend guard of `$13.128090`, not a provider invoice. The `$13.317840`
+  iter175+iter178 whole-run guard includes three excluded diagnostics; the `$13.589640` through-iter181
+  guard includes five additional excluded repair diagnostics. Do not attribute the rounded `$13.59` path
+  total to the primary score.
 - Standing detector correction: iter197 and iter201 are protocol `FAIL`, with retained exploratory
   diagnostics only. Both property prompts used candidate-diff-derived locators. Iter197 also violated its
   visible-anchor rule and omitted independent paired-gold decisions; iter201 explicitly registered gold
@@ -67,7 +133,9 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   The property pipeline catches `6/22`, all within the judge catch set; no independent property false-positive
   estimate or ensemble gain is established. Its `44` judge rows were fresh, but the judge phase has no
   independently timestamped pre-output Git freeze; raw response text is unavailable and input truncation is
-  measured.
+  measured. The iter201 artifact also records `4` shared gold-added lines in candidate inputs; these are
+  candidate content, not a separate gold comparison, but remain a disclosed prompt diagnostic with no causal
+  effect estimate.
 - Historical container-provenance boundary: iter193--iter199 construction/witness execution and
   iter197/iter201 property execution used instance-specific mutable `:latest` tags without retaining
   resolved image digests. The logs remain execution evidence, but exact historical image bytes cannot be
@@ -83,7 +151,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   frozen safety gate stopped execution. Iter203 is a separately disclosed post-provider infrastructure
   null with zero certification and scenario execution. Iter204 is a separately disclosed pre-dispatch
   workflow-parse infrastructure null with zero `workflow_dispatch` runs and zero scientific execution.
-  Iter205 is the pending separately versioned workflow-context recovery, not a retry of iter204.
+  Iter205 is a pre-dispatch admission-history null with empty workflow histories. Iter206 is a local
+  pre-publication claim-integrity null. Iter207 is the sealed separately versioned correction and recovery.
+  Iter208 is the sealed additive publication correction; iter209 and iter210 are additive publication-CI
+  recoveries that do not rewrite or mutate either failed predecessor branch.
 - Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
@@ -162,10 +233,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   score, leaderboard, model-comparison result, state-of-the-art
   result, natural-frequency estimate, broad robustness claim, or repaired-score claim is allowed.
 - Public runner: GitHub Actions plus local validators.
-- Aweb discovery: checked again on 2026-07-13; no callable Telos/Maestro capability slug was returned by
-  the Aweb MCP catalog.
-- Claim allowed now: Telos is running through the public evidence loop.
-- Claim not allowed now: Telos is already executing through a private Aweb/Maestro runtime.
+- Repository boundary: Telos is a standalone repository and its committed workflows, validators, evidence,
+  and handoff are the complete current execution authority.
+- Claim allowed now: Telos is running through its public evidence loop.
+- Claim not allowed now: an uncommitted private runtime is part of the standing evidence chain.
 
 ## Loop Phases
 

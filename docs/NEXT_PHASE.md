@@ -1,7 +1,7 @@
 # Next Phase
 
 > **CURRENT AUTHORITY (2026-07-16):** the active gate is
-> [`../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`](../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md).
+> [`../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md`](../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md).
 > Iter202 retained `50` patches and `38` scenario programs after completing its provider stages. Its frozen
 > static-safety guard then rejected `9` programs with `21` findings, admitted `29`, and stopped the batch
 > before any scenario or certification execution; one eligible patch already had an original missing
@@ -18,24 +18,44 @@
 >
 > Iter204 separately froze that narrow runtime repair and reached approved source commit
 > `c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446`; primary CI run `29465925393` passed both required jobs.
-> The iter204 workflow was syntactically invalid. Two public event=`push` records (`29465584664` and
+> The iter204 workflow was syntactically invalid. Its frozen closure snapshot contains two public
+> event=`push` records (`29465584664` and
 > `29465924803`) concluded failure at attempt `1` with zero jobs and zero artifacts, and their log-download
 > endpoints return `404`. At least one locally observed authorized dispatch API request returned HTTP `422`:
 > line `318`, column `36` referenced `runner.temp` from job-level `env`, where that context is unavailable.
 > The exact number of rejected API requests is not publicly auditable, so only a lower bound of one is
-> claimed. A subsequent public API query found exactly zero iter204 `workflow_dispatch` runs. No provider,
+> claimed. The closure query found exactly zero iter204 `workflow_dispatch` runs. No provider,
 > container, patch, certification, scenario, adjudication, or judge process started. Iter204 is therefore a
 > pre-dispatch infrastructure null with no `N`, `k`, or `u`; its two `push` records are not scientific
 > attempts.
 >
-> The frozen iter204 rule requires a new iteration for a source correction. Do not retry or mutate iter204.
-> Iter205 may correct only the invalid workflow-context scope while preserving the exact scientific inputs,
-> order, safety dispositions, missingness, certification, and judge contract. Do not rerun iter202 or
-> iter203, repair or regenerate a provider output, relabel a scenario, or mount or execute an unsafe
-> scenario. `CONTINUITY.md` remains the exact-byte iter202 artifact; the published iter203 and iter204
-> results and the iter205 hypothesis govern recovery. Regenerate `HANDOFF.md` only after the iter205 source,
-> guards, and runtime closure are sealed; no iter205 execution may start before review, merge, and green
-> primary CI.
+> Iter205 published the workflow-context correction once. Feature head
+> `a336b4909329d392f6db5f6098792e07a17f28cb` merged as
+> `4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f`, and primary CI run `29468769187` passed. The server accepted
+> workflow `314141096` as active; its complete all-event and dispatch histories are empty. The read-only
+> preflight nevertheless found four iter204 parser records rather than the exact two preregistered, because
+> iter205 branch and primary publication appended one record each. The dispatch request command was never
+> reached. No iter205 dispatch request was issued, and no dispatch API response or rejection exists. There
+> was no iter205 workflow run, provider process, container, patch, certification, scenario, adjudication, or
+> judge process. Iter205 is a pre-dispatch admission-history null with no `N`, `k`, or `u`.
+>
+> Iter206 was sealed locally but stopped as a pre-publication claim-integrity null before any remote or
+> scientific action; it contributes no `N`, `k`, or `u`. Do not publish it as an active gate, dispatch or
+> rerun its workflow, or mutate its frozen bytes. Iter207 is the separately versioned machine-checked claim
+> correction plus unchanged admission recovery. Finalize and adversarially validate every iter207 byte
+> locally before one final branch push. Require exactly one successful attempt-`1` branch-push CI run and one
+> successful attempt-`1` pull-request CI run at that final branch tip. Merge once as an exact two-parent
+> commit, require green primary CI, then admit only an exact six-row iter204 snapshot: the known four rows plus
+> the iter207 branch and primary publication rows. The iter205 and newly published iter206 workflow histories
+> must remain empty. Any extra or malformed row or any predecessor run closes iter207 without dispatch; after
+> every gate passes, at most one dispatch request is permitted. Do not rerun iter202 or
+> iter203, regenerate provider output, relabel a scenario, or mount or execute an unsafe scenario.
+> `CONTINUITY.md` remains the exact-byte iter202 artifact; the published iter203, iter204, and iter205 results
+> plus the iter206 terminal null and iter207 hypothesis govern recovery.
+> Seal publication in this order: finish and validate all mutable bytes, create source commit A, regenerate
+> `HANDOFF.md` once, generate the publication-safety receipt followed by the runtime manifest, validate the
+> sealed set, and create seal commit B. Never regenerate the handoff after the derived records. Publish A and
+> B together in the one allowed branch push.
 >
 > Everything below preserves the plan at the iter108-era boundary. It is historical provenance, not a
 > current action list.

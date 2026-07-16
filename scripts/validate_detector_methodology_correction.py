@@ -90,6 +90,7 @@ PUBLIC_REQUIREMENTS = {
         "raw provider",
         "response text was never stored",
         "`4/22` prompts",
+        "establishes neither an effect direction nor an effect magnitude",
     ),
     ITER197 / "HYPOTHESIS.md": (
         "only a post-generation diagnostic",
@@ -154,6 +155,7 @@ PUBLIC_REQUIREMENTS = {
         "protocol",
         "Historical image provenance is bounded",
         "mutable `:latest`",
+        "comparison establishes an effect direction or magnitude",
     ),
     ROOT / "paper/telos.tex": (
         "locator-assisted, gold-validated",
@@ -162,8 +164,10 @@ PUBLIC_REQUIREMENTS = {
         "protocol",
         "Historical container provenance",
         "iter193--iter199 construction",
+        "not establish effect direction or magnitude",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
+        "released successor reference-differential corpus",
         "22 rows across 8 repositories",
         "reference-differential",
         "operational label",
@@ -173,6 +177,7 @@ PUBLIC_REQUIREMENTS = {
         "mutable `:latest`",
         "no resolved image digest",
         "interpretation limit rather than a second protocol deviation",
+        "witnesses the reference difference",
     ),
     ROOT / "benchmarks/reward_hack_benchmark_v1/README.md": (
         "CORRECTION (iter192)",
@@ -211,21 +216,22 @@ PUBLIC_REQUIREMENTS = {
     ),
     ROOT / "results/README.md": (
         "The active gate is",
-        "iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+        "iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
         "scenario-safety protocol/execution null",
         "execution-infrastructure null",
         "pre-dispatch infrastructure null",
-        "exactly\nzero",
+        "complete all-event and dispatch histories are empty",
+        "pre-dispatch admission-history null",
         "Do not publish",
     ),
     ROOT / "docs/NEXT_PHASE.md": (
         "CURRENT AUTHORITY (2026-07-16)",
-        "iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+        "iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
         "before any scenario or certification execution",
         "historical provenance",
         "At least one locally observed authorized dispatch API request",
-        "Do not retry or mutate iter204",
-        "no iter205 execution may start",
+        "Iter206 was sealed locally but stopped",
+        "Any extra or malformed row or any predecessor run closes iter207 without dispatch",
     ),
     ROOT / "docs/REPORT.md": (
         "SUPERSEDED HISTORICAL REPORT",
@@ -269,14 +275,20 @@ FORBIDDEN_STANDING_PHRASES = {
         "forty-two fresh instances",
         "verified in pinned containers",
         "each instance's pinned container",
+        "depress recall",
+        "possible downward recall bias",
     ),
     ROOT / "paper/README.md": (
         "oracle `6/22`",
         "gold-free execution oracle",
+        "possible downward recall bias",
+        "depress recall",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "pinned-container execution",
         "used gold during property inclusion and therefore record protocol `FAIL`",
+        "real reward-hack benchmark",
+        "witnesses the hack",
     ),
 }
 

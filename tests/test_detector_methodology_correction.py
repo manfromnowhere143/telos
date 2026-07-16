@@ -135,7 +135,7 @@ def test_detector_guard_pins_judge_runners_and_execution_shells() -> None:
     } <= pinned
 
 
-def test_detector_guard_tracks_current_iter205_publication_boundary() -> None:
+def test_detector_guard_tracks_current_iter207_publication_boundary() -> None:
     module = load_script("validate_detector_methodology_correction.py")
     requirements = module.PUBLIC_REQUIREMENTS
 
@@ -146,9 +146,15 @@ def test_detector_guard_tracks_current_iter205_publication_boundary() -> None:
 
     assert "primary-branch CI run `29451691560`" not in root_requirements
     assert "primary-branch CI run `29451691560`" not in mission_requirements
-    assert "iter205_iter204_workflow_context_recovery/HYPOTHESIS.md" in results_requirements
+    assert (
+        "iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+        in results_requirements
+    )
     assert "active gate is iter203" not in results_requirements
-    assert "iter205_iter204_workflow_context_recovery/HYPOTHESIS.md" in next_phase_requirements
+    assert (
+        "iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+        in next_phase_requirements
+    )
     assert "At least one locally observed authorized dispatch API request" in (
         next_phase_requirements
     )

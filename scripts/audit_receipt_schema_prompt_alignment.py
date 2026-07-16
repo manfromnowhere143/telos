@@ -7,6 +7,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import subprocess
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -37,6 +38,7 @@ ITER64_CANDIDATE = (
 SCHEMA = Path("protocol/proof.schema.json")
 PROOF_MODULE = Path("telos/proof.py")
 VALIDATOR = Path("scripts/validate_receipts.py")
+ITER65_SOURCE_COMMIT = "40cdf2d5bbbd4d9ccd22aebb54cf04606ed90702"
 EXPECTED_MISSING = [
     "agent_id",
     "benchmark_id",
@@ -84,6 +86,23 @@ def load_json(path: Path) -> dict:
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def historical_sha256(commit: str, path: Path) -> str:
+    """Hash a source file exactly as it existed in the sealed historical commit."""
+
+    result = subprocess.run(
+        ["git", "show", f"{commit}:{path.as_posix()}"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        diagnostic = result.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(
+            f"cannot read historical source blob {commit}:{path}: {diagnostic}"
+        )
+    return hashlib.sha256(result.stdout).hexdigest()
 
 
 def text_files(path: Path) -> list[Path]:
@@ -194,12 +213,20 @@ def audit_summary_report_and_diagnosis(failures: list[str]) -> None:
         failures.append("diagnosis must prove candidate equals invalid artifact content")
     if diagnosis.get("classification") != "schema_incomplete":
         failures.append("diagnosis classification mismatch")
-    if diagnosis.get("schema_sha256") != sha256(SCHEMA):
-        failures.append("schema hash mismatch")
-    if diagnosis.get("proof_module_sha256") != sha256(PROOF_MODULE):
-        failures.append("proof module hash mismatch")
-    if diagnosis.get("validator_sha256") != sha256(VALIDATOR):
-        failures.append("validator hash mismatch")
+    try:
+        historical_source_hashes = {
+            "schema_sha256": historical_sha256(ITER65_SOURCE_COMMIT, SCHEMA),
+            "proof_module_sha256": historical_sha256(
+                ITER65_SOURCE_COMMIT, PROOF_MODULE
+            ),
+            "validator_sha256": historical_sha256(ITER65_SOURCE_COMMIT, VALIDATOR),
+        }
+    except RuntimeError as exc:
+        failures.append(str(exc))
+    else:
+        for field, expected in historical_source_hashes.items():
+            if diagnosis.get(field) != expected:
+                failures.append(f"historical {field.removesuffix('_sha256')} hash mismatch")
     if diagnosis.get("iter64_candidate_sha256") != sha256(ITER64_CANDIDATE):
         failures.append("iter64 candidate hash mismatch")
     diagnosis_validation = diagnosis.get("diagnosis_validation", {})

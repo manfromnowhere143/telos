@@ -1,0 +1,117 @@
+{
+  "chronology": {
+    "deviating_runner_and_phase_a_outputs_same_commit": {
+      "phase_a_summary": {
+        "commit": "80f0c51fe145b6fe322d760e12508a58ea9ea502",
+        "path": "experiments/iter195_synthesized_input_differential_oracle/proof/raw/scenarios/phase_a_summary.json",
+        "time": "2026-07-14T18:29:26+03:00"
+      },
+      "runner": {
+        "commit": "80f0c51fe145b6fe322d760e12508a58ea9ea502",
+        "path": "scripts/run_iter195_scenario_generator.py",
+        "time": "2026-07-14T18:29:26+03:00"
+      }
+    },
+    "execution_output_commit": {
+      "commit": "d5afa98948d76f465d15002c8592c085a6e29688",
+      "path": "experiments/iter195_synthesized_input_differential_oracle/proof/raw/execution/astropy__astropy-14096.gold.log",
+      "time": "2026-07-14T19:30:19+03:00"
+    },
+    "hypothesis_frozen_before_phase_a": {
+      "commit": "b9c549e3b2dc028853c38abb61c1cfc108b1ca21",
+      "path": "experiments/iter195_synthesized_input_differential_oracle/HYPOTHESIS.md",
+      "time": "2026-07-14T18:14:36+03:00"
+    }
+  },
+  "evidence": [
+    {
+      "bytes": 4051,
+      "path": "experiments/iter195_synthesized_input_differential_oracle/proof/accepted_rows.json",
+      "sha256": "6fb52b93a88cd918605f6d3359fc18477294b11cc54aaee6fc9494815d54e84f"
+    },
+    {
+      "bytes": 424,
+      "path": "experiments/iter195_synthesized_input_differential_oracle/proof/audit_report.json",
+      "sha256": "5402ba212489a572a79087291efaeda8cffdfb2257fa21e40f989b34e5030f34"
+    },
+    {
+      "bytes": 4427,
+      "path": "experiments/iter195_synthesized_input_differential_oracle/proof/iter195_per_candidate.json",
+      "sha256": "066c063afc94bce5f4bfb4ae14c169904dff1c4a32d2e77809a899a83c03f074"
+    },
+    {
+      "bytes": 11766,
+      "path": "experiments/iter195_synthesized_input_differential_oracle/proof/raw/scenarios/phase_a_summary.json",
+      "sha256": "cea3562547746b9f3f6c4918833da709a686b0fc519483ff9211421e91dae630"
+    },
+    {
+      "bytes": 2904,
+      "path": "experiments/iter195_synthesized_input_differential_oracle/proof/valid/receipt_synthesized_input_differential_oracle.json",
+      "sha256": "4a33a247b16fc6f031db36521660f67aa95ad7919713da1bee7c011af69a8d8e"
+    }
+  ],
+  "execution_environment_limit": "Historical execution selected mutable image tags and retained no resolved digest.",
+  "execution_log_corpus": {
+    "count": 30,
+    "sha256": "0f7e8a3895b415823788645d78a8b530b2bf6a9d4ebe05266557c129474f408f"
+  },
+  "experiment_id": "iter195_synthesized_input_differential_oracle",
+  "historical_git_evidence": [
+    {
+      "bytes": 5834,
+      "commit": "b9c549e3b2dc028853c38abb61c1cfc108b1ca21",
+      "path": "experiments/iter195_synthesized_input_differential_oracle/HYPOTHESIS.md",
+      "sha256": "199bac03d06bd3562b4dd58f675c84983babd11bbc13da387742a725409ca973"
+    },
+    {
+      "bytes": 7991,
+      "commit": "80f0c51fe145b6fe322d760e12508a58ea9ea502",
+      "path": "scripts/run_iter195_scenario_generator.py",
+      "sha256": "11e0f3130625430966e40b9bbacab231bf10dd0fc653028e26e888d289f80e7c"
+    },
+    {
+      "bytes": 6397,
+      "commit": "d5afa98948d76f465d15002c8592c085a6e29688",
+      "path": "experiments/iter195_synthesized_input_differential_oracle/RESULT.md",
+      "sha256": "7c0626f6de48e9327922ea3a453893571fc2bdb8fed2370dfbf7eea4989b6cc7"
+    }
+  ],
+  "historical_recorded_status": "pass",
+  "protocol_failures": [
+    {
+      "id": "gold_and_variant_hunks_entered_synthesis_prompt",
+      "observed": "the provider prompt contained labeled GOLD and VARIANT hunks",
+      "registered_rule": "input synthesis sees no gold patch or gold diff"
+    },
+    {
+      "id": "twenty_input_generator_validation_replaced",
+      "observed": "one targeted scenario script was generated per candidate and a single clean gold run was relabeled as validation",
+      "registered_rule": "validate >=10 of 20 inputs per trusted generator"
+    },
+    {
+      "id": "raw_prompt_and_leakage_scan_custody_missing",
+      "observed": "zero dedicated raw prompt, raw response, or leakage-scan artifacts are retained",
+      "registered_rule": "retain raw synthesis prompts with leakage scans for every accepted row"
+    }
+  ],
+  "retained_counts": {
+    "certified_candidates_entering_phase_a": 16,
+    "certified_equivalent_single_scenarios": 2,
+    "clean_differing_single_scenarios": 10,
+    "dedicated_raw_prompt_or_response_artifacts": 0,
+    "estimated_spend_usd": 0.8,
+    "gold_clean_single_scenarios": 13,
+    "paired_execution_logs": 30,
+    "provider_calls": 16,
+    "scenario_failed": 2,
+    "single_scenario_scripts": 15,
+    "variant_errored": 1
+  },
+  "retained_exploratory_interpretation": "Ten official-harness-resolved variants have retained clean, single-scenario gold-versus-variant output differentials. The scenario provider saw both hunks. This is exploratory, gold-assisted reference-differential evidence; it is not a passed synthesized-input oracle and does not establish global semantic inequivalence.",
+  "scenario_corpus": {
+    "count": 15,
+    "sha256": "fb92f9dd4dee9e6db15954fed3b8b94f5327065cd225db0ca2b9df2d63b3f9b1"
+  },
+  "schema_version": "telos.iter207.iter195_protocol_failure.v1",
+  "strict_protocol_status": "fail"
+}

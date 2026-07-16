@@ -41,6 +41,16 @@ def _require_url(value: str, path: str) -> None:
 
 
 def _candidate_from_dict(raw: dict[str, Any], idx: int) -> CandidateScore:
+    if "mission_fit" in raw and "aweb_fit" in raw:
+        if int(raw["mission_fit"]) != int(raw["aweb_fit"]):
+            raise SurveyValidationError(f"candidates[{idx}] mission_fit conflicts with legacy aweb_fit")
+    if "mission_fit" in raw:
+        mission_fit = int(raw["mission_fit"])
+    elif "aweb_fit" in raw:
+        mission_fit = int(raw["aweb_fit"])
+    else:
+        raise SurveyValidationError(f"candidates[{idx}] missing mission_fit")
+
     try:
         candidate = CandidateScore(
             candidate_id=str(raw["candidate_id"]),
@@ -48,7 +58,7 @@ def _candidate_from_dict(raw: dict[str, Any], idx: int) -> CandidateScore:
             public_baseline_quality=int(raw["public_baseline_quality"]),
             falsifiability=int(raw["falsifiability"]),
             evidence_surface=int(raw["evidence_surface"]),
-            aweb_fit=int(raw["aweb_fit"]),
+            mission_fit=mission_fit,
             saturation_risk=int(raw["saturation_risk"]),
             operational_cost=int(raw["operational_cost"]),
         )
@@ -106,7 +116,7 @@ def validate_survey(data: dict[str, Any]) -> SurveyDecision:
             winner.public_baseline_quality,
             winner.falsifiability,
             winner.evidence_surface,
-            winner.aweb_fit,
+            winner.mission_fit,
         ]
         if winner.total() < 16:
             raise SurveyValidationError(f"winner adjusted score below 16: {winner.total()}")

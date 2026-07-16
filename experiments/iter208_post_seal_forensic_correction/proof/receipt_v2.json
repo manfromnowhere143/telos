@@ -1,0 +1,402 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter208-post-seal-forensic-correction-v2",
+  "task_id": "iter208_post_seal_forensic_correction",
+  "agent_id": "codex-local-forensic-auditor",
+  "benchmark_id": "telos-publication-correction",
+  "status": "pass",
+  "stated_goal": "Correct and bind the complete post-iter207 TELOS publication surface without changing historical scientific evidence or executing science.",
+  "acceptance_criteria": [
+    "Every iter208 correction is additive to the immutable iter207 seal.",
+    "Current paper, README, mission, evidence, and roadmap claims agree and remain below the evidence.",
+    "Receipt v2 verifies every required artifact from exact repository-root bytes without following symlinks.",
+    "The complete local test, lint, document, provenance, paper, PDF, diagram, mission, and handoff-safety gates pass.",
+    "No provider, GPU, scientific container, workflow dispatch, push, merge, release, or scientific execution occurs before the source seal."
+  ],
+  "evidence": [
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": ".github/workflows/ci.yml",
+        "bytes": 41246,
+        "sha256": "4e9f848616794b55609ce824900b73cb0d1725f81e2957c527e72ad723a6db69",
+        "media_type": "application/yaml",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "AGENTS.md",
+        "bytes": 1270,
+        "sha256": "1f63e2a242221455198577a951555171bca3e448fa528fb0952b14a796bb58c0",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "CITATION.cff",
+        "bytes": 490,
+        "sha256": "41b33e60e6c27125a91d6dd14c9c9b8a11012f337e11fc0a6d8b3a328c2c51c6",
+        "media_type": "application/yaml",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "README.md",
+        "bytes": 183944,
+        "sha256": "e6eed080e548479b51fa7af8a36b4b99d0fcff6169c141f42411d1edfe21aee5",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/FORENSIC-AUDIT-2026-07-16.md",
+        "bytes": 15263,
+        "sha256": "f6029e7e02525d49d5fe752f5ef8866277c989d201de627b4cfa4a985b666239",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/MISSION_LOOP.md",
+        "bytes": 22200,
+        "sha256": "60ea28f7972fe39f5a1ffe011f1ba5903fa05530f34f4203ab82c6f66fe799c4",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/TELOS-ROADMAP-2026.md",
+        "bytes": 9793,
+        "sha256": "b7311b7c87ebd8e3775fef818006b486afce6e665e9954952b203820d9fcc25d",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md",
+        "bytes": 3482,
+        "sha256": "9db46d4494ea97a82fbeb567941a6e42771650c46e1161e79a8aff0d54c90f05",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter208_post_seal_forensic_correction/RESULT.md",
+        "bytes": 5615,
+        "sha256": "3f29a928fde66b53f7f6363801d8883828256ec2c19030d598f1347f5385b90c",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter208_post_seal_forensic_correction/proof/forensic_findings.json",
+        "bytes": 4628,
+        "sha256": "c94e0049a2b6eeeb53e73db55c9a9a121aef525f671e854341242158299bce8e",
+        "media_type": "application/json",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter208_post_seal_forensic_correction/proof/frontier_sources.json",
+        "bytes": 10164,
+        "sha256": "24555e76e2a23c30dd954668d741a7977a7ff5f53ab666bffa1f104d96a889ad",
+        "media_type": "application/json",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter208_post_seal_forensic_correction/proof/hardware_preflight.json",
+        "bytes": 706,
+        "sha256": "3c19553c6d2af36c994ce987a1b857a7bcf3f1985f5a94bd7a21cce590b590d1",
+        "media_type": "application/json",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "mission/loop.json",
+        "bytes": 63965,
+        "sha256": "e7fcbfc14017454132e605b237b65101d6e2ee4258bdcc24d5cc13c40e302b49",
+        "media_type": "application/json",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "paper/README.md",
+        "bytes": 15753,
+        "sha256": "6b713fa6893583d20ed24e23ab62310e051d45494c35b36c3f77de9447af77b0",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "paper/telos.pdf",
+        "bytes": 107966,
+        "sha256": "75888392584a093d5d2e82ef5d969ffc88211bd4bb3d970dd7a1256981d9671d",
+        "media_type": "application/pdf",
+        "producer": "tectonic-fixed-epoch-build"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "paper/telos.tex",
+        "bytes": 46858,
+        "sha256": "383f00dc8fb835c83f3b8b27bd5b58c1999017af61976a6dcf76f085e5daa0b8",
+        "media_type": "application/x-tex",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/audit_iter207_claim_integrity.py",
+        "bytes": 55892,
+        "sha256": "a760ae660409631f08626a5d202cfcbd5c59c2552fc5059d16912beae0ca2d31",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter207_runtime_manifest.py",
+        "bytes": 35608,
+        "sha256": "5dd9d4702baee80afba8f6d4778535e220c8eb7c1d401a59cb7a0bf87cf928db",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_current_paper.py",
+        "bytes": 8003,
+        "sha256": "233d571d0b37ad3b0b03ee38243426d7ebc27eeed87e64c1e908977b305be674",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_handoff.py",
+        "bytes": 33850,
+        "sha256": "20fec0fcb5137bd39131af6ab4b6486c2828a8f7f5896c0dbeb073995dfcddf3",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter207_publication_safety.py",
+        "bytes": 18860,
+        "sha256": "682aa216bc5a22fc8e5890c82cf01b298c5194109f3993152bb143d03c6f5e70",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter208_post_seal_forensic_correction.py",
+        "bytes": 13063,
+        "sha256": "ced00eac0d691d573d1405460d6b5a55c635f263d70dda9afdd488f025319903",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_mission_loop.py",
+        "bytes": 58311,
+        "sha256": "83baf9968ae0621a0467529f7714497889b85a8c808a4f624c634b7e50f720db",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "telos/__init__.py",
+        "bytes": 1786,
+        "sha256": "e86689a1dc6f58f5c44fcc93e008e69e2cf018bbd7918406b52f6108880aaed5",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "telos/proof.py",
+        "bytes": 14900,
+        "sha256": "365766841846bb89760f96728dd5c2fcd08750b5e343079f8485af6893d6cc66",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "telos/scorecard.py",
+        "bytes": 2102,
+        "sha256": "aaea9b6b7b61d3af7059ca87105feefde0fc85cc96be78692e70a791b2148691",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "telos/survey.py",
+        "bytes": 5190,
+        "sha256": "869b8cbc5b2799b2ef2c80d0b3350dbf7a726cf50a3c8cfc4b241054a7f2aa7f",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "telos/tamper/llm_judge.py",
+        "bytes": 6565,
+        "sha256": "f8461e5701babca22f9c51fae9a76eb665d3e03250e06b4004e5d961420d09cc",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter208_post_seal_forensic_correction.py",
+        "bytes": 616,
+        "sha256": "ecaf4ca2db1984f3626ae073fd44d3704e5849b40b77393290af63942fcfc7e2",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_llm_judge_parse.py",
+        "bytes": 2086,
+        "sha256": "84406069ee4f0a18b7bf14461f9179dd3906bb0de8aa79918a6e99f2dc389e5e",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_make_handoff.py",
+        "bytes": 36242,
+        "sha256": "14051407c7d9430e13fa56d58200c51b6607560078d5dbca21d0db66e8b2d20b",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_mission_loop_guard.py",
+        "bytes": 11499,
+        "sha256": "8d7ef04386b665261ba044f17655c61173eba6ec77a2dea529613771b765cfe7",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_proof.py",
+        "bytes": 7111,
+        "sha256": "2af4c6f9404f7130d07f4235ba61a1e39c2b322227b1d7c8dd39526bfe574a0e",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_survey.py",
+        "bytes": 2416,
+        "sha256": "593d41377e16331141fe584e0280bff78971d7587bf1b4078a266d66d20a72dc",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter208-local-forensic-correction"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any frozen historical experiment or iter207 seal byte changes.",
+    "Any required artifact is missing, duplicated, symlinked, noncanonical, or differs in byte count or SHA-256.",
+    "A current claim implies semantic ground truth, prevalence, model ranking, deployment efficacy, state of the art, or private endorsement without evidence.",
+    "The paper source and committed PDF differ from their deterministic fixed-epoch bindings or fail visual inspection.",
+    "The handoff authorizes a dispatch, rerun, provider call, GPU run, scientific execution, or release.",
+    "Any pre-source-seal provider, GPU, scientific container, workflow dispatch, push, merge, release, or scientific action occurs."
+  ],
+  "evidence_closure_sha256": "f2d6e85527c68ce1203a89f882feab15017240986103285c9264592ec60bb22c",
+  "receipt_sha256": "dd9ff29b7b52d06e414eade5790cc33dce3e3456b5066f2346f70680f504596b"
+}

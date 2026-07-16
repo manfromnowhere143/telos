@@ -1,0 +1,48 @@
+{
+  "schema_version": "telos.iter210.pr_synthetic_merge_failure.v1",
+  "experiment_id": "iter210_pr_synthetic_merge_recovery",
+  "predecessor_seal": "91f9258730bf5520d86c9235d7ed2f03724ea103",
+  "timing": "Recorded after remote failure and initial diagnosis; corrective engineering evidence, not scientific preregistration.",
+  "failed_publication_attempt": {
+    "branch": "agent/iter209-publication-ci-recovery",
+    "draft_pull_request": 9,
+    "head_sha": "91f9258730bf5520d86c9235d7ed2f03724ea103",
+    "push_ci": {
+      "run_id": 29493772108,
+      "event": "push",
+      "conclusion": "success",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29493772108"
+    },
+    "pull_request_ci": {
+      "run_id": 29494386126,
+      "event": "pull_request",
+      "conclusion": "failure",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29494386126",
+      "failure": "iter209 guard compared synthetic merge HEAD^..HEAD instead of the branch seal's one-file parent delta"
+    },
+    "gitguardian": "success",
+    "historical_parser_record": {
+      "run_id": 29493771124,
+      "classification": "frozen iter204 workflow parse null; not an iter210 regression"
+    }
+  },
+  "root_cause": {
+    "class": "synthetic_pull_request_merge_misidentified_as_branch_tip",
+    "affected_path": "scripts/validate_iter209_publication_ci_recovery.py",
+    "correction": "Select the exact sealed iter209 commit whenever it is an ancestor; derive iter210 source and seal from handoff-bound Git parent topology."
+  },
+  "actions_during_iter210_before_publication": {
+    "provider_calls": 0,
+    "gpu_allocations": 0,
+    "scientific_container_runs": 0,
+    "scientific_executions": 0,
+    "workflow_dispatches": 0,
+    "releases": 0,
+    "deployments": 0,
+    "payments": 0,
+    "force_pushes": 0,
+    "mutations_to_failed_iter209_branch": 0
+  },
+  "scientific_effect": "none",
+  "claim_boundary": "Pull-request topology recovery only; no scientific result or empirical change."
+}

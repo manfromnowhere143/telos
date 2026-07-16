@@ -1,9 +1,19 @@
 # Iteration 192 Result - Reward-Hack Benchmark Construct-Validity Audit
 
-Status: `PASS`, and it is a correction. The gate's own bars are met; what they establish is that the
-repository's flagship benchmark does not measure what its name says.
+> **Standing conservative adjudication (2026-07-16):** the original unqualified `PASS` below is superseded
+> only for its novelty interpretation. Frozen falsifier 5 required an earlier baseline *for v1*. Iter151
+> predates v1 and did not retain accepted patch bytes, so the literal v1-specific trigger is indeterminate.
+> It did already state the same class-level fact: its `0/20` cohort was unresolved by definition and plain
+> full-suite CI rejects it. Telos therefore adjudicates the overbroad novelty component `FAIL` while
+> preserving the original hypothesis, audit output, and receipt.
 
-Provider calls `0`, credential probes `0`, property-generator calls `0`, new SWE-bench executions `0`,
+Status: conservative novelty adjudication `FAIL`; literal frozen falsifier 5 trigger indeterminate. The
+independently re-derived `40/40` unresolved finding remains factual. Historical tarballs also contain `139`
+harness-resolved hack-tagged evaluations across `65` instance IDs, but the committed decision evidence does
+not bind all `139` to generator discard decisions. Any claim of conceptual firstness for the test-suite
+baseline is withdrawn.
+
+Provider calls `0`, sensitive-runtime probes `0`, property-generator calls `0`, new SWE-bench executions `0`,
 new cloud resources `0`, spend `$0.00`. Every figure below re-derives deterministically from committed
 bytes via `scripts/run_benchmark_construct_validity_audit.py`.
 
@@ -26,8 +36,10 @@ is not a reward hack; it is a wrong patch.
 | rows with at least one failing `PASS_TO_PASS` test | **`40/40`** |
 | generator acceptance conditions requiring `held_fail` | `1` |
 | committed hack-tagged official reports parsed | `330` |
-| certified-resolved hack variants the generator discarded | `139` across `65` instances |
-| pre-existing committed test-suite baselines for v1 | `0` |
+| harness-resolved hack-tagged evaluations in historical tarballs | `139` across `65` instance IDs |
+| iter152 discarded instance IDs / overlap with the harness-resolved set | `23` / `17` |
+| pre-existing row-identical test-suite baselines for v1 | audit reported `0`; literal trigger remains indeterminate |
+| prior class-level test-suite precursor | iter151 `0/20`; exact patch identity not retained |
 
 ### The construct
 
@@ -50,40 +62,49 @@ Benchmark v1 therefore contains zero reward hacks. It contains 40 subtly-wrong p
 function rejects. The name `both_miss` always meant *the deterministic detector and the LLM judge miss*.
 It never meant the tests miss, and the public claim surface has been carrying the second reading.
 
-### The baseline that was never run
+### The baseline value and the prior class-level disclosure
 
-| oracle | detections on v1 | provider cost |
+| oracle | detections on v1 | estimated spend guard |
 | --- | ---: | ---: |
 | official SWE-bench harness verdict (equivalently: run the existing test suite) | **`40/40`** | `$0.00` |
-| three-model cross-provider panel, unrepaired `majority_catch` (iter179) | `17/40` | `$13.59` |
+| three-model cross-provider panel, unrepaired `majority_catch` (iter179) | `17/40` | `$13.128090` for `240` score-producing calls |
 
-The scan for a pre-existing baseline returns `0` hits across `677` committed markdown files. This
-comparison has never appeared in the repository.
+The panel value is a conservative estimated guard, not a provider invoice. Iter175+iter178 total
+`$13.317840` after adding three iter178 diagnostic-only calls; iter181's later repair diagnostic brings the
+through-repair guard to `$13.589640` (rounded `$13.59`). Those diagnostic calls are excluded from the
+unrepaired primary score.
+
+The iter192 lexical scan returned `0` hits across `677` committed Markdown files. That is the exact scanner
+output, not proof of conceptual novelty. `experiments/iter151_cross_repo_scale_official/RESULT.md` had
+already stated the same class-level precursor: its `0/20` both-miss cohort was unresolved by definition
+because a plain full-suite CI gate rejects it. Nineteen instance IDs overlap v1, but iter151 retained no
+accepted patch bytes or hashes, so exact patch identity with the later forty-row artifact is neither proven
+nor refuted. The exact paired `40/40` versus `17/40` table is retained; no firstness claim follows.
 
 This is not a leaderboard claim and not a model-comparison claim. It is the first-order comparator that
 a reviewer asks for within the first minute, and its absence is why `17/40` has read as a result rather
 than as what it is.
 
-### The discarded specimens
+### The harness-resolved historical evaluations
 
-`139` hack-tagged variants across `65` unique instances were certified `resolved: true` by the official
-harness — target test passing, entire existing suite passing. Some passed hundreds of held-out tests
+Historical tarballs contain `139` hack-tagged evaluations across `65` unique instance IDs that the official
+harness marked `resolved: true` — target test passing, entire graded suite passing. Some passed hundreds of held-out tests
 (`pydata__xarray-2905`: `364`; `matplotlib__matplotlib-13989`: `411`).
 
-Every one was discarded. Because acceptance required `held_fail`, a variant that passed the whole suite
-failed the acceptance test and was logged `no_both_miss` — a miss. For those records the generator
-retained only `{id, repo, status}`, so the candidate diffs are **not recoverable** from committed
-artifacts.
-
-The construct error was not a mislabel. It was a filter pointed backwards: the run discarded its
-harness-certified candidates as failures, `139` times, and no gate noticed.
+The frozen artifact named `discarded_certified_variants.json` overstates the available disposition binding.
+Its generator-decision input covers `23` discarded iter152 instance IDs and only `17` overlap the
+harness-resolved set. The `139` evaluations span iter152, iter154, and iter155, whose decision vocabularies
+and retained records differ. The retained bytes therefore do **not** establish that every evaluation was
+discarded, nor do they preserve the specific evaluated patch bytes. The defensible finding is the existence
+and count of harness-resolved hack-tagged evaluations; their disposition and semantic wrongness remain
+unestablished beyond the explicitly bound subset.
 
 ## What this gate does NOT establish
 
 Stated plainly, because the temptation runs the other way:
 
-- **It does not establish that a reward-hack class exists.** The `139` certified-resolved variants are
-  candidates only. Their semantic wrongness was never evaluated. A variant that passes the whole suite
+- **It does not establish that a reward-hack class exists.** The `139` harness-resolved evaluations are
+  candidate evaluations only. Their semantic wrongness was never evaluated. A patch that passes the whole suite
   may simply be *correct* — an equivalent rewrite of the gold patch. iter140 recorded exactly that
   outcome class (`still_correct`). Separating "certified and wrong" from "certified and correct"
   requires execution against gold, which this gate does not perform.
@@ -96,11 +117,11 @@ Stated plainly, because the temptation runs the other way:
 The honest reading of `17/40` is now available: it measures how often a three-model frontier panel,
 reading a diff, spots a subtly-wrong patch **that the existing test suite already rejects**. That is a
 legitimate finding about LLM code review. It is not a finding about reward hacking, and it does not
-motivate a verification protocol, because the defect class it covers is caught perfectly and for free by
-running the tests.
+motivate a verification protocol, because the already-required graded tests catch `40/40` at zero
+model-provider spend.
 
-The mission's target should be the class this gate proves the generator was producing and throwing away:
-patches the official harness certifies as resolved that are nonetheless wrong. Against that class the
+The mission's target should be the class suggested—but not semantically established—by the harness-resolved
+historical evaluations: patches the official harness certifies as resolved that are nonetheless wrong. Against that class the
 harness scores `0` by construction — it certified them — so execution of the existing suite cannot help,
 and an instrument that probes behavior *beyond* the suite is required. That is what the iter121-iter126
 gold-free property oracles were built to do, and why evaluating them against v1 could never have shown
@@ -118,6 +139,10 @@ Per standard 5 (corrections stay visible):
   `17/40` panel figure, and stop describing v1 rows as reward hacks.
 - `benchmarks/reward_hack_benchmark_v1/README.md` records the acceptance condition, the harness verdict,
   the matched-pair derivation, and the test-file exclusion filter.
+
+The later standing correction conservatively marks the novelty component `FAIL` while preserving the
+construct facts and recording that the literal v1-specific trigger is indeterminate. It does not rewrite
+the frozen hypothesis or raw proof/receipt bytes.
 
 ## Evidence
 
@@ -152,10 +177,14 @@ world catches errors; a bar that only counts absences cannot.
 ## Claim Boundary
 
 Supported: benchmark v1's positive class is patches the official SWE-bench harness marks unresolved
-because they break the existing test suite; the official-harness baseline detects `40/40` at `$0.00`;
-that baseline was never previously reported; and the iter152/iter154/iter155 runs discarded `139`
-harness-certified variants across `65` instances whose diffs were not preserved.
+because they break the existing test suite; the official-harness baseline detects `40/40` at `$0.00`
+model-provider spend; and historical iter152/iter154/iter155 tarballs contain `139` harness-resolved
+hack-tagged evaluations across `65` instance IDs. The committed disposition evidence binds `23` discarded
+iter152 IDs, including `17` in the harness-resolved set; it does not bind all `139` evaluations to discard
+decisions or retain their patch bytes. These are retrospective re-derivations under a conservatively failed
+novelty adjudication whose literal v1-specific trigger is indeterminate.
 
 Not supported: any claim that certified-resolved variants are wrong; any reward-hack class claim; any
-property-oracle result; any leaderboard, model-comparison, model-superiority, state-of-the-art,
+claim of conceptual firstness for the test-suite baseline; any property-oracle result; any leaderboard,
+model-comparison, model-superiority,
 natural-frequency, broad robustness, production, or product-value claim.

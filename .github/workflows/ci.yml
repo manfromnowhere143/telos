@@ -123,14 +123,38 @@ jobs:
       - name: Iter204 frozen pre-dispatch-null successor anchor
         run: python3 scripts/validate_iter204_pre_dispatch_null.py
 
-      - name: Iter205 workflow-context runtime closure guard
-        run: python3 scripts/build_iter205_runtime_manifest.py --check
+      - name: Iter205 exact pre-dispatch admission-null guard
+        run: python3 scripts/validate_iter205_pre_dispatch_null.py
 
-      - name: Iter205 current publication-safety guard
-        run: python3 scripts/validate_iter205_publication_safety.py --check
+      - name: Iter206 exact pre-publication claim-integrity null guard
+        run: python3 scripts/validate_iter206_pre_publication_null.py
 
-      - name: Iter205 workflow-context recovery contract guard
-        run: python3 scripts/validate_iter205_runtime_recovery.py
+      - name: Iter207 deterministic claim-integrity correction guard
+        run: python3 scripts/audit_iter207_claim_integrity.py --check
+
+      - name: Iter207 claim-integrity and admission runtime closure guard
+        run: python3 scripts/build_iter207_runtime_manifest.py --check
+
+      - name: Iter207 current publication-safety guard
+        run: python3 scripts/validate_iter207_publication_safety.py --check
+
+      - name: Iter207 claim-integrity and admission recovery contract guard
+        run: python3 scripts/validate_iter207_runtime_recovery.py
+
+      - name: Iter208 post-seal forensic correction guard
+        run: python3 scripts/validate_iter208_post_seal_forensic_correction.py
+
+      - name: Iter209 publication CI recovery receipt guard
+        run: python3 scripts/build_iter209_receipt.py --check
+
+      - name: Iter209 publication CI recovery guard
+        run: python3 scripts/validate_iter209_publication_ci_recovery.py
+
+      - name: Iter210 PR synthetic-merge recovery receipt guard
+        run: python3 scripts/build_iter210_receipt.py --check
+
+      - name: Iter210 PR synthetic-merge recovery guard
+        run: python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py
 
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py

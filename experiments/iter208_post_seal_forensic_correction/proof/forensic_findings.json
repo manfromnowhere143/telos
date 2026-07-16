@@ -1,0 +1,114 @@
+{
+  "schema_version": "telos.iter208.forensic_findings.v1",
+  "generated_at": "2026-07-16T12:00:00+03:00",
+  "predecessor_seal": "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28",
+  "status": "local_correction_pass_publication_seal_pending",
+  "scope": [
+    "git topology and exact iter207 seal",
+    "software validation and critical active code",
+    "raw scientific evidence from iter192 and iter195 through iter207",
+    "paper source, deterministic PDF, citations, and rendered pages",
+    "README, diagrams, project boundary, and handoff",
+    "2026 primary-source frontier comparison"
+  ],
+  "sealed_baseline_validation": {
+    "pytest": {
+      "passed": 596,
+      "failed": 0
+    },
+    "focused_claim_integrity_tests_passed": 137,
+    "json_files_validated": 3496,
+    "markdown_files_validated": 712,
+    "workflows_validated": 19,
+    "dependency_locks_validated": 2,
+    "paper_pages": 11,
+    "paper_pdf_sha256": "60c819138f7f335aa33f624e56beb474b2a752d11444b336202a593afb161aa7"
+  },
+  "scientific_reconstruction": {
+    "v1_rows_unresolved": 40,
+    "v1_rows_with_pass_to_pass_failure": 40,
+    "historical_harness_resolved_evaluations": 139,
+    "historical_harness_resolved_instance_ids": 65,
+    "v2_reference_differential_rows": 22,
+    "v2_repositories": 8,
+    "iter195_protocol_failed_rows": 10,
+    "iter199_post_provider_rows": 12,
+    "iter200_certified_n": 24,
+    "iter200_strict_k": 1,
+    "iter200_unadjudicated_u": 6,
+    "iter201_judge_row_catches": 20,
+    "iter201_judge_response_nondecisions": 8,
+    "iter201_judge_response_total": 88,
+    "iter201_property_catches": 6
+  },
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "material",
+      "status": "corrected_in_source",
+      "finding": "The paper body said no causal direction was established for four shared-gold-line diagnostics, while the conclusion suggested downward recall bias.",
+      "required_action": "Remove the directional claim and state that no direction or magnitude is established."
+    },
+    {
+      "id": "F-002",
+      "severity": "material",
+      "status": "corrected_in_source",
+      "finding": "The paper omitted directly relevant 2026 work that is larger or methodologically stronger.",
+      "required_action": "Add current related work and narrow TELOS to a forensic real-task existence case."
+    },
+    {
+      "id": "F-003",
+      "severity": "material",
+      "status": "implemented_and_tested",
+      "finding": "Legacy proof receipts hash receipt prose but do not bind the bytes at evidence paths.",
+      "required_action": "Add artifact-bound receipt v2 while preserving v1 compatibility."
+    },
+    {
+      "id": "F-004",
+      "severity": "moderate",
+      "status": "implemented_and_tested",
+      "finding": "The active scorecard API retained the Aweb-era name aweb_fit.",
+      "required_action": "Use mission_fit for current code and accept aweb_fit only as a frozen-data compatibility field."
+    },
+    {
+      "id": "F-005",
+      "severity": "moderate",
+      "status": "implemented_and_tested",
+      "finding": "The active Vertex judge module embedded a cloud project locator.",
+      "required_action": "Require TELOS_VERTEX_PROJECT at the call boundary."
+    },
+    {
+      "id": "F-006",
+      "severity": "moderate",
+      "status": "roadmapped",
+      "finding": "Most repository code is iteration-specific scripts rather than a reusable assurance API.",
+      "required_action": "Consolidate future behavior into TELOS Core, a versioned library and CLI."
+    },
+    {
+      "id": "F-007",
+      "severity": "moderate",
+      "status": "partially_corrected_and_roadmapped",
+      "finding": "Iter208 adds conservative citation metadata, but the public release still lacks identity-bound signing, external timestamping, archive binding, and independent replication.",
+      "required_action": "Maintain CITATION.cff and adopt in-toto/SLSA-compatible attestations, Sigstore, archive binding, and external replication."
+    }
+  ],
+  "claim_boundary": {
+    "direction_is_right": true,
+    "top_tier_benchmark_claim_supported": false,
+    "population_frequency_claim_supported": false,
+    "model_ranking_claim_supported": false,
+    "production_verifier_claim_supported": false,
+    "strict_existence_case_supported": true,
+    "funding_case_now": "conditional_on_independent_replication_and_compact_product_demo",
+    "personal_endorsements_inferred": false
+  },
+  "actions_during_audit": {
+    "model_provider_calls": 0,
+    "gpu_scientific_runs": 0,
+    "scientific_container_runs": 0,
+    "workflow_dispatches": 0,
+    "pushes": 0,
+    "merges": 0,
+    "releases": 0
+  }
+}

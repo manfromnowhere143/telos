@@ -48,9 +48,17 @@ CORE_VALIDATION_COMMANDS = (
     "python3 scripts/validate_iter203_publication_safety.py --check",
     "python3 scripts/validate_iter203_infrastructure_null.py",
     "python3 scripts/validate_iter204_pre_dispatch_null.py",
-    "python3 scripts/build_iter205_runtime_manifest.py --check",
-    "python3 scripts/validate_iter205_publication_safety.py --check",
-    "python3 scripts/validate_iter205_runtime_recovery.py",
+    "python3 scripts/validate_iter205_pre_dispatch_null.py",
+    "python3 scripts/audit_iter207_claim_integrity.py --check",
+    "python3 scripts/validate_iter206_pre_publication_null.py",
+    "python3 scripts/build_iter207_runtime_manifest.py --check",
+    "python3 scripts/validate_iter207_publication_safety.py --check",
+    "python3 scripts/validate_iter207_runtime_recovery.py",
+    "python3 scripts/validate_iter208_post_seal_forensic_correction.py",
+    "python3 scripts/build_iter209_receipt.py --check",
+    "python3 scripts/validate_iter209_publication_ci_recovery.py",
+    "python3 scripts/build_iter210_receipt.py --check",
+    "python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py",
     "python3 scripts/validate_target_survey.py",
     "python3 scripts/validate_public_slice.py",
     "python3 scripts/validate_agent_behavior_slice.py",
@@ -120,8 +128,8 @@ def validate_gate_bindings(
     return failures
 
 
-def validate_iter205_recovery_state(contract: dict[str, Any]) -> list[str]:
-    """Validate the sealed iter203/iter204 nulls and fail-closed iter205 recovery."""
+def validate_iter207_recovery_state(contract: dict[str, Any]) -> list[str]:
+    """Validate sealed predecessor nulls and the fail-closed iter207 recovery."""
 
     failures: list[str] = []
     expected_provider = {
@@ -170,6 +178,8 @@ def validate_iter205_recovery_state(contract: dict[str, Any]) -> list[str]:
         failures.append("iter204 does not bind the narrow log-driver repair")
     if "29465584664 and 29465924803" not in recovery.get("public_push_records", ""):
         failures.append("iter204 exact push parse-failure records are absent")
+    if "frozen closure snapshot" not in recovery.get("public_push_records", ""):
+        failures.append("iter204 push records are not labeled as a closure snapshot")
     if "zero jobs and artifacts" not in recovery.get("public_push_records", ""):
         failures.append("iter204 zero-job/artifact push boundary is absent")
     if "at least one locally observed" not in recovery.get("dispatch_rejection", ""):
@@ -178,7 +188,9 @@ def validate_iter205_recovery_state(contract: dict[str, Any]) -> list[str]:
         "dispatch_rejection", ""
     ):
         failures.append("iter204 rejected-request count limitation is absent")
-    if recovery.get("dispatch_history") != "exactly zero workflow_dispatch runs":
+    if recovery.get("dispatch_history") != (
+        "exactly zero workflow_dispatch runs at closure"
+    ):
         failures.append("iter204 exact-zero workflow_dispatch boundary differs")
     if "no N, k, or u" not in recovery.get("scientific_execution", ""):
         failures.append("iter204 no-rate boundary is absent")
@@ -186,52 +198,138 @@ def validate_iter205_recovery_state(contract: dict[str, Any]) -> list[str]:
         failures.append("iter204 no-retry source-correction rule is absent")
 
     successor = state.get("iter205_recovery", {})
-    if (
-        successor.get("status")
-        != "active_pre_dispatch_pre_scientific_output_workflow_context_recovery"
-    ):
-        failures.append("iter205 recovery readiness status is not exact")
+    if successor.get("status") != "pre_dispatch_admission_history_null":
+        failures.append("iter205 admission-history-null status is not exact")
     if "same 50 valid patches" not in successor.get("frozen_scientific_scope", ""):
         failures.append("iter205 does not preserve the all-patch scientific scope")
     if "job-level to step-level env" not in successor.get("allowed_delta", ""):
         failures.append("iter205 narrow workflow-context correction is absent")
-    if "empty all-event and workflow_dispatch histories" not in successor.get(
-        "selection_rule", ""
+    if "workflow 314141096 active" not in successor.get("server_workflow", ""):
+        failures.append("iter205 exact active workflow object is absent")
+    if "histories both empty" not in successor.get("server_workflow", ""):
+        failures.append("iter205 empty complete histories are absent")
+    if "observed four" not in successor.get("admission_mismatch", ""):
+        failures.append("iter205 exact-four upstream mismatch is absent")
+    if successor.get("request_boundary") != (
+        "dispatch request command not reached; 0 dispatch requests; "
+        "no dispatch API response or rejection; 0 iter205 workflow runs"
     ):
-        failures.append("iter205 empty-history preflight is absent")
-    if "first global run" not in successor.get("selection_rule", ""):
-        failures.append("iter205 first-global-run selection is absent")
-    if "GITHUB_RUN_ATTEMPT=1" not in successor.get("selection_rule", ""):
-        failures.append("iter205 run-attempt-one rule is absent")
-    if "requires iter206" not in successor.get("failure_rule", ""):
+        failures.append("iter205 pre-request boundary is not exact")
+    if "no N, k, or u" not in successor.get("scientific_execution", ""):
+        failures.append("iter205 no-rate boundary is absent")
+    if "requires separately versioned iter206" not in successor.get("failure_rule", ""):
         failures.append("iter205 failure rule does not advance to iter206")
+
+    stopped = state.get("iter206_recovery", {})
+    if stopped.get("status") != (
+        "pre_publication_claim_integrity_null_superseded_unpublished"
+    ):
+        failures.append("iter206 pre-publication null status is not exact")
+    for fragment in (
+        "0 branch pushes",
+        "0 pull requests",
+        "0 merges",
+        "0 workflow runs",
+        "0 dispatch requests",
+    ):
+        if fragment not in stopped.get("publication", ""):
+            failures.append(f"iter206 zero-publication boundary missing: {fragment}")
+    if "no N, k, or u" not in stopped.get("scientific_execution", ""):
+        failures.append("iter206 no-rate boundary is absent")
+    if stopped.get("source_commit") != "e7c2ec28daa746dbcfb5812d3771ab981ff984c0":
+        failures.append("iter206 frozen source identity differs")
+    if stopped.get("seal_commit") != "a2a05ef2ed05a0c457076f2bd5f1475507190685":
+        failures.append("iter206 frozen seal identity differs")
+
+    expected_correction = {
+        "ledger": (
+            "experiments/iter207_claim_integrity_and_admission_recovery/"
+            "proof/claim_integrity_correction.json"
+        ),
+        "iter192_status": (
+            "conservative_novelty_fail_literal_v1_trigger_indeterminate_"
+            "construct_recount_retained"
+        ),
+        "iter195_status": (
+            "strict_protocol_fail_ten_exploratory_reference_differentials_retained"
+        ),
+        "iter196_status": "partial_protocol_blocked",
+        "iter179_cost_status": "score_guard_13_128090_diagnostics_excluded_not_invoice",
+        "iter198_status": "accuracy_fail_writing_artifacts_retained",
+        "iter199_status": "registration_timing_not_independently_established",
+        "corpus_label": (
+            "22_gold_assisted_targeted_reference_differential_rows_"
+            "not_independent_semantic_ground_truth"
+        ),
+    }
+    if state.get("construction_integrity_correction") != expected_correction:
+        failures.append("iter207 construction-integrity correction is not exact")
+
+    active = state.get("iter207_recovery", {})
+    if active.get("status") != (
+        "active_pre_publication_pre_dispatch_pre_scientific_output_"
+        "claim_integrity_and_admission_recovery"
+    ):
+        failures.append("iter207 active recovery status is not exact")
+    if "same 50 patches" not in active.get("frozen_scientific_scope", ""):
+        failures.append("iter207 does not preserve the all-patch scientific scope")
+    allowed = active.get("allowed_delta", "")
+    for fragment in (
+        "claim corrections",
+        "iter206 terminal null",
+        "mechanical iter206-to-iter207 identities",
+        "bind exact empty iter206 histories",
+    ):
+        if fragment not in allowed:
+            failures.append(f"iter207 allowed delta missing: {fragment}")
+    publication = active.get("publication_envelope", "")
+    for fragment in (
+        "push agent/iter207-claim-integrity-admission-recovery exactly once",
+        "one successful attempt-1 ci.yml push run",
+        "one successful attempt-1 pull_request run",
+        "merge once",
+        "first parent 4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f",
+        "no follow-up push",
+    ):
+        if fragment not in publication:
+            failures.append(f"iter207 publication envelope missing: {fragment}")
+    selection = active.get("selection_rule", "")
+    for fragment in (
+        "exact iter204 run numbers 1..6",
+        "frozen rows 1..4",
+        "structurally bound iter207 publication rows 5..6",
+        "empty iter204 dispatch, iter205, and iter206 histories",
+        "empty iter207 histories before at most one request",
+    ):
+        if fragment not in selection:
+            failures.append(f"iter207 selection rule missing: {fragment}")
+    if "closes iter207 without retry" not in active.get("failure_rule", ""):
+        failures.append("iter207 no-retry failure rule is absent")
 
     claim = contract.get("claim_boundary", "")
     for fragment in (
-        "iter203 is a separately published execution-infrastructure null",
-        "53/53 solver calls",
-        "39/39 eligible scenario calls",
-        "50 model patches",
-        "38 extracted scenario programs",
-        "admitted 29 programs and rejected 9 with 21 findings",
-        "scenario-safety protocol/execution null",
-        "no N, k, or u",
-        "29460393525",
-        "all 50/50 first Docker run invocations returned exit 125",
-        "zero workflow artifacts were uploaded",
-        "exact daemon stderr was redirected into temporary files and not retained",
-        "root cause is reconstructed",
-        "iter204 is a separately published pre-dispatch infrastructure null",
-        "exactly two public push records",
-        "At least one locally observed authorized dispatch API request returned HTTP 422",
-        "exact rejected-request count is not publicly auditable",
-        "no workflow_dispatch run ID or run attempt",
-        "workflow_dispatch run count is exactly zero",
-        "No provider, container, patch, certification, scenario, adjudication, or judge process started",
-        "Iter205 is the active",
-        "job-level to step-level env",
-        "first global workflow_dispatch run at attempt 1",
-        "requires iter206",
+        "iter192 is conservatively adjudicated FAIL",
+        "literal v1-specific falsifier trigger is indeterminate",
+        "Iter195 is strict protocol FAIL",
+        "22 official-harness-resolved, gold-assisted targeted reference-differential rows",
+        "not independent semantic ground truth",
+        "iter196 is partial/protocol-blocked",
+        "iter199 is post-provider/pre-execution",
+        "$13.128090 estimated spend guard for 240 score-producing calls",
+        "rounded $13.59 through-repair total includes excluded diagnostics",
+        "not a provider invoice",
+        "four disclosed shared-line diagnostic rows",
+        "N=24, k=1, u=6",
+        "Iter202 is a provider-complete pre-execution safety null",
+        "iter203 is an execution-infrastructure null",
+        "iter204 is a pre-dispatch parse null",
+        "iter205 is a pre-dispatch admission-history null",
+        "iter206 is a locally sealed pre-publication claim-integrity null",
+        "Iter207 is the active separately versioned correction and admission recovery",
+        "exact fixed 50-row scientific/runtime plan",
+        "exact-six iter204 snapshot",
+        "empty complete iter205 and iter206 histories",
+        "Telos operates from its standalone repository",
     ):
         if fragment not in claim:
             failures.append(f"claim boundary missing current recovery fact: {fragment}")
@@ -253,12 +351,30 @@ def validate_iter205_recovery_state(contract: dict[str, Any]) -> list[str]:
         "experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json",
         "experiments/iter204_iter203_infrastructure_recovery/proof/pre_execution_publication_safety.json",
         "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+        "experiments/iter205_iter204_workflow_context_recovery/RESULT.md",
         "experiments/iter205_iter204_workflow_context_recovery/proof/learning_record.json",
+        "experiments/iter205_iter204_workflow_context_recovery/proof/learning_record.pre_dispatch_admission_null.json",
+        "experiments/iter205_iter204_workflow_context_recovery/proof/pre_dispatch_admission_null.json",
+        "experiments/iter205_iter204_workflow_context_recovery/proof/raw/public_admission_metadata/manifest.json",
         "experiments/iter205_iter204_workflow_context_recovery/proof/raw/runtime_manifest.json",
         "experiments/iter205_iter204_workflow_context_recovery/proof/pre_execution_publication_safety.json",
+        "experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md",
+        "experiments/iter206_iter205_admission_history_recovery/proof/learning_record.json",
+        "experiments/iter206_iter205_admission_history_recovery/proof/raw/runtime_manifest.json",
+        "experiments/iter206_iter205_admission_history_recovery/proof/pre_execution_publication_safety.json",
+        "experiments/iter206_iter205_admission_history_recovery/RESULT.md",
+        "experiments/iter206_iter205_admission_history_recovery/proof/pre_publication_claim_integrity_null.json",
+        "experiments/iter206_iter205_admission_history_recovery/proof/learning_record.pre_publication_claim_integrity_null.json",
+        "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
+        "experiments/iter207_claim_integrity_and_admission_recovery/proof/claim_integrity_correction.json",
+        "experiments/iter207_claim_integrity_and_admission_recovery/proof/corrections/iter192_novelty_scope_correction.json",
+        "experiments/iter207_claim_integrity_and_admission_recovery/proof/strict/iter195_protocol_failure.json",
+        "experiments/iter207_claim_integrity_and_admission_recovery/proof/learning_record.json",
         ".github/workflows/iter203-execute.yml",
         ".github/workflows/iter204-execute.yml",
         ".github/workflows/iter205-execute.yml",
+        ".github/workflows/iter206-execute.yml",
+        ".github/workflows/iter207-execute.yml",
         "scripts/build_iter203_safety_recovery.py",
         "scripts/build_iter203_runtime_manifest.py",
         "scripts/validate_iter203_publication_safety.py",
@@ -287,30 +403,277 @@ def validate_iter205_recovery_state(contract: dict[str, Any]) -> list[str]:
         "scripts/run_iter205_workflow_context_recovery_blind_judge.py",
         "scripts/validate_iter205_publication_safety.py",
         "scripts/validate_iter205_runtime_recovery.py",
+        "scripts/validate_iter205_pre_dispatch_null.py",
+        "scripts/adjudicate_iter206_admission_history_recovery.py",
+        "scripts/build_iter206_runtime_manifest.py",
+        "scripts/capture_iter206_runtime_host.py",
+        "scripts/ci_iter206_smoke.sh",
+        "scripts/ci_iter206_execute.sh",
+        "scripts/collect_iter206_execution.py",
+        "scripts/prepare_iter206_output_directory.py",
+        "scripts/publish_iter206_runtime_diagnostic.py",
+        "scripts/run_iter206_admission_history_recovery_blind_judge.py",
+        "scripts/validate_iter206_publication_safety.py",
+        "scripts/validate_iter206_runtime_recovery.py",
+        "scripts/validate_iter206_pre_publication_null.py",
+        "scripts/audit_iter207_claim_integrity.py",
+        "scripts/build_iter207_runtime_manifest.py",
+        "scripts/capture_iter207_runtime_host.py",
+        "scripts/ci_iter207_smoke.sh",
+        "scripts/ci_iter207_execute.sh",
+        "scripts/collect_iter207_execution.py",
+        "scripts/prepare_iter207_output_directory.py",
+        "scripts/publish_iter207_runtime_diagnostic.py",
+        "scripts/adjudicate_iter207_claim_integrity_and_admission_recovery.py",
+        "scripts/run_iter207_claim_integrity_and_admission_recovery_blind_judge.py",
+        "scripts/validate_iter207_publication_safety.py",
+        "scripts/validate_iter207_runtime_recovery.py",
         "tests/test_iter204_pre_dispatch_null.py",
         "tests/test_iter205_workflow_context_recovery.py",
+        "tests/test_iter205_pre_dispatch_null.py",
+        "tests/test_iter206_admission_history_recovery.py",
+        "tests/test_iter206_pre_publication_null.py",
+        "tests/test_audit_iter207_claim_integrity.py",
+        "tests/test_iter207_claim_integrity_and_admission_recovery.py",
         "experiments/iter203_iter202_safety_recovery/proof/raw/runtime_manifest.json",
         "experiments/iter203_iter202_safety_recovery/proof/pre_execution_publication_safety.json",
     }
     sources = contract.get("source_of_truth", [])
     if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
-        failures.append("iter203/iter204/iter205 source-of-truth set is incomplete")
+        failures.append("iter203--iter207 source-of-truth set is incomplete")
     else:
         missing_required_sources = sorted(
             source for source in required_sources if not (ROOT / source).is_file()
         )
         if missing_required_sources:
             failures.append(
-                "iter203/iter204/iter205 source-of-truth files are absent: "
+                "iter203--iter207 source-of-truth files are absent: "
                 + ", ".join(missing_required_sources)
             )
     return failures
 
 
-def validate_iter204_recovery_state(contract: dict[str, Any]) -> list[str]:
-    """Compatibility alias for the current iter203--iter205 recovery validator."""
+def validate_iter208_correction_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate the sealed iter208 correction and its failed publication attempt."""
 
-    return validate_iter205_recovery_state(contract)
+    failures: list[str] = []
+    expected_gate = "experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md"
+    if not (root / expected_gate).is_file():
+        failures.append("iter208 sealed publication gate is absent")
+
+    state = contract.get("current_gate_state", {}).get("iter208_correction", {})
+    if state.get("status") != "sealed_publication_correction_remote_ci_failed":
+        failures.append("iter208 correction status differs")
+    if state.get("predecessor_seal") != "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28":
+        failures.append("iter208 predecessor seal differs")
+    if state.get("source_commit") != "184883088336cbae834e812a8d1dce0b7b031821":
+        failures.append("iter208 source commit differs")
+    if state.get("seal_commit") != "a2c2863cf993cb6dd39d2fada8d58e4796929120":
+        failures.append("iter208 seal commit differs")
+    actions = state.get("actions_before_source_seal")
+    if not isinstance(actions, dict) or not actions or any(value != 0 for value in actions.values()):
+        failures.append("iter208 pre-seal action ledger is not exact zero")
+    if "no scientific numerator or denominator" not in state.get("claim_boundary", ""):
+        failures.append("iter208 scientific claim boundary is absent")
+    if "artifact-bound receipt v2" not in state.get("correction_scope", ""):
+        failures.append("iter208 correction scope omits receipt v2")
+    attempt = state.get("remote_publication_attempt", {})
+    if not (
+        isinstance(attempt, dict)
+        and attempt.get("draft_pull_request") == 8
+        and attempt.get("push_ci_run") == 29491806574
+        and attempt.get("pull_request_ci_run") == 29491841840
+        and attempt.get("head_sha") == "a2c2863cf993cb6dd39d2fada8d58e4796929120"
+        and attempt.get("merged") is False
+        and attempt.get("failed_branch_mutated_after_observation") is False
+    ):
+        failures.append("iter208 remote publication failure record differs")
+
+    claim = contract.get("publication_claim_boundary", "")
+    for fragment in (
+        "Iter207 is the immutable local correction and admission baseline",
+        "Iter208 is the sealed post-seal forensic correction",
+        "failed two non-scientific CI validators and was not merged",
+        "Iter210 is the active additive PR-topology recovery",
+        "Iter208 through iter210 are not population estimates, model rankings, production verifiers, or state-of-the-art results",
+    ):
+        if fragment not in claim:
+            failures.append(f"claim boundary missing publication-recovery fact: {fragment}")
+
+    required_sources = {
+        "AGENTS.md",
+        "CITATION.cff",
+        "docs/FORENSIC-AUDIT-2026-07-16.md",
+        "docs/TELOS-ROADMAP-2026.md",
+        expected_gate,
+        "experiments/iter208_post_seal_forensic_correction/RESULT.md",
+        "experiments/iter208_post_seal_forensic_correction/proof/forensic_findings.json",
+        "experiments/iter208_post_seal_forensic_correction/proof/frontier_sources.json",
+        "experiments/iter208_post_seal_forensic_correction/proof/hardware_preflight.json",
+        "experiments/iter208_post_seal_forensic_correction/proof/receipt_v2.json",
+        "scripts/validate_iter208_post_seal_forensic_correction.py",
+        "scripts/validate_handoff.py",
+        "tests/test_iter208_post_seal_forensic_correction.py",
+        "tests/test_make_handoff.py",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter208 source-of-truth set is incomplete")
+    else:
+        missing = sorted(source for source in required_sources if not (root / source).is_file())
+        if missing:
+            failures.append("iter208 source-of-truth files are absent: " + ", ".join(missing))
+    return failures
+
+
+def validate_iter209_recovery_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate sealed iter209 and its PR-only publication failure."""
+
+    failures: list[str] = []
+    expected_gate = "experiments/iter209_publication_ci_recovery/HYPOTHESIS.md"
+    if not (root / expected_gate).is_file():
+        failures.append("iter209 sealed publication gate is absent")
+    state = contract.get("current_gate_state", {}).get("iter209_recovery", {})
+    if state.get("status") != "sealed_publication_ci_recovery_pr_ci_failed":
+        failures.append("iter209 recovery status differs")
+    if state.get("predecessor_seal") != "a2c2863cf993cb6dd39d2fada8d58e4796929120":
+        failures.append("iter209 predecessor seal differs")
+    if state.get("source_commit") != "1659670c6c13758cc9b1840e87633a627444ca39":
+        failures.append("iter209 source commit differs")
+    if state.get("seal_commit") != "91f9258730bf5520d86c9235d7ed2f03724ea103":
+        failures.append("iter209 seal commit differs")
+    actions = state.get("actions_before_source_seal")
+    if not isinstance(actions, dict) or not actions or any(value != 0 for value in actions.values()):
+        failures.append("iter209 pre-seal action ledger is not exact zero")
+    if "no scientific numerator, denominator, score, or result" not in state.get(
+        "claim_boundary", ""
+    ):
+        failures.append("iter209 scientific claim boundary is absent")
+    for fragment in (
+        "historical Git-blob hash validation",
+        "pull-request test-environment isolation",
+        "iter208 descendant-safe receipt validation",
+        "no scientific change",
+    ):
+        if fragment not in state.get("correction_scope", ""):
+            failures.append(f"iter209 correction scope is incomplete: {fragment}")
+    attempt = state.get("remote_publication_attempt", {})
+    if not (
+        isinstance(attempt, dict)
+        and attempt.get("draft_pull_request") == 9
+        and attempt.get("push_ci_run") == 29493772108
+        and attempt.get("push_ci_conclusion") == "success"
+        and attempt.get("pull_request_ci_run") == 29494386126
+        and attempt.get("pull_request_ci_conclusion") == "failure"
+        and attempt.get("head_sha") == "91f9258730bf5520d86c9235d7ed2f03724ea103"
+        and attempt.get("merged") is False
+        and attempt.get("failed_branch_mutated_after_observation") is False
+    ):
+        failures.append("iter209 remote publication record differs")
+    required_sources = {
+        expected_gate,
+        "experiments/iter209_publication_ci_recovery/RESULT.md",
+        "experiments/iter209_publication_ci_recovery/proof/ci_failure_diagnosis.json",
+        "experiments/iter209_publication_ci_recovery/proof/receipt_v2.json",
+        "scripts/audit_receipt_schema_prompt_alignment.py",
+        "scripts/build_iter209_receipt.py",
+        "scripts/validate_current_paper.py",
+        "scripts/validate_iter208_post_seal_forensic_correction.py",
+        "scripts/validate_iter209_publication_ci_recovery.py",
+        "tests/test_iter209_publication_ci_recovery.py",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter209 source-of-truth set is incomplete")
+    else:
+        missing = sorted(source for source in required_sources if not (root / source).is_file())
+        if missing:
+            failures.append("iter209 source-of-truth files are absent: " + ", ".join(missing))
+    return failures
+
+
+def validate_iter210_recovery_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate the active PR-topology recovery above sealed iter209."""
+
+    failures: list[str] = []
+    expected_gate = "experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md"
+    if contract.get("active_publication_gate") != expected_gate:
+        failures.append("iter210 active publication gate differs")
+    if not (root / expected_gate).is_file():
+        failures.append("iter210 active publication gate is absent")
+    state = contract.get("current_gate_state", {}).get("iter210_recovery", {})
+    if state.get("status") != "active_local_pr_synthetic_merge_recovery":
+        failures.append("iter210 recovery status differs")
+    if state.get("predecessor_seal") != "91f9258730bf5520d86c9235d7ed2f03724ea103":
+        failures.append("iter210 predecessor seal differs")
+    actions = state.get("actions_before_source_seal")
+    if not isinstance(actions, dict) or not actions or any(value != 0 for value in actions.values()):
+        failures.append("iter210 pre-seal action ledger is not exact zero")
+    if "no scientific numerator, denominator, score, or result" not in state.get(
+        "claim_boundary", ""
+    ):
+        failures.append("iter210 scientific claim boundary is absent")
+    for fragment in (
+        "exact iter209 sealed-target selection",
+        "Git-blob-bound descendant receipt checks",
+        "handoff-derived source/seal parent topology",
+        "no scientific change",
+    ):
+        if fragment not in state.get("correction_scope", ""):
+            failures.append(f"iter210 correction scope is incomplete: {fragment}")
+    claim = contract.get("publication_claim_boundary", "")
+    for fragment in (
+        "Iter209 fixed those defects and passed push CI",
+        "pull-request CI exposed one synthetic-merge branch-tip assumption",
+        "Iter210 is the active additive PR-topology recovery",
+        "Iter208 through iter210 are not population estimates, model rankings, production verifiers, or state-of-the-art results",
+    ):
+        if fragment not in claim:
+            failures.append(f"claim boundary missing iter210 fact: {fragment}")
+    required_sources = {
+        expected_gate,
+        "experiments/iter210_pr_synthetic_merge_recovery/RESULT.md",
+        "experiments/iter210_pr_synthetic_merge_recovery/proof/pr_synthetic_merge_failure.json",
+        "experiments/iter210_pr_synthetic_merge_recovery/proof/receipt_v2.json",
+        "scripts/build_iter209_receipt.py",
+        "scripts/build_iter210_receipt.py",
+        "scripts/validate_iter209_publication_ci_recovery.py",
+        "scripts/validate_iter210_pr_synthetic_merge_recovery.py",
+        "tests/test_iter209_publication_ci_recovery.py",
+        "tests/test_iter210_pr_synthetic_merge_recovery.py",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter210 source-of-truth set is incomplete")
+    else:
+        missing = sorted(source for source in required_sources if not (root / source).is_file())
+        if missing:
+            failures.append("iter210 source-of-truth files are absent: " + ", ".join(missing))
+    return failures
+
+
+def validate_iter204_recovery_state(contract: dict[str, Any]) -> list[str]:
+    """Compatibility alias for the current recovery validator."""
+
+    return validate_iter207_recovery_state(contract)
+
+
+def validate_iter205_recovery_state(contract: dict[str, Any]) -> list[str]:
+    """Compatibility alias for callers predating the iter206 gate."""
+
+    return validate_iter207_recovery_state(contract)
+
+
+def validate_iter206_recovery_state(contract: dict[str, Any]) -> list[str]:
+    """Compatibility alias for callers predating the iter207 gate."""
+
+    return validate_iter207_recovery_state(contract)
 
 
 def _decode_inline_yaml_scalar(value: str) -> str | None:
@@ -676,7 +1039,7 @@ def main() -> int:
     if contract.get("standard") != "maestro-compatible-evidence-loop-v1":
         failures.append("unexpected mission loop standard")
     semantics = contract.get("claim_boundary_semantics", {})
-    if semantics.get("current_field") != "claim_boundary" or semantics.get(
+    if semantics.get("current_field") != "publication_claim_boundary" or semantics.get(
         "historical_field"
     ) != "historical_claim_ledger":
         failures.append("current and historical claim authorities are not explicit")
@@ -685,33 +1048,24 @@ def main() -> int:
     ):
         failures.append("historical claim ledger lacks a fail-closed noncurrent notice")
     correction = contract.get("active_gate_correction", {})
-    if correction.get(
-        "supersedes_stale_iter197_iter200_iter201_iter202_sentences_in_historical_claim_ledger"
-    ) is not True:
+    if correction.get("supersedes_stale_historical_claims") is not True:
         failures.append("active-gate correction does not supersede stale historical claims")
-    if "Telos operates from its standalone repository" not in contract.get(
-        "claim_boundary", ""
+    publication_claim = contract.get("publication_claim_boundary", "")
+    if "TELOS, Sentinel, Inbar, and Odeya" not in publication_claim or (
+        "separate from Aweb" not in publication_claim
     ):
-        failures.append("claim boundary must state the standalone repository boundary")
+        failures.append("publication claim boundary must state the project boundary")
 
     active_gate = contract.get("active_gate")
     failures.extend(validate_gate_bindings(contract, continuity, handoff))
-    failures.extend(validate_iter205_recovery_state(contract))
+    failures.extend(validate_iter207_recovery_state(contract))
+    failures.extend(validate_iter208_correction_state(contract))
+    failures.extend(validate_iter209_recovery_state(contract))
+    failures.extend(validate_iter210_recovery_state(contract))
 
     phases = [phase.get("phase") for phase in contract.get("loop", [])]
     if phases != REQUIRED_PHASES:
         failures.append(f"mission loop phases mismatch: {phases}")
-
-    discovery = contract.get("aweb_discovery", {})
-    queries = discovery.get("queries", [])
-    if len(queries) < 4:
-        failures.append("Aweb discovery must record the checked catalog queries")
-    if any(query.get("capability_count") != 0 for query in queries):
-        failures.append("nonzero Aweb discovery count requires updating the activation claim")
-    if "Register or expose a concrete Aweb/Maestro capability slug" not in discovery.get(
-        "activation_gate", ""
-    ):
-        failures.append("Aweb activation gate is missing")
 
     failures.extend(validate_current_validation(contract, ci))
     current_validation = contract.get("current_validation", [])
@@ -737,9 +1091,17 @@ def main() -> int:
         "validate_iter203_publication_safety.py --check",
         "validate_iter203_infrastructure_null.py",
         "validate_iter204_pre_dispatch_null.py",
-        "build_iter205_runtime_manifest.py --check",
-        "validate_iter205_publication_safety.py --check",
-        "validate_iter205_runtime_recovery.py",
+        "validate_iter205_pre_dispatch_null.py",
+        "audit_iter207_claim_integrity.py --check",
+        "validate_iter206_pre_publication_null.py",
+        "build_iter207_runtime_manifest.py --check",
+        "validate_iter207_publication_safety.py --check",
+        "validate_iter207_runtime_recovery.py",
+        "validate_iter208_post_seal_forensic_correction.py",
+        "build_iter209_receipt.py --check",
+        "validate_iter209_publication_ci_recovery.py",
+        "build_iter210_receipt.py --check",
+        "validate_iter210_pr_synthetic_merge_recovery.py",
         "validate_deterministic_edit_slice.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",
@@ -923,7 +1285,8 @@ def main() -> int:
 
     for required in [
         "../mission/loop.json",
-        "Claim not allowed now: Telos is already executing through a private Aweb/Maestro runtime.",
+        "Repository boundary: Telos is a standalone repository",
+        "Claim not allowed now: an uncommitted private runtime is part of the standing evidence chain.",
         "Refinement is allowed only after evidence identifies a concrete gap.",
     ]:
         if required not in doc:
@@ -935,7 +1298,12 @@ def main() -> int:
             print(" -", failure)
         return 1
 
-    print(f"mission loop guard: active gate={active_gate} phases={len(REQUIRED_PHASES)}")
+    publication_gate = contract.get("active_publication_gate")
+    print(
+        "mission loop guard: "
+        f"sealed runtime gate={active_gate} active publication gate={publication_gate} "
+        f"phases={len(REQUIRED_PHASES)}"
+    )
     return 0
 
 

@@ -11,6 +11,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from decimal import Decimal
 import json
+import os
 import re
 import subprocess
 import urllib.error
@@ -18,13 +19,9 @@ import urllib.request
 
 _VERDICT_RE = re.compile(r'"verdict"\s*:\s*"(legitimate|reward_hack)"')
 
-_PROJECT = "sunlit-unison-487018-b0"
 _LOCATION = "us-central1"
 _MODEL = "gemini-2.5-flash"
-_ENDPOINT = (
-    f"https://{_LOCATION}-aiplatform.googleapis.com/v1/projects/{_PROJECT}"
-    f"/locations/{_LOCATION}/publishers/google/models/{_MODEL}:generateContent"
-)
+_VERTEX_COMPONENT_RE = re.compile(r"[A-Za-z0-9._-]+")
 # Conservative public per-1M-token rates for cost estimation only.
 _INPUT_USD_PER_1M = Decimal("0.30")
 _OUTPUT_USD_PER_1M = Decimal("2.50")
@@ -64,6 +61,26 @@ def _access_token() -> str:
         check=True,
         timeout=30,
     ).stdout.strip()
+
+
+def vertex_endpoint(
+    *,
+    project: str | None = None,
+    location: str = _LOCATION,
+    model: str = _MODEL,
+) -> str:
+    """Build the Vertex endpoint from explicit configuration, never repository identity."""
+
+    project_id = (project if project is not None else os.environ.get("TELOS_VERTEX_PROJECT", "")).strip()
+    if not project_id:
+        raise RuntimeError("TELOS_VERTEX_PROJECT is required for a Vertex judge call")
+    for name, value in (("project", project_id), ("location", location), ("model", model)):
+        if _VERTEX_COMPONENT_RE.fullmatch(value) is None:
+            raise ValueError(f"invalid Vertex {name}: {value}")
+    return (
+        f"https://{location}-aiplatform.googleapis.com/v1/projects/{project_id}"
+        f"/locations/{location}/publishers/google/models/{model}:generateContent"
+    )
 
 
 def _build_prompt(problem_statement: str, fail_to_pass: tuple[str, ...], patch: str) -> str:
@@ -118,7 +135,7 @@ def judge_candidate(
         }
     ).encode("utf-8")
     request = urllib.request.Request(
-        _ENDPOINT,
+        vertex_endpoint(),
         data=body,
         headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
         method="POST",

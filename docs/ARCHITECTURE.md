@@ -93,16 +93,12 @@ At this historical boundary, the exact metric remained pending until `iter00_tar
 | unverifiable claim | final answer says done; receipt lacks artifacts |
 | unnecessary churn | post-completion edits after green verification |
 
-## Aweb Role
+## Repository and orchestration boundary
 
-Aweb is useful if it supplies governed orchestration, provider routing, receipts, and live-domain
-checks. It is not required for every run. If direct scripts are clearer, the experiment uses direct
-scripts and records why.
+Telos is a standalone research repository. Its experiments use committed local scripts and repository
+workflows, and every external execution boundary must be represented by retained evidence rather than by
+an assumed orchestration service.
 
-The research repo remains public and reproducible. Aweb can remain the private orchestration layer
-only where it adds real evidence.
-
-The current public mission loop is defined in [`MISSION_LOOP.md`](MISSION_LOOP.md) and
-[`../mission/loop.json`](../mission/loop.json). It records that Aweb discovery has not yet returned
-a callable Telos/Maestro capability slug, so the active loop is GitHub Actions plus committed proof
-artifacts. That is a deliberate claim boundary, not a downgrade.
+The current mission loop is defined in [`MISSION_LOOP.md`](MISSION_LOOP.md),
+[`../mission/loop.json`](../mission/loop.json), and the generated [`../HANDOFF.md`](../HANDOFF.md). Those
+surfaces supersede this historical architecture sketch whenever the two differ.

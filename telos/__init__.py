@@ -6,7 +6,19 @@ from telos.agent_behavior_slice import (
     load_agent_behavior_slice,
     validate_agent_behavior_slice,
 )
-from telos.proof import ProofReceipt, ProofValidationError, load_receipt, validate_receipt
+from telos.proof import (
+    ProofReceipt,
+    ProofReceiptV2,
+    ProofValidationError,
+    build_artifact_binding,
+    evidence_closure_digest,
+    load_receipt,
+    load_receipt_v2,
+    receipt_v2_digest,
+    validate_receipt,
+    validate_receipt_v2,
+    verify_receipt_v2_artifacts,
+)
 from telos.public_slice import (
     PublicSlice,
     PublicSliceValidationError,
@@ -30,6 +42,7 @@ __all__ = [
     "LearningRecord",
     "LedgerValidationError",
     "ProofReceipt",
+    "ProofReceiptV2",
     "ProofValidationError",
     "PublicSlice",
     "PublicSliceValidationError",
@@ -38,6 +51,7 @@ __all__ = [
     "load_agent_behavior_slice",
     "load_public_slice",
     "load_receipt",
+    "load_receipt_v2",
     "load_survey",
     "discover_learning_record_paths",
     "latest_next_action",
@@ -45,6 +59,11 @@ __all__ = [
     "rank_candidates",
     "validate_agent_behavior_slice",
     "validate_receipt",
+    "validate_receipt_v2",
+    "verify_receipt_v2_artifacts",
+    "build_artifact_binding",
+    "evidence_closure_digest",
+    "receipt_v2_digest",
     "validate_public_slice",
     "validate_survey",
 ]

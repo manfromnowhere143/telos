@@ -1,0 +1,57 @@
+{
+  "evidence_class": "local_pre_publication_git_seal_plus_read_only_committed_evidence_audit",
+  "experiment_id": "iter206_iter205_admission_history_recovery",
+  "frozen_local_source": {
+    "branch": "agent/iter206-iter205-admission-recovery",
+    "hypothesis_sha256": "3e1185f5a79bf0cbd85ee046065ff9caf17fe7c1ccaa2c519be053510b1c4f26",
+    "learning_record_sha256": "21469ccfab77fec563c234027ce671021e58245481bc78b1d4222cad4370ed6e",
+    "pre_execution_publication_safety_sha256": "a6dbc9f8372311e8fc9594fde4b12f090940b105419b6733d8a665ed7291d8d9",
+    "runtime_manifest_sha256": "749bad5d40f7117ddcfffce314c1d9fd390ec8663ec2226d8cbd158dc41a942b",
+    "seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+    "source_commit": "e7c2ec28daa746dbcfb5812d3771ab981ff984c0",
+    "workflow_sha256": "2a81a356709db97884b535f82367794541b4bd4d8d77ec4c83760d3deea3f215"
+  },
+  "integrity_findings": [
+    {
+      "correction": "retain the exact 40/40 construct correction but withdraw baseline novelty and mark iter192 protocol FAIL",
+      "finding": "iter192 lexical prior-baseline scan missed iter151's semantic full-suite comparator",
+      "source_experiment": "iter192_reward_hack_benchmark_construct_validity_audit"
+    },
+    {
+      "correction": "retain ten exploratory gold-assisted reference differentials but mark iter195 protocol FAIL",
+      "finding": "iter195 used gold and variant hunks, one scenario per candidate, and no retained prompt leakage evidence instead of its registered synthesis protocol",
+      "source_experiment": "iter195_synthesized_input_differential_oracle"
+    }
+  ],
+  "next_gate": {
+    "path": "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
+    "status": "separately_versioned_claim_integrity_and_admission_recovery"
+  },
+  "provider_accounting": {
+    "judge_calls": 0,
+    "scenario_calls": 0,
+    "solver_calls": 0
+  },
+  "publication": {
+    "dispatch_request_count": 0,
+    "merge_count": 0,
+    "pull_request_count": 0,
+    "remote_branch_push_count": 0,
+    "workflow_run_count": 0
+  },
+  "schema_version": "telos.iter206.pre_publication_claim_integrity_null.v1",
+  "scientific_evidence": {
+    "adjudication_executions": 0,
+    "certification_executions": 0,
+    "container_create_or_run_invocations": 0,
+    "judge_executions": 0,
+    "k": null,
+    "n": null,
+    "patch_applications": 0,
+    "scenario_executions": 0,
+    "scientific_artifacts": 0,
+    "u": null
+  },
+  "status": "pre_publication_claim_integrity_null_superseded_unpublished",
+  "timing": "post_local_iter206_seal_and_pre_remote_publication_pre_dispatch_pre_scientific_execution"
+}

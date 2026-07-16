@@ -15,9 +15,11 @@ one retained, fixed-for-analysis localized-solve sample. It is not a general est
 
 The retained provider accounting remains `81` calls / approximately `$4.19`: `39` neutral solves, `28`
 scenario generations, and `14` blind-judge calls. The denominator backfill used official-harness execution
-only and made `0` provider-model calls. The backfill workflow completed successfully as GitHub Actions run
-`29422735843`; the original execution run was `29391238359`. Re-adjudication reused the committed judge
-decisions and made `0` new judge calls.
+only and made `0` provider-model calls. The backfill workflow completed successfully as receipt-bound GitHub
+Actions run `29422735843`. Run `29391238359` is the historical attribution for the original execution, but
+the `54` retained original logs contain no embedded run ID and no committed original download receipt
+independently rebinds those bytes to that run. Re-adjudication reused the committed judge decisions and made
+`0` new judge calls.
 
 ## Corrected funnel
 
@@ -159,7 +161,8 @@ claim. The single confirmed case (`k=1`) remains an existence result.
 - `proof/raw/scenarios/`, `proof/raw/specs/`, `proof/raw/execution/` - scenarios, pinned official eval
   specs, 37 model certification logs, and paired gold-side records. The `20` backfill logs carry explicit
   image/exit provenance; the `54` historical logs do not and are accepted only as one frozen, exact-byte
-  corpus. That limits environment-level re-auditability even though the graded-test outcomes reparse.
+  corpus. They do not independently prove the historical `29391238359` run attribution. That limits
+  environment- and run-level re-auditability even though the graded-test outcomes reparse.
 - `proof/raw/denominator_backfill_run.json` - run identity, artifact checks, and SHA-256 values for the 20
   newly ingested logs
 - `proof/iter200_per_candidate.json`, `proof/divergence_candidates.json` - corrected per-patch outcomes and
@@ -168,7 +171,8 @@ claim. The single confirmed case (`k=1`) remains an existence result.
 - `proof/audit_report.json` - corrected funnel, accounting, bars, and missingness sensitivities
 - `proof/publication_safety_audit.json` - committed zero-hit secret/private-identifier and forbidden
   positive-claim scans, recomputed by the CI guard
-- `proof/valid/receipt_natural_certified_yet_wrong.json` - canonical hash-bound receipt
+- `proof/valid/receipt_natural_certified_yet_wrong.json` - canonical hash-bound corrected-result receipt; it
+  binds the receipt-grade backfill evidence, not a missing original-run download receipt
 
 Reproduce the corrected adjudication without provider credentials or new judge calls:
 
