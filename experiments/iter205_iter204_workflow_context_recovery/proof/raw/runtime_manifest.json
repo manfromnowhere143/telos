@@ -1,10 +1,10 @@
 {
   "closure": {
     "algorithm": "SHA-256(path NUL role NUL file_sha256 NUL byte_count LF), path-sorted",
-    "sha256": "826ff4d6c16458d030d6ef1bab1c790984f959ac76e077a79330e08a6798c192"
+    "sha256": "8755fd185f27ef1f45f0450609dfb0d3424a1ba824723458fbcd3f9eb8074986"
   },
   "experiment_id": "iter205_iter204_workflow_context_recovery",
-  "file_count": 168,
+  "file_count": 180,
   "files": [
     {
       "bytes": 40670,
@@ -835,6 +835,12 @@
       "sha256": "96f5a70de0e8212207e5ed86bf9efa73794aaa1e204b177370fec3e9db3dfd0c"
     },
     {
+      "bytes": 1704,
+      "path": "experiments/iter204_iter203_infrastructure_recovery/proof/learning_record.pre_dispatch_null.json",
+      "role": "completed_iter204_pre_dispatch_null_learning_record",
+      "sha256": "187d3f68fa07dc571c8cd3aafa50ae70382e70d48a5d9f89df925bbe190814dd"
+    },
+    {
       "bytes": 3414,
       "path": "experiments/iter204_iter203_infrastructure_recovery/proof/pre_dispatch_infrastructure_null.json",
       "role": "exact_iter204_pre_dispatch_infrastructure_null",
@@ -892,7 +898,13 @@
       "bytes": 1272,
       "path": "experiments/iter205_iter204_workflow_context_recovery/proof/pre_execution_publication_safety.json",
       "role": "current_pre_execution_publication_safety_receipt",
-      "sha256": "b333bad505fc9ab3d5cc5551107a8131c6b3681b5051d9ad7c60905326b9f946"
+      "sha256": "1ba7adbea2fb6cf12488e8cf9a3438daadd22809d3d9944ae331bc031587d7da"
+    },
+    {
+      "bytes": 55427,
+      "path": "mission/loop.json",
+      "role": "active_learning_gate_binding",
+      "sha256": "8425121f9c6368a4e34902d2216c200360426c743c9622337db5798c757b4f9f"
     },
     {
       "bytes": 5391,
@@ -907,10 +919,10 @@
       "sha256": "1ff846a2b67d1969a391709851b1d7568572567fdf7993ce64cdb92e4e874142"
     },
     {
-      "bytes": 19132,
+      "bytes": 23447,
       "path": "scripts/build_iter205_runtime_manifest.py",
       "role": "iter205_runtime_manifest_builder",
-      "sha256": "561d1747d474ce45af5bacb907ab23c8a2bbbe122d6cae7401c4d47c5e7e87e2"
+      "sha256": "ed060239b2d7f1c31ea0479309ade7dbd96999769713e8e72996ebe57ba75b25"
     },
     {
       "bytes": 7952,
@@ -961,10 +973,10 @@
       "sha256": "07010a8d5f28ade09b73df1c9a066f1ea5f9cd812ca1e26d12268d30989d97fc"
     },
     {
-      "bytes": 16477,
+      "bytes": 19933,
       "path": "scripts/validate_iter204_pre_dispatch_null.py",
       "role": "exact_iter204_admission_null_guard",
-      "sha256": "47e65f9e0ac1f804a52dbdf1cf953523328a2d785a0bd9ec27ea555dc52282cf"
+      "sha256": "45b486ffb56d40b168fa7cd874e9e0e568bb9f0ed3bcb881a130db915b47aa6a"
     },
     {
       "bytes": 12641,
@@ -979,10 +991,40 @@
       "sha256": "f369deb69f49882c6763090fc6ec275507a202847be06992d6c9745e11481c45"
     },
     {
+      "bytes": 1398,
+      "path": "scripts/validate_learning_ledger.py",
+      "role": "completed_learning_next_action_guard",
+      "sha256": "eee567c74bdf6a93f8efb38ce53325503a70fbd03bf34ad5fc37bcf79b6d8153"
+    },
+    {
+      "bytes": 46560,
+      "path": "scripts/validate_mission_loop.py",
+      "role": "mission_source_of_truth_guard",
+      "sha256": "873acb5c10b7438e8b2a642bfcad6f4c9bce4a662b00980ae680dbfe1435ba3c"
+    },
+    {
       "bytes": 17055,
       "path": "scripts/validate_supply_chain.py",
       "role": "primary_ci_workflow_supply_chain_guard",
       "sha256": "d8c96bc04aa0c51b387bcbaaeebf053e60c1ca5f9dd0feb1a94f76c05b9cb5b3"
+    },
+    {
+      "bytes": 1393,
+      "path": "telos/__init__.py",
+      "role": "learning_guard_package_import_closure",
+      "sha256": "0cf3ea9ca4c73322d0a6368d45f093ea6873df1db1d9cd378e952bbc31dc8825"
+    },
+    {
+      "bytes": 6814,
+      "path": "telos/agent_behavior_slice.py",
+      "role": "learning_guard_package_import_closure",
+      "sha256": "4f585ce6e43c080fbb71583c117719e6655631b666e30825728307f787a52171"
+    },
+    {
+      "bytes": 5250,
+      "path": "telos/ledger.py",
+      "role": "learning_record_discovery_and_selection",
+      "sha256": "6160d52bfd843e8a207d825958a878fd258edd2039b5821d3d43ecdae1e0938c"
     },
     {
       "bytes": 4146,
@@ -991,22 +1033,52 @@
       "sha256": "52c6b20cc3c8327ecb782d64e57c3a41edb4618373278486879c97c0082c526e"
     },
     {
+      "bytes": 7291,
+      "path": "telos/public_slice.py",
+      "role": "learning_guard_package_import_closure",
+      "sha256": "8938155629b47d16051dff7ca70850e6945bab2626509118e05324c98061a29b"
+    },
+    {
+      "bytes": 1945,
+      "path": "telos/scorecard.py",
+      "role": "learning_guard_package_import_closure",
+      "sha256": "f4ea909aac3f9f20b37389792537e42980964a8f54e628b6250b3c8ff839db7b"
+    },
+    {
+      "bytes": 4742,
+      "path": "telos/survey.py",
+      "role": "learning_guard_package_import_closure",
+      "sha256": "b564642c9680cb89e62c4eebf0729d6230ca163665762c999f11a8b4e2373698"
+    },
+    {
       "bytes": 21750,
       "path": "tests/test_iter204_infrastructure_recovery.py",
       "role": "frozen_iter204_snapshot_supersession_regression",
       "sha256": "f1b7d1e4cb4aab5b747c01943b178878d1ffa7bd8d0c79a190dab37a91b53cdf"
     },
     {
-      "bytes": 3452,
+      "bytes": 4572,
       "path": "tests/test_iter204_pre_dispatch_null.py",
       "role": "iter204_admission_null_regression_suite",
-      "sha256": "09bc7ad090f1e58d4e530afd2e93dc8e8441a873e1e1a58258243674975a6b51"
+      "sha256": "217dcfe91ddd65b0b1bd375d9be57c5f222354fd1f249611f08aa4f7f64c2322"
     },
     {
-      "bytes": 26442,
+      "bytes": 27193,
       "path": "tests/test_iter205_workflow_context_recovery.py",
       "role": "runtime_recovery_regression_suite",
-      "sha256": "a9c9d90c94891c686a4f53076c2c2e5b02caab3aec84048e9f9405a69ec086b2"
+      "sha256": "44e4be4036a738989e37e1b019c7af5bbbd87b3a6b5255ca7ff1542f2572e7ae"
+    },
+    {
+      "bytes": 6164,
+      "path": "tests/test_ledger.py",
+      "role": "learning_ledger_regression_suite",
+      "sha256": "e0cb0b3ba9c2a494b2735abc36d81233948c4e88ba15a5f3987f32a575da7c88"
+    },
+    {
+      "bytes": 9097,
+      "path": "tests/test_mission_loop_guard.py",
+      "role": "mission_source_of_truth_regression_suite",
+      "sha256": "238c5b4a90fe476fab5fd1bb50afe7fab9833419bfe5514e66f3ba9f51c03b53"
     },
     {
       "bytes": 11152,

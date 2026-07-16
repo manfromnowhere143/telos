@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-16T02:44:53Z by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
+Generated: 2026-07-16T03:14:00Z by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
 runtime-bound `CONTINUITY.md` upstream record.
 
 TELOS is a standalone repository. Resolve its root with `git rev-parse --show-toplevel`, then run every TELOS command from that root.
@@ -9,7 +9,7 @@ TELOS is a standalone repository. Resolve its root with `git rev-parse --show-to
 
 ```text
 source_branch: agent/iter205-workflow-context-recovery
-source_commit: 8686a3326b4048dc60e517a9d7b3a0fdfc3eb8be
+source_commit: f0b4e441767a4ade487a2b3123c5dbedbf51fd1c
 publication_target: master
 ```
 
@@ -222,7 +222,6 @@ clean
 - experiments/iter92_empirical_validation_fixture_materialization_for_completion_verification: RESULT PUBLISHED
 - experiments/iter93_deterministic_strategy_execution_on_materialized_fixtures: RESULT PUBLISHED
 - experiments/iter94_provider_llm_judge_execution_on_materialized_fixtures: RESULT PUBLISHED
-- experiments/iter95_five_strategy_completion_verification_adjudication_after_llm_judge: artifacts only
 - experiments/iter95_provider_llm_judge_prompt_budget_recovery_after_block: RESULT PUBLISHED
 - experiments/iter96_provider_llm_judge_bounded_retry_after_prompt_budget_recovery: RESULT PUBLISHED
 - experiments/iter97_five_strategy_completion_verification_adjudication_after_llm_judge: RESULT PUBLISHED
