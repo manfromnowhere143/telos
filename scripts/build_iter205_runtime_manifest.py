@@ -135,6 +135,7 @@ NEW_RUNTIME_FILES = {
     "scripts/validate_iter205_publication_safety.py": "current_publication_safety_guard",
     "scripts/validate_iter205_runtime_recovery.py": "runtime_recovery_contract_guard",
     "scripts/validate_learning_ledger.py": "completed_learning_next_action_guard",
+    "scripts/validate_mission_loop.py": "mission_source_of_truth_guard",
     "scripts/validate_supply_chain.py": "primary_ci_workflow_supply_chain_guard",
     "telos/__init__.py": "learning_guard_package_import_closure",
     "telos/ledger.py": "learning_record_discovery_and_selection",
@@ -145,6 +146,7 @@ NEW_RUNTIME_FILES = {
     ),
     "tests/test_iter204_pre_dispatch_null.py": "iter204_admission_null_regression_suite",
     "tests/test_ledger.py": "learning_ledger_regression_suite",
+    "tests/test_mission_loop_guard.py": "mission_source_of_truth_regression_suite",
     "tests/test_supply_chain_guard.py": "workflow_permission_regression_suite",
 }
 

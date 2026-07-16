@@ -73,6 +73,7 @@ def test_iter205_source_of_truth_requires_the_full_recovery_chain() -> None:
         "experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json",
         "experiments/iter204_iter203_infrastructure_recovery/proof/pre_execution_publication_safety.json",
         "experiments/iter204_iter203_infrastructure_recovery/RESULT.md",
+        "experiments/iter204_iter203_infrastructure_recovery/proof/learning_record.pre_dispatch_null.json",
         "experiments/iter204_iter203_infrastructure_recovery/proof/pre_dispatch_infrastructure_null.json",
         "experiments/iter204_iter203_infrastructure_recovery/proof/raw/public_dispatch_metadata/manifest.json",
         ".github/workflows/iter205-execute.yml",

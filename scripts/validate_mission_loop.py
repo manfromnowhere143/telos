@@ -247,6 +247,7 @@ def validate_iter205_recovery_state(contract: dict[str, Any]) -> list[str]:
         "experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md",
         "experiments/iter204_iter203_infrastructure_recovery/RESULT.md",
         "experiments/iter204_iter203_infrastructure_recovery/proof/learning_record.json",
+        "experiments/iter204_iter203_infrastructure_recovery/proof/learning_record.pre_dispatch_null.json",
         "experiments/iter204_iter203_infrastructure_recovery/proof/pre_dispatch_infrastructure_null.json",
         "experiments/iter204_iter203_infrastructure_recovery/proof/raw/public_dispatch_metadata/manifest.json",
         "experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json",
