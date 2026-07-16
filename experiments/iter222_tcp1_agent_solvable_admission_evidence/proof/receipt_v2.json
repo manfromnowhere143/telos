@@ -1,0 +1,182 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter222-tcp1-agent-solvable-admission-evidence-v2",
+  "task_id": "iter222_tcp1_agent_solvable_admission_evidence",
+  "agent_id": "claude-local-publication-auditor",
+  "benchmark_id": "telos-iter222-tcp1-admission-evidence",
+  "status": "pass",
+  "stated_goal": "Fill the three agent-solvable TCP-1 admission gates with independently verifiable evidence at zero spend: a live-digest model binding, a real RFC 3161 transparency timestamp, and a hostile isolation rehearsal with positive controls, moving admission from 2/11 to 5/11 without authorizing execution.",
+  "acceptance_criteria": [
+    "At least three source-linked model candidates with a default bound to live license, cutoff, commit, and weight+tokenizer digests.",
+    "A real RFC 3161 timestamp token that verifies against its authority chain and re-verifies offline.",
+    "Five registered attacks denied by the real contract and not-denied under each weakened contract.",
+    "An admission view of exactly 5 pass, 6 blocked, with execution unauthorized.",
+    "No model or provider inference, no weight download, no accelerator, no container, and no scientific action occurs."
+  ],
+  "evidence": [
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/HYPOTHESIS.md",
+        "bytes": 7861,
+        "sha256": "347818ed2fbc02f2fad1f5261edfde4c8cafe2b2e6d71874c22531cde4420d14",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/RESULT.md",
+        "bytes": 5998,
+        "sha256": "50a58b98e7ab637701f776ba9eb4afa59fa056dbc70c02a6e57d5b7b67e03954",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/proof/admission_view.json",
+        "bytes": 1920,
+        "sha256": "a925774d12d4817be9c07cdf668f1df65d566f74d2ce2454f4acf98dbd281129",
+        "media_type": "application/json",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/proof/isolation_rehearsal.json",
+        "bytes": 2325,
+        "sha256": "7355a17a6765557ba97b527e2d6a1d488912877d664cc0c8e2e6049fe441ee3c",
+        "media_type": "application/json",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/proof/model_binding.json",
+        "bytes": 2769,
+        "sha256": "2f05a25d2973f09dbecaf0a8e2c221c1eb9e3b4b003bc621ea403239d08156fb",
+        "media_type": "application/json",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/proof/timestamp_commitment.json",
+        "bytes": 345,
+        "sha256": "efc75446496630129855a4c8ffb7f51d17740e9d6ed6610722440b20aede8170",
+        "media_type": "application/json",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/proof/transparency_timestamp.json",
+        "bytes": 1839,
+        "sha256": "b49aa3178a7f0354cdf9432482bf01e860e8b9070cbef1bc3b1d2116a4093ff6",
+        "media_type": "application/json",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter222_admission_view.py",
+        "bytes": 4496,
+        "sha256": "de604df9548b81f61134c9a32259e5f720caf5d92bf475693603987be9892e44",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter222_model_binding.py",
+        "bytes": 7665,
+        "sha256": "5948cadbad38ed64b228e7c083f59f0bbbd0e7d10774b61a7ee208ba43c05e6e",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter222_receipt.py",
+        "bytes": 6712,
+        "sha256": "5e4db8ef3a9b5ba0fb710e8a1448dea42ab41b4c163655191fdd125927aabce1",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter222_transparency_timestamp.py",
+        "bytes": 7332,
+        "sha256": "fc8dd8d17df4268a78d1fdcd8afb6ae7b7a96ad04072d40b49a7af99afb9fd64",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/run_iter222_isolation_rehearsal.py",
+        "bytes": 7703,
+        "sha256": "6d5b28d810809b41e1f12b8e6f0b8daaeabb3e69f728fe41af7701ae650ddc0b",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter222_tcp1_agent_solvable_admission_evidence.py",
+        "bytes": 6060,
+        "sha256": "7f3ec53b05ee725e44904c7a246a59c1677126d1364533e19bb1e31ad2af267b",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter222_admission_evidence.py",
+        "bytes": 5289,
+        "sha256": "7395180b5b9db1d9323def9cd56c23b7fb86ff0332fe8b7d2e1a73079d8a6621",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter222-tcp1-agent-solvable-admission-evidence"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any model digest, license, or cutoff is invented or does not match the live public record.",
+    "A timestamp token is fabricated or a Git commit is described as the external timestamp.",
+    "The isolation rehearsal passes the real contract without catching the attack under a weakened contract.",
+    "Any admission gate beyond the three named is described as filled, or execution becomes authorized.",
+    "A published digest is described as proving the model runs, or a denied rehearsal as proving runtime isolation.",
+    "Any scientific, provider, accelerator, container, dispatch, payment, or release action occurs."
+  ],
+  "evidence_closure_sha256": "691149c64c3af64dac87fca886822e424c974d64d177d711dcd87c366ccf3060",
+  "receipt_sha256": "d01007850d85394c91e3bdb3fefb144303e864e5d3f8fd36f1cb239c7cf0dd71"
+}
