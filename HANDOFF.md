@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-16T01:37:56Z by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
+Generated: 2026-07-16T01:42:55Z by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
 runtime-bound `CONTINUITY.md` upstream record.
 
 TELOS is a standalone repository. Resolve its root with `git rev-parse --show-toplevel`, then run every TELOS command from that root.
@@ -9,57 +9,14 @@ TELOS is a standalone repository. Resolve its root with `git rev-parse --show-to
 
 ```text
 source_branch: agent/iter204-infrastructure-recovery
-source_commit: 5c409f79c9333206cff9ed80d59c08aa347110f6
+source_commit: 81e0beced86bbeee58141c1e058e26b3e2f8f84d
 publication_target: master
 ```
 
 Working tree:
 
 ```text
- M .github/workflows/ci.yml
- M README.md
- M docs/COMPLETION_VERIFICATION_REPORT.md
- M docs/LEARNING_ENGINE.md
- M docs/LITERATURE_ALIGNMENT_2026.md
- M docs/MISSION_LOOP.md
- M docs/NEXT_PHASE.md
- M docs/REPORT.md
- M experiments/iter203_iter202_safety_recovery/proof/learning_record.json
- M mission/loop.json
- M paper/README.md
- M paper/telos.pdf
- M paper/telos.tex
- M results/README.md
- M scripts/make_handoff.py
- M scripts/validate_current_paper.py
- M scripts/validate_detector_methodology_correction.py
- M scripts/validate_handoff.py
- M scripts/validate_iter203_publication_safety.py
- M scripts/validate_mission_loop.py
- M scripts/validate_supply_chain.py
- M tests/test_detector_methodology_correction.py
- M tests/test_make_handoff.py
- M tests/test_mission_loop_guard.py
- M tests/test_supply_chain_guard.py
-?? .github/workflows/iter204-execute.yml
-?? experiments/iter203_iter202_safety_recovery/RESULT.md
-?? experiments/iter203_iter202_safety_recovery/proof/infrastructure_null.json
-?? experiments/iter203_iter202_safety_recovery/proof/raw/public_workflow_logs/
-?? experiments/iter203_iter202_safety_recovery/proof/raw/public_workflow_metadata/
-?? experiments/iter204_iter203_infrastructure_recovery/
-?? scripts/adjudicate_iter204_infrastructure_recovery.py
-?? scripts/build_iter204_runtime_manifest.py
-?? scripts/capture_iter204_runtime_host.py
-?? scripts/ci_iter204_execute.sh
-?? scripts/ci_iter204_smoke.sh
-?? scripts/collect_iter204_execution.py
-?? scripts/prepare_iter204_output_directory.py
-?? scripts/publish_iter204_runtime_diagnostic.py
-?? scripts/run_iter204_infrastructure_recovery_blind_judge.py
-?? scripts/validate_iter203_infrastructure_null.py
-?? scripts/validate_iter204_publication_safety.py
-?? scripts/validate_iter204_runtime_recovery.py
-?? tests/test_iter204_infrastructure_recovery.py
+clean
 ```
 
 ## Experiments
