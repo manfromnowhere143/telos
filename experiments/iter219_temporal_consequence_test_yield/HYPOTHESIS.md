@@ -89,11 +89,40 @@ statistics.
 - every excluded instance and every symbol-extraction failure reported as explicit missingness. Absence is
   never scored as a zero and never as a one.
 
+## Pre-data amendment v2
+
+Recorded before any instance was scored and before any overlap or control count existed. The measurement run
+was halted during repository cloning; `proof/yield_report.json` did not exist. The sealed v1 rules above are
+preserved verbatim in Git at `79311824e2732d09e69742ea7b566fc91e0e04ab`. The machine-readable record is
+`proof/analysis_amendment.json`. Both corrections make this gate strictly harder to pass.
+
+**A1 — the forward window swallowed the task's own fix (fatal confound).** SWE-bench `base_commit` is the
+parent of the pull request that fixes the task. Every forward window starting at `base_commit` therefore
+contains that pull request, whose `test_patch` adds tests referencing the touched symbols *by construction*.
+Under v1 the primary yield would have approached `1.0` and the cross-repository control `0.0` whether or not
+the hypothesis is true. **Correction:** a test function is excluded from qualification when its file path and
+function name match a test function added by the instance's own `test_patch`. Those tests are the visible
+grader, not a hidden consequence test.
+
+**A2 — the cross-repository control cannot fail for the right reason.** Pairing Django symbols against SymPy
+tests is near-zero for trivial vocabulary reasons, not because later tests fail to target task code. That
+control conflates "these symbols are repository-specific" with "these tests target this task".
+**Correction:** add a second control on the same instance, same repository, and same window length, looking
+**backward** from `base_commit`. Tests written before the fix cannot be consequence tests for it, so the
+forward-minus-backward difference isolates the temporal effect from repository vocabulary. Both controls are
+reported; neither replaces the other.
+
+`Y_backward(Δ)` uses the identical code path with the window reversed: commits in
+`[date(base_commit) − Δ, date(base_commit))`, added tests being those present at `base_commit` and absent at
+the backward boundary. `A1`'s exclusion does not apply backward, because the fixing pull request does not yet
+exist there.
+
 ## Acceptance bars
 
 1. `Y(365) ≥ 0.20` and its Wilson lower bound `≥ 0.10`.
-2. One-sided exact conditional McNemar for `Y(365) > Y_control(365)` returns `p < 0.01`, and
-   `Y(365) − Y_control(365) ≥ 0.10`.
+2. The primary exceeds **both** controls (amendment `A3`; v1 required only the first):
+   one-sided exact conditional McNemar returns `p < 0.01` and the yield difference is `≥ 0.10` for
+   `Y(365) > Y_control(365)` **and** for `Y(365) > Y_backward(365)`.
 3. No single repository contributes more than `50%` of all qualifying instances at `Δ = 365`.
 4. Symbol extraction succeeds on `≥ 90%` of included instances.
 5. Every excluded instance is reported with an exact machine-readable reason.
@@ -110,8 +139,9 @@ sample, adjust `Δ`, relax a threshold, or change the qualification rule.
 - Any outcome, overlap count, or control count is observed before this hypothesis is sealed.
 - The sample rule, qualification rule, window set, derangement seed, or any bar changes after observation
   without a separately versioned pre-data amendment.
-- The permutation control's interval overlaps the primary's at `Δ = 365`: the measured yield is then
-  name-collision noise, and the screen is a null regardless of `Y(365)`'s magnitude.
+- Either control's interval overlaps the primary's at `Δ = 365`: the measured yield is then name-collision
+  noise or repository vocabulary, and the screen is a null regardless of `Y(365)`'s magnitude.
+- A test function added by the instance's own `test_patch` is counted as a hidden consequence test.
 - A single repository drives the result past bar `3`: the yield is a repository-specific artifact, not a
   general property, and must be reported as such.
 - Static token overlap is described as proving that a test executes the changed code.

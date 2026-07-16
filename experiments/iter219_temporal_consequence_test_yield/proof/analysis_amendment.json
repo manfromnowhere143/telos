@@ -1,0 +1,60 @@
+{
+ "schema_version": "telos.iter219.analysis_amendment.v1",
+ "amendment_version": 2,
+ "gate": "experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md",
+ "sealed_hypothesis_commit": "79311824e2732d09e69742ea7b566fc91e0e04ab",
+ "recorded_before_any_observation": true,
+ "observation_state_at_amendment": {
+  "yield_report_exists": false,
+  "instances_measured": 0,
+  "overlap_counts_observed": 0,
+  "control_counts_observed": 0,
+  "repositories_cloned_at_amendment": ["pallets/flask", "psf/requests"],
+  "note": "The measurement run was halted during repository cloning. No instance was scored, and no overlap or control count existed when this amendment was recorded."
+ },
+ "amendments": [
+  {
+   "id": "A1",
+   "severity": "fatal_confound",
+   "title": "Exclude the task's own fixing-PR tests from qualification",
+   "defect": "SWE-bench `base_commit` is the parent of the pull request that fixes the task. Any forward window starting at `base_commit` therefore necessarily contains that pull request, whose `test_patch` adds tests referencing the touched symbols by construction. The sealed v1 qualification rule would have counted those tests, making the primary yield a tautology near 1.0 and the cross-repository control near 0.0.",
+   "why_it_matters": "The measured effect would have been an artifact of dataset construction, not evidence of maintainer consequence-test behavior. It would also have been indistinguishable from a real result by inspection of the headline numbers alone.",
+   "correction": "A test function is excluded from qualification when its file path and function name match a test function added by the instance's own `test_patch`. Those tests are the visible grader, not a hidden consequence test.",
+   "direction": "strictly reduces measured yield",
+   "changes_thresholds": false
+  },
+  {
+   "id": "A2",
+   "severity": "control_strengthening",
+   "title": "Add a within-repository backward-window control",
+   "defect": "The sealed v1 control pairs an instance's symbols against a different repository's later tests. That control conflates two effects: whether the symbols are repository-specific vocabulary, and whether later tests actually target the task's code. Django symbols rarely appear in sympy tests for trivial reasons, so the v1 control is expected to be near zero regardless of whether the hypothesis is true.",
+   "why_it_matters": "A control that cannot fail for the right reason inflates the apparent effect. The v1 control alone would have overstated the result.",
+   "correction": "Add a second control on the same instance, same repository, and same window length, looking backward from `base_commit` instead of forward. It measures the rate at which the task's symbols appear in tests added before the task existed. Tests written before the fix cannot be consequence tests for it, so the forward-minus-backward difference isolates the temporal effect from repository vocabulary. Both controls are reported; neither replaces the other.",
+   "direction": "adds a strictly harder comparison",
+   "changes_thresholds": false
+  },
+  {
+   "id": "A3",
+   "severity": "bar_strengthening",
+   "title": "Require the primary to beat both controls",
+   "defect": "The sealed v1 bar 2 required the primary to exceed only the cross-repository control.",
+   "correction": "The screen passes only if the primary exceeds BOTH the cross-repository control and the backward within-repository control, each at one-sided exact conditional McNemar `p < 0.01` with a yield difference of at least `0.10`. Sealed bars 1, 3, 4, 5, 6, and 7 are unchanged.",
+   "direction": "strictly stricter than the sealed bar",
+   "changes_thresholds": false
+  }
+ ],
+ "unchanged": [
+  "sample rule: every SWE-bench Verified instance, no subsampling, no discretionary exclusion",
+  "inclusion criteria",
+  "touched-symbol definition",
+  "window set: 90, 180, 365, 730 days",
+  "primary window: 365 days",
+  "permutation salt and derangement construction",
+  "numeric bars 1, 3, 4, 5, 6, 7",
+  "claim boundary",
+  "execution envelope"
+ ],
+ "provider_calls": 0,
+ "gpu_allocations": 0,
+ "scientific_result_claimed": false
+}
