@@ -43,6 +43,7 @@ ITER200 = ROOT / "experiments/iter200_natural_certified_yet_wrong_rate"
 ITER201 = ROOT / "experiments/iter201_detectors_on_full_benchmark"
 ITER202 = ROOT / "experiments/iter202_natural_rate_scaled"
 ITER206_SEAL_COMMIT = "a2a05ef2ed05a0c457076f2bd5f1475507190685"
+ITER207_SEAL_COMMIT = "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28"
 HISTORICAL_RELABEL_PATHS = (
     ITER192 / "RESULT.md",
     ITER192 / "proof/learning_record.json",
@@ -164,9 +165,15 @@ def _git_evidence(commit: str, paths: list[Path] | tuple[Path, ...]) -> list[dic
 
 
 def _experiment_delta_statuses() -> dict[str, str]:
-    """Return every experiment-path delta from the iter206 seal, including untracked paths."""
+    """Return the exact sealed iter206-to-iter207 experiment delta."""
 
     try:
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", ITER207_SEAL_COMMIT, "HEAD"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        )
         process = subprocess.run(
             [
                 "git",
@@ -174,6 +181,7 @@ def _experiment_delta_statuses() -> dict[str, str]:
                 "--name-status",
                 "--no-renames",
                 ITER206_SEAL_COMMIT,
+                ITER207_SEAL_COMMIT,
                 "--",
                 "experiments",
             ],
@@ -182,15 +190,10 @@ def _experiment_delta_statuses() -> dict[str, str]:
             capture_output=True,
             text=True,
         )
-        untracked = subprocess.run(
-            ["git", "ls-files", "--others", "--exclude-standard", "--", "experiments"],
-            cwd=ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
     except subprocess.CalledProcessError as exc:
-        raise ClaimIntegrityError("cannot audit experiment delta from the iter206 seal") from exc
+        raise ClaimIntegrityError(
+            "cannot audit the exact iter206-to-iter207 sealed experiment delta"
+        ) from exc
 
     statuses: dict[str, str] = {}
     for line in process.stdout.splitlines():
@@ -202,11 +205,6 @@ def _experiment_delta_statuses() -> dict[str, str]:
         _require(status in {"A", "M"}, f"forbidden experiment delta status {status}: {path}")
         _require(path not in statuses, f"duplicate experiment delta path: {path}")
         statuses[path] = status
-    for path in untracked.stdout.splitlines():
-        if not path:
-            continue
-        _require(path not in statuses, f"untracked path duplicates Git delta: {path}")
-        statuses[path] = "A"
     return statuses
 
 
@@ -237,7 +235,10 @@ def _historical_relabel_bindings() -> list[dict[str, Any]]:
         row["path"]: row
         for row in _git_evidence(ITER206_SEAL_COMMIT, HISTORICAL_RELABEL_PATHS)
     }
-    current = {row["path"]: row for row in _evidence(HISTORICAL_RELABEL_PATHS)}
+    current = {
+        row["path"]: row
+        for row in _git_evidence(ITER207_SEAL_COMMIT, HISTORICAL_RELABEL_PATHS)
+    }
     bindings = []
     for path in sorted(base):
         _require(path in current, f"historical relabel surface disappeared: {path}")

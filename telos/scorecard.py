@@ -18,9 +18,15 @@ class CandidateScore:
     public_baseline_quality: int
     falsifiability: int
     evidence_surface: int
-    aweb_fit: int
+    mission_fit: int
     saturation_risk: int
     operational_cost: int
+
+    @property
+    def aweb_fit(self) -> int:
+        """Legacy read-only alias for frozen iter00 artifacts."""
+
+        return self.mission_fit
 
     def total(self) -> int:
         """Higher is better; saturation and cost subtract from the positive bars."""
@@ -30,7 +36,7 @@ class CandidateScore:
             + self.public_baseline_quality
             + self.falsifiability
             + self.evidence_surface
-            + self.aweb_fit
+            + self.mission_fit
         )
         penalties = self.saturation_risk + self.operational_cost
         return positives - penalties
@@ -43,7 +49,7 @@ class CandidateScore:
             "public_baseline_quality": self.public_baseline_quality,
             "falsifiability": self.falsifiability,
             "evidence_surface": self.evidence_surface,
-            "aweb_fit": self.aweb_fit,
+            "mission_fit": self.mission_fit,
             "saturation_risk": self.saturation_risk,
             "operational_cost": self.operational_cost,
         }

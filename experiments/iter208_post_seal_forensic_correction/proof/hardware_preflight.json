@@ -1,0 +1,20 @@
+{
+  "schema_version": "telos.iter208.hardware_preflight.v1",
+  "observed_at": "2026-07-16T12:00:00+03:00",
+  "host": {
+    "gpu": "Apple M1 Pro integrated GPU",
+    "gpu_cores": 16,
+    "metal_support": "Metal 3",
+    "memory_bytes": 17179869184,
+    "nvidia_gpu_present": false,
+    "filesystem_free_reported": "41 GiB"
+  },
+  "decision": "not_suitable_for_tcp1_full_pilot",
+  "reason": "The planned open-weight repeated coding-agent pilot requires a separately approved accelerator environment with pinned model weights and more memory and storage.",
+  "actions": {
+    "gpu_allocated": false,
+    "cloud_resource_created": false,
+    "model_downloaded": false,
+    "scientific_run_started": false
+  }
+}

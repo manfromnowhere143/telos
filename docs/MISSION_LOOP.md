@@ -8,11 +8,13 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Current Boundary
 
-- Active gate:
+- Sealed runtime/admission gate:
   [`../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md`](../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md)
+- Active publication-correction gate:
+  [`../experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md`](../experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md)
 - Frozen upstream disposition:
   [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md)
-- Active gate state: post-provider, pre-scientific-output infrastructure recovery over sealed iter202 and
+- Runtime baseline state: post-provider, pre-scientific-output infrastructure recovery over sealed iter202 and
   iter203 bytes. The retained iter202 provider stages completed `53/53` solver calls and `39/39` eligible
   scenario calls, producing
   `50` valid patches, `38` extracted scenarios, and one original missing scenario. Before any scenario or
@@ -63,14 +65,17 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   below. Iter207's deeper patch-custody audit narrowed the former to a novelty-scope ambiguity. Iter206's
   exact-delta rule required a separately versioned successor. Iter206 has no `N`, `k`, or `u`.
 
-  Iter207 is the active correction and admission recovery. It adds machine-checked claim corrections while
-  preserving the exact fixed scientific/runtime plan. Its publication envelope permits one final branch
-  push and one two-parent merge, requires the exact successful attempt-`1` branch-push and pull-request CI
-  pair plus green primary CI, then requires exactly six iter204 parser rows: the frozen four-row baseline
-  plus only the structurally bound iter207 branch and primary publication rows. It also requires the
-  iter206 workflow, once published by this release, and the existing iter205 workflow to have empty complete
-  histories. A missing, seventh, or malformed row or any iter205/iter206 run closes iter207 without
-  dispatch; after every gate passes, at most one dispatch request is permitted.
+  Iter207 is the immutable local correction and admission-recovery baseline. It added machine-checked claim
+  corrections while preserving the exact fixed scientific/runtime plan. Its historical publication and
+  dispatch envelope was never exercised and is superseded for publication by iter208; no iter207 branch
+  push, merge, workflow run, dispatch, provider call, container run, or scientific execution occurred.
+
+  Iter208 is the active post-seal forensic correction. It preserves every iter207 and historical experiment
+  byte while correcting the current paper and README, adding artifact-bound receipt v2, recording the 2026
+  frontier comparison, synchronizing the TELOS/Aweb boundary, and designing TCP-1 without executing it. It
+  authorizes no provider, GPU, scientific container, or workflow-dispatch action. Branch publication is
+  conditional on an exact local source commit, a minimal handoff seal, an independent post-seal audit, and
+  non-scientific remote CI; merge requires those gates to remain green.
 
   The iter200 prerequisite remains complete: all `37` valid patches have official-harness evidence, `24`
   are certified, `k=1`, and `u=6`; the standing descriptive quantities are `1/24` confirmed lower, `7/24`
@@ -82,13 +87,12 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   cohort remains disjoint from iter200 but not unused mission-wide
   (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the pre-result-declared
   sensitivity splits remain mandatory. `CONTINUITY.md` remains an exact-byte frozen iter202 upstream
-  artifact; the iter203--iter206 terminal results plus the iter207 hypothesis govern recovery.
-  The iter207 release seal has one dependency order: finish and validate all mutable source, documentation,
-  and evidence bytes; create local source commit A; regenerate `HANDOFF.md` exactly once from A; generate the
-  publication-safety receipt and then the runtime manifest; validate the sealed set; and create local seal
-  commit B containing the handoff and both derived records. Never regenerate the handoff after those records
-  are generated. Push A and B together in the single allowed branch publication; the committed handoff then
-  governs the remaining publication and execution sequence.
+  artifact; the iter203--iter206 terminal results, iter207 seal, and iter208 hypothesis govern recovery.
+  The iter208 release seal has one dependency order: finish and validate all mutable source, documentation,
+  and evidence bytes; create local source commit A; regenerate `HANDOFF.md` from A; validate the exact
+  handoff scope; and create local seal commit B. Never mutate source commit A while deriving the handoff.
+  Only after an independent post-seal audit may A and B be published together; no dispatch or scientific
+  execution follows from repository publication.
 - Standing construction correction: iter192 is conservatively adjudicated `FAIL` on its overbroad novelty
   interpretation; the literal v1-specific falsifier trigger is indeterminate because iter151 retained no
   accepted patch bytes. Iter151 had already reported the same class-level `0/20` test-suite precursor, and
@@ -139,8 +143,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   null with zero certification and scenario execution. Iter204 is a separately disclosed pre-dispatch
   workflow-parse infrastructure null with zero `workflow_dispatch` runs and zero scientific execution.
   Iter205 is a pre-dispatch admission-history null with empty workflow histories. Iter206 is a local
-  pre-publication claim-integrity null. Iter207 is the pending separately versioned, publication-aware
-  correction and recovery, not a retry or mutation of either predecessor.
+  pre-publication claim-integrity null. Iter207 is the sealed separately versioned correction and recovery.
+  Iter208 is the active additive publication correction; neither is a retry or mutation of its predecessor.
 - Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false

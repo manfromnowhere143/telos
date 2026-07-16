@@ -7,6 +7,7 @@ import argparse
 import ast
 import copy
 from pathlib import Path
+import subprocess
 import sys
 from typing import Any
 
@@ -54,6 +55,7 @@ ITER207_HYPOTHESIS_SHA256 = (
 ITER207_CLAIM_INTEGRITY_SHA256 = (
     "78142c0a9a187462f065677ba484560df10bc214af3c6f48c39ec557cb486fb0"
 )
+ITER207_SEAL_COMMIT = "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28"
 ITER207_AGGREGATE_RECEIPT_NAME = iter207_collection.AGGREGATE_RECEIPT_NAME
 ITER207_AGGREGATE_RECEIPT_SCHEMA = iter207_collection.AGGREGATE_SCHEMA
 ITER207_SHARD_RECEIPT_NAME_PATTERN = "_telos_iter207_shard_{shard_index}_of_8.receipt.json"
@@ -665,17 +667,70 @@ def rendered_manifest_bytes(document: dict[str, Any]) -> bytes:
     return iter203.canonical_json_bytes(document)
 
 
-def validate_committed_manifest() -> list[str]:
+def _sealed_blob(path: str) -> bytes:
     try:
-        expected = build_manifest()
+        process = subprocess.run(
+            ["git", "show", f"{ITER207_SEAL_COMMIT}:{path}"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        )
+    except subprocess.CalledProcessError as exc:
+        raise RuntimeRecoveryError(f"cannot read iter207 sealed blob: {path}") from exc
+    return process.stdout
+
+
+def validate_committed_manifest() -> list[str]:
+    """Validate the immutable iter207 manifest against its exact sealed Git tree."""
+
+    try:
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", ITER207_SEAL_COMMIT, "HEAD"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        )
         actual, raw = iter203_collection._load(MANIFEST, canonical=True)
-    except (OSError, RuntimeRecoveryError, iter203.RuntimeManifestError, iter203_collection.ExecutionCollectionError) as exc:
+        sealed_manifest = _sealed_blob(iter203._relative(MANIFEST))
+    except (
+        OSError,
+        subprocess.CalledProcessError,
+        RuntimeRecoveryError,
+        iter203.RuntimeManifestError,
+        iter203_collection.ExecutionCollectionError,
+    ) as exc:
         return [str(exc)]
     errors: list[str] = []
-    if actual != expected:
-        errors.append("committed iter207 runtime manifest differs from deterministic closure")
+    if raw != sealed_manifest:
+        errors.append("working iter207 runtime manifest differs from its sealed Git blob")
     if raw != rendered_manifest_bytes(actual):
         errors.append("committed iter207 runtime manifest is not canonical JSON")
+    files = actual.get("files")
+    if not isinstance(files, list):
+        errors.append("committed iter207 runtime manifest files are malformed")
+        return errors
+    if actual.get("file_count") != len(files):
+        errors.append("committed iter207 runtime manifest file_count differs")
+    paths: set[str] = set()
+    for record in files:
+        if not isinstance(record, dict) or set(record) != {"bytes", "path", "role", "sha256"}:
+            errors.append("committed iter207 runtime manifest record is malformed")
+            continue
+        path = record["path"]
+        if not isinstance(path, str) or path in paths:
+            errors.append(f"committed iter207 runtime manifest path is invalid or duplicate: {path}")
+            continue
+        paths.add(path)
+        try:
+            payload = _sealed_blob(path)
+        except RuntimeRecoveryError as exc:
+            errors.append(str(exc))
+            continue
+        if len(payload) != record["bytes"] or iter203.sha256(payload) != record["sha256"]:
+            errors.append(f"iter207 sealed runtime file differs from manifest: {path}")
+    closure = actual.get("closure")
+    if not isinstance(closure, dict) or closure.get("sha256") != iter203._closure(files):
+        errors.append("committed iter207 runtime manifest closure differs")
     return errors
 
 

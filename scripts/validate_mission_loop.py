@@ -54,6 +54,7 @@ CORE_VALIDATION_COMMANDS = (
     "python3 scripts/build_iter207_runtime_manifest.py --check",
     "python3 scripts/validate_iter207_publication_safety.py --check",
     "python3 scripts/validate_iter207_runtime_recovery.py",
+    "python3 scripts/validate_iter208_post_seal_forensic_correction.py",
     "python3 scripts/validate_target_survey.py",
     "python3 scripts/validate_public_slice.py",
     "python3 scripts/validate_agent_behavior_slice.py",
@@ -448,6 +449,67 @@ def validate_iter207_recovery_state(contract: dict[str, Any]) -> list[str]:
     return failures
 
 
+def validate_iter208_correction_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate the active publication correction above the sealed iter207 runtime gate."""
+
+    failures: list[str] = []
+    expected_gate = "experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md"
+    if contract.get("active_publication_gate") != expected_gate:
+        failures.append("iter208 active publication gate differs")
+    if not (root / expected_gate).is_file():
+        failures.append("iter208 active publication gate is absent")
+
+    state = contract.get("current_gate_state", {}).get("iter208_correction", {})
+    if state.get("status") != "active_local_post_seal_forensic_correction":
+        failures.append("iter208 correction status differs")
+    if state.get("predecessor_seal") != "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28":
+        failures.append("iter208 predecessor seal differs")
+    actions = state.get("actions_before_source_seal")
+    if not isinstance(actions, dict) or not actions or any(value != 0 for value in actions.values()):
+        failures.append("iter208 pre-seal action ledger is not exact zero")
+    if "no scientific numerator or denominator" not in state.get("claim_boundary", ""):
+        failures.append("iter208 scientific claim boundary is absent")
+    if "artifact-bound receipt v2" not in state.get("correction_scope", ""):
+        failures.append("iter208 correction scope omits receipt v2")
+
+    claim = contract.get("publication_claim_boundary", "")
+    for fragment in (
+        "Iter207 is the immutable local correction and admission baseline",
+        "Iter208 is the active post-seal forensic correction",
+        "no provider, GPU, container-scientific, or workflow-dispatch action",
+        "not a population estimate, model ranking, production verifier, or state-of-the-art result",
+    ):
+        if fragment not in claim:
+            failures.append(f"claim boundary missing iter208 fact: {fragment}")
+
+    required_sources = {
+        "AGENTS.md",
+        "CITATION.cff",
+        "docs/FORENSIC-AUDIT-2026-07-16.md",
+        "docs/TELOS-ROADMAP-2026.md",
+        expected_gate,
+        "experiments/iter208_post_seal_forensic_correction/RESULT.md",
+        "experiments/iter208_post_seal_forensic_correction/proof/forensic_findings.json",
+        "experiments/iter208_post_seal_forensic_correction/proof/frontier_sources.json",
+        "experiments/iter208_post_seal_forensic_correction/proof/hardware_preflight.json",
+        "experiments/iter208_post_seal_forensic_correction/proof/receipt_v2.json",
+        "scripts/validate_iter208_post_seal_forensic_correction.py",
+        "scripts/validate_handoff.py",
+        "tests/test_iter208_post_seal_forensic_correction.py",
+        "tests/test_make_handoff.py",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter208 source-of-truth set is incomplete")
+    else:
+        missing = sorted(source for source in required_sources if not (root / source).is_file())
+        if missing:
+            failures.append("iter208 source-of-truth files are absent: " + ", ".join(missing))
+    return failures
+
+
 def validate_iter204_recovery_state(contract: dict[str, Any]) -> list[str]:
     """Compatibility alias for the current recovery validator."""
 
@@ -829,7 +891,7 @@ def main() -> int:
     if contract.get("standard") != "maestro-compatible-evidence-loop-v1":
         failures.append("unexpected mission loop standard")
     semantics = contract.get("claim_boundary_semantics", {})
-    if semantics.get("current_field") != "claim_boundary" or semantics.get(
+    if semantics.get("current_field") != "publication_claim_boundary" or semantics.get(
         "historical_field"
     ) != "historical_claim_ledger":
         failures.append("current and historical claim authorities are not explicit")
@@ -840,14 +902,16 @@ def main() -> int:
     correction = contract.get("active_gate_correction", {})
     if correction.get("supersedes_stale_historical_claims") is not True:
         failures.append("active-gate correction does not supersede stale historical claims")
-    if "Telos operates from its standalone repository" not in contract.get(
-        "claim_boundary", ""
+    publication_claim = contract.get("publication_claim_boundary", "")
+    if "TELOS, Sentinel, Inbar, and Odeya" not in publication_claim or (
+        "separate from Aweb" not in publication_claim
     ):
-        failures.append("claim boundary must state the standalone repository boundary")
+        failures.append("publication claim boundary must state the project boundary")
 
     active_gate = contract.get("active_gate")
     failures.extend(validate_gate_bindings(contract, continuity, handoff))
     failures.extend(validate_iter207_recovery_state(contract))
+    failures.extend(validate_iter208_correction_state(contract))
 
     phases = [phase.get("phase") for phase in contract.get("loop", [])]
     if phases != REQUIRED_PHASES:
@@ -883,6 +947,7 @@ def main() -> int:
         "build_iter207_runtime_manifest.py --check",
         "validate_iter207_publication_safety.py --check",
         "validate_iter207_runtime_recovery.py",
+        "validate_iter208_post_seal_forensic_correction.py",
         "validate_deterministic_edit_slice.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",
@@ -1079,7 +1144,12 @@ def main() -> int:
             print(" -", failure)
         return 1
 
-    print(f"mission loop guard: active gate={active_gate} phases={len(REQUIRED_PHASES)}")
+    publication_gate = contract.get("active_publication_gate")
+    print(
+        "mission loop guard: "
+        f"sealed runtime gate={active_gate} active publication gate={publication_gate} "
+        f"phases={len(REQUIRED_PHASES)}"
+    )
     return 0
 
 

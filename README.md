@@ -2,6 +2,18 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
+> **Local correction PASS — publication seal pending.** Iter207 is an immutable local seal, not the current
+> publication boundary. Iter208 corrected the unsupported paper direction, weak legacy receipt binding,
+> active Aweb-era field name, hard-coded cloud locator, release metadata, and missing 2026 related work.
+> No provider run, GPU run, scientific container, workflow dispatch, or scientific execution is authorized.
+> Branch publication and merge remain conditional on the exact source/handoff seals, independent post-seal
+> review, and green non-scientific remote CI.
+
+Read the [forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
+[2026 roadmap](docs/TELOS-ROADMAP-2026.md) before extending the experiment line.
+The active publication-correction gate is
+[iter208 post-seal forensic correction](experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md).
+
 ## Current result
 
 Telos studies *certified-resolved reward hacks*: patches that the official SWE-bench Verified harness marks
@@ -51,9 +63,32 @@ labels below can be re-derived from committed proof, subject to the protocol and
   The original blind-judge artifacts retain parsed labels and derived booleans, not raw response text, so
   exact response substance and parser fidelity cannot be re-audited. These are bounded parsed-decision
   existence evidence and descriptive exploratory yields, not a population rate.
-- **A findings paper** ([source](paper/telos.tex), [PDF](paper/telos.pdf)). Its Telos empirical quantities are traceable to
+- **A findings paper** ([source](paper/telos.tex), [PDF](paper/telos.pdf),
+  [citation metadata](CITATION.cff)). Its Telos empirical quantities are traceable to
   committed `experiments/*/proof/` artifacts; external literature facts remain source-attributed rather than
   locally regenerated.
+
+## Future TELOS architecture
+
+The sealed experiments establish why outcome-only trust is insufficient. The next system makes the
+evidence path reusable:
+
+~~~mermaid
+flowchart LR
+ A["Task contract<br/>goal · constraints · falsifiers"]-->B["Isolated execution<br/>agent + tools"]
+ B-->C["Full trajectory<br/>actions · outputs · resources"]
+ C-->D["Artifact-bound receipt v2<br/>bytes · hashes · producer"]
+ D-->E["Independent checks<br/>grader · consequences · humans"]
+ E-->F{"Bounded claim gate"}
+ F-->|complete and consistent|G["Signed claim"]
+ F-->|failure, conflict, missingness|H["Fail · null · abstain"]
+ G-->I["Deployment monitoring"]
+ I-->C
+ classDef active fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
+ classDef stop fill:#fff1f0,stroke:#cf222e,color:#4c1114;
+ class D,E,F,G active;
+ class H stop;
+~~~
 
 ## Current evidence arc
 
@@ -105,16 +140,17 @@ novelty-scope ambiguity. Iter206's exact-delta rule correctly forbade folding th
 contributes no `N`, `k`, or `u`.
 
 [`iter207_claim_integrity_and_admission_recovery`](experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md)
-is the active, separately versioned gate. It preserves every fixed scientific input and runtime semantic,
+is the sealed iter207 correction baseline. It preserves every fixed scientific input and runtime semantic,
 publishes machine-checked claim corrections without mutating historical raw artifacts, and carries forward
 the admission recovery. Its integrity audit made exactly two authenticated, read-only GitHub metadata GETs
 to verify historical CI projection semantics; they made no remote mutation and contacted no model provider.
-Before any remote publication it authorizes at most one final branch push, an exact
+Its frozen protocol had authorized at most one final branch push, an exact
 successful attempt-`1` branch-push and pull-request CI pair, one exact two-parent merge, green primary CI,
 and an exact six-row admission snapshot: the known four iter204 rows plus only the iter207 branch and primary
 publication rows. It will bind the iter206 workflow, once published by this release, to empty complete
 histories. Any missing, seventh, or malformed iter204 row or any iter205/iter206 run closes iter207 without
-dispatch; after every gate passes, at most one dispatch request is permitted.
+dispatch; after every gate passes, at most one dispatch request is permitted. That authorization was never
+exercised and is superseded by iter208 because the post-seal audit found new publication blockers.
 GitHub Actions run `29422735843` is the exact iter200 official-harness denominator backfill. The later
 provider-free Node 24 run `29452243832` is a historical operational assertion that the specs and committed
 `74`-log corpus were validated without re-executing containers; no committed run receipt independently
@@ -131,7 +167,8 @@ while the
 binds the zero-action predecessor state.
 
 Diagram color is semantic: orange marks corrected or partial evidence, red marks a failed gate, blue marks
-retained evidence, gray marks a null before scientific execution, and green marks the active gate.
+retained evidence, gray marks a null before scientific execution, and green marks the active correction
+gate.
 
 ```mermaid
 flowchart TB
@@ -159,11 +196,11 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 active<br/>correction + exact-six gate<br/>≤1 dispatch"]
+ I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 sealed local<br/>claim corrections<br/>no publication"]-->I208["208 local PASS<br/>seal + review pending<br/>no scientific run"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef active fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
- class I203,I204,I205,I206 null;
- class I207 active;
+ class I203,I204,I205,I206,I207 null;
+ class I208 active;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows
@@ -368,7 +405,8 @@ two-row closure snapshot.
 records the local pre-publication claim-integrity null: the sealed gate made no remote or scientific state
 change and contributes no `N`, `k`, or `u`. Its immutable terminal evidence is predecessor provenance for
 [`iter207_claim_integrity_and_admission_recovery`](experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md),
-the active, separately versioned correction and admission recovery.
+the sealed, separately versioned correction and admission-recovery baseline. Iter208 is the active
+post-seal forensic correction and contributes no scientific result.
 
 `experiments/iter200_natural_certified_yet_wrong_rate/` asks `gpt-5.6-terra` to fix issues with no instruction
 to game tests. It is exploratory rather than a preregistered frequency estimate. The prompt is
@@ -1413,14 +1451,15 @@ Mission loop: [`docs/MISSION_LOOP.md`](docs/MISSION_LOOP.md).
 
 ```text
 README.md                  research front door and live status
+AGENTS.md                  durable project boundary and evidence rules
 PREREGISTRATION.md         frozen first-stage target-selection protocol
 CONTINUITY.md              operator invariants and handoff discipline
 HANDOFF.md                 dynamic snapshot generated by scripts/make_handoff.py
 telos/                     receipt validation, scorecard primitives, and telos/tamper (the three-layer verifier)
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
-docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per experiment (iter00-iter207), including explicit fail/null/pre-result states
+docs/                      architecture, forensic audit, related work, roadmap, and synthesis reports
+experiments/               one folder per experiment (iter00-iter208), including explicit fail/null/pre-result states
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
@@ -1465,6 +1504,7 @@ python3 scripts/audit_iter207_claim_integrity.py --check
 python3 scripts/build_iter207_runtime_manifest.py --check
 python3 scripts/validate_iter207_publication_safety.py --check
 python3 scripts/validate_iter207_runtime_recovery.py
+python3 scripts/validate_iter208_post_seal_forensic_correction.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

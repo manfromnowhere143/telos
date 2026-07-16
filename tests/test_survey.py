@@ -12,7 +12,7 @@ def candidate(candidate_id: str, total_bias: int = 0) -> dict:
         "public_baseline_quality": 4,
         "falsifiability": 4,
         "evidence_surface": 4,
-        "aweb_fit": 4,
+        "mission_fit": 4,
         "saturation_risk": 1,
         "operational_cost": 2,
         "rationale": "public baseline and receipt surface are both inspectable",
@@ -48,7 +48,7 @@ def test_positive_survey_requires_winning_bar() -> None:
         item["public_baseline_quality"] = 3
         item["falsifiability"] = 3
         item["evidence_surface"] = 3
-        item["aweb_fit"] = 3
+        item["mission_fit"] = 3
         item["saturation_risk"] = 3
         item["operational_cost"] = 3
 
@@ -61,4 +61,20 @@ def test_sources_must_be_urls() -> None:
     data["candidates"][0]["sources"] = ["not-a-url"]
 
     with pytest.raises(SurveyValidationError, match="not an http"):
+        validate_survey(data)
+
+
+def test_legacy_aweb_fit_is_read_for_frozen_iter00_artifacts() -> None:
+    data = survey()
+    for item in data["candidates"]:
+        item["aweb_fit"] = item.pop("mission_fit")
+    result = validate_survey(data)
+    assert result.winner is not None
+    assert result.winner.mission_fit == 4
+
+
+def test_current_and_legacy_fit_fields_cannot_conflict() -> None:
+    data = survey()
+    data["candidates"][0]["aweb_fit"] = 0
+    with pytest.raises(SurveyValidationError, match="conflicts"):
         validate_survey(data)

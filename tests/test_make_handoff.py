@@ -798,3 +798,71 @@ Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `frozen.md`
         f"source={validate_handoff.ITER207_BRANCH} target=master actual=actual-branch"
         in capsys.readouterr().out
     )
+
+
+def iter208_handoff_fixture(validate_handoff) -> tuple[str, dict[str, str]]:
+    runtime = "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+    publication = "experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md"
+    frozen = "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md"
+    contract = {
+        "active_gate": runtime,
+        "active_publication_gate": publication,
+        "frozen_upstream_gate": frozen,
+    }
+    handoff = f"""# HANDOFF
+
+{validate_handoff.REPOSITORY_DECLARATION}
+
+## Repository State
+
+```text
+handoff_schema: {validate_handoff.ITER208_HANDOFF_SCHEMA}
+source_branch: {validate_handoff.ITER208_BRANCH}
+source_commit: {"a" * 40}
+predecessor_seal: {validate_handoff.ITER208_PREDECESSOR_SEAL}
+publication_target: master
+```
+
+Active gate: `{runtime}`
+Active publication gate: `{publication}`
+Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `{frozen}`
+
+Local correction status: **PASS; publication seal pending**.
+No provider call, GPU run, scientific container run, workflow dispatch, or release is authorized.
+TCP-1 remains design-only and unexecuted.
+Merge requires green non-scientific branch and pull-request CI at the unchanged seal tip.
+The receipt proves byte identity, not authorship, external chronology, or semantic truth.
+
+```bash
+python3 scripts/validate_iter208_post_seal_forensic_correction.py
+python3 scripts/validate_handoff.py
+pytest -q
+```
+"""
+    return handoff, contract
+
+
+def test_iter208_handoff_content_is_publication_only() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter208_handoff_fixture(validate_handoff)
+
+    assert validate_handoff.iter208_content_failures(handoff, contract) == []
+
+
+def test_iter208_handoff_rejects_dispatch_and_unrelated_workspace() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter208_handoff_fixture(validate_handoff)
+    unsafe = handoff + "\ngh workflow run iter207-execute.yml\n" + ("a" + "web")
+
+    failures = validate_handoff.iter208_content_failures(unsafe, contract)
+    assert "HANDOFF.md authorizes a workflow dispatch or rerun" in failures
+    assert "HANDOFF.md names an unrelated workspace" in failures
+
+
+def test_iter208_handoff_rejects_wrong_source_branch() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, _contract = iter208_handoff_fixture(validate_handoff)
+    wrong = handoff.replace(validate_handoff.ITER208_BRANCH, "agent/unrelated")
+
+    with pytest.raises(ValueError, match="source branch differs"):
+        validate_handoff.iter208_declared_repository_state(wrong)

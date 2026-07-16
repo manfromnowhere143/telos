@@ -1,7 +1,7 @@
 # Telos paper (findings draft)
 
-> **Status: current through the iter206 pre-publication claim-integrity null; iter207 remains pre-result; not yet
-> submitted.** `telos.tex` reports the iter192
+> **Status: iter207 is a sealed local correction baseline; iter208 passed local forensic correction and
+> awaits its publication seal; not yet submitted.** The manuscript reports the iter192
 > foundation correction and `22` certified-resolved, targeted gold/variant reference-differential rows
 > across `8` repositories. Iter192's overbroad novelty interpretation is conservatively adjudicated `FAIL`;
 > its literal v1-specific falsifier trigger is indeterminate because iter151 retained no accepted patch
@@ -85,14 +85,17 @@
 > publication as a claim-integrity null after an apparent iter192 prior-baseline contradiction and the
 > iter195 contradiction above were flagged. Iter207's deeper patch-custody audit narrowed the former. Iter206 made
 > no branch push, pull request, merge, workflow run, dispatch request, provider call, container, or scientific
-> execution and contributes no `N`, `k`, or `u`. Iter207 is the separately versioned pending correction and
-> exact-six admission recovery; it contributes no result to the paper.
-> `telos.pdf` must be rebuilt from this source and visually rechecked before release.
+> execution and contributes no `N`, `k`, or `u`. Iter207 is the sealed local correction and exact-six
+> admission-recovery baseline; iter208 supersedes its unexercised publication authorization and contributes
+> no scientific result.
+> `telos.pdf` was rebuilt deterministically from the iter208 source. All 12 pages and all six synchronized
+> README diagrams passed local visual review; external submission remains blocked pending final author,
+> citation, and release review.
 >
-> **Before any external submission:** the three previously-flagged citations (Control Tax
-> arXiv:2506.05296; DeepMind Frontier Safety Framework v3.0, 22 Sep 2025; METR MALT, 14 Oct 2025) were
-> verified against primary sources on 2026-07-14 (the MALT expansion was corrected from a wrong draft
-> value to "Manually-reviewed Agentic Labeled Transcripts"). Still confirm the author/affiliation block.
+> **Before any external submission:** all bibliography entries received a source pass through 2026-07-16,
+> including the directly relevant 2026 OpenAI audits, SpecBench, RewardHackingAgents, Hack-Verifiable
+> Environments, the agent-reliability framework, and Anthropic's Summer 2026 report. Still confirm every
+> entry and the author/affiliation block independently.
 > Submission venue and sequence remain operator decisions. No submission without operator direction.
 
 `telos.tex` is a self-contained LaTeX findings paper. Its contributions are the self-correction of the
@@ -133,9 +136,8 @@ assets or figures.
 - **Source and build artifact move together.** Build `telos.pdf` with `tectonic` alongside the source.
   After every prose change, render every PDF page and inspect it before treating the artifact as
   submission-ready.
-- **Citations need a final human pass.** The bibliography contains eleven entries. Three recent sources
-  (Control Tax, Frontier Safety Framework v3.0, and MALT) were checked against primary sources on
-  2026-07-14; verify every entry again before submission.
+- **Citations need a final human pass.** The bibliography contains eighteen entries checked against
+  primary sources through 2026-07-16; verify every entry again before submission.
 - **Author/affiliation block** (`\author{...}`) is currently "Daniel Wahnich / Telos research program";
   confirm it before submission.
 - **Construction status is split, not pooled as one validated protocol.** Iter192 has a conservative
@@ -182,5 +184,6 @@ null: its two-row closure snapshot retained public `push` records with zero jobs
 zero at closure, and no scientific process ran. Iter205 is a separately disclosed pre-dispatch
 admission-history null: its own workflow histories are empty, its dispatch request command was never reached, and
 the upstream iter204 history had grown from two to four publication rows. Iter206 then stopped locally as a
-pre-publication claim-integrity null, before remote or scientific action. Iter207 is the separately versioned
-pending correction and exact-six admission recovery and has no result in the paper.
+pre-publication claim-integrity null, before remote or scientific action. Iter207 is the sealed local
+correction and exact-six admission-recovery baseline; iter208 is the post-seal correction and neither
+contributes a scientific result to the paper.

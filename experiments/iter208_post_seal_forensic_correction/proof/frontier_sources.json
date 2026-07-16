@@ -1,0 +1,168 @@
+{
+  "schema_version": "telos.iter208.frontier_sources.v1",
+  "checked_at": "2026-07-16T12:00:00+03:00",
+  "source_policy": "primary organizational pages, official documentation, or primary research papers",
+  "sources": [
+    {
+      "organization": "OpenAI",
+      "title": "Why SWE-bench Verified no longer measures frontier coding capabilities",
+      "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+      "observed": "OpenAI found issues in at least 59.4 percent of a 138-task hard subset and reported evidence consistent with contamination.",
+      "telos_implication": "A benchmark score is not interpretable without task-validity and contamination audits."
+    },
+    {
+      "organization": "OpenAI",
+      "title": "Separating signal from noise in coding evaluations",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "observed": "OpenAI estimates roughly 30 percent of SWE-Bench Pro public tasks are broken after agent-assisted and engineer review.",
+      "telos_implication": "Benchmark validity and low-coverage tests are first-order research targets."
+    },
+    {
+      "organization": "OpenAI",
+      "title": "How we monitor internal coding agents for misalignment",
+      "url": "https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/",
+      "observed": "The monitor examines full conversations, reasoning, actions, tool calls, and outputs.",
+      "telos_implication": "Future TELOS evidence must include full trajectories."
+    },
+    {
+      "organization": "OpenAI",
+      "title": "Agent evals",
+      "url": "https://developers.openai.com/api/docs/guides/agent-evals",
+      "observed": "OpenAI documents reproducible agent evaluation through datasets, trace grading, and continuous evaluation.",
+      "telos_implication": "TELOS should expose a reusable trace-evaluation API rather than only iteration-specific scripts."
+    },
+    {
+      "organization": "Anthropic",
+      "title": "Agentic Misalignment in Summer 2026",
+      "url": "https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026/",
+      "observed": "Simulated cases include covert pipeline sabotage and consequence-sensitive judge mislabeling.",
+      "telos_implication": "LLM judges cannot define independent semantic ground truth."
+    },
+    {
+      "organization": "Anthropic",
+      "title": "Pre-deployment auditing of an overt saboteur",
+      "url": "https://alignment.anthropic.com/2026/auditing-overt-saboteur/",
+      "observed": "Anthropic studies whether a deliberately misaligned model can be discovered through a structured pre-deployment audit.",
+      "telos_implication": "Assurance should be adversarial, staged before deployment, and explicit about audit power and blind spots."
+    },
+    {
+      "organization": "NASA",
+      "title": "The NASA Software Engineering and Software Assurance Electronic Handbook",
+      "url": "https://sma.nasa.gov/news/articles/newsitem/2026/05/18/the-nasa-software-engineering-and-software-assurance-electronic-handbook---a-unified-ai-ready-resource-for-engineering-assurance-iv-v-and-milestone-governance",
+      "observed": "NASA emphasizes independent assurance, source-of-truth anchoring, configuration control, and human approval.",
+      "telos_implication": "TELOS independence must be organizational and procedural, not merely another model role."
+    },
+    {
+      "organization": "NASA",
+      "title": "Reducing risk in software-driven hazards across NASA programs",
+      "url": "https://sma.nasa.gov/news/articles/newsitem/2026/04/08/reducing-risk-in-software-driven-hazards-across-nasa-programs-how-software-assurance-and-iv-v-strengthens-mission-safety",
+      "observed": "NASA describes software assurance and independent verification and validation as lifecycle controls for software-driven hazards.",
+      "telos_implication": "Agent evidence gates should connect software behavior to hazard and consequence analysis across the lifecycle."
+    },
+    {
+      "organization": "Tesla",
+      "title": "AI and Robotics",
+      "url": "https://www.tesla.com/AI",
+      "observed": "Tesla describes open-loop, closed-loop, and hardware-in-the-loop evaluation infrastructure at fleet scale.",
+      "telos_implication": "Consequence replay and regression suites should cover the operational envelope."
+    },
+    {
+      "organization": "Tesla",
+      "title": "Vehicle Safety Report methodology",
+      "url": "https://www.tesla.com/VehicleSafetyReport?redirect=no",
+      "observed": "Tesla publishes an operational safety-report methodology based on fleet exposure and observed outcomes.",
+      "telos_implication": "Laboratory verifier metrics and deployment outcomes must remain separate evidence planes."
+    },
+    {
+      "organization": "SpaceX",
+      "title": "Falcon User's Guide",
+      "url": "https://www.spacex.com/assets/media/falcon-users-guide-2025-05-09.pdf",
+      "observed": "SpaceX describes regular hardware-in-the-loop verification over a complete mission profile.",
+      "telos_implication": "A final-output check is not a full-system verification."
+    },
+    {
+      "organization": "Cognition",
+      "title": "Devin Best Practices",
+      "url": "https://docs.devin.ai/use-cases/best-practices",
+      "observed": "Cognition recommends small isolated verifiable slices and human review before merge.",
+      "telos_implication": "Deployment gates should constrain scope and compound-error risk."
+    },
+    {
+      "organization": "Perplexity",
+      "title": "DRACO Benchmark",
+      "url": "https://research.perplexity.ai/articles/evaluating-deep-research-performance-in-the-wild-with-the-draco-benchmark",
+      "observed": "DRACO uses 100 production-grounded tasks, expert rubrics averaging roughly 40 criteria, peer review, and three judges.",
+      "telos_implication": "Real-use task sampling and expert criteria are stronger than a single gold differential."
+    },
+    {
+      "organization": "Stanford",
+      "title": "Frontiers in AI Evaluation",
+      "url": "https://datascience.stanford.edu/news/benchmarks-real-world-impact-causal-science-conference-explores-modern-challenges-ai",
+      "observed": "Stanford emphasizes causal, process-level, and real-world outcome evaluation.",
+      "telos_implication": "TELOS should measure goals, plans, actions, consequences, and deployment outcomes."
+    },
+    {
+      "organization": "Stanford",
+      "title": "Agent Island",
+      "url": "https://digitaleconomy.stanford.edu/publication/agent-island-a-saturation-and-contamination-resistant-benchmark-from-multiagent-games/",
+      "observed": "Agent Island uses multi-agent games and adaptive opponents to resist benchmark saturation and contamination.",
+      "telos_implication": "Fresh adaptive tasks are a stronger long-run evaluation surface than repeatedly exposed static tasks."
+    },
+    {
+      "organization": "Harvard and Princeton",
+      "title": "Towards a Science of AI Agent Reliability",
+      "url": "https://cyber.harvard.edu/story/2026-02/towards-science-ai-agent-reliability",
+      "observed": "Reliability is separated into consistency, robustness, predictability, and safety rather than reduced to accuracy.",
+      "telos_implication": "Repeated runs, perturbations, calibration, and severity belong in the next experiment."
+    },
+    {
+      "organization": "Cambridge",
+      "title": "AI Agent Index safety analysis",
+      "url": "https://www.cam.ac.uk/stories/ai-agent-index-safety",
+      "observed": "Only four of 30 surveyed agents published agent-specific system cards, and third-party testing was usually absent.",
+      "telos_implication": "Transparent agent-specific evidence and independent testing can be a TELOS differentiator."
+    },
+    {
+      "organization": "Primary research",
+      "title": "SpecBench",
+      "url": "https://arxiv.org/abs/2605.21384",
+      "observed": "Thirty systems-level tasks compare visible feature tests with held-out compositional tests.",
+      "telos_implication": "TELOS must not claim scale or priority and should focus on assurance and real-task custody."
+    },
+    {
+      "organization": "Primary research",
+      "title": "RewardHackingAgents",
+      "url": "https://arxiv.org/abs/2603.11337",
+      "observed": "Workspace edits and file access are logged while reported metrics are checked against trusted reference metrics.",
+      "telos_implication": "Evaluator integrity and data leakage require separate controls."
+    },
+    {
+      "organization": "Primary research",
+      "title": "Hack-Verifiable Environments",
+      "url": "https://arxiv.org/abs/2605.20744",
+      "observed": "Reward-hacking opportunities are embedded so exploitation can be labeled deterministically.",
+      "telos_implication": "Deterministic hack-verifiable opportunities are stronger calibration controls than post-hoc judge labels."
+    },
+    {
+      "organization": "Provenance standard",
+      "title": "SLSA provenance v1.2",
+      "url": "https://slsa.dev/spec/v1.2/provenance",
+      "observed": "SLSA defines provenance predicates that bind build outputs to identified inputs and build processes.",
+      "telos_implication": "Receipt v2 should evolve toward interoperable provenance rather than a TELOS-only envelope."
+    },
+    {
+      "organization": "Provenance standard",
+      "title": "in-toto Statement v1",
+      "url": "https://github.com/in-toto/attestation/blob/main/spec/v1/statement.md",
+      "observed": "The in-toto statement supplies a common subject-and-predicate envelope for verifiable attestations.",
+      "telos_implication": "TELOS claims should be serializable as standard attestations with explicit subjects."
+    },
+    {
+      "organization": "Provenance standard",
+      "title": "Sigstore keyless signing overview",
+      "url": "https://docs.sigstore.dev/cosign/signing/overview/",
+      "observed": "Sigstore documents identity-bound keyless signing and transparency-log integration for artifacts.",
+      "telos_implication": "Public receipts need signer identity and external chronology in addition to hashes."
+    }
+  ]
+}

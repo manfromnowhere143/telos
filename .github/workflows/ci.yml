@@ -141,6 +141,9 @@ jobs:
       - name: Iter207 claim-integrity and admission recovery contract guard
         run: python3 scripts/validate_iter207_runtime_recovery.py
 
+      - name: Iter208 post-seal forensic correction guard
+        run: python3 scripts/validate_iter208_post_seal_forensic_correction.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 

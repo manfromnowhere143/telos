@@ -31,6 +31,7 @@ SCHEMA = (
 )
 POST_NULL_ANCHOR_COMMIT = "4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f"
 ITER205_PREPARATION_ANCHOR_COMMIT = "c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446"
+ITER207_SEAL_COMMIT = "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28"
 FROZEN_ITER205_AUDIT = (
     ROOT
     / "experiments/iter205_iter204_workflow_context_recovery"
@@ -324,7 +325,50 @@ def selected_paths() -> list[Path]:
     return sorted(paths, key=lambda path: path.relative_to(ROOT).as_posix())
 
 
+def _sealed_audit() -> dict[str, Any]:
+    """Load iter207 publication safety from its immutable seal, not a descendant tree."""
+
+    relative = AUDIT.relative_to(ROOT).as_posix()
+    try:
+        subprocess.run(
+            ["git", "merge-base", "--is-ancestor", ITER207_SEAL_COMMIT, "HEAD"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        )
+        process = subprocess.run(
+            ["git", "show", f"{ITER207_SEAL_COMMIT}:{relative}"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+        )
+    except (OSError, subprocess.SubprocessError) as exc:
+        raise PublicationSafetyError("cannot read the immutable iter207 publication seal") from exc
+    payload = process.stdout
+    if AUDIT.is_symlink() or not AUDIT.is_file() or AUDIT.read_bytes() != payload:
+        raise PublicationSafetyError("working iter207 publication receipt differs from its seal")
+    try:
+        document = json.loads(
+            payload,
+            parse_constant=lambda item: (_ for _ in ()).throw(ValueError(item)),
+        )
+    except (ValueError, json.JSONDecodeError) as exc:
+        raise PublicationSafetyError("sealed iter207 publication receipt is invalid") from exc
+    if (
+        not isinstance(document, dict)
+        or canonical_json_bytes(document) != payload
+        or document.get("experiment_id") != EXPERIMENT_ID
+        or document.get("schema_version") != SCHEMA
+        or document.get("secret_or_private_identifier_hit_count") != 0
+        or document.get("forbidden_positive_claim_hit_count") != 0
+    ):
+        raise PublicationSafetyError("sealed iter207 publication receipt identity differs")
+    return document
+
+
 def build_audit(paths: list[Path] | None = None) -> dict[str, Any]:
+    if paths is None:
+        return _sealed_audit()
     selected = selected_paths() if paths is None else paths
     frozen_paths = frozen_iter205_scan_paths()
     changed = post_null_changed_paths() if paths is None else [

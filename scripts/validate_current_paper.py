@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "b2bfae0e5c4c5d32ad4caf82314aace1488dfa5ba046ee20b1e89fac705729e0"
-EXPECTED_PDF_SHA256 = "60c819138f7f335aa33f624e56beb474b2a752d11444b336202a593afb161aa7"
+EXPECTED_SOURCE_SHA256 = "383f00dc8fb835c83f3b8b27bd5b58c1999017af61976a6dcf76f085e5daa0b8"
+EXPECTED_PDF_SHA256 = "75888392584a093d5d2e82ef5d969ffc88211bd4bb3d970dd7a1256981d9671d"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -41,21 +41,20 @@ REQUIRED_TEXT = {
         "iter193--iter199 construction and witness execution",
         r"mutable \texttt{:latest}",
         "exact historical container bytes",
-        "scenario-safety protocol/execution null",
-        "post-provider iter203 recovery",
-        "Iter203 is an execution-infrastructure null",
-        "public workflow-dispatch count at closure is zero",
-        "closure snapshot contains two public push records",
-        "Iter204 is a pre-dispatch infrastructure null",
-        "No iter205 dispatch request",
-        "no dispatch API response or rejection exists",
-        "Iter205 is a",
-        "pre-dispatch admission-history null",
-        "Iter206 was sealed locally but stopped",
-        "Iter207 is the pending correction and exact-six admission recovery",
+        "We therefore make no priority or state-of-the-art claim",
+        "forensic real-task case series",
+        "no causal direction or magnitude is established",
+        "fresh tasks, pre-authored consequence tests",
+        r"\bibitem{openai2026pro}",
+        r"\bibitem{zhao2026specbench}",
+        r"\bibitem{atinafu2026rewardhackingagents}",
+        r"\bibitem{roth2026hackverifiable}",
+        r"\bibitem{rabanser2026reliability}",
+        r"\bibitem{lynch2026misalignment}",
+        "Iter202 through iter207 produced only safety, infrastructure,",
     ),
     ROOT / "paper/README.md": (
-        "current through the iter206 pre-publication claim-integrity null; iter207 remains pre-result",
+        "iter207 is a sealed local correction baseline; iter208 passed local forensic correction",
         "Iter192's overbroad novelty interpretation is conservatively adjudicated `FAIL`",
         "literal v1-specific falsifier trigger is indeterminate",
         "Iter195 is protocol `FAIL`",
@@ -77,6 +76,7 @@ REQUIRED_TEXT = {
         "frozen closure snapshot",
         "No iter205 dispatch request was issued",
         "no dispatch API response or rejection exists",
+        "bibliography contains eighteen entries",
     ),
     ROOT / "README.md": (
         "22`-row, `8`-repository reference-differential corpus",
@@ -90,6 +90,9 @@ REQUIRED_TEXT = {
         "iter207_claim_integrity_and_admission_recovery",
         "exact historical container bytes are not reconstructible",
         "provider-complete safety null",
+        "Local correction PASS — publication seal pending",
+        "Artifact-bound receipt v2",
+        "post-seal forensic correction",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "certified-resolved reference-differential witness under the benchmark's operational label",
@@ -130,6 +133,7 @@ FORBIDDEN_TEXT = {
         r"metered cost of \$13.59",
         "depress recall",
         "possible downward recall bias",
+        "may bias recall downward",
     ),
     ROOT / "paper/README.md": (
         "No iter205 request, API rejection",
@@ -138,6 +142,7 @@ FORBIDDEN_TEXT = {
         "Iter192 is protocol `FAIL`",
         "depress recall",
         "possible downward recall bias",
+        "may bias recall downward",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "pinned-container execution",
@@ -146,6 +151,7 @@ FORBIDDEN_TEXT = {
     ROOT / "README.md": (
         "iter192 is strict protocol `FAIL`",
         "unrepaired `majority_catch` (iter179) | `17/40` | `$13.59`",
+        "may bias recall downward",
     ),
 }
 
