@@ -2,16 +2,23 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
-> **Cross-platform numeric recovery active — TCP-1 scientific execution BLOCKED.** Iter210 merged through PR
-> `#10` as `fb348eb1f67c0605679cd56a1cfa210cf192db03`, with green branch, pull-request, and merged-master CI.
-> Iter211 then froze TCP-1's protocol, schemas, deterministic seeds, analysis code, resource envelope, and
-> isolation threat model: **2 local-design gates pass; 9 external admission gates remain blocked.** Its first
-> complete post-seal suite passed `648` tests and failed `3` publication-only compatibility checks. The exact
-> iter211 seal is preserved; iter213 repaired those checks but its exact push and pull-request CI both found
-> a Linux-only Wilson boundary residue: `2.7755575615628914e-17` instead of mathematical zero at `k=0`.
-> Iter214 is the separately versioned pre-data correction. There is no admitted cohort, reviewer team,
-> model/runtime binding, hidden-test freeze, external timestamp, throughput result, or approved budget. No
-> provider run, GPU allocation, scientific container, workflow dispatch, or scientific execution is authorized.
+> **Iter219 published a null — TCP-1 scientific execution remains BLOCKED.** Iter214 merged through PR `#12`
+> as `470ca3627b7635d9a315cf2811ceb2eed6575fb9` with green push, pull-request, and merged-master CI, closing
+> the publication-engineering line that began at iter208. Iter211's TCP-1 packet still stands at **2
+> local-design gates passing and 9 external admission gates blocked**.
+>
+> Iter219 asked, at zero spend, whether maintainers' later-added tests could supply TCP-1's independently
+> authored hidden consequence tests — the blocker that otherwise needs recruited humans. **The screen is a
+> null.** Across `482` SWE-bench Verified instances, tests added within `365` days after a task reference its
+> touched symbols at `0.4066`, but tests added *before* the task reference them at `0.4336`. There is no
+> temporal signal. Against the originally sealed cross-repository control the same data reads `0.4066` versus
+> `0.1660` at `p = 3.48e-24`; that apparent effect is an artifact of a control that cannot fail for the right
+> reason, and a pre-data amendment caught it before publication. Static symbol-name matching is falsified as a
+> detector at this granularity; the underlying harvest idea is untested and remains open.
+>
+> There is still no admitted cohort, reviewer team, model/runtime binding, hidden-test freeze, external
+> timestamp, throughput result, or approved budget. No provider run, GPU allocation, scientific container,
+> workflow dispatch, or scientific execution is authorized.
 
 Read the [forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
 [2026 roadmap](docs/TELOS-ROADMAP-2026.md) before extending the experiment line.
@@ -23,8 +30,13 @@ The sealed materialization packet is the
 [iter211 TCP-1 materialization preflight](experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md).
 The failed, unchanged publication predecessor is
 [iter213 iter211 post-seal validation recovery](experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md).
-The active publication-engineering gate is
+The merged publication-engineering gate is
 [iter214 TCP-1 cross-platform numeric recovery](experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md).
+The active published null is
+[iter219 temporal consequence-test yield](experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md),
+whose [result](experiments/iter219_temporal_consequence_test_yield/RESULT.md) falsifies static symbol-name
+matching as a detector of temporal consequence-test targeting and records why its own cross-repository
+control manufactured a `10^-24` false positive.
 The prospective, still-inactive scientific successor is the unchanged
 [iter212 independent cohort and custody freeze](experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md).
 
@@ -210,7 +222,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 sealed local<br/>claim corrections<br/>no publication"]-->I208["208 sealed<br/>remote CI failed<br/>no scientific run"]-->I209["209 sealed<br/>push green; PR failed<br/>no scientific run"]-->I210["210 merged recovery<br/>push · PR · master green"]-->I211["211 TCP-1 sealed<br/>2 pass · 9 blocked<br/>post-seal suite 648/3"]-->I213["213 validation recovery<br/>local green · remote CI failed<br/>no scientific run"]-->I214["214 numeric recovery<br/>exact Wilson boundaries<br/>pre-data · no scientific run"]
+ I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 sealed local<br/>claim corrections<br/>no publication"]-->I208["208 sealed<br/>remote CI failed<br/>no scientific run"]-->I209["209 sealed<br/>push green; PR failed<br/>no scientific run"]-->I210["210 merged recovery<br/>push · PR · master green"]-->I211["211 TCP-1 sealed<br/>2 pass · 9 blocked"]-->I213["213 validation recovery<br/>remote CI failed"]-->I214["214 numeric recovery<br/>exact Wilson · merged"]-->I219["219 temporal yield<br/>NULL · no signal"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;

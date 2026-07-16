@@ -182,9 +182,10 @@ TCP-1 is a null or failure—not a result—if any of these occurs:
 
 ```mermaid
 flowchart LR
-I211["211 materialization preflight<br/>protocol + schemas + analysis"] --> I213["213 post-seal recovery<br/>descendant-safe guards"]
-I213 --> I214["214 numeric recovery<br/>exact Wilson boundaries · pre-data"]
-I214 --> I212["212 preregistered freeze<br/>humans + tasks + custody"]
+I211["211 preflight<br/>protocol + analysis"] --> I213["213 post-seal recovery"]
+I213 --> I214["214 numeric recovery<br/>exact Wilson"]
+I214 --> I219["219 temporal yield<br/>NULL"]
+I219 --> I212["212 freeze<br/>humans + tasks + custody"]
 I212 --> I215["215 isolated preflight<br/>one task · one seed"]
 I215 --> Q{"all admission gates pass<br/>inside 64-hour ceiling?"}
 Q -->|no or missing| B["BLOCKED / NULL<br/>no scientific run"]
@@ -199,7 +200,8 @@ classDef active fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
 classDef blocked fill:#fff1f0,stroke:#cf222e,color:#4c1114;
 class I211 done;
 class I213 corrected;
-class I214 active;
+class I214 corrected;
+class I219 active;
 class B,N blocked;
 ```
 
@@ -265,6 +267,23 @@ class B,N blocked;
 - canonicalize only the mathematically exact Wilson `k=0` lower and `k=n` upper boundaries;
 - make sealed iter213 validation read immutable source Git blobs rather than additive descendant scope;
 - require full local, synthetic-merge, Python 3.11, and Python 3.12 closure; authorize no science.
+
+### Iter219 — temporal consequence-test yield (published null)
+
+Executes before iter212 in dependency order; the number records creation order.
+
+- test, at zero spend, whether maintainers' later-added tests could supply the independently authored hidden
+  consequence tests that iter212 otherwise needs recruited humans to write;
+- seal the hypothesis, then two pre-data amendments, before any instance is scored;
+- **result: null.** `Y(365) = 0.4066` forward versus `0.4336` backward within-repository (`p = 0.925`,
+  difference `−0.0270`). No temporal signal. Exposure is balanced (`0.942`), so the null is not an artifact of
+  how many tests each side offered;
+- the originally sealed cross-repository control reads `0.4066` versus `0.1660` at `p = 3.48e-24`. That
+  control cannot fail for the right reason, and the pre-data `A2` amendment is the only reason the false
+  positive was not published;
+- falsifies static symbol-name matching as a detector at this granularity; does **not** falsify the harvest
+  idea, per the inference rule fixed before observation;
+- contributes no scientific `N`, `k`, or `u` to TCP-1; admission stays `2/11`.
 
 ### Iter215 — isolated throughput preflight
 

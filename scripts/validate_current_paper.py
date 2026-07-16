@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 from pathlib import Path
 
 
@@ -90,13 +91,19 @@ REQUIRED_TEXT = {
         "iter207_claim_integrity_and_admission_recovery",
         "exact historical container bytes are not reconstructible",
         "provider-complete safety null",
-        "Cross-platform numeric recovery active — TCP-1 scientific execution BLOCKED",
+        "Iter219 published a null — TCP-1 scientific execution remains BLOCKED",
         "Artifact-bound receipt v2",
         "post-seal forensic correction",
         "iter209 publication CI recovery",
         "iter211 TCP-1 materialization preflight",
         "iter213 iter211 post-seal validation recovery",
         "iter214 TCP-1 cross-platform numeric recovery",
+        # The null's two load-bearing sentences.  A reader who sees only the forward yield
+        # and the cross-repository control would read a 10^-24 effect that is not there.
+        "tests added *before* the task reference them at `0.4336`",
+        "artifact of a control that cannot fail for the right reason",
+        "the underlying harvest idea is untested and remains open",
+        "iter219 temporal consequence-test yield",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "certified-resolved reference-differential witness under the benchmark's operational label",
@@ -160,6 +167,19 @@ FORBIDDEN_TEXT = {
 }
 
 
+def normalized_prose(path: Path) -> str:
+    """Read markdown as one line, with blockquote markers removed.
+
+    A phrase that wraps inside a blockquote normalizes to "right > reason" and silently
+    fails a required-text scan even though the prose is correct.  This repository has now
+    lost a publication seal to a line wrap once and hit the same class of defect twice
+    more, so strip the marker here rather than depend on prose staying hand-reflowed.
+    """
+
+    lines = [re.sub(r"^\s*>+\s?", "", line) for line in path.read_text(encoding="utf-8").splitlines()]
+    return " ".join(" ".join(lines).split())
+
+
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -167,12 +187,12 @@ def sha256(path: Path) -> str:
 def validate() -> list[str]:
     failures: list[str] = []
     for path, snippets in REQUIRED_TEXT.items():
-        text = " ".join(path.read_text(encoding="utf-8").split())
+        text = normalized_prose(path)
         for snippet in snippets:
             if snippet not in text:
                 failures.append(f"{path.relative_to(ROOT)} missing current paper text: {snippet}")
     for path, snippets in FORBIDDEN_TEXT.items():
-        text = " ".join(path.read_text(encoding="utf-8").split())
+        text = normalized_prose(path)
         for snippet in snippets:
             if snippet in text:
                 failures.append(f"{path.relative_to(ROOT)} retains stale paper text: {snippet}")

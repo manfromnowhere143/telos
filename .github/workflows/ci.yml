@@ -177,6 +177,12 @@ jobs:
       - name: Iter214 TCP-1 cross-platform numeric recovery guard
         run: python3 scripts/validate_iter214_tcp1_cross_platform_numeric_recovery.py
 
+      - name: Iter219 temporal consequence-test yield receipt guard
+        run: python3 scripts/build_iter219_receipt.py --check
+
+      - name: Iter219 temporal consequence-test yield guard
+        run: python3 scripts/validate_iter219_temporal_consequence_test_yield.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 

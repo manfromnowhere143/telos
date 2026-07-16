@@ -15,7 +15,6 @@ from telos.proof import (  # noqa: E402
     RECEIPT_V2_SCHEMA,
     build_artifact_binding,
     evidence_closure_digest,
-    load_receipt_v2,
     receipt_v2_digest,
     validate_receipt_v2,
 )
@@ -111,7 +110,7 @@ def main() -> int:
         if not RECEIPT_PATH.exists():
             print("iter219 receipt missing")
             return 1
-        committed = load_receipt_v2(RECEIPT_PATH)
+        committed = json.loads(RECEIPT_PATH.read_text(encoding="utf-8"))
         validate_receipt_v2(committed)
         expected = build_receipt()
         if committed.get("evidence_closure_sha256") != expected["evidence_closure_sha256"]:

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from pathlib import Path
 import sys
 from typing import Any
@@ -303,6 +304,27 @@ def check_zero_action(report: dict[str, Any]) -> None:
     )
 
 
+def check_result_digests_are_not_invented(result_text: str, report: dict[str, Any]) -> None:
+    """Every 64-hex digest in the result must exist verbatim in the evidence.
+
+    A digest is the one claim a reader will never verify by hand, which makes it the
+    easiest thing in a scientific record to fabricate.  One was fabricated while drafting
+    this very result: the first 16 characters were copied from a log line and the
+    remaining 48 were invented.  Bind prose digests to the artifact so prose cannot drift
+    from evidence again.
+    """
+
+    known = {report["dataset"]["rows_sha256"]}
+    for entry in report.get("repositories", {}).values():
+        known.add(entry["head_sha"])
+
+    for digest in set(re.findall(r"\b[0-9a-f]{64}\b", result_text)):
+        require(
+            digest in known,
+            f"result states a 64-hex digest absent from the evidence: {digest}",
+        )
+
+
 def check_claim_boundary(text: str) -> None:
     lowered = text.lower()
     for phrase in FORBIDDEN_CLAIMS:
@@ -332,7 +354,9 @@ def validate(preflight: bool = False) -> list[str]:
         check_zero_action(report)
 
         require(RESULT.exists(), "iter219 result missing")
-        check_claim_boundary(RESULT.read_text(encoding="utf-8"))
+        result_text = RESULT.read_text(encoding="utf-8")
+        check_claim_boundary(result_text)
+        check_result_digests_are_not_invented(result_text, report)
     except Iter219ValidationError as error:
         problems.append(str(error))
     return problems

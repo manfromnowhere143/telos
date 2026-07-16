@@ -573,3 +573,136 @@ def test_lock_ignores_a_corrupt_lock_file(tmp_path) -> None:
     lock.acquire()
     lock.release()
     assert not (tmp_path / ".instrument.lock").exists()
+
+
+# --------------------------------------------------------------------------- #
+# Fabricated-digest guard.  A 64-hex string is the one claim nobody checks by
+# hand; one was invented while drafting this result and caught before commit.
+# --------------------------------------------------------------------------- #
+
+REAL_DIGEST = "a" * 64
+FAKE_DIGEST = "b" * 64
+
+
+def _report_with_digest() -> dict:
+    return {
+        "dataset": {"rows_sha256": REAL_DIGEST},
+        "repositories": {"org/a": {"head_sha": "c" * 40, "url": "u", "default_branch": "main"}},
+    }
+
+
+def test_result_may_cite_a_digest_present_in_the_evidence() -> None:
+    guard.check_result_digests_are_not_invented(
+        f"rows SHA-256 `{REAL_DIGEST}` as recorded.", _report_with_digest()
+    )
+
+
+def test_guard_fires_on_a_fabricated_digest() -> None:
+    with pytest.raises(guard.Iter219ValidationError, match="absent from the evidence"):
+        guard.check_result_digests_are_not_invented(
+            f"rows SHA-256 `{FAKE_DIGEST}`.", _report_with_digest()
+        )
+
+
+def test_guard_fires_on_a_digest_with_a_correct_prefix_but_invented_tail() -> None:
+    # The exact failure mode: copy the 16 chars visible in a log, invent the other 48.
+    invented = REAL_DIGEST[:16] + ("f" * 48)
+    with pytest.raises(guard.Iter219ValidationError, match="absent from the evidence"):
+        guard.check_result_digests_are_not_invented(
+            f"rows SHA-256 `{invented}`.", _report_with_digest()
+        )
+
+
+def test_committed_result_cites_only_real_digests() -> None:
+    import json as _json
+
+    report = _json.loads(guard.REPORT.read_text(encoding="utf-8"))
+    guard.check_result_digests_are_not_invented(
+        guard.RESULT.read_text(encoding="utf-8"), report
+    )
+
+
+# --------------------------------------------------------------------------- #
+# Mission-loop contract: the null's boundary must survive future edits.
+# --------------------------------------------------------------------------- #
+
+import json as _mj  # noqa: E402
+
+from scripts.validate_mission_loop import (  # noqa: E402
+    validate_iter219_temporal_yield_state,
+)
+
+
+def _contract() -> dict:
+    return _mj.loads((guard.ROOT / "mission/loop.json").read_text(encoding="utf-8"))
+
+
+def test_mission_loop_records_iter219_null_within_its_boundary() -> None:
+    assert validate_iter219_temporal_yield_state(_contract()) == []
+
+
+def test_mission_loop_guard_fires_if_the_null_is_upgraded_to_a_result() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["status"] = "pass"
+    assert "iter219 must be recorded as a null" in validate_iter219_temporal_yield_state(contract)
+
+
+def test_mission_loop_guard_fires_if_the_harvest_boundary_is_dropped() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["does_not_establish"] = (
+        "Maintainer consequence tests do not exist."
+    )
+    failures = validate_iter219_temporal_yield_state(contract)
+    assert any("does not falsify the harvest hypothesis" in f for f in failures)
+
+
+def test_mission_loop_guard_fires_if_the_averted_false_positive_is_hidden() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["false_positive_averted"] = ""
+    failures = validate_iter219_temporal_yield_state(contract)
+    assert any("averted cross-repository false positive" in f for f in failures)
+
+
+def test_mission_loop_guard_fires_on_any_claimed_action() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["provider_calls"] = 1
+    assert "iter219 provider_calls must be zero" in validate_iter219_temporal_yield_state(contract)
+
+
+def test_mission_loop_guard_fires_if_tcp1_admission_is_claimed_advanced() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["tcp1_admission_unchanged"] = (
+        "all gates pass"
+    )
+    failures = validate_iter219_temporal_yield_state(contract)
+    assert any("TCP-1 admission as unchanged" in f for f in failures)
+
+
+# --------------------------------------------------------------------------- #
+# Blockquote normalizer: the third instance of a markdown artifact silently
+# defeating a required-phrase scan in this repository.
+# --------------------------------------------------------------------------- #
+
+from scripts.validate_current_paper import normalized_prose  # noqa: E402
+
+
+def test_blockquote_wrapped_phrase_normalizes_without_the_marker(tmp_path) -> None:
+    doc = tmp_path / "x.md"
+    doc.write_text("> a control that cannot fail for the right\n> reason, and more.\n")
+
+    text = normalized_prose(doc)
+
+    assert "cannot fail for the right reason" in text
+    assert ">" not in text
+
+
+def test_normalizer_preserves_ordinary_prose(tmp_path) -> None:
+    doc = tmp_path / "y.md"
+    doc.write_text("plain sentence\nwrapped across lines\n")
+    assert normalized_prose(doc) == "plain sentence wrapped across lines"
+
+
+def test_normalizer_handles_nested_blockquotes(tmp_path) -> None:
+    doc = tmp_path / "z.md"
+    doc.write_text(">> deep quote\n> shallow quote\n")
+    assert normalized_prose(doc) == "deep quote shallow quote"
