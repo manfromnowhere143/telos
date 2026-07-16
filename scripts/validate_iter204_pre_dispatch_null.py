@@ -465,7 +465,6 @@ def validate() -> dict[str, int]:
         "provider_calls": 0,
         "push_validation_runs": 2,
         "scientific_executions": 0,
-        "terminal_learning_records": 1,
         "workflow_dispatch_runs": 0,
     }
 
@@ -480,8 +479,7 @@ def main() -> int:
         "iter204 pre-dispatch-null guard: "
         f"{summary['push_validation_runs']} push parse-failure records, "
         f"{summary['workflow_dispatch_runs']} workflow_dispatch runs, "
-        f"{summary['scientific_executions']} scientific executions, "
-        f"{summary['terminal_learning_records']} terminal learning record"
+        f"{summary['scientific_executions']} scientific executions"
     )
     return 0
 

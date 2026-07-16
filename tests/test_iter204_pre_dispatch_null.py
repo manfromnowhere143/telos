@@ -20,7 +20,6 @@ def test_iter204_pre_dispatch_null_is_exact_and_science_free() -> None:
         "provider_calls": 0,
         "push_validation_runs": 2,
         "scientific_executions": 0,
-        "terminal_learning_records": 1,
         "workflow_dispatch_runs": 0,
     }
 
