@@ -1,0 +1,93 @@
+{
+  "approved_source": {
+    "head_sha": "c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446",
+    "primary_ci": {
+      "conclusion": "success",
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 87518936244,
+          "name": "verify py3.12"
+        },
+        {
+          "conclusion": "success",
+          "id": 87518936266,
+          "name": "verify py3.11"
+        }
+      ],
+      "run_attempt": 1,
+      "run_id": 29465925393,
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29465925393"
+    },
+    "primary_ref": "refs/heads/master"
+  },
+  "dispatch_api_rejection": {
+    "error_message": "Invalid Argument - failed to parse workflow: (Line: 318, Col: 36): Unrecognized named-value: 'runner'. Located at position 1 within expression: runner.temp",
+    "http_status": 422,
+    "locally_observed": true,
+    "public_workflow_dispatch_job_log_exists": false,
+    "public_workflow_dispatch_run_log_exists": false,
+    "raw_response_committed": false,
+    "request_count_exact": null,
+    "request_count_lower_bound": 1,
+    "workflow_dispatch_run_count_after_rejection": 0,
+    "workflow_dispatch_run_created": false,
+    "workflow_dispatch_run_id": null
+  },
+  "evidence_class": "hand_authored_normalized_local_api_rejection_plus_canonicalized_public_read_only_api_snapshots",
+  "experiment_id": "iter204_iter203_infrastructure_recovery",
+  "next_gate": {
+    "path": "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+    "status": "pending_separately_versioned_workflow_context_recovery"
+  },
+  "provider_accounting": {
+    "judge_calls": 0,
+    "scenario_calls": 0,
+    "solver_calls": 0
+  },
+  "public_dispatch_metadata_manifest_path": "experiments/iter204_iter203_infrastructure_recovery/proof/raw/public_dispatch_metadata/manifest.json",
+  "public_dispatch_metadata_manifest_sha256": "8f20922002f3029e96d60078ace644e0cf56f758c692c3f35a07d5fe7f19081b",
+  "push_validation_records": {
+    "artifacts_uploaded": 0,
+    "event": "push",
+    "jobs_created": 0,
+    "log_downloads_available": 0,
+    "run_attempts": [
+      1,
+      1
+    ],
+    "run_count": 2,
+    "run_ids": [
+      29465584664,
+      29465924803
+    ],
+    "scientific_execution": 0,
+    "workflow_name_fallback": ".github/workflows/iter204-execute.yml"
+  },
+  "schema_version": "telos.iter204.pre_dispatch_infrastructure_null.v1",
+  "scientific_evidence": {
+    "certification_executions": 0,
+    "container_create_or_run_invocations": 0,
+    "k": null,
+    "n": null,
+    "patch_applications": 0,
+    "scenario_executions": 0,
+    "scientific_artifacts": 0,
+    "u": null
+  },
+  "status": "pre_dispatch_infrastructure_null",
+  "timing": "post_merge_green_primary_ci_and_pre_workflow_dispatch_run",
+  "workflow_source": {
+    "failure_class": "workflow_parse_error_before_dispatch_run_creation",
+    "frozen_hypothesis_sha256": "7f6b9e0ba0ba0077115e64e38239a6eeafb2b18797fdd160a3eb9c0297396dfd",
+    "frozen_runtime_manifest_sha256": "bf2062825e604d9439b0d29375d7e5219a1064ae4a33701efb74a62f81a59a45",
+    "parse_column": 36,
+    "parse_expression": "runner.temp",
+    "parse_line": 318,
+    "parse_rejection_cause": "runner.temp is unavailable in a job-level env expression",
+    "path": ".github/workflows/iter204-execute.yml",
+    "sha256": "84f7f8b228624ff7244991e317e7f8146a6aacd93f803c1df983b6cceae4deb4",
+    "workflow_id": 314113289,
+    "workflow_state": "active"
+  }
+}

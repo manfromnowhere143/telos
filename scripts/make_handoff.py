@@ -18,6 +18,15 @@ NODE24_BACKFILL_SOURCE_COMMIT = "b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe"
 NODE24_BACKFILL_RUN_ID = "29452243832"
 ITER203_RUN_ID = "29460393525"
 ITER203_RUN_ATTEMPT = "1"
+ITER204_MERGE_COMMIT = "c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446"
+ITER204_PRIMARY_CI_RUN_ID = "29465925393"
+ITER204_WORKFLOW_ID = "314113289"
+ITER204_FEATURE_PUSH_RUN_ID = "29465584664"
+ITER204_FEATURE_PUSH_COMMIT = "8342315dd2fa7ec865bd7c654ec4ec098675dfab"
+ITER204_PRIMARY_PUSH_RUN_ID = "29465924803"
+ITER204_RUNTIME_MANIFEST_SHA256 = (
+    "bf2062825e604d9439b0d29375d7e5219a1064ae4a33701efb74a62f81a59a45"
+)
 
 
 def repository_banner() -> str:
@@ -235,11 +244,27 @@ Working tree:
   `28.0.4` source: the `local` driver used `max-file=1` while compression remained enabled by default. This
   was not an access, authentication, billing, quota, or credit failure. The eight exact raw public job logs
   are committed and hash-bound; do not rerun, replace, or reinterpret iter203.
-- Iter204 recovery: this separately versioned post-null, pre-scientific-output protocol preserves the same
-  `50` patches, exact row order, safety dispositions, missingness definitions, certification definitions,
-  and judge contract. The runtime-only correction adds `compress=false`, bounded visible diagnostics, and
-  a non-scientific exact-launcher smoke before any patch, certification, or scenario execution. This is not
-  conventional prospective preregistration.
+- Iter204 disposition: approved source `{ITER204_MERGE_COMMIT}` passed primary CI run
+  `{ITER204_PRIMARY_CI_RUN_ID}`, attempt `1`. The server retained exactly two iter204 workflow records.
+  They are push parse-failure run `{ITER204_FEATURE_PUSH_RUN_ID}` at `{ITER204_FEATURE_PUSH_COMMIT}` and
+  push parse-failure run `{ITER204_PRIMARY_PUSH_RUN_ID}` at the approved merge. Both are completed attempt-`1`
+  failures with zero jobs and zero artifacts. They are not dispatch runs. The complete iter204 history has
+  zero `workflow_dispatch` runs; it is false to say that iter204 has zero workflow runs.
+- Iter204 rejected-request boundary: at least one locally observed dispatch API request returned HTTP `422`
+  before run creation because the workflow parser rejected a job-level `runner.temp` expression. The request
+  has no run ID, no run attempt, and no public workflow-dispatch job or run log. The exact request count is not
+  publicly auditable and is not asserted.
+- Iter204 scientific disposition: no provider process, container create/run invocation, patch application,
+  official certification, scenario execution, adjudication, or judge process started. Iter204 is a
+  pre-dispatch infrastructure null and contributes no `N`, `k`, or `u`; those quantities are absent, not zero.
+  Its runtime manifest at SHA-256 `{ITER204_RUNTIME_MANIFEST_SHA256}` is exact-hash historical evidence.
+  Never reconstruct that frozen manifest from the current tree or use it as a current-tree manifest.
+- Iter205 recovery: the active, separately identified pre-dispatch and pre-scientific-output protocol preserves
+  the same `50` patches and row order, eight shards, `29` admitted witnesses, `9` rejected witnesses, one absent
+  witness, images, certification and scenario rules, missingness definitions, adjudication, and judge contract.
+  Its only runtime correction moves the smoke-receipt `runner.temp` binding from job-level to step-level context;
+  the remaining changes are mechanical iter205 identities, additive iter204-null guards, and stronger workflow
+  admission checks. This is not a retry or in-place mutation of iter204.
 - Publication/readiness evidence: published iter203 source PR `#{HARDENING_PULL_REQUEST}` merged as
   `{HARDENING_MERGE_COMMIT}`; primary-branch CI run `{PRIMARY_CI_RUN_ID}` succeeded at that merge.
   Provider-free backfill run `{NODE24_BACKFILL_RUN_ID}` succeeded at source commit
@@ -248,27 +273,36 @@ Working tree:
   `37` committed execution pairs in the complete `74`-log corpus with zero model-provider calls. It reused
   the committed logs and did not re-execute containers.
 - Frozen protocol checkpoint: keep `CONTINUITY.md` byte-identical. Its iter202 instructions are preserved
-  for provenance; the published iter203 null, active iter204 hypothesis, new runtime manifest, and generated
-  handoff govern the additive recovery.
+  for provenance; the published iter203 and iter204 nulls, active iter205 hypothesis, new iter205 runtime
+  manifest, and generated handoff govern the additive recovery.
 - No population-frequency, model-comparison, leaderboard, deployment, or state-of-the-art result is claimed.
-- Next action: review the iter203 null evidence and iter204 source, smoke, diagnostics, runtime closure,
-  collector, adjudicator, blind-judge binding, and preserved upstream bytes; commit the bounded recovery;
-  publish it through a pull request; and require green primary-branch CI. Only from that clean, green primary
-  commit may one iter204 workflow dispatch be made. The first global iter204 dispatch and run attempt `1`
-  are the only eligible execution. Any failure closes iter204 and requires iter205; never rerun or dispatch
-  again after observing output. Never dispatch the frozen iter202 or iter203 workflows, execute a rejected
-  scenario, or treat missing evidence as negative.
+- Next action: review the exact iter204 pre-dispatch null and the bounded iter205 source, smoke, diagnostics,
+  runtime closure, collector, adjudicator, blind-judge binding, and preserved upstream bytes; commit the
+  recovery; publish it through a pull request; and require green primary-branch CI. Only from that clean,
+  green primary commit may the exact server-object and complete-history preflight authorize one iter205
+  dispatch request. A created first global iter205 `workflow_dispatch` run at attempt `1` is the only eligible
+  execution. Any API rejection, parser record, authorization failure, smoke failure, shard failure, collector
+  failure, or incomplete corpus closes iter205 and requires iter206. Never re-enter the dispatch block, never
+  rerun, and never issue a second iter205 request. Never dispatch the frozen iter202, iter203, or iter204
+  workflows, execute a rejected scenario, or treat missing evidence as negative.
 - Autonomous goal-tracking note: if the operator explicitly asks for a persistent
   autonomous run, use the session goal tracker if available; otherwise continue
   from this handoff, the active `HYPOTHESIS.md`, and the learning ledger. Consult
   `CONTINUITY.md` only as the frozen upstream record. Do not treat a session-level "pursuing goals" state as evidence; the
   committed repo artifacts remain the source of truth.
 
-## Exact Authorized Iter204 Dispatch
+## Exact Authorized Iter205 Dispatch
 
-Only after the iter204 recovery pull request is merged and primary-branch CI is green, run this from the
-standalone TELOS repository. This is intentionally not idempotent: dispatch is allowed only when there has
-never been an earlier iter204 workflow dispatch on any commit. Only run attempt `1` is eligible.
+Only after the iter205 recovery pull request is merged and primary-branch CI is green, run this from the
+standalone TELOS repository. This block is intentionally non-idempotent. Before its sole request it proves
+the exact active server workflow object; empty complete iter205 all-event and dispatch histories; the exact
+two-record iter204 parse-failure history; and the approved commit's exact green primary CI and checks. A
+transient read-only query failure before the request does not consume iter205's request allowance: resolve it
+and rerun the complete preflight. A confirmed substantive preflight mismatch closes iter205.
+Once execution reaches the request command, never re-enter this block. A confirmed API rejection or parser record closes
+iter205 and advances to iter206. If client or network state is ambiguous, assume the request may have been
+accepted and use only the read-only observe block. A rejected request has no run attempt, but still consumes
+iter205's sole request allowance.
 
 ```bash
 set -euo pipefail
@@ -277,38 +311,85 @@ git pull --ff-only origin master
 test -z "$(git status --porcelain)"
 HEAD_SHA="$(git rev-parse HEAD)"
 test "$HEAD_SHA" = "$(git rev-parse origin/master)"
+git merge-base --is-ancestor {ITER204_MERGE_COMMIT} "$HEAD_SHA"
 REPO="$(gh repo view --json nameWithOwner --jq '.nameWithOwner')"
 test "$REPO" = "manfromnowhere143/telos"
-CI_CONCLUSION="$(gh run list --workflow ci.yml --branch master --event push --commit "$HEAD_SHA" --limit 1 --json conclusion --jq '.[0].conclusion // empty')"
-test "$CI_CONCLUSION" = success
-PRIOR_RUN_COUNT="$(
-  gh api --paginate -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" \\
+WORKFLOW_BINDING="$(gh api -X GET "repos/$REPO/actions/workflows/iter205-execute.yml" --jq '[.name,.path,.state] | @tsv')"
+test "$WORKFLOW_BINDING" = $'iter205-execute\t.github/workflows/iter205-execute.yml\tactive'
+ITER205_ALL_COUNT="$(
+  gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" \\
+    -f per_page=100 --jq '.workflow_runs | length' \\
+    | awk '{{ total += $1 }} END {{ print total + 0 }}'
+)"
+test "$ITER205_ALL_COUNT" -eq 0
+ITER205_DISPATCH_COUNT="$(
+  gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" \\
     -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' \\
     | awk '{{ total += $1 }} END {{ print total + 0 }}'
 )"
-test "$PRIOR_RUN_COUNT" -eq 0
-gh workflow run iter204-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"
+test "$ITER205_DISPATCH_COUNT" -eq 0
+ITER204_WORKFLOW_BINDING="$(gh api -X GET "repos/$REPO/actions/workflows/{ITER204_WORKFLOW_ID}" --jq '[.id,.name,.path,.state] | @tsv')"
+test "$ITER204_WORKFLOW_BINDING" = $'{ITER204_WORKFLOW_ID}\t.github/workflows/iter204-execute.yml\t.github/workflows/iter204-execute.yml\tactive'
+ITER204_HISTORY="$(
+  gh api --paginate -X GET "repos/$REPO/actions/workflows/{ITER204_WORKFLOW_ID}/runs" \\
+    -f per_page=100 \\
+    --jq '.workflow_runs[] | [.id,.event,.status,.conclusion,.run_attempt,.head_sha] | @tsv' \\
+    | LC_ALL=C sort
+)"
+EXPECTED_ITER204_HISTORY="$(printf '%s\\n' \\
+  $'{ITER204_FEATURE_PUSH_RUN_ID}\tpush\tcompleted\tfailure\t1\t{ITER204_FEATURE_PUSH_COMMIT}' \\
+  $'{ITER204_PRIMARY_PUSH_RUN_ID}\tpush\tcompleted\tfailure\t1\t{ITER204_MERGE_COMMIT}')"
+test "$ITER204_HISTORY" = "$EXPECTED_ITER204_HISTORY"
+ITER204_DISPATCH_COUNT="$(
+  gh api --paginate -X GET "repos/$REPO/actions/workflows/{ITER204_WORKFLOW_ID}/runs" \\
+    -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' \\
+    | awk '{{ total += $1 }} END {{ print total + 0 }}'
+)"
+test "$ITER204_DISPATCH_COUNT" -eq 0
+for ITER204_RUN_ID in {ITER204_FEATURE_PUSH_RUN_ID} {ITER204_PRIMARY_PUSH_RUN_ID}; do
+  test "$(gh api -X GET "repos/$REPO/actions/runs/$ITER204_RUN_ID/jobs" -f per_page=100 --jq '.total_count')" -eq 0
+  test "$(gh api -X GET "repos/$REPO/actions/runs/$ITER204_RUN_ID/artifacts" -f per_page=100 --jq '.total_count')" -eq 0
+done
+CI_BINDING="$(
+  gh api --paginate -X GET "repos/$REPO/actions/workflows/ci.yml/runs" \\
+    -f branch=master -f event=push -f per_page=100 \\
+    --jq ".workflow_runs[] | select(.head_sha == \\\"$HEAD_SHA\\\") | [.id,.status,.conclusion,.event,.head_sha,.run_attempt] | @tsv"
+)"
+test "$(printf '%s\\n' "$CI_BINDING" | sed '/^$/d' | wc -l | tr -d ' ')" -eq 1
+CI_RUN_ID="$(printf '%s\\n' "$CI_BINDING" | cut -f1)"
+test "$(printf '%s\\n' "$CI_BINDING" | cut -f2-)" = $'completed\tsuccess\tpush\t'"$HEAD_SHA"$'\t1'
+CI_JOBS="$(gh api --paginate -X GET "repos/$REPO/actions/runs/$CI_RUN_ID/jobs" -f per_page=100 --jq '.jobs[] | [.name,.status,.conclusion] | @tsv' | LC_ALL=C sort)"
+test "$CI_JOBS" = "$(printf '%s\\n' $'verify py3.11\tcompleted\tsuccess' $'verify py3.12\tcompleted\tsuccess')"
+gh workflow run iter205-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"
 RUN_ID=""
-for attempt in $(seq 1 12); do
-  RUN_ID="$(gh run list --workflow iter204-execute.yml --branch master --event workflow_dispatch --commit "$HEAD_SHA" --limit 1 --json databaseId --jq '.[0].databaseId // empty')"
-  test -n "$RUN_ID" && break
+for observation in $(seq 1 12); do
+  ITER205_ALL_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
+  ITER205_DISPATCH_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
+  test "$ITER205_ALL_COUNT" -le 1
+  test "$ITER205_DISPATCH_COUNT" -le 1
+  if test "$ITER205_ALL_COUNT" -eq 1 && test "$ITER205_DISPATCH_COUNT" -eq 1; then
+    RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
+    break
+  fi
   sleep 5
 done
-test -n "$RUN_ID"
-GLOBAL_RUN_COUNT="$(
-  gh api --paginate -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" \\
-    -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' \\
-    | awk '{{ total += $1 }} END {{ print total + 0 }}'
-)"
-test "$GLOBAL_RUN_COUNT" -eq 1
-test "$(gh run view "$RUN_ID" --json attempt --jq '.attempt')" -eq 1
-printf 'Canonical iter204 RUN_ID=%s APPROVED_SHA=%s; use the observe block below.\n' "$RUN_ID" "$HEAD_SHA"
+if test -z "$RUN_ID"; then
+  printf 'Iter205 request was entered but canonical run discovery is incomplete; never reissue it. Use only the read-only observe block.\\n' >&2
+  exit 75
+fi
+test "$ITER205_ALL_COUNT" -eq 1
+test "$ITER205_DISPATCH_COUNT" -eq 1
+RUN_BINDING="$(gh api -X GET "repos/$REPO/actions/runs/$RUN_ID" --jq '[.event,.head_sha,.run_attempt,.path] | @tsv')"
+test "$RUN_BINDING" = $'workflow_dispatch\t'"$HEAD_SHA"$'\t1\t.github/workflows/iter205-execute.yml'
+printf 'Canonical iter205 RUN_ID=%s APPROVED_SHA=%s; use only the observe block below.\\n' "$RUN_ID" "$HEAD_SHA"
 ```
 
 If dispatch discovery or local watching is interrupted, never re-enter the dispatch block. Use this
-read-only block to resolve the sole global iter204 run, bind it to the approved commit and attempt `1`, and
+read-only block to resolve the sole global iter205 run, bind it to the approved commit and attempt `1`, and
 wait for GitHub's terminal state. A queued or in-progress run and a local network/client interruption are
-not null results.
+not null results. A discovery poll timeout or temporarily absent run is not by itself a null; wait and rerun
+only this read-only block. A confirmed parser or non-dispatch record, or a substantive invariant mismatch,
+closes iter205 and requires iter206. No observation ever authorizes another request.
 
 ```bash
 set -euo pipefail
@@ -317,34 +398,43 @@ git fetch origin master
 test -z "$(git status --porcelain)"
 REPO="$(gh repo view --json nameWithOwner --jq '.nameWithOwner')"
 test "$REPO" = "manfromnowhere143/telos"
-GLOBAL_RUN_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
-test "$GLOBAL_RUN_COUNT" -eq 1
-RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
+WORKFLOW_BINDING="$(gh api -X GET "repos/$REPO/actions/workflows/iter205-execute.yml" --jq '[.name,.path,.state] | @tsv')"
+test "$WORKFLOW_BINDING" = $'iter205-execute\t.github/workflows/iter205-execute.yml\tactive'
+ITER205_ALL_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
+ITER205_DISPATCH_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
+test "$ITER205_ALL_COUNT" -eq 1
+test "$ITER205_DISPATCH_COUNT" -eq 1
+RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
 test -n "$RUN_ID"
-APPROVED_SHA="$(gh run view "$RUN_ID" --json headSha --jq '.headSha')"
+APPROVED_SHA="$(gh api -X GET "repos/$REPO/actions/runs/$RUN_ID" --jq '.head_sha')"
 test -n "$APPROVED_SHA"
 git merge-base --is-ancestor "$APPROVED_SHA" origin/master
-CI_CONCLUSION="$(gh run list --workflow ci.yml --branch master --event push --commit "$APPROVED_SHA" --limit 1 --json conclusion --jq '.[0].conclusion // empty')"
-test "$CI_CONCLUSION" = success
-RUN_BINDING="$(gh run view "$RUN_ID" --json attempt,event,headSha --jq '[.attempt,.event,.headSha] | join(" ")')"
-test "$RUN_BINDING" = "1 workflow_dispatch $APPROVED_SHA"
+CI_BINDING="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/ci.yml/runs" -f branch=master -f event=push -f per_page=100 --jq ".workflow_runs[] | select(.head_sha == \\\"$APPROVED_SHA\\\") | [.id,.status,.conclusion,.event,.head_sha,.run_attempt] | @tsv")"
+test "$(printf '%s\\n' "$CI_BINDING" | sed '/^$/d' | wc -l | tr -d ' ')" -eq 1
+CI_RUN_ID="$(printf '%s\\n' "$CI_BINDING" | cut -f1)"
+test "$(printf '%s\\n' "$CI_BINDING" | cut -f2-)" = $'completed\tsuccess\tpush\t'"$APPROVED_SHA"$'\t1'
+CI_JOBS="$(gh api --paginate -X GET "repos/$REPO/actions/runs/$CI_RUN_ID/jobs" -f per_page=100 --jq '.jobs[] | [.name,.status,.conclusion] | @tsv' | LC_ALL=C sort)"
+test "$CI_JOBS" = "$(printf '%s\\n' $'verify py3.11\tcompleted\tsuccess' $'verify py3.12\tcompleted\tsuccess')"
+RUN_BINDING="$(gh api -X GET "repos/$REPO/actions/runs/$RUN_ID" --jq '[.event,.head_sha,.run_attempt,.path] | @tsv')"
+test "$RUN_BINDING" = $'workflow_dispatch\t'"$APPROVED_SHA"$'\t1\t.github/workflows/iter205-execute.yml'
 gh run watch "$RUN_ID" || true
 RUN_STATE="$(gh run view "$RUN_ID" --json status,conclusion --jq '[.status,(.conclusion // "")] | join(" ")')"
 if test "${{RUN_STATE%% *}}" != completed; then
-  printf 'Run %s is not terminal (%s); rerun only this read-only observe block.\n' "$RUN_ID" "$RUN_STATE" >&2
+  printf 'Run %s is not terminal (%s); rerun only this read-only observe block.\\n' "$RUN_ID" "$RUN_STATE" >&2
   exit 75
 fi
 RUN_CONCLUSION="${{RUN_STATE#* }}"
 if test "$RUN_CONCLUSION" != success; then
-  printf 'Run %s is terminal with conclusion=%s; use the failure-evidence block below.\n' "$RUN_ID" "$RUN_CONCLUSION" >&2
+  printf 'Run %s is terminal with conclusion=%s; use the failure-evidence block below.\\n' "$RUN_ID" "$RUN_CONCLUSION" >&2
   exit 20
 fi
-printf 'Run %s completed successfully; continue to complete-artifact verification.\n' "$RUN_ID"
+printf 'Run %s completed successfully; continue to complete-artifact verification.\\n' "$RUN_ID"
 ```
 
-A terminal non-success conclusion seals iter204 as an infrastructure null. Do not rerun it, do not dispatch iter204 again,
-and do not select partial shard output. Preserve the exact attempt-`1` workflow record before
-drafting the null and advancing to iter205:
+A terminal non-success conclusion seals iter205 as an infrastructure null. Do not rerun it, do not issue
+another request, and do not select partial shard output. Preserve the exact created attempt-`1` workflow
+record before drafting the null and advancing to iter206. A request rejected before run creation has no
+downloadable run evidence and must instead be reported at that exact bounded evidence level.
 
 ```bash
 set -euo pipefail
@@ -353,11 +443,13 @@ git fetch origin master
 test -z "$(git status --porcelain)"
 REPO="$(gh repo view --json nameWithOwner --jq '.nameWithOwner')"
 test "$REPO" = "manfromnowhere143/telos"
-GLOBAL_RUN_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
-test "$GLOBAL_RUN_COUNT" -eq 1
-RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
+ITER205_ALL_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
+ITER205_DISPATCH_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
+test "$ITER205_ALL_COUNT" -eq 1
+test "$ITER205_DISPATCH_COUNT" -eq 1
+RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
 test -n "$RUN_ID"
-APPROVED_SHA="$(gh run view "$RUN_ID" --json headSha --jq '.headSha')"
+APPROVED_SHA="$(gh api -X GET "repos/$REPO/actions/runs/$RUN_ID" --jq '.head_sha')"
 test -n "$APPROVED_SHA"
 git merge-base --is-ancestor "$APPROVED_SHA" origin/master
 test "$(gh run view "$RUN_ID" --json attempt --jq '.attempt')" -eq 1
@@ -366,13 +458,13 @@ test "$(gh run view "$RUN_ID" --json status --jq '.status')" = completed
 RUN_CONCLUSION="$(gh run view "$RUN_ID" --json conclusion --jq '.conclusion // empty')"
 test -n "$RUN_CONCLUSION"
 if test "$RUN_CONCLUSION" = success; then
-  printf 'Run succeeded; use success collection, not null collection.\n' >&2
+  printf 'Run succeeded; use success collection, not null collection.\\n' >&2
   exit 2
 fi
-NULL_DIR="experiments/iter204_iter203_infrastructure_recovery/proof/raw/execution_null_run_${{RUN_ID}}_attempt_1"
+NULL_DIR="experiments/iter205_iter204_workflow_context_recovery/proof/raw/execution_null_run_${{RUN_ID}}_attempt_1"
 test ! -e "$NULL_DIR"
 RAW_DIR="$(dirname "$NULL_DIR")"
-STAGE="$(mktemp -d "$RAW_DIR/.iter204-null-stage.XXXXXX")"
+STAGE="$(mktemp -d "$RAW_DIR/.iter205-null-stage.XXXXXX")"
 cleanup() {{ if test -n "${{STAGE:-}}" && test -d "$STAGE"; then rm -rf -- "$STAGE"; fi; }}
 trap cleanup EXIT
 gh api -X GET "repos/$REPO/actions/runs/$RUN_ID" --jq '{{id,name,head_branch,head_sha,path,event,status,conclusion,run_attempt,run_started_at,updated_at,html_url}}' > "$STAGE/run.json"
@@ -391,7 +483,7 @@ fi
 mv "$STAGE" "$NULL_DIR"
 STAGE=""
 trap - EXIT
-printf 'Preserved terminal iter204 null evidence at %s; publish the null and open iter205 before execution.\n' "$NULL_DIR"
+printf 'Preserved terminal iter205 null evidence at %s; publish the null and open iter206 before execution.\\n' "$NULL_DIR"
 ```
 
 After the sole run succeeds, re-prove its global uniqueness and attempt identity, download its complete
@@ -405,44 +497,53 @@ git fetch origin master
 test -z "$(git status --porcelain)"
 REPO="$(gh repo view --json nameWithOwner --jq '.nameWithOwner')"
 test "$REPO" = "manfromnowhere143/telos"
-GLOBAL_RUN_COUNT="$(
-  gh api --paginate -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" \\
+ITER205_ALL_COUNT="$(
+  gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" \\
+    -f per_page=100 --jq '.workflow_runs | length' \\
+    | awk '{{ total += $1 }} END {{ print total + 0 }}'
+)"
+ITER205_DISPATCH_COUNT="$(
+  gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" \\
     -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' \\
     | awk '{{ total += $1 }} END {{ print total + 0 }}'
 )"
-test "$GLOBAL_RUN_COUNT" -eq 1
-RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
+test "$ITER205_ALL_COUNT" -eq 1
+test "$ITER205_DISPATCH_COUNT" -eq 1
+RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
 test -n "$RUN_ID"
-APPROVED_SHA="$(gh run view "$RUN_ID" --json headSha --jq '.headSha')"
+APPROVED_SHA="$(gh api -X GET "repos/$REPO/actions/runs/$RUN_ID" --jq '.head_sha')"
 test -n "$APPROVED_SHA"
 git merge-base --is-ancestor "$APPROVED_SHA" origin/master
-git diff --quiet "$APPROVED_SHA" -- telos scripts .github/workflows/iter204-execute.yml experiments/iter203_iter202_safety_recovery experiments/iter204_iter203_infrastructure_recovery
-python3 -I -S scripts/build_iter204_runtime_manifest.py --check
+test "$(git rev-parse HEAD)" = "$APPROVED_SHA"
+git diff --quiet "$APPROVED_SHA" -- telos scripts .github/workflows/iter205-execute.yml experiments/iter203_iter202_safety_recovery experiments/iter204_iter203_infrastructure_recovery experiments/iter205_iter204_workflow_context_recovery
+python3 -I -S scripts/build_iter205_runtime_manifest.py --check
 test "$(gh run view "$RUN_ID" --json status,conclusion --jq '[.status,.conclusion] | join(" ")')" = "completed success"
 RUN_ATTEMPT="$(gh run view "$RUN_ID" --json attempt --jq '.attempt')"
 test "$RUN_ATTEMPT" -eq 1
-EXECUTION_DIR="experiments/iter204_iter203_infrastructure_recovery/proof/raw/execution"
+EXECUTION_DIR="experiments/iter205_iter204_workflow_context_recovery/proof/raw/execution"
 test ! -e "$EXECUTION_DIR"
 RAW_DIR="$(dirname "$EXECUTION_DIR")"
-STAGE="$(mktemp -d "$RAW_DIR/.iter204-execution-stage.XXXXXX")"
+STAGE="$(mktemp -d "$RAW_DIR/.iter205-execution-stage.XXXXXX")"
 cleanup() {{ if test -n "${{STAGE:-}}" && test -d "$STAGE"; then rm -rf -- "$STAGE"; fi; }}
 trap cleanup EXIT
-gh run download "$RUN_ID" --name "iter204-execution-complete-$RUN_ID-attempt-1" --dir "$STAGE"
-python3 -I -S scripts/collect_iter204_execution.py check \\
+gh run download "$RUN_ID" --name "iter205-execution-complete-$RUN_ID-attempt-1" --dir "$STAGE"
+python3 -I -S scripts/collect_iter205_execution.py check \\
   --execution-dir "$STAGE" \\
-  --aggregate-receipt "$STAGE/_telos_iter204_execution_complete.receipt.json" \\
+  --aggregate-receipt "$STAGE/_telos_iter205_execution_complete.receipt.json" \\
   --spec-index experiments/iter203_iter202_safety_recovery/proof/raw/specs/index.json \\
-  --runtime-manifest experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json
+  --runtime-manifest experiments/iter205_iter204_workflow_context_recovery/proof/raw/runtime_manifest.json
 mv "$STAGE" "$EXECUTION_DIR"
 STAGE=""
 trap - EXIT
-python3 -I -S scripts/adjudicate_iter204_infrastructure_recovery.py
-python3 -I -S scripts/run_iter204_infrastructure_recovery_blind_judge.py
+python3 -I -S scripts/adjudicate_iter205_workflow_context_recovery.py
+python3 -I -S scripts/run_iter205_workflow_context_recovery_blind_judge.py
 ```
 
 If the complete artifact was already promoted into the final execution directory but local adjudication or
 the checkpointed blind judge was interrupted, never redownload or rerun the workflow. Revalidate the final
-evidence in place, reproduce deterministic adjudication, and resume only the checkpoint-aware judge:
+evidence in place, reproduce deterministic adjudication, and resume only the checkpoint-aware judge. If
+collector validation fails or the corpus is incomplete, seal iter205 and advance to iter206; do not repair,
+replace, or select partial evidence.
 
 ```bash
 set -euo pipefail
@@ -452,26 +553,29 @@ git diff --quiet
 git diff --cached --quiet
 REPO="$(gh repo view --json nameWithOwner --jq '.nameWithOwner')"
 test "$REPO" = "manfromnowhere143/telos"
-GLOBAL_RUN_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
-test "$GLOBAL_RUN_COUNT" -eq 1
-RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter204-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
+ITER205_ALL_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
+ITER205_DISPATCH_COUNT="$(gh api --paginate -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs | length' | awk '{{ total += $1 }} END {{ print total + 0 }}')"
+test "$ITER205_ALL_COUNT" -eq 1
+test "$ITER205_DISPATCH_COUNT" -eq 1
+RUN_ID="$(gh api -X GET "repos/$REPO/actions/workflows/iter205-execute.yml/runs" -f event=workflow_dispatch -f per_page=100 --jq '.workflow_runs[0].id // empty')"
 test -n "$RUN_ID"
-APPROVED_SHA="$(gh run view "$RUN_ID" --json headSha --jq '.headSha')"
+APPROVED_SHA="$(gh api -X GET "repos/$REPO/actions/runs/$RUN_ID" --jq '.head_sha')"
 test -n "$APPROVED_SHA"
 git merge-base --is-ancestor "$APPROVED_SHA" origin/master
-git diff --quiet "$APPROVED_SHA" -- telos scripts .github/workflows/iter204-execute.yml experiments/iter203_iter202_safety_recovery experiments/iter204_iter203_infrastructure_recovery
-python3 -I -S scripts/build_iter204_runtime_manifest.py --check
+test "$(git rev-parse HEAD)" = "$APPROVED_SHA"
+git diff --quiet "$APPROVED_SHA" -- telos scripts .github/workflows/iter205-execute.yml experiments/iter203_iter202_safety_recovery experiments/iter204_iter203_infrastructure_recovery experiments/iter205_iter204_workflow_context_recovery
+python3 -I -S scripts/build_iter205_runtime_manifest.py --check
 test "$(gh run view "$RUN_ID" --json status,conclusion,attempt --jq '[.status,.conclusion,.attempt] | join(" ")')" = "completed success 1"
-EXECUTION_DIR="experiments/iter204_iter203_infrastructure_recovery/proof/raw/execution"
+EXECUTION_DIR="experiments/iter205_iter204_workflow_context_recovery/proof/raw/execution"
 test -d "$EXECUTION_DIR"
 test ! -L "$EXECUTION_DIR"
-python3 -I -S scripts/collect_iter204_execution.py check \
+python3 -I -S scripts/collect_iter205_execution.py check \
   --execution-dir "$EXECUTION_DIR" \
-  --aggregate-receipt "$EXECUTION_DIR/_telos_iter204_execution_complete.receipt.json" \
+  --aggregate-receipt "$EXECUTION_DIR/_telos_iter205_execution_complete.receipt.json" \
   --spec-index experiments/iter203_iter202_safety_recovery/proof/raw/specs/index.json \
-  --runtime-manifest experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json
-python3 -I -S scripts/adjudicate_iter204_infrastructure_recovery.py
-python3 -I -S scripts/run_iter204_infrastructure_recovery_blind_judge.py
+  --runtime-manifest experiments/iter205_iter204_workflow_context_recovery/proof/raw/runtime_manifest.json
+python3 -I -S scripts/adjudicate_iter205_workflow_context_recovery.py
+python3 -I -S scripts/run_iter205_workflow_context_recovery_blind_judge.py
 ```
 
 ## Verification Before Action
@@ -497,9 +601,10 @@ python3 scripts/build_iter203_safety_recovery.py --check
 python3 scripts/build_iter203_runtime_manifest.py --check
 python3 scripts/validate_iter203_publication_safety.py --check
 python3 scripts/validate_iter203_infrastructure_null.py
-python3 scripts/build_iter204_runtime_manifest.py --check
-python3 scripts/validate_iter204_publication_safety.py --check
-python3 scripts/validate_iter204_runtime_recovery.py
+python3 scripts/validate_iter204_pre_dispatch_null.py
+python3 scripts/build_iter205_runtime_manifest.py --check
+python3 scripts/validate_iter205_publication_safety.py --check
+python3 scripts/validate_iter205_runtime_recovery.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

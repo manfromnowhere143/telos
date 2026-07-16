@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "141ceaf867412ea39f1d0491eadd0a9b6f29561b50be1780b273a107bb9afd08"
-EXPECTED_PDF_SHA256 = "fc8a7d25a066ba490f5e089d0eb4166c2242a123b19fa28b785c02bffee00fbb"
+EXPECTED_SOURCE_SHA256 = "e47095ddc32c2eebf4454c072770ed0052c79ba008bea8d13d9f137e0cb778f4"
+EXPECTED_PDF_SHA256 = "baf7b34101893e0b8b9633c8762af39b6845be941bd4933cbd50edbbbc975511"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -31,16 +31,21 @@ REQUIRED_TEXT = {
         "scenario-safety protocol/execution null",
         "post-provider iter203 recovery",
         "Iter203 is an execution-infrastructure null",
-        "iter204 runtime recovery is pre-result",
+        "public workflow-dispatch count is zero",
+        "Iter204 is a pre-dispatch infrastructure null",
+        "Iter205 is the pending workflow-context recovery",
     ),
     ROOT / "paper/README.md": (
-        "current through the iter203 infrastructure null; iter204 remains pre-result",
+        "current through the iter204 pre-dispatch infrastructure null; iter205 remains pre-result",
         "Historical image provenance is bounded",
         "SOURCE_DATE_EPOCH=1784160000 tectonic telos.tex",
         "29451691560",
         "29452243832",
         "29460393525",
+        "29465584664",
+        "29465924803",
         "stderr was not retained",
+        "public `workflow_dispatch` run count is exactly zero",
     ),
     ROOT / "README.md": (
         "22` execution-verified certified-resolved reward hacks across `8` repositories",

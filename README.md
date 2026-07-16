@@ -64,19 +64,22 @@ daemon stderr was redirected to hidden temporary files and then deleted by the f
 is reconstructed from the frozen option tuple and Docker's version-matched validation source, not from a
 retained daemon-error artifact.
 
-Iter204 is the separately identified pre-result runtime recovery. It preserves the iter202/iter203 evidence
-and target order, adds `compress=false` without widening the log cap, retains bounded visible startup
-diagnostics, and requires a non-scientific exact-launcher preflight before the unchanged all-`50`
-certification plan can run. Rejected and absent witnesses remain unresolved rather than negative. The first
-global iter204 dispatch and run attempt `1` are the only eligible execution; any failure closes iter204 and
-requires iter205, with no rerun or second dispatch. Provider-free Node 24 backfill run `29452243832`
-reproduced and hash-verified the exact specs and validated the complete committed `74`-log corpus with zero
-model-provider calls; it reused those committed logs rather than re-executing containers. Iter203 source PR
-`#5` then merged as `5c409f79c9333206cff9ed80d59c08aa347110f6`, primary-branch CI run `29460293066`
-passed, and the sole iter203 dispatch followed. The eight exact public shard logs are now committed and
-hash-bound. No iter202 or iter203 scenario or certification execution occurred. No credential, credit,
-authentication, billing, or quota failure caused the iter203 null. Generated `HANDOFF.md` owns the current
-branch and exact iter204 publication/execution sequence.
+Iter204 separately versioned the narrow runtime recovery, preserving the iter202/iter203 corpus and target
+order while adding `compress=false`, bounded startup diagnostics, and a non-scientific launcher preflight.
+Its source merged as `c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446`, and primary CI run
+`29465925393` passed both required jobs. The workflow itself could not be parsed: two public `push` records
+(`29465584664` and `29465924803`) concluded failure with zero jobs and zero artifacts, while their log
+download endpoints returned `404`. At least one locally observed authorized dispatch API request returned
+HTTP `422` at line `318`, column `36` because `runner.temp` was referenced from job-level `env`. A
+subsequent public query found exactly zero iter204 `workflow_dispatch` runs. No provider or container call,
+patch application, certification, scenario, adjudication, or judge stage occurred. Iter204 is therefore a
+pre-dispatch infrastructure null with no `N`, `k`, or `u`; the two `push` records are infrastructure
+metadata, not scientific attempts. The exact number of rejected API requests is not publicly auditable, so
+the evidence claims only the observed lower bound of one. The source-parse fault occurred before any access
+or billing gate was reached. Recovery now requires a separately versioned iter205 workflow-context gate;
+iter204 cannot be retried or mutated. Provider-free Node 24 backfill run `29452243832` remains the exact
+iter200 denominator-recovery evidence. `HANDOFF.md` must be regenerated after iter205 is sealed before it
+can own the next publication/execution sequence.
 
 ```mermaid
 flowchart LR
@@ -89,8 +92,9 @@ flowchart LR
  C192-->N200["iter200 exploratory<br/>nonrandom · no raw judge text<br/>N=24 / k=1 / u=6"]
  N200-->N202["iter202 safety null<br/>53→50 patches · 39→38 scenarios<br/>29 pass · 9 reject / 21 findings · 1 absent<br/>stopped before execution"]
  D201-->N202
- N202-->N203["iter203 infrastructure null<br/>authorization passed · 50/50 Docker run invocations exit 125 · 0 starts<br/>0 uploaded artifacts · 0 certification / scenario execution"]
- N203-->N204["iter204 pre-result recovery<br/>same 50 · compress=false · diagnostics<br/>inert smoke · one global dispatch / attempt 1 only"]
+ N202-->N203["iter203 infra null<br/>50/50 Docker exit 125 · 0 starts<br/>0 artifacts · 0 cert / scenario"]
+ N203-->N204["iter204 pre-dispatch null<br/>2 push parse failures · 0 jobs / artifacts<br/>local 422 · dispatch runs 0 · science 0"]
+ N204-->N205["iter205 pending<br/>workflow-context recovery<br/>same science · new source / manifest"]
 ```
 
 ## Standing correction (iter192, 2026-07-14): the earlier v1 artifact contains no reward hacks
@@ -231,11 +235,16 @@ iter203 contributes no `N`, `k`, or `u`. The eight exact public shard logs are r
 exact daemon stderr is absent, and the Docker logging-configuration diagnosis is reconstructed from frozen
 source and version-matched implementation semantics.
 
-[`experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`](experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md)
-is the active, separately versioned pre-scientific-output recovery. It preserves every scientific input and
-rule, adds only the bounded observable runtime correction, and keeps safety-rejected and original-missing
-witnesses unresolved rather than negative. Only its first global dispatch and run attempt `1` are eligible;
-failure requires a published null and a new iteration, never a rerun.
+[`experiments/iter204_iter203_infrastructure_recovery/RESULT.md`](experiments/iter204_iter203_infrastructure_recovery/RESULT.md)
+publishes the pre-dispatch workflow-parse infrastructure null. The approved source and green primary CI are
+retained alongside two public `push` parse-failure records, the exact-zero public `workflow_dispatch` list,
+and the locally observed HTTP `422` message. The public records contain zero jobs and artifacts, and no
+scientific stage ran.
+
+[`experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`](experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md)
+is the pending, separately versioned workflow-context recovery. It preserves the frozen iter204
+scientific contract while correcting only the invalid context scope; it cannot reinterpret or retry
+iter204.
 
 `experiments/iter200_natural_certified_yet_wrong_rate/` asks `gpt-5.6-terra` to fix issues with no instruction
 to game tests. It is exploratory rather than a preregistered frequency estimate. The prompt is
@@ -1149,14 +1158,15 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`](experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md).
+[`experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`](experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md).
 
 The compact current evidence diagram is at the top of this README. It is the authoritative visual summary:
 iter192 corrects the foundation; iter195 and iter199 construct the `22`-row benchmark; iter197 and iter201
 retain exploratory diagnostics but fail their registered property protocol; iter200 supplies an exploratory
 neutral-prompt, gold-localized existence case; iter202 preserves a provider-complete but pre-execution
-scenario-safety null; iter203 records a zero-execution Docker-launch infrastructure null; and iter204 is
-the separately sealed runtime recovery with no scientific result yet.
+scenario-safety null; iter203 records a zero-execution Docker-launch infrastructure null; iter204 records a
+pre-dispatch workflow-parse infrastructure null with zero `workflow_dispatch` runs and zero scientific
+execution; and iter205 is the separately versioned pending workflow-context recovery.
 
 ## Evidence Arc (historical detection/intervention work)
 
@@ -1283,7 +1293,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per experiment (iter00-iter204), including explicit fail/null/pre-result states
+experiments/               one folder per experiment (iter00-iter205), including explicit fail/null/pre-result states
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
@@ -1316,9 +1326,10 @@ python3 scripts/build_iter203_safety_recovery.py --check
 python3 scripts/build_iter203_runtime_manifest.py --check
 python3 scripts/validate_iter203_publication_safety.py --check
 python3 scripts/validate_iter203_infrastructure_null.py
-python3 scripts/build_iter204_runtime_manifest.py --check
-python3 scripts/validate_iter204_publication_safety.py --check
-python3 scripts/validate_iter204_runtime_recovery.py
+python3 scripts/validate_iter204_pre_dispatch_null.py
+python3 scripts/build_iter205_runtime_manifest.py --check
+python3 scripts/validate_iter205_publication_safety.py --check
+python3 scripts/validate_iter205_runtime_recovery.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

@@ -1,0 +1,53 @@
+{
+  "evidence_class": "canonicalized_public_github_api_responses_and_explicit_projection",
+  "files": [
+    {
+      "bytes": 600,
+      "github_api_path": "repos/manfromnowhere143/telos/actions/workflows/iter204-execute.yml",
+      "normalization": "complete response with keys sorted, two-space indentation, and one trailing newline",
+      "path": "workflow.json",
+      "sha256": "c5daeb87763194bec571aa9073b78e8daf7c55024bdde0347847d69a0b6b8ce1"
+    },
+    {
+      "bytes": 46,
+      "github_api_path": "repos/manfromnowhere143/telos/actions/workflows/iter204-execute.yml/runs?event=workflow_dispatch&per_page=100",
+      "normalization": "complete response with keys sorted, two-space indentation, and one trailing newline",
+      "path": "dispatch_runs.json",
+      "sha256": "763f11efb3fd0695809422708bf5765dfad5d8438bfb9a7bad31f23ff74d3285"
+    },
+    {
+      "bytes": 1974,
+      "github_api_paths": [
+        "repos/manfromnowhere143/telos/actions/workflows/iter204-execute.yml/runs?per_page=100",
+        "repos/manfromnowhere143/telos/actions/runs/29465924803",
+        "repos/manfromnowhere143/telos/actions/runs/29465924803/jobs?per_page=100",
+        "repos/manfromnowhere143/telos/actions/runs/29465924803/artifacts?per_page=100",
+        "repos/manfromnowhere143/telos/actions/runs/29465924803/logs",
+        "repos/manfromnowhere143/telos/actions/runs/29465584664",
+        "repos/manfromnowhere143/telos/actions/runs/29465584664/jobs?per_page=100",
+        "repos/manfromnowhere143/telos/actions/runs/29465584664/artifacts?per_page=100",
+        "repos/manfromnowhere143/telos/actions/runs/29465584664/logs"
+      ],
+      "normalization": "explicit public run identity/state projection plus complete empty jobs/artifacts responses and normalized HTTP 404 log-download responses, with keys sorted, two-space indentation, and one trailing newline",
+      "path": "push_validation_runs.json",
+      "sha256": "ddca5408499db75be61ee81f17e7c27c53095922a4d18c911a03b93d457bf782"
+    },
+    {
+      "bytes": 1393,
+      "github_api_paths": [
+        "repos/manfromnowhere143/telos/actions/runs/29465925393",
+        "repos/manfromnowhere143/telos/actions/runs/29465925393/jobs?per_page=100"
+      ],
+      "normalization": "explicit public run/job identity, state, conclusion, source, and timestamp projection with keys sorted, two-space indentation, and one trailing newline",
+      "path": "primary_ci_projection.json",
+      "sha256": "43ace0a199f8b8fb4b445867d9a5385341957b22387bf3b02cb7fbb2ece2c548"
+    }
+  ],
+  "retrieval_date": "2026-07-16",
+  "schema_version": "telos.iter204.public_pre_dispatch_metadata.v1",
+  "workflow_id": 314113289,
+  "workflow_push_run_count": 2,
+  "workflow_state": "active",
+  "workflow_total_run_count": 2,
+  "workflow_workflow_dispatch_run_count": 0
+}
