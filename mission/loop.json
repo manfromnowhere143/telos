@@ -35,7 +35,7 @@
  },
  "current_gate_state": {
   "date": "2026-07-16",
-  "stage": "iter220_iter219_publication_ci_recovery",
+  "stage": "iter221_cross_platform_guard_tolerance",
   "iter200_denominator": "complete: 37 executed, 24 certified, k=1, u=6; historical 1/15 is not poolable",
   "iter200_corrected_baseline": {
    "complete_case_sensitivity": "1/18",
@@ -422,6 +422,31 @@
    "repository_test_executions": 0,
    "workflow_reruns": 0,
    "tcp1_admission_unchanged": "2 of 11 gates pass; 9 blocked; execution_authorized=false"
+  },
+  "iter221_cross_platform_tolerance": {
+   "status": "active_local_publication_recovery",
+   "predecessor_seal": "3cee092420c2d13227005c8d78e584ec69da832f",
+   "failed_push_ci": 29540341974,
+   "failed_pull_request_ci": 29540356205,
+   "failed_step": "Iter219 temporal consequence-test yield guard",
+   "failed_draft_pull_request": 14,
+   "iter220_branch_mutated_after_observation": false,
+   "iter220_workflow_rerun_after_observation": false,
+   "exact_message": "iter219: delta=180: control Wilson interval does not recompute",
+   "proximate_cause": "The guard compared sqrt-derived Wilson intervals bit-exactly across platforms; macOS and Linux libm differ in the last place.",
+   "relationship_to_iter214": "Iter214 canonicalized the two exact Wilson boundaries. Interior values have no exact form to canonicalize and stay platform-dependent, so iter214 could not have prevented this.",
+   "why_surfaced_now": "CI stops at the first failing step. Iter220 repaired the detector guard, CI advanced, and the next latent defect reached daylight.",
+   "corrections": [
+    "C1: Wilson intervals compare at rel_tol=1e-9; integer counts, yields, exposure totals, and the exact paired test stay exact because each is exactly reproducible.",
+    "C2: run_ci_closure.py accepts --python and prints interpreter and platform, noting that a clean macOS run does not certify CI's Linux runners."
+   ],
+   "iter219_science_changed": false,
+   "provider_calls": 0,
+   "gpu_allocations": 0,
+   "containers_built": 0,
+   "repository_test_executions": 0,
+   "workflow_reruns": 0,
+   "tcp1_admission_unchanged": "2 of 11 gates pass; 9 blocked; execution_authorized=false"
   }
  },
  "source_of_truth": [
@@ -628,7 +653,7 @@
   "tests/test_tcp1.py"
  ],
  "active_gate": "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
- "active_publication_gate": "experiments/iter220_iter219_publication_ci_recovery/HYPOTHESIS.md",
+ "active_publication_gate": "experiments/iter221_cross_platform_guard_tolerance/HYPOTHESIS.md",
  "frozen_upstream_gate": "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
  "loop": [
   {

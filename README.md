@@ -33,9 +33,14 @@ The failed, unchanged publication predecessor is
 The merged publication-engineering gate is
 [iter214 TCP-1 cross-platform numeric recovery](experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md).
 The active publication-engineering gate is
+[iter221 cross-platform guard tolerance](experiments/iter221_cross_platform_guard_tolerance/HYPOTHESIS.md),
+which stops a guard from asserting bit-exact floating-point equality across machines: `sqrt`-derived Wilson
+intervals are platform-dependent in the last place, so they compare at `rel_tol=1e-9` while every exactly
+reproducible value stays exact.
+Its preserved predecessor is
 [iter220 iter219 publication CI recovery](experiments/iter220_iter219_publication_ci_recovery/HYPOTHESIS.md),
-which preserves the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that
-a Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
+which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
+Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
 The published null is
 [iter219 temporal consequence-test yield](experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md),

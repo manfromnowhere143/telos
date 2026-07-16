@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from math import isclose
 from pathlib import Path
 import sys
 from typing import Any
@@ -39,6 +40,11 @@ BAR_MCNEMAR_P = 0.01
 BAR_YIELD_DIFFERENCE = 0.10
 BAR_MAX_SINGLE_REPO_SHARE = 0.50
 BAR_SYMBOL_EXTRACTION_RATE = 0.90
+
+# Wilson intervals derive from sqrt and are therefore platform-dependent in the last
+# place.  Everything else in this report is exactly reproducible and stays exact.
+INTERVAL_REL_TOL = 1e-9
+INTERVAL_ABS_TOL = 1e-12
 
 FORBIDDEN_CLAIMS = (
     "state of the art",
@@ -170,8 +176,37 @@ def check_amendment(amendment: dict[str, Any]) -> None:
     )
 
 
+def intervals_match(stored: list[float], recomputed: tuple[float, float]) -> bool:
+    """Compare Wilson intervals with a bounded tolerance instead of bit-exactly.
+
+    ``wilson_interval`` calls ``sqrt``, whose last-place result depends on the platform
+    ``libm``.  The committed report was computed on one machine and CI recomputes it on
+    another, so bit-exact equality asserts something IEEE 754 does not promise and fails
+    for a correct value.  Iter214 canonicalized the two exact Wilson boundaries; interior
+    values have no exact form to canonicalize and remain genuinely platform-dependent.
+
+    One unit in the last place is about 1e-16 relative.  ``rel_tol=1e-9`` forgives that by
+    seven orders of magnitude while still failing any tampering coarse enough to change a
+    reported digit, which the positive controls pin.
+    """
+
+    if len(stored) != 2:
+        return False
+    return all(
+        isclose(actual, expected, rel_tol=INTERVAL_REL_TOL, abs_tol=INTERVAL_ABS_TOL)
+        for actual, expected in zip(stored, recomputed)
+    )
+
+
 def check_report_recomputes(report: dict[str, Any]) -> None:
-    """Every headline number must regenerate from the report's own rows."""
+    """Every headline number must regenerate from the report's own rows.
+
+    Integer counts, yields, exposure totals, and the exact paired test are compared
+    exactly: each is exactly reproducible on any platform.  ``exact_one_sided_mcnemar``
+    sums ``comb()`` over exact integers and divides by ``2**n``, and IEEE 754 division is
+    exactly specified, so its p-value is bit-identical everywhere.  Only the sqrt-derived
+    Wilson intervals use a tolerance.
+    """
 
     require(
         report.get("schema_version") == "telos.iter219.yield_report.v1",
@@ -225,14 +260,12 @@ def check_report_recomputes(report: dict[str, Any]) -> None:
             f"delta={delta}: control_yield does not recompute",
         )
 
-        expected_real_ci = list(wilson_interval(real_hits, n))
         require(
-            block["real_wilson_95"] == expected_real_ci,
+            intervals_match(block["real_wilson_95"], wilson_interval(real_hits, n)),
             f"delta={delta}: real Wilson interval does not recompute",
         )
-        expected_control_ci = list(wilson_interval(control_hits, n))
         require(
-            block["control_wilson_95"] == expected_control_ci,
+            intervals_match(block["control_wilson_95"], wilson_interval(control_hits, n)),
             f"delta={delta}: control Wilson interval does not recompute",
         )
 
@@ -246,7 +279,9 @@ def check_report_recomputes(report: dict[str, Any]) -> None:
             f"delta={delta}: backward_control_yield does not recompute",
         )
         require(
-            block["backward_control_wilson_95"] == list(wilson_interval(backward_hits, n)),
+            intervals_match(
+                block["backward_control_wilson_95"], wilson_interval(backward_hits, n)
+            ),
             f"delta={delta}: backward Wilson interval does not recompute",
         )
 

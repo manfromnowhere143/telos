@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build or verify the artifact-bound iter220 publication-recovery receipt."""
+"""Build or verify the artifact-bound iter221 cross-platform tolerance receipt."""
 
 from __future__ import annotations
 
@@ -25,22 +25,23 @@ from scripts.receipt_sealing import (  # noqa: E402
     verify_against_source,
 )
 
-EXPERIMENT = "experiments/iter220_iter219_publication_ci_recovery"
+EXPERIMENT = "experiments/iter221_cross_platform_guard_tolerance"
 RECEIPT_PATH = ROOT / EXPERIMENT / "proof/receipt_v2.json"
-PREDECESSOR_SEAL = "11e335e82100319a4f5f47d86eaea0c8e81edbbc"
+PREDECESSOR_SEAL = "3cee092420c2d13227005c8d78e584ec69da832f"
 
-PRODUCER = "iter220-iter219-publication-ci-recovery"
+PRODUCER = "iter221-cross-platform-guard-tolerance"
 BINDINGS = {
     ".github/workflows/ci.yml": "build",
     f"{EXPERIMENT}/HYPOTHESIS.md": "artifact",
     f"{EXPERIMENT}/RESULT.md": "artifact",
     f"{EXPERIMENT}/proof/ci_failure.json": "adversarial_review",
     "README.md": "artifact",
-    "scripts/build_iter220_receipt.py": "build",
+    "scripts/build_iter221_receipt.py": "build",
     "scripts/run_ci_closure.py": "build",
-    "scripts/validate_detector_methodology_correction.py": "adversarial_review",
-    "scripts/validate_iter220_iter219_publication_ci_recovery.py": "adversarial_review",
-    "tests/test_iter220_publication_ci_recovery.py": "test",
+    "scripts/validate_iter219_temporal_consequence_test_yield.py": "adversarial_review",
+    "scripts/validate_iter221_cross_platform_guard_tolerance.py": "adversarial_review",
+    "telos/tcp1.py": "build",
+    "tests/test_iter221_cross_platform_guard_tolerance.py": "test",
 }
 
 
@@ -66,31 +67,32 @@ def build_receipt() -> dict[str, object]:
     ]
     receipt: dict[str, object] = {
         "schema_version": RECEIPT_V2_SCHEMA,
-        "receipt_id": "telos-iter220-iter219-publication-ci-recovery-v2",
-        "task_id": "iter220_iter220_publication_ci_recovery",
+        "receipt_id": "telos-iter221-cross-platform-guard-tolerance-v2",
+        "task_id": "iter221_cross_platform_guard_tolerance",
         "agent_id": "claude-local-publication-auditor",
-        "benchmark_id": "telos-iter220-publication-recovery",
+        "benchmark_id": "telos-iter221-cross-platform-tolerance",
         "status": "pass",
         "stated_goal": (
-            "Recover iter219's publication CI by root-causing a required-phrase scanner that "
-            "a markdown line wrap defeats, and by replacing hand-listed local verification "
-            "with a closure runner derived from the CI workflow, without changing any "
-            "iter219 number or evidence byte."
+            "Stop a guard from asserting bit-exact floating-point equality across machines, "
+            "so that sqrt-derived Wilson intervals compare within a bounded tolerance while "
+            "every exactly reproducible value stays exact, without changing any iter219 "
+            "number or evidence byte."
         ),
         "acceptance_criteria": [
-            "The required-phrase scanner reads a wrapped sentence and still fails on genuine absence.",
-            "Local closure is derived from .github/workflows/ci.yml, never hand-listed.",
+            "The guard passes at one ULP of platform drift and fails at 1e-9 relative tampering.",
+            "No libm-derived value is compared bit-exactly anywhere in the guard set.",
+            "The closure runner reports its interpreter and platform and accepts --python.",
             "Every guard command CI declares passes locally at this seal.",
-            "Iter219 HYPOTHESIS, RESULT, yield report, and amendment are byte-identical to their seal.",
-            "The failed iter219 branch and pull request remain unmutated, unrerun, and unmerged.",
+            "Iter219 evidence and iter220 corrections are byte-identical to their seals.",
+            "The failed iter219 and iter220 branches and pull requests remain unmutated and unmerged.",
             "No provider, accelerator, container, dispatch, payment, release, or scientific action occurs.",
         ],
         "evidence": evidence,
         "falsifiers": [
             "Any iter219 experiment byte changes.",
             "Any iter219 yield, control, interval, paired test, bar verdict, or claim boundary changes.",
-            "The normalizer lets a required-phrase scan pass while the required meaning is absent.",
-            "The closure runner omits a guard command that the CI workflow runs.",
+            "The tolerance is loose enough to admit a tampered interval at 1e-9 relative.",
+            "A libm-dependent value is compared bit-exactly anywhere in the guard set.",
             "The failed iter219 branch or pull request is mutated, extended, or rerun.",
             "Any scientific, provider, accelerator, dispatch, payment, or release action occurs.",
         ],
@@ -114,7 +116,7 @@ def main() -> int:
 
     if args.check:
         if not RECEIPT_PATH.exists():
-            print("iter220 receipt missing")
+            print("iter221 receipt missing")
             return 1
         committed = json.loads(RECEIPT_PATH.read_text(encoding="utf-8"))
         validate_receipt_v2(committed)
@@ -124,24 +126,24 @@ def main() -> int:
             try:
                 source, count = verify_against_source(ROOT, RECEIPT_PATH)
             except ReceiptSealingError as error:
-                print(f"iter220 receipt: {error}")
+                print(f"iter221 receipt: {error}")
                 return 1
-            print(f"iter220 receipt verified at sealed source {source[:12]} (evidence={count})")
+            print(f"iter221 receipt verified at sealed source {source[:12]} (evidence={count})")
             return 0
         expected = build_receipt()
         if committed.get("evidence_closure_sha256") != expected["evidence_closure_sha256"]:
-            print("iter220 receipt closure does not match the committed artifacts")
+            print("iter221 receipt closure does not match the committed artifacts")
             return 1
         if committed.get("receipt_sha256") != expected["receipt_sha256"]:
-            print("iter220 receipt digest does not match its contents")
+            print("iter221 receipt digest does not match its contents")
             return 1
-        print(f"iter220 receipt verified (evidence={len(expected['evidence'])})")
+        print(f"iter221 receipt verified (evidence={len(expected['evidence'])})")
         return 0
 
     RECEIPT_PATH.parent.mkdir(parents=True, exist_ok=True)
     RECEIPT_PATH.write_text(rendered_receipt(), encoding="utf-8")
     receipt = build_receipt()
-    print(f"iter220 receipt written (evidence={len(receipt['evidence'])})")
+    print(f"iter221 receipt written (evidence={len(receipt['evidence'])})")
     print(f"  closure sha256: {receipt['evidence_closure_sha256']}")
     print(f"  receipt sha256: {receipt['receipt_sha256']}")
     return 0

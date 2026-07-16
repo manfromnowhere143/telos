@@ -19,6 +19,12 @@ from telos.proof import (  # noqa: E402
     validate_receipt_v2,
 )
 
+from scripts.receipt_sealing import (  # noqa: E402
+    ReceiptSealingError,
+    receipt_is_committed,
+    verify_against_source,
+)
+
 EXPERIMENT = "experiments/iter219_temporal_consequence_test_yield"
 RECEIPT_PATH = ROOT / EXPERIMENT / "proof/receipt_v2.json"
 PREDECESSOR_MERGE = "470ca3627b7635d9a315cf2811ceb2eed6575fb9"
@@ -112,6 +118,16 @@ def main() -> int:
             return 1
         committed = json.loads(RECEIPT_PATH.read_text(encoding="utf-8"))
         validate_receipt_v2(committed)
+        # A sealed receipt validates its own source blobs, never a descendant's tree: a
+        # later iteration legitimately edits shared files this receipt binds.
+        if receipt_is_committed(ROOT, RECEIPT_PATH):
+            try:
+                source, count = verify_against_source(ROOT, RECEIPT_PATH)
+            except ReceiptSealingError as error:
+                print(f"iter219 receipt: {error}")
+                return 1
+            print(f"iter219 receipt verified at sealed source {source[:12]} (evidence={count})")
+            return 0
         expected = build_receipt()
         if committed.get("evidence_closure_sha256") != expected["evidence_closure_sha256"]:
             print("iter219 receipt closure does not match the committed artifacts")

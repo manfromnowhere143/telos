@@ -16,6 +16,7 @@ this gains it too, with no edit here.
 from __future__ import annotations
 
 import argparse
+import platform
 import subprocess
 from pathlib import Path
 
@@ -79,16 +80,36 @@ def main() -> int:
     parser.add_argument(
         "--stop-early", action="store_true", help="stop at the first failing guard"
     )
+    parser.add_argument(
+        "--python",
+        default=None,
+        help="interpreter to substitute for python3, e.g. python3.11 to match CI",
+    )
     args = parser.parse_args()
 
     commands = declared_commands()
+    if args.python:
+        commands = [
+            (name, command.replace("python3 ", f"{args.python} "))
+            for name, command in commands
+        ]
     if args.list:
         for name, command in commands:
             print(f"{name}\t{command}")
         print(f"\n{len(commands)} commands declared by {WORKFLOW.relative_to(ROOT)}")
         return 0
 
-    print(f"running {len(commands)} guard commands declared by CI", flush=True)
+    # A clean local run certifies this interpreter on this platform and nothing else.  CI
+    # runs Linux under 3.11 and 3.12; a macOS run cannot certify a Linux libm, which is how
+    # a bit-exact Wilson comparison passed here and failed there.
+    print(
+        f"running {len(commands)} guard commands declared by CI\n"
+        f"  interpreter: {args.python or 'python3'} "
+        f"({platform.python_version()} here)\n"
+        f"  platform   : {platform.system()} {platform.machine()}\n"
+        f"  note       : a clean run here does not certify CI's Linux runners",
+        flush=True,
+    )
     failures = run(commands, stop_early=args.stop_early)
     if failures:
         print(f"\nCI CLOSURE FAILED: {len(failures)} command(s)\n")
