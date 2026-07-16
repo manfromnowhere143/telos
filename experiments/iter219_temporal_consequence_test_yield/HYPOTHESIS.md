@@ -135,6 +135,23 @@ than traded for a larger one. Expected small; biases the primary upward.
 `231/500` of the sample, so under a uniform yield it would approach that bar regardless of the phenomenon.
 The bar is evaluated exactly as sealed and reported as uninformative. It is not retuned.
 
+`L4` — **the screen has low sensitivity by construction, so a null is asymmetric.** Qualification requires a
+later test to contain a token exactly equal to a touched symbol. Real consequence tests routinely exercise
+changed code through a public API and never name the internal symbol that changed. Verified concretely
+before any aggregate existed: `psf__requests-1142` touches `prepare_content_length`, an internal method that
+a genuine regression test would drive via `requests.post(...)` without ever writing that token. Fixing this
+requires call-graph reachability or executed coverage — a separate container-bound gate that this one does
+not authorize.
+
+The inference rule is therefore fixed **before** observation:
+
+- **If the screen passes**, later tests reference task-touched symbols above both controls. That is evidence
+  for harvestable targeting and justifies building the executed-coverage gate.
+- **If the screen nulls**, that falsifies *static name matching as a detector*. It does **not** falsify the
+  harvest hypothesis, because this instrument cannot see public-API consequence tests. A null must not be
+  reported as evidence that maintainer consequence tests are absent, and must not by itself send the mission
+  to purchase human annotators.
+
 ## Acceptance bars
 
 1. `Y(365) ≥ 0.20` and its Wilson lower bound `≥ 0.10`.

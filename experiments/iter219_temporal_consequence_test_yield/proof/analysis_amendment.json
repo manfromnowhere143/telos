@@ -59,6 +59,17 @@
    "direction_of_bias": "inflates the primary yield, expected small"
   },
   {
+   "id": "L4",
+   "title": "The screen has low sensitivity by construction, so a null is asymmetric",
+   "detail": "Qualification requires a later test to contain a token exactly equal to a symbol the gold patch touched. Real consequence tests routinely exercise changed code through a public API and never name the internal symbol that changed. Verified concretely before any aggregate existed: instance `psf__requests-1142` touches `prepare_content_length`, an internal method a genuine regression test would exercise via `requests.post(...)` without ever writing that token. The instrument therefore detects only the subset of consequence tests that name the changed symbol.",
+   "handling": "Not corrected; correcting it requires call-graph reachability or executed coverage, which is a separate container-bound gate this one does not authorize. Recorded before observation so the asymmetry cannot be argued after the fact.",
+   "direction_of_bias": "deflates the primary yield; a null therefore understates the true rate",
+   "inference_rule_fixed_before_observation": {
+    "if_pass": "Later tests reference task-touched symbols above both controls. This is evidence FOR harvestable targeting and justifies building the executed-coverage gate.",
+    "if_null": "This falsifies STATIC NAME MATCHING as a detector. It does NOT falsify the harvest hypothesis, because the instrument cannot see public-API consequence tests. A null must not be reported as evidence that maintainer consequence tests are absent, and must not by itself send the mission to purchase human annotators."
+   }
+  },
+  {
    "id": "L3",
    "title": "Bar 3 is partly a property of dataset composition",
    "detail": "The sealed bar requires that no single repository contribute more than 50 percent of qualifying instances. Django is 231 of 500 instances (46 percent), so under a uniform yield Django would approach that bar regardless of the phenomenon.",

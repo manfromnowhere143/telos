@@ -142,14 +142,31 @@ def check_amendment(amendment: dict[str, Any]) -> None:
         item["id"] for item in amendment.get("known_limitations_disclosed_not_fixed", [])
     }
     require(
-        {"L1", "L2", "L3"} <= limitation_ids,
-        "known limitations L1, L2, and L3 must remain disclosed",
+        {"L1", "L2", "L3", "L4"} <= limitation_ids,
+        "known limitations L1, L2, L3, and L4 must remain disclosed",
     )
     for item in amendment["known_limitations_disclosed_not_fixed"]:
         require(
             bool(item.get("direction_of_bias")),
             f"limitation {item['id']} must state its direction of bias",
         )
+    # L4 fixes what a null means BEFORE the null is known.  Without it, a low yield can be
+    # retold after the fact as "maintainer consequence tests do not exist", which this
+    # instrument cannot show: it cannot see public-API tests that never name the symbol.
+    l4 = next(
+        item
+        for item in amendment["known_limitations_disclosed_not_fixed"]
+        if item["id"] == "L4"
+    )
+    rule = l4.get("inference_rule_fixed_before_observation", {})
+    require(
+        bool(rule.get("if_pass")) and bool(rule.get("if_null")),
+        "L4 must fix the inference for both a pass and a null before observation",
+    )
+    require(
+        "does NOT falsify the harvest hypothesis" in rule["if_null"],
+        "L4's null branch must preserve that a null does not falsify the harvest hypothesis",
+    )
 
 
 def check_report_recomputes(report: dict[str, Any]) -> None:

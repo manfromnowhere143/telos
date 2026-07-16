@@ -479,3 +479,56 @@ def test_guard_fires_when_a_limitation_hides_its_direction_of_bias() -> None:
     tampered["known_limitations_disclosed_not_fixed"][0]["direction_of_bias"] = ""
     with pytest.raises(guard.Iter219ValidationError, match="direction of bias"):
         guard.check_amendment(tampered)
+
+
+# --------------------------------------------------------------------------- #
+# L4: what a null means must be fixed before the null is known.
+# --------------------------------------------------------------------------- #
+
+
+def _amendment() -> dict:
+    import json as _json
+
+    return _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+
+
+def test_l4_fixes_the_inference_for_pass_and_null_before_observation() -> None:
+    guard.check_amendment(_amendment())
+
+
+def test_guard_fires_if_l4_loses_its_null_branch() -> None:
+    import copy as _copy
+
+    tampered = _copy.deepcopy(_amendment())
+    for item in tampered["known_limitations_disclosed_not_fixed"]:
+        if item["id"] == "L4":
+            item["inference_rule_fixed_before_observation"]["if_null"] = ""
+    with pytest.raises(guard.Iter219ValidationError, match="both a pass and a null"):
+        guard.check_amendment(tampered)
+
+
+def test_guard_fires_if_a_null_is_rewritten_as_absence_of_consequence_tests() -> None:
+    # The tempting post-hoc story: "we measured a low yield, therefore maintainer
+    # consequence tests do not exist."  This instrument cannot show that -- it is blind to
+    # public-API tests that never name the changed symbol.  The guard must refuse.
+    import copy as _copy
+
+    tampered = _copy.deepcopy(_amendment())
+    for item in tampered["known_limitations_disclosed_not_fixed"]:
+        if item["id"] == "L4":
+            item["inference_rule_fixed_before_observation"]["if_null"] = (
+                "A null shows maintainer consequence tests are absent; buy annotators."
+            )
+    with pytest.raises(guard.Iter219ValidationError, match="does not falsify the harvest"):
+        guard.check_amendment(tampered)
+
+
+def test_guard_fires_if_l4_is_dropped_entirely() -> None:
+    import copy as _copy
+
+    tampered = _copy.deepcopy(_amendment())
+    tampered["known_limitations_disclosed_not_fixed"] = [
+        item for item in tampered["known_limitations_disclosed_not_fixed"] if item["id"] != "L4"
+    ]
+    with pytest.raises(guard.Iter219ValidationError, match="L4 must remain disclosed|must remain disclosed"):
+        guard.check_amendment(tampered)
