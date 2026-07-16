@@ -1,0 +1,38 @@
+{
+  "schema_version": "telos.iter214.cross_platform_ci_failure.v1",
+  "observation_date": "2026-07-16",
+  "repository": "manfromnowhere143/telos",
+  "predecessor_seal": "dbe008211022e0abdff5bc9e47e871b02b6d5501",
+  "draft_pull_request": 11,
+  "branch": "agent/iter213-iter211-post-seal-validation-recovery",
+  "push_ci": {
+    "run_id": 29505707609,
+    "event": "push",
+    "head_sha": "dbe008211022e0abdff5bc9e47e871b02b6d5501",
+    "conclusion": "failure",
+    "failed_jobs": [
+      "verify py3.11",
+      "verify py3.12"
+    ]
+  },
+  "pull_request_ci": {
+    "run_id": 29505789397,
+    "event": "pull_request",
+    "head_sha": "dbe008211022e0abdff5bc9e47e871b02b6d5501",
+    "conclusion": "failure",
+    "failed_jobs": [
+      "verify py3.11",
+      "verify py3.12"
+    ]
+  },
+  "failed_test": "tests/test_tcp1.py::test_wilson_interval_and_exact_paired_test_are_frozen",
+  "local_lower_endpoint": 0.0,
+  "linux_lower_endpoint": 2.7755575615628914e-17,
+  "successes": 0,
+  "trials": 10,
+  "other_tests_passed_per_job": 656,
+  "root_cause": "platform-dependent floating-point cancellation residue at a mathematically exact binomial boundary",
+  "iter213_branch_mutated_after_observation": false,
+  "workflow_rerun_requested": false,
+  "scientific_result_changed": false
+}

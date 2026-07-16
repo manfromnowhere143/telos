@@ -47,7 +47,16 @@ def wilson_interval(successes: int, trials: int, confidence: float = 0.95) -> tu
         * sqrt((proportion * (1 - proportion) + z2 / (4 * trials)) / trials)
         / denominator
     )
-    return max(0.0, center - radius), min(1.0, center + radius)
+    lower = max(0.0, center - radius)
+    upper = min(1.0, center + radius)
+    # The mathematical Wilson boundaries are exact at k=0 and k=n.  Different
+    # libm implementations can leave a one-ULP positive/negative residue after
+    # subtracting equal terms, so canonicalize those two protocol boundaries.
+    if successes == 0:
+        lower = 0.0
+    if successes == trials:
+        upper = 1.0
+    return lower, upper
 
 
 def exact_one_sided_mcnemar(pairs: Iterable[tuple[bool, bool]]) -> dict[str, int | float]:

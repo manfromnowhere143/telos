@@ -107,6 +107,9 @@ def test_wilson_interval_and_exact_paired_test_are_frozen() -> None:
     low, high = wilson_interval(0, 10)
     assert low == 0
     assert high == pytest.approx(0.2775327998628892)
+    all_low, all_high = wilson_interval(10, 10)
+    assert all_low == pytest.approx(1 - high)
+    assert all_high == 1
 
     paired = exact_one_sided_mcnemar([(True, False)] * 10)
     assert paired == {

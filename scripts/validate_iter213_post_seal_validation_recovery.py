@@ -323,6 +323,12 @@ def validate(*, preflight: bool = False) -> list[str]:
         validate_experiment_scope,
     )
     try:
+        # Once iter213 is sealed, validate its immutable source/receipt/topology
+        # rather than reinterpreting additive descendant files as iter213 work.
+        # This is the same fail-closed descendant mode used by the iter211 guard.
+        if source_and_seal() is not None:
+            validate_receipt_and_topology()
+            return failures
         for check in checks:
             check()
         if not preflight:

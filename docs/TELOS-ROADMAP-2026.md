@@ -85,12 +85,14 @@ Measure capability and reliability separately:
 
 Name: **TELOS Trace–Consequence Pilot 1**
 
-Status: deterministic materialization preflight exists in the exact iter211 seal, but its first complete
-post-seal suite exposed three non-scientific descendant/handoff compatibility defects. Iter213 is the active
-additive recovery; iter212 remains the unchanged prospective independent-cohort gate. Scientific execution
-is blocked. There is no admitted task cohort, reviewer team, selected model, hidden-test freeze, execution
-binding, external timestamp, isolation rehearsal, throughput result, or approved monetary budget. No model
-call, GPU allocation, or scientific execution is authorized by this roadmap or by repository publication.
+Status: deterministic materialization preflight exists in the exact iter211 seal. Iter213 repaired its three
+post-seal descendant/handoff compatibility defects locally, but exact push and pull-request CI both exposed
+a platform-dependent one-ULP Wilson boundary residue. Iter214 is the active additive pre-data numerical and
+publication-validation recovery; iter212 remains the unchanged prospective independent-cohort gate.
+Scientific execution is blocked. There is no admitted task cohort, reviewer team, selected model,
+hidden-test freeze, execution binding, external timestamp, isolation rehearsal, throughput result, or
+approved monetary budget. No model call, GPU allocation, or scientific execution is authorized by this
+roadmap or by repository publication.
 
 ### Question
 
@@ -180,20 +182,25 @@ TCP-1 is a null or failure—not a result—if any of these occurs:
 
 ```mermaid
 flowchart LR
- I211["211 materialization preflight<br/>protocol + schemas + analysis"] --> I213["213 post-seal recovery<br/>descendant-safe guards"]
- I213 --> I212["212 preregistered freeze<br/>humans + tasks + custody"]
- I212 --> I214["214 isolated preflight<br/>one task · one seed"]
- I214 --> Q{"all admission gates pass<br/>inside 64-hour ceiling?"}
- Q -->|no or missing| B["BLOCKED / NULL<br/>no scientific run"]
- Q -->|yes| I215["215 bounded execution<br/>60 natural trajectories"]
- I215 --> I216["216 blinded adjudication<br/>locked analysis"]
- I216 --> R{"valid and interpretable?"}
- R -->|no| N["publish bounded null/failure"]
- R -->|yes| I217["217 independent replication<br/>multiple models + harnesses"]
- classDef done fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
- classDef blocked fill:#fff1f0,stroke:#cf222e,color:#4c1114;
- class I211,I213 done;
- class B,N blocked;
+I211["211 materialization preflight<br/>protocol + schemas + analysis"] --> I213["213 post-seal recovery<br/>descendant-safe guards"]
+I213 --> I214["214 numeric recovery<br/>exact Wilson boundaries · pre-data"]
+I214 --> I212["212 preregistered freeze<br/>humans + tasks + custody"]
+I212 --> I215["215 isolated preflight<br/>one task · one seed"]
+I215 --> Q{"all admission gates pass<br/>inside 64-hour ceiling?"}
+Q -->|no or missing| B["BLOCKED / NULL<br/>no scientific run"]
+Q -->|yes| I216["216 bounded execution<br/>60 natural trajectories"]
+I216 --> I217["217 blinded adjudication<br/>locked analysis"]
+I217 --> R{"valid and interpretable?"}
+R -->|no| N["publish bounded null/failure"]
+R -->|yes| I218["218 independent replication<br/>multiple models + harnesses"]
+classDef done fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
+classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
+classDef active fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
+classDef blocked fill:#fff1f0,stroke:#cf222e,color:#4c1114;
+class I211 done;
+class I213 corrected;
+class I214 active;
+class B,N blocked;
 ```
 
 ## Sequenced roadmap
@@ -248,30 +255,39 @@ flowchart LR
 - accept both bounded handoff heading families without disabling standing-claim scans;
 - make iter210 and iter211 receipt/topology checks resolve exact immutable commits on arbitrary descendants;
 - rerun the full provider-free closure and synthetic-merge simulation;
-- publish only after exact-tip branch and pull-request CI pass; authorize no science.
+- preserve its exact failed branch and PR after both remote CI events expose the Wilson boundary residue;
+- authorize no science.
 
-### Iter214 — isolated throughput preflight
+### Iter214 — TCP-1 cross-platform numeric recovery
+
+- preserve iter211, iter212, and iter213 experiment bytes and the unchanged failed iter213 branch/PR;
+- record a separately versioned pre-data amendment before any TCP-1 output exists;
+- canonicalize only the mathematically exact Wilson `k=0` lower and `k=n` upper boundaries;
+- make sealed iter213 validation read immutable source Git blobs rather than additive descendant scope;
+- require full local, synthetic-merge, Python 3.11, and Python 3.12 closure; authorize no science.
+
+### Iter215 — isolated throughput preflight
 
 - execute one task and one seed outside the scientific cohort under at most two accelerator-hours;
 - test end-to-end trace, grader, receipt, isolation, redaction, and resource custody;
 - project the frozen cohort plus controls with ten-percent headroom;
 - stop if the total cannot fit inside the 64-hour ceiling.
 
-### Iter215 — bounded GPU execution
+### Iter216 — bounded GPU execution
 
-- execute exactly the frozen 60 natural trajectories only if iter212 and iter213 pass;
+- execute exactly the frozen 60 natural trajectories only if iter212 and iter214 pass;
 - execute calibration controls under separate identifiers and denominators;
 - collect append-only raw evidence before adjudication;
 - stop on the first custody, isolation, budget, or completeness violation.
 
-### Iter216 — blinded adjudication
+### Iter217 — blinded adjudication
 
 - obtain two independent semantic labels for every proxy-passing output;
 - retain disagreement and use the independent adjudicator only where required;
 - run the locked analysis with explicit missingness and separate controls;
 - make no post-hoc threshold or endpoint change inside the result.
 
-### Iter217 — multi-model replication
+### Iter218 — multi-model replication
 
 - proceed only after TCP-1 yields a valid, interpretable, bounded result;
 - use at least three model families and two agent harnesses;

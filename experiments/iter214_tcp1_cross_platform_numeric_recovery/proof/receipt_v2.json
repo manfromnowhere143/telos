@@ -1,0 +1,261 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter214-tcp1-cross-platform-numeric-recovery-v2",
+  "task_id": "iter214_tcp1_cross_platform_numeric_recovery",
+  "agent_id": "codex-local-publication-auditor",
+  "benchmark_id": "telos-tcp1-pre-data-numeric-recovery",
+  "status": "pass",
+  "stated_goal": "Canonicalize exact Wilson boundaries and recover sealed descendant validation without changing TCP-1 data, interior analysis, or predecessor evidence.",
+  "acceptance_criteria": [
+    "Wilson k=0 lower and k=n upper endpoints are exact across supported platforms.",
+    "The interior Wilson formula and every other TCP-1 analysis rule remain unchanged.",
+    "Iter211 through iter213 experiment bytes remain unchanged.",
+    "The failed iter213 branch and pull request remain fixed and are not rerun.",
+    "Every iter214 source artifact except this self-referential receipt is byte-bound.",
+    "The complete provider-free suite and synthetic-merge simulation pass.",
+    "No provider, accelerator, scientific, dispatch, payment, release, or deployment action occurs."
+  ],
+  "evidence": [
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": ".github/workflows/ci.yml",
+        "bytes": 42689,
+        "sha256": "43b896435c8f4c2b77ea8603044ea3f138f234f1a432c26aba60517615a6b19e",
+        "media_type": "application/yaml",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "README.md",
+        "bytes": 187646,
+        "sha256": "3d67c9bcfe6d6a455cc8cd144942cf440f5b3aacaaa527fbbe696a3c8f9b4e4c",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/MISSION_LOOP.md",
+        "bytes": 25663,
+        "sha256": "52ac452d372321b39aafa7b7612df45da629f58b2a7d2127762f13308d959c78",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/TELOS-ROADMAP-2026.md",
+        "bytes": 14966,
+        "sha256": "cbdbdd2274a6d7f173d0e3e32d72fdff6709e6233a09980e59c6f898c730d961",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md",
+        "bytes": 4734,
+        "sha256": "76fb805a6b0ef27efa22c193d712494dccd5c26b712b6638f895cadbe661ce8d",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter214_tcp1_cross_platform_numeric_recovery/RESULT.md",
+        "bytes": 1844,
+        "sha256": "965fccea5e00ce92486b158368dd72ae475528d771f92697bcb97dbda40efcf5",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/analysis_amendment.json",
+        "bytes": 906,
+        "sha256": "bea8d8298067745c1f87214a5c6f57c33a7706f476561f30a332edbb1d693d84",
+        "media_type": "application/json",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/ci_failure.json",
+        "bytes": 1275,
+        "sha256": "bec4f860722be3d9722f5f59d1be591b152d29d74cbeb0fccf6d1af409270a83",
+        "media_type": "application/json",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "mission/loop.json",
+        "bytes": 78605,
+        "sha256": "5c07a77c79a3a0f80de295dfa5a372419c41ec18f3f93cc0afca8c375e5f2cd9",
+        "media_type": "application/json",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter214_handoff.py",
+        "bytes": 9501,
+        "sha256": "936f4c316f20bbfce96435eeeac8f20e5ce3e962bc23cd1a3b1d03e4c4f6045c",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter214_receipt.py",
+        "bytes": 8166,
+        "sha256": "a9872e631e663ec59786e9665435534d88a1ccf6e8cce4fe3d78b3eeb8ad5146",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_current_paper.py",
+        "bytes": 8238,
+        "sha256": "2af25c6b85f059ecfb2afbf02727dc020c9eca0f67e49018b9b76e03facaa084",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_handoff.py",
+        "bytes": 81551,
+        "sha256": "8340e6296fa811321f8a3fa92cfdcd769c5f344b11c9795b8ec3d7e1a8ba6292",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter213_post_seal_validation_recovery.py",
+        "bytes": 15057,
+        "sha256": "ffcad9ddb0ec0ee4d7f303cec6adc332e1fdbd9521ffae4873b4c8ac957198c5",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter214_tcp1_cross_platform_numeric_recovery.py",
+        "bytes": 16199,
+        "sha256": "b2e4d071847e7c17c7f70ef57a1041fac76dd5b47a2824a729813c5a0c6b77ba",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_mission_loop.py",
+        "bytes": 79736,
+        "sha256": "bfe8bdb7e9bcc3c0268436324ee0aae29a98dfb68de13e031ef371b455dd08dc",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "telos/tcp1.py",
+        "bytes": 15714,
+        "sha256": "8869676b628f9435669a0e0923519a0a0453a4e4c5fe2f12c944626df52035e4",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter214_tcp1_cross_platform_numeric_recovery.py",
+        "bytes": 2358,
+        "sha256": "33268a679063ac74a89e2d18068148851a77b2dc1f794842c9de4566c8499e1e",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_make_handoff.py",
+        "bytes": 45056,
+        "sha256": "d7a1ff80d42232f3274b610651a6ae118ff57a731440b4050807a53ce91a2085",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_mission_loop_guard.py",
+        "bytes": 14034,
+        "sha256": "eab2519f2b17dccac6349634ccdf18527e33dcfaf7e70b935eaad2a8dff66364",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_tcp1.py",
+        "bytes": 5807,
+        "sha256": "2caee030b79d5f37fcac273878dd0d1b791b6a68fd4dc035103662e4364db880",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter214-tcp1-cross-platform-numeric-recovery"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any predecessor experiment byte changes.",
+    "Any interior Wilson estimate or TCP-1 endpoint, cohort, control, or missingness rule changes.",
+    "Any sealed predecessor validator treats additive descendant evidence as predecessor scope.",
+    "Any failed iter213 branch mutation or workflow rerun occurs.",
+    "Any iter214 source delta is absent from the receipt closure.",
+    "Any scientific or provider action occurs."
+  ],
+  "evidence_closure_sha256": "51e110df29358b19aa1fe40f89073734092ed6de283a831582f59535b185d8c2",
+  "receipt_sha256": "a1ff11f179dc40b3464dd8ae26bf62999b356e3f5c30348dd165712b388e89f7"
+}
