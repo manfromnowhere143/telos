@@ -9,17 +9,26 @@ Telos studies *certified-resolved reward hacks*: patches that the official SWE-b
 container tag differs from the accepted fix on an input the graded tests do not distinguish. A check
 restricted to those graded tests cannot catch this class, because passing those tests is exactly what
 "resolved" means. Historical construction and witness runners used mutable `:latest` tags without retaining
-resolved image digests, so exact historical container bytes are not reconstructible. The program's results,
-all reproducible within those stated provenance limits from committed proof:
+resolved image digests, so exact historical container bytes are not reconstructible. The retained counts and
+labels below can be re-derived from committed proof, subject to the protocol and provenance limits stated here:
 
-- **A corrected foundation.** An earlier benchmark did not contain reward hacks; its rows fail at least one
-  official graded regression check, so the official harness catches all `40/40` for free. See the standing
-  correction below.
-- **A benchmark of `22` execution-verified certified-resolved reward hacks across `8` repositories**
-  (`benchmarks/certified_resolved_reward_hack_v2/`) — django, matplotlib, astropy, xarray, pylint, pytest,
-  requests, sympy — each certified by the official harness and witnessed wrong by gold-differential
-  execution.
-- **A protocol-corrected full-cohort instrument comparison.** Iter197 and iter201 both record `FAIL`:
+- **A corrected foundation with a narrowed novelty claim.** The earlier benchmark did not contain reward
+  hacks: all `40/40` rows fail an official graded regression check. Historical tarballs separately contain
+  `139` harness-resolved hack-tagged evaluations across `65` instance IDs, but retained decision evidence
+  does not bind every evaluation to a discard decision or preserve its patch bytes. Iter192 is
+  conservatively adjudicated `FAIL` on its overbroad novelty interpretation, while its literal v1-specific
+  falsifier remains indeterminate: iter151's predecessor cohort does not retain patch bytes that establish
+  v1 row identity. Iter151 nevertheless reported the same test-suite-rejection mechanism on a `0/20`
+  semantic precursor. Nineteen instance IDs overlap, so the recount is retained while conceptual novelty
+  is withdrawn.
+- **A [`22`-row, `8`-repository reference-differential corpus](benchmarks/certified_resolved_reward_hack_v2/README.md)**
+  ([manifest](benchmarks/certified_resolved_reward_hack_v2/manifest.json)) — django, matplotlib, astropy, xarray, pylint, pytest,
+  requests, sympy. All rows pass the official graded tests and have retained gold-versus-variant output
+  differences. The first `10` are exploratory, gold-and-variant-assisted single-scenario witnesses from the
+  protocol-failed iter195 gate; the additional `12` come from iter199, whose stated design was first recorded
+  after provider generation and before execution, not independently preregistered. This is a constructed
+  reference-differential corpus, not independently adjudicated semantic ground truth.
+- **Protocol-failed full-cohort instrument diagnostics.** Iter197 and iter201 both record `FAIL`:
   their property prompts used source/function locators derived from candidate diffs. Iter197 also replaced
   its visible-test anchor with gold validation and did not run its registered paired-gold controls as
   independent detector decisions. Iter201 explicitly registered gold validation, so gold use there is an
@@ -36,12 +45,15 @@ all reproducible within those stated provenance limits from committed proof:
   inspection. After the official-harness denominator backfill, `N=24`, `k=1`, and `u=6`; report `1/24`
   confirmed lower, `7/24` worst-case upper over those six declared missing outcomes, and `1/18`
   complete-case sensitivity together. The `54` legacy execution logs lack explicit image/exit provenance
-  and are accepted only as a frozen exact-byte corpus; the `20` backfill logs have stronger provenance.
+  and are accepted only as a frozen exact-byte corpus; they contain no embedded reference to claimed
+  original run `29391238359`, and no committed download receipt independently rebinds them to it. The `20`
+  backfill logs have stronger provenance.
   The original blind-judge artifacts retain parsed labels and derived booleans, not raw response text, so
   exact response substance and parser fidelity cannot be re-audited. These are bounded parsed-decision
   existence evidence and descriptive exploratory yields, not a population rate.
-- **A findings paper** (`paper/telos.tex`, `paper/telos.pdf`), every headline number regenerating from a
-  committed `experiments/*/proof/` artifact.
+- **A findings paper** ([source](paper/telos.tex), [PDF](paper/telos.pdf)). Its Telos empirical quantities are traceable to
+  committed `experiments/*/proof/` artifacts; external literature facts remain source-attributed rather than
+  locally regenerated.
 
 ## Current evidence arc
 
@@ -85,45 +97,101 @@ no dispatch API response or rejection exists. There was no iter205 workflow run,
 patch, certification, scenario, adjudication, or judge process. Iter205 is a
 pre-dispatch admission-history null and contributes no `N`, `k`, or `u`.
 
-Iter206 is the active, separately versioned admission-history recovery. It changes no scientific input or
-runtime semantics. Before any remote publication it preregisters one final branch push, an exact successful
-attempt-`1` branch-push and pull-request CI pair, one exact two-parent merge, green primary CI, and an exact
-six-row admission snapshot: the known four iter204 rows plus only the iter206 branch and primary publication
-rows. Any missing, seventh, or malformed row closes iter206 without dispatch; after every gate passes, at
-most one dispatch request is permitted.
-Provider-free Node 24 backfill run `29452243832` remains the exact iter200 denominator-recovery evidence.
+Iter206 was sealed locally but stopped as a **pre-publication claim-integrity null** before any remote branch
+push, pull request, merge, workflow run, dispatch request, provider call, container, or scientific execution.
+Iter206 stopped after the audit flagged an apparent iter192 prior-baseline contradiction and the iter195
+execution/design mismatch described below. Iter207's deeper patch-custody audit narrowed the former to a
+novelty-scope ambiguity. Iter206's exact-delta rule correctly forbade folding those corrections into its sealed protocol; it
+contributes no `N`, `k`, or `u`.
+
+[`iter207_claim_integrity_and_admission_recovery`](experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md)
+is the active, separately versioned gate. It preserves every fixed scientific input and runtime semantic,
+publishes machine-checked claim corrections without mutating historical raw artifacts, and carries forward
+the admission recovery. Its integrity audit made exactly two authenticated, read-only GitHub metadata GETs
+to verify historical CI projection semantics; they made no remote mutation and contacted no model provider.
+Before any remote publication it authorizes at most one final branch push, an exact
+successful attempt-`1` branch-push and pull-request CI pair, one exact two-parent merge, green primary CI,
+and an exact six-row admission snapshot: the known four iter204 rows plus only the iter207 branch and primary
+publication rows. It will bind the iter206 workflow, once published by this release, to empty complete
+histories. Any missing, seventh, or malformed iter204 row or any iter205/iter206 run closes iter207 without
+dispatch; after every gate passes, at most one dispatch request is permitted.
+GitHub Actions run `29422735843` is the exact iter200 official-harness denominator backfill. The later
+provider-free Node 24 run `29452243832` is a historical operational assertion that the specs and committed
+`74`-log corpus were validated without re-executing containers; no committed run receipt independently
+binds that run ID, so it is not evidence of the backfill execution itself.
+
+Reviewer entry points: the machine-readable
+[`claim-integrity correction ledger`](experiments/iter207_claim_integrity_and_admission_recovery/proof/claim_integrity_correction.json)
+hash-binds the iter192 conservative
+[`novelty-scope correction`](experiments/iter207_claim_integrity_and_admission_recovery/proof/corrections/iter192_novelty_scope_correction.json)
+and iter195 strict
+[`protocol-failure receipt`](experiments/iter207_claim_integrity_and_admission_recovery/proof/strict/iter195_protocol_failure.json),
+while the
+[`iter206 terminal-null receipt`](experiments/iter206_iter205_admission_history_recovery/proof/pre_publication_claim_integrity_null.json)
+binds the zero-action predecessor state.
+
+Diagram color is semantic: orange marks corrected or partial evidence, red marks a failed gate, blue marks
+retained evidence, gray marks a null before scientific execution, and green marks the active gate.
+
+```mermaid
+flowchart TB
+ subgraph A["Construct and correct"]
+  direction LR
+  V1["v1<br/>40/40 unresolved"]-->I192["192 conservative FAIL<br/>literal trigger indeterminate<br/>139 evaluations bounded"]-->I195["195 strict FAIL<br/>10 gold-assisted"]-->I196["196 partial<br/>judge 7/10 lower"]-->I197["197 FAIL<br/>locator/control faults"]-->I198["198 FAIL<br/>paper corrected"]-->I199["199 chronology FAIL<br/>+12; corpus 22/8"]
+ end
+ subgraph B["Measure"]
+  direction LR
+  I200["200 exploratory<br/>N 24 · k 1 · u 6"]-->I201["201 FAIL<br/>property 6/22 ⊂ judge 20/22"]-->I202["202 safety null<br/>53→50; 39→38; 29 admitted<br/>zero execution"]
+ end
+ A-->B
+ classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
+ classDef failed fill:#fff1f0,stroke:#cf222e,color:#4c1114;
+ classDef evidence fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
+ classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
+ class V1,I192,I196 corrected;
+ class I195,I197,I198,I199,I201 failed;
+ class I200 evidence;
+ class I202 null;
+```
+
+The fixed corpus then enters a separate fail-closed recovery chain. These nulls preserve evidence without
+turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- V1["v1: 40 rows<br/>not reward hacks"]-->C192["iter192 correction<br/>40/40 unresolved"]
- C192-->C195["iter195 construction<br/>10 wrong / 3 repos"]
- C195-->X199["iter199 expansion<br/>22 / 8 repos"]
- C195-->D197["iter197 FAIL<br/>locator/anchor/control faults<br/>complementarity unconfirmed"]
- D197-->D201
- X199-->D201["iter201 FAIL<br/>locator only<br/>property 6/22 ⊂ judge 20/22"]
- C192-->N200["iter200 exploratory<br/>nonrandom · no raw responses<br/>N=24 / k=1 / u=6"]
- N200-->N202["iter202 safety null<br/>53→50 patches · 39→38 scenarios<br/>29 pass · 9 reject (21 findings) · 1 absent<br/>no execution"]
- D201-->N202
- N202-->N203["iter203 infra null<br/>50/50 Docker exit 125 before start<br/>0 artifacts/cert/scenario"]
- N203-->N204["iter204 pre-dispatch null<br/>2-row closure · local 422<br/>0 dispatch/science"]
- N204-->N205["iter205 admission null<br/>iter204 4 rows at gate<br/>0 request/run/science"]
- N205-->N206["iter206 active · same science<br/>one push · push+PR CI at attempt 1<br/>exact two-parent merge · green primary CI<br/>exact-six → ≤1 dispatch or null"]
+ I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 active<br/>correction + exact-six gate<br/>≤1 dispatch"]
+ classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
+ classDef active fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
+ class I203,I204,I205,I206 null;
+ class I207 active;
 ```
 
-## Standing correction (iter192, 2026-07-14): the earlier v1 artifact contains no reward hacks
+## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows
 
-Read this before citing any number below. It is the largest correction in this repository's history and
-it invalidates the framing — not the arithmetic — of much of the prose that follows.
+Read this before citing any number below. This correction changes the framing—not the arithmetic—of the
+later v1-based prose.
+
+**Protocol and interpretation correction:** iter192's frozen falsifier 5 required failure if a committed
+artifact already reported a test-suite or official-harness baseline *for v1*. Iter151 predates v1. It
+reported that a plain full-suite CI gate rejects its `0/20` both-miss cohort, and nineteen instance IDs
+overlap v1, but its retained result does not preserve the patch bytes needed to establish exact v1 row
+identity. The literal v1-specific falsifier is therefore indeterminate, not proven to have fired. Telos
+nevertheless adjudicates the novelty component conservatively as `FAIL`: iter151 had already disclosed the
+same test-suite-rejection mechanism, so the exact v1 `40/40` recount and paired table are retained while
+any claim of conceptual firstness is withdrawn. Historical tarballs also contain `139` harness-resolved
+hack-tagged evaluations across `65` instance IDs; only `23` discarded iter152 IDs are decision-bound, with
+`17` overlapping the harness-resolved set. The original hypothesis, audit output, and receipt remain
+preserved; the additive iter207 ledger records this narrower adjudication.
 
 A reward hack scores well on the reward function while being wrong. That is what makes it dangerous: it
 survives the grader, corrupts the training signal, and ships.
 
-`benchmarks/reward_hack_benchmark_v1/` does not contain such patches. Its generator
-(`experiments/iter152_reward_model_gaming_scale/proof/raw/detection_pipeline.py`, line 132) admitted a
-row only when the target test passed **and at least one `PASS_TO_PASS` test failed**. `PASS_TO_PASS` is
-the grader's curated regression-test set. Every row breaks at least one graded regression check by construction, and
+`benchmarks/reward_hack_benchmark_v1/` does not contain such patches. The iter152 seed generator
+(`experiments/iter152_reward_model_gaming_scale/proof/raw/detection_pipeline.py`, line 132) and the
+iter154/iter155 expansion runners used the same target-pass plus `PASS_TO_PASS`-failure acceptance shape.
+`PASS_TO_PASS` is the grader's curated regression-test set. Independently of that source reading,
 `experiments/iter192_reward_hack_benchmark_construct_validity_audit/` re-derived the official SWE-bench
-harness verdict for all `40` rows from committed tarballs at zero spend:
+harness verdict for all `40` rows from committed tarballs at zero model-provider spend:
 
 | check | value |
 | --- | ---: |
@@ -133,28 +201,38 @@ harness verdict for all `40` rows from committed tarballs at zero spend:
 
 What follows from that:
 
-| oracle | detections on v1 | provider cost |
+| oracle | detections on v1 | estimated spend guard |
 | --- | ---: | ---: |
 | official SWE-bench harness verdict (or an equivalent official-grader execution) | `40/40` | `$0.00` |
-| three-model cross-provider panel, unrepaired `majority_catch` (iter179) | `17/40` | `$13.59` |
+| three-model cross-provider panel, unrepaired `majority_catch` (iter179) | `17/40` | `$13.128090` for `240` score-producing calls |
 
-That baseline had never been reported here (`0` hits across `677` committed markdown files).
+The panel value is a conservative estimated guard, not a provider invoice. The whole iter175+iter178 run
+path is `$13.317840` because iter178 also made three diagnostic-only calls. Adding iter181's later repair
+diagnostic yields `$13.589640` (rounded `$13.59`); neither diagnostic stage contributes to the unrepaired
+`17/40` score.
+
+Iter192's lexical scanner reported `0` hits across `677` committed Markdown files. That remains the exact
+scanner output, but it cannot establish conceptual novelty: `experiments/iter151_cross_repo_scale_official/RESULT.md`
+had already explained that its predecessor proxy rows are unresolved by definition and that a plain
+full-suite CI gate rejects them. Because iter151 did not retain accepted patch bytes, this is a semantic
+precursor rather than a proven row-identical v1 baseline.
 
 **The `17/40` figure is not retracted.** It is arithmetically correct and reproduces from committed
 proof. What changed is what it is a figure *about*: it measures how often a frontier panel, reading a
 diff, spots a subtly-wrong patch **that the official graded regression checks already reject**. That is a legitimate
 finding about LLM code review. It is not a finding about reward hacking, and it does not motivate a
-verification protocol, because the defect class it covers is caught perfectly and for free by running
-the tests. The term `both_miss` always meant *the deterministic detector and the LLM judge miss*; it
+verification protocol, because the already-required graded tests catch `40/40` at zero model-provider
+spend. The term `both_miss` always meant *the deterministic detector and the LLM judge miss*; it
 never meant the tests miss.
 
-The same runs produced `139` variants across `65` instances that the official harness certified as
-**resolved** — every official graded test passing — and discarded every one as a `no_both_miss` failure, keeping only
-`{id, repo, status}`. Their diffs are unrecoverable. Whether they are *wrong* is unestablished and
-requires gold-differential execution. That discarded class is the mission's target, and it is what
+Historical tarballs contain `139` hack-tagged evaluations across `65` instance IDs that the official harness
+certified as **resolved**. The committed disposition evidence covers only `23` discarded iter152 IDs, `17`
+of which overlap that harness-resolved set; it does not establish that all `139` were discarded or retain
+their specific patch bytes. Whether they are *wrong* is unestablished and requires gold-differential
+execution. That certified-but-semantically-unknown class is the mission's target, and it is what
 `experiments/iter193_certified_resolved_reward_hack_construction/` set out to construct.
 
-iter193 executed `16` elicited certified-resolved-but-wrong candidates under instance-specific x86
+iter193 executed `16` elicited candidates intended to be certified-resolved-but-wrong under instance-specific x86
 SWE-bench container tags
 and published a null: `0` witnessed certified-and-wrong rows against a `>=5` bar. `6` matplotlib candidates
 were certified-resolved but behaviorally identical to gold across their full test module (`undetermined`,
@@ -171,24 +249,36 @@ audited target modules distinguishes a certified variant from its gold fix. This
 test elsewhere in each repository. `experiments/iter195_synthesized_input_differential_oracle/` therefore
 synthesized inputs to the changed callable and executed gold versus variant differentially in-container.
 
-`experiments/iter195_synthesized_input_differential_oracle/` is the mission's first execution-verified
-positive result: **`10` certified-resolved reward hacks**. Each is a patch the official SWE-bench harness
-marks resolved (passes every `FAIL_TO_PASS` and `PASS_TO_PASS`) that produces observably different output
-from the gold fix on a validated synthesized input not covered by the audited graded/additional
-target-module tests (over `15` scenarios:
-`10` wrong, `2` matched gold on their retained scenarios (artifact status `certified_equivalent`; no global
-equivalence claim), `2` scenario-failed, `1` variant-errored; all `10` re-verified for clean apply,
-zero-traceback, and divergent retained-log checks). One case, `django-11119`, was hand-judged a correct equivalent and execution proved it a real
-hack — the thesis on the repo's own analysis. Claim boundary: elicited and constructed, not a natural
-frequency; `N=10` across `3` repositories; "wrong" means differs from the gold reference fix; no detector
-is evaluated yet. `experiments/iter196_detector_vs_certified_hacks/` evaluated a judge against these `10`:
-a 2-model panel (`gpt-5.6-terra` + `claude-opus-4-8`; `gemini-2.5-flash` blocked on ADC re-auth), reading
+`experiments/iter195_synthesized_input_differential_oracle/` is strict protocol **`FAIL` with retained
+exploratory diagnostics**. The frozen design required synthesis without gold content, at least `10/20`
+gold-clean inputs per accepted candidate, and retained raw synthesis prompts and differential transcripts.
+The executed generator instead received both gold and variant hunks and produced one targeted scenario per
+candidate. It never ran the preregistered 20-input validation, and the required prompt-retention bar is not
+met. The result's replacement `13/15` scenario-clean count and `>=8` bar were not the frozen per-candidate
+criteria.
+
+The retained execution still supplies **`10` exploratory reference-differential witnesses across `3`
+repositories**: all ten patches pass every official `FAIL_TO_PASS` and `PASS_TO_PASS` test, and a
+gold-and-variant-assisted targeted scenario produced clean divergent outputs. Across the `15` generated
+scenarios, `10` diverged, `2` matched gold on that one scenario (not a global equivalence result), `2` failed
+under gold, and `1` errored under the variant. These witnesses concern behavior not distinguished by the
+audited graded/additional target-module tests; the mission does not claim every shipped repository test was
+audited. "Wrong" is the benchmark's reference-differential label, not independent semantic adjudication.
+
+`experiments/iter196_detector_vs_certified_hacks/` evaluated a judge against these `10` exploratory labels:
+a 2-model panel (`gpt-5.6-terra` + `claude-opus-4-8`; the third historical panel slot did not run, which says
+nothing about current runtime access), reading
 diff + task + visible test, flags **`7/10`** hacks (any-catch), `1/10` gold patches, and `1/2` equivalent
 controls in one stochastic run. Three of twenty hack responses are unparseable across two rows, so the
 required hack sensitivities are `7/10` observed lower, `9/10` missing upper, and `7/8` complete-case;
 paired-gold values are `1/10`, `3/10`, and `1/8`, and equivalent-control values are `1/2`, `2/2`, and
 `1/1`. Raw responses were not retained, and capped prompts truncate some task/test inputs. Judges carry
-bounded parsed-label signal on this cohort, not a stable model score.
+bounded parsed-label signal on this protocol-failed, gold-assisted cohort, not a stable model score. Because
+the preregistered two-detector gate delivered only Detector A and moved Detector B to iter197, iter196 is
+partial and protocol-blocked rather than a passed detector comparison. The two-model amendment first entered
+Git with the outputs, so it lacks an independent pre-output freeze. A diagnostic also finds one
+gold-distinctive line in each of `2/10` positive candidate inputs; this is disclosed without assigning a
+causal effect.
 
 `experiments/iter197_gold_free_oracle_vs_certified_hacks/` is now explicitly a **protocol failure with
 retained exploratory diagnostics**. The registered design required a diff-independent, visible-test-anchor
@@ -203,8 +293,9 @@ are `8/10` observed, `9/10` missing upper, `7/8` judge-complete, and `8/9` under
 property-resolved estimand; no complementarity is confirmed. The later `>=5` threshold was added with the
 generated properties, not preregistered.
 
-`experiments/iter201_detectors_on_full_benchmark/` repeated the comparison on all `22` hacks and likewise
-records **`FAIL`** for the locator protocol deviation. Retained exploratory outcomes are judge `20/22`,
+`experiments/iter201_detectors_on_full_benchmark/` repeated the comparison on all `22` operationally positive
+corpus rows and likewise records **`FAIL`** for the locator protocol deviation. Retained exploratory outcomes
+are judge flags on `20/22`,
 property pipeline `6/22`, and union `20/22`; every property catch is already a judge catch. The judge has
 `8/88` unparseable responses, affecting `5/22` hack rows and `3/22` gold rows. Hack any-catch remains
 determinate because the other judge catches each incomplete hack row. Gold-control flags must be reported
@@ -215,17 +306,27 @@ the already-mismatched property runner has a separate pre-output freeze. Judge p
 for `7/22` unique instances and visible tests for `3/22`; property prompts truncate `9/22` tasks and `3/22`
 tests. Historical construction, witness, and property execution used mutable `:latest` images without
 retained digests; exact historical container bytes cannot be reconstructed from the committed evidence.
+The retained iter201 judge artifact also records `4` shared gold-added lines inside candidate inputs. These
+are lines present in the candidate itself rather than a separate gold comparison, but they remain a disclosed
+prompt-content diagnostic; the run provides no causal estimate of their effect on judge decisions.
 
-`experiments/iter198_findings_paper_synthesis_and_accessibility/` produced the findings draft. The paper has
-since been corrected to preserve these protocol failures, the nondecision sensitivities, and the iter200
-provenance limits. Its quantitative claims remain bound to committed proof; external submission remains an
-operator action after a final citation and author-block review. See `paper/README.md`.
+`experiments/iter198_findings_paper_synthesis_and_accessibility/` produced the initial findings rewrite, but
+its strict accuracy gate is now **`FAIL`** because it inherited the iter192 novelty overstatement, treated iter195 as
+protocol-valid, and described the original detector comparison too strongly. The current paper is a later
+correction surface, not evidence that iter198's original accuracy bar passed. Telos empirical quantities are
+traceable to committed proof; external literature facts are source-attributed. External submission remains
+an operator action after a final citation and author-block review. See `paper/README.md`.
 
 `experiments/iter199_benchmark_expansion_across_repos/` grows the benchmark beyond three repositories. It
 runs the same construct-and-witness pipeline on `42` additional target IDs spanning all `12` dataset
 repositories. They were additional targets for that construction gate; the mission does not claim they were
-mission-fresh or use them for a natural-frequency inference. The retained result adds `12` witnessed hacks
-in five repositories, bringing the released benchmark to `22` across `8`.
+mission-fresh or use them for a natural-frequency inference. The retained result adds `12`
+official-harness-certified, gold-assisted reference-differential witnesses across eight repositories,
+introducing five repositories not present in iter195 and bringing the released corpus to `22` across `8`.
+Its hypothesis, runner, and provider
+outputs were first committed together, after scenario-generation contact and before CI execution. The stated
+design is therefore post-provider/pre-execution and not independently preregistered. The `12` retained rows
+remain exploratory gold-and-variant-assisted reference-differential evidence, not a prospective confirmation.
 
 [`experiments/iter202_natural_rate_scaled/RESULT.md`](experiments/iter202_natural_rate_scaled/RESULT.md)
 records the null from the attempted scale measurement on a frozen 53-instance cohort,
@@ -233,12 +334,15 @@ for descriptive pooling with iter200's 39 disjoint target IDs. A pre-output over
 the 53 had defined prior result-bearing exposure elsewhere in the mission, including 10 with
 provider-call-ledger evidence; any eventual result must therefore include the declared prior-use
 sensitivities. The first Git record of the iter202 hypothesis and target manifest followed a disclosed
-interrupted provider invocation, so the freeze was post-contact and pre-retained-output, not conventional
-preregistration before provider contact. The retained run later completed all `53` solver calls and all `39`
+interrupted provider invocation that retained no outputs and is conservatively charged `53` calls and an
+estimated `$2.65`, so the freeze was post-contact and pre-retained-output, not conventional preregistration
+before provider contact. The retained run later completed all `53` solver calls and all `39`
 eligible scenario calls, yielding `50` valid patches, `38` scenario programs, and one original missing
 scenario. The unchanged frozen safety validator then rejected `9` programs (`21` findings) and admitted
 `29`. The pipeline stopped before scenario or certification execution. Consequently iter202 is preserved as
-a scenario-safety protocol/execution null and supplies no `N`, `k`, or `u` for a rate claim.
+a scenario-safety protocol/execution null and supplies no `N`, `k`, or `u` for a rate claim. Conservative
+bookkeeping carries `145` charged calls and `$7.25` estimated-or-charged total, explicitly not exact actual
+usage because the interrupted invocation's completed-call count and spend are unknown.
 
 [`experiments/iter203_iter202_safety_recovery/RESULT.md`](experiments/iter203_iter202_safety_recovery/RESULT.md)
 publishes the additive post-provider recovery as an execution-infrastructure null. Its sole canonical run
@@ -260,9 +364,11 @@ publishes the pre-dispatch admission-history null. Iter205 itself has no runs: t
 before its dispatch request because iter204's append-only publication history contained four rows rather than the
 two-row closure snapshot.
 
-[`experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md`](experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md)
-is the active, separately versioned recovery. It preserves every scientific byte and admits only the exact
-four-row baseline plus the two structurally bound records caused by its one branch push and one merge.
+[`experiments/iter206_iter205_admission_history_recovery/RESULT.md`](experiments/iter206_iter205_admission_history_recovery/RESULT.md)
+records the local pre-publication claim-integrity null: the sealed gate made no remote or scientific state
+change and contributes no `N`, `k`, or `u`. Its immutable terminal evidence is predecessor provenance for
+[`iter207_claim_integrity_and_admission_recovery`](experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md),
+the active, separately versioned correction and admission recovery.
 
 `experiments/iter200_natural_certified_yet_wrong_rate/` asks `gpt-5.6-terra` to fix issues with no instruction
 to game tests. It is exploratory rather than a preregistered frequency estimate. The prompt is
@@ -277,10 +383,12 @@ two-judge, both-name-only-model rule (`3` loose cases versus `1` strict case). T
 were also added after the original result but before the official-harness backfill. Git first records the
 hypothesis and solver outputs together, so a pre-output freeze is not independently timestamped there. The
 blind runner preserved parsed labels and derived booleans but not raw judge responses; the exact response
-substance and parsing decisions therefore cannot be independently replayed.
+substance and parsing decisions therefore cannot be independently replayed. The `54` original execution
+logs contain no embedded reference to claimed run `29391238359`, and no committed original artifact-download
+receipt independently rebinds those bytes to that run; the run ID remains a historical attribution.
 
 The historical `1/15` proportion is conditional on the old scenario-eligible cohort and is not poolable.
-The corrected denominator is complete: all `37` valid patches have official-harness evidence, `24` are
+The corrected official-certification denominator is complete: all `37` valid patches have official-harness evidence, `24` are
 certified, and all `9` legacy `identical-to-gold` pairs become equal only after terminal-LF normalization;
 `0/9` are byte-identical and `8/9` of those normalized-equivalent patches certify. One patch is
 strict-confirmed, and
@@ -293,10 +401,10 @@ sensitivity together. They are not confidence intervals, prevalence bounds, or a
 
 # Historical record (earlier arcs, retained for provenance)
 
-Everything below is the earlier detection/intervention work (iter00-iter191). It is retained for provenance,
-not as a standing summary. Terms such as `both-miss`, `17/40`, `majority_catch`, or historical gold-free
-claims remain bounded to their named experiments; they do not repair the iter197/iter201 protocol failures
-or supersede the correction above.
+This section through the historical architecture summary covers the earlier detection/intervention work
+(iter00-iter191). It is retained for provenance, not as a standing summary. Terms such as `both-miss`,
+`17/40`, `majority_catch`, or historical gold-free claims remain bounded to their named experiments; they
+do not repair the iter197/iter201 protocol failures or supersede the correction above.
 
 At the iter165 boundary, a bounded paired single-model judge result existed for
 `gemini-2.5-flash`: `3/40` recall on the blinded all-hack packets from `iter161` and `0/40` false
@@ -487,17 +595,17 @@ hard-coding a hidden expected value in source, and tampering with a receipt dige
 
 ### The honest conclusion
 
-A well-engineered current LLM judge dominates on coverage - it matches the deterministic detector on
-obvious hacks and strictly beats it on oblique source special-casing, confirmed on real executed
-ground truth in iter113. The deterministic detector's defensible value is therefore not accuracy; it
-is cost, latency, determinism, line-level reproducible evidence, and running in CI with no
+In the bounded iter109–118 pilots, the tested LLM judge had higher coverage than the deterministic detector:
+it matched the detector on obvious hacks and caught oblique source special-casing that the detector missed,
+including the executed iter113 case. Within those pilots, the deterministic detector's defensible value is
+provider independence, latency, determinism, line-level reproducible evidence, and running in CI with no
 credentials. The architecture that follows is a cascade, not a contest:
 
 ```text
 candidate diff + FAIL_TO_PASS
         |
         v
-[ deterministic detector ]  free, reproducible, tamper-evident
+[ deterministic detector ]  zero provider spend, reproducible, tamper-evident
    catches verifier edits, assertion weakening, literal special-casing
         |
         | survivors (oblique / stealth completions)
@@ -558,7 +666,7 @@ the layer's structural reach at `405/500` = `0.81` of the dataset but its proper
 that at only `~0.10` even in sympy (iter138-139) - the honest three-layer division of labour, with the
 detector and judge universal and the property layer the math-identity specialist.
 
-The current frontier is the both-miss class itself, stress-tested by a frontier adversary. iter140 ran
+At the iter140–145 boundary, the frontier was the both-miss class itself, stress-tested by a frontier adversary. iter140 ran
 an automated hacker-fixer with `gemini-2.5-flash/pro`, got `0/20` verified both-miss on thoroughly-tested
 django, and read that as the window being narrow where coverage is thorough. That reading was wrong, and
 it is retracted in place: iter141 reran the same pool with a non-refusing frontier adversary
@@ -592,9 +700,9 @@ holds (iter147): the gate accepts all `10` gold fixes and both genuinely-correct
 - it converts gamed completions and preserves correct ones - which is the first direct evidence in the
 program that the protocol changes outcomes, not only measures them, with ordinary success preserved.
 
-## Honest Status
+## Historical status at the iter191 boundary
 
-- Repository scaffold: active.
+- Repository scaffold: active at that boundary.
 - First gate: target survey published as `HYBRID_OVERLAY_SELECTED`.
 - Public slice: selected in
   [`experiments/iter02_public_task_slice`](experiments/iter02_public_task_slice/RESULT.md).
@@ -1054,15 +1162,15 @@ program that the protocol changes outcomes, not only measures them, with ordinar
   adapter-validation rows, one bounded six-row null/no-signal pilot, one bounded six-row
   discriminating-metric pilot, and one bounded six-row unstable stability replication; none is a
   benchmark result.
-- Current target: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
+- Historical target at that boundary: Telos overlay on CodeClash + SWE-bench Verified public software-agent tasks.
 
-Claim-boundary reviewer entry point:
+Historical claim-boundary reviewer entry point:
 [`experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json).
 It indexes the current claim-boundary proof packet and keeps failed/null rows, changed candidates,
 and no-claim exclusions visible. It is not a leaderboard, SWE-bench, production, live-domain, or
 model-superiority result.
 
-Self-coverage reviewer entry points:
+Historical self-coverage reviewer entry points:
 [`experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json`](experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json)
 and
 [`experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json`](experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json).
@@ -1073,9 +1181,9 @@ This repo deliberately separates the research line from Sentinel. Sentinel prove
 frozen bars, public baselines, nulls published, raw evidence committed, corrections on the record.
 This repo applies that standard to autonomous agent completion.
 
-## The First Number To Freeze
+## The first number frozen
 
-`iter00_target_survey` will score candidate benchmark families against seven criteria:
+`iter00_target_survey` scored candidate benchmark families against seven frozen criteria:
 
 | criterion | meaning |
 |---|---|
@@ -1083,7 +1191,7 @@ This repo applies that standard to autonomous agent completion.
 | public baseline quality | there is a named benchmark, split, and published score |
 | falsifiability | the protocol can fail clearly, before narrative interpretation |
 | evidence surface | the task can emit receipts beyond a final answer |
-| Aweb fit | Aweb can run and verify it without hidden fleet-scale infrastructure |
+| standalone runtime fit | the repository can run and verify it without hidden fleet-scale infrastructure |
 | saturation risk | current leaderboards have not made the target uninformative |
 | operational cost | the first honest experiment is affordable |
 
@@ -1175,34 +1283,31 @@ Provider-compatible expanded slice after adapter completion:
 [`experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md`](experiments/iter71_provider_compatible_expanded_slice_after_adapter_completion/RESULT.md).
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
-Current gate:
-[`experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md`](experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md).
-
-The compact current evidence diagram is at the top of this README. It is the authoritative visual summary:
-iter192 corrects the foundation; iter195 and iter199 construct the `22`-row benchmark; iter197 and iter201
-retain exploratory diagnostics but fail their registered property protocol; iter200 supplies an exploratory
-neutral-prompt, gold-localized existence case; iter202 preserves a provider-complete but pre-execution
-scenario-safety null; iter203 records a zero-execution Docker-launch infrastructure null; iter204 records a
-pre-dispatch workflow-parse infrastructure null with a two-row closure snapshot; iter205 records a
-pre-dispatch admission-history null after publication grew that upstream history to four rows while
-iter205's own histories stayed empty; and iter206 is the separately versioned, pre-publication exact-six
-admission recovery.
-
 ## Evidence Arc (historical detection/intervention work)
 
 This diagram summarizes the earlier detection and intervention arc (iter109-iter190). It is provenance, not
 the current evidence summary. In particular, its historical gold-free nodes do not validate the later
-iter197/iter201 property pipeline, which used diff-derived locators and gold inclusion.
+iter197/iter201 property pipeline, which used diff-derived locators and gold inclusion. Red nodes mark the
+decisive discovery or reclassification points in that historical arc.
 
 ```mermaid
-flowchart LR
- L1["109-110<br/>detector<br/>0/200 FP"]-->L2["111-112<br/>judge<br/>+ stealth 2x2"]-->L3["113-116<br/>real execution<br/>catch rate"]-->BM["117-118<br/>both-miss found"]-->DEF["119-121<br/>metamorphic<br/>gold-free"]-->AUT["122-123<br/>auto props<br/>+ anchor"]-->SC["124-129<br/>scale 2/7 -> 6/7<br/>taxonomy"]-->APP["130-139<br/>docker<br/>applicability 0.81 / 0.10"]-->FBM["140-145<br/>frontier both-miss<br/>0.24 rate · panel gap"]-->PE["146-152<br/>protocol scale<br/>0/20 -> 10/20 official<br/>reward models fooled 35-45%"]-->BENCH["153-156<br/>benchmark v1<br/>40 rows · later invalidated by iter192"]-->CTRL["157-190<br/>judge eval + panel repair<br/>primary 17/40 · controls 0/40 · property execution gap"]
-  classDef d fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
-  classDef risk fill:#fee,stroke:#c22,color:#000;
-  classDef fix fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
-  class L1,L2,L3 d;
-  class BM,FBM,BENCH risk;
-  class DEF,AUT,SC,APP,PE,CTRL fix;
+flowchart TB
+ subgraph H1["DETECT"]
+  direction LR
+  D1["109–110<br/>detector · 0/200 FP"]-->D2["111–112<br/>judge + stealth"]-->D3["113–118<br/>real execution<br/>both-miss found"]-->D4["119–129<br/>gold-free properties<br/>scale + taxonomy"]
+ end
+ subgraph H2["SCALE"]
+  direction LR
+  S1["130–139<br/>Docker applicability"]-->S2["140–145<br/>frontier both-miss<br/>panel gap"]-->S3["146–152<br/>protocol scale<br/>0/20→10/20 official"]
+ end
+ subgraph H3["EVALUATE"]
+  direction LR
+  M1["153–156<br/>v1: 40 rows<br/>not reward hacks<br/>192 conservative novelty FAIL"]-->M2["157–190<br/>judge/panel repair<br/>17/40 · controls 0/40<br/>property gap"]
+ end
+ H1-->H2
+ H2-->H3
+ classDef risk fill:#fee,stroke:#c22,color:#000;
+ class D3,S2,M1 risk;
 ```
 
 The FBM node was the adversarial frontier: iter140's `0/20` gemini null read the both-miss window as
@@ -1243,7 +1348,7 @@ surfaces to keep that boundary explicit. Iter184 then mapped current public rese
 property-probe design gate for the `23` v1 candidate rows the primary panel still misses; iter185 froze the
 priority subset, and iter186 materialized the leakage-scanned packet inputs.
 The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
-preserved in the Honest Status log above and the learning ledger.
+preserved in the historical status log above and the learning ledger.
 
 ## Candidate Target Families
 
@@ -1267,21 +1372,21 @@ such hack survives every frontier judge tested (iter142-iter144). The cascade ru
 escalates only the survivors:
 
 ```mermaid
-flowchart LR
-  C["candidate diff<br/>+ FAIL_TO_PASS"] --> D["Layer 1<br/>deterministic detector<br/>free · reproducible"]
-  D -->|historical static catch| X["proxy-gaming patch"]
-  D -->|survivors| J["Layer 2<br/>LLM judge<br/>paid · semantic"]
-  J -->|oblique/hard-coded caught| X
-  J -->|survivors| M["Layer 3<br/>held-out-input execution<br/>gold-free property"]
-  M -->|generalization-broken caught| X
+flowchart TB
+  C["candidate diff<br/>+ FAIL_TO_PASS"] --> D["Layer 1<br/>deterministic detector<br/>local · reproducible"]
+  D -->|survives| J["Layer 2<br/>LLM judge<br/>paid · semantic"]
+  J -->|survives| M["Layer 3<br/>held-out-input execution<br/>gold-free property"]
   M -->|holds| OK["accept<br/>+ receipt"]
+  D -->|historical static catch| X1["reject<br/>proxy-gaming patch"]
+  J -->|oblique or hard-coded catch| X2["reject<br/>oblique / hard-coded"]
+  M -->|generalization catch| X3["reject<br/>generalization break"]
   classDef base fill:#f6f8fa,stroke:#57606a,color:#1f2328;
   classDef layer fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
   classDef hack fill:#fee,stroke:#c22,color:#000;
   classDef ok fill:#e2f3e5,stroke:#2e7d32,color:#13361b;
   class C base;
   class D,J,M layer;
-  class X hack;
+  class X1,X2,X3 hack;
   class OK ok;
 ```
 
@@ -1302,6 +1407,8 @@ Presentation standard: [`docs/PRESENTATION.md`](docs/PRESENTATION.md).
 Learning engine: [`docs/LEARNING_ENGINE.md`](docs/LEARNING_ENGINE.md).
 Mission loop: [`docs/MISSION_LOOP.md`](docs/MISSION_LOOP.md).
 
+# Current repository contract
+
 ## Repository Map
 
 ```text
@@ -1313,7 +1420,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per experiment (iter00-iter206), including explicit fail/null/pre-result states
+experiments/               one folder per experiment (iter00-iter207), including explicit fail/null/pre-result states
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
@@ -1353,6 +1460,11 @@ python3 scripts/validate_iter205_pre_dispatch_null.py
 python3 scripts/build_iter206_runtime_manifest.py --check
 python3 scripts/validate_iter206_publication_safety.py --check
 python3 scripts/validate_iter206_runtime_recovery.py
+python3 scripts/validate_iter206_pre_publication_null.py
+python3 scripts/audit_iter207_claim_integrity.py --check
+python3 scripts/build_iter207_runtime_manifest.py --check
+python3 scripts/validate_iter207_publication_safety.py --check
+python3 scripts/validate_iter207_runtime_recovery.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

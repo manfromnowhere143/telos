@@ -42,6 +42,38 @@ def test_repository_banner_is_explicit_and_self_contained() -> None:
     assert ("a" + "web") not in make_handoff.repository_banner().casefold()
 
 
+def test_experiment_status_is_publication_neutral(
+    tmp_path: Path, monkeypatch
+) -> None:
+    make_handoff = load_module("make_handoff")
+    monkeypatch.chdir(tmp_path)
+    null_exp = tmp_path / "experiments/iter206_terminal_null"
+    fail_exp = tmp_path / "experiments/iter195_protocol_failure"
+    ordinary_exp = tmp_path / "experiments/iter190_recorded_result"
+    for path in (null_exp, fail_exp, ordinary_exp):
+        path.mkdir(parents=True)
+    (null_exp / "RESULT.md").write_text(
+        "# Result\n\nStatus: **TERMINAL NULL; WITHOUT PUBLICATION**.\n",
+        encoding="utf-8",
+    )
+    (fail_exp / "RESULT.md").write_text(
+        "# Result\n\nStatus: **FAIL**.\n", encoding="utf-8"
+    )
+    (ordinary_exp / "RESULT.md").write_text(
+        "# Result\n\nStatus: **COMPLETE**.\n", encoding="utf-8"
+    )
+
+    rows = make_handoff.experiment_status("experiments/iter207/HYPOTHESIS.md")
+
+    assert any("iter206_terminal_null: RESULT RECORDED (TERMINAL NULL" in row for row in rows)
+    assert any("iter195_protocol_failure: RESULT RECORDED (FAIL)" in row for row in rows)
+    assert any(
+        "iter190_recorded_result: RESULT RECORDED (publication not implied)" in row
+        for row in rows
+    )
+    assert all("RESULT PUBLISHED" not in row for row in rows)
+
+
 def test_active_and_frozen_gates_are_independently_bound(
     tmp_path: Path, monkeypatch
 ) -> None:
@@ -73,7 +105,7 @@ def test_active_and_frozen_gates_are_independently_bound(
         make_handoff.active_gate()
 
 
-def test_iter205_and_iter206_operational_anchors_are_exact() -> None:
+def test_iter205_and_iter207_operational_anchors_are_exact() -> None:
     make_handoff = load_module("make_handoff")
 
     assert make_handoff.ITER204_WORKFLOW_ID == "314113289"
@@ -90,7 +122,9 @@ def test_iter205_and_iter206_operational_anchors_are_exact() -> None:
     assert make_handoff.ITER205_WORKFLOW_ID == "314141096"
     assert make_handoff.ITER205_FEATURE_PUSH_RUN_ID == "29468669956"
     assert make_handoff.ITER205_PRIMARY_PUSH_RUN_ID == "29468768706"
-    assert make_handoff.ITER206_BRANCH == "agent/iter206-iter205-admission-recovery"
+    assert make_handoff.ITER207_BRANCH == (
+        "agent/iter207-claim-integrity-admission-recovery"
+    )
 
 
 def test_iter206_workflow_authorization_v2_binds_exact_release_ci_pair() -> None:
@@ -228,8 +262,8 @@ def test_rendered_handoff_is_exact_six_fail_closed_and_single_dispatch(
     make_handoff = load_module("make_handoff")
     validate_handoff = load_module("validate_handoff")
     source_commit = "b" * 40
-    source_branch = "agent/iter206-iter205-admission-recovery"
-    active = "experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md"
+    source_branch = "agent/iter207-claim-integrity-admission-recovery"
+    active = "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
     frozen = "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md"
     monkeypatch.chdir(tmp_path)
     monkeypatch.setattr(make_handoff, "current_branch", lambda: source_branch)
@@ -260,45 +294,69 @@ def test_rendered_handoff_is_exact_six_fail_closed_and_single_dispatch(
     assert "no dispatch API response or rejection exists" in handoff
     assert "`1/24` confirmed lower, `7/24` worst-case missing upper" in handoff
     assert "`1/18` complete-case" in handoff
+    assert "pre-publication claim-integrity null" in handoff
+    assert "conservatively adjudicates conceptual novelty `FAIL`" in handoff
+    assert "literal v1-specific falsifier" in handoff
+    normalized_handoff = " ".join(handoff.split())
+    assert "only `23` discarded iter152 IDs are decision-bound" in normalized_handoff
     assert (
-        "No credential, credit, billing, quota, or authentication deficit is the "
-        "iter205/iter206 blocker"
-    ) in handoff
-    assert "## Iter206 Local Seal and Exact Pickup Boundary" in handoff
+        "Of the iter192/iter195 correction pair, only iter195 is a strict protocol `FAIL`"
+        in normalized_handoff
+    )
+    assert "`$13.128090`, not a provider invoice" in handoff
+    assert "corpus is not independent semantic ground truth" in handoff
+    assert "## Iter207 Local Seal and Exact Pickup Boundary" in handoff
     assert "source commit A" in handoff
     assert "publication-safety receipt and then the runtime manifest" in handoff
     assert "seal commit B" in handoff
     assert "push A and B together" in handoff
     assert "Never regenerate it after that point" in handoff
-    assert "Push branch `agent/iter206-iter205-admission-recovery` exactly once" in handoff
+    assert (
+        "Push branch `agent/iter207-claim-integrity-admission-recovery` exactly once"
+        in handoff
+    )
     assert "Merge exactly once with a two-parent merge commit" in handoff
     assert ("a" + "web") not in handoff.casefold()
     assert re.search(r"\b[A-Z][A-Z0-9_]*(?:KEY|TOKEN|SECRET)\b", handoff) is None
 
-    assert handoff.count("gh workflow run iter206-execute.yml") == 1
+    assert handoff.count("gh workflow run iter207-execute.yml") == 1
+    assert "gh workflow run iter206-execute.yml" not in handoff
     assert "gh workflow run iter205-execute.yml" not in handoff
     assert "gh workflow run iter204-execute.yml" not in handoff
     assert 'gh run rerun "$RUN_ID"' not in handoff
     assert "scripts/collect_iter205_execution.py check" not in handoff
 
-    dispatch_text = handoff[handoff.index("## Exact Authorized Iter206 Dispatch") :]
+    dispatch_text = handoff[handoff.index("## Exact Authorized Iter207 Dispatch") :]
     bash_blocks = re.findall(r"```bash\n(.*?)\n```", dispatch_text, re.DOTALL)
     assert len(bash_blocks) == 6
     dispatch, observe, failure, success, resume, verification = bash_blocks
+    for operational_block in bash_blocks[:5]:
+        assert operational_block.count("workflow_history_payload()") == 1
+        assert operational_block.count("|| return 1") == 5
+        assert "-f page=1 -f per_page=100" in operational_block
 
-    assert dispatch.count("gh workflow run iter206-execute.yml") == 1
-    for required_input in validate_handoff.ITER206_INPUTS:
+    assert dispatch.count("gh workflow run iter207-execute.yml") == 1
+    for required_input in validate_handoff.ITER207_INPUTS:
         assert dispatch.count(required_input) == 1
+    assert dispatch.count("workflow_history_payload()") == 1
+    assert "[(.total_count | type), (.workflow_runs | type)] | @tsv" in dispatch
+    assert ".total_count == (.workflow_runs | length)" in dispatch
+    assert "ITER206_ALL_PAYLOAD=" in dispatch
+    assert "ITER206_DISPATCH_PAYLOAD=" in dispatch
     assert 'test "$ITER205_ALL_COUNT" -eq 0' in dispatch
     assert 'test "$ITER205_DISPATCH_COUNT" -eq 0' in dispatch
     assert 'test "$ITER206_ALL_COUNT" -eq 0' in dispatch
     assert 'test "$ITER206_DISPATCH_COUNT" -eq 0' in dispatch
-    assert "actions/workflows/314113289/runs" in dispatch
+    assert 'test "$ITER207_ALL_COUNT" -eq 0' in dispatch
+    assert 'test "$ITER207_DISPATCH_COUNT" -eq 0' in dispatch
+    assert 'workflow_history_payload "314113289"' in dispatch
+    assert 'test "$ITER204_ALL_COUNT" -eq 6' in dispatch
+    assert 'test "$ITER204_DISPATCH_COUNT" -eq 0' in dispatch
     assert "1\t29465584664\t314113289" in dispatch
     assert "2\t29465924803\t314113289" in dispatch
     assert "3\t29468669956\t314113289" in dispatch
     assert "4\t29468768706\t314113289" in dispatch
-    assert "agent/iter206-iter205-admission-recovery" in dispatch
+    assert "agent/iter207-claim-integrity-admission-recovery" in dispatch
     assert "actions/runs/$ITER204_RUN_ID/attempts/1/jobs" in dispatch
     assert "actions/runs/$ITER204_RUN_ID/artifacts" in dispatch
     assert "grep -E 'HTTP[^0-9]*404'" in dispatch
@@ -331,65 +389,84 @@ def test_rendered_handoff_is_exact_six_fail_closed_and_single_dispatch(
     assert "github-actions" in dispatch
     assert 'test "$RELEASE_PUSH_CI_RUN_ID" != "$RELEASE_PULL_REQUEST_CI_RUN_ID"' in dispatch
     assert 'test "$FIRST_PARENT" = "4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f"' in dispatch
-    assert dispatch.index("scripts/validate_iter205_pre_dispatch_null.py") < dispatch.index(
-        "gh workflow run iter206-execute.yml"
+    assert dispatch.index("scripts/audit_iter207_claim_integrity.py --check") < (
+        dispatch.index("gh workflow run iter207-execute.yml")
+    )
+    assert dispatch.index("scripts/validate_iter206_pre_publication_null.py") < (
+        dispatch.index("gh workflow run iter207-execute.yml")
     )
     assert dispatch.index('test "$ITER204_HISTORY" = "$EXPECTED_ITER204_HISTORY"') < dispatch.index(
-        "gh workflow run iter206-execute.yml"
+        "gh workflow run iter207-execute.yml"
     )
     assert dispatch.index('RELEASE_PUSH_CI_RUN_ID="$(verify_release_ci push)"') < dispatch.index(
-        "gh workflow run iter206-execute.yml"
+        "gh workflow run iter207-execute.yml"
     )
     assert dispatch.index(
         'RELEASE_PULL_REQUEST_CI_RUN_ID="$(verify_release_ci pull_request)"'
-    ) < dispatch.index("gh workflow run iter206-execute.yml")
+    ) < dispatch.index("gh workflow run iter207-execute.yml")
     assert dispatch.index("verify py3.12") < dispatch.index(
-        "gh workflow run iter206-execute.yml"
+        "gh workflow run iter207-execute.yml"
     )
     assert 'gh run watch "$RUN_ID"' not in dispatch
     assert 'gh run download "$RUN_ID"' not in dispatch
     assert "run discovery is incomplete; never reissue it" in dispatch
-    assert "\t.github/workflows/iter206-execute.yml\t1\t1" in dispatch
+    assert "\t.github/workflows/iter207-execute.yml\t1\t1" in dispatch
 
-    assert "gh workflow run iter206-execute.yml" not in observe
+    assert "gh workflow run iter207-execute.yml" not in observe
+    assert observe.count("workflow_history_payload()") == 1
     assert 'gh run watch "$RUN_ID" || true' in observe
-    assert 'test "$ITER206_ALL_COUNT" -eq 1' in observe
-    assert 'test "$ITER206_DISPATCH_COUNT" -eq 1' in observe
+    assert 'test "$ITER207_ALL_COUNT" -eq 1' in observe
+    assert 'test "$ITER207_DISPATCH_COUNT" -eq 1' in observe
+    assert 'workflow_history_payload "$ITER206_WORKFLOW_ID"' in observe
     assert 'if test "${RUN_STATE%% *}" != completed' in observe
     assert "repeat only this read-only observation block" in observe
     assert "exit 75" in observe
     assert "exit 20" in observe
 
-    assert "gh workflow run iter206-execute.yml" not in failure
+    assert "gh workflow run iter207-execute.yml" not in failure
     assert 'gh run rerun "$RUN_ID"' not in failure
-    assert ".iter206-null-stage.XXXXXX" in failure
+    assert failure.count("workflow_history_payload()") == 1
+    assert "ITER207_WORKFLOW_BINDING=" in failure
+    assert "APPROVED_SHA=" in failure
+    assert "RUN_BINDING=" in failure
+    assert 'test "$(git rev-parse HEAD)" = "$APPROVED_SHA"' in failure
+    assert ".iter207-null-stage.XXXXXX" in failure
     assert "! -name SHA256SUMS" in failure
     assert failure.index('gh run download "$RUN_ID"') < failure.index(
         'mv "$STAGE" "$NULL_DIR"'
     )
 
-    assert "gh workflow run iter206-execute.yml" not in success
-    assert ".iter206-execution-stage.XXXXXX" in success
+    assert "gh workflow run iter207-execute.yml" not in success
+    assert success.count("workflow_history_payload()") == 1
+    assert "ITER207_WORKFLOW_BINDING=" in success
+    assert ".iter207-execution-stage.XXXXXX" in success
     assert success.index('gh run download "$RUN_ID"') < success.index(
-        "scripts/collect_iter206_execution.py check"
+        "scripts/collect_iter207_execution.py check"
     )
-    assert success.index("scripts/collect_iter206_execution.py check") < success.index(
+    assert success.index("scripts/collect_iter207_execution.py check") < success.index(
         'mv "$STAGE" "$EXECUTION_DIR"'
     )
     assert success.index('mv "$STAGE" "$EXECUTION_DIR"') < success.index(
-        "scripts/adjudicate_iter206_admission_history_recovery.py"
+        "scripts/adjudicate_iter207_claim_integrity_and_admission_recovery.py"
     )
 
     assert 'gh run download "$RUN_ID"' not in resume
+    assert resume.count("workflow_history_payload()") == 1
+    assert 'test -z "$(git status --porcelain)"' in resume
+    assert "git diff --quiet" not in resume
     assert 'test -d "$EXECUTION_DIR"' in resume
-    assert resume.index("scripts/collect_iter206_execution.py check") < resume.index(
-        "scripts/adjudicate_iter206_admission_history_recovery.py"
+    assert resume.index("scripts/collect_iter207_execution.py check") < resume.index(
+        "scripts/adjudicate_iter207_claim_integrity_and_admission_recovery.py"
     )
-    assert resume.index("scripts/adjudicate_iter206_admission_history_recovery.py") < resume.index(
-        "scripts/run_iter206_admission_history_recovery_blind_judge.py"
+    assert resume.index(
+        "scripts/adjudicate_iter207_claim_integrity_and_admission_recovery.py"
+    ) < resume.index(
+        "scripts/run_iter207_claim_integrity_and_admission_recovery_blind_judge.py"
     )
     assert "scripts/validate_iter205_pre_dispatch_null.py" in verification
-    assert "scripts/build_iter206_runtime_manifest.py --check" in verification
+    assert "scripts/validate_iter206_pre_publication_null.py" in verification
+    assert "scripts/audit_iter207_claim_integrity.py --check" in verification
+    assert "scripts/build_iter207_runtime_manifest.py --check" in verification
     assert "scripts/validate_handoff.py" in verification
     assert "python3 scripts/make_handoff.py" not in verification
 
@@ -408,11 +485,11 @@ def test_handoff_recovery_guard_rejects_retry_stale_and_credential_text() -> Non
     validate_handoff = load_module("validate_handoff")
     bounded = make_handoff.render_handoff(
         generated="2026-07-16T00:00:00Z",
-        source_branch="agent/iter206-iter205-admission-recovery",
+        source_branch="agent/iter207-claim-integrity-admission-recovery",
         source_commit="a" * 40,
         worktree="clean",
         experiments="- bounded fixture",
-        gate="experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md",
+        gate="experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
         upstream_gate="experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
     )
 
@@ -429,25 +506,56 @@ def test_handoff_recovery_guard_rejects_retry_stale_and_credential_text() -> Non
     assert "HANDOFF.md authorizes a forbidden workflow rerun" in (
         validate_handoff.recovery_content_failures(bounded + '\ngh run rerun "$RUN_ID"')
     )
-    assert "HANDOFF.md authorizes the sealed iter205 workflow" in (
+    assert "HANDOFF.md authorizes a forbidden workflow rerun" in (
+        validate_handoff.recovery_content_failures(bounded + "\ngh run rerun 12345")
+    )
+    assert "HANDOFF.md authorizes a sealed predecessor workflow: iter205-execute.yml" in (
         validate_handoff.recovery_content_failures(
             bounded + "\ngh workflow run iter205-execute.yml"
         )
     )
-    assert "HANDOFF.md must contain exactly one iter206 dispatch command" in (
+    assert "HANDOFF.md authorizes a sealed predecessor workflow: iter206-execute.yml" in (
         validate_handoff.recovery_content_failures(
-            bounded + "\ngh workflow run iter206-execute.yml"
+            bounded
+            + '\ngh workflow run ".github/workflows/iter206-execute.yml" --ref master'
         )
     )
-    assert "HANDOFF.md must bind exactly one iter206 dispatch input" in "\n".join(
+    assert "HANDOFF.md authorizes a sealed predecessor workflow: iter203-execute.yml" in (
+        validate_handoff.recovery_content_failures(
+            bounded + "\ngh workflow run \\\n  .github/workflows/iter203-execute.yml"
+        )
+    )
+    assert "HANDOFF.md authorizes a sealed predecessor workflow: iter204-execute.yml" in (
+        validate_handoff.recovery_content_failures(
+            bounded
+            + "\ngh api -X POST repos/o/r/actions/workflows/"
+            "iter204-execute.yml/dispatches"
+        )
+    )
+    assert "HANDOFF.md must contain exactly one iter207 dispatch command" in (
+        validate_handoff.recovery_content_failures(
+            bounded + "\ngh workflow run iter207-execute.yml"
+        )
+    )
+    assert "HANDOFF.md must contain exactly one iter207 dispatch command" in (
+        validate_handoff.recovery_content_failures(
+            bounded + "\ngh workflow run .github/workflows/iter207-execute.yml"
+        )
+    )
+    assert "HANDOFF.md must bind exactly one iter207 dispatch input" in "\n".join(
         validate_handoff.recovery_content_failures(
             bounded + '\n-f expected_primary_sha="$HEAD_SHA"'
         )
     )
-    assert "HANDOFF.md retains stale iter205 operational instruction" in "\n".join(
+    assert "HANDOFF.md retains stale predecessor instruction" in "\n".join(
         validate_handoff.recovery_content_failures(
             bounded + "\nscripts/collect_iter205_execution.py check"
         )
+    )
+    iter206_zero = 'test "$ITER206_ALL_COUNT" -eq 0'
+    moved_after_dispatch = bounded.replace(iter206_zero, "", 1) + f"\n{iter206_zero}\n"
+    assert "must prove each exact invariant before dispatch" in "\n".join(
+        validate_handoff.recovery_content_failures(moved_after_dispatch)
     )
 
 
@@ -485,73 +593,154 @@ def test_handoff_generator_and_validator_fail_closed_on_git_errors(monkeypatch) 
         validate_handoff.git_output(["git", "status", "--short"])
 
 
-def test_source_provenance_freezes_feature_and_preserves_it_on_master(
-    tmp_path: Path, monkeypatch
-) -> None:
+def test_source_provenance_allows_only_the_exact_iter207_branch(monkeypatch) -> None:
     make_handoff = load_module("make_handoff")
     source_commit = "a" * 40
     monkeypatch.setattr(make_handoff, "current_commit", lambda: source_commit)
-    assert make_handoff.source_provenance("agent/research-gate") == (
-        "agent/research-gate",
+    assert make_handoff.source_provenance(make_handoff.ITER207_BRANCH) == (
+        make_handoff.ITER207_BRANCH,
         source_commit,
     )
-    monkeypatch.chdir(tmp_path)
-    (tmp_path / "HANDOFF.md").write_text(
-        "source_branch: agent/research-gate\n"
-        f"source_commit: {source_commit}\n"
-        "publication_target: master\n",
-        encoding="utf-8",
-    )
-    monkeypatch.setattr(
-        make_handoff.subprocess,
-        "run",
-        lambda *_args, **_kwargs: subprocess.CompletedProcess([], 0, "", ""),
-    )
-    assert make_handoff.source_provenance("master") == (
-        "agent/research-gate",
-        source_commit,
-    )
-    monkeypatch.setattr(
-        make_handoff.subprocess,
-        "run",
-        lambda *_args, **_kwargs: subprocess.CompletedProcess([], 1, "", ""),
-    )
-    with pytest.raises(RuntimeError, match="not an ancestor"):
+    with pytest.raises(RuntimeError, match="only on the exact iter207 source branch"):
+        make_handoff.source_provenance("agent/research-gate")
+    with pytest.raises(RuntimeError, match="only on the exact iter207 source branch"):
         make_handoff.source_provenance("master")
+
+
+def test_handoff_generation_requires_an_exact_clean_source_commit(
+    tmp_path: Path, monkeypatch
+) -> None:
+    make_handoff = load_module("make_handoff")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(make_handoff, "current_branch", lambda: make_handoff.ITER207_BRANCH)
+    monkeypatch.setattr(
+        make_handoff,
+        "source_provenance",
+        lambda _branch: (make_handoff.ITER207_BRANCH, "a" * 40),
+    )
+    monkeypatch.setattr(make_handoff, "run", lambda _args: " M README.md")
+
+    with pytest.raises(RuntimeError, match="exact clean source commit"):
+        make_handoff.main()
+    assert not (tmp_path / "HANDOFF.md").exists()
 
 
 def test_declared_repository_state_and_publication_lineage_are_exact(monkeypatch) -> None:
     validate_handoff = load_module("validate_handoff")
     source_commit = "a" * 40
+    seal_commit = "b" * 40
+    merge_commit = "c" * 40
     handoff = f"""## Repository State
 
 ```text
-source_branch: agent/research-gate
+source_branch: {validate_handoff.ITER207_BRANCH}
 source_commit: {source_commit}
 publication_target: master
 ```
 """
     state = validate_handoff.declared_repository_state(handoff)
     assert state == {
-        "source_branch": "agent/research-gate",
+        "source_branch": validate_handoff.ITER207_BRANCH,
         "source_commit": source_commit,
         "publication_target": "master",
     }
-    with pytest.raises(ValueError, match="non-master feature branch"):
+    with pytest.raises(ValueError, match="exact iter207 feature branch"):
         validate_handoff.declared_repository_state(
-            handoff.replace("agent/research-gate", "master")
+            handoff.replace(validate_handoff.ITER207_BRANCH, "agent/research-gate")
         )
-    monkeypatch.setattr(validate_handoff, "git_output", lambda _args: "")
-    monkeypatch.setattr(validate_handoff, "git_is_ancestor", lambda *_args: True)
+
+    def exact_git_output(args: list[str]) -> str:
+        if args[:3] == ["git", "check-ref-format", "--branch"]:
+            return ""
+        if args[:5] == ["git", "rev-list", "--parents", "-n", "1"]:
+            commit = args[5]
+            if commit == source_commit:
+                return f"{source_commit} {validate_handoff.ITER206_SEAL_COMMIT}"
+            if commit == seal_commit:
+                return f"{seal_commit} {source_commit}"
+            if commit == merge_commit:
+                return (
+                    f"{merge_commit} {validate_handoff.ITER205_MERGE_COMMIT} "
+                    f"{seal_commit}"
+                )
+        if args[:4] == ["git", "diff", "--name-only", "--no-renames"]:
+            return "README.md\nscripts/validate_handoff.py"
+        if args[:4] == ["git", "diff", "--name-status", "--no-renames"]:
+            return "\n".join(validate_handoff.ITER207_SEAL_DIFF)
+        raise AssertionError(args)
+
+    monkeypatch.setattr(validate_handoff, "git_output", exact_git_output)
     assert validate_handoff.publication_lineage_failures(
-        state, "agent/research-gate", "b" * 40
+        state, validate_handoff.ITER207_BRANCH, seal_commit
     ) == []
     assert validate_handoff.publication_lineage_failures(
-        state, "master", "b" * 40
+        state, "master", merge_commit
     ) == []
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    monkeypatch.setenv("GITHUB_EVENT_NAME", "pull_request")
+    assert validate_handoff.publication_lineage_failures(
+        state, validate_handoff.ITER207_BRANCH, merge_commit
+    ) == []
+    monkeypatch.delenv("GITHUB_ACTIONS")
+    monkeypatch.delenv("GITHUB_EVENT_NAME")
     assert "actual=agent/unrelated" in validate_handoff.publication_lineage_failures(
-        state, "agent/unrelated", "b" * 40
+        state, "agent/unrelated", seal_commit
     )[0]
+
+    def extra_seal_file(args: list[str]) -> str:
+        output = exact_git_output(args)
+        if args[:4] == ["git", "diff", "--name-status", "--no-renames"]:
+            return output + "\nM\tREADME.md"
+        return output
+
+    monkeypatch.setattr(validate_handoff, "git_output", extra_seal_file)
+    assert "must change exactly" in "\n".join(
+        validate_handoff.publication_lineage_failures(
+            state, validate_handoff.ITER207_BRANCH, seal_commit
+        )
+    )
+
+    def derived_path_in_source(args: list[str]) -> str:
+        if args[:4] == ["git", "diff", "--name-only", "--no-renames"]:
+            return "HANDOFF.md\nREADME.md"
+        return exact_git_output(args)
+
+    monkeypatch.setattr(validate_handoff, "git_output", derived_path_in_source)
+    assert "source commit A changes derived seal paths" in "\n".join(
+        validate_handoff.publication_lineage_failures(
+            state, validate_handoff.ITER207_BRANCH, seal_commit
+        )
+    )
+
+    def wrong_seal_parent(args: list[str]) -> str:
+        if (
+            args[:5] == ["git", "rev-list", "--parents", "-n", "1"]
+            and args[5] == seal_commit
+        ):
+            return f"{seal_commit} {'d' * 40}"
+        return exact_git_output(args)
+
+    monkeypatch.setattr(validate_handoff, "git_output", wrong_seal_parent)
+    assert "seal commit B must be the single direct child" in "\n".join(
+        validate_handoff.publication_lineage_failures(
+            state, validate_handoff.ITER207_BRANCH, seal_commit
+        )
+    )
+
+    def wrong_source_parent(args: list[str]) -> str:
+        if (
+            args[:5] == ["git", "rev-list", "--parents", "-n", "1"]
+            and args[5] == source_commit
+        ):
+            return f"{source_commit} {'d' * 40}"
+        return exact_git_output(args)
+
+    monkeypatch.setattr(validate_handoff, "git_output", wrong_source_parent)
+    assert "source commit A must be the single direct child" in "\n".join(
+        validate_handoff.publication_lineage_failures(
+            state, validate_handoff.ITER207_BRANCH, seal_commit
+        )
+    )
 
 
 def test_validator_main_rejects_publication_lineage_mismatch(
@@ -578,7 +767,7 @@ def test_validator_main_rejects_publication_lineage_mismatch(
 ## Repository State
 
 ```text
-source_branch: declared-branch
+source_branch: {validate_handoff.ITER207_BRANCH}
 source_commit: {"a" * 40}
 publication_target: master
 ```
@@ -602,10 +791,10 @@ Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `frozen.md`
     monkeypatch.setattr(validate_handoff, "MISSION_CONTRACT", contract)
     monkeypatch.setattr(validate_handoff, "current_branch", lambda: "actual-branch")
     monkeypatch.setattr(validate_handoff, "current_commit", lambda: "b" * 40)
-    monkeypatch.setattr(validate_handoff, "git_is_ancestor", lambda *_args: True)
     monkeypatch.setattr(validate_handoff, "git_output", lambda _args: "")
 
     assert validate_handoff.main() == 1
-    assert "source=declared-branch target=master actual=actual-branch" in (
-        capsys.readouterr().out
+    assert (
+        f"source={validate_handoff.ITER207_BRANCH} target=master actual=actual-branch"
+        in capsys.readouterr().out
     )

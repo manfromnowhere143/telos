@@ -45,6 +45,7 @@ def test_workflow_guard_rejects_mutable_action_runner_and_permissions(tmp_path: 
         "iter204-execute.yml",
         "iter205-execute.yml",
         "iter206-execute.yml",
+        "iter207-execute.yml",
     ],
 )
 def test_workflow_guard_allows_only_execution_workflows_read_only_actions_and_checks(

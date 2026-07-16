@@ -1,7 +1,7 @@
 # Next Phase
 
 > **CURRENT AUTHORITY (2026-07-16):** the active gate is
-> [`../experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md`](../experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md).
+> [`../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md`](../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md).
 > Iter202 retained `50` patches and `38` scenario programs after completing its provider stages. Its frozen
 > static-safety guard then rejected `9` programs with `21` findings, admitted `29`, and stopped the batch
 > before any scenario or certification execution; one eligible patch already had an original missing
@@ -39,17 +39,19 @@
 > was no iter205 workflow run, provider process, container, patch, certification, scenario, adjudication, or
 > judge process. Iter205 is a pre-dispatch admission-history null with no `N`, `k`, or `u`.
 >
-> Do not retry or mutate iter205. Iter206 may change only the admission-history predicate and mechanical
-> iteration identity while preserving every scientific input, order, runtime, safety disposition,
-> missingness, certification, and judge contract. Finalize and adversarially validate every iter206 byte
+> Iter206 was sealed locally but stopped as a pre-publication claim-integrity null before any remote or
+> scientific action; it contributes no `N`, `k`, or `u`. Do not publish it as an active gate, dispatch or
+> rerun its workflow, or mutate its frozen bytes. Iter207 is the separately versioned machine-checked claim
+> correction plus unchanged admission recovery. Finalize and adversarially validate every iter207 byte
 > locally before one final branch push. Require exactly one successful attempt-`1` branch-push CI run and one
 > successful attempt-`1` pull-request CI run at that final branch tip. Merge once as an exact two-parent
-> commit, require green primary CI, then admit only an exact six-row iter204 snapshot: the known four rows plus the iter206 branch and primary
-> publication rows. Any extra or malformed row closes iter206 without dispatch; after every gate passes, at
-> most one dispatch request is permitted. Do not rerun iter202 or
+> commit, require green primary CI, then admit only an exact six-row iter204 snapshot: the known four rows plus
+> the iter207 branch and primary publication rows. The iter205 and newly published iter206 workflow histories
+> must remain empty. Any extra or malformed row or any predecessor run closes iter207 without dispatch; after
+> every gate passes, at most one dispatch request is permitted. Do not rerun iter202 or
 > iter203, regenerate provider output, relabel a scenario, or mount or execute an unsafe scenario.
 > `CONTINUITY.md` remains the exact-byte iter202 artifact; the published iter203, iter204, and iter205 results
-> plus the iter206 hypothesis govern recovery.
+> plus the iter206 terminal null and iter207 hypothesis govern recovery.
 > Seal publication in this order: finish and validate all mutable bytes, create source commit A, regenerate
 > `HANDOFF.md` once, generate the publication-safety receipt followed by the runtime manifest, validate the
 > sealed set, and create seal commit B. Never regenerate the handoff after the derived records. Publish A and

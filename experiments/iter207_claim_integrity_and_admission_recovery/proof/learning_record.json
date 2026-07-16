@@ -1,0 +1,20 @@
+{
+  "evidence_paths": [
+    ".github/workflows/iter207-execute.yml",
+    "experiments/iter206_iter205_admission_history_recovery/RESULT.md",
+    "experiments/iter206_iter205_admission_history_recovery/proof/pre_publication_claim_integrity_null.json",
+    "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
+    "experiments/iter207_claim_integrity_and_admission_recovery/proof/claim_integrity_correction.json",
+    "experiments/iter207_claim_integrity_and_admission_recovery/proof/corrections/iter192_novelty_scope_correction.json",
+    "experiments/iter207_claim_integrity_and_admission_recovery/proof/strict/iter195_protocol_failure.json",
+    "scripts/audit_iter207_claim_integrity.py",
+    "scripts/validate_iter206_pre_publication_null.py"
+  ],
+  "experiment_id": "iter207_claim_integrity_and_admission_recovery",
+  "insight": "The pre-publication audit preserved the central row-level evidence and flagged an apparent iter192 prior-baseline contradiction plus iter195's no-gold, twenty-input, and raw-prompt custody violations. Iter207's deeper patch-custody audit found that iter151 retained no accepted patch bytes: iter192 is therefore a conservative conceptual-novelty FAIL with an indeterminate literal v1-specific trigger, while iter195 remains a strict protocol FAIL. The ledger also separates the iter179 240-call score-producing estimated spend guard ($13.128090) from diagnostic guards included in the rounded $13.59 through-repair path. Iter207 makes these corrections additive and machine-checkable while carrying forward the unchanged fixed-corpus admission recovery from the locally sealed, never-published iter206 null.",
+  "next_action": "Finish and adversarially validate every iter207 correction, paper, documentation, runtime, receipt, and handoff byte locally. Then push agent/iter207-claim-integrity-admission-recovery exactly once, require the exact successful attempt-1 branch-push and pull-request CI pair, merge exactly once with first parent 4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f and second parent the final branch tip, require green primary CI, and prove the exact-six iter204 snapshot plus empty complete iter205, iter206, and pre-dispatch iter207 histories before issuing at most one iter207 dispatch request. Any publication, admission, request, or execution failure closes iter207 without retry.",
+  "result_path": "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pending",
+  "timing": "post_iter206_local_claim_integrity_null_and_before_first_iter207_remote_push"
+}

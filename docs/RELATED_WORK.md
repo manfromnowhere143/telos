@@ -1,7 +1,12 @@
 # Related Work
 
-This file is a target-survey input, not a claim of novelty. The first experiment decides which
-benchmark family is strong enough for the first Telos result.
+> **Dated historical target-survey input.** This document records the sources considered at the mission's
+> initial selection boundary. It is not a current literature review or a claim of novelty. The standing
+> evidence and claim boundaries are in the root [`README.md`](../README.md),
+> [`MISSION_LOOP.md`](MISSION_LOOP.md), and [`../paper/telos.tex`](../paper/telos.tex).
+
+The first experiment used these sources to decide which benchmark family was strong enough for the first
+Telos result. Links and descriptions below are retained for that historical purpose.
 
 ## Frontier Agent Direction
 

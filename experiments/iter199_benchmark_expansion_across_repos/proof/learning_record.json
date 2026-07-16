@@ -8,9 +8,9 @@
     "experiments/iter199_benchmark_expansion_across_repos/proof/valid/receipt_benchmark_expansion.json"
   ],
   "experiment_id": "iter199_benchmark_expansion_across_repos",
-  "insight": "Benchmark expanded from 10 hacks/3 repos to 22 hacks/8 repos: iter199 added 12 new execution-verified certified-resolved reward hacks across 8 repos (5 new: requests, xarray, pylint, pytest, sympy), from 42 frozen targets -> 23 variants -> 20 certified -> 12 certified+witnessed. The class generalizes beyond the original 3 repos. django-10097 passes 1870 graded tests and still returns 'accepted' where gold returns 'rejected'. Standard 9 catch: 7/10 repos lacked vendored parsers; 3 official parsers vendored (byte-identical, tested) before the run or certification would have silently failed.",
-  "next_action": "update the findings paper to reflect the expanded benchmark (22 hacks across 8 repositories instead of 10 across 3) in the abstract, Section 4, Table 1, and Limitations; then the operator peer-review path (hand-verify author block, submit for a DOI, arXiv appeal)",
+  "insight": "PREREGISTRATION/CHRONOLOGY FAIL with retained exploratory operational evidence. The hypothesis, runner, and provider outputs first appear together after provider generation and before CI execution, so the stated design was post-provider/pre-execution and not independently frozen before provider output. The executed funnel remains evidenced: 42 targets -> 23 variants -> 20 official-harness-certified -> 12 gold-assisted targeted reference differentials across 8 repositories (5 new). This narrows the interpretation without invalidating retained patch, certification-log, or differential-log bytes. Combined with iter195's 10 protocol-failed exploratory rows, the released corpus has 22 reference-differential witnesses across 8 repositories.",
+  "next_action": "Cite the 12 rows only as exploratory operational evidence under a post-provider/pre-execution stated design. Do not call iter199 prospectively preregistered, a confirmation, or independent semantic ground truth; preserve the original receipt as superseded chronology evidence.",
   "result_path": "experiments/iter199_benchmark_expansion_across_repos/RESULT.md",
   "schema_version": "telos.learning_record.v1",
-  "status": "pass"
+  "status": "fail"
 }

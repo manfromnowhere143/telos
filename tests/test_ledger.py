@@ -144,7 +144,7 @@ def test_active_gate_binding_fails_closed(failure: str) -> None:
         select_active_learning_record(rows, gate)
 
 
-def test_committed_active_learning_record_is_iter206() -> None:
+def test_committed_active_learning_record_is_iter207() -> None:
     contract = json.loads((ROOT / "mission/loop.json").read_text(encoding="utf-8"))
     records = [
         load_learning_record(path, root=ROOT)
@@ -153,11 +153,11 @@ def test_committed_active_learning_record_is_iter206() -> None:
 
     active = select_active_learning_record(records, contract["active_gate"])
 
-    assert active.experiment_id == "iter206_iter205_admission_history_recovery"
+    assert active.experiment_id == "iter207_claim_integrity_and_admission_recovery"
     assert active.status == "pending"
 
 
-def test_validator_prints_active_iter206_action_not_obsolete_iter205_dispatch() -> None:
+def test_validator_prints_active_iter207_action_not_obsolete_predecessor_dispatch() -> None:
     completed = subprocess.run(
         ["python3", "scripts/validate_learning_ledger.py"],
         cwd=ROOT,
@@ -166,6 +166,7 @@ def test_validator_prints_active_iter206_action_not_obsolete_iter205_dispatch() 
         text=True,
     )
 
-    assert "active=iter206_iter205_admission_history_recovery" in completed.stdout
-    assert "active_next=Finalize and adversarially validate all iter206 source" in completed.stdout
+    assert "active=iter207_claim_integrity_and_admission_recovery" in completed.stdout
+    assert "active_next=Finish and adversarially validate every iter207 correction" in completed.stdout
     assert "dispatch iter205" not in completed.stdout
+    assert "dispatch iter206" not in completed.stdout

@@ -126,14 +126,20 @@ jobs:
       - name: Iter205 exact pre-dispatch admission-null guard
         run: python3 scripts/validate_iter205_pre_dispatch_null.py
 
-      - name: Iter206 admission-history runtime closure guard
-        run: python3 scripts/build_iter206_runtime_manifest.py --check
+      - name: Iter206 exact pre-publication claim-integrity null guard
+        run: python3 scripts/validate_iter206_pre_publication_null.py
 
-      - name: Iter206 current publication-safety guard
-        run: python3 scripts/validate_iter206_publication_safety.py --check
+      - name: Iter207 deterministic claim-integrity correction guard
+        run: python3 scripts/audit_iter207_claim_integrity.py --check
 
-      - name: Iter206 admission-history recovery contract guard
-        run: python3 scripts/validate_iter206_runtime_recovery.py
+      - name: Iter207 claim-integrity and admission runtime closure guard
+        run: python3 scripts/build_iter207_runtime_manifest.py --check
+
+      - name: Iter207 current publication-safety guard
+        run: python3 scripts/validate_iter207_publication_safety.py --check
+
+      - name: Iter207 claim-integrity and admission recovery contract guard
+        run: python3 scripts/validate_iter207_runtime_recovery.py
 
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py

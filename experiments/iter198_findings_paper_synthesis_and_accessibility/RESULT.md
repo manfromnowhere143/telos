@@ -1,8 +1,14 @@
 # Iteration 198 Result - Findings Paper Synthesis and Accessibility Rewrite
 
-Status: `PASS`. `paper/telos.tex` is a full, accessible rewrite around the corrected arc iter192-iter197,
-every headline number cross-checked against committed proof, and `paper/telos.pdf` is rebuilt from it. This
-is a writing gate: no provider calls, SWE-bench executions, or cloud resources were used.
+> **Standing accuracy correction (2026-07-16):** the original `PASS` and receipt are superseded. The rewrite
+> inherited iter192's false novelty claim, treated iter195 as protocol-valid despite its no-gold and 20-input
+> deviations, and carried an overstrong detector interpretation. The current paper is a later correction
+> surface; it does not retroactively make iter198's frozen accuracy bar pass. Original artifacts remain
+> preserved for provenance.
+
+Status: `FAIL` against the writing gate's accuracy bar. The accessibility work and PDF build occurred, but
+the claim that the manuscript represented iter192-iter197 accurately did not survive audit. This gate made
+no provider calls, SWE-bench executions, or cloud-resource changes.
 
 ## What this gate did
 
@@ -10,15 +16,22 @@ It replaced the stale `paper/telos.tex` (written through iter156, carrying only 
 calling suite-failing rows "reward hacks," in the dense style a domain expert found hard to read) with a
 clean findings paper built from the `paper/REWRITE_SPINE.md` scaffolding.
 
-## Bars met
+## Original checks and their corrected disposition
 
-- **Represents iter192-iter197 accurately.** The three contributions are the self-correction (Section 3),
-  the ten certified-yet-wrong patches (Section 4), and the two-detector comparison (Section 5).
-- **Every headline number regenerates from committed proof.** A cross-check confirmed all of: iter192
-  `40/40` unresolved, baseline `40/40` at `$0.00` vs panel `17/40` at `$13.59`; iter194 `16/16` certified;
+- **Accuracy bar failed.** Iter192's factual construct correction remains, its overbroad conceptual novelty
+  interpretation is conservatively adjudicated `FAIL`, and its literal v1-specific trigger is indeterminate;
+  iter195's ten divergences are exploratory gold-assisted reference differentials from a failed protocol;
+  iter196 is partial/protocol-blocked; and iter197 is a protocol failure with retained diagnostics.
+- **Telos empirical quantities trace to committed proof, but traceability is not protocol validity.** The
+  original cross-check confirmed all of: iter192
+  `40/40` unresolved, baseline `40/40` at `$0.00` vs panel `17/40` with a `$13.128090` conservative
+  score-producing spend guard; the rounded `$13.59` through-repair total includes excluded diagnostics.
+  Iter194 retained `16/16` certified;
   iter195 `10` hacks and `2` correct equivalents; iter196 judge `7/10`, gold FP `1/10`, equivalent FP
   `1/2`; iter197 oracle `4/10`, equivalent FP `0/2`, `12/12` sound, union `8/10`; and the Table 1
-  gold/variant outputs (e.g. django-11179 `None` vs `'present'`). All matched the artifacts.
+  gold/variant outputs (e.g. django-11179 `None` vs `'present'`). Those values matched the artifacts, but the
+  original prose assigned several of them unsupported protocol interpretations. External literature facts
+  are source-attributed rather than locally regenerated.
 - **"Reward hack" used only for the genuine class.** The paper calls the iter192 suite-failing rows "wrong
   patches that break the existing tests," never reward hacks, and states plainly that the `17/40` figure is
   correct but measures code review of already-rejected patches.
@@ -26,10 +39,12 @@ clean findings paper built from the `paper/REWRITE_SPINE.md` scaffolding.
   certified-resolved, gold patch, gold-free, coverage-bound) is defined on first use; the django-11179
   example is used early and concretely; the abstract reads without decoding. A scan for common LLM-tell
   phrases (delve, leverage, furthermore, notably, seamless, and others) found none.
-- **Real limitations section.** Small sample, elicited construction, reference-fix definition of "wrong,"
-  single-run judge, coverage-bound oracle, one adversary model.
+- **Limitations section was incomplete.** It covered small samples, elicited construction, the
+  reference-differential label, a single-run judge, and one adversary model, but omitted the decisive
+  iter192 novelty-scope correction and iter195 protocol failure now recorded above.
 - **PDF matches source.** `paper/telos.pdf` was rebuilt with `tectonic` (9 pages); the rendered text was
-  confirmed to contain the corrected framing and every headline number.
+  confirmed to match the then-current source. That visual/source match does not validate the superseded
+  scientific interpretations.
 - **Guards pass.** `validate_docs.py` is clean (no banned self-praise; links resolve).
 
 ## Honesty notes
@@ -57,7 +72,7 @@ operator direction.
 
 ## Claim Boundary
 
-Supported: `paper/telos.tex` and `paper/telos.pdf` are a readable findings manuscript that represents
-iter192-iter197 accurately and inside every committed claim boundary, ready to send to a peer-reviewed
-venue. Not supported: any claim that the paper is published, peer-reviewed, accepted, or citation-verified;
-those remain to be done by the operator.
+Supported: iter198 produced an accessible manuscript rewrite and a rendered PDF from committed source.
+Not supported: that iter198 passed its strict accuracy bar; that its original manuscript represented
+iter192-iter197 inside every corrected claim boundary; that traceable numbers imply valid protocols; or that
+the paper is published, peer-reviewed, accepted, submission-ready, or citation-verified.

@@ -51,6 +51,11 @@ WORKFLOW_PERMISSION_EXCEPTIONS = {
         "checks": "read",
         "contents": "read",
     },
+    "iter207-execute.yml": {
+        "actions": "read",
+        "checks": "read",
+        "contents": "read",
+    },
 }
 PIP_OPERATION = re.compile(
     r"(?i)(?P<command>(?:[^\s;|&]*/)?python(?:3(?:\.\d+)*)?\s+-m\s+pip|"

@@ -21,10 +21,22 @@ REPOSITORY_DECLARATION = (
     "`git rev-parse --show-toplevel`"
 )
 FORBIDDEN_WORKSPACE_LABEL = "a" + "web"
-ITER206_DISPATCH = "gh workflow run iter206-execute.yml"
-ITER206_INPUTS = (
+ITER207_BRANCH = "agent/iter207-claim-integrity-admission-recovery"
+ITER205_MERGE_COMMIT = "4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f"
+ITER206_SEAL_COMMIT = "a2a05ef2ed05a0c457076f2bd5f1475507190685"
+ITER207_SEAL_DIFF = (
+    "M\tHANDOFF.md",
+    "A\texperiments/iter207_claim_integrity_and_admission_recovery/"
+    "proof/pre_execution_publication_safety.json",
+    "A\texperiments/iter207_claim_integrity_and_admission_recovery/"
+    "proof/raw/runtime_manifest.json",
+)
+ITER207_DERIVED_PATHS = tuple(row.split("\t", 1)[1] for row in ITER207_SEAL_DIFF)
+ITER207_DISPATCH = "gh workflow run iter207-execute.yml"
+ITER207_INPUTS = (
     '-f expected_primary_sha="$HEAD_SHA"',
-    '-f expected_workflow_id="$ITER206_WORKFLOW_ID"',
+    '-f expected_workflow_id="$ITER207_WORKFLOW_ID"',
+    '-f expected_iter206_workflow_id="$ITER206_WORKFLOW_ID"',
     '-f expected_iter204_release_run_id="$ITER204_RELEASE_RUN_ID"',
     '-f expected_iter204_primary_run_id="$ITER204_PRIMARY_RUN_ID"',
 )
@@ -44,16 +56,33 @@ REQUIRED_RECOVERY_FACTS = (
     "No iter205 dispatch request was issued",
     "no dispatch API response or rejection exists",
     "iter205 contributes no `N`, `k`, or `u`; those quantities are absent, not zero",
-    "No credential, credit, billing, quota, or authentication deficit is the iter205/iter206 blocker",
     "`6d2216038c7e1f19337795be806bf77eb39150a9be119828bc2967ed160c72ba`",
-    "Iter206 is the active, separately versioned pre-publication/pre-dispatch recovery",
+    "Iter206 was sealed locally at source `e7c2ec28daa746dbcfb5812d3771ab981ff984c0`",
+    "pre-publication claim-integrity null",
+    "zero branch pushes, pull requests, merges, workflow runs, dispatch requests, provider calls",
+    "Iter206 contributes no `N`, `k`, or `u`",
+    "conservatively adjudicates conceptual novelty `FAIL`",
+    "literal v1-specific falsifier trigger as indeterminate",
+    "only `23` discarded iter152 IDs are decision-bound",
+    "do not call all `139` discarded variants",
+    "Of the iter192/iter195 correction pair, only iter195 is a strict protocol `FAIL`",
+    "`$13.128090`, not a provider invoice",
+    "rounded `$13.59` through-repair total includes diagnostic calls excluded from the score",
+    "corpus is not independent semantic ground truth",
+    "proof/claim_integrity_correction.json",
+    "exactly two authenticated, read-only GitHub metadata GETs",
+    "They made no remote mutation and contacted no model provider",
+    "inherits one ShellCheck `SC2034` warning",
+    "exact iter206-to-iter207 runtime-identity guard",
+    "Iter207 is the active, separately versioned pre-publication/pre-dispatch correction and recovery",
+    "`50` patches in the same order, eight shards, `29` admitted",
     "`1/24` confirmed lower, `7/24` worst-case missing upper",
     "`1/18` complete-case",
-    "Push branch `agent/iter206-iter205-admission-recovery` exactly once at its final tip",
+    "Push branch `agent/iter207-claim-integrity-admission-recovery` exactly once at its final tip",
     "Merge exactly once with a two-parent merge commit",
     "`4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f`",
     "missing, malformed, or seventh iter204",
-    "empty iter205 and iter206 histories",
+    "empty iter205, iter206, and iter207 histories",
     "exact six-row iter204 admission snapshot",
     "exactly one successful release-branch",
     "`push` CI run and one successful release-branch `pull_request` CI run",
@@ -62,25 +91,30 @@ REQUIRED_RECOVERY_FACTS = (
     "A temporarily absent, queued, or in-progress",
     "No observation ever authorizes another dispatch request",
     "Never issue a second dispatch request, rerun, or replacement run",
-    "scripts/validate_iter205_pre_dispatch_null.py",
-    "scripts/build_iter206_runtime_manifest.py --check",
-    "scripts/validate_iter206_publication_safety.py --check",
-    "scripts/validate_iter206_runtime_recovery.py",
-    "scripts/collect_iter206_execution.py check",
-    "scripts/adjudicate_iter206_admission_history_recovery.py",
-    "scripts/run_iter206_admission_history_recovery_blind_judge.py",
-    "## Iter206 Local Seal and Exact Pickup Boundary",
+    "scripts/audit_iter207_claim_integrity.py",
+    "scripts/validate_iter206_pre_publication_null.py",
+    "scripts/build_iter207_runtime_manifest.py --check",
+    "scripts/validate_iter207_publication_safety.py --check",
+    "scripts/validate_iter207_runtime_recovery.py",
+    "scripts/collect_iter207_execution.py check",
+    "scripts/adjudicate_iter207_claim_integrity_and_admission_recovery.py",
+    "scripts/run_iter207_claim_integrity_and_admission_recovery_blind_judge.py",
+    "## Iter207 Local Seal and Exact Pickup Boundary",
     "source commit A",
     "publication-safety receipt and then the runtime manifest",
     "seal commit B",
     "push A and B together",
     "Never regenerate it after that point",
-    "iter206-execute\t.github/workflows/iter206-execute.yml\tactive",
+    "workflow_history_payload()",
+    "iter207-execute\t.github/workflows/iter207-execute.yml\tactive",
     'test "$ITER205_ALL_COUNT" -eq 0',
     'test "$ITER205_DISPATCH_COUNT" -eq 0',
     'test "$ITER206_ALL_COUNT" -eq 0',
     'test "$ITER206_DISPATCH_COUNT" -eq 0',
-    "actions/workflows/314113289/runs",
+    'test "$ITER207_ALL_COUNT" -eq 0',
+    'test "$ITER207_DISPATCH_COUNT" -eq 0',
+    "iter206-execute\t.github/workflows/iter206-execute.yml\tactive",
+    'workflow_history_payload "314113289"',
     "actions/runs/$ITER204_RUN_ID/attempts/1/jobs",
     "actions/runs/$ITER204_RUN_ID/artifacts",
     "verify py3.11\tsuccess",
@@ -101,17 +135,18 @@ REQUIRED_RECOVERY_FACTS = (
     'PRIMARY_PY311_CHECK_ID="$(verify_primary_check \'verify py3.11\')"',
     'PRIMARY_PY312_CHECK_ID="$(verify_primary_check \'verify py3.12\')"',
     "github-actions",
-    ITER206_DISPATCH,
-    *ITER206_INPUTS,
+    ITER207_DISPATCH,
+    *ITER207_INPUTS,
 )
 
 
 def recovery_content_failures(handoff: str) -> list[str]:
-    """Reject stale gates, unsafe retries, and credential-identifying text."""
+    """Reject stale gates, unsafe retries, and sensitive-runtime details."""
 
     failures = []
+    normalized_handoff = " ".join(handoff.split())
     for fact in REQUIRED_RECOVERY_FACTS:
-        if fact not in handoff:
+        if " ".join(fact.split()) not in normalized_handoff:
             failures.append(f"HANDOFF.md is missing bounded recovery fact: {fact}")
     if re.search(r"\b[A-Z][A-Z0-9_]*(?:KEY|TOKEN|SECRET)\b", handoff):
         failures.append("HANDOFF.md names a credential variable")
@@ -131,27 +166,69 @@ def recovery_content_failures(handoff: str) -> list[str]:
         re.IGNORECASE | re.MULTILINE,
     ):
         failures.append("HANDOFF.md names a credential location")
-    if 'gh run rerun "$RUN_ID"' in handoff:
+    if re.search(r"(?im)^[ \t]*gh[ \t]+run[ \t]+rerun(?:[ \t]|$)", handoff):
         failures.append("HANDOFF.md authorizes a forbidden workflow rerun")
-    for iteration in ("iter202", "iter203", "iter204", "iter205"):
-        command = f"gh workflow run {iteration}-execute.yml"
-        if command in handoff:
-            failures.append(f"HANDOFF.md authorizes the sealed {iteration} workflow")
-    if handoff.count(ITER206_DISPATCH) != 1:
-        failures.append("HANDOFF.md must contain exactly one iter206 dispatch command")
-    for required_input in ITER206_INPUTS:
+    workflow_dispatches = re.findall(
+        r"(?im)^[ \t]*gh[ \t]+workflow[ \t]+run"
+        r"(?:(?:[ \t]+)|(?:[ \t]*\\\n[ \t]*))[^\n]*"
+        r"\b(iter20[2-7]-execute\.ya?ml)\b",
+        handoff,
+    )
+    workflow_dispatches.extend(
+        re.findall(
+            r"(?i)actions/workflows/[^\s`\"']*"
+            r"\b(iter20[2-7]-execute\.ya?ml)\b/dispatches\b",
+            handoff,
+        )
+    )
+    workflow_dispatches = [workflow.casefold() for workflow in workflow_dispatches]
+    predecessor_dispatches = [
+        workflow for workflow in workflow_dispatches if workflow != "iter207-execute.yml"
+    ]
+    for workflow in sorted(set(predecessor_dispatches)):
+        failures.append(f"HANDOFF.md authorizes a sealed predecessor workflow: {workflow}")
+    if (
+        handoff.count(ITER207_DISPATCH) != 1
+        or workflow_dispatches.count("iter207-execute.yml") != 1
+    ):
+        failures.append("HANDOFF.md must contain exactly one iter207 dispatch command")
+    for required_input in ITER207_INPUTS:
         if handoff.count(required_input) != 1:
             failures.append(
-                "HANDOFF.md must bind exactly one iter206 dispatch input: "
+                "HANDOFF.md must bind exactly one iter207 dispatch input: "
                 f"{required_input}"
             )
     try:
-        dispatch_section = handoff[handoff.index("## Exact Authorized Iter206 Dispatch") :]
-        dispatch_line = dispatch_section.index(ITER206_DISPATCH)
+        dispatch_section = handoff[handoff.index("## Exact Authorized Iter207 Dispatch") :]
+        dispatch_block_match = re.search(
+            r"```bash\n(.*?)\n```", dispatch_section, re.DOTALL
+        )
+        if dispatch_block_match is None:
+            raise ValueError
+        dispatch_block = dispatch_block_match.group(1)
+        dispatch_line = dispatch_block.index(ITER207_DISPATCH)
     except ValueError:
-        dispatch_section = ""
+        dispatch_block = ""
         dispatch_line = -1
-    for release_check in (
+    for pre_dispatch_check in (
+        "scripts/audit_iter207_claim_integrity.py --check",
+        "scripts/validate_iter206_pre_publication_null.py",
+        "scripts/build_iter207_runtime_manifest.py --check",
+        "scripts/validate_iter207_publication_safety.py --check",
+        "scripts/validate_iter207_runtime_recovery.py",
+        "workflow_history_payload()",
+        "[(.total_count | type), (.workflow_runs | type)] | @tsv",
+        ".total_count == (.workflow_runs | length)",
+        'ITER206_WORKFLOW_BINDING="$(gh api -X GET',
+        'test "$ITER206_WORKFLOW_ID" != "314113289"',
+        'test "$ITER206_WORKFLOW_ID" != "314141096"',
+        'test "$ITER206_WORKFLOW_ID" != "$ITER207_WORKFLOW_ID"',
+        'test "$ITER206_ALL_COUNT" -eq 0',
+        'test "$ITER206_DISPATCH_COUNT" -eq 0',
+        'test "$ITER207_ALL_COUNT" -eq 0',
+        'test "$ITER207_DISPATCH_COUNT" -eq 0',
+        'test "$ITER204_ALL_COUNT" -eq 6',
+        'test "$ITER204_DISPATCH_COUNT" -eq 0',
         "verify_release_ci()",
         'RELEASE_PUSH_CI_RUN_ID="$(verify_release_ci push)"',
         'RELEASE_PULL_REQUEST_CI_RUN_ID="$(verify_release_ci pull_request)"',
@@ -168,12 +245,12 @@ def recovery_content_failures(handoff: str) -> list[str]:
     ):
         if (
             dispatch_line < 0
-            or dispatch_section.count(release_check) != 1
-            or dispatch_section.index(release_check) >= dispatch_line
+            or dispatch_block.count(pre_dispatch_check) != 1
+            or dispatch_block.index(pre_dispatch_check) >= dispatch_line
         ):
             failures.append(
-                "HANDOFF.md must prove the exact release CI pair before dispatch: "
-                f"{release_check}"
+                "HANDOFF.md must prove each exact invariant before dispatch: "
+                f"{pre_dispatch_check}"
             )
     try:
         verification_section = handoff[handoff.index("## Verification Before Action") :]
@@ -185,12 +262,16 @@ def recovery_content_failures(handoff: str) -> list[str]:
         )
     for stale in (
         "## Exact Authorized Iter205 Dispatch",
+        "## Exact Authorized Iter206 Dispatch",
         "scripts/collect_iter205_execution.py check",
         "scripts/adjudicate_iter205_workflow_context_recovery.py",
         "scripts/run_iter205_workflow_context_recovery_blind_judge.py",
+        "scripts/collect_iter206_execution.py check",
+        "scripts/adjudicate_iter206_admission_history_recovery.py",
+        "scripts/run_iter206_admission_history_recovery_blind_judge.py",
     ):
         if stale in handoff:
-            failures.append(f"HANDOFF.md retains stale iter205 operational instruction: {stale}")
+            failures.append(f"HANDOFF.md retains stale predecessor instruction: {stale}")
     return failures
 
 
@@ -238,13 +319,11 @@ def declared_repository_state(handoff: str) -> dict[str, str]:
     if len(matches) != 1:
         raise ValueError("HANDOFF.md must record exactly one publication-lineage block")
     source_branch, source_commit, publication_target = matches[0]
-    if (
-        not source_branch.strip()
-        or source_branch in {"HEAD", "main", "master"}
-        or source_branch.startswith(("origin/", "refs/"))
-        or source_branch != source_branch.strip()
-    ):
-        raise ValueError("HANDOFF.md source_branch must name a non-master feature branch")
+    if source_branch != ITER207_BRANCH:
+        raise ValueError(
+            "HANDOFF.md source_branch must name the exact iter207 feature branch: "
+            f"expected={ITER207_BRANCH} actual={source_branch}"
+        )
     if not re.fullmatch(r"[0-9a-f]{40}", source_commit):
         raise ValueError("HANDOFF.md source_commit must be a full lowercase Git commit id")
     if publication_target != "master":
@@ -284,23 +363,10 @@ def current_commit() -> str:
     return commit
 
 
-def git_is_ancestor(ancestor: str, descendant: str) -> bool:
-    args = ["git", "merge-base", "--is-ancestor", ancestor, descendant]
-    result = subprocess.run(args, capture_output=True, text=True, check=False)
-    if result.returncode == 0:
-        return True
-    if result.returncode == 1:
-        return False
-    diagnostic = result.stderr.strip() or result.stdout.strip() or "no diagnostic"
-    raise RuntimeError(
-        f"git query failed with exit {result.returncode}: {shlex.join(args)}: {diagnostic}"
-    )
-
-
 def publication_lineage_failures(
     state: dict[str, str], repository_branch: str, repository_commit: str
 ) -> list[str]:
-    """Validate the only refs authorized to carry the frozen source ancestry."""
+    """Validate the exact iter206-seal -> source A -> seal B publication topology."""
 
     failures: list[str] = []
     git_output(["git", "check-ref-format", "--branch", state["source_branch"]])
@@ -311,10 +377,82 @@ def publication_lineage_failures(
             f"source={state['source_branch']} target={state['publication_target']} "
             f"actual={repository_branch}"
         )
-    if not git_is_ancestor(state["source_commit"], repository_commit):
+        return failures
+
+    def parents(commit: str) -> list[str]:
+        row = git_output(["git", "rev-list", "--parents", "-n", "1", commit]).split()
+        if (
+            not row
+            or row[0] != commit
+            or any(not re.fullmatch(r"[0-9a-f]{40}", value) for value in row)
+        ):
+            raise RuntimeError(f"cannot verify exact commit parents for {commit}")
+        return row
+
+    pull_request_merge = (
+        repository_branch == state["source_branch"]
+        and os.environ.get("GITHUB_ACTIONS") == "true"
+        and os.environ.get("GITHUB_EVENT_NAME") == "pull_request"
+    )
+    if repository_branch == state["publication_target"] or pull_request_merge:
+        merge_row = parents(repository_commit)
+        if len(merge_row) != 3 or merge_row[1] != ITER205_MERGE_COMMIT:
+            failures.append(
+                "HANDOFF.md publication commit must be the exact two-parent iter207 "
+                "merge over the frozen iter205 master"
+            )
+            return failures
+        seal_commit = merge_row[2]
+    else:
+        seal_commit = repository_commit
+
+    source_commit = state["source_commit"]
+    source_row = parents(source_commit)
+    if source_row != [source_commit, ITER206_SEAL_COMMIT]:
         failures.append(
-            "HANDOFF.md source_commit is not an ancestor of repository HEAD: "
-            f"source_commit={state['source_commit']} HEAD={repository_commit}"
+            "HANDOFF.md source commit A must be the single direct child of the "
+            f"frozen iter206 seal: source={source_commit}"
+        )
+    seal_row = parents(seal_commit)
+    if seal_row != [seal_commit, source_commit]:
+        failures.append(
+            "HANDOFF.md seal commit B must be the single direct child of source "
+            f"commit A: source={source_commit} seal={seal_commit}"
+        )
+
+    source_changed_paths = set(
+        git_output(
+            [
+                "git",
+                "diff",
+                "--name-only",
+                "--no-renames",
+                ITER206_SEAL_COMMIT,
+                source_commit,
+            ]
+        ).splitlines()
+    )
+    leaked_derived = sorted(source_changed_paths.intersection(ITER207_DERIVED_PATHS))
+    if leaked_derived:
+        failures.append(
+            "HANDOFF.md source commit A changes derived seal paths: "
+            + ", ".join(leaked_derived)
+        )
+
+    seal_diff = git_output(
+        [
+            "git",
+            "diff",
+            "--name-status",
+            "--no-renames",
+            source_commit,
+            seal_commit,
+        ]
+    ).splitlines()
+    if sorted(seal_diff) != sorted(ITER207_SEAL_DIFF):
+        failures.append(
+            "HANDOFF.md seal commit B must change exactly HANDOFF.md and the two "
+            "iter207 derived records with exact statuses"
         )
     return failures
 

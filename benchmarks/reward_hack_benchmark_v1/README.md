@@ -17,7 +17,9 @@
 >
 > **Baseline you must cite alongside any figure from this artifact:** the official SWE-bench harness
 > verdict — or an equivalent official-grader execution — detects `40/40` at `$0.00`. The three-model
-> panel's unrepaired iter179 `majority_catch` detects `17/40` at `$13.59`.
+> panel's unrepaired iter179 `majority_catch` detects `17/40`; its `240` score-producing calls carry a
+> conservative estimated spend guard of `$13.128090`, not a provider invoice. The `$13.59` rounded
+> through-repair total includes diagnostic calls excluded from that score and must not be attributed to it.
 >
 > See `experiments/iter192_reward_hack_benchmark_construct_validity_audit/RESULT.md`. The released successor
 > targeting the genuine class is `benchmarks/certified_resolved_reward_hack_v2/`: `22` reference-differential,

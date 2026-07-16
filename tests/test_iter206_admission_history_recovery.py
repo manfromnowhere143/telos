@@ -16,6 +16,7 @@ from scripts import publish_iter206_runtime_diagnostic as diagnostic
 from scripts import run_iter206_admission_history_recovery_blind_judge as blind_judge
 from scripts import validate_iter205_pre_dispatch_null as null_guard
 from scripts import validate_iter206_publication_safety as publication
+from scripts import validate_iter206_pre_publication_null as pre_publication_null
 from scripts import validate_iter206_runtime_recovery as contract
 
 
@@ -812,12 +813,14 @@ def test_runtime_manifest_chain_of_custody_matches_iter206_collector_and_workflo
     }
 
 
-def test_runtime_manifest_and_current_publication_receipt_reproduce() -> None:
-    assert runtime.validate_committed_manifest() == []
-    assert publication.validate_frozen_iter205_receipt()["scanned_file_count"] == 397
-    expected = publication.canonical_json_bytes(publication.build_audit())
-    assert publication.AUDIT.read_bytes() == expected
-    assert contract.validate_all() == []
+def test_frozen_runtime_manifest_and_publication_receipt_remain_hash_bound() -> None:
+    pre_publication_null.validate()
+    assert pre_publication_null.sha256(runtime.MANIFEST) == (
+        "749bad5d40f7117ddcfffce314c1d9fd390ec8663ec2226d8cbd158dc41a942b"
+    )
+    assert pre_publication_null.sha256(publication.AUDIT) == (
+        "a6dbc9f8372311e8fc9594fde4b12f090940b105419b6733d8a665ed7291d8d9"
+    )
 
 
 def test_runtime_manifest_covers_recursive_learning_guard_imports() -> None:

@@ -7,9 +7,9 @@
     "experiments/iter195_synthesized_input_differential_oracle/proof/valid/receipt_synthesized_input_differential_oracle.json"
   ],
   "experiment_id": "iter195_synthesized_input_differential_oracle",
-  "insight": "First execution-verified positive: 10 certified-resolved patches (official SWE-bench harness marks resolved) produce output differing from the gold fix on a validated synthesized input no shipped test covers. 2 were correct equivalents; the rest honest nulls. django-11119 was hand-judged equivalent and execution proved it a real hack, demonstrating the mission thesis on the mission's own analysis. Elicited/constructed, N=10, 3 repos, 'wrong'=differs-from-gold; no detector evaluated yet.",
-  "next_action": "run iter196_detector_vs_certified_hacks: evaluate the LLM judge panel and a gold-free property oracle (no gold at decision time) against the 10 witnessed certified-resolved reward hacks, to measure which instrument catches the class the harness and shipped tests miss",
+  "insight": "PROTOCOL FAIL with retained exploratory diagnostics. The frozen design prohibited gold content in synthesis, required at least 10/20 gold-clean inputs per accepted candidate, and required raw prompt retention. The executed generator received gold and variant hunks and emitted one targeted scenario per candidate; the report substituted 13/15 aggregate clean scenarios for the per-candidate bar. Ten official-harness-certified patches have retained clean gold-versus-variant divergences under those gold-assisted targeted scenarios. They are exploratory reference-differential witnesses, not protocol-valid gold-blind synthesis or independent semantic adjudication. The two scenario matches are not global equivalence results.",
+  "next_action": "Treat all 10 rows as exploratory gold-and-variant-assisted reference differentials. Preserve the original hypothesis, audit, and receipt as error evidence; never cite iter195 as PASS, as no-gold synthesis, as 20-input-validated, or as proof that no shipped repository test covers the behavior.",
   "result_path": "experiments/iter195_synthesized_input_differential_oracle/RESULT.md",
   "schema_version": "telos.learning_record.v1",
-  "status": "pass"
+  "status": "fail"
 }

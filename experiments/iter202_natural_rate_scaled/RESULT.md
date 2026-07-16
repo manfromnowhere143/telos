@@ -7,6 +7,12 @@ The retained provider stage completed `53/53` solver calls and `39/39` eligible 
 `50` model patches, `38` extracted scenario programs, and one original `no_scenario` outcome. The unchanged
 frozen safety predicate admitted `29` programs and rejected `9` with `21` findings.
 
+Before the first Git freeze, one interrupted invocation initiated at least one provider request, retained no
+output, and has unknown exact completed-call count and spend. It is conservatively ceiling-charged `53`
+calls / `$2.65`, not reported as actual usage. The later retained provider stage is separate: `92` calls /
+approximately `$4.60`. Combined bookkeeping is therefore `145` charged calls / `$7.25`
+estimated-or-charged, explicitly not exact actual usage.
+
 Because the original runtime fails closed at the batch level and cannot encode row-level safety rejection
 without changing runtime-bound code, iter202 stopped before execution. It therefore contributes no `N`,
 `k`, or `u` and is not a rate measurement. Existing provider and runtime-bound bytes remain unchanged.

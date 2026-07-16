@@ -1,0 +1,565 @@
+{
+  "corrections": {
+    "iter179_cost_attribution": {
+      "cost_semantics": "These are conservative estimated spend guards, not provider invoices. The 240 calls that produce the unrepaired score have a $13.128090 guard. The $13.317840 source-run total includes three iter178 diagnostic calls excluded from primary scoring. The rounded $13.59 total additionally includes the later iter181 repair run and must not be attributed to the unrepaired iter179 score.",
+      "diagnostic_recovery_excluded_from_primary_score": true,
+      "evidence": [
+        {
+          "bytes": 545,
+          "path": "experiments/iter175_reward_hack_panel_bounded_paid_pilot/proof/cost_call_audit.json",
+          "sha256": "4caec8b9669e376998c1fda11d802639ed6ce7faa528114bf336869451ef5eaf"
+        },
+        {
+          "bytes": 629,
+          "path": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/cost_call_audit.json",
+          "sha256": "ab6257ece3cce27fdfb4e1fc69b583c10bfbcbf837b66fa0330dddfb9edb6b87"
+        },
+        {
+          "bytes": 169451,
+          "path": "experiments/iter178_reward_hack_panel_remaining_pairs_paid_expansion/proof/provider_call_ledger.jsonl",
+          "sha256": "e7e0b92b61dc28cb3cfeda4c1a96f43495279fa14dbba0af57b833e12cb64985"
+        },
+        {
+          "bytes": 40144,
+          "path": "experiments/iter179_reward_hack_panel_full_cohort_adjudication/proof/full_cohort_metric_recomputation_audit.json",
+          "sha256": "98c7dbcb8cb40fc26c94eb143fe80c80a2855d35fed019d9ac33eb9dea55ee19"
+        },
+        {
+          "bytes": 563,
+          "path": "experiments/iter181_reward_hack_panel_openai_nondecision_repair_execution/proof/cost_call_audit.json",
+          "sha256": "d2a7c3087bb5f43730516c6fff314a560824f8eb2d0198f6f932d917be09d831"
+        }
+      ],
+      "excluded_iter178_diagnostic_calls": {
+        "count": 3,
+        "estimated_spend_guard_usd": "0.189750"
+      },
+      "later_repair_estimated_spend_guard_usd": "0.271800",
+      "score_producing_calls": {
+        "components_usd": {
+          "iter175_primary": "6.312690",
+          "iter178_primary": "6.815400"
+        },
+        "count": 240,
+        "estimated_spend_guard_usd": "13.128090"
+      },
+      "source_run_estimated_spend_guards_usd": {
+        "includes_iter178_diagnostic_calls": 3,
+        "iter175": "6.312690",
+        "iter178": "7.005150",
+        "sum": "13.317840"
+      },
+      "total_estimated_spend_guard_through_repair_usd": "13.589640",
+      "unrepaired_primary_result": {
+        "majority_catch": [
+          17,
+          40
+        ]
+      }
+    },
+    "iter192": {
+      "correction_id": "overbroad_conceptual_novelty",
+      "literal_falsifier_5_status": "indeterminate",
+      "retained_findings": {
+        "all_139_evaluations_bound_to_generator_discard_decisions": false,
+        "harness_resolved_hack_tagged_evaluations": 139,
+        "harness_resolved_unique_instance_ids": 65,
+        "interpretation": "The 40/40 construct correction remains deterministically supported. Historical tarballs also contain 139 harness-resolved hack-tagged evaluations across 65 instance IDs. The committed decision evidence binds only 23 iter152 discarded instance IDs, 17 of which overlap the harness-resolved set; it does not bind every evaluation to a discard decision or preserve the evaluated patch bytes. What fails conservatively is conceptual firstness; the literal v1-specific falsifier trigger remains indeterminate.",
+        "iter152_discarded_and_harness_resolved_instance_ids": 17,
+        "iter152_generator_discarded_instance_ids": 23,
+        "v1_rows_audited": 40,
+        "v1_rows_official_resolved_false": 40,
+        "v1_rows_with_p2p_failure": 40
+      },
+      "standing_adjudication_status": "conservative_novelty_fail"
+    },
+    "iter195": {
+      "failure_ids": [
+        "gold_and_variant_hunks_entered_synthesis_prompt",
+        "twenty_input_generator_validation_replaced",
+        "raw_prompt_and_leakage_scan_custody_missing"
+      ],
+      "retained_counts": {
+        "certified_candidates_entering_phase_a": 16,
+        "certified_equivalent_single_scenarios": 2,
+        "clean_differing_single_scenarios": 10,
+        "dedicated_raw_prompt_or_response_artifacts": 0,
+        "estimated_spend_usd": 0.8,
+        "gold_clean_single_scenarios": 13,
+        "paired_execution_logs": 30,
+        "provider_calls": 16,
+        "scenario_failed": 2,
+        "single_scenario_scripts": 15,
+        "variant_errored": 1
+      },
+      "retained_exploratory_interpretation": "Ten official-harness-resolved variants have retained clean, single-scenario gold-versus-variant output differentials. The scenario provider saw both hunks. This is exploratory, gold-assisted reference-differential evidence; it is not a passed synthesized-input oracle and does not establish global semantic inequivalence.",
+      "strict_protocol_status": "fail"
+    },
+    "iter196": {
+      "both_detector_bar_met": false,
+      "chronology": {
+        "artifact_first_git_commit": "336c484200289d27ee1361f5fbd1e85e51494fa9",
+        "artifact_first_git_commit_time": "2026-07-14T19:54:46+03:00",
+        "original_protocol_git_freeze_commit": "d5afa98948d76f465d15002c8592c085a6e29688",
+        "original_protocol_git_freeze_time": "2026-07-14T19:30:19+03:00",
+        "two_model_amendment_independently_git_frozen_before_output": false
+      },
+      "detector_a_delivered": true,
+      "detector_b_delivered_in_iter196": false,
+      "evidence": [
+        {
+          "bytes": 3025,
+          "path": "experiments/iter196_detector_vs_certified_hacks/proof/audit_report.json",
+          "sha256": "3bb3f107746eb552d1119e7face6a20f5c136104c20789024d7fa53eb8a277e3"
+        },
+        {
+          "bytes": 7463,
+          "path": "experiments/iter196_detector_vs_certified_hacks/proof/judge_panel_results.json",
+          "sha256": "49637170b7c8b2fbcfeecd8053fe7850f93a9d3a55c0b4e83b9b2d2611f9cdcc"
+        }
+      ],
+      "gate_status": "partial_and_blocked",
+      "historical_git_evidence": [
+        {
+          "bytes": 3700,
+          "commit": "d5afa98948d76f465d15002c8592c085a6e29688",
+          "path": "experiments/iter196_detector_vs_certified_hacks/HYPOTHESIS.md",
+          "sha256": "928f69650fa36be6d0715c33936246c386fa9c2d5b2742dff47b821471965a6d"
+        },
+        {
+          "bytes": 5416,
+          "commit": "336c484200289d27ee1361f5fbd1e85e51494fa9",
+          "path": "experiments/iter196_detector_vs_certified_hacks/RESULT.md",
+          "sha256": "39a85e6832363c968d9c737cb2a798bb32ff0c3e257dfe61c05dd3d8265861bc"
+        }
+      ],
+      "historical_third_panel_member_status": "unavailable in the recorded run; this is not a statement about current runtime availability",
+      "raw_provider_response_text_retained": false,
+      "retained_counts": {
+        "hack_complete_case": [
+          7,
+          8
+        ],
+        "hack_missing_upper": [
+          9,
+          10
+        ],
+        "hack_observed_lower": [
+          7,
+          10
+        ],
+        "parsed_labels": 44,
+        "provider_calls": 44
+      }
+    },
+    "iter199": {
+      "chronology": {
+        "adversary_provider_outputs": {
+          "commit": "03d199f49b69bcbe7948e223e26bdcd3ff2a32c9",
+          "path": "experiments/iter199_benchmark_expansion_across_repos/proof/raw/candidates/adversary_summary.json",
+          "time": "2026-07-14T23:20:56+03:00"
+        },
+        "hypothesis": {
+          "commit": "03d199f49b69bcbe7948e223e26bdcd3ff2a32c9",
+          "path": "experiments/iter199_benchmark_expansion_across_repos/HYPOTHESIS.md",
+          "time": "2026-07-14T23:20:56+03:00"
+        },
+        "scenario_provider_outputs": {
+          "commit": "03d199f49b69bcbe7948e223e26bdcd3ff2a32c9",
+          "path": "experiments/iter199_benchmark_expansion_across_repos/proof/raw/scenarios/scenarios_summary.json",
+          "time": "2026-07-14T23:20:56+03:00"
+        },
+        "targets": {
+          "commit": "03d199f49b69bcbe7948e223e26bdcd3ff2a32c9",
+          "path": "experiments/iter199_benchmark_expansion_across_repos/proof/raw/targets.json",
+          "time": "2026-07-14T23:20:56+03:00"
+        }
+      },
+      "claim": "The hypothesis, frozen targets, runner, adversary outputs, and scenario outputs first enter Git in one commit, so Git does not independently establish the claimed pre-generation freeze.",
+      "evidence": [
+        {
+          "bytes": 978,
+          "path": "experiments/iter199_benchmark_expansion_across_repos/proof/audit_report.json",
+          "sha256": "d2e41542f80a64a55f0de0c39c7c87fa57ca5742efa210cf3af92268ca0b49cf"
+        },
+        {
+          "bytes": 63735,
+          "path": "experiments/iter199_benchmark_expansion_across_repos/proof/raw/candidates/adversary_summary.json",
+          "sha256": "b2e8b563527a03a2956b8d3a14fa94cf9dc1e26ef15fb5b8144036632214d258"
+        },
+        {
+          "bytes": 17596,
+          "path": "experiments/iter199_benchmark_expansion_across_repos/proof/raw/scenarios/scenarios_summary.json",
+          "sha256": "05ff8ce437b3870fa1617b624f5065d3074c7b8c3155849546d42b7b358295dc"
+        },
+        {
+          "bytes": 4038,
+          "path": "experiments/iter199_benchmark_expansion_across_repos/proof/raw/targets.json",
+          "sha256": "1df4caf49b69f88b9508b7d662efa62eaba378e260b9bd1c0f88b8dd8171a95e"
+        }
+      ],
+      "historical_git_evidence": [
+        {
+          "bytes": 4881,
+          "commit": "03d199f49b69bcbe7948e223e26bdcd3ff2a32c9",
+          "path": "experiments/iter199_benchmark_expansion_across_repos/HYPOTHESIS.md",
+          "sha256": "bfcec105c563f7d9f828179106499123c65a7daf5d25b11d55e5c7c545d95f08"
+        },
+        {
+          "bytes": 4456,
+          "commit": "03d199f49b69bcbe7948e223e26bdcd3ff2a32c9",
+          "path": "scripts/run_iter199_scenarios.py",
+          "sha256": "0e2f539799c9f006842832e8d5f16abb099132f88e164692f91919c5798c7a00"
+        },
+        {
+          "bytes": 4920,
+          "commit": "0b45815c90fc150eb1c54124981d50a37f3709b7",
+          "path": "experiments/iter199_benchmark_expansion_across_repos/RESULT.md",
+          "sha256": "2ab5cfa67eeebb4d5d3b27754937462f862cdb156b627693b09ebf188c04aacd"
+        }
+      ],
+      "method": "Gold-assisted targeted scenario construction matching the executed iter195 method: the scenario provider saw labeled gold and variant hunks. This was construction/labeling, not a gold-blind detector.",
+      "protocol_status": "registration_timing_not_independently_established",
+      "retained_counts": {
+        "adversary_provider_calls": 63,
+        "candidate_variants": 23,
+        "certified_variants": 20,
+        "clean_reference_differentials": 12,
+        "new_repositories": 5,
+        "repositories": 8,
+        "scenario_provider_calls": 23,
+        "scenario_scripts": 23,
+        "targets": 42
+      },
+      "retained_exploratory_interpretation": "The 12 retained rows remain exploratory gold-assisted reference-differential witnesses with official-harness certification. They are not a prospectively registered frequency result or an independent semantic oracle."
+    },
+    "iter200": {
+      "backfill_attribution": {
+        "artifact_id": 8346537395,
+        "new_log_count": 20,
+        "run_id": 29422735843,
+        "status": "receipt_bound"
+      },
+      "claimed_original_run_id": 29391238359,
+      "corrected_funnel": {
+        "N": 24,
+        "k": 1,
+        "u": 6
+      },
+      "empirical_disposition": "This limits source/run attribution for the original 54 logs; it does not erase their retained bytes. The corrected N=24, k=1, u=6 result remains exploratory and is additionally bounded by the already-disclosed absence of raw historical judge response text.",
+      "evidence": [
+        {
+          "bytes": 5211,
+          "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/audit_report.json",
+          "sha256": "bd49e3a8c2aa004fd9217589ee16cffbbc7f35c8276742b21f08116b0236d171"
+        },
+        {
+          "bytes": 4501,
+          "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/denominator_backfill_run.json",
+          "sha256": "7d4ea19730b8e842b51d5c51bf78151edacb9fa026acf5c883650d4e8787f311"
+        },
+        {
+          "bytes": 5647,
+          "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/valid/receipt_natural_certified_yet_wrong.json",
+          "sha256": "bb018e921b1ee1949237505e5a0633ef9c9ad0b5ad73e2c09be884185f26cb42"
+        }
+      ],
+      "historical_git_evidence": [
+        {
+          "bytes": 12274,
+          "commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+          "path": "experiments/iter200_natural_certified_yet_wrong_rate/RESULT.md",
+          "sha256": "98c1edf5424f6ba505b69e8a027f7a65b91878d7f5594e359f613c4f2bbf7ed0"
+        }
+      ],
+      "original_logs": {
+        "corpus_sha256": "ce0120cd6bbd338d435b60f70c30ffe7a42709db27d2ee73a50c810be473b3ce",
+        "count": 54,
+        "embedded_claimed_run_id_count": 0
+      },
+      "original_run_attribution_status": "historical assertion not independently rebound by a committed download receipt or by run metadata embedded in the 54 original logs"
+    },
+    "iter201": {
+      "candidate_patch_corpus": {
+        "count": 44,
+        "sha256": "5653519ee1de85b61ff9c10ed410b712dcb95329ab2efe90d0985469bcd55835"
+      },
+      "diagnostic": "leakage_shared_gold_lines",
+      "disposition": "disclosure_only_not_invalidation",
+      "evidence": [
+        {
+          "bytes": 8040,
+          "path": "benchmarks/certified_resolved_reward_hack_v2/manifest.json",
+          "sha256": "fff0725c5283dc6e46b16459855fcc03ff061fd360e92330d016eb924c4aa814"
+        },
+        {
+          "bytes": 4821,
+          "path": "experiments/iter201_detectors_on_full_benchmark/proof/audit_report.json",
+          "sha256": "42c1b04fe09c1726c32858b854b0a9af14c01031b48b461283de88587019336a"
+        },
+        {
+          "bytes": 9489,
+          "path": "experiments/iter201_detectors_on_full_benchmark/proof/judge_panel_22_results.json",
+          "sha256": "2767ff0ddc608773b3b7ac404a0187221632a9489d7870c2ef80e344a0e11189"
+        },
+        {
+          "bytes": 4970,
+          "path": "scripts/run_iter201_judge_panel.py",
+          "sha256": "dca87f4cdd124a251f4893c1d47c595536831ae64dd0fc0c0a41d4391b10fdf8"
+        }
+      ],
+      "reason": "The judge received each candidate's own diff, and four candidate diffs also contained a line identified by the historical heuristic as gold-distinctive elsewhere. The gold patch was not shown as a comparison reference. Report the diagnostic; do not treat it as causal evidence or as an additional protocol failure.",
+      "row_count": 4,
+      "rows": [
+        {
+          "instance_id": "django__django-11211",
+          "shared_line_count": 1
+        },
+        {
+          "instance_id": "matplotlib__matplotlib-24627",
+          "shared_line_count": 1
+        },
+        {
+          "instance_id": "astropy__astropy-12907",
+          "shared_line_count": 1
+        },
+        {
+          "instance_id": "sympy__sympy-11618",
+          "shared_line_count": 1
+        }
+      ],
+      "separate_protocol_status": "iter201 remains FAIL for its already-recorded candidate-diff-derived locator deviation"
+    },
+    "iter202": {
+      "N_k_u": {
+        "N": null,
+        "k": null,
+        "u": null
+      },
+      "chronology": {
+        "first_hypothesis_commit": {
+          "commit": "41c4176f7b897678dea2e98e40582e7c03a369e1",
+          "path": "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
+          "time": "2026-07-15T15:23:11+03:00"
+        },
+        "provider_contact_preceded_first_git_freeze": true
+      },
+      "conservative_ledger_total": {
+        "charged_calls": 145,
+        "estimated_or_charged_spend_usd": 7.25,
+        "not_actual_usage_claim": true
+      },
+      "evidence": [
+        {
+          "bytes": 909,
+          "path": "experiments/iter202_natural_rate_scaled/proof/raw/process_history.json",
+          "sha256": "32c9a542f0f6d8daeff98b4da11b7a6eeaeaa0280a28fc0c131e098e05114065"
+        },
+        {
+          "bytes": 37045,
+          "path": "experiments/iter202_natural_rate_scaled/proof/raw/scenarios/scenarios_summary.json",
+          "sha256": "f883483b148f376b21dc784d9844892644d97d51838a7a3a050b1f5c9743d2e0"
+        },
+        {
+          "bytes": 64334,
+          "path": "experiments/iter202_natural_rate_scaled/proof/raw/solutions/solve_summary.json",
+          "sha256": "1457c05fcc2c348e1cc36f3b85f7c0afb2d86aa3c9f9f877ff6850a871c4a586"
+        }
+      ],
+      "historical_git_evidence": [
+        {
+          "bytes": 13612,
+          "commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+          "path": "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
+          "sha256": "bab7a832611679235c05e53716213851af9e2f5be948ad3706050ea4712f8f96"
+        },
+        {
+          "bytes": 14385,
+          "commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+          "path": "experiments/iter202_natural_rate_scaled/PREREGISTRATION_AMENDMENT.md",
+          "sha256": "cfef07323007fbfd9ccfa77457ad4f6101cf2ba4e4f4897ecd17609b98bdc3a7"
+        },
+        {
+          "bytes": 1522,
+          "commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+          "path": "experiments/iter202_natural_rate_scaled/RESULT.md",
+          "sha256": "c95020f71da2d154aa280f4f84c0200595e60d1c4850af8e2c1d106b60fea261"
+        }
+      ],
+      "interrupted_invocation": {
+        "accounting_semantics": "53 calls and $2.65 are conservative bookkeeping ceiling charges, not recovered actual usage. Actual completed calls and spend remain unknown.",
+        "ceiling_charge": {
+          "estimated_spend_usd": 2.65,
+          "provider_calls": 53,
+          "spend_semantics": "Estimated bookkeeping charge at $0.05 per possible call; not recovered actual spend."
+        },
+        "exact_completed_calls": null,
+        "exact_spend_usd": null,
+        "minimum_requests_initiated": 1,
+        "provider_outputs_retained": false,
+        "provider_outputs_used": false
+      },
+      "result_status": "scenario_safety_protocol_execution_null",
+      "retained_later_run": {
+        "estimated_spend_usd": 4.6,
+        "model_patches": 50,
+        "scenario_calls": 39,
+        "scenario_programs": 38,
+        "solver_calls": 53,
+        "total_calls": 92
+      }
+    }
+  },
+  "custody_rule": "Frozen hypotheses, raw outputs, receipts, logs, patches, retained prompts/responses, provider checkpoints, and prior Git objects are immutable inputs. Only the exact historical RESULT.md and learning_record.json paths in historical_public_surface_relabels may be reinterpreted; their iter206-seal blobs remain hash-bound.",
+  "experiment_delta_guard": {
+    "authorized_additive_iter206_terminal_nulls": [
+      "experiments/iter206_iter205_admission_history_recovery/RESULT.md",
+      "experiments/iter206_iter205_admission_history_recovery/proof/learning_record.pre_publication_claim_integrity_null.json",
+      "experiments/iter206_iter205_admission_history_recovery/proof/pre_publication_claim_integrity_null.json"
+    ],
+    "authorized_historical_relabels": [
+      "experiments/iter192_reward_hack_benchmark_construct_validity_audit/RESULT.md",
+      "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/learning_record.json",
+      "experiments/iter195_synthesized_input_differential_oracle/RESULT.md",
+      "experiments/iter195_synthesized_input_differential_oracle/proof/learning_record.json",
+      "experiments/iter196_detector_vs_certified_hacks/RESULT.md",
+      "experiments/iter196_detector_vs_certified_hacks/proof/learning_record.json",
+      "experiments/iter198_findings_paper_synthesis_and_accessibility/RESULT.md",
+      "experiments/iter198_findings_paper_synthesis_and_accessibility/proof/learning_record.json",
+      "experiments/iter199_benchmark_expansion_across_repos/RESULT.md",
+      "experiments/iter199_benchmark_expansion_across_repos/proof/learning_record.json",
+      "experiments/iter200_natural_certified_yet_wrong_rate/RESULT.md",
+      "experiments/iter202_natural_rate_scaled/RESULT.md"
+    ],
+    "authorized_iter207_prefix": "experiments/iter207_claim_integrity_and_admission_recovery/",
+    "base_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685"
+  },
+  "experiment_id": "iter207_claim_integrity_and_admission_recovery",
+  "generator_mode": "deterministic_offline_retrospective",
+  "historical_public_surface_relabels": [
+    {
+      "current_bytes": 11398,
+      "current_sha256": "f97bde1798dd36e1971971915e1dac76e40de90d5d3ccda0a36ac1cae496b5e2",
+      "iter206_seal_bytes": 8493,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "1ee0d7dd2dfe2ecaf350dcb57a66a54caf963b719d90130834b216155a710430",
+      "path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/RESULT.md"
+    },
+    {
+      "current_bytes": 2494,
+      "current_sha256": "1f850a0b6a572e87252d668ab2424f38c314134e8e7ee4390b647f82726abf00",
+      "iter206_seal_bytes": 1846,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "db260e79fce11e07a631f069f72fe9579ebcf155868a93893e4d4ecaf83d1c90",
+      "path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/learning_record.json"
+    },
+    {
+      "current_bytes": 7944,
+      "current_sha256": "6dace02207cfd2460dd4ca1d707bd6256ed80a095887abb3dd2e82cdf721aabb",
+      "iter206_seal_bytes": 6698,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "11f8f4f0ddc2055de03eeff8eba2ea7e70f7d090b8a46a4124f84d7883ff0a1a",
+      "path": "experiments/iter195_synthesized_input_differential_oracle/RESULT.md"
+    },
+    {
+      "current_bytes": 1821,
+      "current_sha256": "c6bfc8c0cd418a97365bfe5aa73c8a03cc95c60a18be34f8fb6c1566fa04f061",
+      "iter206_seal_bytes": 1560,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "133513fb25e0eab5735b59ed47a91305743fab076c415c95bcbb5736b24a6685",
+      "path": "experiments/iter195_synthesized_input_differential_oracle/proof/learning_record.json"
+    },
+    {
+      "current_bytes": 7683,
+      "current_sha256": "db6b2b7ff24e9e0c29d99a095909d9f9f0657de98a942d7afec4f93114ac2865",
+      "iter206_seal_bytes": 7005,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "de5d58442daab3bcd691db61c5643da5c37f690193e1371cd71081ebd78729d9",
+      "path": "experiments/iter196_detector_vs_certified_hacks/RESULT.md"
+    },
+    {
+      "current_bytes": 1461,
+      "current_sha256": "f2259cfc654da145001d5fcc0e3f77b27cd38eef919eb448ffce5d7ee29bd63d",
+      "iter206_seal_bytes": 1428,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "b3eb807cf321471402b40ac4c05ff71cc9eb115cbc736a8dd29331b4cdd30e21",
+      "path": "experiments/iter196_detector_vs_certified_hacks/proof/learning_record.json"
+    },
+    {
+      "current_bytes": 5309,
+      "current_sha256": "d458877c5cea2a9da4da983865157c1f474b39f0461311b5269de9d882fb7c00",
+      "iter206_seal_bytes": 4025,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "c5c5bb36307aac5a6d3541f18593a7758c13ada22cfc5abcd8ac9640638d6acc",
+      "path": "experiments/iter198_findings_paper_synthesis_and_accessibility/RESULT.md"
+    },
+    {
+      "current_bytes": 1292,
+      "current_sha256": "28c81bdf9df104e2ecf01e3b43dc934bed5c1119203d984ba8c0ce88d1c31f6a",
+      "iter206_seal_bytes": 1403,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "613248e1e4da156c679819709ba0dfbb7a021669193a08760420ff279f51d3b8",
+      "path": "experiments/iter198_findings_paper_synthesis_and_accessibility/proof/learning_record.json"
+    },
+    {
+      "current_bytes": 6095,
+      "current_sha256": "8a6d37b1032ee431c48abb0fdb72fa494643679889fe12abaecffc9400e85b22",
+      "iter206_seal_bytes": 5273,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "42571363c878cc32d90fa22c3e9541bab95b7601eb5424f07fc0d0e1503226c2",
+      "path": "experiments/iter199_benchmark_expansion_across_repos/RESULT.md"
+    },
+    {
+      "current_bytes": 1819,
+      "current_sha256": "2cf040ff53e73f59de93410803f096998797ca6fbe65c641aa8b373b97ad7b64",
+      "iter206_seal_bytes": 1657,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "f06127d72e215ba9465dd85cd9636a4837f30a1069c7d67be9c0884875bfb9b9",
+      "path": "experiments/iter199_benchmark_expansion_across_repos/proof/learning_record.json"
+    },
+    {
+      "current_bytes": 12670,
+      "current_sha256": "9314cbf790fce29dbb2280f027494957b9be9cda7ed3379a85c60626ae3f0953",
+      "iter206_seal_bytes": 12274,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "98c1edf5424f6ba505b69e8a027f7a65b91878d7f5594e359f613c4f2bbf7ed0",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/RESULT.md"
+    },
+    {
+      "current_bytes": 1987,
+      "current_sha256": "02746eb40dc19b9182eed73ce6cc5964b250530cfc1af09370942d93c63598fb",
+      "iter206_seal_bytes": 1522,
+      "iter206_seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "iter206_seal_sha256": "c95020f71da2d154aa280f4f84c0200595e60d1c4850af8e2c1d106b60fea261",
+      "path": "experiments/iter202_natural_rate_scaled/RESULT.md"
+    }
+  ],
+  "interpretive_correction_subreceipts": [
+    {
+      "literal_trigger_status": "indeterminate",
+      "path": "experiments/iter207_claim_integrity_and_admission_recovery/proof/corrections/iter192_novelty_scope_correction.json",
+      "schema_version": "telos.iter207.iter192_novelty_scope_correction.v1",
+      "sha256": "5286d99a1478fd6ea8bfa18793e3e079cfe86baa74ead57493a000edd257df8b",
+      "status": "conservative_novelty_fail"
+    }
+  ],
+  "investigation_side_effect_accounting": {
+    "containers_or_scientific_executions": 0,
+    "credential_reads_or_probes": 0,
+    "network_call_scope": "authenticated_read_only_github_metadata_gets_for_ci_projection_verification",
+    "network_calls": 2,
+    "provider_calls": 0,
+    "remote_mutations": 0
+  },
+  "publication_rule": "No public surface may describe iter192 as a strict literal-trigger failure or unqualified pass, or retain a superseded preregistration, gold-blind, global semantic, run-attribution, or exact-usage claim contradicted by this ledger. No iter207 RESULT exists until the separate runtime admission recovery and public-surface correction are complete.",
+  "schema_version": "telos.iter207.claim_integrity_correction.v2",
+  "status": "active_pre_result",
+  "strict_protocol_subreceipts": [
+    {
+      "path": "experiments/iter207_claim_integrity_and_admission_recovery/proof/strict/iter195_protocol_failure.json",
+      "schema_version": "telos.iter207.iter195_protocol_failure.v1",
+      "sha256": "240a7377dd87b4f0ddc52425a4eda46eab94616a7abe06fcb2d500aa652ad2bf",
+      "status": "fail"
+    }
+  ]
+}

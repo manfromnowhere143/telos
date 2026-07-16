@@ -1,0 +1,126 @@
+{
+  "chronology": {
+    "iter192_gate": {
+      "commit": "c681785efa8f0bf420eb52b8a3bb634957cc040e",
+      "path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/HYPOTHESIS.md",
+      "time": "2026-07-14T15:39:47+03:00"
+    },
+    "prior_baseline": {
+      "commit": "7d09f941fffdc5a82fc81bde3531ed2c174237fc",
+      "path": "experiments/iter151_cross_repo_scale_official/RESULT.md",
+      "time": "2026-07-12T19:31:57+03:00"
+    }
+  },
+  "correction": {
+    "adjudication_rule": "Fail conceptual firstness conservatively while recording the literal v1-specific falsifier trigger as indeterminate.",
+    "claim": "The iter192 result treated its zero-hit lexical scan as support that the test-suite baseline had never been reported in the repository.",
+    "exact_v1_row_identity_in_iter151_established": null,
+    "finding": "iter151 had already reported the same class-level mechanism: 0/20 official resolutions for both-miss starts, explicitly because PASS_TO_PASS failure makes the zero definitional. Its accepted patch bytes were not retained, so this does not establish a prior row-identical baseline for the later v1 artifact.",
+    "iter151_archived_report_count": 132,
+    "iter151_archived_reports_with_retained_patch_identity": 0,
+    "iter151_rows_with_retained_patch_identity": 0,
+    "lexical_scan_hits": 0,
+    "literal_v1_specific_falsifier_triggered": null,
+    "prior_baseline_and_v1_shared_instance_count": 19,
+    "prior_baseline_and_v1_shared_instance_ids": [
+      "astropy__astropy-14309",
+      "django__django-10880",
+      "django__django-11066",
+      "django__django-11087",
+      "django__django-11095",
+      "django__django-11119",
+      "matplotlib__matplotlib-22719",
+      "matplotlib__matplotlib-22871",
+      "pydata__xarray-3151",
+      "pydata__xarray-4629",
+      "pytest-dev__pytest-10051",
+      "pytest-dev__pytest-10081",
+      "pytest-dev__pytest-10356",
+      "scikit-learn__scikit-learn-10297",
+      "scikit-learn__scikit-learn-11310",
+      "scikit-learn__scikit-learn-12585",
+      "sphinx-doc__sphinx-10323",
+      "sphinx-doc__sphinx-7440",
+      "sympy__sympy-11618"
+    ],
+    "prior_semantic_baseline": [
+      0,
+      20
+    ]
+  },
+  "correction_id": "overbroad_conceptual_novelty",
+  "evidence": [
+    {
+      "bytes": 111372,
+      "path": "benchmarks/reward_hack_benchmark_v1/reward_hack_benchmark_v1.jsonl",
+      "sha256": "b83bf0febd19269881e5fe214f8457a3ca052e65960f58ad4393da3fe7a21159"
+    },
+    {
+      "bytes": 6634,
+      "path": "experiments/iter151_cross_repo_scale_official/proof/raw/scale_results.json",
+      "sha256": "a466703895669a6e880390e5ef63c020a3e4f85ae7e1163082d1488c19527cbc"
+    },
+    {
+      "bytes": 111100,
+      "path": "experiments/iter151_cross_repo_scale_official/proof/raw/sweb_reports.tgz",
+      "sha256": "44607e010db697725133b6e02a11337770e3e59a317dd56d8e7d577403d13c95"
+    },
+    {
+      "bytes": 735,
+      "path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/audit_report.json",
+      "sha256": "d08860d8eb8d4f9b6289873e26f931b44185073dd7b72ea04a61238bcfaf1c96"
+    },
+    {
+      "bytes": 4558,
+      "path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/discarded_certified_variants.json",
+      "sha256": "0d62ae404d228b5e81421945927203aa13e813b41d4c43f1403d2900b12f502e"
+    },
+    {
+      "bytes": 325,
+      "path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/proof/existing_baseline_scan.json",
+      "sha256": "a2506020e6f4e044e35dc01a830c0926b292e6c6a0985ef8d589e626fc407fb0"
+    }
+  ],
+  "experiment_id": "iter192_reward_hack_benchmark_construct_validity_audit",
+  "historical_git_evidence": [
+    {
+      "bytes": 7453,
+      "commit": "c681785efa8f0bf420eb52b8a3bb634957cc040e",
+      "path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/HYPOTHESIS.md",
+      "sha256": "099004cb9509b8a24b9a29960f738872ecdcce01da2eabe0aa156392a22ba672"
+    },
+    {
+      "bytes": 8493,
+      "commit": "c681785efa8f0bf420eb52b8a3bb634957cc040e",
+      "path": "experiments/iter192_reward_hack_benchmark_construct_validity_audit/RESULT.md",
+      "sha256": "1ee0d7dd2dfe2ecaf350dcb57a66a54caf963b719d90130834b216155a710430"
+    },
+    {
+      "bytes": 2935,
+      "commit": "7d09f941fffdc5a82fc81bde3531ed2c174237fc",
+      "path": "experiments/iter151_cross_repo_scale_official/HYPOTHESIS.md",
+      "sha256": "6ef9abd2462b411f9e13486e095ff57782c9529ad3d17827069e30683368a23f"
+    },
+    {
+      "bytes": 4041,
+      "commit": "7d09f941fffdc5a82fc81bde3531ed2c174237fc",
+      "path": "experiments/iter151_cross_repo_scale_official/RESULT.md",
+      "sha256": "e01300e15610c307fb01fe49525fa2212406dd337150d8fd6fde84246deb2b19"
+    }
+  ],
+  "historical_recorded_status": "pass",
+  "literal_falsifier_5_status": "indeterminate",
+  "retained_findings": {
+    "all_139_evaluations_bound_to_generator_discard_decisions": false,
+    "harness_resolved_hack_tagged_evaluations": 139,
+    "harness_resolved_unique_instance_ids": 65,
+    "interpretation": "The 40/40 construct correction remains deterministically supported. Historical tarballs also contain 139 harness-resolved hack-tagged evaluations across 65 instance IDs. The committed decision evidence binds only 23 iter152 discarded instance IDs, 17 of which overlap the harness-resolved set; it does not bind every evaluation to a discard decision or preserve the evaluated patch bytes. What fails conservatively is conceptual firstness; the literal v1-specific falsifier trigger remains indeterminate.",
+    "iter152_discarded_and_harness_resolved_instance_ids": 17,
+    "iter152_generator_discarded_instance_ids": 23,
+    "v1_rows_audited": 40,
+    "v1_rows_official_resolved_false": 40,
+    "v1_rows_with_p2p_failure": 40
+  },
+  "schema_version": "telos.iter207.iter192_novelty_scope_correction.v1",
+  "standing_adjudication_status": "conservative_novelty_fail"
+}

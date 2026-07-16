@@ -1,19 +1,26 @@
 # Iteration 196 Result - Detectors vs. Certified-Resolved Reward Hacks (Detector A)
 
-Status: **partial** — one of the two pre-registered detectors is delivered. This gate pre-registered a
+> **Standing cohort correction (2026-07-16):** iter195, which supplied this gate's positive labels, is strict
+> protocol `FAIL`; its ten rows are exploratory gold-and-variant-assisted reference differentials. The judge
+> numbers below reproduce conditionally on that cohort, but are not performance evidence against a
+> protocol-valid gold-blind benchmark.
+
+Status: **protocol-blocked, with partial output** — one of the two preregistered detectors is delivered. This gate pre-registered a
 judge panel (Detector A) and a gold-free execution oracle (Detector B). Detector A is complete and reported
 below. Detector B is a substantial in-container build and is promoted to its own gate,
 `experiments/iter197_gold_free_oracle_vs_certified_hacks/`, rather than rushed here. This result does not
-claim the gate's `>=` both-detector bar; it reports Detector A and names what remains.
+claim the gate's `>=` both-detector bar or a gate `PASS`; it reports a conditional Detector A diagnostic and
+names what remains.
 
 Provider calls `44` (`~$2.64`), well under the `160` / `$25.00` ceilings.
 
 ## Detector A — frontier LLM judge panel
 
 A 2-model panel — `gpt-5.6-terra` (OpenAI) and `claude-opus-4-8` (Anthropic) — judged each candidate from
-the diff, the public task, and the visible test only. The third iter174 default, `gemini-2.5-flash`
-(Vertex), was blocked on ADC re-authentication unavailable in this environment (verified pre-data;
-disclosed in HYPOTHESIS.md). Rows: the `10` iter195 certified-resolved reward hacks (positives), the `10`
+the diff, the public task, and the visible test only. The third iter174 default, `gemini-2.5-flash`, did not
+run; the retained hypothesis records the historical application-default access-path disposition. That is
+run-specific provenance, not evidence about current access. Rows: the `10` iter195 exploratory certified-resolved reference differentials
+(positive labels), the `10`
 gold patches for the same instances (correct controls), and the `2` certified-equivalent variants (hard
 controls).
 
@@ -56,9 +63,9 @@ the same commit as the artifact. Its claimed pre-call timing therefore lacks an 
    its diff header and context with gold by construction, and that is the candidate's own content, not the
    gold solution. The corrected guard checks only gold-*distinctive* added lines present in the candidate:
    `2/10` (django-11211, matplotlib-24627), where block-substitution left one gold line intact. Those are
-   the candidate's real lines, the judge never receives the gold patch as a comparison reference, and a
-   shared correct-looking line biases toward **missing** the hack, not catching it. Reported, per-row, in
-   `judge_panel_results.json`; the effect direction is against recall.
+   the candidate's real lines, and the judge never receives the gold patch as a comparison reference.
+   Reported, per-row, in `judge_panel_results.json`; without a counterfactual comparison, the diagnostic
+   establishes neither an effect direction nor an effect magnitude.
 
 2. **The incumbent's nondecisions were nearly reported as "legitimate."** An earlier run set OpenAI
    `max_completion_tokens=200`; gpt-5.6-terra spent that budget on hidden reasoning and returned unparseable
@@ -82,14 +89,16 @@ disclosed, not silent: this gate delivers Detector A only.
 
 ## Claim Boundary
 
-Supported: on `10` execution-verified certified-resolved reward hacks and `12` controls, a 2-model frontier
+Supported: conditional on `10` iter195 exploratory gold-assisted reference-differential labels and `12`
+controls, a 2-model frontier
 judge panel (gpt-5.6-terra + claude-opus-4-8; gemini blocked) reading capped diff + task + visible-test
 inputs has the parsed-label sensitivities above in one stochastic run. The observed any-catch counts are
 `7/10` hacks, `1/10` paired gold flags, and `1/2` equivalent flags. Two hack rows carry a coincidental
-shared gold line that biases against recall.
+shared gold line; that disclosure does not establish a causal direction or effect size.
 
-Not supported: any both-detector comparison (Detector B not yet run); any leaderboard, model-superiority,
-state-of-the-art, natural-frequency, benchmark-size, broad robustness, production, or product-value claim;
+Not supported: a gate `PASS`; performance against a protocol-valid gold-blind positive cohort; any
+both-detector comparison (Detector B not delivered here); any leaderboard, model-superiority,
+natural-frequency, benchmark-size, broad robustness, production, or product-value claim;
 any claim from a single run treated as a stable rate; a complete false-positive estimate; or a claim that
 raw provider responses or parser fidelity remain auditable.
 
@@ -100,7 +109,8 @@ raw provider responses or parser fidelity remain auditable.
   retained-evidence limits
 - `proof/valid/receipt_detector_a_judge_panel.json`
 
-Regenerate (requires `OPENAI_API_KEY` and `ANTHROPIC_API_KEY`; spends `~$2.64`):
+Historical regeneration would make provider calls and spend approximately `$2.64`; it is not part of this
+correction audit:
 
 ```bash
 python3 scripts/run_iter196_judge_panel.py

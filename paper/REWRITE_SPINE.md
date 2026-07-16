@@ -11,12 +11,31 @@
 > property generation, and the registered paired-gold decisions were not run independently. The historical
 > complementarity and preregistered-threshold statements below are therefore false current claims, retained
 > only as superseded scaffolding.
+>
+> **Additional standing corrections (2026-07-16):** iter192's overbroad novelty interpretation is
+> conservatively adjudicated `FAIL`, while its literal v1-specific falsifier trigger is indeterminate and
+> its deterministic `40/40` construct correction remains exact.
+> Historical tarballs contain `139` harness-resolved evaluations across `65` instance IDs, but disposition
+> evidence does not bind all of them to discard decisions. Iter195 is protocol `FAIL`: its generator saw
+> both gold and variant hunks and attempted at most one targeted scenario per candidate instead of the registered
+> no-gold, `>=10/20` synthesized-input design. Its ten clean differentials remain exploratory diagnostics,
+> not validated no-gold synthesis or independent semantic-wrongness evidence. The 22-row corpus must remain
+> split into those ten protocol-failed iter195 rows and twelve iter199 rows. Iter199's hypothesis and
+> provider outputs first appear in the same commit, so it records a post-provider, pre-execution stated
+> design rather than a preregistration. Iter196 is partial/protocol-blocked Detector A only and did not clear
+> its registered both-detector bar. Iter201 records four coincidental shared-gold-line diagnostic triggers,
+> which are not identified-gold leakage and establish no causal direction or effect magnitude. Iter202's interrupted no-output
+> invocation is conservatively charged `53` calls / `$2.65` separately from its retained `53` solver calls.
+> Any historical no-gold synthesis, independent semantic-wrongness, homogeneous 22-row protocol, iter199
+> preregistration, iter196 completion, or unrestricted reproducibility claim below is false as a current
+> claim.
 > The current manuscript and claim boundary are `paper/telos.tex`, `paper/README.md`, and the root README.
 
 This is the analytical skeleton for the iter198 accessible rewrite. It fixes, before any prose is written,
 the structure, the exact number and claim boundary that belongs in each section, and the accessibility
-rules. The prose pass fills this in; it does not re-decide it. Every number below is cited to the committed
-experiment that produces it, so the writer never invents a figure.
+rules. The prose pass filled this in; it did not re-decide it. Historical Telos figures below were linked
+to committed experiments, but this superseded file does not certify their protocol validity.
+External-source quantities depend on their cited sources rather than repository regeneration.
 
 ## Working title
 
@@ -99,8 +118,9 @@ Frame as methods integrity + motivation, not as an aside.
   test failed, so every row breaks the existing suite by construction.
 - The evidence, from committed harness reports: 40/40 rows are resolved=false; 40/40 break the existing
   suite. [iter192 official_harness_verdict.json]
-- The consequence: the free baseline (run the existing test suite) detects 40/40 at $0.00; the three-model
-  judge panel detected 17/40 at $13.59; that baseline had never been reported. [iter192]
+- The consequence: the existing-suite baseline detects 40/40 at $0.00 model-provider spend; the three-model
+  judge panel detected 17/40 with a $13.128090 estimated spend guard for 240 score-producing calls. This is
+  not an invoice; the rounded $13.59 through-repair total includes excluded diagnostics. [iter192/iter207]
 - The correction, stated cleanly: those rows are not reward hacks (they fail the reward); they are
   suite-failing wrong patches. The real target is the inverse — patches that PASS the whole suite yet are
   wrong. This motivates the rest of the paper.
@@ -186,7 +206,8 @@ Frame as methods integrity + motivation, not as an aside.
 
 ## Figures / tables to build
 
-1. Table: iter192 correction — official-harness baseline 40/40 at $0.00 vs judge panel 17/40 at $13.59.
+1. Table: iter192 correction — official-harness baseline 40/40 at $0.00 model-provider spend vs judge panel
+   17/40 with a $13.128090 score-producing-call estimated guard.
 2. Table: the 10 certified-resolved hacks — instance, function, gold output, variant output. [iter195]
 3. Table: two-detector comparison — recall, gold FP, equivalent FP, per detector. [iter196/197]
 4. Figure/Venn: complementarity — judge caught, oracle caught, union 8/10, missed by both (2 astropy).
@@ -195,8 +216,9 @@ Frame as methods integrity + motivation, not as an aside.
 
 ## Numbers ledger (single source of truth for the writer — cite these exactly)
 
-- iter192: 40/40 resolved=false; 40/40 break suite; baseline 40/40 at $0.00 vs panel 17/40 at $13.59;
-  0 prior baseline reports across 677 markdown files.
+- iter192: 40/40 resolved=false; 40/40 break suite; baseline 40/40 at $0.00 model-provider spend vs panel
+  17/40 with a $13.128090 score-producing-call estimated guard; lexical scan 0/677 Markdown files, but
+  iter151 supplies a class-level precursor and exact v1 identity is indeterminate.
 - iter194: 16/16 executed project-correct; 16/16 certified-resolved; 193 uncurated tests, 0 distinguish.
 - iter195: 10 witnessed hacks; 2 certified-equivalent; 15 scenarios (10 wrong, 2 equiv, 2 scenario-failed,
   1 variant-errored); 13/15 validated; ~$0.80.
