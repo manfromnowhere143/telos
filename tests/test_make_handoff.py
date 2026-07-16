@@ -939,3 +939,69 @@ def test_iter209_handoff_rejects_wrong_source_branch() -> None:
 
     with pytest.raises(ValueError, match="source branch differs"):
         validate_handoff.iter209_declared_repository_state(wrong)
+
+
+def iter210_handoff_fixture(validate_handoff) -> tuple[str, dict[str, str]]:
+    runtime = "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+    publication = "experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md"
+    frozen = "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md"
+    contract = {
+        "active_gate": runtime,
+        "active_publication_gate": publication,
+        "frozen_upstream_gate": frozen,
+    }
+    handoff = f"""# HANDOFF
+
+{validate_handoff.REPOSITORY_DECLARATION}
+
+## Repository State
+
+```text
+handoff_schema: {validate_handoff.ITER210_HANDOFF_SCHEMA}
+source_branch: {validate_handoff.ITER210_BRANCH}
+source_commit: {"a" * 40}
+predecessor_seal: {validate_handoff.ITER210_PREDECESSOR_SEAL}
+publication_target: master
+```
+
+Active gate: `{runtime}`
+Active publication gate: `{publication}`
+Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `{frozen}`
+
+Local recovery status: **PASS; fresh publication seal pending**.
+The failed iter209 branch remains unchanged.
+No provider request, GPU run, scientific container run, workflow dispatch, release, or scientific execution is authorized.
+Merge requires green non-scientific push and pull-request CI at the unchanged iter210 seal tip.
+The receipt proves byte identity, not authorship, external chronology, or semantic truth.
+
+```bash
+python3 scripts/build_iter210_receipt.py --check
+python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py
+python3 scripts/validate_handoff.py
+pytest -q
+```
+"""
+    return handoff, contract
+
+
+def test_iter210_handoff_content_is_publication_only() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter210_handoff_fixture(validate_handoff)
+    assert validate_handoff.iter210_content_failures(handoff, contract) == []
+
+
+def test_iter210_handoff_rejects_dispatch_and_unrelated_workspace() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter210_handoff_fixture(validate_handoff)
+    unsafe = handoff + "\ngh workflow run iter207-execute.yml\n" + ("a" + "web")
+    failures = validate_handoff.iter210_content_failures(unsafe, contract)
+    assert "HANDOFF.md authorizes a workflow dispatch or rerun" in failures
+    assert "HANDOFF.md names an unrelated workspace" in failures
+
+
+def test_iter210_handoff_rejects_wrong_source_branch() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, _contract = iter210_handoff_fixture(validate_handoff)
+    wrong = handoff.replace(validate_handoff.ITER210_BRANCH, "agent/unrelated")
+    with pytest.raises(ValueError, match="source branch differs"):
+        validate_handoff.iter210_declared_repository_state(wrong)

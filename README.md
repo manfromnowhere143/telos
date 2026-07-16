@@ -5,17 +5,19 @@
 > **Publication CI recovery PASS locally — fresh seal pending.** Iter208 corrected the unsupported paper
 > direction, weak legacy receipt binding, active Aweb-era field name, hard-coded cloud locator, release
 > metadata, and missing 2026 related work. Its exact sealed publication attempt then exposed two
-> non-scientific CI defects and was not merged. Iter209 preserves that failed attempt and fixes only the
-> historical-hash and pull-request-test validators. No provider run, GPU run, scientific container,
+> non-scientific CI defects and was not merged. Iter209 fixed both; its push CI passed, while PR CI exposed
+> one synthetic-merge topology assumption in the new guard. Iter210 preserves both failed publication
+> attempts and fixes that PR-only branch-tip resolution. No provider run, GPU run, scientific container,
 > workflow dispatch, or scientific execution is authorized. Merge remains conditional on a fresh exact
 > source/handoff seal, independent review, and green push and pull-request CI.
 
 Read the [forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
 [2026 roadmap](docs/TELOS-ROADMAP-2026.md) before extending the experiment line.
-The preserved predecessor is the
-[iter208 post-seal forensic correction](experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md).
+The preserved predecessors are the
+[iter208 post-seal forensic correction](experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md)
+and [iter209 publication CI recovery](experiments/iter209_publication_ci_recovery/HYPOTHESIS.md).
 The active publication-recovery gate is
-[iter209 publication CI recovery](experiments/iter209_publication_ci_recovery/HYPOTHESIS.md).
+[iter210 PR synthetic-merge recovery](experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md).
 
 ## Current result
 
@@ -199,11 +201,11 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 sealed local<br/>claim corrections<br/>no publication"]-->I208["208 sealed<br/>remote CI failed<br/>no scientific run"]-->I209["209 CI recovery<br/>local PASS<br/>fresh seal pending"]
+ I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 sealed local<br/>claim corrections<br/>no publication"]-->I208["208 sealed<br/>remote CI failed<br/>no scientific run"]-->I209["209 sealed<br/>push green; PR failed<br/>no scientific run"]-->I210["210 PR recovery<br/>local PASS<br/>fresh seal pending"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef active fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
- class I203,I204,I205,I206,I207,I208 null;
- class I209 active;
+ class I203,I204,I205,I206,I207,I208,I209 null;
+ class I210 active;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows
@@ -409,8 +411,9 @@ records the local pre-publication claim-integrity null: the sealed gate made no 
 change and contributes no `N`, `k`, or `u`. Its immutable terminal evidence is predecessor provenance for
 [`iter207_claim_integrity_and_admission_recovery`](experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md),
 the sealed, separately versioned correction and admission-recovery baseline. Iter208 is the sealed
-post-seal forensic correction whose first publication CI failed for two validator defects. Iter209 is the
-active additive publication-CI recovery. Neither iter208 nor iter209 contributes a scientific result.
+post-seal forensic correction whose first publication CI failed for two validator defects. Iter209 fixed
+those defects and passed push CI, but its PR CI exposed a synthetic-merge topology error. Iter210 is the
+active additive PR recovery. Iter208 through iter210 contribute no scientific result.
 
 `experiments/iter200_natural_certified_yet_wrong_rate/` asks `gpt-5.6-terra` to fix issues with no instruction
 to game tests. It is exploratory rather than a preregistered frequency estimate. The prompt is
@@ -1463,7 +1466,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, forensic audit, related work, roadmap, and synthesis reports
-experiments/               one folder per experiment (iter00-iter209), including explicit fail/null/pre-result states
+experiments/               one folder per experiment (iter00-iter210), including explicit fail/null/pre-result states
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
@@ -1511,6 +1514,8 @@ python3 scripts/validate_iter207_runtime_recovery.py
 python3 scripts/validate_iter208_post_seal_forensic_correction.py
 python3 scripts/build_iter209_receipt.py --check
 python3 scripts/validate_iter209_publication_ci_recovery.py
+python3 scripts/build_iter210_receipt.py --check
+python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

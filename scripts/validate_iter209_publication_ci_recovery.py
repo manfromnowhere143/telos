@@ -14,11 +14,21 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.build_iter209_receipt import BINDINGS, RECEIPT_PATH  # noqa: E402
-from telos.proof import ProofValidationError, load_receipt_v2  # noqa: E402
+from scripts.build_iter209_receipt import (  # noqa: E402
+    BINDINGS,
+    RECEIPT_PATH,
+    verify_sealed_receipt,
+)
+from telos.proof import (  # noqa: E402
+    ProofValidationError,
+    load_receipt_v2,
+    validate_receipt_v2,
+)
 
 
 ITER208_SEAL_COMMIT = "a2c2863cf993cb6dd39d2fada8d58e4796929120"
+ITER209_SOURCE_COMMIT = "1659670c6c13758cc9b1840e87633a627444ca39"
+ITER209_SEAL_COMMIT = "91f9258730bf5520d86c9235d7ed2f03724ea103"
 ITER209_PREFIX = "experiments/iter209_publication_ci_recovery/"
 HYPOTHESIS = ROOT / f"{ITER209_PREFIX}HYPOTHESIS.md"
 RESULT = ROOT / f"{ITER209_PREFIX}RESULT.md"
@@ -61,22 +71,49 @@ def _json(path: Path) -> dict[str, Any]:
     return value
 
 
+def validation_target() -> str:
+    """Use the exact iter209 seal whenever HEAD contains that public history."""
+
+    result = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", ITER209_SEAL_COMMIT, "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    return ITER209_SEAL_COMMIT if result.returncode == 0 else "HEAD"
+
+
 def validate_predecessor_and_experiment_delta() -> None:
-    _git("merge-base", "--is-ancestor", ITER208_SEAL_COMMIT, "HEAD")
+    target = validation_target()
+    _git("merge-base", "--is-ancestor", ITER208_SEAL_COMMIT, target)
+    if target == ITER209_SEAL_COMMIT:
+        _require(
+            _git("rev-list", "--parents", "-n", "1", ITER209_SOURCE_COMMIT).split()
+            == [ITER209_SOURCE_COMMIT, ITER208_SEAL_COMMIT],
+            "iter209 sealed source topology differs",
+        )
+        _require(
+            _git("rev-list", "--parents", "-n", "1", ITER209_SEAL_COMMIT).split()
+            == [ITER209_SEAL_COMMIT, ITER209_SOURCE_COMMIT],
+            "iter209 handoff-seal topology differs",
+        )
     changed = set(
         _git(
             "diff",
             "--name-only",
             "--diff-filter=ACMRTUXB",
             ITER208_SEAL_COMMIT,
-            "HEAD",
+            target,
             "--",
             "experiments",
         ).splitlines()
     )
-    changed.update(
-        _git("ls-files", "--others", "--exclude-standard", "--", "experiments").splitlines()
-    )
+    if target == "HEAD":
+        changed.update(
+            _git(
+                "ls-files", "--others", "--exclude-standard", "--", "experiments"
+            ).splitlines()
+        )
     unauthorized = sorted(path for path in changed if path and not path.startswith(ITER209_PREFIX))
     _require(
         not unauthorized,
@@ -130,13 +167,20 @@ def validate_diagnosis_and_fixes() -> None:
 
 def validate_receipt_and_source_closure() -> None:
     try:
-        receipt = load_receipt_v2(RECEIPT_PATH, artifact_root=ROOT)
+        if validation_target() == ITER209_SEAL_COMMIT:
+            verify_sealed_receipt()
+            receipt = validate_receipt_v2(_json(RECEIPT_PATH))
+        else:
+            receipt = load_receipt_v2(RECEIPT_PATH, artifact_root=ROOT)
     except (OSError, ProofValidationError) as exc:
         raise Iter209ValidationError(f"iter209 receipt does not verify: {exc}") from exc
     bound = {item["artifact"]["path"] for item in receipt.evidence}
     _require(bound == set(BINDINGS), "iter209 receipt binding set differs")
+    target = validation_target()
     delta = set(
-        _git("diff", "--name-only", "--no-renames", ITER208_SEAL_COMMIT, "HEAD").splitlines()
+        _git(
+            "diff", "--name-only", "--no-renames", ITER208_SEAL_COMMIT, target
+        ).splitlines()
     )
     source_delta = delta - {"HANDOFF.md", RECEIPT_RELATIVE}
     _require(source_delta == set(BINDINGS), "iter209 receipt does not cover the exact source delta")
@@ -145,8 +189,8 @@ def validate_receipt_and_source_closure() -> None:
             "diff",
             "--name-status",
             "--no-renames",
-            "HEAD^",
-            "HEAD",
+            f"{target}^",
+            target,
         ).splitlines()
         _require(status == ["M\tHANDOFF.md"], "iter209 handoff seal changes more than HANDOFF.md")
 

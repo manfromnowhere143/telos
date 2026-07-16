@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 from scripts import audit_receipt_schema_prompt_alignment as iter65_audit
+from scripts import build_iter209_receipt as iter209_receipt
 from scripts import validate_iter208_post_seal_forensic_correction as iter208_guard
 from scripts import validate_iter209_publication_ci_recovery as iter209_guard
 
@@ -37,3 +38,9 @@ def test_iter209_diagnosis_records_zero_scientific_actions() -> None:
     assert actions
     assert set(actions.values()) == {0}
     assert diagnosis["scientific_effect"] == "none"
+
+
+def test_iter209_descendants_validate_the_exact_public_seal() -> None:
+    assert iter209_guard.validation_target() == iter209_guard.ITER209_SEAL_COMMIT
+    assert iter209_receipt.sealed_descendant() is True
+    assert iter209_receipt.verify_sealed_receipt() == 17

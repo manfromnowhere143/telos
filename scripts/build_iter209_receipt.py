@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
+import subprocess
 import sys
 
 
@@ -18,6 +20,7 @@ from telos.proof import (  # noqa: E402
     evidence_closure_digest,
     load_receipt_v2,
     receipt_v2_digest,
+    validate_receipt_v2,
 )
 
 
@@ -25,6 +28,8 @@ RECEIPT_PATH = (
     ROOT / "experiments/iter209_publication_ci_recovery/proof/receipt_v2.json"
 )
 PRODUCER = "iter209-publication-ci-recovery"
+ITER209_SOURCE_COMMIT = "1659670c6c13758cc9b1840e87633a627444ca39"
+ITER209_SEAL_COMMIT = "91f9258730bf5520d86c9235d7ed2f03724ea103"
 BINDINGS = {
     ".github/workflows/ci.yml": "build",
     "README.md": "artifact",
@@ -109,18 +114,69 @@ def rendered_receipt() -> str:
     return json.dumps(build_receipt(), indent=2, ensure_ascii=False) + "\n"
 
 
+def _git_bytes(*arguments: str) -> bytes:
+    result = subprocess.run(
+        ["git", *arguments],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        diagnostic = result.stderr.decode("utf-8", errors="replace").strip()
+        raise RuntimeError(f"git command failed: {' '.join(arguments)}: {diagnostic}")
+    return result.stdout
+
+
+def sealed_descendant() -> bool:
+    result = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", ITER209_SEAL_COMMIT, "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    return result.returncode == 0
+
+
+def verify_sealed_receipt() -> int:
+    relative_receipt = RECEIPT_PATH.relative_to(ROOT).as_posix()
+    payload = _git_bytes("show", f"{ITER209_SOURCE_COMMIT}:{relative_receipt}")
+    if RECEIPT_PATH.read_bytes() != payload:
+        raise RuntimeError("iter209 receipt differs from its sealed source Git blob")
+    receipt = validate_receipt_v2(json.loads(payload.decode("utf-8")))
+    for item in receipt.evidence:
+        artifact = item["artifact"]
+        artifact_payload = _git_bytes(
+            "show", f"{ITER209_SOURCE_COMMIT}:{artifact['path']}"
+        )
+        if len(artifact_payload) != artifact["bytes"] or (
+            hashlib.sha256(artifact_payload).hexdigest() != artifact["sha256"]
+        ):
+            raise RuntimeError(
+                f"iter209 sealed artifact differs from receipt: {artifact['path']}"
+            )
+    return len(receipt.evidence)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    rendered = rendered_receipt()
     if args.check:
+        if sealed_descendant():
+            count = verify_sealed_receipt()
+            print(f"iter209 receipt builder: clean sealed {count}-artifact closure")
+            return 0
+        rendered = rendered_receipt()
         if not RECEIPT_PATH.is_file() or RECEIPT_PATH.read_text(encoding="utf-8") != rendered:
             print("iter209 receipt builder: committed receipt differs")
             return 1
         load_receipt_v2(RECEIPT_PATH, artifact_root=ROOT)
         print(f"iter209 receipt builder: clean {len(BINDINGS)}-artifact closure")
         return 0
+    if sealed_descendant():
+        print("iter209 receipt builder: refusing to rewrite sealed descendant")
+        return 1
+    rendered = rendered_receipt()
     RECEIPT_PATH.parent.mkdir(parents=True, exist_ok=True)
     RECEIPT_PATH.write_text(rendered, encoding="utf-8")
     print(f"iter209 receipt builder: wrote {len(BINDINGS)}-artifact closure")
