@@ -532,3 +532,44 @@ def test_guard_fires_if_l4_is_dropped_entirely() -> None:
     ]
     with pytest.raises(guard.Iter219ValidationError, match="L4 must remain disclosed|must remain disclosed"):
         guard.check_amendment(tampered)
+
+
+# --------------------------------------------------------------------------- #
+# Work-directory lock: two instruments racing corrupts clones silently.
+# --------------------------------------------------------------------------- #
+
+import os as _os  # noqa: E402
+
+from scripts.measure_iter219_temporal_yield import WorkDirLock  # noqa: E402
+
+
+def test_lock_refuses_a_second_live_instrument(tmp_path) -> None:
+    first = WorkDirLock(tmp_path)
+    first.acquire()
+
+    second = WorkDirLock(tmp_path)
+    with pytest.raises(RuntimeError, match="already running"):
+        second.acquire()
+
+    first.release()
+    second.acquire()  # released locks are reusable
+    second.release()
+
+
+def test_lock_ignores_a_stale_pid_from_a_dead_run(tmp_path) -> None:
+    # A killed run leaves its lock behind.  A dead holder must never block forever.
+    (tmp_path / ".instrument.lock").write_text("999999")
+
+    lock = WorkDirLock(tmp_path)
+    lock.acquire()
+    assert (tmp_path / ".instrument.lock").read_text() == str(_os.getpid())
+    lock.release()
+
+
+def test_lock_ignores_a_corrupt_lock_file(tmp_path) -> None:
+    (tmp_path / ".instrument.lock").write_text("not-a-pid")
+
+    lock = WorkDirLock(tmp_path)
+    lock.acquire()
+    lock.release()
+    assert not (tmp_path / ".instrument.lock").exists()

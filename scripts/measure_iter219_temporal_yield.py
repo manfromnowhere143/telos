@@ -20,6 +20,7 @@ import argparse
 import ast
 import hashlib
 import json
+import os
 import re
 import subprocess
 import sys
@@ -224,6 +225,44 @@ def fetch_dataset(cache: Path) -> dict[str, Any]:
 # --------------------------------------------------------------------------- #
 # Stage 2 — repository clones
 # --------------------------------------------------------------------------- #
+
+
+class WorkDirLock:
+    """Refuse to run two instruments against one work directory.
+
+    Killing this script does not kill the ``git clone`` children it spawned.  An orphaned
+    clone keeps writing into the same staging path while a fresh run deletes that path,
+    which destroys git's temporary pack mid-fetch and surfaces as the misleading
+    ``fatal: could not open .../tmp_pack_XXXX for reading``.  That looks exactly like a
+    network fault and is not one.  Refuse the race instead of debugging it twice.
+    """
+
+    def __init__(self, work: Path) -> None:
+        self.path = work / ".instrument.lock"
+
+    def _holder_alive(self) -> int | None:
+        try:
+            pid = int(self.path.read_text().strip())
+        except (OSError, ValueError):
+            return None
+        try:
+            os.kill(pid, 0)
+        except OSError:
+            return None
+        return pid
+
+    def acquire(self) -> None:
+        holder = self._holder_alive()
+        if holder is not None:
+            raise RuntimeError(
+                f"another iter219 instrument is already running as pid {holder}; "
+                f"stop it and remove any orphaned 'git clone' children before retrying"
+            )
+        self.path.write_text(str(os.getpid()))
+
+    def release(self) -> None:
+        if self._holder_alive() == os.getpid():
+            self.path.unlink(missing_ok=True)
 
 
 def _clone_one(repo: str, work: Path, attempts: int = 4) -> None:
@@ -783,7 +822,12 @@ def main() -> int:
 
     work = Path(args.work_dir)
     work.mkdir(parents=True, exist_ok=True)
-    report = measure(work, Path(args.out), args.limit)
+    lock = WorkDirLock(work)
+    lock.acquire()
+    try:
+        report = measure(work, Path(args.out), args.limit)
+    finally:
+        lock.release()
 
     primary = report["results_by_delta"][str(PRIMARY_DELTA)]
     print()
