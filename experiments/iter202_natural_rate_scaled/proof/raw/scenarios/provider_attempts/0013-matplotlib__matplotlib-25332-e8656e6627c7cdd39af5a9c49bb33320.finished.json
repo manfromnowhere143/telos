@@ -1,0 +1,31 @@
+{
+  "attempt_id": "e8656e6627c7cdd39af5a9c49bb33320",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "matplotlib__matplotlib-25332",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 602,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 512,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 964,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1566
+    }
+  },
+  "raw_response": "```python\nimport matplotlib\n\nmatplotlib.use(\"Agg\")\n\nfrom matplotlib.cbook import Grouper\n\n\nclass Item:\n    pass\n\n\nitem = Item()\ngrouper = Grouper([item])\noriginal_dict = grouper.__dict__\nstate = grouper.__getstate__()\ngrouper.__setstate__(state)\n\nprint(f\"RESULT={original_dict is grouper.__dict__!r}\")\n```",
+  "raw_response_sha256": "06fa83e21999b01f6b922e8e079b9f223067f518a5c14487821f471aaf790068",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 13,
+  "started_record_sha256": "17dec2ee724fad50c9a45525be439d88475143d96eb7f268ddba75d98fffeac1"
+}

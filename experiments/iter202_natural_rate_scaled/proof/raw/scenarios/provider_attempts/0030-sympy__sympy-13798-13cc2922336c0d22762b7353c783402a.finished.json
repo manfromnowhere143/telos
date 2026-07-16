@@ -1,0 +1,31 @@
+{
+  "attempt_id": "13cc2922336c0d22762b7353c783402a",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-13798",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1449,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1384,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 1048,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 1045,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2497
+    }
+  },
+  "raw_response": "```python\nfrom sympy.printing.latex import LatexPrinter\n\nprinter = LatexPrinter({\"mul_symbol\": r\"\\,\"})\nprint(\"RESULT=\" + repr(printer._settings[\"mul_symbol_latex_numbers\"]))\n```",
+  "raw_response_sha256": "4771c0478c42b5093608aaedce142e8dea7b882631b2196d85edf0e761cd49ec",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 30,
+  "started_record_sha256": "3df685a7fa560fb9d0a1e39aefb65903eb1f774f0029cc063cb2a59a827ed86e"
+}

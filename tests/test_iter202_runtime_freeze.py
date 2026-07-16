@@ -12,15 +12,30 @@ from scripts import validate_iter202_runtime_freeze as freeze
 
 @pytest.fixture(scope="module")
 def expected_manifest() -> dict:
-    return freeze.build_manifest()
+    # The iter202 runtime manifest is a pre-provider freeze.  Its retained provider
+    # corpus now intentionally makes the original batch-level semantic check fail
+    # closed, so reconstruct the immutable source closure without pretending the
+    # post-provider scenario set is execution-admissible.
+    return freeze._assemble_manifest(freeze._file_records(freeze.ROOT))
 
 
-def test_committed_runtime_manifest_reproduces() -> None:
-    assert freeze.validate_committed_manifest() == []
+def test_committed_runtime_manifest_is_preserved_and_now_fails_closed() -> None:
+    committed = freeze.load_json_strict(freeze.MANIFEST)
+    expected = freeze._assemble_manifest(freeze._file_records(freeze.ROOT))
+
+    assert freeze.sha256(freeze.MANIFEST.read_bytes()) == (
+        "dd935a6f5873940fca5768891bb74a6cc635ef86bb65cdf493dd2a8ffe043868"
+    )
+    assert freeze.manifest_errors(committed, expected) == []
+    with pytest.raises(
+        freeze.RuntimeFreezeError,
+        match="iter202 scenario/container safety invalid: status=invalid",
+    ):
+        freeze.validate_committed_manifest()
 
 
 def test_runtime_manifest_is_deterministic_and_canonical(expected_manifest: dict) -> None:
-    second = freeze.build_manifest()
+    second = freeze._assemble_manifest(freeze._file_records(freeze.ROOT))
     assert second == expected_manifest
     assert freeze.MANIFEST.read_bytes() == freeze.rendered_manifest_bytes(second)
     assert [row["path"] for row in second["files"]] == sorted(

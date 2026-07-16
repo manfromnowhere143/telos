@@ -1,0 +1,31 @@
+{
+  "attempt_id": "0f0ca5e5bcf7db24a1b06f932d1bd715",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-16766",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1427,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1310,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 746,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2173
+    }
+  },
+  "raw_response": "```python\nfrom sympy import Integer, Symbol\nfrom sympy.printing.pycode import PythonCodePrinter\n\n\nclass Args:\n    def __getitem__(self, key):\n        return (Symbol(\"p\"), Integer(0))[key]\n\n    def __iter__(self):\n        return iter((Symbol(\"q\"), Integer(1)))\n\n\nclass Indexed:\n    args = Args()\n\n\nresult = PythonCodePrinter().doprint(Indexed())\nprint(\"RESULT={!r}\".format(result))\n```",
+  "raw_response_sha256": "816918856ab0f458d909c03cb8cec3035bad91a1bdb978112500d73592e30fd5",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 35,
+  "started_record_sha256": "efffe144689f50567e959da3e53bb1368b94716c3574983dbbf11fb6937f7e8b"
+}

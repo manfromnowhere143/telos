@@ -1,0 +1,31 @@
+{
+  "attempt_id": "cb8d466fab9e5c4de2456f3fbf887115",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-15017",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1106,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1023,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 851,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1957
+    }
+  },
+  "raw_response": "```python\nfrom sympy.tensor.array.dense_ndim_array import ImmutableDenseNDimArray\n\nclass FalseShape(tuple):\n    def __bool__(self):\n        return False\n\na = ImmutableDenseNDimArray._new([1, 2], FalseShape((2,)))\nprint(\"RESULT=\" + repr(len(a)))\n```",
+  "raw_response_sha256": "3244acc20643b9b9c8a0a43d4b542e541997a7dbb548c9b6f41a1cd5dc0c707c",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 33,
+  "started_record_sha256": "a789d9820e2af9f62a42f2e16d9910b936c4e0955c6acdf3c4a39df2cbaf7bd0"
+}

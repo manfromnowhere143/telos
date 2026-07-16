@@ -1,0 +1,31 @@
+{
+  "attempt_id": "97cc61dfb5585107fc1c9b4230f12707",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-11555",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 2766,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 2560,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 728,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 3494
+    }
+  },
+  "raw_response": "```python\nfrom django.conf import settings\n\nsettings.configure(\n    SECRET_KEY=\"x\",\n    INSTALLED_APPS=[],\n    DATABASES={\n        \"default\": {\n            \"ENGINE\": \"django.db.backends.sqlite3\",\n            \"NAME\": \":memory:\",\n        }\n    },\n    DEFAULT_AUTO_FIELD=\"django.db.models.AutoField\",\n)\n\nimport django\n\ndjango.setup()\n\nfrom django.db import connection, models\n\n\nclass Parent(models.Model):\n    value = models.IntegerField()\n\n    class Meta:\n        app_label = \"repro\"\n        ordering = [models.F(\"value\").asc()]\n\n\nclass Child(Parent):\n    class Meta:\n        app_label = \"repro\"\n\n\ncompiler = Child.objects.all().query.get_compiler(connection=connection)\nresult = compiler.find_ordering_name(\"parent_ptr\", Child._meta)\nprint(\"RESULT=\" + repr(result))\n```",
+  "raw_response_sha256": "1a2b09f8ef2e1cca31b8c18576853958667c807ab983c6bccb3fdf7382da12a8",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 1,
+  "started_record_sha256": "92e90560b4bd0afcf83e4e03769dc1fa4ead574ae3fde017628fd5b4a872a4e6"
+}

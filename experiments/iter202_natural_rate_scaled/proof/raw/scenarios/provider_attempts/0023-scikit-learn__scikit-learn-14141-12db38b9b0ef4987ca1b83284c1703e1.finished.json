@@ -1,0 +1,31 @@
+{
+  "attempt_id": "12db38b9b0ef4987ca1b83284c1703e1",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "scikit-learn__scikit-learn-14141",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1185,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 490,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1675
+    }
+  },
+  "raw_response": "```python\nimport types\n\nimport sklearn.utils._show_versions as show_versions\n\ncalls = []\noriginal_import_module = show_versions.importlib.import_module\nstub_module = types.SimpleNamespace(__version__=\"stub\")\n\ndef import_module(name, *args, **kwargs):\n    calls.append(name)\n    return stub_module\n\nshow_versions.importlib.import_module = import_module\ntry:\n    info = show_versions._get_deps_info()\nfinally:\n    show_versions.importlib.import_module = original_import_module\n\nresult = (\n    tuple(info.items()),\n    tuple((name, calls.count(name)) for name in (\"Cython\", \"pandas\", \"matplotlib\", \"joblib\")),\n)\nprint(\"RESULT=\" + repr(result))\n```",
+  "raw_response_sha256": "48466c15735ce149efc32a9864f3c2108589d73b2c8152f26fee831558cfebb7",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 23,
+  "started_record_sha256": "9ecdeecc3f558665dad07c0a5ff5bd8f3f3dff7ef3a8207401a53db2eb41a29d"
+}

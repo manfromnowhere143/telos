@@ -1,0 +1,31 @@
+{
+  "attempt_id": "278bcd22e5810aeafd1563e9ff0537f2",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sphinx-doc__sphinx-8638",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 2180,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 2048,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 810,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2990
+    }
+  },
+  "raw_response": "```python\nfrom docutils import nodes\nfrom sphinx import addnodes\nfrom sphinx.domains.python import PyObject\n\ndirective = PyObject.__new__(PyObject)\nfield = next(item for item in directive.doc_field_types if item.name == 'variable')\nresult = field.make_field(\n    {},\n    'py',\n    [('somename', [nodes.Text('description')])],\n)\nprint(f\"RESULT={(field.rolename, len(list(result.findall(addnodes.pending_xref))))!r}\")\n```",
+  "raw_response_sha256": "a5ade7c852287c46b45ca23c5efded68c3e9b70463b7c4bebfb0287a013940f3",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 26,
+  "started_record_sha256": "ec056e5241c28c9ae75699f0860969cc8f34cf5267968421c6bafd9ebf8132ff"
+}

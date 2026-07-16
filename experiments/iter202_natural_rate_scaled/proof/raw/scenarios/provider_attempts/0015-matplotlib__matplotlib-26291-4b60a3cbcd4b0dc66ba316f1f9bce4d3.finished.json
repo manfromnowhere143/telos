@@ -1,0 +1,31 @@
+{
+  "attempt_id": "4b60a3cbcd4b0dc66ba316f1f9bce4d3",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "matplotlib__matplotlib-26291",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 1150,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1024,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 788,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1938
+    }
+  },
+  "raw_response": "```python\nimport matplotlib\n\nmatplotlib.use(\"Agg\", force=True)\n\nimport matplotlib.pyplot as plt\nfrom mpl_toolkits.axes_grid1.inset_locator import inset_axes\n\nfig, ax = plt.subplots(figsize=(5.5, 2.8))\naxins = inset_axes(ax, width=1.3, height=0.9)\nfig.canvas.draw()\n\nlocator = axins.get_axes_locator()\nbbox = locator(axins, None)\n\nprint(\"RESULT=\" + repr(tuple(round(value, 6) for value in bbox.bounds)))\n```",
+  "raw_response_sha256": "0940542a2475ac53f104fe6b40f7b7fd6f62f3db87dab2a19961a88339da45f0",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 15,
+  "started_record_sha256": "959881aeaac937138c0b701e6a812f3416be64ec03c4c4c3581ee50c3b040512"
+}

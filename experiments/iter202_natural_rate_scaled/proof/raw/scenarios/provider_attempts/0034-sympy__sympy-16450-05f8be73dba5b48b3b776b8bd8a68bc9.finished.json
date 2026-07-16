@@ -1,0 +1,31 @@
+{
+  "attempt_id": "05f8be73dba5b48b3b776b8bd8a68bc9",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-16450",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 538,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 478,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 742,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1280
+    }
+  },
+  "raw_response": "```python\nfrom sympy import Symbol\nfrom sympy.simplify.simplify import posify\n\nx = Symbol(\"x\", integer=True)\nxp, _ = posify(x)\nprint(\"RESULT=\" + repr(xp.is_integer))\n```",
+  "raw_response_sha256": "b5ad89ce411d6c639f00172cd8ff6586f4dd099dd2457f9fe50e056eaec7a291",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 34,
+  "started_record_sha256": "4fc5d2847b3a74827ac92955ba763dc0e48dad665535f593143aee65434d318f"
+}

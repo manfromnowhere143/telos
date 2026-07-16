@@ -1,0 +1,31 @@
+{
+  "attempt_id": "2cd9ed7068262d6950e0030db5e27331",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-11964",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 581,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 512,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 722,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1303
+    }
+  },
+  "raw_response": "```python\nfrom django.db import models\n\nclass SampleChoice(models.TextChoices):\n    FIRST = \"first\", \"First\"\n\nobservable = (SampleChoice.values, str(SampleChoice.FIRST), SampleChoice.__str__.__doc__ is not None)\nprint(f\"RESULT={observable!r}\")\n```",
+  "raw_response_sha256": "f95cf3ca474eb06d5642dce10c7ba5856d24f8c4d702659ea9c8ec4a22006c56",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 4,
+  "started_record_sha256": "20acf53236741982ebe618caeaed5ed509141c0376489965377f891605c947b6"
+}

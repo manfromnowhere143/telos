@@ -108,11 +108,14 @@ jobs:
       - name: Iter202 immutable-image guard
         run: python3 scripts/build_iter202_image_lock.py --check
 
-      - name: Iter202 generated-scenario safety guard
-        run: python3 scripts/validate_iter202_scenario_safety.py
+      - name: Iter203 sealed safety-recovery bridge guard
+        run: python3 scripts/build_iter203_safety_recovery.py --check
 
-      - name: Iter202 complete-runtime freeze guard
-        run: python3 scripts/validate_iter202_runtime_freeze.py --check
+      - name: Iter203 execution-runtime closure guard
+        run: python3 scripts/build_iter203_runtime_manifest.py --check
+
+      - name: Iter203 publication-safety guard
+        run: python3 scripts/validate_iter203_publication_safety.py --check
 
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py

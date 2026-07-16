@@ -1,0 +1,31 @@
+{
+  "attempt_id": "9b27380a666a8d9962b7c5bdd990c6d3",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-12143",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 174,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 130,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 559,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 733
+    }
+  },
+  "raw_response": "```python\n        pk_pattern = re.compile(\n            r\"{}-\\d+-{}$\".format(re.escape(prefix), self.model._meta.pk.name)\n        )\n```",
+  "raw_response_sha256": "578470196d1a23dc4f4d65f7de4bae826d2a9c8ad21cda34a22a37fa19c761a2",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 11,
+  "started_record_sha256": "d12ca2c0c5913e597f6f6bd63ecf5860e38172fd85737356cef9614f0ac75186"
+}

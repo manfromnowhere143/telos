@@ -1,0 +1,31 @@
+{
+  "attempt_id": "73295b4cf9fecf586f805ab66e2ddedd",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-14711",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 578,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 512,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 745,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1323
+    }
+  },
+  "raw_response": "```python\nfrom sympy.physics.vector import ReferenceFrame\n\nN = ReferenceFrame(\"N\")\nv = sum([N.x, 0 * N.x])\nh = v.__hash__()\nprint(\"RESULT=\" + repr((v == N.x, type(h).__name__)))\n```",
+  "raw_response_sha256": "300fde9e12fc13b8f874bf10f28fb9c64fd8d203edd01476d695d4180a9c90b5",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 31,
+  "started_record_sha256": "ba8905593ea0f5c595a71211669b80dae0ccb4a97302fc5aafbacfafd20fc7aa"
+}

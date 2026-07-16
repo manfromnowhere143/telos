@@ -1,0 +1,31 @@
+{
+  "attempt_id": "736ee41facead5e94d9bdfe824e748df",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-12276",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 611,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 491,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 828,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1439
+    }
+  },
+  "raw_response": "```python\nfrom django.conf import settings\n\nif not settings.configured:\n    settings.configure(\n        SECRET_KEY=\"test\",\n        INSTALLED_APPS=[],\n        DATABASES={\"default\": {\"ENGINE\": \"django.db.backends.sqlite3\", \"NAME\": \":memory:\"}},\n    )\n\nimport django\n\ndjango.setup()\n\nfrom django.forms.widgets import FileInput\n\nwidget = FileInput()\nvalue = widget.value_from_datadict({}, {}, \"upload\")\nrequired = widget.use_required_attribute(\"existing-file\")\nprint(\"RESULT=\" + repr((value, required)))\n```",
+  "raw_response_sha256": "c35fba6d356a4e89f999e7a04a29244b878c01795b9f96ee1450c9bacf979e9a",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 12,
+  "started_record_sha256": "25d99c6aff296b973f2e4289e6655899d766ec265cda770b25493bb5eb1d1b26"
+}

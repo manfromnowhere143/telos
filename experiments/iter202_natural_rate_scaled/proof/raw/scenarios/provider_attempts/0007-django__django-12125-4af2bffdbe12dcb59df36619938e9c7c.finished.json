@@ -1,0 +1,31 @@
+{
+  "attempt_id": "4af2bffdbe12dcb59df36619938e9c7c",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-12125",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 2032,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1865,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 776,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2808
+    }
+  },
+  "raw_response": "```python\nfrom django.db.migrations.serializer import TypeSerializer\n\n\nclass Probe:\n    def __init__(self):\n        self.name_was_read = False\n\n    def __getattribute__(self, name):\n        if name == \"__module__\":\n            return \"probe\"\n        if name == \"__name__\":\n            object.__setattr__(self, \"name_was_read\", True)\n            return \"fallback\"\n        if name == \"__qualname__\":\n            if object.__getattribute__(self, \"name_was_read\"):\n                return \"changed\"\n            return \"original\"\n        return object.__getattribute__(self, name)\n\n\nprint(\"RESULT=\" + repr(TypeSerializer(Probe()).serialize()))\n```",
+  "raw_response_sha256": "6e0979230da8970125dfd4ffb3d25eac32b1a6fdcdfe52ed0e4479c9cfac8435",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 7,
+  "started_record_sha256": "9a3de3dbde33bb2661e75c224f5fb4c181fe09be91a0c8b4291cd624ab081e77"
+}

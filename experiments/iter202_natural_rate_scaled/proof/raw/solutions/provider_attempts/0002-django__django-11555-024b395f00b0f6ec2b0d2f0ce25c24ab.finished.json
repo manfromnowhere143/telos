@@ -1,0 +1,31 @@
+{
+  "attempt_id": "024b395f00b0f6ec2b0d2f0ce25c24ab",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "django__django-11555",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 3718,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 3594,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 324,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 4042
+    }
+  },
+  "raw_response": "```python\n            for item in opts.ordering:\n                if isinstance(item, OrderBy):\n                    results.append((item.prefix_references(\n                        '%s%s' % (name, LOOKUP_SEP)), False))\n                else:\n                    results.extend(self.find_ordering_name(item, opts, alias,\n                                                           order, already_seen))\n            return results\n```",
+  "raw_response_sha256": "e9bcbef22b27bbfab33d67d65309ed9b24adef9c94c9e423c788bd84d84d4249",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 2,
+  "started_record_sha256": "7bf8ce25335c9011856579e847e7ada6fc58a33f4191cf343c4fcea0b5e4ff6e"
+}

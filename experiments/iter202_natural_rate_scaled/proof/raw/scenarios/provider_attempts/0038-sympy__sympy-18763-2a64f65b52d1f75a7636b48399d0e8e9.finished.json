@@ -1,0 +1,31 @@
+{
+  "attempt_id": "2a64f65b52d1f75a7636b48399d0e8e9",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "sympy__sympy-18763",
+  "outcome": "response",
+  "phase": "scenario_generation",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 412,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 358,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 821,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 1233
+    }
+  },
+  "raw_response": "```python\nfrom sympy import Subs, latex, symbols\n\nx, y = symbols(\"x y\")\nexpr = Subs(x*y, (x,), (1,))\nprint(\"RESULT=\" + repr(latex(expr)))\n```",
+  "raw_response_sha256": "83c339c15b0d91659ed942c07c8676db715642c332ceec376d2c932b1bfb4609",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 38,
+  "started_record_sha256": "da494881935d44f81dc8e829f4049773d8f42d3cbbc15c2a3922420917c94d07"
+}

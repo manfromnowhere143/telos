@@ -38,6 +38,24 @@ def test_workflow_guard_rejects_mutable_action_runner_and_permissions(tmp_path: 
     assert "top-level permissions must be exactly" in failures
 
 
+def test_workflow_guard_allows_only_iter203_read_only_actions_and_checks(
+    tmp_path: Path,
+) -> None:
+    guard = load_guard()
+    allowed = tmp_path / "iter203-execute.yml"
+    allowed.write_text(
+        "name: iter203\non: [workflow_dispatch]\npermissions:\n"
+        "  actions: read\n  checks: read\n  contents: read\njobs:\n"
+        "  authorize:\n    runs-on: ubuntu-24.04\n    steps:\n      - run: 'true'\n"
+    )
+    assert guard.validate_workflow(allowed) == []
+
+    ordinary = tmp_path / "ordinary.yml"
+    ordinary.write_text(allowed.read_text())
+    failures = "\n".join(guard.validate_workflow(ordinary))
+    assert "top-level permissions must be exactly" in failures
+
+
 def test_workflow_guard_structurally_rejects_flow_uses_matrix_runner_and_job_write(
     tmp_path: Path,
 ) -> None:

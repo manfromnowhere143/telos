@@ -1,0 +1,31 @@
+{
+  "attempt_id": "5ab58de8ecfc5f7cf992285ea8850f35",
+  "experiment_id": "iter202_natural_rate_scaled",
+  "instance_id": "matplotlib__matplotlib-25332",
+  "outcome": "response",
+  "phase": "neutral_solver",
+  "provider_usage": {
+    "status": "valid",
+    "value": {
+      "completion_tokens": 2014,
+      "completion_tokens_details": {
+        "accepted_prediction_tokens": 0,
+        "audio_tokens": 0,
+        "reasoning_tokens": 1882,
+        "rejected_prediction_tokens": 0
+      },
+      "prompt_tokens": 435,
+      "prompt_tokens_details": {
+        "audio_tokens": 0,
+        "cache_write_tokens": 0,
+        "cached_tokens": 0
+      },
+      "total_tokens": 2449
+    }
+  },
+  "raw_response": "```python\n    def __getstate__(self):\n        return {\n            **vars(self),\n            \"_mapping\": {\n                key(): [val() for val in vals]\n                for key, vals in self._mapping.items()\n            },\n        }\n\n    def __setstate__(self, state):\n        self.__dict__ = state\n        self._mapping = {\n            weakref.ref(key): [weakref.ref(val) for val in vals]\n            for key, vals in self._mapping.items()\n        }\n```",
+  "raw_response_sha256": "84fef4b0a19d43e8010c3f75374be230964d7ff8384c0480ca6430b4d81226f0",
+  "schema_version": "telos.iter202.provider_attempt.finished.v2",
+  "sequence": 17,
+  "started_record_sha256": "6c0aea23c68a6264c1c1c42f9fcfaa64cb55b9e16e67527959126fb216b11fbb"
+}

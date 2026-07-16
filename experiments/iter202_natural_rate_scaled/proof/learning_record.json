@@ -1,0 +1,15 @@
+{
+  "evidence_paths": [
+    "experiments/iter202_natural_rate_scaled/proof/raw/runtime_manifest.json",
+    "experiments/iter202_natural_rate_scaled/proof/raw/solutions/solve_summary.json",
+    "experiments/iter202_natural_rate_scaled/proof/raw/scenarios/scenarios_summary.json",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/safety_recovery_bridge/upstream_inventory.json",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/safety_recovery_bridge/scenario_disposition.json"
+  ],
+  "experiment_id": "iter202_natural_rate_scaled",
+  "insight": "The retained provider stages completed, but the frozen batch-level scenario-safety gate rejected 9 of 38 generated programs before any execution. Because the original runtime cannot represent row-level rejection without invalidating its sealed checkpoints, iter202 is a scenario-safety protocol/execution null with no N, k, or u. The scientifically valid recovery is additive: preserve every upstream byte, certify every valid patch, execute only byte-identical safety-admitted scenarios, and keep all missing evidence unresolved rather than negative.",
+  "next_action": "Commit and publish the separately identified iter203 recovery source through review; require green primary-branch CI; then dispatch the canonical iter203 workflow at most once, verify the complete same-attempt execution corpus, adjudicate all certified patches, and blind-judge only safe witnessed divergences.",
+  "result_path": "experiments/iter202_natural_rate_scaled/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null"
+}

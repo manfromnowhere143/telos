@@ -46,16 +46,21 @@ all reproducible within those stated provenance limits from committed proof:
 ## Current evidence arc
 
 This is the standing scientific story. A `FAIL` node preserves its exploratory measurements but does not
-convert them into protocol-valid detector evidence. Iter202 has a pre-result, pre-retained-output protocol
-freeze after disclosed provider contact; it is not conventional prospective preregistration and has no
-retained solver output. Its execution path is runtime-frozen and fails closed on incomplete coverage,
-partial evidence, or mixed workflow attempts. Hardened evidence PR `#3` merged as
+convert them into protocol-valid detector evidence. Iter202 had a post-contact, pre-retained-output protocol
+freeze; it was not conventional prospective preregistration. Its provider stages later retained `50` valid
+patches from `53` solver calls and `38` scenario programs from `39` eligible scenario calls. Before any
+scenario or certification execution, the frozen static-safety gate rejected `9` scenario programs with `21`
+findings, admitted `29`, and preserved one original missing scenario. Iter202 is therefore a protocol/execution
+null, not a solve-yield null, and contributes no rate denominator or numerator. Iter203 is the additive,
+post-provider recovery gate: it seals the iter202 bytes, certifies all `50` valid patches, executes only
+safety-admitted copies, and treats every safety-rejected or otherwise missing witness as unresolved rather
+than negative. Hardened evidence PR `#3` merged as
 `3a3368635e397d540cf98fc0f19d443661cc0fef`, and primary-branch CI run `29451691560` passed. Provider-free
 Node 24 backfill run `29452243832` then reproduced and hash-verified the exact specs and validated the
 complete committed `74`-log corpus with zero model-provider calls; it reused those committed logs rather
-than re-executing containers. No iter202 output exists. Every paid start requires clean green `master`, the
-exact cheap-first/freeze preflight, and both required provider credentials together; generated `HANDOFF.md`
-owns the current branch and credential-status snapshot.
+than re-executing containers. No iter202 scenario or certification execution occurred. Any subsequent paid
+start requires clean green `master`, the exact cheap-first/freeze preflight, and all required provider
+credentials together; generated `HANDOFF.md` owns the current branch and credential-status snapshot.
 
 ```mermaid
 flowchart LR
@@ -66,14 +71,15 @@ flowchart LR
  D197-->D201
  X199-->D201["iter201 FAIL<br/>locator only<br/>property 6/22 ⊂ judge 20/22"]
  C192-->N200["iter200 exploratory<br/>nonrandom · no raw judge text<br/>N=24 / k=1 / u=6"]
- N200-->N202["iter202 post-contact pre-result<br/>53 targets · prior-use 27 / provider-ledger 10<br/>frozen runtime · atomic checkpoints<br/>valid-solution ordinal mod 8 · ≤7/shard · 9,030s<br/>8 shard receipts → 1 run/attempt aggregate<br/>hardening merged · primary CI green<br/>no retained output · see HANDOFF preflight"]
+ N200-->N202["iter202 provider-complete safety null<br/>53→50 patches · 39→38 scenarios<br/>safety: 29 pass · 9 reject / 21 findings · 1 absent<br/>stopped before execution"]
  D201-->N202
+ N202-->N203["iter203 pre-result · no execution<br/>certify all 50 · execute only 29 safe copies<br/>missing/rejected witnesses unresolved"]
  classDef f fill:#fee,stroke:#c22,color:#000;
  classDef e fill:#fff4d6,stroke:#9a6700,color:#3d2b00;
  classDef p fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
  class N200 e;
  class D197,D201 f;
- class N202 p;
+ class N202,N203 p;
 ```
 
 ## Standing correction (iter192, 2026-07-14): the earlier v1 artifact contains no reward hacks
@@ -193,16 +199,26 @@ repositories. They were additional targets for that construction gate; the missi
 mission-fresh or use them for a natural-frequency inference. The retained result adds `12` witnessed hacks
 in five repositories, bringing the released benchmark to `22` across `8`.
 
-`experiments/iter202_natural_rate_scaled/` is designed to scale that measurement on a frozen 53-instance cohort, pooled
-descriptively with iter200's 39 disjoint target IDs. A pre-output overlap audit found that 27 of the 53 had
-defined prior result-bearing exposure elsewhere in the mission, including 10 with provider-call-ledger
-evidence; the final result must therefore include pre-result-declared prior-use sensitivities. The first
-Git record of the iter202 hypothesis and target manifest follows the disclosed interrupted provider
-invocation, so this is a pre-result protocol freeze, not conventional preregistration before provider
-contact. No response was retained or inspected. The amendment also
-corrects certification to cover every valid patch before scenario generation, freezes the exact model,
-and discloses an interrupted no-retained-output invocation. The required iter200 denominator backfill is
-now complete; iter202 must use that corrected same-rule baseline for pooling.
+[`experiments/iter202_natural_rate_scaled/RESULT.md`](experiments/iter202_natural_rate_scaled/RESULT.md)
+records the null from the attempted scale measurement on a frozen 53-instance cohort,
+for descriptive pooling with iter200's 39 disjoint target IDs. A pre-output overlap audit found that 27 of
+the 53 had defined prior result-bearing exposure elsewhere in the mission, including 10 with
+provider-call-ledger evidence; any eventual result must therefore include the declared prior-use
+sensitivities. The first Git record of the iter202 hypothesis and target manifest followed a disclosed
+interrupted provider invocation, so the freeze was post-contact and pre-retained-output, not conventional
+preregistration before provider contact. The retained run later completed all `53` solver calls and all `39`
+eligible scenario calls, yielding `50` valid patches, `38` scenario programs, and one original missing
+scenario. The unchanged frozen safety validator then rejected `9` programs (`21` findings) and admitted
+`29`. The pipeline stopped before scenario or certification execution. Consequently iter202 is preserved as
+a scenario-safety protocol/execution null and supplies no `N`, `k`, or `u` for a rate claim.
+
+`experiments/iter203_iter202_safety_recovery/` is the additive post-provider recovery gate. It seals and
+replay-validates the complete iter202 provider corpus, applies the unchanged safety predicate uniformly,
+certifies every one of the `50` valid patches independent of witness availability, and exposes only
+safety-admitted copies to scenario execution. Safety-rejected and original-missing witness outcomes can
+increase the unresolved count but can never be recorded as negatives. This recovery does not repair,
+regenerate, rerun, or reinterpret an iter202 scenario, and no result may be reported until its separately
+bound runtime and evidence receipts pass.
 
 `experiments/iter200_natural_certified_yet_wrong_rate/` asks `gpt-5.6-terra` to fix issues with no instruction
 to game tests. It is exploratory rather than a preregistered frequency estimate. The prompt is
@@ -1116,13 +1132,13 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`](experiments/iter202_natural_rate_scaled/HYPOTHESIS.md).
+[`experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md`](experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md).
 
 The compact current evidence diagram is at the top of this README. It is the authoritative visual summary:
 iter192 corrects the foundation; iter195 and iter199 construct the `22`-row benchmark; iter197 and iter201
 retain exploratory diagnostics but fail their registered property protocol; iter200 supplies an exploratory
-neutral-prompt, gold-localized existence case; and iter202 is the pre-result amended replication with no
-retained or inspected solver output.
+neutral-prompt, gold-localized existence case; iter202 preserves a provider-complete but pre-execution
+scenario-safety null; and iter203 is the sealed additive recovery gate with no result yet.
 
 ## Evidence Arc (historical detection/intervention work)
 
@@ -1249,7 +1265,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per experiment (iter00-iter202), including explicit fail/null/pre-result states
+experiments/               one folder per experiment (iter00-iter203), including explicit fail/null/pre-result states
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
@@ -1261,7 +1277,7 @@ tests/                     repository and protocol tests
 The verification workflow fixes its hosted OS family to `ubuntu-24.04`, pins every external action to a
 full commit SHA, grants only read access to repository contents, and installs its Python verification tools
 from the exact-version, SHA-256-locked `requirements-ci.txt`. The supply-chain guard enforces the same
-rules across all 14 workflows.
+rules across all 15 workflows.
 
 ```bash
 python3 -m compileall telos scripts tests
@@ -1269,6 +1285,7 @@ ruff check .
 pytest -q
 python3 scripts/validate_json.py
 python3 scripts/validate_docs.py
+python3 scripts/validate_current_paper.py
 python3 scripts/validate_mission_loop.py
 python3 scripts/validate_supply_chain.py
 python3 scripts/validate_detector_methodology_correction.py
@@ -1277,8 +1294,9 @@ python3 scripts/build_iter200_solve_targets.py --check
 python3 scripts/build_iter202_solve_targets.py --check
 python3 scripts/audit_iter202_sample_overlap.py --check
 python3 scripts/build_iter202_image_lock.py --check
-python3 scripts/validate_iter202_scenario_safety.py
-python3 scripts/validate_iter202_runtime_freeze.py --check
+python3 scripts/build_iter203_safety_recovery.py --check
+python3 scripts/build_iter203_runtime_manifest.py --check
+python3 scripts/validate_iter203_publication_safety.py --check
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

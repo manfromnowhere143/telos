@@ -9,10 +9,18 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 ## Current Boundary
 
 - Active gate:
-  [`../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`](../experiments/iter202_natural_rate_scaled/HYPOTHESIS.md)
-- Active gate state: pre-result amended neutral-prompt localized-solve replication with no retained or
-  inspected iter202 solver output. The first Git freeze followed the disclosed interrupted provider
-  invocation, so this is not conventional preregistration before provider contact. The iter200 prerequisite is complete: all
+  [`../experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md`](../experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md)
+- Frozen upstream disposition:
+  [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md)
+- Active gate state: post-provider, pre-execution safety recovery over sealed iter202 bytes. The retained
+  iter202 provider stages completed `53/53` solver calls and `39/39` eligible scenario calls, producing
+  `50` valid patches, `38` extracted scenarios, and one original missing scenario. Before any scenario or
+  certification execution, the frozen safety predicate returned `21` findings across `9` programs; `29`
+  programs had zero findings. Iter202 is therefore a scenario-safety protocol/execution null and has no
+  rate denominator or numerator. Iter203 preserves and replay-validates that null, certifies all `50`
+  patches, copies only the `29` safety-admitted scenarios into its execution view, and counts every
+  safety-rejected or otherwise missing witness as unresolved rather than negative. It is an additive
+  post-provider protocol, not a rewrite or conventional preregistration. The iter200 prerequisite is complete: all
   `37` valid patches have official-harness
   evidence, `24` are certified, `k=1`, and `u=6`; the standing descriptive quantities are `1/24`
   confirmed lower, `7/24` worst-case missing-outcome upper, and `1/18` complete-case sensitivity. The old
@@ -23,12 +31,13 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   PR `#3` merged as `3a3368635e397d540cf98fc0f19d443661cc0fef`, and primary-branch CI run `29451691560`
   passed. Provider-free Node 24 backfill run `29452243832` reproduced the exact specs and validated all `37`
   committed execution pairs in the complete `74`-log corpus with zero model-provider calls; it did not
-  re-execute the containers. No iter202 output exists. Every paid start requires clean green `master`, the
-  exact cheap-first/freeze preflight, and both required provider credentials together; generated
-  `HANDOFF.md` owns the current branch and credential-status snapshot. The frozen cohort
+  re-execute the containers. No iter202 scenario or certification execution occurred. Every paid start
+  requires clean green `master`, the exact cheap-first/freeze preflight, and all required provider
+  credentials together; generated `HANDOFF.md` owns the current branch and credential-status snapshot. The frozen cohort
   is disjoint from iter200 but not unused
   mission-wide (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the
-  pre-result-declared sensitivity splits remain mandatory. `CONTINUITY.md` is the exact resume authority.
+  pre-result-declared sensitivity splits remain mandatory. `CONTINUITY.md` remains an exact-byte frozen
+  iter202 upstream artifact; the active iter203 hypothesis and generated handoff govern recovery.
 - Standing detector correction: iter197 and iter201 are protocol `FAIL`, with retained exploratory
   diagnostics only. Both property prompts used candidate-diff-derived locators. Iter197 also violated its
   visible-anchor rule and omitted independent paired-gold decisions; iter201 explicitly registered gold
@@ -52,8 +61,9 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   hypothesis/output freeze is not independently timestamped in Git. Treat `1/24`, `7/24`, and `1/18` as
   exploratory descriptive sensitivities. Its blind-judge artifact retains parsed labels and derived
   booleans, not raw response text, so exact response substance and parser fidelity cannot be re-audited.
-  Iter202 is a pre-result protocol freeze after disclosed provider contact, not conventional prospective
-  preregistration.
+  Iter202 was a post-contact, pre-retained-output freeze whose provider stages later completed but whose
+  frozen safety gate stopped execution. Iter203 is a separately disclosed post-provider recovery, not
+  conventional prospective preregistration.
 - Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false

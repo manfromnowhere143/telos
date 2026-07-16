@@ -1,6 +1,6 @@
 # Telos paper (findings draft)
 
-> **Status: current through corrected iter200; iter202 remains pre-result; not yet submitted.** `telos.tex` reports the iter192
+> **Status: current through corrected iter200; iter202 is a safety null and iter203 remains pre-result; not yet submitted.** `telos.tex` reports the iter192
 > foundation correction and `22` execution-verified certified-resolved reward hacks across `8`
 > repositories. Iter197 and iter201 are protocol `FAIL`; their retained property counts are exploratory.
 > The accurate label is **locator-assisted, gold-validated property pipeline**, not an independently
@@ -21,15 +21,21 @@
 > image/exit provenance and are accepted through a frozen exact-byte corpus; the `20` backfill logs retain
 > stronger provenance markers. Iter200 retained parsed blind-judge labels and derived booleans, not raw
 > responses, so exact response substance and parser fidelity cannot be re-audited.
-> Iter202 has a pre-result, pre-retained-output protocol freeze after disclosed provider contact; it is not
-> conventional prospective preregistration. Its paid path is now bound to an exact-byte runtime manifest,
-> exact eight-shard certification, atomic attempt checkpoints, and one aggregate receipt from a single
-> repository/workflow/run/attempt/commit. Hardened evidence PR `#3` merged as
+> Iter202 had a post-contact, pre-retained-output protocol freeze and was not conventionally preregistered.
+> Its retained provider stages completed `53` solver and `39` scenario calls, producing `50` valid patches,
+> `38` scenario programs, and one original missing scenario. Before any scenario or certification execution,
+> the unchanged frozen safety guard rejected `9` programs with `21` findings and admitted `29`; the batch
+> stopped. Iter202 is therefore a scenario-safety protocol/execution null and contributes no rate. The null
+> disposition is recorded in `experiments/iter202_natural_rate_scaled/RESULT.md`. Its paid
+> path was bound to an exact-byte runtime manifest, exact eight-shard certification, atomic attempt
+> checkpoints, and one aggregate receipt from a single repository/workflow/run/attempt/commit. Hardened evidence PR `#3` merged as
 > `3a3368635e397d540cf98fc0f19d443661cc0fef`, primary-branch CI run `29451691560` passed, and provider-free
 > Node 24 backfill run `29452243832` reproduced the exact specs and validated the complete committed
-> `74`-log corpus without re-executing containers or calling model providers. Iter202 still has no retained
-> output. Every paid start requires clean green `master`, the exact cheap-first/freeze preflight, and both
-> credentials together; generated `HANDOFF.md` owns the current branch and credential-status snapshot.
+> `74`-log corpus without re-executing containers or calling model providers. Iter203 now seals the fixed
+> iter202 bytes, certifies all `50` patches, and exposes only safety-admitted copies to execution; rejected or
+> missing witnesses remain unresolved. No iter203 result is in the paper. Recovery execution requires a
+> clean green primary branch and the separately bound iter203 preflight; generated `HANDOFF.md` owns the
+> current branch and readiness snapshot.
 > `telos.pdf` is rebuilt from this source.
 >
 > **Before any external submission:** the three previously-flagged citations (Control Tax
@@ -50,8 +56,8 @@ Standard `pdflatex` (no bibtex needed - references are a manual `thebibliography
 
 ```
 cd paper
-SOURCE_DATE_EPOCH=1784073600 pdflatex telos.tex
-SOURCE_DATE_EPOCH=1784073600 pdflatex telos.tex   # second pass resolves \ref and \cite numbers
+SOURCE_DATE_EPOCH=1784160000 pdflatex telos.tex
+SOURCE_DATE_EPOCH=1784160000 pdflatex telos.tex   # second pass resolves \ref and \cite numbers
 ```
 
 Or with `tectonic` (single command, resolves references automatically; this is what produces the
@@ -59,10 +65,10 @@ committed `telos.pdf`):
 
 ```
 cd paper
-SOURCE_DATE_EPOCH=1784073600 tectonic telos.tex
+SOURCE_DATE_EPOCH=1784160000 tectonic telos.tex
 ```
 
-The fixed epoch is 2026-07-15 00:00:00 UTC, matching the explicit manuscript revision date and making PDF
+The fixed epoch is 2026-07-16 00:00:00 UTC, matching the explicit manuscript revision date and making PDF
 metadata reproducible. Two consecutive Tectonic builds must have identical SHA-256 digests.
 
 Packages used are all arXiv-standard: `inputenc`, `fontenc`, `amsmath`, `amssymb`, `booktabs`, `array`,
@@ -102,5 +108,7 @@ The standing paper evidence traces to `iter192` (foundation correction), `iter19
 (official-harness construction and execution witnesses), `iter199` (cross-repository expansion), `iter196`
 (judge pilot), `iter197` and `iter201` (protocol-failed property runs with retained exploratory diagnostics),
 and `iter200` (exploratory gold-localized solve, post-inspection blind rule, and corrected denominator).
-Iter202 has no retained result in the paper. Its protocol was frozen before retained-output inspection but
-after disclosed provider contact, so it is not conventionally preregistered or fully prospective.
+Iter202 has no measured rate in the paper. Its provider stages completed after a post-contact,
+pre-retained-output freeze, but its unchanged safety guard stopped the batch before execution; that
+protocol/execution null is preserved. Iter203 is a separately disclosed post-provider recovery and has no
+result in the paper.

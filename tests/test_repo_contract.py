@@ -75,7 +75,7 @@ def test_paper_revision_date_and_build_metadata_are_reproducible() -> None:
     readme = (ROOT / "paper/README.md").read_text(encoding="utf-8")
     readme_flat = " ".join(readme.split())
 
-    assert r"\date{July 15, 2026}" in source
+    assert r"\date{July 16, 2026}" in source
     assert r"\date{\today}" not in source
-    assert "SOURCE_DATE_EPOCH=1784073600 tectonic telos.tex" in readme
+    assert "SOURCE_DATE_EPOCH=1784160000 tectonic telos.tex" in readme
     assert "Two consecutive Tectonic builds must have identical SHA-256 digests" in readme_flat
