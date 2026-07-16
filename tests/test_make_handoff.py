@@ -1005,3 +1005,77 @@ def test_iter210_handoff_rejects_wrong_source_branch() -> None:
     wrong = handoff.replace(validate_handoff.ITER210_BRANCH, "agent/unrelated")
     with pytest.raises(ValueError, match="source branch differs"):
         validate_handoff.iter210_declared_repository_state(wrong)
+
+
+def iter214_handoff_fixture(validate_handoff) -> tuple[str, dict[str, str]]:
+    runtime = "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
+    publication = "experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md"
+    frozen = "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md"
+    contract = {
+        "active_gate": runtime,
+        "active_publication_gate": publication,
+        "frozen_upstream_gate": frozen,
+    }
+    handoff = f"""# HANDOFF
+
+{validate_handoff.REPOSITORY_DECLARATION}
+
+## Repository State
+
+```text
+handoff_schema: {validate_handoff.ITER214_HANDOFF_SCHEMA}
+source_branch: {validate_handoff.ITER214_BRANCH}
+source_commit: {"a" * 40}
+predecessor_seal: {validate_handoff.ITER214_PREDECESSOR_SEAL}
+publication_target: master
+```
+
+Active gate: `{runtime}`
+Active publication gate: `{publication}`
+Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `{frozen}`
+
+Local recovery status: **PASS; fresh publication seal pending**.
+Push CI run `29505707609` and pull-request CI run `29505789397` both failed.
+Linux returned `2.7755575615628914e-17` at the exact boundary.
+All other `656` tests passed.
+The iter213 branch and PR remain unchanged, were not rerun, and must not be merged.
+Canonicalize `lower=0.0` when `successes==0` and `upper=1.0` when `successes==trials`.
+Iter212 remains unchanged and inactive.
+TCP-1 retains `2` passing local-design gates, `9` blocked external gates.
+The receipt proves byte identity, not authorship, external chronology, licensing, independence, or semantic truth.
+Repository publication authorizes no release, paper submission, provider request, GPU allocation, scientific execution, or dispatch.
+
+```bash
+python3 scripts/build_iter214_receipt.py --check
+python3 scripts/validate_iter214_tcp1_cross_platform_numeric_recovery.py
+python3 scripts/validate_handoff.py
+pytest -q
+```
+"""
+    return handoff, contract
+
+
+def test_iter214_handoff_content_is_pre_data_and_publication_only() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter214_handoff_fixture(validate_handoff)
+
+    assert validate_handoff.iter214_content_failures(handoff, contract) == []
+
+
+def test_iter214_handoff_rejects_dispatch_and_unrelated_workspace() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, contract = iter214_handoff_fixture(validate_handoff)
+    unsafe = handoff + "\ngh workflow run iter207-execute.yml\n" + ("a" + "web")
+
+    failures = validate_handoff.iter214_content_failures(unsafe, contract)
+    assert "HANDOFF.md authorizes a workflow dispatch or rerun" in failures
+    assert "HANDOFF.md names an unrelated workspace" in failures
+
+
+def test_iter214_handoff_rejects_wrong_source_branch() -> None:
+    validate_handoff = load_module("validate_handoff")
+    handoff, _contract = iter214_handoff_fixture(validate_handoff)
+    wrong = handoff.replace(validate_handoff.ITER214_BRANCH, "agent/unrelated")
+
+    with pytest.raises(ValueError, match="source branch differs"):
+        validate_handoff.iter214_declared_repository_state(wrong)

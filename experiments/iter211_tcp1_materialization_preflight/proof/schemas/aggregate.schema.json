@@ -1,0 +1,68 @@
+{
+  "$id": "https://telos.invalid/schemas/tcp1-aggregate.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "analysis_input_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "analysis_output_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "attestation_bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "label_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "missingness": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "type": "object"
+    },
+    "protocol_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_v2_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "telos.tcp1.aggregate.v1"
+    },
+    "task_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "trajectory_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "transparency_bundle_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "protocol_sha256",
+    "task_manifest_sha256",
+    "trajectory_manifest_sha256",
+    "label_manifest_sha256",
+    "analysis_input_sha256",
+    "analysis_output_sha256",
+    "missingness",
+    "receipt_v2_sha256",
+    "attestation_bundle_sha256",
+    "transparency_bundle_sha256"
+  ],
+  "title": "TCP-1 frozen aggregate evidence index",
+  "type": "object"
+}

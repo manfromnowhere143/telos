@@ -1,0 +1,25 @@
+{
+  "schema_version": "telos.tcp1.analysis_amendment.v1",
+  "amendment_id": "tcp1-wilson-boundary-canonicalization",
+  "recorded_before_any_tcp1_data": true,
+  "tcp1_data_observed": false,
+  "reason": "remove cross-platform one-ULP residue at mathematically exact Wilson boundaries",
+  "changes": [
+    "set lower endpoint to 0.0 when successes equals 0",
+    "set upper endpoint to 1.0 when successes equals trials"
+  ],
+  "unchanged": [
+    "Wilson interior formula",
+    "two-sided 95 percent confidence level",
+    "one-sided exact conditional McNemar primary test",
+    "task-cluster bootstrap method and seed",
+    "minimum ten eligible semantic failures",
+    "control separation",
+    "missingness and hard falsifiers",
+    "twelve-task five-seed cohort shape",
+    "resource ceilings",
+    "claim boundaries"
+  ],
+  "scientific_execution_authorized": false,
+  "scientific_result_claimed": false
+}

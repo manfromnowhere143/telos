@@ -1,0 +1,315 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter213-post-seal-validation-recovery-v2",
+  "task_id": "iter213_iter211_post_seal_validation_recovery",
+  "agent_id": "codex-local-publication-auditor",
+  "benchmark_id": "telos-descendant-validation-recovery",
+  "status": "pass",
+  "stated_goal": "Recover sealed ancestor validation after iter211's first complete post-seal suite without changing TCP-1 or any predecessor experiment.",
+  "acceptance_criteria": [
+    "Iter211 and iter212 remain byte-for-byte unchanged.",
+    "Standing-claim handoff boundaries accept both registered title families.",
+    "Iter210 and iter211 receipts and topology validate exact Git ancestors on descendants.",
+    "Every iter213 source artifact except this self-referential receipt is byte-bound.",
+    "The complete provider-free suite and synthetic-merge simulation pass.",
+    "No provider, accelerator, scientific, dispatch, payment, release, or deployment action occurs."
+  ],
+  "evidence": [
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": ".github/workflows/ci.yml",
+        "bytes": 42399,
+        "sha256": "2ba57bee8ad08b7e56b42ed64f247f05b9d970b0956ad1570606147dcf0fc60b",
+        "media_type": "application/yaml",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "README.md",
+        "bytes": 186651,
+        "sha256": "f50c0b567fe3661e65fe9ec0c645b0cdb3b1acc3dcdfcac2bce3d46cbb3630e6",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/MISSION_LOOP.md",
+        "bytes": 24847,
+        "sha256": "a6725df91cf68372327dfb62593615af727b8b66660f169f4f4941294076d266",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/TELOS-ROADMAP-2026.md",
+        "bytes": 14040,
+        "sha256": "8c8d64ccc39663edbf1fb9c918244f192c9af1d8b8376ff04f7272e5785d0b13",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md",
+        "bytes": 4073,
+        "sha256": "9857dd9f19dc558a5970744a1b1943cf3e9245e3214786a62173baa41f1432f9",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter213_iter211_post_seal_validation_recovery/RESULT.md",
+        "bytes": 1680,
+        "sha256": "be1136547776810ad8ef98d935e6985e68c951c363e5c7a3731e5e4ae416eea5",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter213_iter211_post_seal_validation_recovery/proof/post_seal_failure.json",
+        "bytes": 1766,
+        "sha256": "58a8ae6b9f46a9ad04ea5f25e38b2e7f7a75ff74c264f67adbec3efbb33129c8",
+        "media_type": "application/json",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "mission/loop.json",
+        "bytes": 75497,
+        "sha256": "6bc06608c1eb25322e71babd954d3a8a0b3b5eacf05af2a20b6096d1a65560dd",
+        "media_type": "application/json",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter210_receipt.py",
+        "bytes": 8242,
+        "sha256": "4578b359238bc9416493501cf264cb48bc4fa4b19cc3f874e76c77bab26e0788",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter211_receipt.py",
+        "bytes": 9938,
+        "sha256": "d0887b452aa8e3b5f1f14fa4faee5c75832016ed1f215662168ca708955589f7",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter213_handoff.py",
+        "bytes": 8636,
+        "sha256": "1ab013f93b31585c5d121801c561b235f5231fd69d6b5a874b14e84489d6fd96",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter213_receipt.py",
+        "bytes": 8441,
+        "sha256": "5145015f3e9b47e2fd765fabed9e85ee8addb55c73a763d8b960a9c216eb42af",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_current_paper.py",
+        "bytes": 8179,
+        "sha256": "0cc4925d47ac5ecacf079cbacc4266f51a06d58e8d43fde62e7b1dade54dc6ad",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_detector_methodology_correction.py",
+        "bytes": 52809,
+        "sha256": "fb733c5df8f1e6be4f93364296e04b07b066dd559507593c49412712aadd17e7",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_handoff.py",
+        "bytes": 71948,
+        "sha256": "727063499525291a8be3c9fa2dfdd15d841c53a83eb369773fea4ad4cfe5f371",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter200_corrected_result.py",
+        "bytes": 35577,
+        "sha256": "ffae812749a0de3dd1a20fd5add02031059526c3f172be5a8574d07b3c3522be",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter210_pr_synthetic_merge_recovery.py",
+        "bytes": 7600,
+        "sha256": "40feb0cc8703e0527725757a8dc13ad9cb6cf8336b0d7bd1b023088d9080d652",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter211_tcp1_materialization_preflight.py",
+        "bytes": 21779,
+        "sha256": "086bc37e9171273da354e59f540d8425f94061282abcb1fb8da5d13d63bb027a",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter213_post_seal_validation_recovery.py",
+        "bytes": 14700,
+        "sha256": "f07eac614953f1d163d3fba6a47b8e2f5832b0b31f3d513c6ada95767a08ef6c",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_mission_loop.py",
+        "bytes": 75226,
+        "sha256": "6b826f76a483ce8be46c82fd311423933dd6ec3b31438b9dff42122bc142ef51",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_detector_methodology_correction.py",
+        "bytes": 13045,
+        "sha256": "1c8f6abb82dfb499bf28e207441f387fddb8e698586980a60354cf2856a6626b",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter210_pr_synthetic_merge_recovery.py",
+        "bytes": 1398,
+        "sha256": "843f279604c4e170687bb61b31a3c627e29146cc3dd731a44502339de95a89e2",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter211_tcp1_materialization_preflight.py",
+        "bytes": 2317,
+        "sha256": "f13e528c94836c19200180e991f2d3309225d84372f531fb5cc57fbdc29da200",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter213_post_seal_validation_recovery.py",
+        "bytes": 1798,
+        "sha256": "a6c1d30c94e6e856bf3d1f36e051122de197591addf0403eae76ffab015cd3a7",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_mission_loop_guard.py",
+        "bytes": 13545,
+        "sha256": "0d0eb3d5500e1089f673a129ae674075ad318fb4c0e40a7c45c011573dfd3fa4",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_natural_rate_pipeline.py",
+        "bytes": 29788,
+        "sha256": "6ddbcc9e2edb1e0f0b58585c612f6c8d1b6e02b1f39d40eb998216fc311f6331",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter213-iter211-post-seal-validation-recovery"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any iter211, iter212, or earlier experiment byte changes.",
+    "Any sealed receipt reads mutable descendant bytes.",
+    "Any later additive experiment is treated as a predecessor mutation.",
+    "Any handoff boundary relaxation disables standing-claim scanning.",
+    "Any iter213 source delta is absent from the receipt closure.",
+    "Any scientific or provider action occurs."
+  ],
+  "evidence_closure_sha256": "329bc6b2f19ee9f8e110e73af2c24cefa93e1363e9a24e553834ec90c09a7080",
+  "receipt_sha256": "d3bf23942252fd6c1ec88500d861cd4851f92e6f92196d1a6be92ac846a4a403"
+}

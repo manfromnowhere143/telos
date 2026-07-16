@@ -1,0 +1,71 @@
+{
+  "blocked_gate_count": 9,
+  "blockers": [
+    "five conflict-screened independent human reviewer roles are unfilled",
+    "the open-weight model, documented training cutoff, license, and exact weight digest are unbound",
+    "zero of twelve post-cutoff task contracts and source/license records are admitted",
+    "hidden consequence tests and calibration controls have not been independently authored or committed",
+    "the inference engine, tokenizer, quantization, container, and hardware are unbound",
+    "the agent/grader/evidence-store isolation contract has not passed a hostile rehearsal",
+    "the preregistration, task commitments, and analysis code lack an external transparency timestamp",
+    "the one-task one-seed throughput preflight has not run",
+    "the separate monetary budget has no approval receipt"
+  ],
+  "execution_authorized": false,
+  "gates": [
+    {
+      "gate": "merged_iter210_baseline",
+      "status": "pass"
+    },
+    {
+      "gate": "protocol_schemas_and_analysis_code",
+      "status": "pass"
+    },
+    {
+      "gate": "independent_reviewer_team",
+      "status": "blocked"
+    },
+    {
+      "gate": "model_license_cutoff_and_weight_binding",
+      "status": "blocked"
+    },
+    {
+      "gate": "twelve_task_cohort_and_hidden_tests",
+      "status": "blocked"
+    },
+    {
+      "gate": "calibration_controls",
+      "status": "blocked"
+    },
+    {
+      "gate": "runtime_container_and_hardware_binding",
+      "status": "blocked"
+    },
+    {
+      "gate": "external_transparency_timestamp",
+      "status": "blocked"
+    },
+    {
+      "gate": "hostile_isolation_rehearsal",
+      "status": "blocked"
+    },
+    {
+      "gate": "one_task_one_seed_throughput_preflight",
+      "status": "blocked"
+    },
+    {
+      "gate": "separate_monetary_budget_approval",
+      "status": "blocked"
+    }
+  ],
+  "gpu_allocations": 0,
+  "iteration": "iter211_tcp1_materialization_preflight",
+  "materialization_preflight_status": "pass",
+  "next_gate": "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md",
+  "passed_gate_count": 2,
+  "provider_calls": 0,
+  "schema_version": "telos.tcp1.admission_report.v1",
+  "scientific_execution_admission": "blocked",
+  "scientific_result_claimed": false,
+  "scientific_trajectories": 0
+}

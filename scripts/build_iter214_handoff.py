@@ -1,6 +1,67 @@
-# HANDOFF — iter214 TCP-1 cross-platform numeric recovery
+#!/usr/bin/env python3
+"""Generate the one-time iter214 handoff from its exact clean source commit."""
 
-Generated: 2026-07-16T14:40:34Z from the exact clean source commit below. Read Current Gates first.
+from __future__ import annotations
+
+from datetime import UTC, datetime
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+BRANCH = "agent/iter214-tcp1-cross-platform-numeric-recovery"
+PREDECESSOR_SEAL = "dbe008211022e0abdff5bc9e47e871b02b6d5501"
+RECEIPT_PATH = (
+    ROOT
+    / "experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/receipt_v2.json"
+)
+HANDOFF = ROOT / "HANDOFF.md"
+
+
+def git(*arguments: str) -> str:
+    result = subprocess.run(
+        ["git", *arguments], cwd=ROOT, capture_output=True, text=True, check=False
+    )
+    if result.returncode != 0:
+        diagnostic = result.stderr.strip() or result.stdout.strip()
+        raise RuntimeError(f"git command failed: {' '.join(arguments)}: {diagnostic}")
+    return result.stdout.rstrip()
+
+
+def render() -> str:
+    branch = git("branch", "--show-current")
+    if branch != BRANCH:
+        raise RuntimeError(f"iter214 handoff requires branch {BRANCH}, got {branch!r}")
+    source = git("rev-parse", "HEAD")
+    if re.fullmatch(r"[0-9a-f]{40}", source) is None:
+        raise RuntimeError("iter214 source commit is not a full Git id")
+    if git("rev-list", "--parents", "-n", "1", source).split() != [
+        source,
+        PREDECESSOR_SEAL,
+    ]:
+        raise RuntimeError("iter214 source must be the direct child of the iter213 seal")
+    if git("status", "--short"):
+        raise RuntimeError("iter214 handoff requires a clean source worktree")
+
+    from scripts.build_iter214_receipt import BINDINGS  # noqa: PLC0415
+    from telos.proof import load_receipt_v2  # noqa: PLC0415
+
+    source_delta = set(git("diff", "--name-only", PREDECESSOR_SEAL, source).splitlines())
+    receipt_relative = RECEIPT_PATH.relative_to(ROOT).as_posix()
+    if source_delta != set(BINDINGS) | {receipt_relative}:
+        raise RuntimeError("iter214 source delta differs from the artifact-bound closure")
+    receipt = load_receipt_v2(RECEIPT_PATH, artifact_root=ROOT)
+    if receipt.status != "pass":
+        raise RuntimeError("iter214 recovery receipt must pass")
+
+    generated = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+    return f"""# HANDOFF — iter214 TCP-1 cross-platform numeric recovery
+
+Generated: {generated} from the exact clean source commit below. Read Current Gates first.
 
 TELOS is a standalone repository. Resolve its root with `git rev-parse --show-toplevel`, then run every TELOS command from that root.
 
@@ -8,9 +69,9 @@ TELOS is a standalone repository. Resolve its root with `git rev-parse --show-to
 
 ```text
 handoff_schema: telos.iter214.handoff.v1
-source_branch: agent/iter214-tcp1-cross-platform-numeric-recovery
-source_commit: 48910a55d3f46bd11f360fa4f0501a1d8e9312a1
-predecessor_seal: dbe008211022e0abdff5bc9e47e871b02b6d5501
+source_branch: {BRANCH}
+source_commit: {source}
+predecessor_seal: {PREDECESSOR_SEAL}
 publication_target: master
 ```
 
@@ -61,8 +122,8 @@ trajectories. Iter212 remains unchanged and inactive.
 The standing exploratory iter200 sensitivities remain `1/24` confirmed lower, `7/24` worst-case missing
 upper, and `1/18` complete-case; they must be reported together and are not a population rate.
 
-The standing detector correction also remains binding: the property instrument is a
-locator-assisted, gold-validated property pipeline, not an independent detector. Iter201 retains `8/88` judge-response
+The standing detector correction also remains binding: the property instrument is a locator-assisted,
+gold-validated property pipeline, not an independent detector. Iter201 retains `8/88` judge-response
 nondecisions; gold-control flag sensitivities are `3/22` observed lower, `6/22` worst-case missing upper, and
 `3/19` complete-case. The property catches are a subset of judge catches and establish no ensemble gain or
 independent false-positive rate.
@@ -71,11 +132,11 @@ independent false-positive rate.
 
 Receipt path: `experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/receipt_v2.json`
 
-Receipt evidence count: `21`
+Receipt evidence count: `{len(receipt.evidence)}`
 
-Receipt closure SHA-256: `51e110df29358b19aa1fe40f89073734092ed6de283a831582f59535b185d8c2`
+Receipt closure SHA-256: `{receipt.evidence_closure_sha256}`
 
-Receipt SHA-256: `a1ff11f179dc40b3464dd8ae26bf62999b356e3f5c30348dd165712b388e89f7`
+Receipt SHA-256: `{receipt.receipt_sha256}`
 
 The receipt and predecessor guards read exact source Git blobs. The receipt proves byte identity, not
 authorship, external chronology, licensing, independence, or semantic truth.
@@ -86,7 +147,7 @@ Run from the repository root:
 
 ```bash
 git status --short
-git show --no-ext-diff --stat 48910a55d3f46bd11f360fa4f0501a1d8e9312a1
+git show --no-ext-diff --stat {source}
 ruff check .
 python3 -m compileall -q telos scripts tests
 pytest -q
@@ -113,8 +174,8 @@ worktree and reference afterward.
 
 ## Publication Boundary
 
-The seal commit must be the direct child of source `48910a55d3f46bd11f360fa4f0501a1d8e9312a1` and modify exactly `HANDOFF.md`. Publish that
-unchanged source-plus-handoff tip once on `agent/iter214-tcp1-cross-platform-numeric-recovery` and open one draft pull request against `master`.
+The seal commit must be the direct child of source `{source}` and modify exactly `HANDOFF.md`. Publish that
+unchanged source-plus-handoff tip once on `{BRANCH}` and open one draft pull request against `master`.
 After the successor PR exists, close PR `#11` as superseded without deleting or modifying its branch. Merge
 once with a two-parent merge commit only after exact-tip push and pull-request CI pass on Python 3.11 and
 3.12, the secret scan is non-blocking, and no substantive review blocker remains. Do not amend, rebase,
@@ -132,3 +193,16 @@ The unchanged iter212 hypothesis may proceed only by filling real human, model, 
 runtime, isolation, timestamp, and budget evidence. Iter215 is the later non-cohort throughput preflight;
 iter216 is bounded execution; iter217 is blinded adjudication; and iter218 is independent replication. No
 later stage is authorized by this handoff.
+"""
+
+
+def main() -> int:
+    if "handoff_schema: telos.iter214.handoff.v1" in HANDOFF.read_text(encoding="utf-8"):
+        raise RuntimeError("iter214 handoff already exists; refusing regeneration")
+    HANDOFF.write_text(render(), encoding="utf-8")
+    print("iter214 handoff builder: wrote one source-bound publication-only handoff")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

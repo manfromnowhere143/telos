@@ -310,3 +310,14 @@ def test_current_detector_claim_scope_excludes_superseded_mission_ledger() -> No
     current = module.current_surface_text(module.ROOT / "mission/loop.json", json.dumps(payload))
     assert "dominates" not in current
     assert module.contradictory_current_claims(current) == []
+
+
+def test_current_handoff_slice_accepts_action_and_publication_boundary_titles() -> None:
+    module = load_script("validate_detector_methodology_correction.py")
+    path = module.ROOT / "HANDOFF.md"
+    body = "No ensemble benefit is supported.\n"
+    action = "## Current Gate\n" + body + "## Verification Before Action\n"
+    publication = "## Current Gates\n" + body + "## Verification Before Publication\n"
+
+    assert module.current_surface_text(path, action) == body
+    assert module.current_surface_text(path, publication) == body

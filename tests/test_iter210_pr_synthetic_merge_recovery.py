@@ -19,6 +19,10 @@ def test_iter209_sealed_receipt_is_git_blob_bound_and_not_rebuilt() -> None:
 
 
 def test_iter210_preflight_is_clean() -> None:
+    assert iter210_guard.source_and_seal() == (
+        iter210_guard.ITER210_SOURCE_COMMIT,
+        iter210_guard.ITER210_SEAL_COMMIT,
+    )
     assert iter210_guard.validate(preflight=True) == []
 
 

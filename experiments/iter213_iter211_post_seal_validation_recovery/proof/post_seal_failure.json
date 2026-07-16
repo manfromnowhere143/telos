@@ -1,0 +1,44 @@
+{
+  "schema_version": "telos.iter213.iter211_post_seal_failure.v1",
+  "observation_date": "2026-07-16",
+  "predecessor_source": "1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021",
+  "predecessor_seal": "dc19e6f27f5a001632b5183ff798a6eacae6de33",
+  "command": "pytest -q",
+  "passed": 648,
+  "failed": 3,
+  "failures": [
+    {
+      "test": "tests/test_iter203_publication_safety.py::test_build_audit_rejects_a_hit_without_printing_its_value",
+      "cause": "standing handoff parser required the historical Verification Before Action heading"
+    },
+    {
+      "test": "tests/test_iter210_pr_synthetic_merge_recovery.py::test_iter210_preflight_is_clean",
+      "cause": "iter210 preflight compared its frozen experiment delta to additive descendant HEAD"
+    },
+    {
+      "test": "tests/test_natural_rate_pipeline.py::test_iter200_claim_guard_covers_every_standing_public_surface",
+      "cause": "standing handoff parser required the historical Verification Before Action heading"
+    }
+  ],
+  "additional_descendant_risk_found_during_diagnosis": [
+    "the detector-methodology current-surface scanner shared the handoff verification-heading assumption",
+    "iter210 sealed source discovery depended on the currently displayed iter210 handoff",
+    "iter211 sealed source discovery depended on the currently displayed iter211 handoff"
+  ],
+  "pre_recovery_actions": {
+    "remote_mutations": 0,
+    "provider_model_calls": 0,
+    "gpu_allocations": 0,
+    "accelerator_hours": 0,
+    "scientific_container_runs": 0,
+    "scientific_trajectory_runs": 0,
+    "workflow_dispatches": 0,
+    "workflow_reruns": 0,
+    "deployments": 0,
+    "payments": 0,
+    "releases": 0
+  },
+  "iter211_mutated": false,
+  "iter212_mutated": false,
+  "scientific_result_changed": false
+}

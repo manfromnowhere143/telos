@@ -1,0 +1,436 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter211-tcp1-materialization-preflight-v2",
+  "task_id": "iter211_tcp1_scientific_execution_admission",
+  "agent_id": "codex-local-protocol-auditor",
+  "benchmark_id": "telos-trace-consequence-pilot-1",
+  "status": "blocked",
+  "stated_goal": "Admit TCP-1 scientific execution only after independent reviewers, a fresh task cohort, hidden tests, exact execution bindings, isolation, timestamp, throughput, and budget all pass.",
+  "acceptance_criteria": [
+    "The zero-execution protocol, custody schemas, and analysis implementation are deterministic.",
+    "Every absent external prerequisite is explicit machine-readable missingness.",
+    "Execution remains unauthorized while any admission gate is blocked.",
+    "Controls remain separate and LLM judges cannot define semantic ground truth.",
+    "Every iter211 source artifact except this self-referential receipt is byte-bound.",
+    "No provider, GPU, scientific container, trajectory, dispatch, payment, or release occurs."
+  ],
+  "evidence": [
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": ".github/workflows/ci.yml",
+        "bytes": 42132,
+        "sha256": "017b864c53699ab90a1d416af7fa446573baf7625c6aa4a43bf9d5432ed94a33",
+        "media_type": "application/yaml",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "README.md",
+        "bytes": 185943,
+        "sha256": "fc32fa27bcc06e8503fb2fbe330c1f5a2b9cc6fa71bfd9faf5ad4e7788128c56",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/MISSION_LOOP.md",
+        "bytes": 24169,
+        "sha256": "412c36441c18e63bbf3c55ff62239bd257644e2ef87eca79df191fa40145769f",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/TELOS-ROADMAP-2026.md",
+        "bytes": 13152,
+        "sha256": "f290c3c18369100402d2104be47930ac94f3c1a2d1e5ba79942e235557e276dc",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md",
+        "bytes": 5217,
+        "sha256": "4471d39da4903e9c7e42a44cac7e01d45ebc569a39fac67325b967a47a473b2c",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/RESULT.md",
+        "bytes": 4003,
+        "sha256": "f12aac31c11c28a2277ea97b079d7140bd12fec876be60e28317ca7b6149f3b7",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/action_ledger.json",
+        "bytes": 679,
+        "sha256": "ceb80275f77364deeafc39979ac4f808da92419c950887b50aeb6b62744cb131",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/admission_report.json",
+        "bytes": 2290,
+        "sha256": "a0a3d114729bedf772f3cb358725c3280c745b579fb26c76593ec71040226653",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/analysis_plan.json",
+        "bytes": 1903,
+        "sha256": "917f5475d4a93ec4238976607f1341e0b70569ba8ea8940c2e6980cd468e3306",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/control_plan.json",
+        "bytes": 861,
+        "sha256": "fd385059faeda332c4a29a6a6d7b0bc263a62ff4b0a7983d86d24c45c1a71b62",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/execution_binding_ledger.json",
+        "bytes": 893,
+        "sha256": "e601dbc665fc73e4837e3955932620cd997f945daaca8375f5b574dce9364a6f",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/isolation_contract.json",
+        "bytes": 1433,
+        "sha256": "e55c9adce11e4e720e4180025e62c96bff64c60a0e9bc60e11f1da45aeafb423",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/merged_baseline.json",
+        "bytes": 1147,
+        "sha256": "d43562a8aef0ad53945bc2f2a9968cd11bdd2e92181c24d5c0bc7ef3a9e1d231",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/protocol.json",
+        "bytes": 3156,
+        "sha256": "a966f145df29478f2664ef16d5f79959851cdbefd5b78bf40d7c5c828ef3f3be",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/resource_budget.json",
+        "bytes": 880,
+        "sha256": "ecea7ab45f40f60532ad3e0086dd52f9134b954d86f365199f2b16ffe9150f2a",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/review.md",
+        "bytes": 4031,
+        "sha256": "aaea024a37f1984871825b02968881b6ca0693382eeae8a78aa3b65604bb3176",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/reviewer_ledger.json",
+        "bytes": 981,
+        "sha256": "d69526a52512217f1feece87c16a1cea8a3580d8c6bc3c0392e900daa3cb5997",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/schemas/aggregate.schema.json",
+        "bytes": 1662,
+        "sha256": "fa57ac9002f133341f89f1b03a1eb2b2f7d659dedf6b3f39c9d3a70f1633acca",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/schemas/analysis-input.schema.json",
+        "bytes": 3824,
+        "sha256": "c0c411d756772f11346b7fecc4c1c13780f1f8df49ecd3003ff39c71f7653791",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/schemas/semantic-label.schema.json",
+        "bytes": 4764,
+        "sha256": "4cf9c9dfe21cc298062499f3d68a09e05d877622ff25774869b29e5adcf6e6d5",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/schemas/task.schema.json",
+        "bytes": 6285,
+        "sha256": "1e1163ae02b8a767ff7f2bca30b78697c4a53f8d0e68693383049848b318f7cf",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/schemas/trace-event.schema.json",
+        "bytes": 3112,
+        "sha256": "e362a139b24f2b9aa8d54e490ca67327f825ff68952bf762d42d3caff7c59c42",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/schemas/trajectory.schema.json",
+        "bytes": 14726,
+        "sha256": "9f77dd0d8cfd00fd16146a542345807ca4f1d894402c0e6162d7a14cb5e3a85d",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter211_tcp1_materialization_preflight/proof/task_candidate_ledger.json",
+        "bytes": 801,
+        "sha256": "d86cf21a89df5281471589aa750cd1f529144799ee6fd90972802ad1c5304761",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md",
+        "bytes": 3153,
+        "sha256": "e1aa64e4db88a0b517a1b3dbe29f82dd236a4a626e032b4137c9d3109f76f1e7",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "mission/loop.json",
+        "bytes": 72662,
+        "sha256": "fb5bbe9117994a9d7bb08395491eb3248fee82d702496a2e6db333bbcae5d078",
+        "media_type": "application/json",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter211_handoff.py",
+        "bytes": 7777,
+        "sha256": "70e6eddb47f14fccb9abbd7c12dd851b0ce88c7634cb63e29fd916169cb20365",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter211_receipt.py",
+        "bytes": 8701,
+        "sha256": "69a1ba7035c59f60c1d7a0f106c58f8af75eb023727909c24d7ad743ddd125e5",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter211_tcp1_packet.py",
+        "bytes": 44551,
+        "sha256": "6ecae8550e8344589fc26e013b7d05a928cff0e63fb0d26a18512261d0a5aa60",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_current_paper.py",
+        "bytes": 8116,
+        "sha256": "53e2bb8f0df7784f6e70c38170ea7d6cafbf2426b9dd79dfb57a69a44454af7a",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_handoff.py",
+        "bytes": 62550,
+        "sha256": "234228139a4c1cdfc0f7632435bed47d0aa86309585e81065fe9507fa7576d1a",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter211_tcp1_materialization_preflight.py",
+        "bytes": 21642,
+        "sha256": "26b41687abb23556dd3e808fe62d6fbb15a510e623691b4cd1bdddc32e370104",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_mission_loop.py",
+        "bytes": 71547,
+        "sha256": "414837deb855a6f93c5f8b9750042fc84f1940ddc269f93a83cb1edf311eb3d4",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "telos/tcp1.py",
+        "bytes": 15352,
+        "sha256": "228a9e1dc23229a4e185dcc78626b38a2f04ab4f06fd50889330f2211a904b9a",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter211_tcp1_materialization_preflight.py",
+        "bytes": 2088,
+        "sha256": "b4ff0c3bba8ca75ed0d9b071eedb2cc3abe9166ba057c03f8066a21b7d8e6408",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_mission_loop_guard.py",
+        "bytes": 13057,
+        "sha256": "676312dce841b16f8a9c06f9f7dfbc747d11613beeabd210c4460cda1687251e",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_tcp1.py",
+        "bytes": 5688,
+        "sha256": "a91466da7ecd0a478a730e9694473f8bd6359515d7948e85b784cff0052d0212",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter211-tcp1-materialization-preflight"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any prerequisite is invented or inferred from an empty field.",
+    "Any blocked gate is interpreted as execution-ready.",
+    "Any historical experiment byte changes.",
+    "Any iter211 source delta is absent from the receipt closure.",
+    "Any scientific result or broad performance claim is made.",
+    "Any provider, accelerator, scientific, dispatch, payment, or release action occurs."
+  ],
+  "evidence_closure_sha256": "60774d209bc9a543a03c39c15755f9035fac72578debac6b2df8c36a98f0fdcc",
+  "receipt_sha256": "e578c0fef7caa3dc81565e70360da9658488e6a4746ac170e6cefb4504f0b3f8"
+}

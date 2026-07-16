@@ -59,6 +59,13 @@ CORE_VALIDATION_COMMANDS = (
     "python3 scripts/validate_iter209_publication_ci_recovery.py",
     "python3 scripts/build_iter210_receipt.py --check",
     "python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py",
+    "python3 scripts/build_iter211_tcp1_packet.py --check",
+    "python3 scripts/build_iter211_receipt.py --check",
+    "python3 scripts/validate_iter211_tcp1_materialization_preflight.py",
+    "python3 scripts/build_iter213_receipt.py --check",
+    "python3 scripts/validate_iter213_post_seal_validation_recovery.py",
+    "python3 scripts/build_iter214_receipt.py --check",
+    "python3 scripts/validate_iter214_tcp1_cross_platform_numeric_recovery.py",
     "python3 scripts/validate_target_survey.py",
     "python3 scripts/validate_public_slice.py",
     "python3 scripts/validate_agent_behavior_slice.py",
@@ -496,8 +503,11 @@ def validate_iter208_correction_state(
         "Iter207 is the immutable local correction and admission baseline",
         "Iter208 is the sealed post-seal forensic correction",
         "failed two non-scientific CI validators and was not merged",
-        "Iter210 is the active additive PR-topology recovery",
-        "Iter208 through iter210 are not population estimates, model rankings, production verifiers, or state-of-the-art results",
+        "Iter210 merged through PR #10",
+        "Iter211 is sealed and its first complete post-seal suite passed 648 tests and failed 3",
+        "Iter213 is sealed and its push and pull-request CI both failed",
+        "Iter214 is the active additive pre-data numeric recovery",
+        "Iter208 through iter214 are not population estimates",
     ):
         if fragment not in claim:
             failures.append(f"claim boundary missing publication-recovery fact: {fragment}")
@@ -599,19 +609,29 @@ def validate_iter209_recovery_state(
 def validate_iter210_recovery_state(
     contract: dict[str, Any], *, root: Path = ROOT
 ) -> list[str]:
-    """Validate the active PR-topology recovery above sealed iter209."""
+    """Validate the sealed and merged PR-topology recovery above iter209."""
 
     failures: list[str] = []
     expected_gate = "experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md"
-    if contract.get("active_publication_gate") != expected_gate:
-        failures.append("iter210 active publication gate differs")
     if not (root / expected_gate).is_file():
-        failures.append("iter210 active publication gate is absent")
+        failures.append("iter210 sealed publication gate is absent")
     state = contract.get("current_gate_state", {}).get("iter210_recovery", {})
-    if state.get("status") != "active_local_pr_synthetic_merge_recovery":
+    if state.get("status") != "merged_publication_recovery_green":
         failures.append("iter210 recovery status differs")
     if state.get("predecessor_seal") != "91f9258730bf5520d86c9235d7ed2f03724ea103":
         failures.append("iter210 predecessor seal differs")
+    expected_publication = {
+        "source_commit": "323130bd96b20c062005f097294d8fab235bea93",
+        "seal_commit": "c109312d5ee525599abfbac178c3fb245117ab49",
+        "pull_request": 10,
+        "merge_commit": "fb348eb1f67c0605679cd56a1cfa210cf192db03",
+        "push_ci_run": 29496323167,
+        "pull_request_ci_run": 29496355871,
+        "merged_master_ci_run": 29496560409,
+    }
+    for field, expected in expected_publication.items():
+        if state.get(field) != expected:
+            failures.append(f"iter210 merged publication {field} differs")
     actions = state.get("actions_before_source_seal")
     if not isinstance(actions, dict) or not actions or any(value != 0 for value in actions.values()):
         failures.append("iter210 pre-seal action ledger is not exact zero")
@@ -629,10 +649,11 @@ def validate_iter210_recovery_state(
             failures.append(f"iter210 correction scope is incomplete: {fragment}")
     claim = contract.get("publication_claim_boundary", "")
     for fragment in (
-        "Iter209 fixed those defects and passed push CI",
-        "pull-request CI exposed one synthetic-merge branch-tip assumption",
-        "Iter210 is the active additive PR-topology recovery",
-        "Iter208 through iter210 are not population estimates, model rankings, production verifiers, or state-of-the-art results",
+        "Iter210 merged through PR #10",
+        "Iter211 is sealed and its first complete post-seal suite passed 648 tests and failed 3",
+        "Iter213 is sealed and its push and pull-request CI both failed",
+        "Iter214 is the active additive pre-data numeric recovery",
+        "scientific execution remains blocked",
     ):
         if fragment not in claim:
             failures.append(f"claim boundary missing iter210 fact: {fragment}")
@@ -655,6 +676,242 @@ def validate_iter210_recovery_state(
         missing = sorted(source for source in required_sources if not (root / source).is_file())
         if missing:
             failures.append("iter210 source-of-truth files are absent: " + ", ".join(missing))
+    return failures
+
+
+def validate_iter211_materialization_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate sealed TCP-1 materialization and its disclosed post-seal failure."""
+
+    failures: list[str] = []
+    expected_gate = "experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md"
+    if not (root / expected_gate).is_file():
+        failures.append("iter211 sealed materialization gate is absent")
+    state = contract.get("current_gate_state", {}).get("iter211_tcp1_materialization", {})
+    expected = {
+        "status": "sealed_materialization_post_seal_validation_failed",
+        "predecessor_merge": "fb348eb1f67c0605679cd56a1cfa210cf192db03",
+        "source_commit": "1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021",
+        "seal_commit": "dc19e6f27f5a001632b5183ff798a6eacae6de33",
+        "planned_task_count": 12,
+        "seeds_per_task": 5,
+        "planned_natural_trajectories": 60,
+        "admitted_task_count": 0,
+        "filled_reviewer_roles": 0,
+        "passed_gate_count": 2,
+        "blocked_gate_count": 9,
+        "accelerator_hour_ceiling": 64,
+        "accelerator_hours_used": 0,
+        "provider_calls": 0,
+        "scientific_trajectories": 0,
+        "post_seal_tests_passed": 648,
+        "post_seal_tests_failed": 3,
+        "execution_authorized": False,
+        "next_gate": (
+            "experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md"
+        ),
+    }
+    for field, value in expected.items():
+        if state.get(field) != value:
+            failures.append(f"iter211 materialization {field} differs")
+    for fragment in (
+        "deterministic TCP-1 protocol",
+        "custody schemas",
+        "separate controls",
+        "isolation threat model",
+        "no scientific execution",
+    ):
+        if fragment not in state.get("correction_scope", ""):
+            failures.append(f"iter211 materialization scope omits: {fragment}")
+    claim = state.get("claim_boundary", "")
+    for fragment in ("no scientific numerator", "ranking", "state-of-the-art result"):
+        if fragment not in claim:
+            failures.append(f"iter211 claim boundary omits: {fragment}")
+
+    admission_path = root / "experiments/iter211_tcp1_materialization_preflight/proof/admission_report.json"
+    try:
+        admission = read_json(admission_path)
+    except (OSError, json.JSONDecodeError):
+        failures.append("iter211 admission report is unreadable")
+    else:
+        if not (
+            admission.get("materialization_preflight_status") == "pass"
+            and admission.get("scientific_execution_admission") == "blocked"
+            and admission.get("passed_gate_count") == 2
+            and admission.get("blocked_gate_count") == 9
+            and admission.get("execution_authorized") is False
+        ):
+            failures.append("iter211 admission report overstates readiness")
+
+    required_sources = {
+        expected_gate,
+        "experiments/iter211_tcp1_materialization_preflight/RESULT.md",
+        "experiments/iter211_tcp1_materialization_preflight/proof/admission_report.json",
+        "experiments/iter211_tcp1_materialization_preflight/proof/analysis_plan.json",
+        "experiments/iter211_tcp1_materialization_preflight/proof/protocol.json",
+        "experiments/iter211_tcp1_materialization_preflight/proof/receipt_v2.json",
+        "experiments/iter211_tcp1_materialization_preflight/proof/review.md",
+        "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md",
+        "scripts/build_iter211_handoff.py",
+        "scripts/build_iter211_receipt.py",
+        "scripts/build_iter211_tcp1_packet.py",
+        "scripts/validate_iter211_tcp1_materialization_preflight.py",
+        "telos/tcp1.py",
+        "tests/test_iter211_tcp1_materialization_preflight.py",
+        "tests/test_tcp1.py",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter211 source-of-truth set is incomplete")
+    else:
+        missing = sorted(source for source in required_sources if not (root / source).is_file())
+        if missing:
+            failures.append("iter211 source-of-truth files are absent: " + ", ".join(missing))
+    return failures
+
+
+def validate_iter213_recovery_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate the sealed iter213 recovery and its exact remote CI failure."""
+
+    failures: list[str] = []
+    expected_gate = "experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md"
+    if not (root / expected_gate).is_file():
+        failures.append("iter213 sealed recovery gate is absent")
+    state = contract.get("current_gate_state", {}).get("iter213_recovery", {})
+    if state.get("status") != "sealed_publication_recovery_remote_ci_failed":
+        failures.append("iter213 recovery status differs")
+    if state.get("predecessor_seal") != "dc19e6f27f5a001632b5183ff798a6eacae6de33":
+        failures.append("iter213 predecessor seal differs")
+    expected_remote = {
+        "source_commit": "f5cbb9df76f5fc2464e84f4d911313122d76545f",
+        "seal_commit": "dbe008211022e0abdff5bc9e47e871b02b6d5501",
+        "draft_pull_request": 11,
+        "push_ci_run": 29505707609,
+        "pull_request_ci_run": 29505789397,
+        "branch_mutated_after_failure": False,
+        "workflow_rerun_requested": False,
+    }
+    for field, value in expected_remote.items():
+        if state.get(field) != value:
+            failures.append(f"iter213 failed-publication {field} differs")
+    if state.get("preserved_iter212_gate") != (
+        "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md"
+    ):
+        failures.append("iter213 preserved iter212 gate differs")
+    actions = state.get("actions_before_source_seal")
+    if not isinstance(actions, dict) or not actions or any(value != 0 for value in actions.values()):
+        failures.append("iter213 pre-seal action ledger is not exact zero")
+    if state.get("scientific_change") is not False or state.get("execution_authorized") is not False:
+        failures.append("iter213 scientific/execution boundary differs")
+    for fragment in (
+        "standing handoff boundary title families",
+        "exact sealed-ancestor receipt and topology resolution",
+        "descendant-safe predecessor validation",
+        "no TCP-1 or scientific change",
+    ):
+        if fragment not in state.get("correction_scope", ""):
+            failures.append(f"iter213 recovery scope omits: {fragment}")
+    claim = state.get("claim_boundary", "")
+    for fragment in ("publication-validation recovery only", "no scientific numerator", "state-of-the-art"):
+        if fragment not in claim:
+            failures.append(f"iter213 claim boundary omits: {fragment}")
+
+    required_sources = {
+        expected_gate,
+        "experiments/iter213_iter211_post_seal_validation_recovery/RESULT.md",
+        "experiments/iter213_iter211_post_seal_validation_recovery/proof/post_seal_failure.json",
+        "experiments/iter213_iter211_post_seal_validation_recovery/proof/receipt_v2.json",
+        "scripts/build_iter213_handoff.py",
+        "scripts/build_iter213_receipt.py",
+        "scripts/validate_iter200_corrected_result.py",
+        "scripts/validate_iter213_post_seal_validation_recovery.py",
+        "tests/test_iter213_post_seal_validation_recovery.py",
+        "tests/test_natural_rate_pipeline.py",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter213 source-of-truth set is incomplete")
+    else:
+        missing = sorted(source for source in required_sources if not (root / source).is_file())
+        if missing:
+            failures.append("iter213 source-of-truth files are absent: " + ", ".join(missing))
+    return failures
+
+
+def validate_iter214_recovery_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate the active pre-data numeric and descendant-validation recovery."""
+
+    failures: list[str] = []
+    expected_gate = "experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md"
+    if contract.get("active_publication_gate") != expected_gate:
+        failures.append("iter214 active publication gate differs")
+    if not (root / expected_gate).is_file():
+        failures.append("iter214 active recovery gate is absent")
+    state = contract.get("current_gate_state", {}).get("iter214_recovery", {})
+    if state.get("status") != "active_local_pre_data_numeric_recovery":
+        failures.append("iter214 recovery status differs")
+    if state.get("predecessor_seal") != "dbe008211022e0abdff5bc9e47e871b02b6d5501":
+        failures.append("iter214 predecessor seal differs")
+    if state.get("preserved_iter212_gate") != (
+        "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md"
+    ):
+        failures.append("iter214 preserved iter212 gate differs")
+    actions = state.get("actions_before_source_seal")
+    if not isinstance(actions, dict) or not actions or any(value != 0 for value in actions.values()):
+        failures.append("iter214 pre-seal action ledger is not exact zero")
+    if (
+        state.get("tcp1_data_observed") is not False
+        or state.get("scientific_change") is not False
+        or state.get("execution_authorized") is not False
+    ):
+        failures.append("iter214 pre-data scientific/execution boundary differs")
+    for fragment in (
+        "lower=0.0 only when successes=0",
+        "upper=1.0 only when successes=trials",
+    ):
+        if fragment not in state.get("analysis_amendment", ""):
+            failures.append(f"iter214 analysis amendment omits: {fragment}")
+    for fragment in (
+        "immutable source Git blobs",
+        "additive descendant experiment scope",
+    ):
+        if fragment not in state.get("validation_recovery", ""):
+            failures.append(f"iter214 validation recovery omits: {fragment}")
+    claim = state.get("claim_boundary", "")
+    for fragment in (
+        "pre-data numeric and publication-validation recovery only",
+        "no scientific numerator",
+        "state-of-the-art",
+    ):
+        if fragment not in claim:
+            failures.append(f"iter214 claim boundary omits: {fragment}")
+
+    required_sources = {
+        expected_gate,
+        "experiments/iter214_tcp1_cross_platform_numeric_recovery/RESULT.md",
+        "experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/analysis_amendment.json",
+        "experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/ci_failure.json",
+        "experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/receipt_v2.json",
+        "scripts/build_iter214_handoff.py",
+        "scripts/build_iter214_receipt.py",
+        "scripts/validate_iter213_post_seal_validation_recovery.py",
+        "scripts/validate_iter214_tcp1_cross_platform_numeric_recovery.py",
+        "telos/tcp1.py",
+        "tests/test_iter214_tcp1_cross_platform_numeric_recovery.py",
+        "tests/test_tcp1.py",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter214 source-of-truth set is incomplete")
+    else:
+        missing = sorted(source for source in required_sources if not (root / source).is_file())
+        if missing:
+            failures.append("iter214 source-of-truth files are absent: " + ", ".join(missing))
     return failures
 
 
@@ -1062,6 +1319,9 @@ def main() -> int:
     failures.extend(validate_iter208_correction_state(contract))
     failures.extend(validate_iter209_recovery_state(contract))
     failures.extend(validate_iter210_recovery_state(contract))
+    failures.extend(validate_iter211_materialization_state(contract))
+    failures.extend(validate_iter213_recovery_state(contract))
+    failures.extend(validate_iter214_recovery_state(contract))
 
     phases = [phase.get("phase") for phase in contract.get("loop", [])]
     if phases != REQUIRED_PHASES:
@@ -1102,6 +1362,13 @@ def main() -> int:
         "validate_iter209_publication_ci_recovery.py",
         "build_iter210_receipt.py --check",
         "validate_iter210_pr_synthetic_merge_recovery.py",
+        "build_iter211_tcp1_packet.py --check",
+        "build_iter211_receipt.py --check",
+        "validate_iter211_tcp1_materialization_preflight.py",
+        "build_iter213_receipt.py --check",
+        "validate_iter213_post_seal_validation_recovery.py",
+        "build_iter214_receipt.py --check",
+        "validate_iter214_tcp1_cross_platform_numeric_recovery.py",
         "validate_deterministic_edit_slice.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",

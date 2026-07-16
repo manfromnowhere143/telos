@@ -156,6 +156,27 @@ jobs:
       - name: Iter210 PR synthetic-merge recovery guard
         run: python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py
 
+      - name: Iter211 TCP-1 deterministic packet guard
+        run: python3 scripts/build_iter211_tcp1_packet.py --check
+
+      - name: Iter211 TCP-1 blocked receipt guard
+        run: python3 scripts/build_iter211_receipt.py --check
+
+      - name: Iter211 TCP-1 materialization preflight guard
+        run: python3 scripts/validate_iter211_tcp1_materialization_preflight.py
+
+      - name: Iter213 post-seal validation recovery receipt guard
+        run: python3 scripts/build_iter213_receipt.py --check
+
+      - name: Iter213 post-seal validation recovery guard
+        run: python3 scripts/validate_iter213_post_seal_validation_recovery.py
+
+      - name: Iter214 TCP-1 cross-platform numeric recovery receipt guard
+        run: python3 scripts/build_iter214_receipt.py --check
+
+      - name: Iter214 TCP-1 cross-platform numeric recovery guard
+        run: python3 scripts/validate_iter214_tcp1_cross_platform_numeric_recovery.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 

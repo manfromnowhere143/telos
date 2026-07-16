@@ -1,0 +1,277 @@
+{
+  "$id": "https://telos.invalid/schemas/tcp1-task.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authoring": {
+      "additionalProperties": false,
+      "properties": {
+        "attestation_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "frozen_at": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "reviewer_ids": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 2,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "reviewer_ids",
+        "frozen_at",
+        "attestation_sha256"
+      ],
+      "type": "object"
+    },
+    "container": {
+      "additionalProperties": false,
+      "properties": {
+        "build_source_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "image_digest": {
+          "pattern": "^sha256:[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "image_reference": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "image_reference",
+        "image_digest",
+        "build_source_sha256"
+      ],
+      "type": "object"
+    },
+    "contamination_review": {
+      "additionalProperties": false,
+      "properties": {
+        "eligible": {
+          "const": true
+        },
+        "known_exposure": {
+          "enum": [
+            "none_found",
+            "found",
+            "indeterminate"
+          ]
+        },
+        "methods": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "methods",
+        "known_exposure",
+        "eligible"
+      ],
+      "type": "object"
+    },
+    "hidden_consequence_commitment": {
+      "additionalProperties": false,
+      "properties": {
+        "agent_visible": {
+          "const": false
+        },
+        "authored_before_any_model_output": {
+          "const": true
+        },
+        "coverage_map_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "suite_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "vault_artifact_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "suite_sha256",
+        "coverage_map_sha256",
+        "vault_artifact_id",
+        "authored_before_any_model_output",
+        "agent_visible"
+      ],
+      "type": "object"
+    },
+    "model_cutoff_comparison": {
+      "additionalProperties": false,
+      "properties": {
+        "documented_training_cutoff": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "model_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_citation": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "task_is_strictly_later": {
+          "const": true
+        },
+        "task_origin_timestamp": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "model_id",
+        "documented_training_cutoff",
+        "task_origin_timestamp",
+        "source_citation",
+        "task_is_strictly_later"
+      ],
+      "type": "object"
+    },
+    "repository": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "repository_license": {
+      "additionalProperties": false,
+      "properties": {
+        "license_artifact_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "research_and_redistribution_reviewed": {
+          "const": true
+        },
+        "spdx_expression": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "spdx_expression",
+        "license_artifact_sha256",
+        "research_and_redistribution_reviewed"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "telos.tcp1.task.v1"
+    },
+    "source_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "task_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "falsifiers": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "goal": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "public_files": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "requirements": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "goal",
+        "requirements",
+        "falsifiers",
+        "public_files"
+      ],
+      "type": "object"
+    },
+    "task_id": {
+      "pattern": "^tcp1-task-[0-9]{3}$",
+      "type": "string"
+    },
+    "visible_grader": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "path": {
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+          "type": "string"
+        },
+        "producer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "media_type",
+        "producer"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "repository",
+    "source_commit",
+    "repository_license",
+    "model_cutoff_comparison",
+    "task_contract",
+    "visible_grader",
+    "hidden_consequence_commitment",
+    "container",
+    "authoring",
+    "contamination_review"
+  ],
+  "title": "TCP-1 frozen task contract",
+  "type": "object"
+}

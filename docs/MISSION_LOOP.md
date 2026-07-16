@@ -10,8 +10,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 - Sealed runtime/admission gate:
   [`../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md`](../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md)
-- Active publication-recovery gate:
-  [`../experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md`](../experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md)
+- Active pre-data numeric-recovery gate:
+  [`../experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md`](../experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md)
 - Frozen upstream disposition:
   [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md)
 - Runtime baseline state: post-provider, pre-scientific-output infrastructure recovery over sealed iter202 and
@@ -83,10 +83,37 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   passed both jobs. Pull-request CI run `29494386126` then exposed one synthetic-merge branch-tip assumption
   in the new iter209 guard, so draft PR `#9` was not merged and its branch remains unchanged.
 
-  Iter210 is the active additive PR synthetic-merge recovery. It resolves the exact iter209 public seal on
+  Iter210 is the sealed additive PR synthetic-merge recovery. It resolves the exact iter209 public seal on
   descendants, makes sealed receipt checking Git-blob-bound, and derives its own source/seal identity from
-  the handoff plus Git parents. It changes no scientific artifact or result and authorizes no provider, GPU,
-  scientific container, workflow-dispatch, release, or scientific action.
+  the handoff plus Git parents. Its exact seal `c109312d5ee525599abfbac178c3fb245117ab49` passed branch-push
+  CI run `29496323167` and pull-request CI run `29496355871`; PR `#10` merged as exact two-parent commit
+  `fb348eb1f67c0605679cd56a1cfa210cf192db03`, and merged-master CI run `29496560409` passed. It changed no
+  scientific artifact or result and authorized no provider, GPU, scientific container, workflow dispatch,
+  release, or scientific action.
+
+  Iter211 is the exact sealed zero-execution TCP-1 materialization preflight. It freezes deterministic seeds,
+  custody schemas, analysis code, control separation, resource ceilings, and an isolation threat model. Two
+  local-design gates pass; nine external admission gates remain blocked: reviewers, model/cutoff/weights,
+  twelve tasks and hidden tests, controls, runtime/container/hardware, external timestamp, isolation
+  rehearsal, throughput preflight, and monetary-budget approval. Its first complete post-seal `pytest -q`
+  passed `648` tests and failed `3` publication-only compatibility checks. The exact iter211 source
+  `1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021` and seal
+  `dc19e6f27f5a001632b5183ff798a6eacae6de33` remain unchanged.
+
+  Iter213 is the sealed additive post-seal validation recovery. It makes standing-claim handoff boundary
+  parsing accept the bounded historical and publication title families and makes iter210/iter211 receipt and
+  topology checks resolve exact sealed Git ancestors on arbitrary descendants. Its local suite and synthetic
+  merge passed, but exact push CI run `29505707609` and pull-request CI run `29505789397` both failed on
+  Python 3.11 and 3.12: Linux retained `2.7755575615628914e-17` instead of mathematical zero for the Wilson
+  lower endpoint at `k=0, n=10`; all other `656` tests passed. Draft PR `#11` and its branch remain unchanged
+  and were not rerun.
+
+  Iter214 is the active additive pre-data numeric recovery. It canonicalizes only Wilson's mathematically
+  exact `k=0` lower and `k=n` upper boundaries after the unchanged calculation. It also makes a sealed
+  iter213 validate immutable source Git blobs, receipt, and source/seal topology instead of later additive
+  experiment scope. Iter212's independent-cohort hypothesis remains unchanged and inactive. There are zero
+  admitted tasks, model calls, GPU allocations, accelerator-hours, scientific containers, or trajectories.
+  Execution authorization remains false and scientific execution remains blocked.
 
   The iter200 prerequisite remains complete: all `37` valid patches have official-harness evidence, `24`
   are certified, `k=1`, and `u=6`; the standing descriptive quantities are `1/24` confirmed lower, `7/24`
@@ -98,10 +125,11 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   cohort remains disjoint from iter200 but not unused mission-wide
   (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the pre-result-declared
   sensitivity splits remain mandatory. `CONTINUITY.md` remains an exact-byte frozen iter202 upstream
-  artifact; the iter203--iter206 terminal results, iter207--iter209 seals, and iter210 hypothesis govern
-  recovery. Iter210 has one dependency order: finish and validate all mutable recovery source and evidence;
-  create its source commit; derive the receipt and handoff from that commit; then create a minimal
-  handoff-only seal before fresh branch publication. No scientific dispatch is authorized by that sequence.
+  artifact; the iter203--iter206 terminal results, iter207--iter211 seals, unchanged prospective iter212
+  hypothesis, failed iter213 publication evidence, and iter214 recovery hypothesis govern the current
+  boundary. Iter214 must finish and validate all recovery source, create one receipt-bound source commit,
+  and derive one handoff-only seal before fresh branch publication. No scientific dispatch or execution is
+  authorized by that sequence.
 - Standing construction correction: iter192 is conservatively adjudicated `FAIL` on its overbroad novelty
   interpretation; the literal v1-specific falsifier trigger is indeterminate because iter151 retained no
   accepted patch bytes. Iter151 had already reported the same class-level `0/20` test-suite precursor, and
@@ -154,7 +182,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   Iter205 is a pre-dispatch admission-history null with empty workflow histories. Iter206 is a local
   pre-publication claim-integrity null. Iter207 is the sealed separately versioned correction and recovery.
   Iter208 is the sealed additive publication correction; iter209 and iter210 are additive publication-CI
-  recoveries that do not rewrite or mutate either failed predecessor branch.
+  recoveries that do not rewrite or mutate either failed predecessor branch. Iter210 is merged and green;
+  iter211 adds protocol materialization only; iter213 is its failed-publication validation recovery; iter214
+  is the pre-data numerical and descendant-validation correction. None contributes a scientific result, and
+  iter212 remains inactive.
 - Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false

@@ -84,6 +84,24 @@ def test_iter200_claim_guard_covers_every_standing_public_surface() -> None:
     assert guard.standing_public_claim_scan() == []
 
 
+def test_standing_handoff_scan_accepts_action_and_publication_boundary_titles() -> None:
+    guard = load_script("validate_iter200_corrected_result.py")
+    path = guard.ROOT / "HANDOFF.md"
+    body = "current bounded claim\n"
+
+    action = (
+        "# handoff\n\n## Current Gate\n" + body + "## Verification Before Action\ncommands\n"
+    )
+    publication = (
+        "# handoff\n\n## Current Gates\n"
+        + body
+        + "## Verification Before Publication\ncommands\n"
+    )
+
+    assert guard.standing_surface_text(path, action) == body
+    assert guard.standing_surface_text(path, publication) == body
+
+
 def test_iter200_guard_pins_all_result_shaping_implementations(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:

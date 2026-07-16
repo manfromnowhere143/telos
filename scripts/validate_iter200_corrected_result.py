@@ -293,7 +293,10 @@ STANDING_PUBLIC_SURFACES = {
         None,
         "- Historical boundary ledger through iter190",
     ),
-    ROOT / "HANDOFF.md": ("## Current Gate", "## Verification Before Action"),
+    ROOT / "HANDOFF.md": (
+        ("## Current Gate\n", "## Current Gates\n"),
+        ("## Verification Before Action\n", "## Verification Before Publication\n"),
+    ),
     ROOT / "paper/README.md": (None, None),
     ROOT / "paper/telos.tex": (None, None),
     ROOT / "results/README.md": (None, None),
@@ -447,21 +450,24 @@ def standing_surface_text(path: Path, text: str) -> str:
         )
 
     start_marker, end_marker = STANDING_PUBLIC_SURFACES[path]
+
+    def find_marker(marker: str | tuple[str, ...], offset: int) -> tuple[int, str]:
+        markers = (marker,) if isinstance(marker, str) else marker
+        matches = [(text.find(candidate, offset), candidate) for candidate in markers]
+        present = [(position, candidate) for position, candidate in matches if position >= 0]
+        if not present:
+            raise ValueError(
+                f"{path.relative_to(ROOT)} is missing section marker; expected one of {markers}"
+            )
+        return min(present, key=lambda item: item[0])
+
     start = 0
     if start_marker is not None:
-        start = text.find(start_marker)
-        if start < 0:
-            raise ValueError(
-                f"{path.relative_to(ROOT)} is missing current-section marker: {start_marker}"
-            )
-        start += len(start_marker)
+        start, matched = find_marker(start_marker, 0)
+        start += len(matched)
     end = len(text)
     if end_marker is not None:
-        end = text.find(end_marker, start)
-        if end < 0:
-            raise ValueError(
-                f"{path.relative_to(ROOT)} is missing history boundary: {end_marker}"
-            )
+        end, _ = find_marker(end_marker, start)
     return text[start:end]
 
 
