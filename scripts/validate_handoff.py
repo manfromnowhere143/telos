@@ -52,6 +52,9 @@ ITER214_RECEIPT = "experiments/iter214_tcp1_cross_platform_numeric_recovery/proo
 ITER219_BRANCH = "agent/iter219-temporal-consequence-test-yield"
 ITER220_BRANCH = "agent/iter220-iter219-publication-ci-recovery"
 ITER221_BRANCH = "agent/iter221-cross-platform-guard-tolerance"
+ITER222_BRANCH = "agent/iter222-tcp1-agent-solvable-admission-evidence"
+ITER222_HANDOFF_SCHEMA = "telos.iter222.handoff.v1"
+ITER222_PREDECESSOR_MERGE = "b38d8921d30ca665692afc024b4f0e3706902f78"
 ITER221_HANDOFF_SCHEMA = "telos.iter221.handoff.v1"
 ITER221_PREDECESSOR_SEAL = "3cee092420c2d13227005c8d78e584ec69da832f"
 ITER220_HANDOFF_SCHEMA = "telos.iter220.handoff.v1"
@@ -1424,6 +1427,103 @@ def normalize_handoff_prose(text: str) -> str:
     return joined.replace("**", "").replace("__", "").casefold()
 
 
+def iter222_declared_repository_state(handoff: str) -> dict[str, str]:
+    """Parse the iter222 source-bound admission-evidence identity block."""
+
+    matches = re.findall(
+        r"^## Repository State\n\n```text\n"
+        r"handoff_schema: ([^\n]+)\n"
+        r"source_branch: ([^\n]+)\n"
+        r"source_commit: ([^\n]+)\n"
+        r"predecessor_merge: ([^\n]+)\n"
+        r"publication_target: ([^\n]+)\n```$",
+        handoff,
+        re.MULTILINE,
+    )
+    if len(matches) != 1:
+        raise ValueError("HANDOFF.md must record exactly one iter222 repository-state block")
+    schema, branch, source, predecessor, target = matches[0]
+    if schema != ITER222_HANDOFF_SCHEMA:
+        raise ValueError(f"HANDOFF.md iter222 schema differs: {schema}")
+    if branch != ITER222_BRANCH:
+        raise ValueError(f"HANDOFF.md iter222 source branch differs: {branch}")
+    if re.fullmatch(r"[0-9a-f]{40}", source) is None:
+        raise ValueError("HANDOFF.md iter222 source commit is not a full lowercase Git id")
+    if predecessor != ITER222_PREDECESSOR_MERGE:
+        raise ValueError("HANDOFF.md iter222 predecessor merge differs")
+    if target != "master":
+        raise ValueError("HANDOFF.md iter222 publication target must be master")
+    return {
+        "source_branch": branch,
+        "source_commit": source,
+        "predecessor_merge": predecessor,
+        "publication_target": target,
+    }
+
+
+def iter222_content_failures(handoff: str, contract: dict[str, object]) -> list[str]:
+    """Keep iter222's three fills, the 5/11 count, and the execution block explicit."""
+
+    failures: list[str] = []
+    try:
+        iter222_declared_repository_state(handoff)
+    except ValueError as exc:
+        failures.append(str(exc))
+    if REPOSITORY_DECLARATION not in handoff:
+        failures.append("HANDOFF.md does not declare the standalone TELOS repository")
+    if FORBIDDEN_WORKSPACE_LABEL in handoff.casefold():
+        failures.append("HANDOFF.md names an unrelated workspace")
+    if re.search(r"\b[A-Z][A-Z0-9_]*(?:KEY|TOKEN|SECRET)\b", handoff):
+        failures.append("HANDOFF.md names a credential variable")
+    if re.search(r"(?im)^[ \t]*gh[ \t]+(?:run[ \t]+rerun|workflow[ \t]+run)\b", handoff):
+        failures.append("HANDOFF.md authorizes a workflow dispatch or rerun")
+    required = (
+        "Local status: **PASS; fresh publication seal pending**.",
+        "TCP-1 admission moves from `2/11` to `5/11`",
+        "model_license_cutoff_and_weight_binding",
+        "external_transparency_timestamp",
+        "hostile_isolation_rehearsal",
+        "execution_authorized stays false",
+        "The six remaining gates require external humans, real runtime and hardware, a paid throughput preflight, and an approved budget.",
+        "A published digest proves byte identity, not that the model runs.",
+        "A denied rehearsal proves policy coverage, not runtime isolation.",
+        "Run `python3 scripts/run_ci_closure.py` before any push.",
+        "The receipt proves byte identity, not authorship, external chronology, licensing, independence, or semantic truth.",
+        "Repository publication authorizes no release, paper submission, provider request, GPU allocation",
+        "python3 scripts/build_iter222_receipt.py --check",
+        "python3 scripts/validate_iter222_tcp1_agent_solvable_admission_evidence.py",
+        "python3 scripts/validate_handoff.py",
+        "pytest -q",
+    )
+    normalized = normalize_handoff_prose(handoff)
+    for fact in required:
+        if normalize_handoff_prose(fact) not in normalized:
+            failures.append(f"HANDOFF.md is missing iter222 fact: {fact}")
+    if handoff.count(f"Active gate: `{contract.get('active_gate')}`") != 1:
+        failures.append("HANDOFF.md does not bind the sealed runtime gate exactly once")
+    if handoff.count(f"Active publication gate: `{contract.get('active_publication_gate')}`") != 1:
+        failures.append("HANDOFF.md does not bind the active publication gate exactly once")
+    frozen_line = (
+        "Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: "
+        f"`{contract.get('frozen_upstream_gate')}`"
+    )
+    if handoff.count(frozen_line) != 1:
+        failures.append("HANDOFF.md does not bind the frozen upstream gate exactly once")
+    return failures
+
+
+def iter222_handoff_failures(handoff: str) -> list[str]:
+    """Validate the iter222 admission-evidence handoff against the mission contract."""
+
+    try:
+        contract = json.loads(MISSION_CONTRACT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"cannot load mission gate contract: {exc}"]
+    if not isinstance(contract, dict):
+        return ["mission gate contract root is not an object"]
+    return iter222_content_failures(handoff, contract)
+
+
 def iter221_declared_repository_state(handoff: str) -> dict[str, str]:
     """Parse the iter221 source-bound platform-independence identity block."""
 
@@ -1919,6 +2019,15 @@ def iter214_handoff_failures(handoff: str) -> list[str]:
 def main() -> int:
     failures: list[str] = []
     handoff = HANDOFF.read_text(encoding="utf-8")
+    if f"handoff_schema: {ITER222_HANDOFF_SCHEMA}" in handoff:
+        failures.extend(iter222_handoff_failures(handoff))
+        if failures:
+            print("handoff guard failed:")
+            for failure in failures:
+                print(f" - {failure}")
+            return 1
+        print("handoff guard: clean iter222 admission-evidence seal")
+        return 0
     if f"handoff_schema: {ITER221_HANDOFF_SCHEMA}" in handoff:
         failures.extend(iter221_handoff_failures(handoff))
         if failures:

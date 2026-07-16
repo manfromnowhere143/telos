@@ -195,6 +195,12 @@ jobs:
       - name: Iter221 cross-platform guard tolerance guard
         run: python3 scripts/validate_iter221_cross_platform_guard_tolerance.py
 
+      - name: Iter222 admission-evidence receipt guard
+        run: python3 scripts/build_iter222_receipt.py --check
+
+      - name: Iter222 agent-solvable admission evidence guard
+        run: python3 scripts/validate_iter222_tcp1_agent_solvable_admission_evidence.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 

@@ -182,10 +182,11 @@ TCP-1 is a null or failure—not a result—if any of these occurs:
 
 ```mermaid
 flowchart LR
-I211["211 preflight<br/>protocol + analysis"] --> I213["213 post-seal recovery"]
+I211["211 preflight"] --> I213["213 recovery"]
 I213 --> I214["214 numeric recovery<br/>exact Wilson"]
 I214 --> I219["219 temporal yield<br/>NULL"]
-I219 --> I212["212 freeze<br/>humans + tasks + custody"]
+I219 --> I222["222 admission<br/>5/11"]
+I222 --> I212["212 freeze<br/>humans + tasks + custody"]
 I212 --> I215["215 isolated preflight<br/>one task · one seed"]
 I215 --> Q{"all admission gates pass<br/>inside 64-hour ceiling?"}
 Q -->|no or missing| B["BLOCKED / NULL<br/>no scientific run"]
@@ -201,7 +202,8 @@ classDef blocked fill:#fff1f0,stroke:#cf222e,color:#4c1114;
 class I211 done;
 class I213 corrected;
 class I214 corrected;
-class I219 active;
+class I219 done;
+class I222 active;
 class B,N blocked;
 ```
 
@@ -284,6 +286,18 @@ Executes before iter212 in dependency order; the number records creation order.
 - falsifies static symbol-name matching as a detector at this granularity; does **not** falsify the harvest
   idea, per the inference rule fixed before observation;
 - contributes no scientific `N`, `k`, or `u` to TCP-1; admission stays `2/11`.
+
+### Iter222 — agent-solvable admission evidence (5/11)
+
+Executes before iter212 in dependency order; the number records creation order.
+
+- fill the three TCP-1 admission gates that need no external humans, hardware, or budget: bind one
+  license-compatible open-weight model from live HuggingFace digests (Qwen2.5-7B-Instruct, Apache-2.0, no
+  weights downloaded); obtain a real RFC 3161 transparency timestamp that re-verifies offline; rehearse the
+  five registered isolation attacks with positive controls that fire on a weakened contract;
+- move admission from `2/11` to `5/11`; keep `execution_authorized=false`;
+- the six remaining gates require reviewers, task and hidden-test authors, real runtime and hardware, a paid
+  throughput preflight, and an approved budget — none agent-solvable, all in the unchanged iter212 gate.
 
 ### Iter215 — isolated throughput preflight
 

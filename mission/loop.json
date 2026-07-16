@@ -35,7 +35,7 @@
  },
  "current_gate_state": {
   "date": "2026-07-16",
-  "stage": "iter221_cross_platform_guard_tolerance",
+  "stage": "iter222_tcp1_agent_solvable_admission_evidence",
   "iter200_denominator": "complete: 37 executed, 24 certified, k=1, u=6; historical 1/15 is not poolable",
   "iter200_corrected_baseline": {
    "complete_case_sensitivity": "1/18",
@@ -447,6 +447,27 @@
    "repository_test_executions": 0,
    "workflow_reruns": 0,
    "tcp1_admission_unchanged": "2 of 11 gates pass; 9 blocked; execution_authorized=false"
+  },
+  "iter222_admission_evidence": {
+   "status": "active_local_admission_materialization",
+   "predecessor_merge": "b38d8921d30ca665692afc024b4f0e3706902f78",
+   "admission_before": "2 of 11 pass, 9 blocked",
+   "admission_after": "5 of 11 pass, 6 blocked",
+   "gates_filled": [
+    "model_license_cutoff_and_weight_binding",
+    "external_transparency_timestamp",
+    "hostile_isolation_rehearsal"
+   ],
+   "default_model": "Qwen/Qwen2.5-7B-Instruct @ a09a35458c70, apache-2.0, live HuggingFace digests, no weights downloaded",
+   "transparency_timestamp": "freetsa.org RFC 3161 token, verified + re-verified offline",
+   "isolation_rehearsal": "5/5 attacks denied, 5/5 positive controls fire on weakened contract",
+   "execution_authorized": false,
+   "remaining_blockers": "6 gates require external humans, real runtime/hardware, paid throughput preflight, approved budget",
+   "provider_calls": 0,
+   "gpu_allocations": 0,
+   "weights_downloaded": false,
+   "scientific_result_claimed": false,
+   "tcp1_execution_still_blocked": true
   }
  },
  "source_of_truth": [
@@ -653,7 +674,7 @@
   "tests/test_tcp1.py"
  ],
  "active_gate": "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
- "active_publication_gate": "experiments/iter221_cross_platform_guard_tolerance/HYPOTHESIS.md",
+ "active_publication_gate": "experiments/iter222_tcp1_agent_solvable_admission_evidence/HYPOTHESIS.md",
  "frozen_upstream_gate": "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
  "loop": [
   {

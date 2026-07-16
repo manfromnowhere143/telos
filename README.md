@@ -2,7 +2,7 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
-> **Iter219 published a null — TCP-1 scientific execution remains BLOCKED.** Iter214 merged through PR `#12`
+> **Iter222 filled three TCP-1 admission gates (2/11 → 5/11) — scientific execution remains BLOCKED.** Iter219 published a null on the temporal-yield screen; Iter214 merged through PR `#12`
 > as `470ca3627b7635d9a315cf2811ceb2eed6575fb9` with green push, pull-request, and merged-master CI, closing
 > the publication-engineering line that began at iter208. Iter211's TCP-1 packet still stands at **2
 > local-design gates passing and 9 external admission gates blocked**.
@@ -32,7 +32,14 @@ The failed, unchanged publication predecessor is
 [iter213 iter211 post-seal validation recovery](experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md).
 The merged publication-engineering gate is
 [iter214 TCP-1 cross-platform numeric recovery](experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md).
-The active publication-engineering gate is
+The active gate is
+[iter222 agent-solvable TCP-1 admission evidence](experiments/iter222_tcp1_agent_solvable_admission_evidence/HYPOTHESIS.md),
+which fills the three admission gates an agent can fill at zero spend — a live-digest open-weight model
+binding, a real RFC 3161 transparency timestamp, and a hostile isolation rehearsal with positive controls —
+moving TCP-1 admission from `2/11` to `5/11` while keeping execution unauthorized. Its
+[result](experiments/iter222_tcp1_agent_solvable_admission_evidence/RESULT.md) records that the six remaining
+blockers require external humans, real hardware, a throughput preflight, and an approved budget.
+The preceding cross-platform recovery is
 [iter221 cross-platform guard tolerance](experiments/iter221_cross_platform_guard_tolerance/HYPOTHESIS.md),
 which stops a guard from asserting bit-exact floating-point equality across machines: `sqrt`-derived Wilson
 intervals are platform-dependent in the last place, so they compare at `rel_tol=1e-9` while every exactly

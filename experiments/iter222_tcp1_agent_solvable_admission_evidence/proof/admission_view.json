@@ -1,0 +1,73 @@
+{
+ "blocked_gate_count": 6,
+ "execution_authorized": false,
+ "gate": "experiments/iter222_tcp1_agent_solvable_admission_evidence/HYPOTHESIS.md",
+ "gates": [
+  {
+   "gate": "merged_iter210_baseline",
+   "iter222_filled": false,
+   "status": "pass"
+  },
+  {
+   "gate": "protocol_schemas_and_analysis_code",
+   "iter222_filled": false,
+   "status": "pass"
+  },
+  {
+   "gate": "independent_reviewer_team",
+   "iter222_filled": false,
+   "status": "blocked"
+  },
+  {
+   "gate": "model_license_cutoff_and_weight_binding",
+   "iter222_filled": true,
+   "status": "pass"
+  },
+  {
+   "gate": "twelve_task_cohort_and_hidden_tests",
+   "iter222_filled": false,
+   "status": "blocked"
+  },
+  {
+   "gate": "calibration_controls",
+   "iter222_filled": false,
+   "status": "blocked"
+  },
+  {
+   "gate": "runtime_container_and_hardware_binding",
+   "iter222_filled": false,
+   "status": "blocked"
+  },
+  {
+   "gate": "external_transparency_timestamp",
+   "iter222_filled": true,
+   "status": "pass"
+  },
+  {
+   "gate": "hostile_isolation_rehearsal",
+   "iter222_filled": true,
+   "status": "pass"
+  },
+  {
+   "gate": "one_task_one_seed_throughput_preflight",
+   "iter222_filled": false,
+   "status": "blocked"
+  },
+  {
+   "gate": "separate_monetary_budget_approval",
+   "iter222_filled": false,
+   "status": "blocked"
+  }
+ ],
+ "iter222_filled_gates": [
+  "external_transparency_timestamp",
+  "hostile_isolation_rehearsal",
+  "model_license_cutoff_and_weight_binding"
+ ],
+ "passed_gate_count": 5,
+ "predecessor_admission_report": "experiments/iter211_tcp1_materialization_preflight/proof/admission_report.json",
+ "remaining_blockers_require": "external humans (reviewers, task authors, hidden-test authors), the real runtime/container/hardware, a paid throughput preflight, and an approved budget",
+ "schema_version": "telos.iter222.admission_view.v1",
+ "scientific_execution_admission": "blocked",
+ "scientific_result_claimed": false
+}

@@ -1,0 +1,53 @@
+{
+ "binding_sha256": "a02dc3421c5a6d85dee3db652b53b7431a7784c539e5a1871dd443a08f4b9ae2",
+ "candidate_menu": [
+  {
+   "cutoff_source": "Qwen2.5 Technical Report (arXiv:2412.15115), Section 3.1: pretraining data cutoff stated; model card at https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+   "expected_license": "apache-2.0",
+   "license": "apache-2.0",
+   "model_id": "Qwen/Qwen2.5-7B-Instruct",
+   "resolved_commit_sha": "a09a35458c702b33eeacc393d103063234e8bc28"
+  },
+  {
+   "cutoff_source": "Mistral AI model card and release notes at https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3",
+   "expected_license": "apache-2.0",
+   "license": "apache-2.0",
+   "model_id": "mistralai/Mistral-7B-Instruct-v0.3",
+   "resolved_commit_sha": "c170c708c41dac9275d15a8fff4eca08d52bab71"
+  },
+  {
+   "cutoff_source": "Llama 3.1 model card, 'Training Data' knowledge cutoff at https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct",
+   "expected_license": "llama3.1",
+   "license": "llama3.1",
+   "license_note": "community license, not SPDX Apache/MIT; menu-only, not the default",
+   "model_id": "meta-llama/Llama-3.1-8B-Instruct",
+   "resolved_commit_sha": "0e9e39f249a16976918f6564b8830bc894c89659"
+  }
+ ],
+ "default_model": {
+  "cutoff_source": "Qwen2.5 Technical Report (arXiv:2412.15115), Section 3.1: pretraining data cutoff stated; model card at https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+  "license": "apache-2.0",
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "resolved_commit_sha": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "retrieved_from": "https://huggingface.co/api/models/Qwen/Qwen2.5-7B-Instruct?blobs=true",
+  "tokenizer_files_present": [
+   "merges.txt",
+   "tokenizer.json",
+   "vocab.json"
+  ],
+  "tokenizer_sha256": {},
+  "weight_file_count": 4,
+  "weight_sha256": {
+   "model-00001-of-00004.safetensors": "a1333e6293854747c481288ea83b348226af178dd565c49b6f9495ba1966aba7",
+   "model-00002-of-00004.safetensors": "f5d25a2772cb825164a2a2c0fb6d51a87e282abf21e4dd75bc5cfb3cd0ea6185",
+   "model-00003-of-00004.safetensors": "8efdec4c1bc12317ae1a38dc42b595ce777738a64deea3fcb8a0a91381bcdfd5",
+   "model-00004-of-00004.safetensors": "1a72d403cdf0c1ec3cb7f289f17b394a01e64394c2e9b3c0f94dbce3faf879bd"
+  }
+ },
+ "digest_meaning": "Each sha256 is the HuggingFace-published digest of the served artifact, retrieved live. It proves byte identity of what the service serves under this name at this commit. It does NOT prove the model loads, runs, or has any capability, and it is not a training-provenance or license-compliance proof.",
+ "gate": "experiments/iter222_tcp1_agent_solvable_admission_evidence/HYPOTHESIS.md",
+ "gpu_allocations": 0,
+ "provider_calls": 0,
+ "schema_version": "telos.iter222.model_binding.v1",
+ "weights_downloaded": false
+}
