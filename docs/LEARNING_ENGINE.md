@@ -58,7 +58,7 @@ This hand-written table is historical context and may lag the newest records; th
 authoritative for validating and reading the newest completed record. Generated `HANDOFF.md` owns the
 current operational action.
 
-Latest machine-validated records:
+Selected historical records:
 
 | experiment | status | insight | next action |
 |---|---|---|---|

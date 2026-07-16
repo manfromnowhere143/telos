@@ -1,0 +1,23 @@
+{
+  "evidence_paths": [
+    ".github/workflows/iter204-execute.yml",
+    "experiments/iter203_iter202_safety_recovery/RESULT.md",
+    "experiments/iter203_iter202_safety_recovery/proof/infrastructure_null.json",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/public_workflow_logs/manifest.json",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/runtime_manifest.json",
+    "experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md",
+    "experiments/iter204_iter203_infrastructure_recovery/proof/pre_execution_publication_safety.json",
+    "experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json",
+    "scripts/ci_iter204_execute.sh",
+    "scripts/ci_iter204_smoke.sh",
+    "scripts/collect_iter204_execution.py",
+    "scripts/publish_iter204_runtime_diagnostic.py"
+  ],
+  "experiment_id": "iter204_iter203_infrastructure_recovery",
+  "insight": "Iter204 is an active post-infrastructure-null/pre-scientific-output recovery over the immutable iter202/iter203 corpus. It changes only the separately versioned infrastructure needed to set local-driver compress=false, prove that exact logging tuple with an inert no-science smoke gate, and retain bounded failure diagnostics. No certification, scenario, adjudication, judge, N, k, u, or rate result exists yet.",
+  "next_action": "Complete and adversarially review the iter204 runtime, smoke receipt, diagnostic retention, collector, workflow authorization, tests, and new runtime manifest; require green primary CI; then make the first global iter204 dispatch on the approved commit and accept only run attempt 1 as a complete same-attempt eight-shard corpus. Any failure must be published as a null and requires a new iteration, never a rerun or second dispatch.",
+  "result_path": "experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pending",
+  "timing": "post_iter203_infrastructure_null_and_before_any_iter204_scientific_output"
+}

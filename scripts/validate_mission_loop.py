@@ -46,6 +46,10 @@ CORE_VALIDATION_COMMANDS = (
     "python3 scripts/build_iter203_safety_recovery.py --check",
     "python3 scripts/build_iter203_runtime_manifest.py --check",
     "python3 scripts/validate_iter203_publication_safety.py --check",
+    "python3 scripts/validate_iter203_infrastructure_null.py",
+    "python3 scripts/build_iter204_runtime_manifest.py --check",
+    "python3 scripts/validate_iter204_publication_safety.py --check",
+    "python3 scripts/validate_iter204_runtime_recovery.py",
     "python3 scripts/validate_target_survey.py",
     "python3 scripts/validate_public_slice.py",
     "python3 scripts/validate_agent_behavior_slice.py",
@@ -115,8 +119,8 @@ def validate_gate_bindings(
     return failures
 
 
-def validate_iter203_recovery_state(contract: dict[str, Any]) -> list[str]:
-    """Validate the evidence-bounded provider, safety, and recovery state."""
+def validate_iter204_recovery_state(contract: dict[str, Any]) -> list[str]:
+    """Validate the sealed iter203 null and fail-closed iter204 recovery state."""
 
     failures: list[str] = []
     expected_provider = {
@@ -140,17 +144,39 @@ def validate_iter203_recovery_state(contract: dict[str, Any]) -> list[str]:
     }
     if state.get("iter202_safety_gate") != expected_safety:
         failures.append("iter202 safety-null disposition is not exact")
-    recovery = state.get("iter203_recovery", {})
-    if recovery.get("status") != "post_provider_pre_execution_bridge_and_specs_ready":
-        failures.append("iter203 recovery readiness status is not exact")
-    if recovery.get("certification_denominator") != "all 50 valid model patches":
-        failures.append("iter203 recovery does not retain the all-patch denominator")
-    if "unresolved, never negative" not in recovery.get("missingness_rule", ""):
-        failures.append("iter203 recovery missingness rule is not fail closed")
+    infrastructure_null = state.get("iter203_recovery", {})
+    if infrastructure_null.get("status") != "execution_infrastructure_null":
+        failures.append("iter203 infrastructure-null status is not exact")
+    if "50/50 first Docker run invocations returned exit 125" not in infrastructure_null.get(
+        "launch_outcome", ""
+    ):
+        failures.append("iter203 launch-failure count is not exact")
+    if infrastructure_null.get("scientific_execution") != (
+        "0 patches applied, 0 official certifications, 0 scenario executions"
+    ):
+        failures.append("iter203 zero-execution boundary is not exact")
+    if "not retained" not in infrastructure_null.get("stderr_limitation", ""):
+        failures.append("iter203 missing-stderr evidence limitation is absent")
+    if "reconstructed" not in infrastructure_null.get("root_cause_status", ""):
+        failures.append("iter203 reconstructed root-cause status is absent")
+
+    recovery = state.get("iter204_recovery", {})
+    if recovery.get("status") != "active_post_null_pre_scientific_output_runtime_recovery":
+        failures.append("iter204 recovery readiness status is not exact")
+    if "same 50 valid patches" not in recovery.get("frozen_scientific_scope", ""):
+        failures.append("iter204 does not preserve the all-patch scientific scope")
+    if "compress=false" not in recovery.get("runtime_change", ""):
+        failures.append("iter204 does not bind the narrow log-driver repair")
+    if "first global iter204 workflow dispatch" not in recovery.get("selection_rule", ""):
+        failures.append("iter204 global first-dispatch rule is absent")
+    if "GITHUB_RUN_ATTEMPT=1" not in recovery.get("selection_rule", ""):
+        failures.append("iter204 run-attempt-one rule is absent")
+    if "requires a new iteration" not in recovery.get("failure_rule", ""):
+        failures.append("iter204 failure rule does not forbid outcome-informed reruns")
 
     claim = contract.get("claim_boundary", "")
     for fragment in (
-        "iter203 is the active",
+        "iter203 is a separately published execution-infrastructure null",
         "53/53 solver calls",
         "39/39 eligible scenario calls",
         "50 model patches",
@@ -158,9 +184,15 @@ def validate_iter203_recovery_state(contract: dict[str, Any]) -> list[str]:
         "admitted 29 programs and rejected 9 with 21 findings",
         "scenario-safety protocol/execution null",
         "no N, k, or u",
-        "certifies all 50 valid patches",
-        "unresolved rather than negative",
-        "frozen iter202 workflow must not be dispatched",
+        "29460393525",
+        "all 50/50 first Docker run invocations returned exit 125",
+        "zero workflow artifacts were uploaded",
+        "exact daemon stderr was redirected into temporary files and not retained",
+        "root cause is therefore reconstructed",
+        "Iter204 is the active",
+        "compress=false",
+        "Exactly one global iter204 workflow dispatch and run attempt 1",
+        "requires a new iteration",
     ):
         if fragment not in claim:
             failures.append(f"claim boundary missing iter203 recovery fact: {fragment}")
@@ -170,18 +202,46 @@ def validate_iter203_recovery_state(contract: dict[str, Any]) -> list[str]:
         "experiments/iter202_natural_rate_scaled/proof/learning_record.json",
         "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
         "experiments/iter203_iter202_safety_recovery/UPSTREAM_PROTOCOL_NULL.md",
+        "experiments/iter203_iter202_safety_recovery/RESULT.md",
         "experiments/iter203_iter202_safety_recovery/proof/learning_record.json",
+        "experiments/iter203_iter202_safety_recovery/proof/infrastructure_null.json",
+        "experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md",
+        "experiments/iter204_iter203_infrastructure_recovery/proof/learning_record.json",
+        "experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json",
+        "experiments/iter204_iter203_infrastructure_recovery/proof/pre_execution_publication_safety.json",
         ".github/workflows/iter203-execute.yml",
+        ".github/workflows/iter204-execute.yml",
         "scripts/build_iter203_safety_recovery.py",
         "scripts/build_iter203_runtime_manifest.py",
         "scripts/validate_iter203_publication_safety.py",
         "scripts/collect_iter203_execution.py",
+        "scripts/validate_iter203_infrastructure_null.py",
+        "scripts/build_iter204_runtime_manifest.py",
+        "scripts/capture_iter204_runtime_host.py",
+        "scripts/prepare_iter204_output_directory.py",
+        "scripts/publish_iter204_runtime_diagnostic.py",
+        "scripts/ci_iter204_smoke.sh",
+        "scripts/ci_iter204_execute.sh",
+        "scripts/collect_iter204_execution.py",
+        "scripts/adjudicate_iter204_infrastructure_recovery.py",
+        "scripts/run_iter204_infrastructure_recovery_blind_judge.py",
+        "scripts/validate_iter204_publication_safety.py",
+        "scripts/validate_iter204_runtime_recovery.py",
         "experiments/iter203_iter202_safety_recovery/proof/raw/runtime_manifest.json",
         "experiments/iter203_iter202_safety_recovery/proof/pre_execution_publication_safety.json",
     }
     sources = contract.get("source_of_truth", [])
     if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
-        failures.append("iter203 source-of-truth set is incomplete")
+        failures.append("iter203/iter204 source-of-truth set is incomplete")
+    else:
+        missing_required_sources = sorted(
+            source for source in required_sources if not (ROOT / source).is_file()
+        )
+        if missing_required_sources:
+            failures.append(
+                "iter203/iter204 source-of-truth files are absent: "
+                + ", ".join(missing_required_sources)
+            )
     return failures
 
 
@@ -561,14 +621,14 @@ def main() -> int:
         "supersedes_stale_iter197_iter200_iter201_iter202_sentences_in_historical_claim_ledger"
     ) is not True:
         failures.append("active-gate correction does not supersede stale historical claims")
-    if "No callable Aweb/Maestro Telos capability is claimed" not in contract.get(
+    if "Telos operates from its standalone repository" not in contract.get(
         "claim_boundary", ""
     ):
-        failures.append("claim boundary must forbid unverified Aweb/Maestro runtime claims")
+        failures.append("claim boundary must state the standalone repository boundary")
 
     active_gate = contract.get("active_gate")
     failures.extend(validate_gate_bindings(contract, continuity, handoff))
-    failures.extend(validate_iter203_recovery_state(contract))
+    failures.extend(validate_iter204_recovery_state(contract))
 
     phases = [phase.get("phase") for phase in contract.get("loop", [])]
     if phases != REQUIRED_PHASES:
@@ -607,6 +667,10 @@ def main() -> int:
         "build_iter203_safety_recovery.py --check",
         "build_iter203_runtime_manifest.py --check",
         "validate_iter203_publication_safety.py --check",
+        "validate_iter203_infrastructure_null.py",
+        "build_iter204_runtime_manifest.py --check",
+        "validate_iter204_publication_safety.py --check",
+        "validate_iter204_runtime_recovery.py",
         "validate_deterministic_edit_slice.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",

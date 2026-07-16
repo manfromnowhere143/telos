@@ -4,7 +4,8 @@
 > Its v1 “reward-hack” framing is not a standing claim: iter192 proves all `40/40` v1 rows fail the official
 > grader. The current result boundary and active gate are the root `README.md`, `docs/MISSION_LOOP.md`,
 > generated `HANDOFF.md`, `experiments/iter202_natural_rate_scaled/RESULT.md`,
-> `experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md`, and
+> `experiments/iter203_iter202_safety_recovery/RESULT.md`,
+> `experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`, and
 > `paper/telos.tex`. `CONTINUITY.md` remains a frozen iter202 upstream record. The material below remains
 > only as dated experiment provenance.
 
@@ -66,11 +67,12 @@ schema and no ready local SWE-bench/container execution surface, so execution at
 claim upgrade was made;
 none is a benchmark leaderboard result and none supports a model-superiority or state-of-the-art claim.
 
-This file is an interim technical-report ledger. It records the current evidence line without
+At its superseded boundary, this file was an interim technical-report ledger. It records the
+contemporaneous evidence line without
 turning provider smoke completions, local semantic controls, or failed gates into a benchmark
 result.
 
-Current evidence:
+Contemporaneous evidence:
 
 - `PREREGISTRATION.md` freezes the target-selection gate.
 - `experiments/iter00_target_survey/RESULT.md` selects the first target family.
@@ -756,12 +758,12 @@ Current evidence:
 - `protocol/proof.schema.json` defines the initial receipt contract.
 - `tests/` verifies the receipt validator and repository contract.
 
-Current claim-boundary reviewer entry point:
+Contemporaneous claim-boundary reviewer entry point:
 [`../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](../experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json).
 The manifest keeps failed/null gates, the changed candidate, original-provider rows, and no-claim
 exclusions in one hash-checked packet.
 
-Current self-coverage reviewer entry points:
+Contemporaneous self-coverage reviewer entry points:
 [`../experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json`](../experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json)
 and
 [`../experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json`](../experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json).

@@ -48,9 +48,8 @@ def test_repository_banner_is_explicit_and_self_contained() -> None:
 
     banner = make_handoff.repository_banner()
     assert banner == (
-        "TELOS is a standalone repository at "
-        "`/Users/danielwahnich/workspace/telos`. "
-        "Run every TELOS command from this repository."
+        "TELOS is a standalone repository. Resolve its root with "
+        "`git rev-parse --show-toplevel`, then run every TELOS command from that root."
     )
     assert ("a" + "web") not in banner.casefold()
 
@@ -60,7 +59,7 @@ def test_active_and_frozen_upstream_gates_are_independently_bound(
 ) -> None:
     make_handoff = load_make_handoff_module()
     monkeypatch.chdir(tmp_path)
-    active = "experiments/iter203/HYPOTHESIS.md"
+    active = "experiments/iter204/HYPOTHESIS.md"
     frozen = "experiments/iter202/HYPOTHESIS.md"
     for gate in (active, frozen):
         path = tmp_path / gate
@@ -90,25 +89,28 @@ def test_active_and_frozen_upstream_gates_are_independently_bound(
 def test_operational_handoff_evidence_is_pinned_to_published_runs() -> None:
     make_handoff = load_make_handoff_module()
 
-    assert make_handoff.HARDENING_PULL_REQUEST == 4
+    assert make_handoff.HARDENING_PULL_REQUEST == 5
     assert (
         make_handoff.HARDENING_MERGE_COMMIT
-        == "8b8809ed6b358d16eb08fe38f0f2edf4a284af0e"
+        == "5c409f79c9333206cff9ed80d59c08aa347110f6"
     )
-    assert make_handoff.PRIMARY_CI_RUN_ID == "29454446264"
+    assert make_handoff.PRIMARY_CI_RUN_ID == "29460293066"
     assert (
         make_handoff.NODE24_BACKFILL_SOURCE_COMMIT
         == "b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe"
     )
     assert make_handoff.NODE24_BACKFILL_RUN_ID == "29452243832"
+    assert make_handoff.ITER203_RUN_ID == "29460393525"
+    assert make_handoff.ITER203_RUN_ATTEMPT == "1"
 
 
 def test_rendered_handoff_records_the_exact_ordered_operational_gate(
     tmp_path: Path, monkeypatch
 ) -> None:
     make_handoff = load_make_handoff_module()
+    validate_handoff = load_validate_handoff_module()
     source_commit = "b" * 40
-    source_branch = "agent/iter203-safety-recovery"
+    source_branch = "agent/iter204-infrastructure-recovery"
     monkeypatch.chdir(tmp_path)
     monkeypatch.setattr(make_handoff, "current_branch", lambda: source_branch)
     monkeypatch.setattr(
@@ -120,7 +122,7 @@ def test_rendered_handoff_records_the_exact_ordered_operational_gate(
     monkeypatch.setattr(
         make_handoff,
         "active_gate",
-        lambda: "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
+        lambda: "experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md",
     )
     monkeypatch.setattr(
         make_handoff,
@@ -133,11 +135,11 @@ def test_rendered_handoff_records_the_exact_ordered_operational_gate(
     handoff = (tmp_path / "HANDOFF.md").read_text(encoding="utf-8")
 
     for evidence in (
-        "8b8809ed6b358d16eb08fe38f0f2edf4a284af0e",
-        "29454446264",
+        "5c409f79c9333206cff9ed80d59c08aa347110f6",
+        "29460293066",
         "b4a565d0f0bb61cff460ea4faa51f58e75a2c2fe",
         "29452243832",
-        "governed credential readiness was verified",
+        "access authorization succeeded",
         "`53/53` solver calls",
         "`39/39` eligible scenario calls",
         "`50` model patches",
@@ -145,17 +147,27 @@ def test_rendered_handoff_records_the_exact_ordered_operational_gate(
         "admitted `29` programs and rejected `9` with `21` findings",
         "Zero scenario execution and zero official-harness certification execution occurred",
         "scenario-safety protocol/execution null",
-        "bridge and all-`50` certification specs are ready",
-        "A second dispatch for the same commit is forbidden",
-        'gh workflow run iter203-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
-        'gh run rerun "$RUN_ID"',
-        "scripts/collect_iter203_execution.py check",
-        "scripts/adjudicate_iter203_safety_recovery.py",
-        "scripts/run_iter203_safety_recovery_blind_judge.py",
+        "workflow run `29460393525`, attempt `1`",
+        "execution-infrastructure null",
+        "first global iter204 dispatch and run attempt `1`",
+        "Any failure closes iter204 and requires iter205",
+        'gh workflow run iter204-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
+        "actions/workflows/iter204-execute.yml/runs",
+        "scripts/collect_iter204_execution.py check",
+        "scripts/adjudicate_iter204_infrastructure_recovery.py",
+        "scripts/run_iter204_infrastructure_recovery_blind_judge.py",
+        "scripts/validate_iter203_infrastructure_null.py",
+        "scripts/build_iter204_runtime_manifest.py --check",
+        "scripts/validate_iter204_publication_safety.py --check",
+        "scripts/validate_iter204_runtime_recovery.py",
     ):
         assert evidence in handoff
+    assert validate_handoff.recovery_content_failures(handoff) == []
 
-    assert "Active gate: `experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md`" in handoff
+    assert (
+        "Active gate: `experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`"
+        in handoff
+    )
     assert (
         "Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: "
         "`experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`"
@@ -166,41 +178,101 @@ def test_rendered_handoff_records_the_exact_ordered_operational_gate(
     next_action_end = handoff.index("- Autonomous goal-tracking note:")
     next_action = " ".join(handoff[next_action_start:next_action_end].split())
     ordered_markers = (
-        "review the iter203 source",
-        "commit the bounded recovery changes",
+        "review the iter203 null evidence",
+        "commit the bounded recovery",
         "pull request",
         "green primary-branch CI",
-        "iter203 execution workflow",
+        "one iter204 workflow dispatch",
     )
     assert [next_action.index(marker) for marker in ordered_markers] == sorted(
         next_action.index(marker) for marker in ordered_markers
     )
-    assert "Never dispatch the frozen iter202 workflow" in next_action
-    dispatch = handoff[handoff.index("## Exact Authorized Iter203 Dispatch") :]
+    assert "Never dispatch the frozen iter202 or iter203 workflows" in next_action
+    dispatch = handoff[handoff.index("## Exact Authorized Iter204 Dispatch") :]
     assert dispatch.index("git switch master") < dispatch.index(
-        "gh workflow run iter203-execute.yml"
+        "gh workflow run iter204-execute.yml"
     )
-    assert dispatch.index('gh run watch "$RUN_ID" --exit-status') < dispatch.index(
-        'gh run rerun "$RUN_ID"'
+    assert 'gh run rerun "$RUN_ID"' not in dispatch
+    assert "gh workflow run iter203-execute.yml" not in dispatch
+    assert dispatch.index('test "$PRIOR_RUN_COUNT" -eq 0') < dispatch.index(
+        "gh workflow run iter204-execute.yml"
     )
-    assert dispatch.index('gh run download "$RUN_ID"') < dispatch.index(
-        "scripts/collect_iter203_execution.py check"
+    bash_blocks = re.findall(r"```bash\n(.*?)\n```", dispatch, re.DOTALL)
+    dispatch_block, observe_block, failure_block, success_block, resume_block = bash_blocks[:5]
+
+    assert 'test "$PRIOR_RUN_COUNT" -eq 0' in dispatch_block
+    assert dispatch_block.count("gh workflow run iter204-execute.yml") == 1
+    assert 'test "$GLOBAL_RUN_COUNT" -eq 1' in dispatch_block
+    assert 'gh run watch "$RUN_ID"' not in dispatch_block
+    assert 'gh run download "$RUN_ID"' not in dispatch_block
+    assert "APPROVED_SHA=%s" in dispatch_block
+    assert "--workflow ci.yml --branch master --event push" in dispatch_block
+
+    assert "gh workflow run iter204-execute.yml" not in observe_block
+    assert 'gh run watch "$RUN_ID" || true' in observe_block
+    assert 'if test "${RUN_STATE%% *}" != completed' in observe_block
+    assert 'if test "$RUN_CONCLUSION" != success' in observe_block
+    assert "exit 75" in observe_block
+    assert "exit 20" in observe_block
+    assert 'test "$GLOBAL_RUN_COUNT" -eq 1' in observe_block
+    assert 'test "$RUN_BINDING" = "1 workflow_dispatch $APPROVED_SHA"' in observe_block
+    assert "--workflow ci.yml --branch master --event push" in observe_block
+
+    assert "gh workflow run iter204-execute.yml" not in failure_block
+    assert 'gh run rerun "$RUN_ID"' not in failure_block
+    assert 'test "$(gh run view "$RUN_ID" --json attempt --jq \'.attempt\')" -eq 1' in failure_block
+    assert 'test "$(gh run view "$RUN_ID" --json status --jq \'.status\')" = completed' in failure_block
+    assert 'if test "$RUN_CONCLUSION" = success' in failure_block
+    assert ".iter204-null-stage.XXXXXX" in failure_block
+    assert "! -name SHA256SUMS" in failure_block
+    assert failure_block.index('gh run download "$RUN_ID"') < failure_block.index(
+        'mv "$STAGE" "$NULL_DIR"'
     )
-    assert dispatch.index("scripts/collect_iter203_execution.py check") < dispatch.index(
-        "scripts/adjudicate_iter203_safety_recovery.py"
+
+    assert "gh workflow run iter204-execute.yml" not in success_block
+    assert 'test "$(gh run view "$RUN_ID" --json status,conclusion' in success_block
+    assert 'test "$RUN_ATTEMPT" -eq 1' in success_block
+    assert 'git diff --quiet "$APPROVED_SHA" -- telos scripts' in success_block
+    assert "scripts/build_iter204_runtime_manifest.py --check" in success_block
+    assert ".iter204-execution-stage.XXXXXX" in success_block
+    assert success_block.index('gh run download "$RUN_ID"') < success_block.index(
+        "scripts/collect_iter204_execution.py check"
     )
-    assert 'scripts/collect_iter203_execution.py check \\\n' in dispatch
-    assert '--execution-dir "$EXECUTION_DIR" \\\n' in dispatch
-    assert dispatch.index("scripts/adjudicate_iter203_safety_recovery.py") < dispatch.index(
-        "scripts/run_iter203_safety_recovery_blind_judge.py"
+    assert success_block.index("scripts/collect_iter204_execution.py check") < success_block.index(
+        'mv "$STAGE" "$EXECUTION_DIR"'
     )
-    assert dispatch.count('RUN_COUNT="$(gh run list') == 3
-    assert dispatch.count('RUN_ID="$(gh run list') == 4
-    assert dispatch.count("git pull --ff-only origin master") == 3
-    assert dispatch.count('test -z "$(git status --porcelain)"') == 3
-    assert dispatch.count('test "$HEAD_SHA" = "$(git rev-parse origin/master)"') == 3
-    assert 'test "$RUN_COUNT" -eq 1' in dispatch
+    assert success_block.index('mv "$STAGE" "$EXECUTION_DIR"') < success_block.index(
+        "scripts/adjudicate_iter204_infrastructure_recovery.py"
+    )
+
+    assert "gh workflow run iter204-execute.yml" not in resume_block
+    assert 'gh run download "$RUN_ID"' not in resume_block
+    assert 'test -d "$EXECUTION_DIR"' in resume_block
+    assert 'test ! -L "$EXECUTION_DIR"' in resume_block
+    assert resume_block.index("scripts/collect_iter204_execution.py check") < resume_block.index(
+        "scripts/adjudicate_iter204_infrastructure_recovery.py"
+    )
+    assert resume_block.index("scripts/adjudicate_iter204_infrastructure_recovery.py") < resume_block.index(
+        "scripts/run_iter204_infrastructure_recovery_blind_judge.py"
+    )
+    assert 'scripts/collect_iter204_execution.py check \\\n' in dispatch
+    assert '--execution-dir "$STAGE" \\\n' in dispatch
+    assert dispatch.index("scripts/adjudicate_iter204_infrastructure_recovery.py") < dispatch.index(
+        "scripts/run_iter204_infrastructure_recovery_blind_judge.py"
+    )
     assert '"completed success"' in dispatch
+    continuation_lines = [line for line in dispatch.splitlines() if line.endswith("\\")]
+    assert continuation_lines
+    assert all(not line.endswith("\\\\") for line in continuation_lines)
+    for block in bash_blocks:
+        syntax = subprocess.run(
+            ["bash", "-n"],
+            input=block,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        assert syntax.returncode == 0, syntax.stderr
     assert ("a" + "web") not in handoff.casefold()
 
 
@@ -226,11 +298,22 @@ def test_handoff_recovery_content_rejects_stale_or_identifying_credential_text()
         validate_handoff.recovery_content_failures(bounded + "\nCredentials are missing.")
     )
     unsafe_dispatch = bounded.replace(
-        "Never dispatch the frozen iter202 workflow",
-        "Dispatch the frozen iter202 workflow now.",
+        "Never dispatch the frozen iter202 or iter203 workflows",
+        "Dispatch the sealed workflows now.",
     )
-    assert "HANDOFF.md is missing bounded recovery fact: Never dispatch the frozen iter202 workflow" in (
+    assert (
+        "HANDOFF.md is missing bounded recovery fact: "
+        "Never dispatch the frozen iter202 or iter203 workflows"
+    ) in (
         validate_handoff.recovery_content_failures(unsafe_dispatch)
+    )
+    assert "HANDOFF.md authorizes a forbidden workflow rerun" in (
+        validate_handoff.recovery_content_failures(bounded + '\ngh run rerun "$RUN_ID"')
+    )
+    assert "HANDOFF.md authorizes the sealed iter203 workflow" in (
+        validate_handoff.recovery_content_failures(
+            bounded + "\ngh workflow run iter203-execute.yml"
+        )
     )
 
 

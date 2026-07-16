@@ -2,15 +2,20 @@
   "evidence_paths": [
     "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
     "experiments/iter203_iter202_safety_recovery/UPSTREAM_PROTOCOL_NULL.md",
+    "experiments/iter203_iter202_safety_recovery/RESULT.md",
+    "experiments/iter203_iter202_safety_recovery/proof/infrastructure_null.json",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/public_workflow_logs/manifest.json",
+    "experiments/iter203_iter202_safety_recovery/proof/raw/public_workflow_metadata/manifest.json",
     "experiments/iter203_iter202_safety_recovery/proof/raw/safety_recovery_bridge/upstream_inventory.json",
     "experiments/iter203_iter202_safety_recovery/proof/raw/safety_recovery_bridge/scenario_disposition.json",
     "experiments/iter203_iter202_safety_recovery/proof/raw/runtime_manifest.json",
     "experiments/iter203_iter202_safety_recovery/proof/pre_execution_publication_safety.json"
   ],
   "experiment_id": "iter203_iter202_safety_recovery",
-  "insight": "Iter203 is an active post-provider/pre-execution recovery protocol, not a result. Its sealed bridge reproduces the complete retained provider inventory, projects exactly 29 byte-identical safety-admitted scenarios, keeps 9 rejected and one absent scenario unresolved, and prepares all 50 valid patches for official certification. No execution, adjudication, blind judging, or rate claim exists yet.",
-  "next_action": "Commit and publish the iter203 recovery source through review; require green primary-branch CI; dispatch the canonical workflow at most once; verify the complete same-attempt execution corpus; adjudicate all certified patches; and blind-judge only safe witnessed divergences before reporting k, N, u, mandatory sensitivities, and the corrected pooled analysis.",
-  "result_path": "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
+  "insight": "The sole canonical iter203 dispatch is an infrastructure null. Authorization and all eight shards reached the fixed 50-row plan, and every image was pulled and digest-verified, but all 50 first Docker run invocations exited 125 before any in-container command. The exact daemon stderr was not retained; the Docker Engine 28.0.4 local-driver cause is reconstructed from the frozen option tuple and version-matched source. No certification, scenario, adjudication, or judge stage ran; zero workflow artifacts were uploaded, while eight exact public job logs are retained and hash-bound. N, k, and u remain absent. This was a harness-configuration fault, not an access, provider, patch, or scientific outcome.",
+  "next_action": "Do not rerun iter203 or alter its bytes. Commit the separately identified iter204 post-infrastructure-null/pre-scientific-output recovery with compress=false, an inert exact log-driver smoke gate, retained bounded diagnostics, a new runtime manifest, and green primary CI. Only the first global iter204 dispatch and run attempt 1 are eligible over the same fixed 50 assignments; any failure publishes a null and requires a new iteration, never a rerun or second dispatch.",
+  "result_path": "experiments/iter203_iter202_safety_recovery/RESULT.md",
   "schema_version": "telos.learning_record.v1",
-  "status": "pending"
+  "status": "null",
+  "timing": "post_run_metadata_not_part_of_the_historical_pre_execution_publication_safety_scan"
 }

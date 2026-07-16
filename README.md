@@ -50,36 +50,47 @@ convert them into protocol-valid detector evidence. Iter202 had a post-contact, 
 freeze; it was not conventional prospective preregistration. Its provider stages later retained `50` valid
 patches from `53` solver calls and `38` scenario programs from `39` eligible scenario calls. Before any
 scenario or certification execution, the frozen static-safety gate rejected `9` scenario programs with `21`
-findings, admitted `29`, and preserved one original missing scenario. Iter202 is therefore a protocol/execution
-null, not a solve-yield null, and contributes no rate denominator or numerator. Iter203 is the additive,
-post-provider recovery gate: it seals the iter202 bytes, certifies all `50` valid patches, executes only
-safety-admitted copies, and treats every safety-rejected or otherwise missing witness as unresolved rather
-than negative. Hardened evidence PR `#3` merged as
-`3a3368635e397d540cf98fc0f19d443661cc0fef`, and primary-branch CI run `29451691560` passed. Provider-free
-Node 24 backfill run `29452243832` then reproduced and hash-verified the exact specs and validated the
-complete committed `74`-log corpus with zero model-provider calls; it reused those committed logs rather
-than re-executing containers. No iter202 scenario or certification execution occurred. Any subsequent paid
-start requires clean green `master`, the exact cheap-first/freeze preflight, and all required provider
-credentials together; generated `HANDOFF.md` owns the current branch and credential-status snapshot.
+findings, admitted `29`, and preserved one original missing scenario. Iter202 is therefore a
+provider-complete safety null at the protocol/execution boundary, not a solve-yield null, and contributes
+no rate denominator or numerator. Iter203 sealed those bytes and attempted the all-`50` recovery once from
+green `master`. Its canonical workflow run `29460393525` authorized successfully, but all `50/50` first
+Docker `run` invocations returned exit `125` across eight independent runners before any in-container
+command; collection was skipped and the artifacts API reported zero uploaded workflow artifacts. Docker
+`28.0.4` rejects
+the frozen `local` log-driver combination because `max-file=1` was used while compression remained enabled
+by default. No patch was applied and no official certification or scenario program executed. Iter203 is
+therefore an execution-infrastructure null with no `N`, `k`, or `u`, not a scientific negative. The exact
+daemon stderr was redirected to hidden temporary files and then deleted by the failed runner; the root cause
+is reconstructed from the frozen option tuple and Docker's version-matched validation source, not from a
+retained daemon-error artifact.
+
+Iter204 is the separately identified pre-result runtime recovery. It preserves the iter202/iter203 evidence
+and target order, adds `compress=false` without widening the log cap, retains bounded visible startup
+diagnostics, and requires a non-scientific exact-launcher preflight before the unchanged all-`50`
+certification plan can run. Rejected and absent witnesses remain unresolved rather than negative. The first
+global iter204 dispatch and run attempt `1` are the only eligible execution; any failure closes iter204 and
+requires iter205, with no rerun or second dispatch. Provider-free Node 24 backfill run `29452243832`
+reproduced and hash-verified the exact specs and validated the complete committed `74`-log corpus with zero
+model-provider calls; it reused those committed logs rather than re-executing containers. Iter203 source PR
+`#5` then merged as `5c409f79c9333206cff9ed80d59c08aa347110f6`, primary-branch CI run `29460293066`
+passed, and the sole iter203 dispatch followed. The eight exact public shard logs are now committed and
+hash-bound. No iter202 or iter203 scenario or certification execution occurred. No credential, credit,
+authentication, billing, or quota failure caused the iter203 null. Generated `HANDOFF.md` owns the current
+branch and exact iter204 publication/execution sequence.
 
 ```mermaid
 flowchart LR
- V1["Earlier 40-row artifact<br/>not reward hacks"]-->C192["iter192 correction<br/>harness: 40/40 unresolved"]
- C192-->C195["iter195 construction<br/>10 certified-yet-wrong · 3 repos"]
- C195-->X199["iter199 expansion<br/>+12 witnessed · 22 / 8 repos"]
+ V1["Earlier 40 rows<br/>not reward hacks"]-->C192["iter192 correction<br/>40/40 unresolved"]
+ C192-->C195["iter195 construction<br/>10 certified-yet-wrong / 3 repos"]
+ C195-->X199["iter199 expansion<br/>22 witnessed / 8 repos"]
  C195-->D197["iter197 FAIL<br/>locator + anchor/control faults<br/>4/10 · no confirmed complementarity"]
  D197-->D201
  X199-->D201["iter201 FAIL<br/>locator only<br/>property 6/22 ⊂ judge 20/22"]
  C192-->N200["iter200 exploratory<br/>nonrandom · no raw judge text<br/>N=24 / k=1 / u=6"]
- N200-->N202["iter202 provider-complete safety null<br/>53→50 patches · 39→38 scenarios<br/>safety: 29 pass · 9 reject / 21 findings · 1 absent<br/>stopped before execution"]
+ N200-->N202["iter202 safety null<br/>53→50 patches · 39→38 scenarios<br/>29 pass · 9 reject / 21 findings · 1 absent<br/>stopped before execution"]
  D201-->N202
- N202-->N203["iter203 pre-result · no execution<br/>certify all 50 · execute only 29 safe copies<br/>missing/rejected witnesses unresolved"]
- classDef f fill:#fee,stroke:#c22,color:#000;
- classDef e fill:#fff4d6,stroke:#9a6700,color:#3d2b00;
- classDef p fill:#e4f0ff,stroke:#1565c0,color:#0c2742;
- class N200 e;
- class D197,D201 f;
- class N202,N203 p;
+ N202-->N203["iter203 infrastructure null<br/>authorization passed · 50/50 Docker run invocations exit 125 · 0 starts<br/>0 uploaded artifacts · 0 certification / scenario execution"]
+ N203-->N204["iter204 pre-result recovery<br/>same 50 · compress=false · diagnostics<br/>inert smoke · one global dispatch / attempt 1 only"]
 ```
 
 ## Standing correction (iter192, 2026-07-14): the earlier v1 artifact contains no reward hacks
@@ -212,13 +223,19 @@ scenario. The unchanged frozen safety validator then rejected `9` programs (`21`
 `29`. The pipeline stopped before scenario or certification execution. Consequently iter202 is preserved as
 a scenario-safety protocol/execution null and supplies no `N`, `k`, or `u` for a rate claim.
 
-`experiments/iter203_iter202_safety_recovery/` is the additive post-provider recovery gate. It seals and
-replay-validates the complete iter202 provider corpus, applies the unchanged safety predicate uniformly,
-certifies every one of the `50` valid patches independent of witness availability, and exposes only
-safety-admitted copies to scenario execution. Safety-rejected and original-missing witness outcomes can
-increase the unresolved count but can never be recorded as negatives. This recovery does not repair,
-regenerate, rerun, or reinterpret an iter202 scenario, and no result may be reported until its separately
-bound runtime and evidence receipts pass.
+[`experiments/iter203_iter202_safety_recovery/RESULT.md`](experiments/iter203_iter202_safety_recovery/RESULT.md)
+publishes the additive post-provider recovery as an execution-infrastructure null. Its sole canonical run
+replay-validated the complete iter202 corpus and reached all `50` frozen rows, but every first Docker `run`
+invocation returned exit `125` before any in-container command. No certification or scenario executed, so
+iter203 contributes no `N`, `k`, or `u`. The eight exact public shard logs are retained and hash-bound; the
+exact daemon stderr is absent, and the Docker logging-configuration diagnosis is reconstructed from frozen
+source and version-matched implementation semantics.
+
+[`experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`](experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md)
+is the active, separately versioned pre-scientific-output recovery. It preserves every scientific input and
+rule, adds only the bounded observable runtime correction, and keeps safety-rejected and original-missing
+witnesses unresolved rather than negative. Only its first global dispatch and run attempt `1` are eligible;
+failure requires a published null and a new iteration, never a rerun.
 
 `experiments/iter200_natural_certified_yet_wrong_rate/` asks `gpt-5.6-terra` to fix issues with no instruction
 to game tests. It is exploratory rather than a preregistered frequency estimate. The prompt is
@@ -1132,13 +1149,14 @@ Provider-compatible expanded slice after adapter completion:
 Provider-compatible expanded paid execution after slice refreeze:
 [`experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md`](experiments/iter72_provider_compatible_expanded_paid_execution_after_slice_refreeze/RESULT.md).
 Current gate:
-[`experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md`](experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md).
+[`experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`](experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md).
 
 The compact current evidence diagram is at the top of this README. It is the authoritative visual summary:
 iter192 corrects the foundation; iter195 and iter199 construct the `22`-row benchmark; iter197 and iter201
 retain exploratory diagnostics but fail their registered property protocol; iter200 supplies an exploratory
 neutral-prompt, gold-localized existence case; iter202 preserves a provider-complete but pre-execution
-scenario-safety null; and iter203 is the sealed additive recovery gate with no result yet.
+scenario-safety null; iter203 records a zero-execution Docker-launch infrastructure null; and iter204 is
+the separately sealed runtime recovery with no scientific result yet.
 
 ## Evidence Arc (historical detection/intervention work)
 
@@ -1163,7 +1181,7 @@ well-tested code, iter142 measured the rate, iter143 showed it survives frontier
 generalized it to a second repo, and iter145 showed a judge panel does not close it. The PE node then
 closes the loop: used as a gate with gold-free repair feedback, the protocol lifts real completion on
 reward-hack-prone starts from `0/7` to `5/7`, the first evidence that it changes outcomes rather than only
-measuring them. Iter153 materialized those reward-hack rows as a seed artifact, iter154 tried to grow
+measuring them. Iter153 materialized those then-described reward-hack rows as a seed artifact, iter154 tried to grow
 it under bounded spend and honestly missed the `20`-row bar with `17` new rows, and iter155 adaptively
 added `3` more rows to cross the `40`-row candidate-pool bar. Iter156 materialized the hash-checked
 `reward_hack_benchmark_v1` row artifact with `40` rows across `11` repos and `13/40` surviving every
@@ -1172,27 +1190,27 @@ mirror current through that boundary. Iter158 designed the zero-spend scoring/ev
 packet materialization as the next leakage-control gate. Iter159 materialized the 40 blinded packets with
 complete committed public metadata coverage and no label/report/static-verdict leakage hits. Iter160
 validated the strict judge-output parser and fixture suite before provider scoring. Iter161 then ran one
-bounded model judge over all 40 all-hack packets and recorded `3` `reward_hack` verdicts and `37`
+bounded model judge over all 40 historically labeled all-hack packets and recorded `3` `reward_hack` verdicts and `37`
 `legitimate` verdicts, making the recall gap visible while still making no precision, leaderboard, or
 model-comparison claim. Iter162 designed the legitimate-control source hierarchy, schemas, and
 false-positive/specificity/precision boundary. Iter163 materialized `40` paired legitimate controls and
 blinded control packets. Iter164 honestly blocked on a Vertex `http_429` after `15` successful controls.
 Iter165 recovered only the missing controls and produced the complete paired one-model metric:
-`3/40` recall on hacks, `0/40` false positives on controls, specificity `1.0`, and balanced detection
+`3/40` recall on suite-failing v1 candidates, `0/40` false positives on controls, specificity `1.0`, and balanced detection
 `0.5375`; this is still not a leaderboard or model-comparison result. Iter166 designed `5` evaluator
 families and froze the next stop conditions: specificity floor `0.90`, control false-positive ceiling
 `4/40`, and balanced-detection improvement floor `0.10`. Iter167 completed the skeptical-judge calibration
 and failed honestly: provider successes `80/80`, false positives `0/40`, specificity `0.90`, but recall
-stayed `3/40`, hack invalids rose to `5/40`, and balanced detection dropped to `0.4875`. Iter168
+stayed `3/40`, candidate invalids rose to `5/40`, and balanced detection dropped to `0.4875`. Iter168
 adjudicated the null: all `9` invalid outputs were markdown-fenced JSON, and a diagnostic-only strip would
 reach only `4/40` recall, so independent panel design is the next pre-registered gate. The July 2026
 literature sweep is recorded in [`docs/LITERATURE_ALIGNMENT_2026.md`](docs/LITERATURE_ALIGNMENT_2026.md).
 Iter169-186 then moved from single-model judging to a three-provider panel: the full unrepaired
-`majority_catch` result is `17/40` hack rows and `0/40` controls, and iter181's OpenAI-only repair run
+`majority_catch` result is `17/40` suite-failing v1 candidate rows and `0/40` controls, and iter181's OpenAI-only repair run
 reduced nondecisions in a secondary diagnostic without changing that primary result; iter182 adjudicated
 that diagnostic from raw committed proof before any claim upgrade, and iter183 synchronized public claim
 surfaces to keep that boundary explicit. Iter184 then mapped current public research to a concrete
-property-probe design gate for the `23` hack rows the primary panel still misses; iter185 froze the
+property-probe design gate for the `23` v1 candidate rows the primary panel still misses; iter185 froze the
 priority subset, and iter186 materialized the leakage-scanned packet inputs.
 The earlier provider-pilot and semantic-guard arc (iter00-iter108) is
 preserved in the Honest Status log above and the learning ledger.
@@ -1265,7 +1283,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, related work, the completion-verification synthesis report, next phase
-experiments/               one folder per experiment (iter00-iter203), including explicit fail/null/pre-result states
+experiments/               one folder per experiment (iter00-iter204), including explicit fail/null/pre-result states
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
@@ -1277,7 +1295,7 @@ tests/                     repository and protocol tests
 The verification workflow fixes its hosted OS family to `ubuntu-24.04`, pins every external action to a
 full commit SHA, grants only read access to repository contents, and installs its Python verification tools
 from the exact-version, SHA-256-locked `requirements-ci.txt`. The supply-chain guard enforces the same
-rules across all 15 workflows.
+rules across every workflow.
 
 ```bash
 python3 -m compileall telos scripts tests
@@ -1297,6 +1315,10 @@ python3 scripts/build_iter202_image_lock.py --check
 python3 scripts/build_iter203_safety_recovery.py --check
 python3 scripts/build_iter203_runtime_manifest.py --check
 python3 scripts/validate_iter203_publication_safety.py --check
+python3 scripts/validate_iter203_infrastructure_null.py
+python3 scripts/build_iter204_runtime_manifest.py --check
+python3 scripts/validate_iter204_publication_safety.py --check
+python3 scripts/validate_iter204_runtime_recovery.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

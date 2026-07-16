@@ -25,7 +25,7 @@ def rendered_commands(module, source: str) -> set[str]:
 
 def test_recovery_gate_binding_preserves_distinct_frozen_upstream(tmp_path: Path) -> None:
     guard = load_guard_module()
-    active = "experiments/iter203/HYPOTHESIS.md"
+    active = "experiments/iter204/HYPOTHESIS.md"
     frozen = "experiments/iter202/HYPOTHESIS.md"
     for gate in (active, frozen):
         path = tmp_path / gate
@@ -52,13 +52,34 @@ def test_committed_recovery_state_is_evidence_bounded() -> None:
     guard = load_guard_module()
     contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
 
-    assert guard.validate_iter203_recovery_state(contract) == []
+    assert guard.validate_iter204_recovery_state(contract) == []
     contract["current_gate_state"]["iter202_retained_provider_stage"][
         "scenario_executions"
     ] = 1
     assert "iter202 retained provider-stage counts are not exact" in (
-        guard.validate_iter203_recovery_state(contract)
+        guard.validate_iter204_recovery_state(contract)
     )
+
+
+def test_iter204_source_of_truth_requires_the_full_recovery_chain() -> None:
+    guard = load_guard_module()
+    required = (
+        ".github/workflows/iter204-execute.yml",
+        "scripts/ci_iter204_smoke.sh",
+        "scripts/ci_iter204_execute.sh",
+        "scripts/collect_iter204_execution.py",
+        "scripts/adjudicate_iter204_infrastructure_recovery.py",
+        "scripts/run_iter204_infrastructure_recovery_blind_judge.py",
+        "experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json",
+        "experiments/iter204_iter203_infrastructure_recovery/proof/pre_execution_publication_safety.json",
+    )
+
+    for missing in required:
+        contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
+        contract["source_of_truth"].remove(missing)
+        assert "iter203/iter204 source-of-truth set is incomplete" in (
+            guard.validate_iter204_recovery_state(contract)
+        )
 
 
 def test_ci_command_parser_accepts_only_standalone_active_run_steps() -> None:

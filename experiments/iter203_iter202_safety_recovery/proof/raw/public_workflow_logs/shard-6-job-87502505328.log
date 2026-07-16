@@ -1,0 +1,236 @@
+﻿2026-07-16T00:04:44.7722400Z Current runner version: '2.335.1'
+2026-07-16T00:04:44.7750493Z ##[group]Runner Image Provisioner
+2026-07-16T00:04:44.7751442Z Hosted Compute Agent
+2026-07-16T00:04:44.7752115Z Version: 20260707.563
+2026-07-16T00:04:44.7752751Z Commit: 02667638d2b423fbc733a8e32a88b44996a3ba6e
+2026-07-16T00:04:44.7753606Z Build Date: 2026-07-07T19:33:50Z
+2026-07-16T00:04:44.7754315Z Worker ID: {160da980-0ece-459d-9d7e-7232d9be7b2e}
+2026-07-16T00:04:44.7755072Z Azure Region: eastus2
+2026-07-16T00:04:44.7755716Z ##[endgroup]
+2026-07-16T00:04:44.7757258Z ##[group]Operating System
+2026-07-16T00:04:44.7757988Z Ubuntu
+2026-07-16T00:04:44.7758550Z 24.04.4
+2026-07-16T00:04:44.7759061Z LTS
+2026-07-16T00:04:44.7759660Z ##[endgroup]
+2026-07-16T00:04:44.7760269Z ##[group]Runner Image
+2026-07-16T00:04:44.7760921Z Image: ubuntu-24.04
+2026-07-16T00:04:44.7761626Z Version: 20260714.240.1
+2026-07-16T00:04:44.7762961Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260714.240/images/ubuntu/Ubuntu2404-Readme.md
+2026-07-16T00:04:44.7764548Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260714.240
+2026-07-16T00:04:44.7765572Z ##[endgroup]
+2026-07-16T00:04:44.7766840Z ##[group]GITHUB_TOKEN Permissions
+2026-07-16T00:04:44.7769910Z Actions: read
+2026-07-16T00:04:44.7770585Z Checks: read
+2026-07-16T00:04:44.7771158Z Contents: read
+2026-07-16T00:04:44.7771796Z Metadata: read
+2026-07-16T00:04:44.7772368Z ##[endgroup]
+2026-07-16T00:04:44.7774533Z Secret source: Actions
+2026-07-16T00:04:44.7775634Z Prepare workflow directory
+2026-07-16T00:04:44.8287409Z Prepare all required actions
+2026-07-16T00:04:44.8326060Z Getting action download info
+2026-07-16T00:04:45.0304130Z Download action repository 'actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0' (SHA:9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0)
+2026-07-16T00:04:45.1759560Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-07-16T00:04:45.3566222Z Complete job name: iter203 certify all + execute safe witness shard 6/8
+2026-07-16T00:04:45.4253696Z ##[group]Run actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+2026-07-16T00:04:45.4254697Z with:
+2026-07-16T00:04:45.4255122Z   fetch-depth: 0
+2026-07-16T00:04:45.4255577Z   persist-credentials: false
+2026-07-16T00:04:45.4256116Z   repository: manfromnowhere143/telos
+2026-07-16T00:04:45.4260499Z   token: ***
+2026-07-16T00:04:45.4260944Z   ssh-strict: true
+2026-07-16T00:04:45.4261375Z   ssh-user: git
+2026-07-16T00:04:45.4261792Z   clean: true
+2026-07-16T00:04:45.4262235Z   sparse-checkout-cone-mode: true
+2026-07-16T00:04:45.4262758Z   fetch-tags: false
+2026-07-16T00:04:45.4263196Z   show-progress: true
+2026-07-16T00:04:45.4263637Z   lfs: false
+2026-07-16T00:04:45.4264102Z   submodules: false
+2026-07-16T00:04:45.4264550Z   set-safe-directory: true
+2026-07-16T00:04:45.4265046Z   allow-unsafe-pr-checkout: false
+2026-07-16T00:04:45.4265777Z env:
+2026-07-16T00:04:45.4282026Z   TELOS_ITER203_PRIMARY_CI_AUTHORIZATION: eyJhcHByb3ZlZF9jb21taXRfc2hhIjoiNWM0MDlmNzljOTMzMzIwNmNmZjllZDgwZDU5YzA4YWEzNDcxMTBmNiIsInByaW1hcnlfY2lfZXZlbnQiOiJwdXNoIiwicHJpbWFyeV9jaV9oZWFkX2JyYW5jaCI6Im1hc3RlciIsInByaW1hcnlfY2lfcnVuX2F0dGVtcHQiOjEsInByaW1hcnlfY2lfcnVuX2lkIjoyOTQ2MDI5MzA2NiwicHJpbWFyeV9jaV93b3JrZmxvd19wYXRoIjoiLmdpdGh1Yi93b3JrZmxvd3MvY2kueW1sIiwicmVxdWlyZWRfY2hlY2tzIjpbeyJhcHBfc2x1ZyI6ImdpdGh1Yi1hY3Rpb25zIiwiY29uY2x1c2lvbiI6InN1Y2Nlc3MiLCJkZXRhaWxzX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9tYW5mcm9tbm93aGVyZTE0My90ZWxvcy9hY3Rpb25zL3J1bnMvMjk0NjAyOTMwNjYvam9iLzg3NTAyMTY2NjY0IiwiaWQiOjg3NTAyMTY2NjY0LCJuYW1lIjoidmVyaWZ5IHB5My4xMSIsInN0YXR1cyI6ImNvbXBsZXRlZCJ9LHsiYXBwX3NsdWciOiJnaXRodWItYWN0aW9ucyIsImNvbmNsdXNpb24iOiJzdWNjZXNzIiwiZGV0YWlsc191cmwiOiJodHRwczovL2dpdGh1Yi5jb20vbWFuZnJvbW5vd2hlcmUxNDMvdGVsb3MvYWN0aW9ucy9ydW5zLzI5NDYwMjkzMDY2L2pvYi84NzUwMjE2NjcxMCIsImlkIjo4NzUwMjE2NjcxMCwibmFtZSI6InZlcmlmeSBweTMuMTIiLCJzdGF0dXMiOiJjb21wbGV0ZWQifV0sInNjaGVtYV92ZXJzaW9uIjoidGVsb3MuaXRlcjIwMy5wcmltYXJ5X2NpX2F1dGhvcml6YXRpb24udjEifQ==
+2026-07-16T00:04:45.4299282Z   TELOS_ITER203_SHARD_COUNT: 8
+2026-07-16T00:04:45.4299804Z   TELOS_ITER203_SHARD_INDEX: 6
+2026-07-16T00:04:45.4300284Z ##[endgroup]
+2026-07-16T00:04:45.5297420Z Syncing repository: manfromnowhere143/telos
+2026-07-16T00:04:45.5299560Z ##[group]Getting Git version info
+2026-07-16T00:04:45.5300257Z Working directory is '/home/runner/work/telos/telos'
+2026-07-16T00:04:45.5301311Z [command]/usr/bin/git version
+2026-07-16T00:04:45.5357753Z git version 2.54.0
+2026-07-16T00:04:45.5378062Z ##[endgroup]
+2026-07-16T00:04:45.5389922Z Temporarily overriding HOME='/home/runner/work/_temp/0fc98404-c4fd-4d1f-8382-6090b5c14ae5' before making global git config changes
+2026-07-16T00:04:45.5392264Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-16T00:04:45.5407280Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/telos/telos
+2026-07-16T00:04:45.5463305Z Deleting the contents of '/home/runner/work/telos/telos'
+2026-07-16T00:04:45.5467364Z ##[group]Determining repository object format
+2026-07-16T00:04:45.5469239Z ##[endgroup]
+2026-07-16T00:04:45.5470686Z ##[group]Initializing the repository
+2026-07-16T00:04:45.5474217Z [command]/usr/bin/git init /home/runner/work/telos/telos
+2026-07-16T00:04:45.5564929Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-07-16T00:04:45.5566088Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-07-16T00:04:45.5567244Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-07-16T00:04:45.5568365Z hint: call:
+2026-07-16T00:04:45.5568951Z hint:
+2026-07-16T00:04:45.5569718Z hint: 	git config --global init.defaultBranch <name>
+2026-07-16T00:04:45.5570835Z hint:
+2026-07-16T00:04:45.5571757Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-07-16T00:04:45.5573158Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-07-16T00:04:45.5574068Z hint:
+2026-07-16T00:04:45.5574632Z hint: 	git branch -m <name>
+2026-07-16T00:04:45.5575340Z hint:
+2026-07-16T00:04:45.5576554Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-07-16T00:04:45.5577903Z Initialized empty Git repository in /home/runner/work/telos/telos/.git/
+2026-07-16T00:04:45.5593047Z [command]/usr/bin/git remote add origin https://github.com/manfromnowhere143/telos
+2026-07-16T00:04:45.5630069Z ##[endgroup]
+2026-07-16T00:04:45.5630850Z ##[group]Disabling automatic garbage collection
+2026-07-16T00:04:45.5634522Z [command]/usr/bin/git config --local gc.auto 0
+2026-07-16T00:04:45.5669256Z ##[endgroup]
+2026-07-16T00:04:45.5670401Z ##[group]Setting up auth
+2026-07-16T00:04:45.5670956Z Removing SSH command configuration
+2026-07-16T00:04:45.5678081Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-16T00:04:45.5717373Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-16T00:04:45.6059247Z Removing HTTP extra header
+2026-07-16T00:04:45.6065466Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-16T00:04:45.6115949Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-16T00:04:45.6370774Z Removing includeIf entries pointing to credentials config files
+2026-07-16T00:04:45.6377565Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-16T00:04:45.6416460Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-16T00:04:45.6672666Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-07-16T00:04:45.6717123Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/telos/telos/.git.path /home/runner/work/_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:45.6752605Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/telos/telos/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:45.6791184Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:45.6828534Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:45.6860849Z ##[endgroup]
+2026-07-16T00:04:45.6861931Z ##[group]Fetching the repository
+2026-07-16T00:04:45.6867877Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-07-16T00:04:46.5465823Z From https://github.com/manfromnowhere143/telos
+2026-07-16T00:04:46.5468764Z  * [new branch]      agent/iter200-corrected-denominator-result -> origin/agent/iter200-corrected-denominator-result
+2026-07-16T00:04:46.5471778Z  * [new branch]      agent/iter202-operational-handoff -> origin/agent/iter202-operational-handoff
+2026-07-16T00:04:46.5474127Z  * [new branch]      master     -> origin/master
+2026-07-16T00:04:46.5508568Z [command]/usr/bin/git branch --list --remote origin/master
+2026-07-16T00:04:46.5544638Z   origin/master
+2026-07-16T00:04:46.5554559Z [command]/usr/bin/git rev-parse refs/remotes/origin/master
+2026-07-16T00:04:46.5586752Z 5c409f79c9333206cff9ed80d59c08aa347110f6
+2026-07-16T00:04:46.5591663Z ##[endgroup]
+2026-07-16T00:04:46.5593054Z ##[group]Determining the checkout info
+2026-07-16T00:04:46.5594630Z ##[endgroup]
+2026-07-16T00:04:46.5597487Z [command]/usr/bin/git sparse-checkout disable
+2026-07-16T00:04:46.5651898Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-07-16T00:04:46.5691388Z ##[group]Checking out the ref
+2026-07-16T00:04:46.5695405Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-07-16T00:04:47.0330852Z Reset branch 'master'
+2026-07-16T00:04:47.0332976Z branch 'master' set up to track 'origin/master'.
+2026-07-16T00:04:47.0362400Z ##[endgroup]
+2026-07-16T00:04:47.0425291Z [command]/usr/bin/git log -1 --format=%H
+2026-07-16T00:04:47.0462366Z 5c409f79c9333206cff9ed80d59c08aa347110f6
+2026-07-16T00:04:47.0477174Z ##[group]Removing auth
+2026-07-16T00:04:47.0477706Z Removing SSH command configuration
+2026-07-16T00:04:47.0479620Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-16T00:04:47.0530213Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-16T00:04:47.0815226Z Removing HTTP extra header
+2026-07-16T00:04:47.0819078Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-16T00:04:47.0857608Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-16T00:04:47.1112983Z Removing includeIf entries pointing to credentials config files
+2026-07-16T00:04:47.1116402Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-16T00:04:47.1149867Z includeif.gitdir:/home/runner/work/telos/telos/.git.path
+2026-07-16T00:04:47.1150854Z includeif.gitdir:/home/runner/work/telos/telos/.git/worktrees/*.path
+2026-07-16T00:04:47.1151596Z includeif.gitdir:/github/workspace/.git.path
+2026-07-16T00:04:47.1152258Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-16T00:04:47.1159930Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/telos/telos/.git.path
+2026-07-16T00:04:47.1188706Z /home/runner/work/_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:47.1198472Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/telos/telos/.git.path /home/runner/work/_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:47.1236377Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/telos/telos/.git/worktrees/*.path
+2026-07-16T00:04:47.1265973Z /home/runner/work/_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:47.1274034Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/telos/telos/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:47.1347117Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-07-16T00:04:47.1394963Z /github/runner_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:47.1405554Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:47.1437475Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-07-16T00:04:47.1466303Z /github/runner_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:47.1473358Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config
+2026-07-16T00:04:47.1512715Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-16T00:04:47.1766052Z Removing credentials config '/home/runner/work/_temp/git-credentials-fad9d55d-f6b5-4a3b-b70e-a46bb01565d7.config'
+2026-07-16T00:04:47.1774567Z ##[endgroup]
+2026-07-16T00:04:47.1969826Z ##[group]Run sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+2026-07-16T00:04:47.1970759Z [36;1msudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true[0m
+2026-07-16T00:04:47.2058769Z shell: /usr/bin/bash -e {0}
+2026-07-16T00:04:47.2059145Z env:
+2026-07-16T00:04:47.2070703Z   TELOS_ITER203_PRIMARY_CI_AUTHORIZATION: eyJhcHByb3ZlZF9jb21taXRfc2hhIjoiNWM0MDlmNzljOTMzMzIwNmNmZjllZDgwZDU5YzA4YWEzNDcxMTBmNiIsInByaW1hcnlfY2lfZXZlbnQiOiJwdXNoIiwicHJpbWFyeV9jaV9oZWFkX2JyYW5jaCI6Im1hc3RlciIsInByaW1hcnlfY2lfcnVuX2F0dGVtcHQiOjEsInByaW1hcnlfY2lfcnVuX2lkIjoyOTQ2MDI5MzA2NiwicHJpbWFyeV9jaV93b3JrZmxvd19wYXRoIjoiLmdpdGh1Yi93b3JrZmxvd3MvY2kueW1sIiwicmVxdWlyZWRfY2hlY2tzIjpbeyJhcHBfc2x1ZyI6ImdpdGh1Yi1hY3Rpb25zIiwiY29uY2x1c2lvbiI6InN1Y2Nlc3MiLCJkZXRhaWxzX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9tYW5mcm9tbm93aGVyZTE0My90ZWxvcy9hY3Rpb25zL3J1bnMvMjk0NjAyOTMwNjYvam9iLzg3NTAyMTY2NjY0IiwiaWQiOjg3NTAyMTY2NjY0LCJuYW1lIjoidmVyaWZ5IHB5My4xMSIsInN0YXR1cyI6ImNvbXBsZXRlZCJ9LHsiYXBwX3NsdWciOiJnaXRodWItYWN0aW9ucyIsImNvbmNsdXNpb24iOiJzdWNjZXNzIiwiZGV0YWlsc191cmwiOiJodHRwczovL2dpdGh1Yi5jb20vbWFuZnJvbW5vd2hlcmUxNDMvdGVsb3MvYWN0aW9ucy9ydW5zLzI5NDYwMjkzMDY2L2pvYi84NzUwMjE2NjcxMCIsImlkIjo4NzUwMjE2NjcxMCwibmFtZSI6InZlcmlmeSBweTMuMTIiLCJzdGF0dXMiOiJjb21wbGV0ZWQifV0sInNjaGVtYV92ZXJzaW9uIjoidGVsb3MuaXRlcjIwMy5wcmltYXJ5X2NpX2F1dGhvcml6YXRpb24udjEifQ==
+2026-07-16T00:04:47.2082394Z   TELOS_ITER203_SHARD_COUNT: 8
+2026-07-16T00:04:47.2082705Z   TELOS_ITER203_SHARD_INDEX: 6
+2026-07-16T00:04:47.2082993Z ##[endgroup]
+2026-07-16T00:06:15.4133339Z ##[group]Run python3 -I -S scripts/build_iter203_safety_recovery.py --check
+2026-07-16T00:06:15.4133940Z [36;1mpython3 -I -S scripts/build_iter203_safety_recovery.py --check[0m
+2026-07-16T00:06:15.4201471Z shell: /usr/bin/bash -e {0}
+2026-07-16T00:06:15.4201769Z env:
+2026-07-16T00:06:15.4215501Z   TELOS_ITER203_PRIMARY_CI_AUTHORIZATION: eyJhcHByb3ZlZF9jb21taXRfc2hhIjoiNWM0MDlmNzljOTMzMzIwNmNmZjllZDgwZDU5YzA4YWEzNDcxMTBmNiIsInByaW1hcnlfY2lfZXZlbnQiOiJwdXNoIiwicHJpbWFyeV9jaV9oZWFkX2JyYW5jaCI6Im1hc3RlciIsInByaW1hcnlfY2lfcnVuX2F0dGVtcHQiOjEsInByaW1hcnlfY2lfcnVuX2lkIjoyOTQ2MDI5MzA2NiwicHJpbWFyeV9jaV93b3JrZmxvd19wYXRoIjoiLmdpdGh1Yi93b3JrZmxvd3MvY2kueW1sIiwicmVxdWlyZWRfY2hlY2tzIjpbeyJhcHBfc2x1ZyI6ImdpdGh1Yi1hY3Rpb25zIiwiY29uY2x1c2lvbiI6InN1Y2Nlc3MiLCJkZXRhaWxzX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9tYW5mcm9tbm93aGVyZTE0My90ZWxvcy9hY3Rpb25zL3J1bnMvMjk0NjAyOTMwNjYvam9iLzg3NTAyMTY2NjY0IiwiaWQiOjg3NTAyMTY2NjY0LCJuYW1lIjoidmVyaWZ5IHB5My4xMSIsInN0YXR1cyI6ImNvbXBsZXRlZCJ9LHsiYXBwX3NsdWciOiJnaXRodWItYWN0aW9ucyIsImNvbmNsdXNpb24iOiJzdWNjZXNzIiwiZGV0YWlsc191cmwiOiJodHRwczovL2dpdGh1Yi5jb20vbWFuZnJvbW5vd2hlcmUxNDMvdGVsb3MvYWN0aW9ucy9ydW5zLzI5NDYwMjkzMDY2L2pvYi84NzUwMjE2NjcxMCIsImlkIjo4NzUwMjE2NjcxMCwibmFtZSI6InZlcmlmeSBweTMuMTIiLCJzdGF0dXMiOiJjb21wbGV0ZWQifV0sInNjaGVtYV92ZXJzaW9uIjoidGVsb3MuaXRlcjIwMy5wcmltYXJ5X2NpX2F1dGhvcml6YXRpb24udjEifQ==
+2026-07-16T00:06:15.4227558Z   TELOS_ITER203_SHARD_COUNT: 8
+2026-07-16T00:06:15.4227839Z   TELOS_ITER203_SHARD_INDEX: 6
+2026-07-16T00:06:15.4228083Z ##[endgroup]
+2026-07-16T00:06:15.8063528Z iter203 safety recovery verified: 29 safe, 9 unsafe, 1 absent, 21 findings
+2026-07-16T00:06:15.8223809Z ##[group]Run python3 -I -S scripts/build_iter203_runtime_manifest.py --check
+2026-07-16T00:06:15.8224378Z [36;1mpython3 -I -S scripts/build_iter203_runtime_manifest.py --check[0m
+2026-07-16T00:06:15.8287725Z shell: /usr/bin/bash -e {0}
+2026-07-16T00:06:15.8287994Z env:
+2026-07-16T00:06:15.8299573Z   TELOS_ITER203_PRIMARY_CI_AUTHORIZATION: eyJhcHByb3ZlZF9jb21taXRfc2hhIjoiNWM0MDlmNzljOTMzMzIwNmNmZjllZDgwZDU5YzA4YWEzNDcxMTBmNiIsInByaW1hcnlfY2lfZXZlbnQiOiJwdXNoIiwicHJpbWFyeV9jaV9oZWFkX2JyYW5jaCI6Im1hc3RlciIsInByaW1hcnlfY2lfcnVuX2F0dGVtcHQiOjEsInByaW1hcnlfY2lfcnVuX2lkIjoyOTQ2MDI5MzA2NiwicHJpbWFyeV9jaV93b3JrZmxvd19wYXRoIjoiLmdpdGh1Yi93b3JrZmxvd3MvY2kueW1sIiwicmVxdWlyZWRfY2hlY2tzIjpbeyJhcHBfc2x1ZyI6ImdpdGh1Yi1hY3Rpb25zIiwiY29uY2x1c2lvbiI6InN1Y2Nlc3MiLCJkZXRhaWxzX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9tYW5mcm9tbm93aGVyZTE0My90ZWxvcy9hY3Rpb25zL3J1bnMvMjk0NjAyOTMwNjYvam9iLzg3NTAyMTY2NjY0IiwiaWQiOjg3NTAyMTY2NjY0LCJuYW1lIjoidmVyaWZ5IHB5My4xMSIsInN0YXR1cyI6ImNvbXBsZXRlZCJ9LHsiYXBwX3NsdWciOiJnaXRodWItYWN0aW9ucyIsImNvbmNsdXNpb24iOiJzdWNjZXNzIiwiZGV0YWlsc191cmwiOiJodHRwczovL2dpdGh1Yi5jb20vbWFuZnJvbW5vd2hlcmUxNDMvdGVsb3MvYWN0aW9ucy9ydW5zLzI5NDYwMjkzMDY2L2pvYi84NzUwMjE2NjcxMCIsImlkIjo4NzUwMjE2NjcxMCwibmFtZSI6InZlcmlmeSBweTMuMTIiLCJzdGF0dXMiOiJjb21wbGV0ZWQifV0sInNjaGVtYV92ZXJzaW9uIjoidGVsb3MuaXRlcjIwMy5wcmltYXJ5X2NpX2F1dGhvcml6YXRpb24udjEifQ==
+2026-07-16T00:06:15.8311713Z   TELOS_ITER203_SHARD_COUNT: 8
+2026-07-16T00:06:15.8311971Z   TELOS_ITER203_SHARD_INDEX: 6
+2026-07-16T00:06:15.8312203Z ##[endgroup]
+2026-07-16T00:06:16.2812460Z iter203 runtime manifest reproduces: sha256=8beb0e845dbc9e3a4ce56832f28a62d4fd58ceac20adbc6bc06d6aef41be47e1
+2026-07-16T00:06:16.2965505Z ##[group]Run bash scripts/ci_iter203_execute.sh
+2026-07-16T00:06:16.2965914Z [36;1mbash scripts/ci_iter203_execute.sh[0m
+2026-07-16T00:06:16.3030009Z shell: /usr/bin/bash -e {0}
+2026-07-16T00:06:16.3030276Z env:
+2026-07-16T00:06:16.3041758Z   TELOS_ITER203_PRIMARY_CI_AUTHORIZATION: eyJhcHByb3ZlZF9jb21taXRfc2hhIjoiNWM0MDlmNzljOTMzMzIwNmNmZjllZDgwZDU5YzA4YWEzNDcxMTBmNiIsInByaW1hcnlfY2lfZXZlbnQiOiJwdXNoIiwicHJpbWFyeV9jaV9oZWFkX2JyYW5jaCI6Im1hc3RlciIsInByaW1hcnlfY2lfcnVuX2F0dGVtcHQiOjEsInByaW1hcnlfY2lfcnVuX2lkIjoyOTQ2MDI5MzA2NiwicHJpbWFyeV9jaV93b3JrZmxvd19wYXRoIjoiLmdpdGh1Yi93b3JrZmxvd3MvY2kueW1sIiwicmVxdWlyZWRfY2hlY2tzIjpbeyJhcHBfc2x1ZyI6ImdpdGh1Yi1hY3Rpb25zIiwiY29uY2x1c2lvbiI6InN1Y2Nlc3MiLCJkZXRhaWxzX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9tYW5mcm9tbm93aGVyZTE0My90ZWxvcy9hY3Rpb25zL3J1bnMvMjk0NjAyOTMwNjYvam9iLzg3NTAyMTY2NjY0IiwiaWQiOjg3NTAyMTY2NjY0LCJuYW1lIjoidmVyaWZ5IHB5My4xMSIsInN0YXR1cyI6ImNvbXBsZXRlZCJ9LHsiYXBwX3NsdWciOiJnaXRodWItYWN0aW9ucyIsImNvbmNsdXNpb24iOiJzdWNjZXNzIiwiZGV0YWlsc191cmwiOiJodHRwczovL2dpdGh1Yi5jb20vbWFuZnJvbW5vd2hlcmUxNDMvdGVsb3MvYWN0aW9ucy9ydW5zLzI5NDYwMjkzMDY2L2pvYi84NzUwMjE2NjcxMCIsImlkIjo4NzUwMjE2NjcxMCwibmFtZSI6InZlcmlmeSBweTMuMTIiLCJzdGF0dXMiOiJjb21wbGV0ZWQifV0sInNjaGVtYV92ZXJzaW9uIjoidGVsb3MuaXRlcjIwMy5wcmltYXJ5X2NpX2F1dGhvcml6YXRpb24udjEifQ==
+2026-07-16T00:06:16.3053715Z   TELOS_ITER203_SHARD_COUNT: 8
+2026-07-16T00:06:16.3053967Z   TELOS_ITER203_SHARD_INDEX: 6
+2026-07-16T00:06:16.3054195Z ##[endgroup]
+2026-07-16T00:06:16.6824644Z iter203 safety recovery verified: 29 safe, 9 unsafe, 1 absent, 21 findings
+2026-07-16T00:06:17.1182843Z iter203 runtime manifest reproduces: sha256=8beb0e845dbc9e3a4ce56832f28a62d4fd58ceac20adbc6bc06d6aef41be47e1
+2026-07-16T00:06:17.3079663Z === iter203 shard 6/8 selected 6/50 valid patches ===
+2026-07-16T00:06:17.3090235Z === django__django-11964 (safe_scenario) ===
+2026-07-16T00:06:50.6015605Z django__django-11964 CERTIFICATION_INFRA_FAIL exit=125
+2026-07-16T00:06:52.6298078Z === django__django-12273 (safe_scenario) ===
+2026-07-16T00:07:26.4476742Z django__django-12273 CERTIFICATION_INFRA_FAIL exit=125
+2026-07-16T00:07:28.4506806Z === pydata__xarray-7233 (safe_scenario) ===
+2026-07-16T00:08:24.3095099Z pydata__xarray-7233 CERTIFICATION_INFRA_FAIL exit=125
+2026-07-16T00:08:27.9070870Z === scikit-learn__scikit-learn-25747 (safe_scenario) ===
+2026-07-16T00:09:20.5849913Z scikit-learn__scikit-learn-25747 CERTIFICATION_INFRA_FAIL exit=125
+2026-07-16T00:09:23.8909260Z === sympy__sympy-14711 (safe_scenario) ===
+2026-07-16T00:09:55.1373940Z sympy__sympy-14711 CERTIFICATION_INFRA_FAIL exit=125
+2026-07-16T00:09:56.9442597Z === sympy__sympy-17655 (safe_scenario) ===
+2026-07-16T00:10:28.5929475Z sympy__sympy-17655 CERTIFICATION_INFRA_FAIL exit=125
+2026-07-16T00:10:30.3828237Z iter203 execution failed closed: 6 evidence error(s)
+2026-07-16T00:10:30.3845542Z ##[error]Process completed with exit code 1.
+2026-07-16T00:10:30.3953945Z ##[group]Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+2026-07-16T00:10:30.3954354Z with:
+2026-07-16T00:10:30.3954661Z   name: iter203-execution-debug-29460393525-attempt-1-shard-6-of-8
+2026-07-16T00:10:30.3955164Z   path: experiments/iter203_iter202_safety_recovery/proof/raw/execution/
+2026-07-16T00:10:30.3955548Z   if-no-files-found: ignore
+2026-07-16T00:10:30.3955792Z   retention-days: 14
+2026-07-16T00:10:30.3956011Z   compression-level: 6
+2026-07-16T00:10:30.3956281Z   overwrite: false
+2026-07-16T00:10:30.3956510Z   include-hidden-files: false
+2026-07-16T00:10:30.3956750Z   archive: true
+2026-07-16T00:10:30.3957169Z env:
+2026-07-16T00:10:30.3968681Z   TELOS_ITER203_PRIMARY_CI_AUTHORIZATION: eyJhcHByb3ZlZF9jb21taXRfc2hhIjoiNWM0MDlmNzljOTMzMzIwNmNmZjllZDgwZDU5YzA4YWEzNDcxMTBmNiIsInByaW1hcnlfY2lfZXZlbnQiOiJwdXNoIiwicHJpbWFyeV9jaV9oZWFkX2JyYW5jaCI6Im1hc3RlciIsInByaW1hcnlfY2lfcnVuX2F0dGVtcHQiOjEsInByaW1hcnlfY2lfcnVuX2lkIjoyOTQ2MDI5MzA2NiwicHJpbWFyeV9jaV93b3JrZmxvd19wYXRoIjoiLmdpdGh1Yi93b3JrZmxvd3MvY2kueW1sIiwicmVxdWlyZWRfY2hlY2tzIjpbeyJhcHBfc2x1ZyI6ImdpdGh1Yi1hY3Rpb25zIiwiY29uY2x1c2lvbiI6InN1Y2Nlc3MiLCJkZXRhaWxzX3VybCI6Imh0dHBzOi8vZ2l0aHViLmNvbS9tYW5mcm9tbm93aGVyZTE0My90ZWxvcy9hY3Rpb25zL3J1bnMvMjk0NjAyOTMwNjYvam9iLzg3NTAyMTY2NjY0IiwiaWQiOjg3NTAyMTY2NjY0LCJuYW1lIjoidmVyaWZ5IHB5My4xMSIsInN0YXR1cyI6ImNvbXBsZXRlZCJ9LHsiYXBwX3NsdWciOiJnaXRodWItYWN0aW9ucyIsImNvbmNsdXNpb24iOiJzdWNjZXNzIiwiZGV0YWlsc191cmwiOiJodHRwczovL2dpdGh1Yi5jb20vbWFuZnJvbW5vd2hlcmUxNDMvdGVsb3MvYWN0aW9ucy9ydW5zLzI5NDYwMjkzMDY2L2pvYi84NzUwMjE2NjcxMCIsImlkIjo4NzUwMjE2NjcxMCwibmFtZSI6InZlcmlmeSBweTMuMTIiLCJzdGF0dXMiOiJjb21wbGV0ZWQifV0sInNjaGVtYV92ZXJzaW9uIjoidGVsb3MuaXRlcjIwMy5wcmltYXJ5X2NpX2F1dGhvcml6YXRpb24udjEifQ==
+2026-07-16T00:10:30.3980446Z   TELOS_ITER203_SHARD_COUNT: 8
+2026-07-16T00:10:30.3980699Z   TELOS_ITER203_SHARD_INDEX: 6
+2026-07-16T00:10:30.3980926Z ##[endgroup]
+2026-07-16T00:10:30.5437114Z No files were found with the provided path: experiments/iter203_iter202_safety_recovery/proof/raw/execution/. No artifacts will be uploaded.
+2026-07-16T00:10:30.5685811Z Post job cleanup.
+2026-07-16T00:10:30.6613984Z [command]/usr/bin/git version
+2026-07-16T00:10:30.6671269Z git version 2.54.0
+2026-07-16T00:10:30.6718079Z Temporarily overriding HOME='/home/runner/work/_temp/3fb2da11-ca65-4a20-bbf5-1a599b7a904c' before making global git config changes
+2026-07-16T00:10:30.6719729Z Adding repository directory to the temporary git global config as a safe directory
+2026-07-16T00:10:30.6725485Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/telos/telos
+2026-07-16T00:10:30.6789731Z Removing SSH command configuration
+2026-07-16T00:10:30.6798010Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-07-16T00:10:30.6852410Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-07-16T00:10:30.7201871Z Removing HTTP extra header
+2026-07-16T00:10:30.7208920Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-07-16T00:10:30.7292996Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-07-16T00:10:30.7660093Z Removing includeIf entries pointing to credentials config files
+2026-07-16T00:10:30.7663670Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-07-16T00:10:30.7720820Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-07-16T00:10:30.8188060Z Cleaning up orphan processes
