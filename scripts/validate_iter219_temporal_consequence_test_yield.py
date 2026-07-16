@@ -137,6 +137,19 @@ def check_amendment(amendment: dict[str, Any]) -> None:
             item.get("changes_thresholds") is False,
             f"amendment {item['id']} must not move a sealed threshold",
         )
+    # A limitation that is silently dropped becomes an overclaim by omission.
+    limitation_ids = {
+        item["id"] for item in amendment.get("known_limitations_disclosed_not_fixed", [])
+    }
+    require(
+        {"L1", "L2", "L3"} <= limitation_ids,
+        "known limitations L1, L2, and L3 must remain disclosed",
+    )
+    for item in amendment["known_limitations_disclosed_not_fixed"]:
+        require(
+            bool(item.get("direction_of_bias")),
+            f"limitation {item['id']} must state its direction of bias",
+        )
 
 
 def check_report_recomputes(report: dict[str, Any]) -> None:
@@ -228,6 +241,21 @@ def check_report_recomputes(report: dict[str, Any]) -> None:
         require(
             block["mcnemar_real_gt_backward"] == exact_one_sided_mcnemar(backward_pairs),
             f"delta={delta}: backward McNemar result does not recompute",
+        )
+
+        # L1: without exposure counts, a reader cannot separate a temporal effect from
+        # repository growth.  The diagnostic must be present and must recompute.
+        exposure = block.get("exposure")
+        require(exposure is not None, f"delta={delta}: exposure diagnostic missing")
+        require(
+            exposure["forward_added_tests_total"]
+            == sum(row["forward_added_tests"] for row in rows),
+            f"delta={delta}: forward exposure total does not recompute",
+        )
+        require(
+            exposure["backward_added_tests_total"]
+            == sum(row["backward_added_tests"] for row in rows),
+            f"delta={delta}: backward exposure total does not recompute",
         )
 
         # No instance may be its own control, and no control may share its repository.

@@ -117,6 +117,24 @@ reported; neither replaces the other.
 the backward boundary. `A1`'s exclusion does not apply backward, because the fixing pull request does not yet
 exist there.
 
+### Limitations disclosed with the amendment, deliberately not corrected
+
+`L1` — repositories accumulate testing activity as they mature, so a forward window may contain more added
+tests than an equal-length backward window for reasons unrelated to the task. The forward-minus-backward
+difference is therefore an **upper bound** on the temporal effect, not a clean estimate. Every result block
+reports an `exposure` diagnostic (forward and backward added-test totals, medians, zero counts, and ratio) so
+this imbalance is visible rather than implicit. Matching exposure is future work, never a post-hoc
+adjustment here.
+
+`L2` — `A1` excludes the task's own tests by file path and function name. A fixing-PR test relocated to a
+different file inside the window escapes that key and is counted. Excluding by bare function name instead
+would over-exclude unrelated tests named `test_basic` and similar, so the smaller leak is disclosed rather
+than traded for a larger one. Expected small; biases the primary upward.
+
+`L3` — sealed bar `3` requires no repository to contribute over `50%` of qualifying instances, but Django is
+`231/500` of the sample, so under a uniform yield it would approach that bar regardless of the phenomenon.
+The bar is evaluated exactly as sealed and reported as uninformative. It is not retuned.
+
 ## Acceptance bars
 
 1. `Y(365) ≥ 0.20` and its Wilson lower bound `≥ 0.10`.

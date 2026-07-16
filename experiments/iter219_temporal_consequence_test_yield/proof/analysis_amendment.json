@@ -43,6 +43,29 @@
    "changes_thresholds": false
   }
  ],
+ "known_limitations_disclosed_not_fixed": [
+  {
+   "id": "L1",
+   "title": "The backward control is exposed to repository growth",
+   "detail": "Repositories accumulate testing activity as they mature, so a forward window can contain more added tests than a backward window of equal length for reasons unrelated to the task. The forward-minus-backward difference is therefore an upper bound on the temporal effect, not a clean estimate of it.",
+   "handling": "Not corrected. Every result block reports an `exposure` diagnostic giving forward and backward added-test totals, medians, zero counts, and their ratio, so a reader can judge how much of any difference is exposure imbalance. A design that matches exposure is future work, not a post-hoc adjustment here.",
+   "direction_of_bias": "inflates the forward-minus-backward difference"
+  },
+  {
+   "id": "L2",
+   "title": "A1 leaks when a fixing-PR test is later relocated",
+   "detail": "The task's own tests are excluded by matching file path and function name. If a later commit inside the window moves such a test to a different file, the moved copy no longer matches the exclusion key and is counted as a hidden consequence test.",
+   "handling": "Not corrected. Excluding by bare function name instead would over-exclude unrelated tests sharing common names such as `test_basic`. The leak is reported as a known upward bias rather than traded for a larger one.",
+   "direction_of_bias": "inflates the primary yield, expected small"
+  },
+  {
+   "id": "L3",
+   "title": "Bar 3 is partly a property of dataset composition",
+   "detail": "The sealed bar requires that no single repository contribute more than 50 percent of qualifying instances. Django is 231 of 500 instances (46 percent), so under a uniform yield Django would approach that bar regardless of the phenomenon.",
+   "handling": "Not corrected and not retuned. The bar is evaluated exactly as sealed and this weakness is reported with the result. Retuning a sealed bar after seeing the sample is the reward hack this repository exists to study.",
+   "direction_of_bias": "makes bar 3 uninformative rather than biased"
+  }
+ ],
  "unchanged": [
   "sample rule: every SWE-bench Verified instance, no subsampling, no discretionary exclusion",
   "inclusion criteria",

@@ -23,6 +23,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 import urllib.request
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
@@ -225,29 +226,42 @@ def fetch_dataset(cache: Path) -> dict[str, Any]:
 # --------------------------------------------------------------------------- #
 
 
-def _clone_one(repo: str, work: Path) -> None:
+def _clone_one(repo: str, work: Path, attempts: int = 4) -> None:
     target = work / repo.replace("/", "__")
     if target.exists():
         return
     url = f"https://github.com/{repo}.git"
-    print(f"  cloning {repo} ...", flush=True)
     staging = work / f".{repo.replace('/', '__')}.partial"
+
+    last_error = ""
+    for attempt in range(1, attempts + 1):
+        if staging.exists():
+            subprocess.run(["rm", "-rf", str(staging)], check=False)
+        print(f"  cloning {repo} (attempt {attempt}/{attempts}) ...", flush=True)
+        # Full history with blobs, no working tree.  A blobless clone would refetch every
+        # blob over the network, and this analysis reads thousands of them.  Clone into a
+        # staging path and rename, so an interrupted clone is never a cache hit.
+        result = subprocess.run(
+            ["git", "clone", "--no-checkout", url, str(staging)],
+            capture_output=True,
+            check=False,
+        )
+        if result.returncode == 0:
+            staging.rename(target)
+            return
+        last_error = result.stderr.decode("utf-8", errors="replace").strip()[-400:]
+        print(f"  clone failed for {repo}: {last_error}", flush=True)
+        if attempt < attempts:
+            time.sleep(5 * attempt)
+
     if staging.exists():
         subprocess.run(["rm", "-rf", str(staging)], check=False)
-    # Full history with blobs, no working tree.  A blobless clone would refetch every
-    # blob over the network, and this analysis reads thousands of them.  Clone into a
-    # staging path and rename, so an interrupted clone is never mistaken for a cache hit.
-    subprocess.run(
-        ["git", "clone", "--no-checkout", url, str(staging)],
-        check=True,
-        capture_output=True,
-    )
-    staging.rename(target)
+    raise RuntimeError(f"clone failed for {repo} after {attempts} attempts: {last_error}")
 
 
 def clone_repos(repos: Iterable[str], work: Path) -> dict[str, dict[str, str]]:
     ordered = sorted(set(repos))
-    with ThreadPoolExecutor(max_workers=6) as pool:
+    with ThreadPoolExecutor(max_workers=3) as pool:
         list(pool.map(lambda repo: _clone_one(repo, work), ordered))
     heads: dict[str, dict[str, str]] = {}
     for repo in ordered:
@@ -459,6 +473,42 @@ def added_test_identifiers(
 # --------------------------------------------------------------------------- #
 
 
+def _median(values: list[int]) -> float:
+    if not values:
+        return 0.0
+    ordered = sorted(values)
+    middle = len(ordered) // 2
+    if len(ordered) % 2:
+        return float(ordered[middle])
+    return (ordered[middle - 1] + ordered[middle]) / 2
+
+
+def exposure_diagnostic(rows: list[dict[str, Any]]) -> dict[str, float]:
+    """How many tests each side of the comparison actually had to match against.
+
+    The backward control is only a fair comparison if both windows expose a similar
+    number of added tests.  Repositories mature, so the forward side may simply contain
+    more tests.  This reports the imbalance instead of leaving it implicit.
+    """
+
+    forward = [row["forward_added_tests"] for row in rows]
+    backward = [row["backward_added_tests"] for row in rows]
+    forward_total = sum(forward)
+    backward_total = sum(backward)
+    return {
+        "forward_added_tests_total": forward_total,
+        "backward_added_tests_total": backward_total,
+        "forward_added_tests_median": _median(forward),
+        "backward_added_tests_median": _median(backward),
+        "forward_over_backward_total_ratio": (
+            forward_total / backward_total if backward_total else float("inf")
+        ),
+        "instances_with_zero_forward_tests": sum(1 for value in forward if value == 0),
+        "instances_with_zero_backward_tests": sum(1 for value in backward if value == 0),
+        "symbol_count_median": _median([row["symbol_count"] for row in rows]),
+    }
+
+
 def permutation_key(index: int) -> int:
     digest = hashlib.sha256(f"{PERMUTATION_SALT}{index}".encode()).digest()
     return int.from_bytes(digest[:4], "big")
@@ -639,6 +689,13 @@ def measure(work: Path, out_path: Path, limit: int | None = None) -> dict[str, A
                     "real": real,
                     "control": control,
                     "backward_control": back,
+                    "symbol_count": len(symbols),
+                    "forward_added_tests": included[iid]["per_delta"][key][
+                        "added_test_functions"
+                    ],
+                    "backward_added_tests": included[iid]["per_delta"][key][
+                        "backward_added_test_functions"
+                    ],
                 }
             )
         total = len(ids)
@@ -662,6 +719,11 @@ def measure(work: Path, out_path: Path, limit: int | None = None) -> dict[str, A
             "mcnemar_real_gt_backward": backward_mcnemar,
             "per_repo_real_hits": dict(sorted(per_repo_hits.items())),
             "max_single_repo_share_of_hits": dominant,
+            # Exposure diagnostic.  A repository writes more tests as it matures, so the
+            # forward window can beat the backward window purely because more tests were
+            # added later.  Without these counts a reader cannot tell a real temporal
+            # effect from repository growth, so they are reported, never hidden.
+            "exposure": exposure_diagnostic(rows_out),
             "rows": rows_out,
         }
 

@@ -167,9 +167,11 @@ from telos.tcp1 import exact_one_sided_mcnemar, wilson_interval  # noqa: E402
 def _synthetic_report() -> dict:
     rows = [
         {"instance_id": "a__1", "repo": "org/a", "control_partner": "b__1", "real": True,
-         "control": False, "backward_control": False},
+         "control": False, "backward_control": False,
+         "symbol_count": 2, "forward_added_tests": 4, "backward_added_tests": 3},
         {"instance_id": "b__1", "repo": "org/b", "control_partner": "a__1", "real": False,
-         "control": False, "backward_control": False},
+         "control": False, "backward_control": False,
+         "symbol_count": 1, "forward_added_tests": 2, "backward_added_tests": 1},
     ]
     pairs = [(r["real"], r["control"]) for r in rows]
     back_pairs = [(r["real"], r["backward_control"]) for r in rows]
@@ -188,6 +190,16 @@ def _synthetic_report() -> dict:
         "backward_control_wilson_95": list(wilson_interval(0, 2)),
         "backward_yield_difference": 0.5,
         "mcnemar_real_gt_backward": exact_one_sided_mcnemar(back_pairs),
+        "exposure": {
+            "forward_added_tests_total": 6,
+            "backward_added_tests_total": 4,
+            "forward_added_tests_median": 3.0,
+            "backward_added_tests_median": 2.0,
+            "forward_over_backward_total_ratio": 1.5,
+            "instances_with_zero_forward_tests": 0,
+            "instances_with_zero_backward_tests": 0,
+            "symbol_count_median": 1.5,
+        },
         "per_repo_real_hits": {"org/a": 1},
         "max_single_repo_share_of_hits": 1.0,
         "rows": rows,
@@ -403,3 +415,67 @@ def test_sealed_rule_scan_survives_markdown_rewrapping() -> None:
 
     guard.check_sealed_rules_match_instrument(raw)
     guard.check_sealed_rules_match_instrument(rewrapped)
+
+
+# --------------------------------------------------------------------------- #
+# L1: exposure imbalance must be visible, or a growth artifact reads as a result.
+# --------------------------------------------------------------------------- #
+
+from scripts.measure_iter219_temporal_yield import exposure_diagnostic  # noqa: E402
+
+
+def test_exposure_diagnostic_reports_the_forward_backward_imbalance() -> None:
+    rows = [
+        {"forward_added_tests": 10, "backward_added_tests": 2, "symbol_count": 3},
+        {"forward_added_tests": 0, "backward_added_tests": 0, "symbol_count": 1},
+    ]
+    exposure = exposure_diagnostic(rows)
+
+    assert exposure["forward_added_tests_total"] == 10
+    assert exposure["backward_added_tests_total"] == 2
+    assert exposure["forward_over_backward_total_ratio"] == 5.0
+    assert exposure["instances_with_zero_forward_tests"] == 1
+    assert exposure["instances_with_zero_backward_tests"] == 1
+
+
+def test_exposure_diagnostic_handles_an_empty_backward_side() -> None:
+    rows = [{"forward_added_tests": 5, "backward_added_tests": 0, "symbol_count": 1}]
+    assert exposure_diagnostic(rows)["forward_over_backward_total_ratio"] == float("inf")
+
+
+def test_guard_fires_when_the_exposure_diagnostic_is_missing() -> None:
+    report = _synthetic_report()
+    del report["results_by_delta"]["365"]["exposure"]
+    with pytest.raises(guard.Iter219ValidationError, match="exposure diagnostic missing"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_exposure_totals_are_tampered_with() -> None:
+    report = _synthetic_report()
+    report["results_by_delta"]["365"]["exposure"]["forward_added_tests_total"] = 999
+    with pytest.raises(guard.Iter219ValidationError, match="forward exposure total"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_a_known_limitation_is_dropped() -> None:
+    import copy as _copy
+    import json as _json
+
+    amendment = _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+    tampered = _copy.deepcopy(amendment)
+    tampered["known_limitations_disclosed_not_fixed"] = [
+        item for item in tampered["known_limitations_disclosed_not_fixed"] if item["id"] != "L1"
+    ]
+    with pytest.raises(guard.Iter219ValidationError, match="must remain disclosed"):
+        guard.check_amendment(tampered)
+
+
+def test_guard_fires_when_a_limitation_hides_its_direction_of_bias() -> None:
+    import copy as _copy
+    import json as _json
+
+    amendment = _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+    tampered = _copy.deepcopy(amendment)
+    tampered["known_limitations_disclosed_not_fixed"][0]["direction_of_bias"] = ""
+    with pytest.raises(guard.Iter219ValidationError, match="direction of bias"):
+        guard.check_amendment(tampered)
