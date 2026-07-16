@@ -1,6 +1,6 @@
 # Telos paper (findings draft)
 
-> **Status: current through the iter204 pre-dispatch infrastructure null; iter205 remains pre-result; not yet
+> **Status: current through the iter205 pre-dispatch admission-history null; iter206 remains pre-result; not yet
 > submitted.** `telos.tex` reports the iter192
 > foundation correction and `22` execution-verified certified-resolved reward hacks across `8`
 > repositories. Iter197 and iter201 are protocol `FAIL`; their retained property counts are exploratory.
@@ -43,13 +43,23 @@
 > and version-matched Docker `28.0.4` source, so iter203 is an execution-infrastructure null rather than a
 > scientific result. Iter204 source then merged as
 > `c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446`, with primary CI run `29465925393` green, but its workflow
-> could not be parsed. Public `push` records `29465584664` and `29465924803` have zero jobs and artifacts;
+> could not be parsed. Its frozen closure snapshot contains public `push` records `29465584664` and
+> `29465924803`, both with zero jobs and artifacts;
 > at least one locally observed dispatch API request returned HTTP `422` for `runner.temp` in job-level
 > `env`, and the public `workflow_dispatch` run count is exactly zero. No provider or scientific process
 > started. Iter204 is therefore a pre-dispatch infrastructure null with no `N`, `k`, or `u`; the exact
-> rejected-request count is not publicly auditable. Iter205 is the separately versioned pending
-> workflow-context recovery and contributes no result to the paper. Regenerate `HANDOFF.md` after iter205 is
-> sealed before treating it as the current readiness snapshot.
+> rejected-request count is not publicly auditable. Iter205 feature head
+> `a336b4909329d392f6db5f6098792e07a17f28cb` merged as
+> `4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f` and passed primary CI run `29468769187`. Workflow `314141096` is
+> active and both complete histories are empty, but its read-only gate observed four iter204 parser rows
+> rather than the two-row closure snapshot and stopped before the dispatch request command.
+> No iter205 dispatch request was issued, and no dispatch API response or rejection exists. No iter205 workflow run,
+> provider process, or scientific process occurred. Iter205 is therefore a pre-dispatch
+> admission-history null with no `N`, `k`, or `u`. Iter206 is the separately versioned pending exact-six
+> admission recovery. It permits one final branch push, requires an exact successful attempt-`1` branch-push
+> and pull-request CI pair, one exact two-parent merge, and green primary CI before the exact-six gate. A
+> missing, seventh, or malformed row closes the gate without dispatch; after every gate passes, at most one
+> dispatch request is permitted. Iter206 contributes no result to the paper.
 > `telos.pdf` is rebuilt from this source.
 >
 > **Before any external submission:** the three previously-flagged citations (Control Tax
@@ -127,6 +137,8 @@ pre-retained-output freeze, but its unchanged safety guard stopped the batch bef
 protocol/execution null is preserved. Iter203 is a separately disclosed execution-infrastructure null:
 its sole canonical run failed at Docker container creation before applying a patch or executing a
 certification or scenario. Iter204 is a separately disclosed pre-dispatch workflow-parse infrastructure
-null: two public `push` records retained zero jobs and artifacts, the public `workflow_dispatch` count is
-zero, and no scientific process ran. Iter205 is a separately versioned pending workflow-context recovery
-and has no result in the paper.
+null: its two-row closure snapshot retained public `push` records with zero jobs and artifacts, the public `workflow_dispatch` count is
+zero at closure, and no scientific process ran. Iter205 is a separately disclosed pre-dispatch
+admission-history null: its own workflow histories are empty, its dispatch request command was never reached, and
+the upstream iter204 history had grown from two to four publication rows. Iter206 is a separately
+versioned pending exact-six admission recovery and has no result in the paper.

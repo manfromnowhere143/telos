@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "e47095ddc32c2eebf4454c072770ed0052c79ba008bea8d13d9f137e0cb778f4"
-EXPECTED_PDF_SHA256 = "baf7b34101893e0b8b9633c8762af39b6845be941bd4933cbd50edbbbc975511"
+EXPECTED_SOURCE_SHA256 = "0c79ea20a0cfabe402222c76558020ff921b5206e7770e346d5a2dcf0d3f0e43"
+EXPECTED_PDF_SHA256 = "d992d1088e47a4a1437e0c69592e5d740b1a018f42d206210ce7932fef401bb4"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -31,12 +31,17 @@ REQUIRED_TEXT = {
         "scenario-safety protocol/execution null",
         "post-provider iter203 recovery",
         "Iter203 is an execution-infrastructure null",
-        "public workflow-dispatch count is zero",
+        "public workflow-dispatch count at closure is zero",
+        "closure snapshot contains two public push records",
         "Iter204 is a pre-dispatch infrastructure null",
-        "Iter205 is the pending workflow-context recovery",
+        "No iter205 dispatch request",
+        "no dispatch API response or rejection exists",
+        "Iter205 is a",
+        "pre-dispatch admission-history null",
+        "Iter206 is the pending exact-six admission recovery",
     ),
     ROOT / "paper/README.md": (
-        "current through the iter204 pre-dispatch infrastructure null; iter205 remains pre-result",
+        "current through the iter205 pre-dispatch admission-history null; iter206 remains pre-result",
         "Historical image provenance is bounded",
         "SOURCE_DATE_EPOCH=1784160000 tectonic telos.tex",
         "29451691560",
@@ -44,8 +49,13 @@ REQUIRED_TEXT = {
         "29460393525",
         "29465584664",
         "29465924803",
+        "29468769187",
+        "314141096",
         "stderr was not retained",
-        "public `workflow_dispatch` run count is exactly zero",
+        "both complete histories are empty",
+        "frozen closure snapshot",
+        "No iter205 dispatch request was issued",
+        "no dispatch API response or rejection exists",
     ),
     ROOT / "README.md": (
         "22` execution-verified certified-resolved reward hacks across `8` repositories",
@@ -73,6 +83,13 @@ FORBIDDEN_TEXT = {
         r"\date{\today}",
         "verified in pinned containers",
         "each instance's pinned container",
+        "No iter205 request, API rejection",
+        "pre-request admission-history null",
+    ),
+    ROOT / "paper/README.md": (
+        "No iter205 request, API rejection",
+        "No iter205 API request",
+        "pre-request admission-history null",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "pinned-container execution",
@@ -88,12 +105,12 @@ def sha256(path: Path) -> str:
 def validate() -> list[str]:
     failures: list[str] = []
     for path, snippets in REQUIRED_TEXT.items():
-        text = path.read_text(encoding="utf-8")
+        text = " ".join(path.read_text(encoding="utf-8").split())
         for snippet in snippets:
             if snippet not in text:
                 failures.append(f"{path.relative_to(ROOT)} missing current paper text: {snippet}")
     for path, snippets in FORBIDDEN_TEXT.items():
-        text = path.read_text(encoding="utf-8")
+        text = " ".join(path.read_text(encoding="utf-8").split())
         for snippet in snippets:
             if snippet in text:
                 failures.append(f"{path.relative_to(ROOT)} retains stale paper text: {snippet}")

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate handoff consistency."""
+"""Validate the generated TELOS handoff and its fail-closed run envelope."""
 
 from __future__ import annotations
 
@@ -21,61 +21,93 @@ REPOSITORY_DECLARATION = (
     "`git rev-parse --show-toplevel`"
 )
 FORBIDDEN_WORKSPACE_LABEL = "a" + "web"
+ITER206_DISPATCH = "gh workflow run iter206-execute.yml"
+ITER206_INPUTS = (
+    '-f expected_primary_sha="$HEAD_SHA"',
+    '-f expected_workflow_id="$ITER206_WORKFLOW_ID"',
+    '-f expected_iter204_release_run_id="$ITER204_RELEASE_RUN_ID"',
+    '-f expected_iter204_primary_run_id="$ITER204_PRIMARY_RUN_ID"',
+)
 REQUIRED_RECOVERY_FACTS = (
-    "access authorization succeeded",
-    "`53/53` solver calls",
-    "`39/39` eligible scenario calls",
-    "`50` model patches",
-    "`38` extracted scenario programs",
-    "one original absent scenario",
-    "admitted `29` programs and rejected `9` with `21` findings",
-    "Zero scenario execution and zero official-harness certification execution occurred",
-    "scenario-safety protocol/execution null",
-    "workflow run `29460393525`, attempt `1`",
-    "all `50/50` first Docker `run`",
-    "zero official certifications and zero scenarios executed",
-    "exact daemon stderr was redirected into temporary files and not retained",
-    "root cause is reconstructed",
-    "execution-infrastructure null",
-    "exactly two iter204 workflow records",
-    "push parse-failure run `29465584664`",
-    "push parse-failure run `29465924803`",
-    "zero jobs and zero artifacts",
-    "zero `workflow_dispatch` runs",
-    "false to say that iter204 has zero workflow runs",
-    "at least one locally observed dispatch API request returned HTTP `422`",
-    "no run ID, no run attempt, and no public workflow-dispatch job or run log",
-    "no provider process, container create/run invocation",
-    "contributes no `N`, `k`, or `u`; those quantities are absent, not zero",
-    "bf2062825e604d9439b0d29375d7e5219a1064ae4a33701efb74a62f81a59a45",
-    "Never reconstruct that frozen manifest from the current tree",
-    "empty complete iter205 all-event and dispatch histories",
-    "transient read-only query failure before the request does not consume iter205's request allowance",
-    "Once execution reaches the request command, never re-enter this block",
-    "discovery poll timeout or temporarily absent run is not by itself a null",
-    "No observation ever authorizes another request",
-    "Any API rejection, parser record, authorization failure, smoke failure, shard failure, collector",
-    "closes iter205 and requires iter206",
-    "Never re-enter the dispatch block",
-    "Never dispatch the frozen iter202, iter203, or iter204",
-    "never redownload or rerun the workflow",
-    "iter205-execute\t.github/workflows/iter205-execute.yml\tactive",
+    "two-row closure snapshot",
+    "`29465584664` and `29465924803`",
+    "four-row iter205 admission baseline",
+    "`29468669956` and `29468768706`",
+    "zero jobs, zero artifacts",
+    "HTTP `404`",
+    "zero iter204 `workflow_dispatch` runs",
+    "source PR `#7` merged as `4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f`",
+    "`29468769187`, attempt `1`, completed successfully",
+    "`314141096` is active",
+    "zero all-event runs and zero dispatch runs",
+    "pre-dispatch admission-history null",
+    "No iter205 dispatch request was issued",
+    "no dispatch API response or rejection exists",
+    "iter205 contributes no `N`, `k`, or `u`; those quantities are absent, not zero",
+    "No credential, credit, billing, quota, or authentication deficit is the iter205/iter206 blocker",
+    "`6d2216038c7e1f19337795be806bf77eb39150a9be119828bc2967ed160c72ba`",
+    "Iter206 is the active, separately versioned pre-publication/pre-dispatch recovery",
+    "`1/24` confirmed lower, `7/24` worst-case missing upper",
+    "`1/18` complete-case",
+    "Push branch `agent/iter206-iter205-admission-recovery` exactly once at its final tip",
+    "Merge exactly once with a two-parent merge commit",
+    "`4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f`",
+    "missing, malformed, or seventh iter204",
+    "empty iter205 and iter206 histories",
+    "exact six-row iter204 admission snapshot",
+    "exactly one successful release-branch",
+    "`push` CI run and one successful release-branch `pull_request` CI run",
+    "Once execution reaches the dispatch request line, never re-enter this block",
+    "dispatch-request allowance is consumed when the command is entered",
+    "A temporarily absent, queued, or in-progress",
+    "No observation ever authorizes another dispatch request",
+    "Never issue a second dispatch request, rerun, or replacement run",
+    "scripts/validate_iter205_pre_dispatch_null.py",
+    "scripts/build_iter206_runtime_manifest.py --check",
+    "scripts/validate_iter206_publication_safety.py --check",
+    "scripts/validate_iter206_runtime_recovery.py",
+    "scripts/collect_iter206_execution.py check",
+    "scripts/adjudicate_iter206_admission_history_recovery.py",
+    "scripts/run_iter206_admission_history_recovery_blind_judge.py",
+    "## Iter206 Local Seal and Exact Pickup Boundary",
+    "source commit A",
+    "publication-safety receipt and then the runtime manifest",
+    "seal commit B",
+    "push A and B together",
+    "Never regenerate it after that point",
+    "iter206-execute\t.github/workflows/iter206-execute.yml\tactive",
     'test "$ITER205_ALL_COUNT" -eq 0',
     'test "$ITER205_DISPATCH_COUNT" -eq 0',
-    'gh workflow run iter205-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
-    "actions/workflows/iter205-execute.yml/runs",
-    "scripts/collect_iter205_execution.py check",
-    "scripts/adjudicate_iter205_workflow_context_recovery.py",
-    "scripts/run_iter205_workflow_context_recovery_blind_judge.py",
-    "scripts/validate_iter204_pre_dispatch_null.py",
-    "scripts/build_iter205_runtime_manifest.py --check",
-    "scripts/validate_iter205_publication_safety.py --check",
-    "scripts/validate_iter205_runtime_recovery.py",
+    'test "$ITER206_ALL_COUNT" -eq 0',
+    'test "$ITER206_DISPATCH_COUNT" -eq 0',
+    "actions/workflows/314113289/runs",
+    "actions/runs/$ITER204_RUN_ID/attempts/1/jobs",
+    "actions/runs/$ITER204_RUN_ID/artifacts",
+    "verify py3.11\tsuccess",
+    "verify py3.12\tsuccess",
+    "verify_release_ci()",
+    'RELEASE_PUSH_CI_RUN_ID="$(verify_release_ci push)"',
+    'RELEASE_PULL_REQUEST_CI_RUN_ID="$(verify_release_ci pull_request)"',
+    'test "$RELEASE_PUSH_CI_RUN_ID" != "$RELEASE_PULL_REQUEST_CI_RUN_ID"',
+    '-f head_sha="$SECOND_PARENT"',
+    "[.id,.conclusion,.event,.head_branch,.head_sha,.path,.run_attempt,.status,.head_repository.full_name] | @tsv",
+    "completed\tmanfromnowhere143/telos",
+    "[.total_count, (.workflow_runs | length)] | @tsv",
+    "[.total_count, (.jobs | length)] | @tsv",
+    ".jobs[] | [.name,.conclusion,.head_sha,.id,.run_attempt,.status,.html_url] | @tsv",
+    'test "$html_url" = "https://github.com/$REPO/actions/runs/$run_id/job/$job_id"',
+    "repos/$REPO/commits/$HEAD_SHA/check-runs",
+    "PRIMARY_CHECK_HISTORY_COMPLETE",
+    'PRIMARY_PY311_CHECK_ID="$(verify_primary_check \'verify py3.11\')"',
+    'PRIMARY_PY312_CHECK_ID="$(verify_primary_check \'verify py3.12\')"',
+    "github-actions",
+    ITER206_DISPATCH,
+    *ITER206_INPUTS,
 )
 
 
 def recovery_content_failures(handoff: str) -> list[str]:
-    """Reject stale recovery state and any credential-identifying handoff text."""
+    """Reject stale gates, unsafe retries, and credential-identifying text."""
 
     failures = []
     for fact in REQUIRED_RECOVERY_FACTS:
@@ -91,7 +123,7 @@ def recovery_content_failures(handoff: str) -> list[str]:
         handoff,
         re.IGNORECASE | re.DOTALL,
     ):
-        failures.append("HANDOFF.md describes access or account capacity as unavailable")
+        failures.append("HANDOFF.md describes account or execution capacity as unavailable")
     if re.search(
         r"(?:^|[\s`])\.env(?:[\s`/]|$)|"
         r"\bcredential(?:s)?\s+(?:file|path|location)\b",
@@ -101,25 +133,69 @@ def recovery_content_failures(handoff: str) -> list[str]:
         failures.append("HANDOFF.md names a credential location")
     if 'gh run rerun "$RUN_ID"' in handoff:
         failures.append("HANDOFF.md authorizes a forbidden workflow rerun")
-    if "gh workflow run iter203-execute.yml" in handoff:
-        failures.append("HANDOFF.md authorizes the sealed iter203 workflow")
-    if "gh workflow run iter204-execute.yml" in handoff:
-        failures.append("HANDOFF.md authorizes the sealed iter204 workflow")
-    if handoff.count("gh workflow run iter205-execute.yml") != 1:
-        failures.append("HANDOFF.md must contain exactly one iter205 dispatch command")
+    for iteration in ("iter202", "iter203", "iter204", "iter205"):
+        command = f"gh workflow run {iteration}-execute.yml"
+        if command in handoff:
+            failures.append(f"HANDOFF.md authorizes the sealed {iteration} workflow")
+    if handoff.count(ITER206_DISPATCH) != 1:
+        failures.append("HANDOFF.md must contain exactly one iter206 dispatch command")
+    for required_input in ITER206_INPUTS:
+        if handoff.count(required_input) != 1:
+            failures.append(
+                "HANDOFF.md must bind exactly one iter206 dispatch input: "
+                f"{required_input}"
+            )
+    try:
+        dispatch_section = handoff[handoff.index("## Exact Authorized Iter206 Dispatch") :]
+        dispatch_line = dispatch_section.index(ITER206_DISPATCH)
+    except ValueError:
+        dispatch_section = ""
+        dispatch_line = -1
+    for release_check in (
+        "verify_release_ci()",
+        'RELEASE_PUSH_CI_RUN_ID="$(verify_release_ci push)"',
+        'RELEASE_PULL_REQUEST_CI_RUN_ID="$(verify_release_ci pull_request)"',
+        'test "$RELEASE_PUSH_CI_RUN_ID" != "$RELEASE_PULL_REQUEST_CI_RUN_ID"',
+        "[.id,.conclusion,.event,.head_branch,.head_sha,.path,.run_attempt,.status,.head_repository.full_name] | @tsv",
+        "completed\tmanfromnowhere143/telos",
+        'run_payload="$(gh api -X GET "repos/$REPO/actions/workflows/ci.yml/runs"',
+        'jobs_payload="$(gh api -X GET "repos/$REPO/actions/runs/$run_id/attempts/1/jobs"',
+        'test "$html_url" = "https://github.com/$REPO/actions/runs/$run_id/job/$job_id"',
+        "repos/$REPO/commits/$HEAD_SHA/check-runs",
+        'test "$PRIMARY_CHECK_HISTORY_COMPLETE" -eq 1',
+        'PRIMARY_PY311_CHECK_ID="$(verify_primary_check \'verify py3.11\')"',
+        'PRIMARY_PY312_CHECK_ID="$(verify_primary_check \'verify py3.12\')"',
+    ):
+        if (
+            dispatch_line < 0
+            or dispatch_section.count(release_check) != 1
+            or dispatch_section.index(release_check) >= dispatch_line
+        ):
+            failures.append(
+                "HANDOFF.md must prove the exact release CI pair before dispatch: "
+                f"{release_check}"
+            )
+    try:
+        verification_section = handoff[handoff.index("## Verification Before Action") :]
+    except ValueError:
+        verification_section = ""
+    if "python3 scripts/make_handoff.py" in verification_section:
+        failures.append(
+            "HANDOFF.md must not regenerate itself in post-seal verification"
+        )
     for stale in (
-        "## Exact Authorized Iter204 Dispatch",
-        "scripts/collect_iter204_execution.py check",
-        "scripts/adjudicate_iter204_infrastructure_recovery.py",
-        "scripts/run_iter204_infrastructure_recovery_blind_judge.py",
+        "## Exact Authorized Iter205 Dispatch",
+        "scripts/collect_iter205_execution.py check",
+        "scripts/adjudicate_iter205_workflow_context_recovery.py",
+        "scripts/run_iter205_workflow_context_recovery_blind_judge.py",
     ):
         if stale in handoff:
-            failures.append(f"HANDOFF.md retains stale iter204 operational instruction: {stale}")
+            failures.append(f"HANDOFF.md retains stale iter205 operational instruction: {stale}")
     return failures
 
 
 def worktree_changes_except_handoff(status: str) -> list[str]:
-    """Return porcelain rows that cannot be caused by regenerating HANDOFF.md itself."""
+    """Return porcelain rows that cannot be caused by regenerating HANDOFF.md."""
 
     changes = []
     for row in status.splitlines():
@@ -131,7 +207,7 @@ def worktree_changes_except_handoff(status: str) -> list[str]:
 
 
 def declared_worktree_changes(handoff: str) -> list[str]:
-    """Parse the exact porcelain snapshot recorded in the generated handoff."""
+    """Parse the exact porcelain snapshot recorded by the generated handoff."""
 
     matches = re.findall(
         r"^Working tree:\n\n```text\n(.*?)\n```$",
@@ -145,8 +221,6 @@ def declared_worktree_changes(handoff: str) -> list[str]:
 
 
 def declared_branch(handoff: str) -> str:
-    """Return the immutable source branch from the repository-state block."""
-
     return declared_repository_state(handoff)["source_branch"]
 
 
@@ -183,8 +257,6 @@ def declared_repository_state(handoff: str) -> dict[str, str]:
 
 
 def git_output(args: list[str]) -> str:
-    """Run one Git query and fail closed on a missing or invalid repository state."""
-
     result = subprocess.run(args, capture_output=True, text=True, check=False)
     if result.returncode != 0:
         diagnostic = result.stderr.strip() or result.stdout.strip() or "no diagnostic"
@@ -206,8 +278,6 @@ def current_branch() -> str:
 
 
 def current_commit() -> str:
-    """Return the exact checked-out commit, rejecting abbreviated or ambiguous output."""
-
     commit = git_output(["git", "rev-parse", "HEAD"])
     if not re.fullmatch(r"[0-9a-f]{40}", commit):
         raise RuntimeError(f"cannot verify repository HEAD commit: {commit!r}")
@@ -215,8 +285,6 @@ def current_commit() -> str:
 
 
 def git_is_ancestor(ancestor: str, descendant: str) -> bool:
-    """Return Git ancestry while distinguishing a clean miss from a query failure."""
-
     args = ["git", "merge-base", "--is-ancestor", ancestor, descendant]
     result = subprocess.run(args, capture_output=True, text=True, check=False)
     if result.returncode == 0:
@@ -232,15 +300,12 @@ def git_is_ancestor(ancestor: str, descendant: str) -> bool:
 def publication_lineage_failures(
     state: dict[str, str], repository_branch: str, repository_commit: str
 ) -> list[str]:
-    """Validate the only two refs authorized to carry one frozen source commit."""
+    """Validate the only refs authorized to carry the frozen source ancestry."""
 
     failures: list[str] = []
     git_output(["git", "check-ref-format", "--branch", state["source_branch"]])
-    allowed_branches = {
-        state["source_branch"],
-        state["publication_target"],
-    }
-    if repository_branch not in allowed_branches:
+    allowed = {state["source_branch"], state["publication_target"]}
+    if repository_branch not in allowed:
         failures.append(
             "HANDOFF.md branch is outside its publication lineage: "
             f"source={state['source_branch']} target={state['publication_target']} "
@@ -294,35 +359,31 @@ def main() -> int:
             failures.append(f"active gate file does not exist: {handoff_gate}")
 
     if len(frozen_matches) == 1 and len(continuity_matches) == 1:
-        handoff_frozen_gate = frozen_matches[0]
+        handoff_frozen = frozen_matches[0]
         continuity_gate = continuity_matches[0]
-        contract_frozen_gate = contract.get("frozen_upstream_gate")
-        if handoff_frozen_gate != continuity_gate or contract_frozen_gate != continuity_gate:
+        contract_frozen = contract.get("frozen_upstream_gate")
+        if handoff_frozen != continuity_gate or contract_frozen != continuity_gate:
             failures.append(
                 "frozen upstream gate mismatch: "
-                f"HANDOFF={handoff_frozen_gate} CONTINUITY={continuity_gate} "
-                f"contract={contract_frozen_gate}"
+                f"HANDOFF={handoff_frozen} CONTINUITY={continuity_gate} "
+                f"contract={contract_frozen}"
             )
-        if not (ROOT / handoff_frozen_gate).is_file():
-            failures.append(f"frozen upstream gate file does not exist: {handoff_frozen_gate}")
-        if len(handoff_matches) == 1 and handoff_matches[0] == handoff_frozen_gate:
-            failures.append("active gate must be distinct from the frozen upstream gate")
+        if not (ROOT / handoff_frozen).is_file():
+            failures.append(f"frozen upstream gate file does not exist: {handoff_frozen}")
+        if len(handoff_matches) == 1 and handoff_matches[0] == handoff_frozen:
+            failures.append("active gate must differ from the frozen upstream gate")
 
     try:
         state = declared_repository_state(handoff)
-        repository_branch = current_branch()
-        repository_commit = current_commit()
         failures.extend(
-            publication_lineage_failures(state, repository_branch, repository_commit)
+            publication_lineage_failures(state, current_branch(), current_commit())
         )
     except (RuntimeError, ValueError) as exc:
         failures.append(str(exc))
 
     try:
         status = git_output(["git", "status", "--short"])
-        relevant_changes = worktree_changes_except_handoff(status)
-        declared_changes = declared_worktree_changes(handoff)
-        if declared_changes != relevant_changes:
+        if declared_worktree_changes(handoff) != worktree_changes_except_handoff(status):
             failures.append("HANDOFF.md working-tree snapshot does not exactly match git status")
     except (RuntimeError, ValueError) as exc:
         failures.append(str(exc))
@@ -332,7 +393,6 @@ def main() -> int:
         for failure in failures:
             print(f" - {failure}")
         return 1
-
     print("handoff guard: clean")
     return 0
 

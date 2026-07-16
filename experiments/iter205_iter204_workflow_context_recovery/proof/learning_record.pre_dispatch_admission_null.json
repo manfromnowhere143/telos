@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter205_iter204_workflow_context_recovery/RESULT.md",
+    "experiments/iter205_iter204_workflow_context_recovery/proof/pre_dispatch_admission_null.json",
+    "experiments/iter205_iter204_workflow_context_recovery/proof/raw/public_admission_metadata/manifest.json",
+    "experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md"
+  ],
+  "experiment_id": "iter205_iter204_workflow_context_recovery_pre_dispatch_admission_null",
+  "insight": "Iter205 published with green primary CI and an active server-accepted workflow whose complete histories remained empty, but its read-only admission gate found four iter204 push parse-failure records rather than the preregistered two. The two additions were caused by iter205 branch and primary publication, each with zero jobs and artifacts. No iter205 dispatch request, provider process, container, or science started.",
+  "next_action": "Do not dispatch or rerun iter205. Preserve its empty histories and frozen bytes. Pre-register iter206 to admit exactly the known four-row iter204 baseline plus the one final iter206 branch-publication row and one iter206 merge-publication row, while rejecting every unrelated or additional record. Publish iter206 exactly once, require green primary CI, and permit at most one iter206 dispatch request only after the complete exact-six admission gate passes.",
+  "result_path": "experiments/iter205_iter204_workflow_context_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null",
+  "supersedes": "experiments/iter205_iter204_workflow_context_recovery/proof/learning_record.json",
+  "timing": "post_iter205_read_only_admission_null_and_before_any_iter206_dispatch"
+}

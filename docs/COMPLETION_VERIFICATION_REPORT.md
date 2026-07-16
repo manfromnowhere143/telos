@@ -3,8 +3,9 @@
 > **HISTORICAL SCOPE:** this report synthesizes iter109--iter123 only. It does not describe the current
 > certified-resolved reward-hack benchmark, the iter192 correction, the corrected detector methodology, or
 > the iter202 safety null, iter203 execution-infrastructure null, iter204 pre-dispatch infrastructure null,
-> or active iter205 recovery. Use the root `README.md`, `docs/MISSION_LOOP.md`, generated `HANDOFF.md`, the
-> iter204 `RESULT.md`, the active iter205 `HYPOTHESIS.md`, and
+> iter205 pre-dispatch admission-history null, or active iter206 recovery. Use the root `README.md`,
+> `docs/MISSION_LOOP.md`, generated `HANDOFF.md`, the iter204 and iter205 `RESULT.md` files, the active
+> iter206 `HYPOTHESIS.md`, and
 > `paper/telos.tex` for standing claims;
 > retain this file as bounded early-program provenance. `CONTINUITY.md` is a frozen upstream record.
 

@@ -25,7 +25,7 @@ def rendered_commands(module, source: str) -> set[str]:
 
 def test_recovery_gate_binding_preserves_distinct_frozen_upstream(tmp_path: Path) -> None:
     guard = load_guard_module()
-    active = "experiments/iter205/HYPOTHESIS.md"
+    active = "experiments/iter206/HYPOTHESIS.md"
     frozen = "experiments/iter202/HYPOTHESIS.md"
     for gate in (active, frozen):
         path = tmp_path / gate
@@ -48,20 +48,20 @@ def test_recovery_gate_binding_preserves_distinct_frozen_upstream(tmp_path: Path
     )
 
 
-def test_committed_iter205_recovery_state_is_evidence_bounded() -> None:
+def test_committed_iter206_recovery_state_is_evidence_bounded() -> None:
     guard = load_guard_module()
     contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
 
-    assert guard.validate_iter205_recovery_state(contract) == []
+    assert guard.validate_iter206_recovery_state(contract) == []
     contract["current_gate_state"]["iter202_retained_provider_stage"][
         "scenario_executions"
     ] = 1
     assert "iter202 retained provider-stage counts are not exact" in (
-        guard.validate_iter205_recovery_state(contract)
+        guard.validate_iter206_recovery_state(contract)
     )
 
 
-def test_iter205_source_of_truth_requires_the_full_recovery_chain() -> None:
+def test_iter206_source_of_truth_requires_the_full_recovery_chain() -> None:
     guard = load_guard_module()
     required = (
         ".github/workflows/iter204-execute.yml",
@@ -78,15 +78,21 @@ def test_iter205_source_of_truth_requires_the_full_recovery_chain() -> None:
         "experiments/iter204_iter203_infrastructure_recovery/proof/raw/public_dispatch_metadata/manifest.json",
         ".github/workflows/iter205-execute.yml",
         "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+        "experiments/iter205_iter204_workflow_context_recovery/RESULT.md",
+        "experiments/iter205_iter204_workflow_context_recovery/proof/pre_dispatch_admission_null.json",
         "scripts/build_iter205_runtime_manifest.py",
         "scripts/validate_iter205_runtime_recovery.py",
+        ".github/workflows/iter206-execute.yml",
+        "experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md",
+        "scripts/build_iter206_runtime_manifest.py",
+        "scripts/validate_iter206_runtime_recovery.py",
     )
 
     for missing in required:
         contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
         contract["source_of_truth"].remove(missing)
-        assert "iter203/iter204/iter205 source-of-truth set is incomplete" in (
-            guard.validate_iter205_recovery_state(contract)
+        assert "iter203--iter206 source-of-truth set is incomplete" in (
+            guard.validate_iter206_recovery_state(contract)
         )
 
 
@@ -97,21 +103,44 @@ def test_current_recovery_guard_distinguishes_push_records_from_dispatch_runs() 
     contract["current_gate_state"]["iter204_recovery"]["dispatch_history"] = (
         "two workflow_dispatch runs"
     )
-    failures = guard.validate_iter205_recovery_state(contract)
+    failures = guard.validate_iter206_recovery_state(contract)
 
     assert "iter204 exact-zero workflow_dispatch boundary differs" in failures
 
 
-def test_current_recovery_guard_requires_the_narrow_iter205_context_delta() -> None:
+def test_current_recovery_guard_requires_the_narrow_iter206_exact_six_delta() -> None:
     guard = load_guard_module()
     contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
 
-    contract["current_gate_state"]["iter205_recovery"]["allowed_delta"] = (
+    contract["current_gate_state"]["iter206_recovery"]["allowed_delta"] = (
         "change the workflow"
     )
-    failures = guard.validate_iter205_recovery_state(contract)
+    failures = guard.validate_iter206_recovery_state(contract)
 
-    assert "iter205 narrow workflow-context correction is absent" in failures
+    assert "iter206 narrow exact-six delta is absent" in failures
+
+
+def test_current_recovery_guard_keeps_iter205_pre_request() -> None:
+    guard = load_guard_module()
+    contract = json.loads((ROOT / "mission" / "loop.json").read_text())
+    contract["current_gate_state"]["iter205_recovery"]["request_boundary"] = (
+        "one request was rejected"
+    )
+
+    assert "iter205 pre-request boundary is not exact" in (
+        guard.validate_iter206_recovery_state(contract)
+    )
+
+
+def test_current_recovery_guard_rejects_relaxed_iter206_publication_envelope() -> None:
+    guard = load_guard_module()
+    contract = json.loads((ROOT / "mission" / "loop.json").read_text())
+    contract["current_gate_state"]["iter206_recovery"]["publication_envelope"] = (
+        "push and merge as needed"
+    )
+
+    failures = guard.validate_iter206_recovery_state(contract)
+    assert any("iter206 publication envelope missing" in item for item in failures)
 
 
 def test_ci_command_parser_accepts_only_standalone_active_run_steps() -> None:

@@ -6,7 +6,8 @@
 > generated `HANDOFF.md`, `experiments/iter202_natural_rate_scaled/RESULT.md`,
 > `experiments/iter203_iter202_safety_recovery/RESULT.md`,
 > `experiments/iter204_iter203_infrastructure_recovery/RESULT.md`,
-> `experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`, and
+> `experiments/iter205_iter204_workflow_context_recovery/RESULT.md`,
+> `experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md`, and
 > `paper/telos.tex`. `CONTINUITY.md` remains a frozen iter202 upstream record. The material below remains
 > only as dated experiment provenance.
 

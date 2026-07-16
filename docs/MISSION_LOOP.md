@@ -9,7 +9,7 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 ## Current Boundary
 
 - Active gate:
-  [`../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`](../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md)
+  [`../experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md`](../experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md)
 - Frozen upstream disposition:
   [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md)
 - Active gate state: post-provider, pre-scientific-output infrastructure recovery over sealed iter202 and
@@ -33,17 +33,34 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   Iter204 separately versioned that additive recovery and preserved the same `50` patches, exact row order,
   safety dispositions, missingness rules, certification definitions, and judge contract. Its source merged
   as `c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446`; primary CI run `29465925393` passed both required jobs.
-  The iter204 workflow could not be parsed. The public API retains two failed `push` records,
+  The iter204 workflow could not be parsed. Its frozen closure snapshot retains two failed `push` records,
   `29465584664` and `29465924803`, each at attempt `1` with zero jobs and zero artifacts; log download
   returns `404`. At least one locally observed authorized dispatch API request returned HTTP `422` with
   line `318`, column `36`, identifying `runner.temp` in job-level `env`. The exact request count is not
-  auditable from public metadata, so only a lower bound of one is claimed. A subsequent public query found
-  exactly zero iter204 `workflow_dispatch` runs. No provider or container call, patch application,
+  auditable from public metadata, so only a lower bound of one is claimed. The closure query found exactly
+  zero iter204 `workflow_dispatch` runs. No provider or container call, patch application,
   certification, scenario, adjudication, or judge stage occurred. Iter204 is a pre-dispatch infrastructure
   null with no `N`, `k`, or `u`; the two `push` records are infrastructure metadata, not scientific
-  attempts. The source-parse fault occurred before any access or billing gate. Under iter204's frozen
-  source-correction rule, recovery must advance to the separately versioned iter205 workflow-context gate;
+  attempts. The source-parse fault occurred before any model-provider access or billing gate. Under iter204's frozen
+  source-correction rule, recovery advanced to the separately versioned iter205 workflow-context gate;
   iter204 cannot be retried or mutated.
+
+  Iter205 feature head `a336b4909329d392f6db5f6098792e07a17f28cb` merged as
+  `4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f`; primary CI run `29468769187` passed both required jobs. The
+  server accepted workflow `314141096` as active at its exact name and path, and both its complete all-event
+  and dispatch histories are empty. Its read-only preflight stopped before the dispatch request command because
+  iter204's append-only history had grown from its frozen two-row closure snapshot to four rows during
+  iter205 branch and primary publication. No iter205 dispatch request was issued, and no dispatch API
+  response or rejection exists. There was no iter205 workflow run, provider process, container, patch,
+  certification, scenario, adjudication, or judge process. Iter205 is therefore a
+  pre-dispatch admission-history null with no `N`, `k`, or `u`.
+
+  Iter206 is the active separately versioned recovery over unchanged scientific and runtime semantics. Its
+  pre-publication protocol permits one final branch push and one two-parent merge, requires the exact
+  successful attempt-`1` branch-push and pull-request CI pair plus green primary CI, then requires exactly six
+  iter204 parser rows: the frozen four-row admission baseline plus only the structurally bound iter206 branch
+  and primary publication rows. A missing, seventh, or malformed row closes iter206 without dispatch; after
+  every gate passes, at most one dispatch request is permitted.
 
   The iter200 prerequisite remains complete: all `37` valid patches have official-harness evidence, `24`
   are certified, `k=1`, and `u=6`; the standing descriptive quantities are `1/24` confirmed lower, `7/24`
@@ -53,8 +70,13 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   re-executing containers. The frozen cohort remains disjoint from iter200 but not unused mission-wide
   (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the pre-result-declared
   sensitivity splits remain mandatory. `CONTINUITY.md` remains an exact-byte frozen iter202 upstream
-  artifact; the iter203 and iter204 results plus the iter205 hypothesis govern recovery. `HANDOFF.md` must
-  be regenerated after iter205 is sealed before it can govern the next action sequence.
+  artifact; the iter203, iter204, and iter205 results plus the iter206 hypothesis govern recovery.
+  The iter206 release seal has one dependency order: finish and validate all mutable source, documentation,
+  and evidence bytes; create local source commit A; regenerate `HANDOFF.md` exactly once from A; generate the
+  publication-safety receipt and then the runtime manifest; validate the sealed set; and create local seal
+  commit B containing the handoff and both derived records. Never regenerate the handoff after those records
+  are generated. Push A and B together in the single allowed branch publication; the committed handoff then
+  governs the remaining publication and execution sequence.
 - Standing detector correction: iter197 and iter201 are protocol `FAIL`, with retained exploratory
   diagnostics only. Both property prompts used candidate-diff-derived locators. Iter197 also violated its
   visible-anchor rule and omitted independent paired-gold decisions; iter201 explicitly registered gold
@@ -83,7 +105,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   frozen safety gate stopped execution. Iter203 is a separately disclosed post-provider infrastructure
   null with zero certification and scenario execution. Iter204 is a separately disclosed pre-dispatch
   workflow-parse infrastructure null with zero `workflow_dispatch` runs and zero scientific execution.
-  Iter205 is the pending separately versioned workflow-context recovery, not a retry of iter204.
+  Iter205 is a pre-dispatch admission-history null with empty workflow histories. Iter206 is the pending
+  separately versioned, publication-aware recovery, not a retry of iter205.
 - Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false

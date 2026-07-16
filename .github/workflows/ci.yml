@@ -123,14 +123,17 @@ jobs:
       - name: Iter204 frozen pre-dispatch-null successor anchor
         run: python3 scripts/validate_iter204_pre_dispatch_null.py
 
-      - name: Iter205 workflow-context runtime closure guard
-        run: python3 scripts/build_iter205_runtime_manifest.py --check
+      - name: Iter205 exact pre-dispatch admission-null guard
+        run: python3 scripts/validate_iter205_pre_dispatch_null.py
 
-      - name: Iter205 current publication-safety guard
-        run: python3 scripts/validate_iter205_publication_safety.py --check
+      - name: Iter206 admission-history runtime closure guard
+        run: python3 scripts/build_iter206_runtime_manifest.py --check
 
-      - name: Iter205 workflow-context recovery contract guard
-        run: python3 scripts/validate_iter205_runtime_recovery.py
+      - name: Iter206 current publication-safety guard
+        run: python3 scripts/validate_iter206_publication_safety.py --check
+
+      - name: Iter206 admission-history recovery contract guard
+        run: python3 scripts/validate_iter206_runtime_recovery.py
 
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py

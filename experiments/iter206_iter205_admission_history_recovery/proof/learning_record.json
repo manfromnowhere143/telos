@@ -1,0 +1,19 @@
+{
+  "evidence_paths": [
+    ".github/workflows/iter206-execute.yml",
+    "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+    "experiments/iter205_iter204_workflow_context_recovery/RESULT.md",
+    "experiments/iter205_iter204_workflow_context_recovery/proof/pre_dispatch_admission_null.json",
+    "experiments/iter205_iter204_workflow_context_recovery/proof/raw/public_admission_metadata/manifest.json",
+    "experiments/iter205_iter204_workflow_context_recovery/proof/raw/runtime_manifest.json",
+    "experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md",
+    "scripts/validate_iter205_pre_dispatch_null.py"
+  ],
+  "experiment_id": "iter206_iter205_admission_history_recovery",
+  "insight": "Iter205 published with green primary CI and a server-accepted workflow whose histories remained empty, but its preregistered exact-two iter204 predicate did not anticipate the two append-only parser records caused by its own branch and primary publication. Iter206 preserves all science and preregisters one final branch push plus one two-parent merge, requiring an exact six-row iter204 admission snapshot and rejecting every extra or malformed record.",
+  "next_action": "Finalize and adversarially validate all iter206 source and evidence locally before any remote push. Push agent/iter206-iter205-admission-recovery exactly once, require green branch and pull-request CI, merge exactly once with first parent equal to the iter205 merge and second parent equal to the final branch tip, require green primary CI, then prove exact active workflow objects, empty iter205 and iter206 histories, and the exact six-row iter204 admission snapshot before issuing at most one iter206 dispatch request. Any publication, admission, dispatch-request, or execution failure closes iter206 without retry.",
+  "result_path": "experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pending",
+  "timing": "post_iter205_pre_dispatch_admission_null_and_before_first_iter206_remote_push"
+}
