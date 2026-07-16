@@ -487,6 +487,42 @@ def test_additive_downstream_never_masquerades_as_iter203_execution() -> None:
     assert "iter202_fixed_outputs_via_iter204_infrastructure_recovery" in judge
 
 
+def test_runtime_manifest_chain_of_custody_matches_iter204_collector_and_workflow() -> None:
+    chain = runtime.build_manifest()["protocol"]["execution_chain_of_custody"]
+    assert chain == {
+        "aggregate_receipt_name": collection.AGGREGATE_RECEIPT_NAME,
+        "aggregate_receipt_schema": collection.AGGREGATE_SCHEMA,
+        "collector_eligible_artifacts": (
+            "successful_shards_from_one_github_run_and_attempt_only"
+        ),
+        "exact_log_set": "gold_and_variant_pair_for_each_of_50_spec_rows",
+        "shard_receipt_name_pattern": runtime.ITER204_SHARD_RECEIPT_NAME_PATTERN,
+        "shard_receipt_schema": collection.SHARD_SCHEMA,
+        "verified_snapshot_api": (
+            "scripts.collect_iter204_execution.check_execution_bundle_with_logs"
+        ),
+    }
+    assert runtime.ITER204_AGGREGATE_RECEIPT_NAME == collection.AGGREGATE_RECEIPT_NAME
+    assert runtime.ITER204_AGGREGATE_RECEIPT_SCHEMA == collection.AGGREGATE_SCHEMA
+    assert runtime.ITER204_SHARD_RECEIPT_SCHEMA == collection.SHARD_SCHEMA
+    for shard_index in range(8):
+        assert runtime.ITER204_SHARD_RECEIPT_NAME_PATTERN.format(
+            shard_index=shard_index
+        ) == collection.shard_receipt_name(shard_index)
+
+    workflow = (ROOT / ".github/workflows/iter204-execute.yml").read_text()
+    aggregate_path = (
+        "experiments/iter204_iter203_infrastructure_recovery/proof/raw/execution/"
+        f"{collection.AGGREGATE_RECEIPT_NAME}"
+    )
+    assert workflow.count(f"--aggregate-receipt {aggregate_path}") == 2
+    assert (
+        "name: iter204-execution-complete-${{ github.run_id }}-attempt-1"
+        in workflow
+    )
+    assert "iter203" not in json.dumps(chain, sort_keys=True)
+
+
 def test_runtime_manifest_and_current_publication_receipt_reproduce() -> None:
     assert runtime.validate_committed_manifest() == []
     assert publication.prior.validate_frozen_receipt()["scanned_file_count"] == 564

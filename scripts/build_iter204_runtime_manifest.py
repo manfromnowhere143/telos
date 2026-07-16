@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts import build_iter203_runtime_manifest as iter203  # noqa: E402
 from scripts import collect_iter203_execution as iter203_collection  # noqa: E402
+from scripts import collect_iter204_execution as iter204_collection  # noqa: E402
 from scripts import validate_iter203_infrastructure_null as null_guard  # noqa: E402
 
 
@@ -29,6 +30,13 @@ ITER203_METADATA = ITER203_EXP / "proof/raw/public_workflow_metadata"
 SCHEMA = "telos.iter204.execution_runtime_recovery.v1"
 ITER203_RUNTIME_SHA256 = "8beb0e845dbc9e3a4ce56832f28a62d4fd58ceac20adbc6bc06d6aef41be47e1"
 ITER204_HYPOTHESIS_SHA256 = "7f6b9e0ba0ba0077115e64e38239a6eeafb2b18797fdd160a3eb9c0297396dfd"
+ITER204_AGGREGATE_RECEIPT_NAME = iter204_collection.AGGREGATE_RECEIPT_NAME
+ITER204_AGGREGATE_RECEIPT_SCHEMA = iter204_collection.AGGREGATE_SCHEMA
+ITER204_SHARD_RECEIPT_NAME_PATTERN = "_telos_iter204_shard_{shard_index}_of_8.receipt.json"
+ITER204_SHARD_RECEIPT_SCHEMA = iter204_collection.SHARD_SCHEMA
+ITER204_VERIFIED_SNAPSHOT_API = (
+    "scripts.collect_iter204_execution.check_execution_bundle_with_logs"
+)
 
 NEW_RUNTIME_FILES = {
     ".github/workflows/ci.yml": "primary_ci_authorization_workflow",
@@ -146,6 +154,17 @@ def build_manifest() -> dict[str, Any]:
                 "retry": "forbidden_advance_to_iter205_after_any_failure",
                 "run_attempt": 1,
                 "workflow": ".github/workflows/iter204-execute.yml",
+            },
+            "execution_chain_of_custody": {
+                "aggregate_receipt_name": ITER204_AGGREGATE_RECEIPT_NAME,
+                "aggregate_receipt_schema": ITER204_AGGREGATE_RECEIPT_SCHEMA,
+                "collector_eligible_artifacts": (
+                    "successful_shards_from_one_github_run_and_attempt_only"
+                ),
+                "exact_log_set": "gold_and_variant_pair_for_each_of_50_spec_rows",
+                "shard_receipt_name_pattern": ITER204_SHARD_RECEIPT_NAME_PATTERN,
+                "shard_receipt_schema": ITER204_SHARD_RECEIPT_SCHEMA,
+                "verified_snapshot_api": ITER204_VERIFIED_SNAPSHOT_API,
             },
             "infrastructure_recovery": {
                 "iter203_head_sha": null_guard.HEAD_SHA,

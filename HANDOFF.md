@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-16T01:42:55Z by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
+Generated: 2026-07-16T01:54:34Z by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
 runtime-bound `CONTINUITY.md` upstream record.
 
 TELOS is a standalone repository. Resolve its root with `git rev-parse --show-toplevel`, then run every TELOS command from that root.
@@ -9,14 +9,17 @@ TELOS is a standalone repository. Resolve its root with `git rev-parse --show-to
 
 ```text
 source_branch: agent/iter204-infrastructure-recovery
-source_commit: 81e0beced86bbeee58141c1e058e26b3e2f8f84d
+source_commit: 4254f61f6fc52798569040b71c9074642f76b9f5
 publication_target: master
 ```
 
 Working tree:
 
 ```text
-clean
+ D experiments/iter204_iter203_infrastructure_recovery/proof/pre_execution_publication_safety.json
+ D experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json
+ M scripts/build_iter204_runtime_manifest.py
+ M tests/test_iter204_infrastructure_recovery.py
 ```
 
 ## Experiments
