@@ -11,9 +11,20 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from telos.ledger import (  # noqa: E402
+    discover_learning_record_paths,
+    latest_next_action,
+    load_learning_record,
+)
+
+
 EXP = ROOT / "experiments/iter204_iter203_infrastructure_recovery"
 NULL = EXP / "proof/pre_dispatch_infrastructure_null.json"
 RESULT = EXP / "RESULT.md"
+PENDING_LEARNING = EXP / "proof/learning_record.json"
+TERMINAL_LEARNING = EXP / "proof/learning_record.pre_dispatch_null.json"
 PUBLIC = EXP / "proof/raw/public_dispatch_metadata"
 MANIFEST = PUBLIC / "manifest.json"
 WORKFLOW = ROOT / ".github/workflows/iter204-execute.yml"
@@ -30,6 +41,9 @@ HYPOTHESIS_SHA256 = "7f6b9e0ba0ba0077115e64e38239a6eeafb2b18797fdd160a3eb9c02973
 RUNTIME_MANIFEST_SHA256 = (
     "bf2062825e604d9439b0d29375d7e5219a1064ae4a33701efb74a62f81a59a45"
 )
+PENDING_LEARNING_SHA256 = (
+    "0684f440f49b8c9660f4d95d1ebb03c0a001a3f8987372feba86b361ed32cb61"
+)
 PUBLIC_MANIFEST_SHA256 = (
     "8f20922002f3029e96d60078ace644e0cf56f758c692c3f35a07d5fe7f19081b"
 )
@@ -37,6 +51,22 @@ ERROR_MESSAGE = (
     "Invalid Argument - failed to parse workflow: (Line: 318, Col: 36): "
     "Unrecognized named-value: 'runner'. Located at position 1 within expression: "
     "runner.temp"
+)
+TERMINAL_NEXT_ACTION = (
+    "Do not dispatch or rerun iter204, and keep its frozen bytes unchanged. Complete "
+    "and adversarially validate the separately versioned iter205 recovery, publish it "
+    "through review, and require green primary CI. Only then may exact active-workflow "
+    "and empty-history preflight authorize at most one iter205 dispatch request. Any "
+    "confirmed iter205 rejection or execution failure closes iter205 and advances to "
+    "iter206 without retry."
+)
+TERMINAL_INSIGHT = (
+    "Iter204 closed before dispatch-run creation as an infrastructure null. Its two "
+    "public workflow records are push parse failures with zero jobs and artifacts; the "
+    "public workflow_dispatch history is empty; and no provider, container, patch, "
+    "certification, scenario, adjudication, or judge process started. The immutable "
+    "pre-result learning record remains retained for provenance but no longer supplies "
+    "the current completed-record action."
 )
 PUBLIC_FILES = {
     "dispatch_runs.json": (
@@ -99,6 +129,7 @@ def validate_frozen_source() -> None:
         WORKFLOW: WORKFLOW_SHA256,
         HYPOTHESIS: HYPOTHESIS_SHA256,
         RUNTIME_MANIFEST: RUNTIME_MANIFEST_SHA256,
+        PENDING_LEARNING: PENDING_LEARNING_SHA256,
     }
     for path, expected in frozen.items():
         if path.is_symlink() or not path.is_file() or sha256(path.read_bytes()) != expected:
@@ -115,6 +146,58 @@ def validate_frozen_source() -> None:
         "${{ runner.temp }}/iter204-smoke/smoke.receipt.json"
     ) or reported.index(expression) + 1 != 36:
         raise PreDispatchNullError("iter204 line-318/column-36 parse anchor differs")
+
+
+def validate_terminal_learning_record() -> None:
+    document, _ = load_strict(TERMINAL_LEARNING)
+    expected = {
+        "evidence_paths": [
+            "experiments/iter204_iter203_infrastructure_recovery/RESULT.md",
+            (
+                "experiments/iter204_iter203_infrastructure_recovery/proof/"
+                "pre_dispatch_infrastructure_null.json"
+            ),
+            (
+                "experiments/iter204_iter203_infrastructure_recovery/proof/raw/"
+                "public_dispatch_metadata/manifest.json"
+            ),
+            "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+        ],
+        "experiment_id": (
+            "iter204_iter203_infrastructure_recovery_pre_dispatch_null"
+        ),
+        "insight": TERMINAL_INSIGHT,
+        "next_action": TERMINAL_NEXT_ACTION,
+        "result_path": (
+            "experiments/iter204_iter203_infrastructure_recovery/RESULT.md"
+        ),
+        "schema_version": "telos.learning_record.v1",
+        "status": "null",
+        "supersedes": (
+            "experiments/iter204_iter203_infrastructure_recovery/proof/"
+            "learning_record.json"
+        ),
+        "timing": (
+            "post_iter204_pre_dispatch_infrastructure_null_and_before_any_"
+            "iter205_dispatch"
+        ),
+    }
+    if document != expected:
+        raise PreDispatchNullError("iter204 terminal learning record differs")
+    for relative in expected["evidence_paths"]:
+        path = ROOT / relative
+        if path.is_symlink() or not path.is_file():
+            raise PreDispatchNullError(
+                f"iter204 terminal learning evidence is absent: {relative}"
+            )
+    records = [
+        load_learning_record(path, root=ROOT)
+        for path in discover_learning_record_paths(ROOT)
+    ]
+    if latest_next_action(records) != TERMINAL_NEXT_ACTION:
+        raise PreDispatchNullError(
+            "completed learning ledger does not advance safely beyond iter204"
+        )
 
 
 def validate_public_metadata() -> dict[str, Any]:
@@ -372,6 +455,7 @@ def validate_result_surface() -> None:
 
 def validate() -> dict[str, int]:
     validate_frozen_source()
+    validate_terminal_learning_record()
     validate_public_metadata()
     validate_push_records()
     validate_primary_ci()
@@ -381,6 +465,7 @@ def validate() -> dict[str, int]:
         "provider_calls": 0,
         "push_validation_runs": 2,
         "scientific_executions": 0,
+        "terminal_learning_records": 1,
         "workflow_dispatch_runs": 0,
     }
 
@@ -395,7 +480,8 @@ def main() -> int:
         "iter204 pre-dispatch-null guard: "
         f"{summary['push_validation_runs']} push parse-failure records, "
         f"{summary['workflow_dispatch_runs']} workflow_dispatch runs, "
-        f"{summary['scientific_executions']} scientific executions"
+        f"{summary['scientific_executions']} scientific executions, "
+        f"{summary['terminal_learning_records']} terminal learning record"
     )
     return 0
 

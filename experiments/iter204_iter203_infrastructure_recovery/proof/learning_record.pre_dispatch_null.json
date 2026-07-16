@@ -1,0 +1,16 @@
+{
+  "evidence_paths": [
+    "experiments/iter204_iter203_infrastructure_recovery/RESULT.md",
+    "experiments/iter204_iter203_infrastructure_recovery/proof/pre_dispatch_infrastructure_null.json",
+    "experiments/iter204_iter203_infrastructure_recovery/proof/raw/public_dispatch_metadata/manifest.json",
+    "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md"
+  ],
+  "experiment_id": "iter204_iter203_infrastructure_recovery_pre_dispatch_null",
+  "insight": "Iter204 closed before dispatch-run creation as an infrastructure null. Its two public workflow records are push parse failures with zero jobs and artifacts; the public workflow_dispatch history is empty; and no provider, container, patch, certification, scenario, adjudication, or judge process started. The immutable pre-result learning record remains retained for provenance but no longer supplies the current completed-record action.",
+  "next_action": "Do not dispatch or rerun iter204, and keep its frozen bytes unchanged. Complete and adversarially validate the separately versioned iter205 recovery, publish it through review, and require green primary CI. Only then may exact active-workflow and empty-history preflight authorize at most one iter205 dispatch request. Any confirmed iter205 rejection or execution failure closes iter205 and advances to iter206 without retry.",
+  "result_path": "experiments/iter204_iter203_infrastructure_recovery/RESULT.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "null",
+  "supersedes": "experiments/iter204_iter203_infrastructure_recovery/proof/learning_record.json",
+  "timing": "post_iter204_pre_dispatch_infrastructure_null_and_before_any_iter205_dispatch"
+}

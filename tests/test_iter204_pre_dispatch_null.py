@@ -20,8 +20,21 @@ def test_iter204_pre_dispatch_null_is_exact_and_science_free() -> None:
         "provider_calls": 0,
         "push_validation_runs": 2,
         "scientific_executions": 0,
+        "terminal_learning_records": 1,
         "workflow_dispatch_runs": 0,
     }
+
+
+def test_terminal_learning_record_forbids_iter204_dispatch() -> None:
+    document = json.loads(guard.TERMINAL_LEARNING.read_text(encoding="utf-8"))
+
+    assert document["status"] == "null"
+    assert document["supersedes"].endswith("/proof/learning_record.json")
+    assert document["next_action"] == guard.TERMINAL_NEXT_ACTION
+    assert document["next_action"].startswith("Do not dispatch or rerun iter204")
+    assert guard.sha256(guard.PENDING_LEARNING.read_bytes()) == (
+        guard.PENDING_LEARNING_SHA256
+    )
 
 
 def test_local_422_claim_is_a_lower_bound_not_an_exact_request_count() -> None:

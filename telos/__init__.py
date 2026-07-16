@@ -15,7 +15,13 @@ from telos.public_slice import (
 )
 from telos.scorecard import CandidateScore, rank_candidates
 from telos.survey import SurveyDecision, SurveyValidationError, load_survey, validate_survey
-from telos.ledger import LearningRecord, LedgerValidationError, latest_next_action
+from telos.ledger import (
+    LearningRecord,
+    LedgerValidationError,
+    discover_learning_record_paths,
+    latest_next_action,
+    select_active_learning_record,
+)
 
 __all__ = [
     "CandidateScore",
@@ -33,7 +39,9 @@ __all__ = [
     "load_public_slice",
     "load_receipt",
     "load_survey",
+    "discover_learning_record_paths",
     "latest_next_action",
+    "select_active_learning_record",
     "rank_candidates",
     "validate_agent_behavior_slice",
     "validate_receipt",

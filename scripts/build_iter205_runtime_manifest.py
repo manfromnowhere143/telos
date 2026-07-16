@@ -83,6 +83,9 @@ NEW_RUNTIME_FILES = {
     "experiments/iter204_iter203_infrastructure_recovery/RESULT.md": (
         "exact_iter204_pre_dispatch_null_result"
     ),
+    "experiments/iter204_iter203_infrastructure_recovery/proof/learning_record.pre_dispatch_null.json": (
+        "completed_iter204_pre_dispatch_null_learning_record"
+    ),
     "experiments/iter204_iter203_infrastructure_recovery/proof/pre_dispatch_infrastructure_null.json": (
         "exact_iter204_pre_dispatch_infrastructure_null"
     ),
@@ -110,6 +113,7 @@ NEW_RUNTIME_FILES = {
     "experiments/iter205_iter204_workflow_context_recovery/proof/pre_execution_publication_safety.json": (
         "current_pre_execution_publication_safety_receipt"
     ),
+    "mission/loop.json": "active_learning_gate_binding",
     "scripts/adjudicate_iter205_workflow_context_recovery.py": (
         "iter205_bound_adjudicator"
     ),
@@ -130,13 +134,17 @@ NEW_RUNTIME_FILES = {
     ),
     "scripts/validate_iter205_publication_safety.py": "current_publication_safety_guard",
     "scripts/validate_iter205_runtime_recovery.py": "runtime_recovery_contract_guard",
+    "scripts/validate_learning_ledger.py": "completed_learning_next_action_guard",
     "scripts/validate_supply_chain.py": "primary_ci_workflow_supply_chain_guard",
+    "telos/__init__.py": "learning_guard_package_import_closure",
+    "telos/ledger.py": "learning_record_discovery_and_selection",
     "telos/proof.py": "publication_claim_dependency_import_closure",
     "tests/test_iter205_workflow_context_recovery.py": "runtime_recovery_regression_suite",
     "tests/test_iter204_infrastructure_recovery.py": (
         "frozen_iter204_snapshot_supersession_regression"
     ),
     "tests/test_iter204_pre_dispatch_null.py": "iter204_admission_null_regression_suite",
+    "tests/test_ledger.py": "learning_ledger_regression_suite",
     "tests/test_supply_chain_guard.py": "workflow_permission_regression_suite",
 }
 
