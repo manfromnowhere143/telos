@@ -1,4 +1,4 @@
-# HANDOFF — iter220 iter219 publication CI recovery
+# HANDOFF — iter221 cross-platform guard tolerance
 
 Generated: 2026-07-17 from the exact clean source commit below. Read Current Gates first.
 
@@ -7,14 +7,14 @@ TELOS is a standalone repository. Resolve its root with `git rev-parse --show-to
 ## Repository State
 
 ```text
-handoff_schema: telos.iter220.handoff.v1
-source_branch: agent/iter220-iter219-publication-ci-recovery
-source_commit: 5b7717715169a007574d51204dfe7636de748629
-predecessor_seal: 11e335e82100319a4f5f47d86eaea0c8e81edbbc
+handoff_schema: telos.iter221.handoff.v1
+source_branch: agent/iter221-cross-platform-guard-tolerance
+source_commit: ef5bbdaa2d678543a6f75396161c0fbcd39bef57
+predecessor_seal: 3cee092420c2d13227005c8d78e584ec69da832f
 publication_target: master
 ```
 
-The source worktree was clean. This file is the sole allowed delta in the iter220 seal commit.
+The source worktree was clean. This file is the sole allowed delta in the iter221 seal commit.
 
 ## Current Gates
 
@@ -22,7 +22,7 @@ Active gate: `experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHE
 
 This remains sealed historical runtime authority only. It authorizes no current scientific execution.
 
-Active publication gate: `experiments/iter220_iter219_publication_ci_recovery/HYPOTHESIS.md`
+Active publication gate: `experiments/iter221_cross_platform_guard_tolerance/HYPOTHESIS.md`
 
 Prospective scientific gate (inactive): `experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md`
 
@@ -32,7 +32,7 @@ Local status: **PASS; fresh publication seal pending**.
 
 ## The Science Is Unchanged
 
-Iter219 remains a NULL and its evidence is unchanged. Iter220 is publication plumbing only.
+Iter219 remains a NULL and its evidence is unchanged. Iter220 and iter221 are publication plumbing only.
 
 Across `482` included SWE-bench Verified instances at the primary `365`-day window: forward `0.4066`
 (Wilson `95%` `[0.3637, 0.4511]`) against a backward within-repository control `0.4336` — difference
@@ -48,38 +48,49 @@ hypothesis: the instrument cannot see a consequence test that drives changed cod
 without naming the changed symbol. A null must not be reported as evidence that maintainer consequence tests
 are absent.
 
-## Why Iter220 Exists
+## Why Iter221 Exists
 
-Push CI run `29539630378` and pull-request CI run `29539645041` both failed on Python 3.11 and 3.12 at
-`Detector methodology-correction guard`:
+Push CI run `29540341974` and pull-request CI run `29540356205` both failed on Python 3.11 and 3.12 at
+`Iter219 temporal consequence-test yield guard`:
 
 ```text
-HANDOFF.md is missing corrected detector text: locator-assisted, gold-validated
+iter219: delta=180: control Wilson interval does not recompute
 ```
 
-The sentence was correct. It wrapped across a line break, and the scanner matched raw substrings with no
-whitespace normalization. **This is the fourth occurrence of that bug class here, and the second on this
-exact phrase in this exact file** — it also broke the iter214 handoff seal one session earlier.
+The interval was correct. The guard compared stored Wilson intervals to recomputed ones bit-exactly, and
+`wilson_interval` calls `sqrt`, whose last-place result depends on the platform `libm`. The report was
+computed on macOS; Linux recomputes to within one unit in the last place and exact equality fails on a
+correct value.
 
-The iter219 branch and PR `#13` remain unchanged, were not rerun, and must not be merged.
+Iter214 canonicalized the two mathematically exact Wilson boundaries. Interior values have no exact form to
+canonicalize and stay platform-dependent, so iter214 could not have prevented this: same bug class, interior
+rather than boundary. `exact_one_sided_mcnemar` is unaffected — it sums `comb()` over exact integers and
+divides by `2**n`, and IEEE 754 division is exactly specified.
+
+CI stops a job at its first failing step. Iter219's CI died at the detector guard and never reached this one;
+iter220 repaired that step, CI advanced, and the next latent defect reached daylight for the first time.
+
+PR `#13` and PR `#14` remain unchanged, were not rerun, and must not be merged.
 
 ## Read This Before Your Next Publication
 
-The reflowed sentence is not the fix. The mechanism was this: iter219's local closure ran roughly `7` hand-listed guards while CI declares `257`. `validate_detector_methodology_correction.py` was never on that
-list. A verification set chosen by the same agent that wrote the change is not an independent check — it is
-Standard 9 at local scale, where the gate passes against your idea of the gate rather than the real one.
+Two lessons compound here, and neither is the sentence or the float.
 
-**Run `python3 scripts/run_ci_closure.py` before any push.** It parses `.github/workflows/ci.yml`, executes
-every guard command CI declares with the workflow's own environment overrides, and cannot drift from CI
-because it is derived from it. Do not hand-list guards again.
+**A guard must never assert bit-exact floating-point equality across machines.** IEEE 754 does not promise it
+for `sqrt`-derived values. Wilson intervals now compare at `rel_tol=1e-9`: one unit in the last place is
+about `1e-16` relative, and the coarsest tampering that could change a reported digit is about `1e-4`, so the
+tolerance sits safely between. Integer counts, yields, exposure totals, and the exact paired test keep exact
+comparison, because each is exactly reproducible everywhere.
 
-`scripts/validate_detector_methodology_correction.py` now normalizes whitespace and blockquote markers before
-matching. A positive control proves it still fails when the methodology text is genuinely absent rather than
-merely wrapped.
+**Run `python3 scripts/run_ci_closure.py` before any push.** It derives every guard command from
+`.github/workflows/ci.yml` and cannot drift from CI. But know its limit: it runs on this machine, and **a
+clean macOS closure cannot certify CI's Linux runners**. Use `--python python3.11` to match CI's interpreter,
+and design guards to be platform-independent rather than verified on one platform. The laptop is not the
+world.
 
 ## TCP-1 Boundary
 
-Iter220 contributes no scientific `N`, `k`, `u`, benchmark score, effect estimate, model comparison,
+Iter221 contributes no scientific `N`, `k`, `u`, benchmark score, effect estimate, model comparison,
 population estimate, product-efficacy result, deployment claim, priority claim, or state-of-the-art claim.
 
 Iter211's five deterministic seeds, `17` generated protocol artifacts, `2` passing local-design gates, `9`
@@ -97,7 +108,7 @@ independent false-positive rate.
 
 ## Source Receipt
 
-Receipt path: `experiments/iter220_iter219_publication_ci_recovery/proof/receipt_v2.json`
+Receipt path: `experiments/iter221_cross_platform_guard_tolerance/proof/receipt_v2.json`
 
 The receipt and predecessor guards read exact source Git blobs. The receipt proves byte identity, not
 authorship, external chronology, licensing, independence, or semantic truth.
@@ -109,21 +120,21 @@ Run the derived closure first; it supersedes every hand-listed subset:
 ```bash
 git status --short
 python3 scripts/run_ci_closure.py
-python3 scripts/build_iter220_receipt.py --check
-python3 scripts/validate_iter220_iter219_publication_ci_recovery.py
+python3 scripts/build_iter221_receipt.py --check
+python3 scripts/validate_iter221_cross_platform_guard_tolerance.py
 python3 scripts/validate_handoff.py
 pytest -q
 ```
 
 Before publication, simulate a local two-parent merge whose first parent is current `master` and whose
-second parent is the exact iter220 seal. Run the derived closure inside that detached merge tree. Remove the
+second parent is the exact iter221 seal. Run the derived closure inside that detached merge tree. Remove the
 temporary worktree and reference afterward.
 
 ## Publication Boundary
 
-The seal commit must be the direct child of the iter220 source commit and modify exactly `HANDOFF.md`.
-Publish that unchanged source-plus-handoff tip once on `agent/iter220-iter219-publication-ci-recovery` and
-open one draft pull request against `master`. After the successor PR exists, close PR `#13` as superseded
+The seal commit must be the direct child of the iter221 source commit and modify exactly `HANDOFF.md`.
+Publish that unchanged source-plus-handoff tip once on `agent/iter221-cross-platform-guard-tolerance` and
+open one draft pull request against `master`. After the successor PR exists, close PR `#14` as superseded
 without deleting or modifying its branch. Merge once with a two-parent merge commit only after exact-tip push
 and pull-request CI pass on Python 3.11 and 3.12, the secret scan is non-blocking, and no substantive review
 blocker remains. Do not amend, rebase, force-push, extend, or rerun a sealed failed branch.
