@@ -2,8 +2,9 @@
 
 > **DATED HISTORICAL MEMO.** This sweep predates the iter192 foundation correction and the iter197/iter201
 > methodology correction. Its v1 labels and proposed next gate are not current claims or instructions.
-> Use the root `README.md`, `docs/MISSION_LOOP.md`, generated `HANDOFF.md`, the active iter203
-> `HYPOTHESIS.md`, and `paper/telos.tex` for the standing evidence boundary. `CONTINUITY.md` is a frozen
+> Use the root `README.md`, `docs/MISSION_LOOP.md`, generated `HANDOFF.md`, the iter203 infrastructure-null
+> `RESULT.md`, the active iter204 `HYPOTHESIS.md`, and `paper/telos.tex` for the standing evidence boundary.
+> `CONTINUITY.md` is a frozen
 > iter202 upstream record; this file remains a source-traceable record of what informed the iter191-era plan.
 
 Purpose: check whether Telos is addressing live frontier problems, identify where the evidence is strong

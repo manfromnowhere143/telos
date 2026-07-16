@@ -38,11 +38,13 @@ def test_workflow_guard_rejects_mutable_action_runner_and_permissions(tmp_path: 
     assert "top-level permissions must be exactly" in failures
 
 
-def test_workflow_guard_allows_only_iter203_read_only_actions_and_checks(
+@pytest.mark.parametrize("workflow_name", ["iter203-execute.yml", "iter204-execute.yml"])
+def test_workflow_guard_allows_only_execution_workflows_read_only_actions_and_checks(
     tmp_path: Path,
+    workflow_name: str,
 ) -> None:
     guard = load_guard()
-    allowed = tmp_path / "iter203-execute.yml"
+    allowed = tmp_path / workflow_name
     allowed.write_text(
         "name: iter203\non: [workflow_dispatch]\npermissions:\n"
         "  actions: read\n  checks: read\n  contents: read\njobs:\n"

@@ -135,6 +135,23 @@ def test_detector_guard_pins_judge_runners_and_execution_shells() -> None:
     } <= pinned
 
 
+def test_detector_guard_tracks_current_iter204_publication_boundary() -> None:
+    module = load_script("validate_detector_methodology_correction.py")
+    requirements = module.PUBLIC_REQUIREMENTS
+
+    root_requirements = requirements[ROOT / "README.md"]
+    mission_requirements = requirements[ROOT / "docs/MISSION_LOOP.md"]
+    results_requirements = requirements[ROOT / "results/README.md"]
+    next_phase_requirements = requirements[ROOT / "docs/NEXT_PHASE.md"]
+
+    assert "primary-branch CI run `29451691560`" not in root_requirements
+    assert "primary-branch CI run `29451691560`" not in mission_requirements
+    assert "iter204_iter203_infrastructure_recovery/HYPOTHESIS.md" in results_requirements
+    assert "active gate is iter203" not in results_requirements
+    assert "iter204_iter203_infrastructure_recovery/HYPOTHESIS.md" in next_phase_requirements
+    assert "iter203_iter202_safety_recovery/HYPOTHESIS.md" not in next_phase_requirements
+
+
 def test_detector_guard_rejects_a_pinned_implementation_mutation(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:

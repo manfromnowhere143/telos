@@ -9,41 +9,60 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 ## Current Boundary
 
 - Active gate:
-  [`../experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md`](../experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md)
+  [`../experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`](../experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md)
 - Frozen upstream disposition:
   [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md)
-- Active gate state: post-provider, pre-execution safety recovery over sealed iter202 bytes. The retained
-  iter202 provider stages completed `53/53` solver calls and `39/39` eligible scenario calls, producing
+- Active gate state: post-provider, pre-scientific-output infrastructure recovery over sealed iter202 and
+  iter203 bytes. The retained iter202 provider stages completed `53/53` solver calls and `39/39` eligible
+  scenario calls, producing
   `50` valid patches, `38` extracted scenarios, and one original missing scenario. Before any scenario or
   certification execution, the frozen safety predicate returned `21` findings across `9` programs; `29`
   programs had zero findings. Iter202 is therefore a scenario-safety protocol/execution null and has no
-  rate denominator or numerator. Iter203 preserves and replay-validates that null, certifies all `50`
-  patches, copies only the `29` safety-admitted scenarios into its execution view, and counts every
-  safety-rejected or otherwise missing witness as unresolved rather than negative. It is an additive
-  post-provider protocol, not a rewrite or conventional preregistration. The iter200 prerequisite is complete: all
-  `37` valid patches have official-harness
-  evidence, `24` are certified, `k=1`, and `u=6`; the standing descriptive quantities are `1/24`
+  rate denominator or numerator. Iter203 preserved and replay-validated that null, then made one canonical
+  execution attempt from green `master` in workflow run `29460393525`, attempt `1`. Authorization, source,
+  bridge, runtime, image-pull, and image-digest checks passed; all `50/50` first Docker `run` invocations
+  returned exit `125` across eight independent runners before any in-container command. Collection was
+  skipped and zero workflow artifacts were uploaded.
+  No patch was applied and no official certification or scenario program executed. The frozen runner used
+  Docker's `local` logger with `max-file=1` while compression remained enabled by default; Docker `28.0.4`
+  rejects that combination at container creation. The exact daemon stderr was redirected to hidden
+  temporary files and deleted, so this root cause is reconstructed from the frozen options and
+  version-matched Docker source rather than a retained daemon-error artifact. Iter203 is an
+  execution-infrastructure null with no `N`, `k`, or `u`.
+
+  Iter204 is the additive recovery, not a rewrite or conventional prospective preregistration. It changes
+  only the pre-outcome execution runtime: the same `50` patches, exact row order, safety dispositions,
+  missingness rules, certification definitions, and judge contract remain fixed; `compress=false` makes the
+  one-file log cap valid, bounded visible launch diagnostics survive failure, and a non-scientific
+  exact-launcher preflight runs before any patch application, certification, or scenario. The iter200
+  prerequisite is complete: all `37` valid patches have official-harness evidence, `24` are certified,
+  `k=1`, and `u=6`; the standing descriptive quantities are `1/24`
   confirmed lower, `7/24` worst-case missing-outcome upper, and `1/18` complete-case sensitivity. The old
-  `1/15` is retained only as scenario-eligible chronology. The paid path now fails closed through an
+  `1/15` is retained only as scenario-eligible chronology. The recovered path fails closed through an
   exact eight-shard certification partition, atomic attempt checkpoints, an exact-byte runtime manifest,
   and one aggregate receipt bound to a single repository, workflow, run, attempt, commit, spec index, and
-  runtime manifest. Mixed attempts and incomplete certification coverage are rejected. Hardened evidence
-  PR `#3` merged as `3a3368635e397d540cf98fc0f19d443661cc0fef`, and primary-branch CI run `29451691560`
-  passed. Provider-free Node 24 backfill run `29452243832` reproduced the exact specs and validated all `37`
-  committed execution pairs in the complete `74`-log corpus with zero model-provider calls; it did not
-  re-execute the containers. No iter202 scenario or certification execution occurred. Every paid start
-  requires clean green `master`, the exact cheap-first/freeze preflight, and all required provider
-  credentials together; generated `HANDOFF.md` owns the current branch and credential-status snapshot. The frozen cohort
-  is disjoint from iter200 but not unused
-  mission-wide (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the
+  runtime manifest. Mixed attempts and incomplete certification coverage are rejected. Iter203 source PR
+  `#5` merged as `5c409f79c9333206cff9ed80d59c08aa347110f6`, and primary-branch CI run `29460293066`
+  passed before its sole canonical dispatch. Provider-free Node 24 backfill run `29452243832` reproduced
+  the exact specs and validated all `37` committed execution pairs in the complete `74`-log corpus with
+  zero model-provider calls; it did not re-execute the containers. No iter202 or iter203 scenario or
+  certification execution occurred, and the
+  iter203 null was not caused by credentials, credits, authentication, billing, or quota. Iter204 execution
+  requires clean green `master`, its exact sealed runtime preflight, and the first global iter204 dispatch
+  at run attempt `1`. Any failure closes iter204 and requires iter205; no rerun or second dispatch is
+  eligible. Generated `HANDOFF.md` owns the current branch and action sequence. The frozen cohort is
+  disjoint from iter200 but
+  not unused mission-wide (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the
   pre-result-declared sensitivity splits remain mandatory. `CONTINUITY.md` remains an exact-byte frozen
-  iter202 upstream artifact; the active iter203 hypothesis and generated handoff govern recovery.
+  iter202 upstream artifact; the iter203 result, active iter204 hypothesis, and generated handoff govern
+  recovery.
 - Standing detector correction: iter197 and iter201 are protocol `FAIL`, with retained exploratory
   diagnostics only. Both property prompts used candidate-diff-derived locators. Iter197 also violated its
   visible-anchor rule and omitted independent paired-gold decisions; iter201 explicitly registered gold
   validation, so gold use there is an interpretation limit, not another deviation. The accurate label is
-  **locator-assisted, gold-validated property pipeline**. Iter196's apparent property-only row was
-  judge-unadjudicated, so no complementarity is confirmed. Iter201's judge
+  **locator-assisted, gold-validated property pipeline**. Iter197's apparent property-only row was
+  judge-unadjudicated because both retained iter196 judge responses were unparseable, so no complementarity
+  is confirmed. Iter201's judge
   catches `20/22`, with `8/88` unparseable responses (`5/22` hack rows, `3/22` gold rows); report
   gold-control flags as `3/22` observed lower, `6/22` worst-case missing upper, and `3/19` complete-case.
   The property pipeline catches `6/22`, all within the judge catch set; no independent property false-positive
@@ -62,8 +81,9 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   exploratory descriptive sensitivities. Its blind-judge artifact retains parsed labels and derived
   booleans, not raw response text, so exact response substance and parser fidelity cannot be re-audited.
   Iter202 was a post-contact, pre-retained-output freeze whose provider stages later completed but whose
-  frozen safety gate stopped execution. Iter203 is a separately disclosed post-provider recovery, not
-  conventional prospective preregistration.
+  frozen safety gate stopped execution. Iter203 is a separately disclosed post-provider infrastructure
+  null with zero certification and scenario execution. Iter204 is a separately disclosed pre-result runtime
+  recovery, not conventional prospective preregistration.
 - Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false
@@ -159,9 +179,11 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 ## Refinement Rule
 
-Refinement is allowed only after evidence identifies a concrete gap. If the hypothesis fails,
-publish the null. If the harness is wrong, patch the harness or invariant and rerun the same gate.
-If the result passes, publish proof before expanding scope.
+Refinement is allowed only after evidence identifies a concrete gap. If the hypothesis fails, publish the
+null. A harness or invariant correction must follow the active hypothesis's selection rule: when outputs
+have been observed or the protocol forbids retry, seal the null and advance to a separately versioned gate;
+only a protocol that explicitly pre-authorizes an outcome-blind retry may reuse the same gate. If the result
+passes, publish proof before expanding scope.
 
 The loop does not chase polish. It improves only when the evidence says a specific part of the
 mission control system is not yet producing a trustworthy result.

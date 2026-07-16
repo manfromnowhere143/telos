@@ -1,19 +1,30 @@
 # Next Phase
 
 > **CURRENT AUTHORITY (2026-07-16):** the active gate is
-> [`../experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md`](../experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md).
+> [`../experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`](../experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md).
 > Iter202 retained `50` patches and `38` scenario programs after completing its provider stages. Its frozen
 > static-safety guard then rejected `9` programs with `21` findings, admitted `29`, and stopped the batch
 > before any scenario or certification execution; one eligible patch already had an original missing
 > scenario. Iter202 is preserved as a scenario-safety protocol/execution null, with no rate `N`, `k`, or
 > `u`; its disposition is recorded in
 > [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md).
-> Iter203 is the separately sealed post-provider recovery: verify every upstream byte and checkpoint,
-> certify all `50` patches, execute only safety-admitted copies, and retain rejected or missing witnesses as
-> unresolved. Do not repair, regenerate, rerun, relabel, mount, or execute an unsafe iter202 scenario.
-> `CONTINUITY.md` is an exact-byte iter202 runtime artifact and remains unchanged; the iter203 hypothesis and
-> generated `HANDOFF.md` govern the active recovery. No recovery execution may start until its source is
-> committed, reviewed, merged, and green on the primary branch.
+> Iter203 then attempted that separately sealed recovery exactly once in canonical run `29460393525`.
+> Authorization and all source checks passed, but all `50/50` first Docker `run` invocations returned exit
+> `125` before any in-container command. Collection was skipped, zero workflow artifacts were uploaded, and
+> zero official certification or scenario programs executed. Iter203 is therefore an execution-infrastructure
+> null, not a scientific negative and not a rate. The failed runner deleted its hidden Docker stderr files;
+> the exact daemon message is absent, and the root cause is reconstructed from the frozen options and
+> Docker's version-matched validation source.
+>
+> Iter204 repairs only that pre-outcome runtime defect: it preserves every iter202/iter203 evidence byte and
+> row assignment, adds `compress=false` to the one-file local log cap, retains bounded visible Docker-launch
+> diagnostics, and requires a non-scientific exact-launcher preflight. Only the first global iter204 dispatch
+> and run attempt `1` are eligible. Any failure closes iter204 and requires iter205; do not rerun or make a
+> second dispatch. Do not rerun iter202 or iter203, repair or regenerate a provider output, relabel a
+> scenario, or mount or execute an unsafe scenario.
+> `CONTINUITY.md` remains the exact-byte iter202 runtime artifact; the iter204 hypothesis and generated
+> `HANDOFF.md` govern the active recovery. No iter204 execution may start until its source is committed,
+> reviewed, merged, and green on the primary branch.
 >
 > Everything below preserves the plan at the iter108-era boundary. It is historical provenance, not a
 > current action list.

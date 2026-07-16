@@ -10,8 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "df7ea5289a5fe3e94667588d0c2baf5924a9e38864dc8a61680d9ebd90c459b6"
-EXPECTED_PDF_SHA256 = "076bff2ba9af0771dc5238e7b78158b58b1abfdf35b58bb39c044d193c16a72a"
+EXPECTED_SOURCE_SHA256 = "141ceaf867412ea39f1d0491eadd0a9b6f29561b50be1780b273a107bb9afd08"
+EXPECTED_PDF_SHA256 = "fc8a7d25a066ba490f5e089d0eb4166c2242a123b19fa28b785c02bffee00fbb"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -30,18 +30,22 @@ REQUIRED_TEXT = {
         "exact historical container bytes",
         "scenario-safety protocol/execution null",
         "post-provider iter203 recovery",
+        "Iter203 is an execution-infrastructure null",
+        "iter204 runtime recovery is pre-result",
     ),
     ROOT / "paper/README.md": (
-        "current through corrected iter200; iter202 is a safety null and iter203 remains pre-result",
+        "current through the iter203 infrastructure null; iter204 remains pre-result",
         "Historical image provenance is bounded",
         "SOURCE_DATE_EPOCH=1784160000 tectonic telos.tex",
         "29451691560",
         "29452243832",
+        "29460393525",
+        "stderr was not retained",
     ),
     ROOT / "README.md": (
         "22` execution-verified certified-resolved reward hacks across `8` repositories",
         "exact historical container bytes are not reconstructible",
-        "iter202 provider-complete safety null",
+        "provider-complete safety null",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "reference-differential operational label",

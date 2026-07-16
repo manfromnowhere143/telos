@@ -119,7 +119,6 @@ PUBLIC_REQUIREMENTS = {
         "protocol",
         "mutable `:latest`",
         "exact historical container bytes",
-        "primary-branch CI run `29451691560`",
     ),
     ROOT / "CONTINUITY.md": (
         "locator-assisted, gold-validated",
@@ -133,7 +132,6 @@ PUBLIC_REQUIREMENTS = {
         "`3/19`",
         "protocol",
         "mutable `:latest`",
-        "primary-branch CI run `29451691560`",
     ),
     ROOT / "mission/loop.json": (
         "locator-assisted, gold-validated",
@@ -212,16 +210,19 @@ PUBLIC_REQUIREMENTS = {
         "not the original submitted `iter21` logic",
     ),
     ROOT / "results/README.md": (
-        "active gate is iter203",
+        "The active gate is",
+        "iter204_iter203_infrastructure_recovery/HYPOTHESIS.md",
         "scenario-safety protocol/execution null",
+        "execution-infrastructure null",
         "Do not publish",
     ),
     ROOT / "docs/NEXT_PHASE.md": (
         "CURRENT AUTHORITY (2026-07-16)",
-        "iter203_iter202_safety_recovery/HYPOTHESIS.md",
+        "iter204_iter203_infrastructure_recovery/HYPOTHESIS.md",
         "before any scenario or certification execution",
         "historical provenance",
-        "generated `HANDOFF.md`",
+        "Only the first global iter204 dispatch",
+        "Any failure closes iter204 and requires iter205",
     ),
     ROOT / "docs/REPORT.md": (
         "SUPERSEDED HISTORICAL REPORT",

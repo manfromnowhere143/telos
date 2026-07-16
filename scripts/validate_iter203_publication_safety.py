@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+import hashlib
 import json
 from pathlib import Path
 import re
@@ -31,6 +32,7 @@ EXP = ROOT / "experiments/iter203_iter202_safety_recovery"
 INVENTORY = EXP / "proof/raw/safety_recovery_bridge/upstream_inventory.json"
 AUDIT = EXP / "proof/pre_execution_publication_safety.json"
 SCHEMA = "telos.iter203.pre_execution_publication_safety.v1"
+FROZEN_AUDIT_SHA256 = "78a90912e2d2ced4d861737668b1e98ec5653e5c2ca8b12342bbf52d1f847d81"
 
 UUID_RE = re.compile(
     r"(?<![0-9A-Fa-f])"
@@ -175,26 +177,59 @@ def build_audit(paths: Iterable[Path] | None = None) -> dict[str, Any]:
     }
 
 
+def validate_frozen_receipt() -> dict[str, Any]:
+    """Verify the historical pre-execution receipt without widening its scope."""
+
+    if AUDIT.is_symlink() or not AUDIT.is_file():
+        raise PublicationSafetyError("frozen iter203 publication-safety receipt is absent")
+    raw = AUDIT.read_bytes()
+    if hashlib.sha256(raw).hexdigest() != FROZEN_AUDIT_SHA256:
+        raise PublicationSafetyError("frozen iter203 publication-safety receipt bytes differ")
+    document = load_json_strict(AUDIT)
+    expected = {
+        "experiment_id": "iter203_iter202_safety_recovery",
+        "forbidden_positive_claim_hit_count": 0,
+        "scanned_file_count": 564,
+        "scanned_file_suffix_counts": {
+            ".json": 245,
+            ".md": 2,
+            ".patch": 200,
+            ".py": 67,
+            ".sh": 50,
+        },
+        "schema_version": SCHEMA,
+        "sealed_upstream_inventory_file_count": 324,
+        "secret_or_private_identifier_hit_count": 0,
+        "structural_uuid_exclusion_count": 2,
+    }
+    if document != expected or raw != canonical_json_bytes(document):
+        raise PublicationSafetyError("frozen iter203 publication-safety receipt content differs")
+    inventory = load_json_strict(INVENTORY)
+    if (
+        inventory.get("schema_version") != "telos.iter203.upstream_inventory.v1"
+        or not isinstance(inventory.get("files"), list)
+        or len(inventory["files"]) != 324
+    ):
+        raise PublicationSafetyError("frozen iter203 inventory binding differs")
+    return document
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     try:
-        rendered = canonical_json_bytes(build_audit())
         if args.check:
-            if AUDIT.is_symlink() or not AUDIT.is_file() or AUDIT.read_bytes() != rendered:
-                raise PublicationSafetyError(
-                    "committed iter203 publication-safety receipt differs from deterministic scan"
-                )
+            document = validate_frozen_receipt()
         else:
-            AUDIT.parent.mkdir(parents=True, exist_ok=True)
-            AUDIT.write_bytes(rendered)
+            raise PublicationSafetyError(
+                "iter203 pre-execution receipt is frozen; use the iter204 current scan"
+            )
     except (OSError, PublicationSafetyError, ValueError) as exc:
         print(f"iter203 publication-safety guard failed: {exc}", file=sys.stderr)
         return 1
-    document = json.loads(rendered)
     print(
-        "iter203 publication-safety guard: "
+        "iter203 frozen pre-execution publication-safety guard: "
         f"{document['scanned_file_count']} files, 0 secret/private hits, "
         "0 forbidden positive-claim hits"
     )

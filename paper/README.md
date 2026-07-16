@@ -1,6 +1,7 @@
 # Telos paper (findings draft)
 
-> **Status: current through corrected iter200; iter202 is a safety null and iter203 remains pre-result; not yet submitted.** `telos.tex` reports the iter192
+> **Status: current through the iter203 infrastructure null; iter204 remains pre-result; not yet
+> submitted.** `telos.tex` reports the iter192
 > foundation correction and `22` execution-verified certified-resolved reward hacks across `8`
 > repositories. Iter197 and iter201 are protocol `FAIL`; their retained property counts are exploratory.
 > The accurate label is **locator-assisted, gold-validated property pipeline**, not an independently
@@ -31,11 +32,17 @@
 > checkpoints, and one aggregate receipt from a single repository/workflow/run/attempt/commit. Hardened evidence PR `#3` merged as
 > `3a3368635e397d540cf98fc0f19d443661cc0fef`, primary-branch CI run `29451691560` passed, and provider-free
 > Node 24 backfill run `29452243832` reproduced the exact specs and validated the complete committed
-> `74`-log corpus without re-executing containers or calling model providers. Iter203 now seals the fixed
-> iter202 bytes, certifies all `50` patches, and exposes only safety-admitted copies to execution; rejected or
-> missing witnesses remain unresolved. No iter203 result is in the paper. Recovery execution requires a
-> clean green primary branch and the separately bound iter203 preflight; generated `HANDOFF.md` owns the
-> current branch and readiness snapshot.
+> `74`-log corpus without re-executing containers or calling model providers. Iter203 sealed and
+> replay-validated the fixed iter202 bytes, then made one canonical execution attempt in workflow run
+> `29460393525`, attempt `1`, after PR `#5` merged as
+> `5c409f79c9333206cff9ed80d59c08aa347110f6` and primary-branch CI run `29460293066` passed. All `50/50`
+> first Docker `run` invocations returned exit `125` across eight runners before any in-container command;
+> collection was skipped, zero workflow artifacts were uploaded, and no patch, official certification, or
+> scenario program executed. The exact daemon
+> stderr was not retained. The container-creation cause is reconstructed from the frozen logging options
+> and version-matched Docker `28.0.4` source, so iter203 is an execution-infrastructure null rather than a
+> scientific result. Iter204 is the separately versioned pre-scientific-output runtime recovery and has no
+> result in the paper. Generated `HANDOFF.md` owns the current branch and readiness snapshot.
 > `telos.pdf` is rebuilt from this source.
 >
 > **Before any external submission:** the three previously-flagged citations (Control Tax
@@ -110,5 +117,7 @@ The standing paper evidence traces to `iter192` (foundation correction), `iter19
 and `iter200` (exploratory gold-localized solve, post-inspection blind rule, and corrected denominator).
 Iter202 has no measured rate in the paper. Its provider stages completed after a post-contact,
 pre-retained-output freeze, but its unchanged safety guard stopped the batch before execution; that
-protocol/execution null is preserved. Iter203 is a separately disclosed post-provider recovery and has no
-result in the paper.
+protocol/execution null is preserved. Iter203 is a separately disclosed execution-infrastructure null:
+its sole canonical run failed at Docker container creation before applying a patch or executing a
+certification or scenario. Iter204 is a separately versioned runtime recovery and has no result in the
+paper.

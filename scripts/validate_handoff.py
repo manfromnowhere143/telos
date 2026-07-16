@@ -17,12 +17,12 @@ HANDOFF = ROOT / "HANDOFF.md"
 CONTINUITY = ROOT / "CONTINUITY.md"
 MISSION_CONTRACT = ROOT / "mission" / "loop.json"
 REPOSITORY_DECLARATION = (
-    "TELOS is a standalone repository at "
-    "`/Users/danielwahnich/workspace/telos`."
+    "TELOS is a standalone repository. Resolve its root with "
+    "`git rev-parse --show-toplevel`"
 )
 FORBIDDEN_WORKSPACE_LABEL = "a" + "web"
 REQUIRED_RECOVERY_FACTS = (
-    "governed credential readiness was verified",
+    "access authorization succeeded",
     "`53/53` solver calls",
     "`39/39` eligible scenario calls",
     "`50` model patches",
@@ -31,15 +31,22 @@ REQUIRED_RECOVERY_FACTS = (
     "admitted `29` programs and rejected `9` with `21` findings",
     "Zero scenario execution and zero official-harness certification execution occurred",
     "scenario-safety protocol/execution null",
-    "separately identified post-provider, pre-execution protocol",
-    "bridge and all-`50` certification specs are ready",
-    "Never dispatch the frozen iter202 workflow",
-    "A second dispatch for the same commit is forbidden",
-    'gh workflow run iter203-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
-    'gh run rerun "$RUN_ID"',
-    "scripts/collect_iter203_execution.py check",
-    "scripts/adjudicate_iter203_safety_recovery.py",
-    "scripts/run_iter203_safety_recovery_blind_judge.py",
+    "workflow run `29460393525`, attempt `1`",
+    "all `50/50` first Docker `run`",
+    "zero official certifications and zero scenarios executed",
+    "exact daemon stderr was redirected into temporary files and not retained",
+    "root cause is reconstructed",
+    "execution-infrastructure null",
+    "first global iter204 dispatch and run attempt `1`",
+    "Any failure closes iter204 and requires iter205",
+    "Never dispatch the frozen iter202 or iter203 workflows",
+    "Do not rerun it, do not dispatch iter204 again",
+    "never redownload or rerun the workflow",
+    'gh workflow run iter204-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
+    "actions/workflows/iter204-execute.yml/runs",
+    "scripts/collect_iter204_execution.py check",
+    "scripts/adjudicate_iter204_infrastructure_recovery.py",
+    "scripts/run_iter204_infrastructure_recovery_blind_judge.py",
 )
 
 
@@ -59,6 +66,10 @@ def recovery_content_failures(handoff: str) -> list[str]:
         re.IGNORECASE | re.DOTALL,
     ):
         failures.append("HANDOFF.md describes credentials as unavailable")
+    if 'gh run rerun "$RUN_ID"' in handoff:
+        failures.append("HANDOFF.md authorizes a forbidden workflow rerun")
+    if "gh workflow run iter203-execute.yml" in handoff:
+        failures.append("HANDOFF.md authorizes the sealed iter203 workflow")
     return failures
 
 
