@@ -665,3 +665,24 @@ def test_runtime_manifest_and_current_publication_receipt_reproduce() -> None:
     expected = publication.canonical_json_bytes(publication.build_audit())
     assert publication.AUDIT.read_bytes() == expected
     assert contract.validate_all() == []
+
+
+def test_runtime_manifest_covers_recursive_learning_guard_imports() -> None:
+    document = runtime.build_manifest()
+
+    assert runtime.local_python_import_gaps(document["files"]) == []
+    required_package_closure = {
+        "telos/agent_behavior_slice.py",
+        "telos/public_slice.py",
+        "telos/scorecard.py",
+        "telos/survey.py",
+    }
+    paths = {record["path"] for record in document["files"]}
+    assert required_package_closure.issubset(paths)
+
+    for missing in required_package_closure:
+        reduced = [record for record in document["files"] if record["path"] != missing]
+        assert any(
+            dependency == missing
+            for _source, dependency in runtime.local_python_import_gaps(reduced)
+        )

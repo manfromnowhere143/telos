@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import ast
 import copy
 from pathlib import Path
 import sys
@@ -138,8 +139,12 @@ NEW_RUNTIME_FILES = {
     "scripts/validate_mission_loop.py": "mission_source_of_truth_guard",
     "scripts/validate_supply_chain.py": "primary_ci_workflow_supply_chain_guard",
     "telos/__init__.py": "learning_guard_package_import_closure",
+    "telos/agent_behavior_slice.py": "learning_guard_package_import_closure",
     "telos/ledger.py": "learning_record_discovery_and_selection",
     "telos/proof.py": "publication_claim_dependency_import_closure",
+    "telos/public_slice.py": "learning_guard_package_import_closure",
+    "telos/scorecard.py": "learning_guard_package_import_closure",
+    "telos/survey.py": "learning_guard_package_import_closure",
     "tests/test_iter205_workflow_context_recovery.py": "runtime_recovery_regression_suite",
     "tests/test_iter204_infrastructure_recovery.py": (
         "frozen_iter204_snapshot_supersession_regression"
@@ -153,6 +158,92 @@ NEW_RUNTIME_FILES = {
 
 class RuntimeRecoveryError(ValueError):
     """The iter205 runtime or one of its immutable inputs differs."""
+
+
+LEARNING_GUARD_IMPORT_ROOTS = (
+    "scripts/validate_iter204_pre_dispatch_null.py",
+    "scripts/validate_learning_ledger.py",
+)
+
+
+def _local_module_paths(module: str) -> set[str]:
+    parts = module.split(".")
+    if not parts or parts[0] not in {"scripts", "telos"}:
+        return set()
+    paths: set[str] = set()
+    for length in range(1, len(parts)):
+        package = Path(*parts[:length]) / "__init__.py"
+        if (ROOT / package).is_file():
+            paths.add(package.as_posix())
+    relative = Path(*parts)
+    candidates = (relative.with_suffix(".py"), relative / "__init__.py")
+    for candidate in candidates:
+        if (ROOT / candidate).is_file():
+            paths.add(candidate.as_posix())
+            break
+    return paths
+
+
+def _import_from_base(source: str, node: ast.ImportFrom) -> str | None:
+    if node.level == 0:
+        return node.module
+    source_parts = list(Path(source).with_suffix("").parts)
+    package_parts = source_parts[:-1]
+    ascend = node.level - 1
+    if ascend > len(package_parts):
+        return None
+    base = package_parts[: len(package_parts) - ascend]
+    if node.module:
+        base.extend(node.module.split("."))
+    return ".".join(base)
+
+
+def local_python_import_gaps(
+    files: list[dict[str, Any]],
+    roots: tuple[str, ...] = LEARNING_GUARD_IMPORT_ROOTS,
+) -> list[tuple[str, str]]:
+    """Return uncovered imports in the newly executed learning-guard closure."""
+
+    included = {
+        record.get("path")
+        for record in files
+        if isinstance(record, dict) and isinstance(record.get("path"), str)
+    }
+    gaps: set[tuple[str, str]] = set()
+    pending = list(roots)
+    visited: set[str] = set()
+    while pending:
+        source = pending.pop()
+        if source in visited:
+            continue
+        visited.add(source)
+        if source not in included:
+            gaps.add(("<runtime-root>", source))
+            continue
+        try:
+            tree = ast.parse(iter203._read_regular(ROOT / source), filename=source)
+        except (SyntaxError, UnicodeError) as exc:
+            raise RuntimeRecoveryError(
+                f"cannot parse runtime Python dependency source: {source}"
+            ) from exc
+        dependencies: set[str] = set()
+        for node in ast.walk(tree):
+            if isinstance(node, ast.Import):
+                for alias in node.names:
+                    dependencies.update(_local_module_paths(alias.name))
+            elif isinstance(node, ast.ImportFrom):
+                base = _import_from_base(source, node)
+                if base is None:
+                    continue
+                dependencies.update(_local_module_paths(base))
+                for alias in node.names:
+                    dependencies.update(_local_module_paths(f"{base}.{alias.name}"))
+        for dependency in dependencies:
+            if dependency not in included:
+                gaps.add((source, dependency))
+            elif dependency not in visited:
+                pending.append(dependency)
+    return sorted(gaps)
 
 
 def _load_iter204_manifest() -> dict[str, Any]:
@@ -238,6 +329,14 @@ def build_manifest() -> dict[str, Any]:
             raise RuntimeRecoveryError(f"conflicting runtime record: {record['path']}")
         by_path[record["path"]] = record
     files = sorted(by_path.values(), key=lambda record: record["path"])
+    import_gaps = local_python_import_gaps(files)
+    if import_gaps:
+        rendered = ", ".join(
+            f"{source}->{dependency}" for source, dependency in import_gaps
+        )
+        raise RuntimeRecoveryError(
+            f"runtime learning-guard Python import closure is incomplete: {rendered}"
+        )
     protocol = copy.deepcopy(upstream.get("protocol"))
     if not isinstance(protocol, dict):
         raise RuntimeRecoveryError("iter204 runtime protocol is malformed")

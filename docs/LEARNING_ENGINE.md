@@ -60,8 +60,8 @@ The machine source of truth for each completed learning record is the set of can
 `experiments/*/proof/learning_record*.json` files plus `python3 scripts/validate_learning_ledger.py`.
 This hand-written table is historical context and may lag the newest records. The validator checks the
 historical completed-record chain, then binds its displayed `active_next` to the unique pending record whose
-`result_path` equals `mission/loop.json.active_gate`. Generated `HANDOFF.md` remains the operational resume
-authority.
+`result_path` equals `mission/loop.json.active_gate`. Generated `HANDOFF.md` owns the current operational
+action and remains the resume authority.
 
 Selected historical records:
 
