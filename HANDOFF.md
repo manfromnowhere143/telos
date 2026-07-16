@@ -1,20 +1,20 @@
-# HANDOFF — iter213 post-seal validation recovery
+# HANDOFF — iter214 TCP-1 cross-platform numeric recovery
 
-Generated: 2026-07-16T14:09:36Z from the exact clean source commit below. Read Current Gates first.
+Generated: 2026-07-16T14:40:34Z from the exact clean source commit below. Read Current Gates first.
 
 TELOS is a standalone repository. Resolve its root with `git rev-parse --show-toplevel`, then run every TELOS command from that root.
 
 ## Repository State
 
 ```text
-handoff_schema: telos.iter213.handoff.v1
-source_branch: agent/iter213-iter211-post-seal-validation-recovery
-source_commit: f5cbb9df76f5fc2464e84f4d911313122d76545f
-predecessor_seal: dc19e6f27f5a001632b5183ff798a6eacae6de33
+handoff_schema: telos.iter214.handoff.v1
+source_branch: agent/iter214-tcp1-cross-platform-numeric-recovery
+source_commit: 48910a55d3f46bd11f360fa4f0501a1d8e9312a1
+predecessor_seal: dbe008211022e0abdff5bc9e47e871b02b6d5501
 publication_target: master
 ```
 
-The source worktree was clean. This file is the sole allowed delta in the iter213 seal commit.
+The source worktree was clean. This file is the sole allowed delta in the iter214 seal commit.
 
 ## Current Gates
 
@@ -22,7 +22,7 @@ Active gate: `experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHE
 
 This remains sealed historical runtime authority only. It authorizes no current scientific execution.
 
-Active publication gate: `experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md`
+Active publication gate: `experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md`
 
 Prospective scientific gate (inactive): `experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md`
 
@@ -30,18 +30,26 @@ Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `experiments/ite
 
 Local recovery status: **PASS; fresh publication seal pending**.
 
-## Why Iter213 Exists
+## Why Iter214 Exists
 
-The exact iter211 source `1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021` and handoff seal
-`dc19e6f27f5a001632b5183ff798a6eacae6de33` remain unchanged. Their first complete post-seal suite passed
-`648` tests and failed `3` non-scientific compatibility checks: one handoff heading assumption affected two
-tests, and iter210 preflight compared a sealed experiment delta to additive descendant `HEAD`. The later
-command catalog found the same title assumption in the detector-methodology surface scanner.
+The exact iter213 source `f5cbb9df76f5fc2464e84f4d911313122d76545f` and seal
+`dbe008211022e0abdff5bc9e47e871b02b6d5501` were published unchanged on draft PR `#11`. Push CI run
+`29505707609` and pull-request CI run `29505789397` both failed on Python 3.11 and 3.12 at the same test.
+Linux returned `2.7755575615628914e-17` for the Wilson lower endpoint at `k=0, n=10`; the local runtime
+returned exact `0.0`. All other `656` tests passed in each failed job. The iter213 branch and PR remain
+unchanged, were not rerun, and must not be merged.
 
-Diagnosis also found that iter210 and iter211 sealed-source discovery depended on whichever handoff was
-currently displayed. Iter213 binds both iterations to their exact source/seal commits, verifies source Git
-blobs on descendants, and accepts only the two registered current-gate and verification-heading families.
-It does not weaken standing-claim scanning or change any TCP-1 artifact.
+Adding the iter214 evidence also exposed one remaining iter213 descendant-mode path that compared later
+experiment files with the iter213 predecessor. A sealed iter213 now validates its immutable source Git blobs,
+receipt, and source/seal topology. No iter213 experiment byte changes.
+
+## Pre-data Mathematical Amendment
+
+The Wilson calculation is unchanged for every interior case. Only its mathematically exact binomial
+boundaries are canonicalized after calculation: `lower=0.0` when `successes==0`, and `upper=1.0` when
+`successes==trials`. This removes platform-dependent one-ULP cancellation residue without changing an
+endpoint, confidence level, cohort, control, missingness rule, threshold, or scientific claim. The amendment
+was recorded before any TCP-1 data, model output, task, hidden test, trajectory, or semantic label exists.
 
 ## TCP-1 Boundary
 
@@ -61,24 +69,24 @@ independent false-positive rate.
 
 ## Source Receipt
 
-Receipt path: `experiments/iter213_iter211_post_seal_validation_recovery/proof/receipt_v2.json`
+Receipt path: `experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/receipt_v2.json`
 
-Receipt evidence count: `26`
+Receipt evidence count: `21`
 
-Receipt closure SHA-256: `329bc6b2f19ee9f8e110e73af2c24cefa93e1363e9a24e553834ec90c09a7080`
+Receipt closure SHA-256: `51e110df29358b19aa1fe40f89073734092ed6de283a831582f59535b185d8c2`
 
-Receipt SHA-256: `d3bf23942252fd6c1ec88500d861cd4851f92e6f92196d1a6be92ac846a4a403`
+Receipt SHA-256: `a1ff11f179dc40b3464dd8ae26bf62999b356e3f5c30348dd165712b388e89f7`
 
 The receipt and predecessor guards read exact source Git blobs. The receipt proves byte identity, not
 authorship, external chronology, licensing, independence, or semantic truth.
 
-## Verification Before Action
+## Verification Before Publication
 
 Run from the repository root:
 
 ```bash
 git status --short
-git show --no-ext-diff --stat f5cbb9df76f5fc2464e84f4d911313122d76545f
+git show --no-ext-diff --stat 48910a55d3f46bd11f360fa4f0501a1d8e9312a1
 ruff check .
 python3 -m compileall -q telos scripts tests
 pytest -q
@@ -93,30 +101,34 @@ python3 scripts/build_iter211_receipt.py --check
 python3 scripts/validate_iter211_tcp1_materialization_preflight.py
 python3 scripts/build_iter213_receipt.py --check
 python3 scripts/validate_iter213_post_seal_validation_recovery.py
+python3 scripts/build_iter214_receipt.py --check
+python3 scripts/validate_iter214_tcp1_cross_platform_numeric_recovery.py
 python3 scripts/validate_handoff.py
 ```
 
 Before publication, simulate a local two-parent merge whose first parent is current `master` and whose
-second parent is the exact iter213 seal. Run iter210, iter211, iter213, receipt, mission, and handoff guards
-inside that detached merge tree. Remove the temporary worktree/reference afterward.
+second parent is the exact iter214 seal. Run the full provider-free test suite, mission catalog, receipts,
+predecessor guards, iter214 guard, and handoff guard inside that detached merge tree. Remove the temporary
+worktree and reference afterward.
 
 ## Publication Boundary
 
-The seal commit must be the direct child of source `f5cbb9df76f5fc2464e84f4d911313122d76545f` and modify exactly `HANDOFF.md`. Publish that
-unchanged source-plus-handoff tip once on `agent/iter213-iter211-post-seal-validation-recovery` and open one draft pull request against `master`.
-Merge once with a two-parent merge commit only after exact-tip push and pull-request CI pass on Python 3.11
-and 3.12 and no substantive review blocker remains. Do not amend, rebase, force-push, or extend the sealed
-branch.
+The seal commit must be the direct child of source `48910a55d3f46bd11f360fa4f0501a1d8e9312a1` and modify exactly `HANDOFF.md`. Publish that
+unchanged source-plus-handoff tip once on `agent/iter214-tcp1-cross-platform-numeric-recovery` and open one draft pull request against `master`.
+After the successor PR exists, close PR `#11` as superseded without deleting or modifying its branch. Merge
+once with a two-parent merge commit only after exact-tip push and pull-request CI pass on Python 3.11 and
+3.12, the secret scan is non-blocking, and no substantive review blocker remains. Do not amend, rebase,
+force-push, extend, or rerun a sealed failed branch.
 
 Repository publication authorizes no release, paper submission, provider request, GPU allocation,
 scientific container or trajectory, workflow dispatch or rerun, deployment, payment, or scientific action.
 
-## Scientific Boundary and Next Gate
+## Scientific Boundary and Next Gates
 
-Iter213 contributes no scientific `N`, `k`, `u`, benchmark score, effect estimate, model comparison,
+Iter214 contributes no scientific `N`, `k`, `u`, benchmark score, effect estimate, model comparison,
 population estimate, product-efficacy result, deployment claim, priority claim, or state-of-the-art claim.
 
-After successful publication, the already-frozen iter212 hypothesis may begin only by filling real human,
-model, task, hidden-test, control, runtime, isolation, timestamp, and budget evidence. It authorizes no model
-call, accelerator allocation, or scientific trajectory. A separately versioned throughput gate remains
-mandatory before any bounded pilot execution.
+The unchanged iter212 hypothesis may proceed only by filling real human, model, task, hidden-test, control,
+runtime, isolation, timestamp, and budget evidence. Iter215 is the later non-cohort throughput preflight;
+iter216 is bounded execution; iter217 is blinded adjudication; and iter218 is independent replication. No
+later stage is authorized by this handoff.
