@@ -1,85 +1,74 @@
-# HANDOFF — iter210 pull-request topology recovery
+# HANDOFF — iter211 TCP-1 materialization preflight
 
-Generated: 2026-07-16T11:47:32Z from exact source commit E. Read Current Gates and Publication Boundary first.
+Generated: 2026-07-16T13:22:58Z from the exact clean source commit below. Read Current Gates first.
 
 TELOS is a standalone repository. Resolve its root with `git rev-parse --show-toplevel`, then run every TELOS command from that root.
 
 ## Repository State
 
 ```text
-handoff_schema: telos.iter210.handoff.v1
-source_branch: agent/iter210-pr-synthetic-merge-recovery
-source_commit: 323130bd96b20c062005f097294d8fab235bea93
-predecessor_seal: 91f9258730bf5520d86c9235d7ed2f03724ea103
+handoff_schema: telos.iter211.handoff.v1
+source_branch: agent/iter211-tcp1-materialization
+source_commit: 1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021
+predecessor_merge: fb348eb1f67c0605679cd56a1cfa210cf192db03
 publication_target: master
 ```
 
-Source worktree at handoff generation: clean. This file is the sole allowed delta in seal commit F.
+The source worktree was clean. This file is the sole allowed delta in the iter211 seal commit.
 
 ## Current Gates
 
 Active gate: `experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md`
 
-This remains the sealed runtime/admission authority only. It authorizes no current publication or scientific execution.
+This remains sealed historical runtime authority only. It authorizes no current scientific execution.
 
-Active publication gate: `experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md`
+Active publication gate: `experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md`
 
 Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: `experiments/iter202_natural_rate_scaled/HYPOTHESIS.md`
 
-Local recovery status: **PASS; fresh publication seal pending**.
+Materialization-preflight status: **PASS; scientific execution BLOCKED**.
 
-## Why Iter210 Exists
+## Exact Merged Baseline
 
-Iter209 source `1659670c6c13758cc9b1840e87633a627444ca39` and handoff seal
-`91f9258730bf5520d86c9235d7ed2f03724ea103` were published once. Push CI run `29493772108` passed Python
-3.11 and 3.12. Pull-request CI run `29494386126` failed both jobs because GitHub checked out a synthetic
-two-parent merge commit and the new guard treated that merge `HEAD` as the branch seal. Draft PR `#9` was
-not merged. GitGuardian passed.
+Iter210 PR `#10` merged at exact two-parent commit `fb348eb1f67c0605679cd56a1cfa210cf192db03` with the old master first and iter210
+seal `c109312d5ee525599abfbac178c3fb245117ab49` second. Non-scientific CI passed for branch push run
+`29496323167`, pull-request run `29496355871`, and merged-master run `29496560409`, each with Python 3.11
+and 3.12 jobs. The recurring iter204 workflow parser record remains frozen historical infrastructure
+evidence and is not current CI.
 
-Iter210 resolves the exact public iter209 seal whenever it is an ancestor of the checkout, verifies sealed
-receipt artifacts from source Git blobs, and derives its own source and handoff seal from exact Git parents.
-Push, pull-request merge, merged-master, and later-descendant modes therefore use one fail-closed topology
-rule. The failed iter209 branch remains unchanged.
+## What Iter211 Establishes
 
-Parser record `29493771124` remains the disclosed frozen iter204 workflow parse null and is not an iter210
-source regression.
+Iter211 materializes TCP-1's protocol, deterministic seeds, task/trajectory/label/aggregate schemas,
+analysis-input contract, exact statistical accounting, separate-control policy, resource envelope,
+isolation threat model, and machine-readable admission decision.
+
+It does not materialize a scientific cohort. There are zero admitted tasks and no filled reviewer, model,
+hidden-test, control, runtime, hardware, external-timestamp, throughput, or monetary-budget evidence. The
+admission report has two passing local-design gates and nine blocked external gates. Execution authorization
+is false and cannot be inferred from repository publication.
 
 ## Source Receipt
 
-Receipt path: `experiments/iter210_pr_synthetic_merge_recovery/proof/receipt_v2.json`
+Receipt path: `experiments/iter211_tcp1_materialization_preflight/proof/receipt_v2.json`
 
-Receipt evidence count: `17`
+Receipt status: `blocked`
 
-Receipt closure SHA-256: `a16536c454aee33ef92b7fb05b1c01d7287eb9225bfc178a700cc2e8668dc40f`
+Receipt evidence count: `37`
 
-Receipt SHA-256: `7f0f003fde80183165fc3070d69bfb2e92daed68d8178b8a25bb92a1d4840c98`
+Receipt closure SHA-256: `60774d209bc9a543a03c39c15755f9035fac72578debac6b2df8c36a98f0fdcc`
+
+Receipt SHA-256: `e578c0fef7caa3dc81565e70360da9658488e6a4746ac170e6cefb4504f0b3f8`
 
 The handoff and receipt guards check exact source Git blobs. The receipt proves byte identity, not authorship,
-external chronology, or semantic truth.
+external chronology, license, independence, or semantic truth.
 
-## Verified Local State
-
-- Source commit E is the single direct child of the public iter209 seal.
-- The iter210 source delta contains exactly 18 paths: 17 receipt-bound artifacts plus the receipt itself.
-- Ruff, Python byte compilation, current CI action lint, and deterministic artifact regeneration pass.
-- Python tests: 641 passed.
-- JSON guard: 3,504 files.
-- Markdown guard: 721 files.
-- Supply-chain guard: 19 workflows and two dependency locks.
-- The provider-free pre-source catalog passed 240 commands; the two commit-bound guards are rerun after seal F.
-- Iter208, iter209 sealed-descendant, iter210 preflight, current-paper, mission-loop, and receipt guards pass.
-- The deterministic paper remains the unchanged verified 12-page build.
-- The recovery diagram rendered cleanly and distinguishes iter208, iter209, and active iter210.
-
-No provider request, GPU run, scientific container run, workflow dispatch, release, or scientific execution is authorized.
-
-## Verification Before Action
+## Verification Before Publication
 
 Run from the repository root:
 
 ```bash
 git status --short
-git show --no-ext-diff --stat 323130bd96b20c062005f097294d8fab235bea93
+git show --no-ext-diff --stat 1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021
 ruff check .
 python3 -m compileall -q telos scripts tests
 pytest -q
@@ -88,43 +77,37 @@ python3 scripts/validate_docs.py
 python3 scripts/validate_current_paper.py
 python3 scripts/validate_mission_loop.py
 python3 scripts/validate_supply_chain.py
-python3 scripts/build_iter209_receipt.py --check
-python3 scripts/validate_iter209_publication_ci_recovery.py
 python3 scripts/build_iter210_receipt.py --check
 python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py
+python3 scripts/build_iter211_tcp1_packet.py --check
+python3 scripts/build_iter211_receipt.py --check
+python3 scripts/validate_iter211_tcp1_materialization_preflight.py
 python3 scripts/validate_handoff.py
 ```
 
-Before any push, create a temporary local two-parent merge with first parent `master` and second parent seal F,
-run the iter209, iter210, and handoff guards from that detached merge tree, then remove the temporary worktree
-and reference. This simulation must not push, dispatch, contact a provider, or alter either parent.
+Before merge, verify the exact branch tip, base, receipt, review state, required push and pull-request CI,
+and two-parent mergeability. Do not amend, rebase, force-push, or extend the branch after its seal.
 
 ## Publication Boundary
 
-Seal commit F must be the single direct child of source commit E and modify exactly `HANDOFF.md`. Publish the
-unchanged E+F tip once on fresh branch `agent/iter210-pr-synthetic-merge-recovery`, then open a draft pull
-request against `master`. Do not amend, rebase, force-push, or extend the failed iter209 branch.
+The seal commit must be the direct child of source commit `1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021` and modify exactly `HANDOFF.md`. Publish
+that unchanged source-plus-handoff tip once on `agent/iter211-tcp1-materialization` and open one draft pull request against `master`.
+Merge once with a two-parent merge commit only after both non-scientific CI matrices pass at the exact tip
+and no substantive review blocker remains.
 
-After the fresh draft exists, close draft PR `#9` as superseded and link it to the iter210 pull request. Keep
-the iter209 branch and PR as publication-failure evidence.
-
-Merge requires green non-scientific push and pull-request CI at the unchanged iter210 seal tip. Recheck the
-tip, receipt, diff, base, review state, and two-parent mergeability, then merge once with a merge commit. A
-repository merge does not authorize a release, paper submission, workflow dispatch, provider request, GPU
-run, container run, deployment, payment, or scientific execution.
+Repository publication authorizes no release, paper submission, provider request, GPU allocation,
+scientific container or trajectory, workflow dispatch or rerun, deployment, payment, or scientific action.
 
 ## Scientific Boundary and Next Gate
 
-Iter210 contributes no scientific `N`, `k`, `u`, benchmark score, effect estimate, model comparison,
-population estimate, deployment claim, priority claim, or state-of-the-art claim. It changes no paper result
-or historical experiment artifact.
+Iter211 contributes no scientific `N`, `k`, `u`, benchmark score, effect estimate, model comparison,
+population estimate, product-efficacy result, deployment claim, priority claim, or state-of-the-art claim.
 
-The locator-assisted, gold-validated property pipeline remains protocol-failed and supplies no independent
-false-positive estimate. The judge artifact retains `8/88` response nondecisions; paired-gold flag accounting
-must report `3/22` observed lower, `6/22` missing upper, and `3/19` complete-case sensitivity together. The
-exploratory iter200 case remains `N=24`, `k=1`, and `u=6`, with `1/24`, `7/24`, and `1/18` reported together.
+The next separately versioned gate is
+`experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md`. It may fill genuine human,
+model, task, hidden-test, control, runtime, isolation, timestamp, and budget evidence. It authorizes no model
+call, accelerator allocation, or scientific trajectory. A later throughput gate is required before any
+bounded pilot execution can be considered.
 
-TCP-1 remains design-only until a separately sealed materialization gate: 12 fresh tasks, five seeds per task,
-hidden pre-authored consequence tests, independent blinded human labels, exact model/container/environment
-custody, paired analysis, explicit missingness, and at most 64 accelerator-hours under a separately approved
-budget. Repository publication authorizes none of that execution.
+This iteration made three read-only GitHub CLI metadata queries and no pre-seal remote mutation. The CLI's
+internal HTTP request count was not instrumented; no exact HTTP request count is claimed.
