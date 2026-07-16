@@ -1,0 +1,58 @@
+{
+  "schema_version": "telos.iter209.publication_ci_failure_diagnosis.v1",
+  "experiment_id": "iter209_publication_ci_recovery",
+  "predecessor_seal": "a2c2863cf993cb6dd39d2fada8d58e4796929120",
+  "timing": "Recorded after both remote failures and initial local diagnosis; this is corrective engineering evidence, not scientific preregistration.",
+  "failed_publication_attempt": {
+    "branch": "agent/iter208-post-seal-forensic-correction",
+    "draft_pull_request": 8,
+    "head_sha": "a2c2863cf993cb6dd39d2fada8d58e4796929120",
+    "push_ci": {
+      "run_id": 29491806574,
+      "event": "push",
+      "conclusion": "failure",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29491806574",
+      "failure": "iter65 receipt schema prompt alignment audit: proof module hash mismatch"
+    },
+    "pull_request_ci": {
+      "run_id": 29491841840,
+      "event": "pull_request",
+      "conclusion": "failure",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29491841840",
+      "failure": "tests/test_make_handoff.py inherited GitHub pull-request mode before its explicit synthetic-merge case"
+    },
+    "historical_parser_record": {
+      "run_id": 29491805471,
+      "conclusion": "failure",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29491805471",
+      "classification": "frozen iter204 workflow parse null; disclosed predecessor evidence, not an iter209 regression"
+    }
+  },
+  "root_causes": [
+    {
+      "class": "mutable_descendant_source_used_for_historical_hash",
+      "affected_path": "scripts/audit_receipt_schema_prompt_alignment.py",
+      "historical_source_commit": "40cdf2d5bbbd4d9ccd22aebb54cf04606ed90702",
+      "correction": "Read and hash exact historical Git blobs for the recorded schema, proof module, and validator identities."
+    },
+    {
+      "class": "ambient_ci_environment_leaked_into_unit_test",
+      "affected_path": "tests/test_make_handoff.py",
+      "correction": "Clear GITHUB_ACTIONS and GITHUB_EVENT_NAME before the test explicitly enables pull-request mode."
+    }
+  ],
+  "actions_during_iter209_before_publication": {
+    "provider_calls": 0,
+    "gpu_allocations": 0,
+    "scientific_container_runs": 0,
+    "scientific_executions": 0,
+    "workflow_dispatches": 0,
+    "releases": 0,
+    "deployments": 0,
+    "payments": 0,
+    "force_pushes": 0,
+    "mutations_to_failed_iter208_branch": 0
+  },
+  "scientific_effect": "none",
+  "claim_boundary": "Publication-CI engineering recovery only; no scientific result or change to TELOS empirical claims."
+}

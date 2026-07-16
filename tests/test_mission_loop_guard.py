@@ -74,6 +74,19 @@ def test_committed_iter208_publication_correction_is_evidence_bounded() -> None:
     )
 
 
+def test_committed_iter209_publication_recovery_is_evidence_bounded() -> None:
+    guard = load_guard_module()
+    contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
+
+    assert guard.validate_iter209_recovery_state(contract) == []
+    contract["current_gate_state"]["iter209_recovery"]["actions_before_source_seal"][
+        "provider_calls"
+    ] = 1
+    assert "iter209 pre-seal action ledger is not exact zero" in (
+        guard.validate_iter209_recovery_state(contract)
+    )
+
+
 def test_iter207_source_of_truth_requires_the_full_recovery_chain() -> None:
     guard = load_guard_module()
     required = (

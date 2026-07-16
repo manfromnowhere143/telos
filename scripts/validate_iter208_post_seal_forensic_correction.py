@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -15,10 +16,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts import validate_current_paper  # noqa: E402
-from telos.proof import ProofValidationError, load_receipt_v2  # noqa: E402
+from telos.proof import (  # noqa: E402
+    ProofValidationError,
+    load_receipt_v2,
+    validate_receipt_v2,
+)
 
 
 ITER207_SEAL_COMMIT = "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28"
+ITER208_SOURCE_COMMIT = "184883088336cbae834e812a8d1dce0b7b031821"
+ITER208_SEAL_COMMIT = "a2c2863cf993cb6dd39d2fada8d58e4796929120"
 ITER208_PREFIX = "experiments/iter208_post_seal_forensic_correction/"
 EXP = ROOT / ITER208_PREFIX
 PROOF = EXP / "proof"
@@ -88,6 +95,13 @@ def _require(condition: bool, message: str) -> None:
 def _text(relative: str) -> str:
     path = ROOT / relative
     _require(path.is_file() and not path.is_symlink(), f"missing regular file: {relative}")
+    if _is_sealed_descendant():
+        try:
+            return _git_bytes(ITER208_SOURCE_COMMIT, relative).decode("utf-8")
+        except UnicodeDecodeError as exc:
+            raise Iter208ValidationError(
+                f"sealed iter208 text is not UTF-8: {relative}"
+            ) from exc
     return path.read_text(encoding="utf-8")
 
 
@@ -115,8 +129,48 @@ def _git_output(arguments: list[str]) -> str:
     return process.stdout
 
 
+def _git_bytes(commit: str, relative: str) -> bytes:
+    try:
+        process = subprocess.run(
+            ["git", "show", f"{commit}:{relative}"],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            timeout=30,
+        )
+    except (OSError, subprocess.SubprocessError) as exc:
+        raise Iter208ValidationError(
+            f"cannot read sealed iter208 Git blob: {commit}:{relative}"
+        ) from exc
+    return process.stdout
+
+
+def _is_sealed_descendant() -> bool:
+    try:
+        _git_output(["merge-base", "--is-ancestor", ITER208_SEAL_COMMIT, "HEAD"])
+    except Iter208ValidationError:
+        return False
+    return True
+
+
 def validate_seal_and_experiment_delta() -> None:
     _git_output(["merge-base", "--is-ancestor", ITER207_SEAL_COMMIT, "HEAD"])
+    target = ITER208_SOURCE_COMMIT if _is_sealed_descendant() else "HEAD"
+    if target == ITER208_SOURCE_COMMIT:
+        source_parents = _git_output(
+            ["rev-list", "--parents", "-n", "1", ITER208_SOURCE_COMMIT]
+        ).split()
+        seal_parents = _git_output(
+            ["rev-list", "--parents", "-n", "1", ITER208_SEAL_COMMIT]
+        ).split()
+        _require(
+            source_parents == [ITER208_SOURCE_COMMIT, ITER207_SEAL_COMMIT],
+            "iter208 sealed source topology differs",
+        )
+        _require(
+            seal_parents == [ITER208_SEAL_COMMIT, ITER208_SOURCE_COMMIT],
+            "iter208 handoff-seal topology differs",
+        )
     changed = set(
         _git_output(
             [
@@ -124,15 +178,20 @@ def validate_seal_and_experiment_delta() -> None:
                 "--name-only",
                 "--diff-filter=ACMRTUXB",
                 ITER207_SEAL_COMMIT,
+                target,
                 "--",
                 "experiments",
             ]
         ).splitlines()
     )
-    untracked = set(
-        _git_output(
-            ["ls-files", "--others", "--exclude-standard", "--", "experiments"]
-        ).splitlines()
+    untracked = (
+        set()
+        if target == ITER208_SOURCE_COMMIT
+        else set(
+            _git_output(
+                ["ls-files", "--others", "--exclude-standard", "--", "experiments"]
+            ).splitlines()
+        )
     )
     experiment_delta = {path for path in changed | untracked if path}
     unauthorized = sorted(
@@ -333,8 +392,22 @@ def validate_machine_evidence() -> None:
 def validate_receipt() -> None:
     _require(RECEIPT.is_file() and not RECEIPT.is_symlink(), "iter208 receipt v2 is missing")
     try:
-        receipt = load_receipt_v2(RECEIPT, artifact_root=ROOT)
-    except (OSError, ProofValidationError) as exc:
+        if _is_sealed_descendant():
+            relative_receipt = RECEIPT.relative_to(ROOT).as_posix()
+            sealed_receipt = _git_bytes(ITER208_SOURCE_COMMIT, relative_receipt)
+            data = json.loads(sealed_receipt.decode("utf-8"))
+            receipt = validate_receipt_v2(data)
+            for item in receipt.evidence:
+                artifact = item["artifact"]
+                payload = _git_bytes(ITER208_SOURCE_COMMIT, artifact["path"])
+                _require(
+                    len(payload) == artifact["bytes"]
+                    and hashlib.sha256(payload).hexdigest() == artifact["sha256"],
+                    f"iter208 sealed artifact differs: {artifact['path']}",
+                )
+        else:
+            receipt = load_receipt_v2(RECEIPT, artifact_root=ROOT)
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ProofValidationError) as exc:
         raise Iter208ValidationError(f"iter208 receipt v2 does not verify: {exc}") from exc
     bound_paths = {item["artifact"]["path"] for item in receipt.evidence}
     _require(bound_paths == REQUIRED_BINDINGS, "iter208 receipt v2 binding set differs")

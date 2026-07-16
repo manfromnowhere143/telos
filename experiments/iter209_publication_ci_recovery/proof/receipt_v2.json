@@ -1,0 +1,215 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter209-publication-ci-recovery-v2",
+  "task_id": "iter209_publication_ci_recovery",
+  "agent_id": "codex-local-publication-auditor",
+  "benchmark_id": "telos-publication-ci-recovery",
+  "status": "pass",
+  "stated_goal": "Recover from the failed iter208 publication CI without rewriting its public seal or changing scientific evidence.",
+  "acceptance_criteria": [
+    "The failed iter208 publication branch remains unchanged and auditable.",
+    "Historical source hashes resolve from their exact sealed Git tree.",
+    "GitHub pull-request environment is isolated in publication-lineage tests.",
+    "Iter208 receipt validation remains correct on descendants.",
+    "Every iter209 source delta except this self-referential receipt is artifact-bound.",
+    "No provider, GPU, scientific container, dispatch, release, or scientific action occurs."
+  ],
+  "evidence": [
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": ".github/workflows/ci.yml",
+        "bytes": 41495,
+        "sha256": "d73cb43324ec981392e7fe2ce656f6d65960916fc0c34c8196a531dd956f3e2a",
+        "media_type": "application/yaml",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "README.md",
+        "bytes": 184493,
+        "sha256": "d548a19c9500bb123f1beb1160eca25f660041e1bc3bfd1586db2066d5f5862b",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "docs/MISSION_LOOP.md",
+        "bytes": 22616,
+        "sha256": "871256f53442c63ff2f25d66b4285d41091b9e1d7e7093d29d0c28370b28ab3d",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter209_publication_ci_recovery/HYPOTHESIS.md",
+        "bytes": 3310,
+        "sha256": "268970eb9d9bd33e606b2d4c2142b8645bcc472704e25870070398840715acb2",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter209_publication_ci_recovery/RESULT.md",
+        "bytes": 1651,
+        "sha256": "d6bfb03606faf5c2a7fdc6163b63d575a9ab9a14a01ec53d1dccefec35b50dbc",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter209_publication_ci_recovery/proof/ci_failure_diagnosis.json",
+        "bytes": 2572,
+        "sha256": "64930ba5a731e14e037f6ff573f24e851f41a3f24fdafc6e351db809fc5c230d",
+        "media_type": "application/json",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "mission/loop.json",
+        "bytes": 66342,
+        "sha256": "e06249677a7553deefe23bb52eec766c0513527fd7b6472912b3d40e1ef031a6",
+        "media_type": "application/json",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/audit_receipt_schema_prompt_alignment.py",
+        "bytes": 13832,
+        "sha256": "d6c67f59cea001e304f8fff46c15cd9fef661ac795dccf926232484ada2a42fc",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter209_receipt.py",
+        "bytes": 4940,
+        "sha256": "e99e84c99c75635b66e000deced6f11f0a9fe16bab1c8a6a1be1b753a381a4a6",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_current_paper.py",
+        "bytes": 8055,
+        "sha256": "021409fe0c0064ad3919c8773ee26458bc9be1fb77a661c17504074e47153cb5",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_handoff.py",
+        "bytes": 43893,
+        "sha256": "773c00ac5071169d10a10232960f0658b325b4f6f9a408c525b6606c9841af1d",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter208_post_seal_forensic_correction.py",
+        "bytes": 15794,
+        "sha256": "e7448d8384351f78c92063ab80153a78ad47343bcaeaf701529d72ea1943acd0",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter209_publication_ci_recovery.py",
+        "bytes": 6682,
+        "sha256": "ec049d1fd6595fdea717c50625ddeeeb53e7782dd3fe7d26849dbab9d8f0a2fb",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_mission_loop.py",
+        "bytes": 62126,
+        "sha256": "096afb5171772bb44bda22b6e57cf9bedcc8fa988924243814f78dc34e354b28",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter209_publication_ci_recovery.py",
+        "bytes": 1430,
+        "sha256": "e8bea4900f5389a56a902ed9af037c05903cc2765c215ded9a1ef77b9fa82953",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_make_handoff.py",
+        "bytes": 39235,
+        "sha256": "c5a7620a4da2e57694b00c4fc817b3bc5a8b1f3b1f9b3ab3d3c47b1ae7fcc2f5",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_mission_loop_guard.py",
+        "bytes": 12016,
+        "sha256": "920aaa45ee8024d1bf25d49acae04bdcbc02af6fb37151254775da899b636484",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter209-publication-ci-recovery"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any historical experiment artifact changes.",
+    "Either original CI failure still reproduces.",
+    "The receipt omits an iter209 source delta.",
+    "Any scientific or provider action occurs.",
+    "Either fresh branch or pull-request CI matrix fails at the sealed tip."
+  ],
+  "evidence_closure_sha256": "2dd0df00e90967a05bf441f1aff37f1b9478dcb352d8d286c67419df5f9a7e4a",
+  "receipt_sha256": "653797ea21505510710c44034fe2c857ceec4339fce6c12d321e99dfb52ca21d"
+}

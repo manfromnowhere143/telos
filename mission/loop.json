@@ -3,7 +3,7 @@
   "standard": "maestro-compatible-evidence-loop-v1",
   "status": "active_open_repo_loop",
   "claim_boundary": "Current boundary (2026-07-16): iter192 is conservatively adjudicated FAIL on overbroad conceptual novelty; its literal v1-specific falsifier trigger is indeterminate, while the deterministic recount remains retained. Iter195 is strict protocol FAIL with narrower exploratory findings retained; iter196 is partial/protocol-blocked; iter198 failed its original accuracy gate; and iter199 is post-provider/pre-execution rather than independently preregistered. The released construction corpus is 22 official-harness-resolved, gold-assisted targeted reference-differential rows across 8 repositories, not independent semantic ground truth. The iter179 17/40 primary score has a $13.128090 estimated spend guard for 240 score-producing calls; the rounded $13.59 through-repair total includes excluded diagnostics and is not a provider invoice. Iter201 remains a protocol failure with judge 20/22, property 6/22 as a subset, 8/88 judge nondecisions, four disclosed shared-line diagnostic rows, and no independent property false-positive or ensemble-gain claim. Iter200 remains an exploratory nonrandom gold-localized existence result with N=24, k=1, u=6 and mandatory 1/24, 7/24, 1/18 sensitivities. Iter202 is a provider-complete pre-execution safety null; iter203 is an execution-infrastructure null; iter204 is a pre-dispatch parse null; iter205 is a pre-dispatch admission-history null; and iter206 is a locally sealed pre-publication claim-integrity null with zero remote or scientific actions. Iter207 is the active separately versioned correction and admission recovery. It preserves the exact fixed 50-row scientific/runtime plan, permits at most one final branch push and one exact two-parent merge, requires the exact-six iter204 snapshot plus empty complete iter205 and iter206 histories, and permits at most one dispatch only after every gate passes. No population frequency, model comparison, leaderboard, deployment, generalization, or state-of-the-art result is claimed. Telos operates from its standalone repository; secret material remains external and must never be copied, named, printed, or committed.",
-  "publication_claim_boundary": "Current publication boundary (2026-07-16): Iter207 is the immutable local correction and admission baseline; its publication and dispatch authorization was never exercised. Iter208 is the active post-seal forensic correction. It changes no historical scientific artifact or outcome, adds artifact-bound receipt v2, corrects paper and README claims, records 23 primary or official frontier sources and a bounded TCP-1 design, and permits no provider, GPU, container-scientific, or workflow-dispatch action. Its output is a local correction and roadmap, not a population estimate, model ranking, production verifier, or state-of-the-art result. TELOS, Sentinel, Inbar, and Odeya are related to one another and separate from Aweb. A branch push or merge is permitted only after the exact local source and handoff seals pass independent review and remote CI remains non-scientific.",
+  "publication_claim_boundary": "Current publication boundary (2026-07-16): Iter207 is the immutable local correction and admission baseline; its publication and dispatch authorization was never exercised. Iter208 is the sealed post-seal forensic correction. It changes no historical scientific artifact or outcome, adds artifact-bound receipt v2, corrects paper and README claims, records 23 primary or official frontier sources, and designs bounded TCP-1 without execution. Its exact first publication attempt failed two non-scientific CI validators and was not merged. Iter209 is the active additive publication-CI recovery; it preserves the failed iter208 branch, binds the remote failures, and corrects only historical-hash and CI-environment validation. Neither iter208 nor iter209 is a population estimate, model ranking, production verifier, or state-of-the-art result. TELOS, Sentinel, Inbar, and Odeya are related to one another and separate from Aweb. A merge is permitted only after the fresh iter209 source and handoff seals pass independent review and both non-scientific remote CI matrices remain green at the exact tip.",
   "claim_boundary_semantics": {
     "current_field": "publication_claim_boundary",
     "historical_field": "historical_claim_ledger",
@@ -26,11 +26,12 @@
     "iter202": "Provider-complete pre-execution safety null. The interrupted no-output invocation has unknown exact completed calls and spend and is conservatively ceiling-charged 53 calls / $2.65, separately from the retained 53 solver and 39 scenario calls. Combined bookkeeping is 145 charged calls / $7.25 estimated-or-charged, not exact actual usage.",
     "iter206": "Local pre-publication claim-integrity null: zero branch pushes, pull requests, merges, workflow runs, dispatch requests, provider calls, containers, or science; no N, k, or u.",
     "iter207": "Sealed local machine-checked claim correction and unchanged exact-six admission-recovery baseline. Its remote publication and dispatch authorization was never exercised. Frozen evidence inputs remain unchanged; twelve exact historical interpretation surfaces are relabeled with their iter206-seal blobs hash-bound. The audit made two authenticated read-only GitHub metadata GETs for CI projection verification, with zero remote mutations or model-provider calls.",
-    "iter208": "Active local post-seal forensic correction. It preserves iter207 and every historical experiment, narrows current claims, adds 2026 primary-source positioning, artifact-bound receipt v2, explicit project boundaries, conservative citation metadata, and a bounded zero-execution TCP-1 roadmap."
+    "iter208": "Sealed post-seal forensic correction. Its first exact publication attempt failed two non-scientific remote CI validators and was not merged; the branch remains unchanged.",
+    "iter209": "Active additive publication-CI recovery. It binds the iter208 remote failures, makes historical source hashes Git-tree-bound, isolates pull-request test state, and changes no scientific artifact or result."
   },
   "current_gate_state": {
     "date": "2026-07-16",
-    "stage": "iter208_post_iter207_seal_forensic_correction_and_publication_review",
+    "stage": "iter209_publication_ci_recovery_after_iter208_remote_gate_failure",
     "iter200_denominator": "complete: 37 executed, 24 certified, k=1, u=6; historical 1/15 is not poolable",
     "iter200_corrected_baseline": {
       "complete_case_sensitivity": "1/18",
@@ -205,8 +206,10 @@
       "next_boundary": "finish all source, evidence, paper, documentation, handoff, tests, and adversarial review locally before the one allowed remote branch push"
     },
     "iter208_correction": {
-      "status": "active_local_post_seal_forensic_correction",
+      "status": "sealed_publication_correction_remote_ci_failed",
       "predecessor_seal": "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28",
+      "source_commit": "184883088336cbae834e812a8d1dce0b7b031821",
+      "seal_commit": "a2c2863cf993cb6dd39d2fada8d58e4796929120",
       "correction_scope": "paper and README claim repair; 2026 frontier audit; artifact-bound receipt v2; project-boundary cleanup; conservative citation metadata; mission synchronization; zero-execution TCP-1 design",
       "actions_before_source_seal": {
         "provider_calls": 0,
@@ -218,7 +221,33 @@
         "releases": 0
       },
       "claim_boundary": "local publication correction and roadmap only; no scientific numerator or denominator",
-      "publication_boundary": "create and verify the local source commit and minimal handoff seal before any branch publication; require non-scientific remote CI and independent review before merge"
+      "publication_boundary": "the exact sealed branch was pushed once and draft PR 8 opened; merge was blocked after both current CI event matrices failed",
+      "remote_publication_attempt": {
+        "draft_pull_request": 8,
+        "push_ci_run": 29491806574,
+        "pull_request_ci_run": 29491841840,
+        "head_sha": "a2c2863cf993cb6dd39d2fada8d58e4796929120",
+        "merged": false,
+        "failed_branch_mutated_after_observation": false
+      }
+    },
+    "iter209_recovery": {
+      "status": "active_local_publication_ci_recovery",
+      "predecessor_seal": "a2c2863cf993cb6dd39d2fada8d58e4796929120",
+      "correction_scope": "iter65 historical Git-blob hash validation; pull-request test-environment isolation; iter208 descendant-safe receipt validation; exact remote failure custody; no scientific change",
+      "actions_before_source_seal": {
+        "provider_calls": 0,
+        "gpu_scientific_runs": 0,
+        "scientific_container_runs": 0,
+        "workflow_dispatches": 0,
+        "new_branch_pushes": 0,
+        "merges": 0,
+        "releases": 0,
+        "force_pushes": 0,
+        "failed_iter208_branch_mutations": 0
+      },
+      "claim_boundary": "publication-CI engineering recovery only; no scientific numerator, denominator, score, or result",
+      "publication_boundary": "seal a fresh iter209 branch without rewriting iter208; require green push and pull-request ci matrices at the exact new tip before one merge commit"
     }
   },
   "source_of_truth": [
@@ -249,6 +278,10 @@
     "experiments/iter208_post_seal_forensic_correction/proof/frontier_sources.json",
     "experiments/iter208_post_seal_forensic_correction/proof/hardware_preflight.json",
     "experiments/iter208_post_seal_forensic_correction/proof/receipt_v2.json",
+    "experiments/iter209_publication_ci_recovery/HYPOTHESIS.md",
+    "experiments/iter209_publication_ci_recovery/RESULT.md",
+    "experiments/iter209_publication_ci_recovery/proof/ci_failure_diagnosis.json",
+    "experiments/iter209_publication_ci_recovery/proof/receipt_v2.json",
     "experiments/iter202_natural_rate_scaled/RESULT.md",
     "experiments/iter202_natural_rate_scaled/proof/learning_record.json",
     "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
@@ -344,6 +377,10 @@
     "scripts/validate_iter207_publication_safety.py",
     "scripts/validate_iter207_runtime_recovery.py",
     "scripts/validate_iter208_post_seal_forensic_correction.py",
+    "scripts/audit_receipt_schema_prompt_alignment.py",
+    "scripts/build_iter209_receipt.py",
+    "scripts/validate_current_paper.py",
+    "scripts/validate_iter209_publication_ci_recovery.py",
     "scripts/validate_handoff.py",
     "scripts/validate_mission_loop.py",
     "telos/proof.py",
@@ -355,11 +392,12 @@
     "tests/test_iter206_pre_publication_null.py",
     "tests/test_iter207_claim_integrity_and_admission_recovery.py",
     "tests/test_iter208_post_seal_forensic_correction.py",
+    "tests/test_iter209_publication_ci_recovery.py",
     "tests/test_make_handoff.py",
     "tests/test_mission_loop_guard.py"
   ],
   "active_gate": "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
-  "active_publication_gate": "experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md",
+  "active_publication_gate": "experiments/iter209_publication_ci_recovery/HYPOTHESIS.md",
   "frozen_upstream_gate": "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
   "loop": [
     {
@@ -532,6 +570,8 @@
     "python3 scripts/validate_iter207_publication_safety.py --check",
     "python3 scripts/validate_iter207_runtime_recovery.py",
     "python3 scripts/validate_iter208_post_seal_forensic_correction.py",
+    "python3 scripts/build_iter209_receipt.py --check",
+    "python3 scripts/validate_iter209_publication_ci_recovery.py",
     "python3 scripts/validate_json.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_mission_loop.py",

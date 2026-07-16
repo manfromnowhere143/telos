@@ -144,6 +144,12 @@ jobs:
       - name: Iter208 post-seal forensic correction guard
         run: python3 scripts/validate_iter208_post_seal_forensic_correction.py
 
+      - name: Iter209 publication CI recovery receipt guard
+        run: python3 scripts/build_iter209_receipt.py --check
+
+      - name: Iter209 publication CI recovery guard
+        run: python3 scripts/validate_iter209_publication_ci_recovery.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
