@@ -36,6 +36,26 @@ def test_terminal_learning_record_forbids_iter204_dispatch() -> None:
     )
 
 
+def test_later_completed_iterations_cannot_invalidate_iter204_null(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    observed: list[str] = []
+    real_latest = guard.latest_next_action
+
+    def bounded_latest(records):
+        observed.extend(record.experiment_id for record in records)
+        return real_latest(records)
+
+    monkeypatch.setattr(guard, "latest_next_action", bounded_latest)
+
+    guard.validate_terminal_learning_record()
+
+    assert observed == [
+        "iter204_iter203_infrastructure_recovery",
+        "iter204_iter203_infrastructure_recovery_pre_dispatch_null",
+    ]
+
+
 def test_local_422_claim_is_a_lower_bound_not_an_exact_request_count() -> None:
     document = json.loads(guard.NULL.read_text(encoding="utf-8"))
     rejection = document["dispatch_api_rejection"]

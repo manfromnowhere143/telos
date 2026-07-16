@@ -14,7 +14,6 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from telos.ledger import (  # noqa: E402
-    discover_learning_record_paths,
     latest_next_action,
     load_learning_record,
 )
@@ -191,12 +190,12 @@ def validate_terminal_learning_record() -> None:
                 f"iter204 terminal learning evidence is absent: {relative}"
             )
     records = [
-        load_learning_record(path, root=ROOT)
-        for path in discover_learning_record_paths(ROOT)
+        load_learning_record(PENDING_LEARNING, root=ROOT),
+        load_learning_record(TERMINAL_LEARNING, root=ROOT),
     ]
     if latest_next_action(records) != TERMINAL_NEXT_ACTION:
         raise PreDispatchNullError(
-            "completed learning ledger does not advance safely beyond iter204"
+            "bounded iter204 learning records do not advance safely beyond iter204"
         )
 
 
