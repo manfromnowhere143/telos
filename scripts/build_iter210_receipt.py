@@ -28,6 +28,8 @@ from telos.proof import (  # noqa: E402
 RECEIPT_PATH = ROOT / "experiments/iter210_pr_synthetic_merge_recovery/proof/receipt_v2.json"
 PRODUCER = "iter210-pr-synthetic-merge-recovery"
 HANDOFF_SCHEMA = "telos.iter210.handoff.v1"
+ITER210_SOURCE_COMMIT = "323130bd96b20c062005f097294d8fab235bea93"
+ITER210_SEAL_COMMIT = "c109312d5ee525599abfbac178c3fb245117ab49"
 BINDINGS = {
     ".github/workflows/ci.yml": "build",
     "README.md": "artifact",
@@ -112,6 +114,31 @@ def _git_bytes(*arguments: str) -> bytes:
 
 
 def sealed_source_commit() -> str | None:
+    source_is_ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", ITER210_SOURCE_COMMIT, "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    seal_is_ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", ITER210_SEAL_COMMIT, "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+    )
+    if seal_is_ancestor.returncode == 0:
+        parents = _git_bytes("rev-list", "--parents", "-n", "1", ITER210_SEAL_COMMIT)
+        if parents.decode().split() != [
+            ITER210_SEAL_COMMIT,
+            ITER210_SOURCE_COMMIT,
+        ]:
+            raise RuntimeError("iter210 public seal parent topology differs")
+        return ITER210_SOURCE_COMMIT
+    if source_is_ancestor.returncode == 0 and _git_bytes("rev-parse", "HEAD").decode().strip() != (
+        ITER210_SOURCE_COMMIT
+    ):
+        raise RuntimeError("iter210 source is in history without its exact public seal")
+
     handoff = (ROOT / "HANDOFF.md").read_text(encoding="utf-8")
     if f"handoff_schema: {HANDOFF_SCHEMA}" not in handoff:
         return None
@@ -127,7 +154,9 @@ def sealed_source_commit() -> str | None:
     )
     if result.returncode != 0:
         raise RuntimeError("iter210 handoff source is not in current Git history")
-    return source
+    if source != ITER210_SOURCE_COMMIT:
+        raise RuntimeError("iter210 handoff source differs from the public source")
+    return ITER210_SOURCE_COMMIT
 
 
 def verify_sealed_receipt(source: str) -> int:

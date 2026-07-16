@@ -90,11 +90,12 @@ REQUIRED_TEXT = {
         "iter207_claim_integrity_and_admission_recovery",
         "exact historical container bytes are not reconstructible",
         "provider-complete safety null",
-        "TCP-1 materialization preflight PASS — scientific execution BLOCKED",
+        "Post-seal validation recovery active — TCP-1 scientific execution BLOCKED",
         "Artifact-bound receipt v2",
         "post-seal forensic correction",
         "iter209 publication CI recovery",
         "iter211 TCP-1 materialization preflight",
+        "iter213 iter211 post-seal validation recovery",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
         "certified-resolved reference-differential witness under the benchmark's operational label",

@@ -10,8 +10,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
 
 - Sealed runtime/admission gate:
   [`../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md`](../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md)
-- Active zero-execution materialization gate:
-  [`../experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md`](../experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md)
+- Active post-seal validation-recovery gate:
+  [`../experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md`](../experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md)
 - Frozen upstream disposition:
   [`../experiments/iter202_natural_rate_scaled/RESULT.md`](../experiments/iter202_natural_rate_scaled/RESULT.md)
 - Runtime baseline state: post-provider, pre-scientific-output infrastructure recovery over sealed iter202 and
@@ -91,13 +91,21 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   scientific artifact or result and authorized no provider, GPU, scientific container, workflow dispatch,
   release, or scientific action.
 
-  Iter211 is the active zero-execution TCP-1 materialization preflight. It freezes deterministic seeds,
+  Iter211 is the exact sealed zero-execution TCP-1 materialization preflight. It freezes deterministic seeds,
   custody schemas, analysis code, control separation, resource ceilings, and an isolation threat model. Two
   local-design gates pass; nine external admission gates remain blocked: reviewers, model/cutoff/weights,
   twelve tasks and hidden tests, controls, runtime/container/hardware, external timestamp, isolation
-  rehearsal, throughput preflight, and monetary-budget approval. There are zero admitted tasks, model calls,
-  GPU allocations, accelerator-hours, scientific containers, or trajectories. Its execution authorization
-  is false and scientific execution remains blocked.
+  rehearsal, throughput preflight, and monetary-budget approval. Its first complete post-seal `pytest -q`
+  passed `648` tests and failed `3` publication-only compatibility checks. The exact iter211 source
+  `1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021` and seal
+  `dc19e6f27f5a001632b5183ff798a6eacae6de33` remain unchanged.
+
+  Iter213 is the active additive post-seal validation recovery. It makes standing-claim handoff boundary
+  parsing accept the bounded historical and publication title families and makes iter210/iter211 receipt and
+  topology checks resolve exact sealed Git ancestors on arbitrary descendants. Iter212's independent-cohort
+  hypothesis remains unchanged and inactive. There are zero admitted tasks, model calls, GPU allocations,
+  accelerator-hours, scientific containers, or trajectories. Execution authorization remains false and
+  scientific execution remains blocked.
 
   The iter200 prerequisite remains complete: all `37` valid patches have official-harness evidence, `24`
   are certified, `k=1`, and `u=6`; the standing descriptive quantities are `1/24` confirmed lower, `7/24`
@@ -109,11 +117,10 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   cohort remains disjoint from iter200 but not unused mission-wide
   (`27/53` defined prior-result exposure; `10/53` provider-ledger exposure), so the pre-result-declared
   sensitivity splits remain mandatory. `CONTINUITY.md` remains an exact-byte frozen iter202 upstream
-  artifact; the iter203--iter206 terminal results, iter207--iter210 seals, and iter211 hypothesis govern the
-  current boundary. Iter211 has one dependency order: finish and validate the deterministic preflight source;
-  create its source commit; derive the blocked execution-admission receipt and handoff from that commit; then
-  create a minimal handoff-only seal before fresh branch publication. No scientific dispatch or execution is
-  authorized by that sequence.
+  artifact; the iter203--iter206 terminal results, iter207--iter211 seals, unchanged prospective iter212
+  hypothesis, and iter213 recovery hypothesis govern the current boundary. Iter213 must finish and validate
+  all recovery source, create one receipt-bound source commit, and derive one handoff-only seal before fresh
+  branch publication. No scientific dispatch or execution is authorized by that sequence.
 - Standing construction correction: iter192 is conservatively adjudicated `FAIL` on its overbroad novelty
   interpretation; the literal v1-specific falsifier trigger is indeterminate because iter151 retained no
   accepted patch bytes. Iter151 had already reported the same class-level `0/20` test-suite precursor, and
@@ -167,7 +174,8 @@ Machine-readable contract: [`../mission/loop.json`](../mission/loop.json).
   pre-publication claim-integrity null. Iter207 is the sealed separately versioned correction and recovery.
   Iter208 is the sealed additive publication correction; iter209 and iter210 are additive publication-CI
   recoveries that do not rewrite or mutate either failed predecessor branch. Iter210 is merged and green;
-  iter211 adds protocol materialization only and contributes no scientific result.
+  iter211 adds protocol materialization only; iter213 is its publication-only validation recovery. Neither
+  contributes a scientific result, and iter212 remains inactive.
 - Historical boundary ledger through iter190 (retained below for provenance):
   iter161/iter165 may be
   cited only as a bounded paired single-model result (`3/40` all-hack recall, `0/40` control false

@@ -16,6 +16,8 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.build_iter210_receipt import (  # noqa: E402
     BINDINGS,
+    ITER210_SEAL_COMMIT,
+    ITER210_SOURCE_COMMIT,
     RECEIPT_PATH,
     sealed_source_commit,
     verify_sealed_receipt,
@@ -69,13 +71,17 @@ def source_and_seal() -> tuple[str, str] | None:
     source = sealed_source_commit()
     if source is None:
         return None
-    head_row = _git("rev-list", "--parents", "-n", "1", "HEAD").split()
-    candidates = [head_row[0], *head_row[1:]]
-    for candidate in candidates:
-        row = _git("rev-list", "--parents", "-n", "1", candidate).split()
-        if row == [candidate, source]:
-            return source, candidate
-    raise Iter210ValidationError("cannot resolve iter210 handoff seal from Git parent topology")
+    _require(source == ITER210_SOURCE_COMMIT, "iter210 source resolution differs")
+    _require(
+        _git("merge-base", "--is-ancestor", ITER210_SEAL_COMMIT, "HEAD") == "",
+        "iter210 public seal is not in the current history",
+    )
+    _require(
+        _git("rev-list", "--parents", "-n", "1", ITER210_SEAL_COMMIT).split()
+        == [ITER210_SEAL_COMMIT, ITER210_SOURCE_COMMIT],
+        "iter210 public seal parent topology differs",
+    )
+    return ITER210_SOURCE_COMMIT, ITER210_SEAL_COMMIT
 
 
 def validate_diagnosis_and_fix() -> None:
@@ -164,10 +170,13 @@ def validate(*, preflight: bool = False) -> list[str]:
     failures: list[str] = []
     try:
         validate_diagnosis_and_fix()
-        if preflight:
+        resolved = source_and_seal()
+        if resolved is not None:
+            validate_receipt_and_topology()
+        elif preflight:
             validate_experiment_delta("HEAD")
         else:
-            validate_receipt_and_topology()
+            raise Iter210ValidationError("iter210 sealed handoff identity is absent")
     except (OSError, ProofValidationError, RuntimeError, Iter210ValidationError) as exc:
         failures.append(str(exc))
     return failures

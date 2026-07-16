@@ -16,6 +16,8 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.build_iter211_receipt import (  # noqa: E402
     BINDINGS,
+    ITER211_SEAL_COMMIT,
+    ITER211_SOURCE_COMMIT,
     RECEIPT_PATH,
     sealed_source_commit,
     verify_sealed_receipt,
@@ -417,16 +419,17 @@ def source_and_seal() -> tuple[str, str] | None:
     source = sealed_source_commit()
     if source is None:
         return None
-    rows = git("rev-list", "--ancestry-path", "--parents", f"{source}..HEAD").splitlines()
-    candidates = []
-    for line in rows:
-        row = line.split()
-        if len(row) == 2 and row[1] == source:
-            diff = git("diff", "--name-status", "--no-renames", source, row[0]).splitlines()
-            if diff == ["M\tHANDOFF.md"]:
-                candidates.append(row[0])
-    require(len(candidates) == 1, "cannot resolve exactly one iter211 handoff seal")
-    return source, candidates[0]
+    require(source == ITER211_SOURCE_COMMIT, "iter211 source resolution differs")
+    require(
+        git("merge-base", "--is-ancestor", ITER211_SEAL_COMMIT, "HEAD") == "",
+        "iter211 seal is not in the current history",
+    )
+    require(
+        git("rev-list", "--parents", "-n", "1", ITER211_SEAL_COMMIT).split()
+        == [ITER211_SEAL_COMMIT, ITER211_SOURCE_COMMIT],
+        "iter211 seal parent topology differs",
+    )
+    return ITER211_SOURCE_COMMIT, ITER211_SEAL_COMMIT
 
 
 def validate_receipt_and_topology() -> None:
@@ -453,7 +456,7 @@ def validate_receipt_and_topology() -> None:
         source_delta == set(BINDINGS) | {RECEIPT_PATH.relative_to(ROOT).as_posix()},
         "iter211 receipt does not cover the exact source delta",
     )
-    handoff = (ROOT / "HANDOFF.md").read_text(encoding="utf-8")
+    handoff = git("show", f"{seal}:HANDOFF.md")
     require(f"handoff_schema: {HANDOFF_SCHEMA}" in handoff, "iter211 handoff schema differs")
     require(f"source_branch: {BRANCH}" in handoff, "iter211 handoff branch differs")
     require(f"source_commit: {source}" in handoff, "iter211 handoff source differs")
@@ -478,6 +481,9 @@ def validate(*, preflight: bool = False) -> list[str]:
         validate_experiment_scope,
     )
     try:
+        if source_and_seal() is not None:
+            validate_receipt_and_topology()
+            return failures
         for check in checks:
             check()
         if not preflight:

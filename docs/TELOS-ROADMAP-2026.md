@@ -85,10 +85,12 @@ Measure capability and reliability separately:
 
 Name: **TELOS Trace–Consequence Pilot 1**
 
-Status: deterministic materialization preflight exists in iter211, but scientific execution is blocked.
-There is no admitted task cohort, reviewer team, selected model, hidden-test freeze, execution binding,
-external timestamp, isolation rehearsal, throughput result, or approved monetary budget. No model call, GPU
-allocation, or scientific execution is authorized by this roadmap or by repository publication.
+Status: deterministic materialization preflight exists in the exact iter211 seal, but its first complete
+post-seal suite exposed three non-scientific descendant/handoff compatibility defects. Iter213 is the active
+additive recovery; iter212 remains the unchanged prospective independent-cohort gate. Scientific execution
+is blocked. There is no admitted task cohort, reviewer team, selected model, hidden-test freeze, execution
+binding, external timestamp, isolation rehearsal, throughput result, or approved monetary budget. No model
+call, GPU allocation, or scientific execution is authorized by this roadmap or by repository publication.
 
 ### Question
 
@@ -178,18 +180,19 @@ TCP-1 is a null or failure—not a result—if any of these occurs:
 
 ```mermaid
 flowchart LR
- I211["211 materialization preflight<br/>protocol + schemas + analysis"] --> I212["212 independent freeze<br/>humans + tasks + custody"]
- I212 --> I213["213 isolated preflight<br/>one task · one seed"]
- I213 --> Q{"all admission gates pass<br/>inside 64-hour ceiling?"}
+ I211["211 materialization preflight<br/>protocol + schemas + analysis"] --> I213["213 post-seal recovery<br/>descendant-safe guards"]
+ I213 --> I212["212 preregistered freeze<br/>humans + tasks + custody"]
+ I212 --> I214["214 isolated preflight<br/>one task · one seed"]
+ I214 --> Q{"all admission gates pass<br/>inside 64-hour ceiling?"}
  Q -->|no or missing| B["BLOCKED / NULL<br/>no scientific run"]
- Q -->|yes| I214["214 bounded execution<br/>60 natural trajectories"]
- I214 --> I215["215 blinded adjudication<br/>locked analysis"]
- I215 --> R{"valid and interpretable?"}
+ Q -->|yes| I215["215 bounded execution<br/>60 natural trajectories"]
+ I215 --> I216["216 blinded adjudication<br/>locked analysis"]
+ I216 --> R{"valid and interpretable?"}
  R -->|no| N["publish bounded null/failure"]
- R -->|yes| I216["216 independent replication<br/>multiple models + harnesses"]
+ R -->|yes| I217["217 independent replication<br/>multiple models + harnesses"]
  classDef done fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
  classDef blocked fill:#fff1f0,stroke:#cf222e,color:#4c1114;
- class I211 done;
+ class I211,I213 done;
  class B,N blocked;
 ```
 
@@ -225,7 +228,9 @@ flowchart LR
   controls, resource envelope, and isolation threat model;
 - represent absent humans, tasks, bindings, timestamp, rehearsal, throughput, and budget as blockers;
 - publish an artifact-bound receipt whose scientific-execution status is `blocked`;
-- make no model call, accelerator allocation, or scientific claim.
+- make no model call, accelerator allocation, or scientific claim;
+- preserve the exact local seal after its first complete post-seal suite exposes three publication-only
+  compatibility defects.
 
 ### Iter212 — independent cohort and custody freeze
 
@@ -237,28 +242,36 @@ flowchart LR
   timestamp, and record separate budget approval;
 - authorize at most the later non-cohort throughput preflight, never the pilot itself.
 
-### Iter213 — isolated throughput preflight
+### Iter213 — iter211 post-seal validation recovery
+
+- preserve iter211 and iter212 byte-for-byte;
+- accept both bounded handoff heading families without disabling standing-claim scans;
+- make iter210 and iter211 receipt/topology checks resolve exact immutable commits on arbitrary descendants;
+- rerun the full provider-free closure and synthetic-merge simulation;
+- publish only after exact-tip branch and pull-request CI pass; authorize no science.
+
+### Iter214 — isolated throughput preflight
 
 - execute one task and one seed outside the scientific cohort under at most two accelerator-hours;
 - test end-to-end trace, grader, receipt, isolation, redaction, and resource custody;
 - project the frozen cohort plus controls with ten-percent headroom;
 - stop if the total cannot fit inside the 64-hour ceiling.
 
-### Iter214 — bounded GPU execution
+### Iter215 — bounded GPU execution
 
 - execute exactly the frozen 60 natural trajectories only if iter212 and iter213 pass;
 - execute calibration controls under separate identifiers and denominators;
 - collect append-only raw evidence before adjudication;
 - stop on the first custody, isolation, budget, or completeness violation.
 
-### Iter215 — blinded adjudication
+### Iter216 — blinded adjudication
 
 - obtain two independent semantic labels for every proxy-passing output;
 - retain disagreement and use the independent adjudicator only where required;
 - run the locked analysis with explicit missingness and separate controls;
 - make no post-hoc threshold or endpoint change inside the result.
 
-### Iter216 — multi-model replication
+### Iter217 — multi-model replication
 
 - proceed only after TCP-1 yields a valid, interpretable, bounded result;
 - use at least three model families and two agent harnesses;

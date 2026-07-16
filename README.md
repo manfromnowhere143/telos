@@ -2,15 +2,15 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
-> **TCP-1 materialization preflight PASS — scientific execution BLOCKED.** Iter208 corrected the public
-> evidence surface; iter209 and iter210 then exposed and repaired two publication-CI topology defects without
-> changing science. Iter210 merged through PR `#10` as
-> `fb348eb1f67c0605679cd56a1cfa210cf192db03`, with green branch, pull-request, and merged-master CI.
-> Iter211 now freezes TCP-1's protocol, schemas, deterministic seeds, analysis code, resource envelope, and
-> isolation threat model. **2 local-design gates pass; 9 external admission gates remain blocked.** There is
-> no admitted cohort, reviewer team, model/runtime binding, hidden-test freeze, external timestamp,
-> throughput result, or approved budget. No provider run, GPU allocation, scientific container, workflow
-> dispatch, or scientific execution is authorized.
+> **Post-seal validation recovery active — TCP-1 scientific execution BLOCKED.** Iter210 merged through PR
+> `#10` as `fb348eb1f67c0605679cd56a1cfa210cf192db03`, with green branch, pull-request, and merged-master CI.
+> Iter211 then froze TCP-1's protocol, schemas, deterministic seeds, analysis code, resource envelope, and
+> isolation threat model: **2 local-design gates pass; 9 external admission gates remain blocked.** Its first
+> complete post-seal suite passed `648` tests and failed `3` publication-only compatibility checks. The exact
+> iter211 seal is preserved; iter213 is the additive descendant/handoff recovery. There is no admitted
+> cohort, reviewer team, model/runtime binding, hidden-test freeze, external timestamp, throughput result,
+> or approved budget. No provider run, GPU allocation, scientific container, workflow dispatch, or
+> scientific execution is authorized.
 
 Read the [forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
 [2026 roadmap](docs/TELOS-ROADMAP-2026.md) before extending the experiment line.
@@ -18,9 +18,11 @@ The preserved publication predecessors are the
 [iter208 post-seal forensic correction](experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md),
 [iter209 publication CI recovery](experiments/iter209_publication_ci_recovery/HYPOTHESIS.md), and
 [iter210 PR synthetic-merge recovery](experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md).
-The active zero-execution gate is the
+The sealed materialization packet is the
 [iter211 TCP-1 materialization preflight](experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md).
-Its prospective, still-inactive successor is the
+The active publication-engineering gate is
+[iter213 iter211 post-seal validation recovery](experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md).
+The prospective, still-inactive scientific successor is the unchanged
 [iter212 independent cohort and custody freeze](experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md).
 
 ## Current result
@@ -205,13 +207,15 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 sealed local<br/>claim corrections<br/>no publication"]-->I208["208 sealed<br/>remote CI failed<br/>no scientific run"]-->I209["209 sealed<br/>push green; PR failed<br/>no scientific run"]-->I210["210 merged recovery<br/>push · PR · master green"]-->I211["211 TCP-1 preflight<br/>2 pass · 9 blocked<br/>no scientific run"]
+ I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 sealed local<br/>claim corrections<br/>no publication"]-->I208["208 sealed<br/>remote CI failed<br/>no scientific run"]-->I209["209 sealed<br/>push green; PR failed<br/>no scientific run"]-->I210["210 merged recovery<br/>push · PR · master green"]-->I211["211 TCP-1 sealed<br/>2 pass · 9 blocked<br/>post-seal suite 648/3"]-->I213["213 validation recovery<br/>descendant-safe guards<br/>no scientific run"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
+ classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
  classDef active fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
  class I203,I204,I205,I206,I207,I208,I209 null;
  class I210 complete;
- class I211 active;
+ class I211 corrected;
+ class I213 active;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows
@@ -420,9 +424,10 @@ the sealed, separately versioned correction and admission-recovery baseline. Ite
 post-seal forensic correction whose first publication CI failed for two validator defects. Iter209 fixed
 those defects and passed push CI, but its PR CI exposed a synthetic-merge topology error. Iter210 is the
 sealed additive topology recovery; PR `#10` merged with green branch, pull-request, and merged-master CI.
-Iter211 is the active zero-execution TCP-1 materialization preflight. Its protocol layer passes, while its
-scientific-execution receipt is blocked on nine real external gates. Iter208 through iter211 contribute no
-scientific result.
+Iter211 is the sealed zero-execution TCP-1 materialization preflight. Its protocol layer passes and its
+scientific-execution receipt is blocked on nine real external gates, but its first full post-seal suite found
+three publication-only compatibility defects. Iter213 preserves iter211 exactly and recovers descendant-safe
+receipt/topology and handoff scanning. Iter208 through iter213 contribute no scientific result.
 
 `experiments/iter200_natural_certified_yet_wrong_rate/` asks `gpt-5.6-terra` to fix issues with no instruction
 to game tests. It is exploratory rather than a preregistered frequency estimate. The prompt is
@@ -1475,7 +1480,7 @@ telos/                     receipt validation, scorecard primitives, and telos/t
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, forensic audit, related work, roadmap, and synthesis reports
-experiments/               one folder per experiment (iter00-iter211), including explicit fail/null/blocked states
+experiments/               one folder per experiment (iter00-iter213), including explicit fail/null/blocked states
 mission/                   machine-readable mission loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
@@ -1528,6 +1533,8 @@ python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py
 python3 scripts/build_iter211_tcp1_packet.py --check
 python3 scripts/build_iter211_receipt.py --check
 python3 scripts/validate_iter211_tcp1_materialization_preflight.py
+python3 scripts/build_iter213_receipt.py --check
+python3 scripts/validate_iter213_post_seal_validation_recovery.py
 python3 scripts/validate_target_survey.py
 python3 scripts/validate_public_slice.py
 python3 scripts/validate_agent_behavior_slice.py

@@ -13,6 +13,11 @@ def test_iter211_deterministic_packet_and_blocked_admission_are_clean() -> None:
     assert len(packet_builder.fixed_seeds()) == 5
     assert len(set(packet_builder.fixed_seeds())) == 5
     assert guard.validate(preflight=True) == []
+    assert receipt_builder.sealed_source_commit() == receipt_builder.ITER211_SOURCE_COMMIT
+    assert guard.source_and_seal() == (
+        receipt_builder.ITER211_SOURCE_COMMIT,
+        receipt_builder.ITER211_SEAL_COMMIT,
+    )
 
     admission = json.loads((packet_builder.PROOF / "admission_report.json").read_text())
     assert admission["materialization_preflight_status"] == "pass"

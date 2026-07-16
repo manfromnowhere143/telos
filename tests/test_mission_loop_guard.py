@@ -113,6 +113,17 @@ def test_committed_iter211_materialization_is_blocked_and_evidence_bounded() -> 
     )
 
 
+def test_committed_iter213_recovery_is_publication_only_and_evidence_bounded() -> None:
+    guard = load_guard_module()
+    contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
+
+    assert guard.validate_iter213_recovery_state(contract) == []
+    contract["current_gate_state"]["iter213_recovery"]["execution_authorized"] = True
+    assert "iter213 scientific/execution boundary differs" in (
+        guard.validate_iter213_recovery_state(contract)
+    )
+
+
 def test_iter207_source_of_truth_requires_the_full_recovery_chain() -> None:
     guard = load_guard_module()
     required = (

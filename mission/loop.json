@@ -3,7 +3,7 @@
   "standard": "maestro-compatible-evidence-loop-v1",
   "status": "active_open_repo_loop",
   "claim_boundary": "Current boundary (2026-07-16): iter192 is conservatively adjudicated FAIL on overbroad conceptual novelty; its literal v1-specific falsifier trigger is indeterminate, while the deterministic recount remains retained. Iter195 is strict protocol FAIL with narrower exploratory findings retained; iter196 is partial/protocol-blocked; iter198 failed its original accuracy gate; and iter199 is post-provider/pre-execution rather than independently preregistered. The released construction corpus is 22 official-harness-resolved, gold-assisted targeted reference-differential rows across 8 repositories, not independent semantic ground truth. The iter179 17/40 primary score has a $13.128090 estimated spend guard for 240 score-producing calls; the rounded $13.59 through-repair total includes excluded diagnostics and is not a provider invoice. Iter201 remains a protocol failure with judge 20/22, property 6/22 as a subset, 8/88 judge nondecisions, four disclosed shared-line diagnostic rows, and no independent property false-positive or ensemble-gain claim. Iter200 remains an exploratory nonrandom gold-localized existence result with N=24, k=1, u=6 and mandatory 1/24, 7/24, 1/18 sensitivities. Iter202 is a provider-complete pre-execution safety null; iter203 is an execution-infrastructure null; iter204 is a pre-dispatch parse null; iter205 is a pre-dispatch admission-history null; and iter206 is a locally sealed pre-publication claim-integrity null with zero remote or scientific actions. Iter207 is the active separately versioned correction and admission recovery. It preserves the exact fixed 50-row scientific/runtime plan, permits at most one final branch push and one exact two-parent merge, requires the exact-six iter204 snapshot plus empty complete iter205 and iter206 histories, and permits at most one dispatch only after every gate passes. No population frequency, model comparison, leaderboard, deployment, generalization, or state-of-the-art result is claimed. Telos operates from its standalone repository; secret material remains external and must never be copied, named, printed, or committed.",
-  "publication_claim_boundary": "Current publication boundary (2026-07-16): Iter207 is the immutable local correction and admission baseline. Iter208 is the sealed post-seal forensic correction; its first publication failed two non-scientific CI validators and was not merged. Iter209 fixed those defects and passed push CI, but pull-request CI exposed one synthetic-merge branch-tip assumption; it also was not merged. Iter210 merged through PR #10 after exact-tip push and pull-request CI passed; merged-master CI also passed. Iter211 is the active zero-execution TCP-1 materialization preflight. It freezes protocol, schemas, analysis, control separation, resource ceilings, and isolation threats while scientific execution remains blocked on nine external gates. Iter208 through iter211 are not population estimates, model rankings, production verifiers, product-efficacy results, or state-of-the-art results. TELOS, Sentinel, Inbar, and Odeya are related to one another and separate from Aweb. Iter211 publication is permitted only after an exact source-plus-handoff seal passes independent review and both non-scientific remote CI matrices at the unchanged tip; publication authorizes no TCP-1 execution or release.",
+  "publication_claim_boundary": "Current publication boundary (2026-07-16): Iter207 is the immutable local correction and admission baseline. Iter208 is the sealed post-seal forensic correction; its first publication failed two non-scientific CI validators and was not merged. Iter209 fixed those defects and passed push CI, but pull-request CI exposed one synthetic-merge branch-tip assumption; it also was not merged. Iter210 merged through PR #10 after exact-tip push and pull-request CI passed; merged-master CI also passed. Iter211 is sealed and its first complete post-seal suite passed 648 tests and failed 3 publication-only compatibility checks. Iter213 is the active additive publication-validation recovery: it preserves iter211, makes standing handoff boundaries title-compatible, and resolves iter210/iter211 receipts and topology from exact Git ancestors on later descendants. Iter212 remains unchanged and inactive as the prospective independent cohort/custody gate. TCP-1 scientific execution remains blocked on nine external gates. Iter208 through iter213 are not population estimates, model rankings, production verifiers, product-efficacy results, or state-of-the-art results. TELOS, Sentinel, Inbar, and Odeya are related to one another and separate from Aweb. Iter213 publication requires an exact source-plus-handoff seal, independent review, and green exact-tip push and pull-request CI; publication authorizes no TCP-1 execution or release.",
   "claim_boundary_semantics": {
     "current_field": "publication_claim_boundary",
     "historical_field": "historical_claim_ledger",
@@ -29,11 +29,12 @@
     "iter208": "Sealed post-seal forensic correction. Its first exact publication attempt failed two non-scientific remote CI validators and was not merged; the branch remains unchanged.",
     "iter209": "Sealed additive publication-CI recovery. Push CI passed; pull-request CI exposed one synthetic-merge branch-tip assumption, so it was not merged and remains unchanged.",
     "iter210": "Sealed additive PR synthetic-merge recovery. PR #10 merged as fb348eb1f67c0605679cd56a1cfa210cf192db03 after green push and pull-request CI; merged-master CI passed. No science changed.",
-    "iter211": "Active zero-execution TCP-1 materialization preflight. Protocol and analysis layers pass; scientific execution remains blocked on nine external admission gates."
+    "iter211": "Sealed zero-execution TCP-1 materialization preflight. Protocol and analysis layers pass and scientific execution is blocked on nine external gates; the first complete post-seal suite exposed three publication-only compatibility defects.",
+    "iter213": "Active additive post-seal validation recovery. Preserve iter211/iter212 and recover exact sealed ancestor receipt, topology, and handoff-boundary checks without science."
   },
   "current_gate_state": {
     "date": "2026-07-16",
-    "stage": "iter211_tcp1_materialization_preflight_after_green_iter210_merge",
+    "stage": "iter213_iter211_post_seal_validation_recovery",
     "iter200_denominator": "complete: 37 executed, 24 certified, k=1, u=6; historical 1/15 is not poolable",
     "iter200_corrected_baseline": {
       "complete_case_sensitivity": "1/18",
@@ -289,8 +290,10 @@
       "publication_boundary": "exact iter210 branch and pull-request CI passed; PR 10 merged once as an exact two-parent commit; merged-master CI passed; no release or scientific execution authorized"
     },
     "iter211_tcp1_materialization": {
-      "status": "materialization_preflight_pass_execution_blocked",
+      "status": "sealed_materialization_post_seal_validation_failed",
       "predecessor_merge": "fb348eb1f67c0605679cd56a1cfa210cf192db03",
+      "source_commit": "1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021",
+      "seal_commit": "dc19e6f27f5a001632b5183ff798a6eacae6de33",
       "correction_scope": "deterministic TCP-1 protocol, custody schemas, analysis implementation, separate controls, resource ceilings, isolation threat model, and explicit external blockers; no scientific execution",
       "planned_task_count": 12,
       "seeds_per_task": 5,
@@ -303,9 +306,34 @@
       "accelerator_hours_used": 0,
       "provider_calls": 0,
       "scientific_trajectories": 0,
+      "post_seal_tests_passed": 648,
+      "post_seal_tests_failed": 3,
       "execution_authorized": false,
       "claim_boundary": "zero-execution materialization evidence only; no scientific numerator, denominator, score, effect, ranking, population, product, deployment, priority, or state-of-the-art result",
-      "next_gate": "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md"
+      "next_gate": "experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md"
+    },
+    "iter213_recovery": {
+      "status": "active_local_post_seal_validation_recovery",
+      "predecessor_seal": "dc19e6f27f5a001632b5183ff798a6eacae6de33",
+      "observed_failure": "648 passed, 3 failed in the first complete iter211 post-seal pytest suite",
+      "correction_scope": "standing handoff boundary title families; iter210 and iter211 exact sealed-ancestor receipt and topology resolution; descendant-safe predecessor validation; no TCP-1 or scientific change",
+      "preserved_iter212_gate": "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md",
+      "actions_before_source_seal": {
+        "remote_mutations": 0,
+        "provider_model_calls": 0,
+        "gpu_allocations": 0,
+        "accelerator_hours": 0,
+        "scientific_container_runs": 0,
+        "scientific_trajectory_runs": 0,
+        "workflow_dispatches": 0,
+        "workflow_reruns": 0,
+        "deployments": 0,
+        "payments": 0,
+        "releases": 0
+      },
+      "scientific_change": false,
+      "execution_authorized": false,
+      "claim_boundary": "publication-validation recovery only; no scientific numerator, denominator, score, effect, model comparison, population, product, deployment, priority, or state-of-the-art result"
     }
   },
   "source_of_truth": [
@@ -366,6 +394,10 @@
     "experiments/iter211_tcp1_materialization_preflight/proof/schemas/trajectory.schema.json",
     "experiments/iter211_tcp1_materialization_preflight/proof/task_candidate_ledger.json",
     "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md",
+    "experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md",
+    "experiments/iter213_iter211_post_seal_validation_recovery/RESULT.md",
+    "experiments/iter213_iter211_post_seal_validation_recovery/proof/post_seal_failure.json",
+    "experiments/iter213_iter211_post_seal_validation_recovery/proof/receipt_v2.json",
     "experiments/iter202_natural_rate_scaled/RESULT.md",
     "experiments/iter202_natural_rate_scaled/proof/learning_record.json",
     "experiments/iter203_iter202_safety_recovery/HYPOTHESIS.md",
@@ -467,10 +499,15 @@
     "scripts/build_iter211_handoff.py",
     "scripts/build_iter211_receipt.py",
     "scripts/build_iter211_tcp1_packet.py",
+    "scripts/build_iter213_handoff.py",
+    "scripts/build_iter213_receipt.py",
     "scripts/validate_current_paper.py",
+    "scripts/validate_detector_methodology_correction.py",
     "scripts/validate_iter209_publication_ci_recovery.py",
     "scripts/validate_iter210_pr_synthetic_merge_recovery.py",
     "scripts/validate_iter211_tcp1_materialization_preflight.py",
+    "scripts/validate_iter200_corrected_result.py",
+    "scripts/validate_iter213_post_seal_validation_recovery.py",
     "scripts/validate_handoff.py",
     "scripts/validate_mission_loop.py",
     "telos/proof.py",
@@ -486,12 +523,15 @@
     "tests/test_iter209_publication_ci_recovery.py",
     "tests/test_iter210_pr_synthetic_merge_recovery.py",
     "tests/test_iter211_tcp1_materialization_preflight.py",
+    "tests/test_iter213_post_seal_validation_recovery.py",
+    "tests/test_detector_methodology_correction.py",
     "tests/test_make_handoff.py",
     "tests/test_mission_loop_guard.py",
+    "tests/test_natural_rate_pipeline.py",
     "tests/test_tcp1.py"
   ],
   "active_gate": "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
-  "active_publication_gate": "experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md",
+  "active_publication_gate": "experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md",
   "frozen_upstream_gate": "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
   "loop": [
     {
@@ -671,6 +711,8 @@
     "python3 scripts/build_iter211_tcp1_packet.py --check",
     "python3 scripts/build_iter211_receipt.py --check",
     "python3 scripts/validate_iter211_tcp1_materialization_preflight.py",
+    "python3 scripts/build_iter213_receipt.py --check",
+    "python3 scripts/validate_iter213_post_seal_validation_recovery.py",
     "python3 scripts/validate_json.py",
     "python3 scripts/validate_learning_ledger.py",
     "python3 scripts/validate_mission_loop.py",
