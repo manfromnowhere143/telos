@@ -1,6 +1,6 @@
 # HANDOFF - dynamic state snapshot
 
-Generated: 2026-07-16T02:42:19Z by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
+Generated: 2026-07-16T02:44:53Z by `scripts/make_handoff.py`. Read the Current Gate section before consulting the
 runtime-bound `CONTINUITY.md` upstream record.
 
 TELOS is a standalone repository. Resolve its root with `git rev-parse --show-toplevel`, then run every TELOS command from that root.
@@ -9,55 +9,14 @@ TELOS is a standalone repository. Resolve its root with `git rev-parse --show-to
 
 ```text
 source_branch: agent/iter205-workflow-context-recovery
-source_commit: c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446
+source_commit: 8686a3326b4048dc60e517a9d7b3a0fdfc3eb8be
 publication_target: master
 ```
 
 Working tree:
 
 ```text
- M .github/workflows/ci.yml
- M README.md
- M docs/COMPLETION_VERIFICATION_REPORT.md
- M docs/LITERATURE_ALIGNMENT_2026.md
- M docs/MISSION_LOOP.md
- M docs/NEXT_PHASE.md
- M docs/REPORT.md
- M mission/loop.json
- M paper/README.md
- M paper/telos.pdf
- M paper/telos.tex
- M results/README.md
- M scripts/make_handoff.py
- M scripts/validate_current_paper.py
- M scripts/validate_detector_methodology_correction.py
- M scripts/validate_handoff.py
- M scripts/validate_mission_loop.py
- M scripts/validate_supply_chain.py
- M tests/test_detector_methodology_correction.py
- M tests/test_iter204_infrastructure_recovery.py
- M tests/test_make_handoff.py
- M tests/test_mission_loop_guard.py
- M tests/test_supply_chain_guard.py
-?? .github/workflows/iter205-execute.yml
-?? experiments/iter204_iter203_infrastructure_recovery/RESULT.md
-?? experiments/iter204_iter203_infrastructure_recovery/proof/pre_dispatch_infrastructure_null.json
-?? experiments/iter204_iter203_infrastructure_recovery/proof/raw/public_dispatch_metadata/
-?? experiments/iter205_iter204_workflow_context_recovery/
-?? scripts/adjudicate_iter205_workflow_context_recovery.py
-?? scripts/build_iter205_runtime_manifest.py
-?? scripts/capture_iter205_runtime_host.py
-?? scripts/ci_iter205_execute.sh
-?? scripts/ci_iter205_smoke.sh
-?? scripts/collect_iter205_execution.py
-?? scripts/prepare_iter205_output_directory.py
-?? scripts/publish_iter205_runtime_diagnostic.py
-?? scripts/run_iter205_workflow_context_recovery_blind_judge.py
-?? scripts/validate_iter204_pre_dispatch_null.py
-?? scripts/validate_iter205_publication_safety.py
-?? scripts/validate_iter205_runtime_recovery.py
-?? tests/test_iter204_pre_dispatch_null.py
-?? tests/test_iter205_workflow_context_recovery.py
+clean
 ```
 
 ## Experiments
