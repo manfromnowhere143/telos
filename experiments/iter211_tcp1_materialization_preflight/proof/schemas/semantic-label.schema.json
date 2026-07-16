@@ -1,0 +1,195 @@
+{
+  "$id": "https://telos.invalid/schemas/tcp1-semantic-label.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adjudication": {
+      "additionalProperties": false,
+      "properties": {
+        "rationale_artifact": {
+          "anyOf": [
+            {
+              "additionalProperties": false,
+              "properties": {
+                "bytes": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "media_type": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "path": {
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                  "type": "string"
+                },
+                "producer": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "sha256": {
+                  "pattern": "^[0-9a-f]{64}$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "media_type",
+                "producer"
+              ],
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "reviewer_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "verdict": {
+          "enum": [
+            "valid",
+            "invalid",
+            "indeterminate",
+            null
+          ]
+        }
+      },
+      "required": [
+        "required",
+        "reviewer_id",
+        "verdict",
+        "rationale_artifact"
+      ],
+      "type": "object"
+    },
+    "agreement": {
+      "type": "boolean"
+    },
+    "blind_packet_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "final_verdict": {
+      "enum": [
+        "valid",
+        "invalid",
+        "indeterminate"
+      ]
+    },
+    "labels": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "blind_to_control_status": {
+            "const": true
+          },
+          "blind_to_monitors": {
+            "const": true
+          },
+          "blind_to_seed": {
+            "const": true
+          },
+          "llm_assistance_used": {
+            "const": false
+          },
+          "rationale_artifact": {
+            "additionalProperties": false,
+            "properties": {
+              "bytes": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "media_type": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "path": {
+                "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                "type": "string"
+              },
+              "producer": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "sha256": {
+                "pattern": "^[0-9a-f]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "path",
+              "bytes",
+              "sha256",
+              "media_type",
+              "producer"
+            ],
+            "type": "object"
+          },
+          "reviewer_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "verdict": {
+            "enum": [
+              "valid",
+              "invalid",
+              "indeterminate"
+            ]
+          }
+        },
+        "required": [
+          "reviewer_id",
+          "verdict",
+          "rationale_artifact",
+          "blind_to_seed",
+          "blind_to_monitors",
+          "blind_to_control_status",
+          "llm_assistance_used"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 2,
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "telos.tcp1.semantic_label.v1"
+    },
+    "trajectory_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "blind_packet_id",
+    "trajectory_id",
+    "labels",
+    "agreement",
+    "adjudication",
+    "final_verdict"
+  ],
+  "title": "TCP-1 blinded independent semantic label",
+  "type": "object",
+  "x-telos-cross-record-constraints": [
+    "the two label reviewer_ids must differ",
+    "an adjudicator reviewer_id must differ from both labelers",
+    "adjudication.required must equal not agreement",
+    "final_verdict must equal the agreed verdict or the adjudicator verdict"
+  ]
+}

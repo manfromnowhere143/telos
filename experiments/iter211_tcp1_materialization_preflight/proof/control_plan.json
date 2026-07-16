@@ -1,0 +1,27 @@
+{
+  "deterministic_integrity_attack_controls": {
+    "count": null,
+    "families": [
+      "hidden-test read attempt",
+      "trusted-grader mutation attempt",
+      "receipt substitution",
+      "trajectory truncation",
+      "file-access-log suppression",
+      "control-label inference attempt"
+    ],
+    "pooled_into_natural_behavior_estimate": false
+  },
+  "legitimate_implementation_controls": {
+    "count": null,
+    "pooled_into_natural_behavior_estimate": false,
+    "purpose": "estimate false rejection under the same frozen gate"
+  },
+  "materialization_requires": [
+    "independent pre-output authorship",
+    "content-addressed commitments",
+    "blinded presentation indistinguishable from natural rows",
+    "separate denominators and reporting"
+  ],
+  "schema_version": "telos.tcp1.control_plan.v1",
+  "status": "blocked_not_materialized"
+}

@@ -37,6 +37,10 @@ ITER210_BRANCH = "agent/iter210-pr-synthetic-merge-recovery"
 ITER210_HANDOFF_SCHEMA = "telos.iter210.handoff.v1"
 ITER210_PREDECESSOR_SEAL = "91f9258730bf5520d86c9235d7ed2f03724ea103"
 ITER210_RECEIPT = "experiments/iter210_pr_synthetic_merge_recovery/proof/receipt_v2.json"
+ITER211_BRANCH = "agent/iter211-tcp1-materialization"
+ITER211_HANDOFF_SCHEMA = "telos.iter211.handoff.v1"
+ITER211_PREDECESSOR_MERGE = "fb348eb1f67c0605679cd56a1cfa210cf192db03"
+ITER211_RECEIPT = "experiments/iter211_tcp1_materialization_preflight/proof/receipt_v2.json"
 ITER205_MERGE_COMMIT = "4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f"
 ITER206_SEAL_COMMIT = "a2a05ef2ed05a0c457076f2bd5f1475507190685"
 ITER207_SEAL_DIFF = (
@@ -1034,9 +1038,194 @@ def iter210_handoff_failures(handoff: str) -> list[str]:
     return failures
 
 
+def iter211_declared_repository_state(handoff: str) -> dict[str, str]:
+    """Parse the iter211 source-bound materialization-preflight identity block."""
+
+    matches = re.findall(
+        r"^## Repository State\n\n```text\n"
+        r"handoff_schema: ([^\n]+)\n"
+        r"source_branch: ([^\n]+)\n"
+        r"source_commit: ([^\n]+)\n"
+        r"predecessor_merge: ([^\n]+)\n"
+        r"publication_target: ([^\n]+)\n```$",
+        handoff,
+        re.MULTILINE,
+    )
+    if len(matches) != 1:
+        raise ValueError("HANDOFF.md must record exactly one iter211 repository-state block")
+    schema, branch, source, predecessor, target = matches[0]
+    if schema != ITER211_HANDOFF_SCHEMA:
+        raise ValueError(f"HANDOFF.md iter211 schema differs: {schema}")
+    if branch != ITER211_BRANCH:
+        raise ValueError(f"HANDOFF.md iter211 source branch differs: {branch}")
+    if re.fullmatch(r"[0-9a-f]{40}", source) is None:
+        raise ValueError("HANDOFF.md iter211 source commit is not a full lowercase Git id")
+    if predecessor != ITER211_PREDECESSOR_MERGE:
+        raise ValueError("HANDOFF.md iter211 predecessor merge differs")
+    if target != "master":
+        raise ValueError("HANDOFF.md iter211 publication target must be master")
+    return {
+        "source_branch": branch,
+        "source_commit": source,
+        "predecessor_merge": predecessor,
+        "publication_target": target,
+    }
+
+
+def iter211_content_failures(handoff: str, contract: dict[str, object]) -> list[str]:
+    """Keep repository publication distinct from TCP-1 execution admission."""
+
+    failures: list[str] = []
+    try:
+        iter211_declared_repository_state(handoff)
+    except ValueError as exc:
+        failures.append(str(exc))
+    if REPOSITORY_DECLARATION not in handoff:
+        failures.append("HANDOFF.md does not declare the standalone TELOS repository")
+    if FORBIDDEN_WORKSPACE_LABEL in handoff.casefold():
+        failures.append("HANDOFF.md names an unrelated workspace")
+    if re.search(r"\b[A-Z][A-Z0-9_]*(?:KEY|TOKEN|SECRET)\b", handoff):
+        failures.append("HANDOFF.md names a credential variable")
+    if re.search(r"(?im)^[ \t]*gh[ \t]+(?:run[ \t]+rerun|workflow[ \t]+run)\b", handoff):
+        failures.append("HANDOFF.md authorizes a workflow dispatch or rerun")
+    required = (
+        "Materialization-preflight status: **PASS; scientific execution BLOCKED**.",
+        "There are zero admitted tasks",
+        "two passing local-design gates and nine blocked external gates",
+        "Execution authorization is false",
+        "Receipt status: `blocked`",
+        "The receipt proves byte identity, not authorship, external chronology, license, independence, or semantic truth.",
+        "Repository publication authorizes no release, paper submission, provider request, GPU allocation",
+        "python3 scripts/build_iter211_tcp1_packet.py --check",
+        "python3 scripts/build_iter211_receipt.py --check",
+        "python3 scripts/validate_iter211_tcp1_materialization_preflight.py",
+        "python3 scripts/validate_handoff.py",
+        "pytest -q",
+    )
+    normalized = " ".join(handoff.split())
+    for fact in required:
+        if " ".join(fact.split()) not in normalized:
+            failures.append(f"HANDOFF.md is missing iter211 materialization fact: {fact}")
+    if handoff.count(f"Active gate: `{contract.get('active_gate')}`") != 1:
+        failures.append("HANDOFF.md does not bind the sealed runtime gate exactly once")
+    if handoff.count(f"Active publication gate: `{contract.get('active_publication_gate')}`") != 1:
+        failures.append("HANDOFF.md does not bind the active publication gate exactly once")
+    frozen_line = (
+        "Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: "
+        f"`{contract.get('frozen_upstream_gate')}`"
+    )
+    if handoff.count(frozen_line) != 1:
+        failures.append("HANDOFF.md does not bind the frozen upstream gate exactly once")
+    return failures
+
+
+def iter211_handoff_failures(handoff: str) -> list[str]:
+    """Validate iter211 source, receipt, seal, and descendant publication topology."""
+
+    failures: list[str] = []
+    try:
+        contract = json.loads(MISSION_CONTRACT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"cannot load mission gate contract: {exc}"]
+    if not isinstance(contract, dict):
+        return ["mission gate contract root is not an object"]
+    failures.extend(iter211_content_failures(handoff, contract))
+    try:
+        state = iter211_declared_repository_state(handoff)
+    except ValueError:
+        return failures
+    source = state["source_commit"]
+
+    def parents(commit: str) -> list[str]:
+        row = git_output(["git", "rev-list", "--parents", "-n", "1", commit]).split()
+        if not row or row[0] != commit:
+            raise RuntimeError(f"cannot resolve exact parents for {commit}")
+        return row
+
+    try:
+        git_output(["git", "check-ref-format", "--branch", state["source_branch"]])
+        if parents(source) != [source, ITER211_PREDECESSOR_MERGE]:
+            failures.append("iter211 source is not the direct child of merged iter210 master")
+
+        receipt_path = ROOT / ITER211_RECEIPT
+        if receipt_path.is_symlink() or not receipt_path.is_file():
+            failures.append("iter211 source receipt is missing or symlinked")
+        else:
+            source_receipt = _git_bytes(["git", "show", f"{source}:{ITER211_RECEIPT}"])
+            if source_receipt != receipt_path.read_bytes():
+                failures.append("iter211 receipt differs from source commit")
+            else:
+                sys.path.insert(0, str(ROOT))
+                from telos.proof import ProofValidationError, validate_receipt_v2  # noqa: PLC0415
+
+                try:
+                    receipt = validate_receipt_v2(json.loads(source_receipt.decode("utf-8")))
+                except (UnicodeDecodeError, json.JSONDecodeError, ProofValidationError) as exc:
+                    failures.append(f"iter211 source receipt does not verify: {exc}")
+                else:
+                    if receipt.status != "blocked":
+                        failures.append("iter211 execution-admission receipt is not blocked")
+                    for item in receipt.evidence:
+                        artifact = item["artifact"]
+                        payload = _git_bytes(["git", "show", f"{source}:{artifact['path']}"])
+                        if len(payload) != artifact["bytes"] or (
+                            hashlib.sha256(payload).hexdigest() != artifact["sha256"]
+                        ):
+                            failures.append(
+                                "iter211 source Git blob differs from receipt: "
+                                f"{artifact['path']}"
+                            )
+                    for line in (
+                        f"Receipt evidence count: `{len(receipt.evidence)}`",
+                        f"Receipt closure SHA-256: `{receipt.evidence_closure_sha256}`",
+                        f"Receipt SHA-256: `{receipt.receipt_sha256}`",
+                    ):
+                        if handoff.count(line) != 1:
+                            failures.append(f"HANDOFF.md does not bind receipt identity: {line}")
+
+        repository_commit = current_commit()
+        status = git_output(["git", "status", "--short"])
+        if repository_commit == source:
+            if current_branch() != state["source_branch"]:
+                failures.append("iter211 pre-seal branch differs from source branch")
+            if worktree_changes_except_handoff(status):
+                failures.append("iter211 pre-seal tree changes files other than HANDOFF.md")
+            if "HANDOFF.md" not in status:
+                failures.append("iter211 pre-seal mode requires a HANDOFF.md change")
+        else:
+            rows = git_output(
+                ["git", "rev-list", "--ancestry-path", "--parents", f"{source}..HEAD"]
+            ).splitlines()
+            seals = []
+            for line in rows:
+                row = line.split()
+                if len(row) == 2 and row[1] == source:
+                    seal_diff = git_output(
+                        ["git", "diff", "--name-status", "--no-renames", source, row[0]]
+                    ).splitlines()
+                    if seal_diff == ["M\tHANDOFF.md"]:
+                        seals.append(row[0])
+            if len(seals) != 1:
+                failures.append("cannot resolve exactly one iter211 handoff seal")
+            if status:
+                failures.append("iter211 post-seal working tree is not clean")
+    except (OSError, RuntimeError, ValueError) as exc:
+        failures.append(str(exc))
+    return failures
+
+
 def main() -> int:
     failures: list[str] = []
     handoff = HANDOFF.read_text(encoding="utf-8")
+    if f"handoff_schema: {ITER211_HANDOFF_SCHEMA}" in handoff:
+        failures.extend(iter211_handoff_failures(handoff))
+        if failures:
+            print("handoff guard failed:")
+            for failure in failures:
+                print(f" - {failure}")
+            return 1
+        print("handoff guard: clean iter211 blocked-execution materialization seal")
+        return 0
     if f"handoff_schema: {ITER210_HANDOFF_SCHEMA}" in handoff:
         failures.extend(iter210_handoff_failures(handoff))
         if failures:

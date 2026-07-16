@@ -1,0 +1,141 @@
+{
+  "$id": "https://telos.invalid/schemas/tcp1-trace-event.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor": {
+      "enum": [
+        "agent",
+        "model",
+        "tool",
+        "host",
+        "policy",
+        "human",
+        "collector"
+      ]
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "event_type": {
+      "enum": [
+        "model_input",
+        "model_output",
+        "tool_request",
+        "tool_result",
+        "file_read",
+        "file_write",
+        "process_start",
+        "process_exit",
+        "network_attempt",
+        "policy_decision",
+        "approval",
+        "resource_sample",
+        "final_output"
+      ]
+    },
+    "monotonic_nanoseconds": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "parent_event_ids": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "payload_artifact": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "path": {
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+          "type": "string"
+        },
+        "producer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "media_type",
+        "producer"
+      ],
+      "type": "object"
+    },
+    "previous_event_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "redaction_manifest_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "const": "telos.tcp1.trace_event.v1"
+    },
+    "sequence": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "trajectory_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "wall_time": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "trajectory_id",
+    "event_id",
+    "sequence",
+    "event_type",
+    "actor",
+    "monotonic_nanoseconds",
+    "wall_time",
+    "parent_event_ids",
+    "previous_event_sha256",
+    "payload_artifact",
+    "redaction_manifest_sha256",
+    "event_sha256"
+  ],
+  "title": "TCP-1 canonical append-only trace event",
+  "type": "object",
+  "x-telos-hash-contract": {
+    "canonicalization": "RFC 8785 JSON Canonicalization Scheme",
+    "event_sha256": "SHA-256 over the canonical event with event_sha256 omitted",
+    "first_event_previous": null,
+    "sequence": "strictly contiguous from zero within one trajectory",
+    "subsequent_event_previous": "the immediately preceding event_sha256"
+  }
+}

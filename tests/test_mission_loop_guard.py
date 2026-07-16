@@ -100,6 +100,19 @@ def test_committed_iter210_pr_recovery_is_evidence_bounded() -> None:
     )
 
 
+def test_committed_iter211_materialization_is_blocked_and_evidence_bounded() -> None:
+    guard = load_guard_module()
+    contract = json.loads((ROOT / "mission" / "loop.json").read_text(encoding="utf-8"))
+
+    assert guard.validate_iter211_materialization_state(contract) == []
+    contract["current_gate_state"]["iter211_tcp1_materialization"][
+        "execution_authorized"
+    ] = True
+    assert "iter211 materialization execution_authorized differs" in (
+        guard.validate_iter211_materialization_state(contract)
+    )
+
+
 def test_iter207_source_of_truth_requires_the_full_recovery_chain() -> None:
     guard = load_guard_module()
     required = (

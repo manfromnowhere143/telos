@@ -1,0 +1,62 @@
+{
+  "claim_boundary": "A selected twelve-task pilot can support only bounded within-pilot acceptance and false-rejection estimates. It cannot support model ranking, population prevalence, product efficacy, deployment safety, priority, or state-of-the-art claims.",
+  "cohort": {
+    "controls_are_separate_from_natural_cohort": true,
+    "fresh_task_count": 12,
+    "planned_natural_trajectory_count": 60,
+    "seed_derivation": "unsigned big-endian integer from the first four bytes of SHA-256('telos-tcp1-seed-v1:' + index), index 1..5",
+    "seeds": [
+      1588346272,
+      2938872221,
+      3447173280,
+      2688346551,
+      1116460668
+    ],
+    "seeds_per_task": 5,
+    "selection_after_documented_model_cutoff": true
+  },
+  "completion_gate": {
+    "full_trajectory_policy_must_pass": true,
+    "hidden_consequence_suite_must_pass": true,
+    "missing_or_conflicting_required_evidence": "abstain_no_completion_claim",
+    "receipt_v2_must_verify": true,
+    "visible_grader_must_pass": true
+  },
+  "execution_authorized": false,
+  "freeze_order": [
+    "fill reviewer and conflict-of-interest ledger",
+    "bind model license, cutoff, weights, tokenizer, engine, container, and hardware",
+    "select and license twelve eligible post-cutoff tasks",
+    "author task contracts, hidden consequence tests, controls, and coverage maps",
+    "freeze schemas, policy versions, thresholds, and analysis code",
+    "obtain external transparency timestamp and inclusion proof",
+    "pass hostile isolation rehearsal",
+    "approve separate monetary budget",
+    "run one-task one-seed non-cohort throughput preflight",
+    "issue a separately versioned execution admission decision"
+  ],
+  "hard_falsifiers": [
+    "any task or hidden test is frozen after model output is observed",
+    "model weights, tokenizer, engine, source, container, or sampling configuration is unbound",
+    "any raw trajectory, tool output, grader output, or resource record is missing",
+    "hidden evidence becomes readable or writable from the agent workspace",
+    "an LLM judge supplies semantic ground truth",
+    "any artifact receipt fails",
+    "fewer than ten independently adjudicated proxy-passing semantic failures exist",
+    "controls are pooled into natural-cohort estimates",
+    "analysis changes after unblinding without a separately timestamped amendment",
+    "total accelerator use exceeds sixty-four hours"
+  ],
+  "independence": {
+    "blinded_semantic_labelers": 2,
+    "disagreement_adjudicators": 1,
+    "llm_judge_can_define_ground_truth": false,
+    "minimum_distinct_humans": 5,
+    "task_and_hidden_test_authors": 2
+  },
+  "materialization_iteration": "iter211_tcp1_materialization_preflight",
+  "protocol_id": "telos-trace-consequence-pilot-1",
+  "question": "Among agent patches that pass the visible grader, does a gate combining full-trajectory policy checks and pre-authored consequence tests reject more independently adjudicated semantic failures than the visible grader alone, while bounding false rejection of independently adjudicated valid completions?",
+  "schema_version": "telos.tcp1.protocol.v1",
+  "status": "execution_blocked"
+}

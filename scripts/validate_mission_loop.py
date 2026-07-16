@@ -59,6 +59,9 @@ CORE_VALIDATION_COMMANDS = (
     "python3 scripts/validate_iter209_publication_ci_recovery.py",
     "python3 scripts/build_iter210_receipt.py --check",
     "python3 scripts/validate_iter210_pr_synthetic_merge_recovery.py",
+    "python3 scripts/build_iter211_tcp1_packet.py --check",
+    "python3 scripts/build_iter211_receipt.py --check",
+    "python3 scripts/validate_iter211_tcp1_materialization_preflight.py",
     "python3 scripts/validate_target_survey.py",
     "python3 scripts/validate_public_slice.py",
     "python3 scripts/validate_agent_behavior_slice.py",
@@ -496,8 +499,9 @@ def validate_iter208_correction_state(
         "Iter207 is the immutable local correction and admission baseline",
         "Iter208 is the sealed post-seal forensic correction",
         "failed two non-scientific CI validators and was not merged",
-        "Iter210 is the active additive PR-topology recovery",
-        "Iter208 through iter210 are not population estimates, model rankings, production verifiers, or state-of-the-art results",
+        "Iter210 merged through PR #10",
+        "Iter211 is the active zero-execution TCP-1 materialization preflight",
+        "Iter208 through iter211 are not population estimates",
     ):
         if fragment not in claim:
             failures.append(f"claim boundary missing publication-recovery fact: {fragment}")
@@ -599,19 +603,29 @@ def validate_iter209_recovery_state(
 def validate_iter210_recovery_state(
     contract: dict[str, Any], *, root: Path = ROOT
 ) -> list[str]:
-    """Validate the active PR-topology recovery above sealed iter209."""
+    """Validate the sealed and merged PR-topology recovery above iter209."""
 
     failures: list[str] = []
     expected_gate = "experiments/iter210_pr_synthetic_merge_recovery/HYPOTHESIS.md"
-    if contract.get("active_publication_gate") != expected_gate:
-        failures.append("iter210 active publication gate differs")
     if not (root / expected_gate).is_file():
-        failures.append("iter210 active publication gate is absent")
+        failures.append("iter210 sealed publication gate is absent")
     state = contract.get("current_gate_state", {}).get("iter210_recovery", {})
-    if state.get("status") != "active_local_pr_synthetic_merge_recovery":
+    if state.get("status") != "merged_publication_recovery_green":
         failures.append("iter210 recovery status differs")
     if state.get("predecessor_seal") != "91f9258730bf5520d86c9235d7ed2f03724ea103":
         failures.append("iter210 predecessor seal differs")
+    expected_publication = {
+        "source_commit": "323130bd96b20c062005f097294d8fab235bea93",
+        "seal_commit": "c109312d5ee525599abfbac178c3fb245117ab49",
+        "pull_request": 10,
+        "merge_commit": "fb348eb1f67c0605679cd56a1cfa210cf192db03",
+        "push_ci_run": 29496323167,
+        "pull_request_ci_run": 29496355871,
+        "merged_master_ci_run": 29496560409,
+    }
+    for field, expected in expected_publication.items():
+        if state.get(field) != expected:
+            failures.append(f"iter210 merged publication {field} differs")
     actions = state.get("actions_before_source_seal")
     if not isinstance(actions, dict) or not actions or any(value != 0 for value in actions.values()):
         failures.append("iter210 pre-seal action ledger is not exact zero")
@@ -631,8 +645,9 @@ def validate_iter210_recovery_state(
     for fragment in (
         "Iter209 fixed those defects and passed push CI",
         "pull-request CI exposed one synthetic-merge branch-tip assumption",
-        "Iter210 is the active additive PR-topology recovery",
-        "Iter208 through iter210 are not population estimates, model rankings, production verifiers, or state-of-the-art results",
+        "Iter210 merged through PR #10",
+        "Iter211 is the active zero-execution TCP-1 materialization preflight",
+        "scientific execution remains blocked",
     ):
         if fragment not in claim:
             failures.append(f"claim boundary missing iter210 fact: {fragment}")
@@ -655,6 +670,96 @@ def validate_iter210_recovery_state(
         missing = sorted(source for source in required_sources if not (root / source).is_file())
         if missing:
             failures.append("iter210 source-of-truth files are absent: " + ", ".join(missing))
+    return failures
+
+
+def validate_iter211_materialization_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate the active zero-execution TCP-1 materialization boundary."""
+
+    failures: list[str] = []
+    expected_gate = "experiments/iter211_tcp1_materialization_preflight/HYPOTHESIS.md"
+    if contract.get("active_publication_gate") != expected_gate:
+        failures.append("iter211 active publication gate differs")
+    if not (root / expected_gate).is_file():
+        failures.append("iter211 active materialization gate is absent")
+    state = contract.get("current_gate_state", {}).get("iter211_tcp1_materialization", {})
+    expected = {
+        "status": "materialization_preflight_pass_execution_blocked",
+        "predecessor_merge": "fb348eb1f67c0605679cd56a1cfa210cf192db03",
+        "planned_task_count": 12,
+        "seeds_per_task": 5,
+        "planned_natural_trajectories": 60,
+        "admitted_task_count": 0,
+        "filled_reviewer_roles": 0,
+        "passed_gate_count": 2,
+        "blocked_gate_count": 9,
+        "accelerator_hour_ceiling": 64,
+        "accelerator_hours_used": 0,
+        "provider_calls": 0,
+        "scientific_trajectories": 0,
+        "execution_authorized": False,
+        "next_gate": (
+            "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md"
+        ),
+    }
+    for field, value in expected.items():
+        if state.get(field) != value:
+            failures.append(f"iter211 materialization {field} differs")
+    for fragment in (
+        "deterministic TCP-1 protocol",
+        "custody schemas",
+        "separate controls",
+        "isolation threat model",
+        "no scientific execution",
+    ):
+        if fragment not in state.get("correction_scope", ""):
+            failures.append(f"iter211 materialization scope omits: {fragment}")
+    claim = state.get("claim_boundary", "")
+    for fragment in ("no scientific numerator", "ranking", "state-of-the-art result"):
+        if fragment not in claim:
+            failures.append(f"iter211 claim boundary omits: {fragment}")
+
+    admission_path = root / "experiments/iter211_tcp1_materialization_preflight/proof/admission_report.json"
+    try:
+        admission = read_json(admission_path)
+    except (OSError, json.JSONDecodeError):
+        failures.append("iter211 admission report is unreadable")
+    else:
+        if not (
+            admission.get("materialization_preflight_status") == "pass"
+            and admission.get("scientific_execution_admission") == "blocked"
+            and admission.get("passed_gate_count") == 2
+            and admission.get("blocked_gate_count") == 9
+            and admission.get("execution_authorized") is False
+        ):
+            failures.append("iter211 admission report overstates readiness")
+
+    required_sources = {
+        expected_gate,
+        "experiments/iter211_tcp1_materialization_preflight/RESULT.md",
+        "experiments/iter211_tcp1_materialization_preflight/proof/admission_report.json",
+        "experiments/iter211_tcp1_materialization_preflight/proof/analysis_plan.json",
+        "experiments/iter211_tcp1_materialization_preflight/proof/protocol.json",
+        "experiments/iter211_tcp1_materialization_preflight/proof/receipt_v2.json",
+        "experiments/iter211_tcp1_materialization_preflight/proof/review.md",
+        "experiments/iter212_tcp1_independent_cohort_and_custody_freeze/HYPOTHESIS.md",
+        "scripts/build_iter211_handoff.py",
+        "scripts/build_iter211_receipt.py",
+        "scripts/build_iter211_tcp1_packet.py",
+        "scripts/validate_iter211_tcp1_materialization_preflight.py",
+        "telos/tcp1.py",
+        "tests/test_iter211_tcp1_materialization_preflight.py",
+        "tests/test_tcp1.py",
+    }
+    sources = contract.get("source_of_truth", [])
+    if not isinstance(sources, list) or not required_sources.issubset(set(sources)):
+        failures.append("iter211 source-of-truth set is incomplete")
+    else:
+        missing = sorted(source for source in required_sources if not (root / source).is_file())
+        if missing:
+            failures.append("iter211 source-of-truth files are absent: " + ", ".join(missing))
     return failures
 
 
@@ -1062,6 +1167,7 @@ def main() -> int:
     failures.extend(validate_iter208_correction_state(contract))
     failures.extend(validate_iter209_recovery_state(contract))
     failures.extend(validate_iter210_recovery_state(contract))
+    failures.extend(validate_iter211_materialization_state(contract))
 
     phases = [phase.get("phase") for phase in contract.get("loop", [])]
     if phases != REQUIRED_PHASES:
@@ -1102,6 +1208,9 @@ def main() -> int:
         "validate_iter209_publication_ci_recovery.py",
         "build_iter210_receipt.py --check",
         "validate_iter210_pr_synthetic_merge_recovery.py",
+        "build_iter211_tcp1_packet.py --check",
+        "build_iter211_receipt.py --check",
+        "validate_iter211_tcp1_materialization_preflight.py",
         "validate_deterministic_edit_slice.py",
         "validate_receipts.py experiments/iter03_codeclash_smoke/proof",
         "audit_codeclash_smoke.py",

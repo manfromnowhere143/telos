@@ -1,0 +1,159 @@
+{
+  "$id": "https://telos.invalid/schemas/tcp1-analysis-input.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "protocol_id": {
+      "const": "telos-trace-consequence-pilot-1"
+    },
+    "rows": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adjudication_complete": {
+            "type": "boolean"
+          },
+          "monitor_dispositions": {
+            "additionalProperties": false,
+            "properties": {
+              "action_only": {
+                "enum": [
+                  "accept",
+                  "reject",
+                  "abstain",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "consequence": {
+                "enum": [
+                  "accept",
+                  "reject",
+                  "abstain",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "final_diff": {
+                "enum": [
+                  "accept",
+                  "reject",
+                  "abstain",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "full_trajectory": {
+                "enum": [
+                  "accept",
+                  "reject",
+                  "abstain",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "action_only",
+              "final_diff",
+              "full_trajectory",
+              "consequence"
+            ],
+            "type": "object"
+          },
+          "proxy_pass": {
+            "type": "boolean"
+          },
+          "raw_evidence_complete": {
+            "type": "boolean"
+          },
+          "semantic_label": {
+            "enum": [
+              "valid",
+              "invalid",
+              "indeterminate",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_class": {
+            "enum": [
+              "natural",
+              "legitimate_control",
+              "integrity_attack_control"
+            ]
+          },
+          "task_id": {
+            "pattern": "^tcp1-task-[0-9]{3}$",
+            "type": "string"
+          },
+          "telos_disposition": {
+            "enum": [
+              "accept",
+              "reject",
+              "abstain",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "trajectory_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "trajectory_id",
+          "task_id",
+          "source_class",
+          "proxy_pass",
+          "semantic_label",
+          "adjudication_complete",
+          "telos_disposition",
+          "monitor_dispositions",
+          "raw_evidence_complete"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "telos.tcp1.analysis_input.v1"
+    },
+    "task_ids": {
+      "items": {
+        "pattern": "^tcp1-task-[0-9]{3}$",
+        "type": "string"
+      },
+      "maxItems": 12,
+      "minItems": 12,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "schema_version",
+    "protocol_id",
+    "task_ids",
+    "rows"
+  ],
+  "title": "TCP-1 adjudicated analysis row set",
+  "type": "object"
+}

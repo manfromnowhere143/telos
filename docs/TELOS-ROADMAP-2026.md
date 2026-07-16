@@ -85,8 +85,10 @@ Measure capability and reliability separately:
 
 Name: **TELOS Trace–Consequence Pilot 1**
 
-Status: preregistration design only. No model call, GPU allocation, or scientific execution is authorized
-by this roadmap.
+Status: deterministic materialization preflight exists in iter211, but scientific execution is blocked.
+There is no admitted task cohort, reviewer team, selected model, hidden-test freeze, execution binding,
+external timestamp, isolation rehearsal, throughput result, or approved monetary budget. No model call, GPU
+allocation, or scientific execution is authorized by this roadmap or by repository publication.
 
 ### Question
 
@@ -172,6 +174,25 @@ TCP-1 is a null or failure—not a result—if any of these occurs:
 - Stop before allocation if projected throughput cannot finish the frozen cohort inside that ceiling.
 - No cloud spend or provider call is implied by repository access or by this document.
 
+### Fail-closed admission path
+
+```mermaid
+flowchart LR
+ I211["211 materialization preflight<br/>protocol + schemas + analysis"] --> I212["212 independent freeze<br/>humans + tasks + custody"]
+ I212 --> I213["213 isolated preflight<br/>one task · one seed"]
+ I213 --> Q{"all admission gates pass<br/>inside 64-hour ceiling?"}
+ Q -->|no or missing| B["BLOCKED / NULL<br/>no scientific run"]
+ Q -->|yes| I214["214 bounded execution<br/>60 natural trajectories"]
+ I214 --> I215["215 blinded adjudication<br/>locked analysis"]
+ I215 --> R{"valid and interpretable?"}
+ R -->|no| N["publish bounded null/failure"]
+ R -->|yes| I216["216 independent replication<br/>multiple models + harnesses"]
+ classDef done fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
+ classDef blocked fill:#fff1f0,stroke:#cf222e,color:#4c1114;
+ class I211 done;
+ class B,N blocked;
+```
+
 ## Sequenced roadmap
 
 ### Iter208 — post-seal forensic correction
@@ -183,33 +204,67 @@ TCP-1 is a null or failure—not a result—if any of these occurs:
 - bind the audit, roadmap, source, PDF, and diagrams;
 - close with no scientific run.
 
-### Iter209 — TCP-1 materialization
+### Iter209 — publication-CI recovery
 
-- recruit independent reviewers;
-- select and license the fresh task cohort;
-- author hidden consequence tests;
-- pin model, weights, inference engine, containers, and hardware;
-- externally timestamp preregistration and analysis code;
-- publish a zero-execution materialization receipt.
+- preserve the failed iter208 branch and exact remote outcomes;
+- bind historical source checks to immutable Git blobs;
+- isolate unit tests from ambient pull-request environment;
+- stop when pull-request CI exposes the next synthetic-merge assumption.
 
-### Iter210 — bounded GPU execution
+### Iter210 — pull-request topology recovery
 
-- execute exactly the frozen 60 trajectories if and only if iter209 passes;
-- collect raw evidence before adjudication;
-- stop on the first custody or isolation violation.
+- preserve iter208 and iter209 unchanged;
+- validate push, synthetic-merge, merged-master, and descendant topologies from exact sealed commits;
+- merge only after exact-tip push and pull-request CI pass;
+- close with no scientific execution. PR `#10` merged as
+  `fb348eb1f67c0605679cd56a1cfa210cf192db03`; merged-master CI passed.
 
-### Iter211 — blinded adjudication
+### Iter211 — TCP-1 materialization preflight
 
-- independent semantic review;
-- locked analysis;
-- explicit missingness and disagreement;
-- no post-hoc threshold changes inside the result.
+- freeze the pilot shape, deterministic seeds, schemas, gate semantics, analysis code, missingness,
+  controls, resource envelope, and isolation threat model;
+- represent absent humans, tasks, bindings, timestamp, rehearsal, throughput, and budget as blockers;
+- publish an artifact-bound receipt whose scientific-execution status is `blocked`;
+- make no model call, accelerator allocation, or scientific claim.
 
-### Iter212 — multi-model replication
+### Iter212 — independent cohort and custody freeze
 
-- only after TCP-1 yields a valid interpretable result;
-- at least three model families and two agent harnesses;
-- one external team reproduces the evidence bundle.
+- recruit and conflict-screen five distinct human roles;
+- select one license-compatible open-weight model and bind its authoritative cutoff and exact weights;
+- select and license twelve strictly post-cutoff tasks;
+- independently author hidden consequence tests and controls outside the agent workspace;
+- bind runtime/container/hardware, pass hostile isolation rehearsal, obtain an external transparency
+  timestamp, and record separate budget approval;
+- authorize at most the later non-cohort throughput preflight, never the pilot itself.
+
+### Iter213 — isolated throughput preflight
+
+- execute one task and one seed outside the scientific cohort under at most two accelerator-hours;
+- test end-to-end trace, grader, receipt, isolation, redaction, and resource custody;
+- project the frozen cohort plus controls with ten-percent headroom;
+- stop if the total cannot fit inside the 64-hour ceiling.
+
+### Iter214 — bounded GPU execution
+
+- execute exactly the frozen 60 natural trajectories only if iter212 and iter213 pass;
+- execute calibration controls under separate identifiers and denominators;
+- collect append-only raw evidence before adjudication;
+- stop on the first custody, isolation, budget, or completeness violation.
+
+### Iter215 — blinded adjudication
+
+- obtain two independent semantic labels for every proxy-passing output;
+- retain disagreement and use the independent adjudicator only where required;
+- run the locked analysis with explicit missingness and separate controls;
+- make no post-hoc threshold or endpoint change inside the result.
+
+### Iter216 — multi-model replication
+
+- proceed only after TCP-1 yields a valid, interpretable, bounded result;
+- use at least three model families and two agent harnesses;
+- require one external team to reproduce the evidence bundle;
+- withhold model-ranking, prevalence, product-efficacy, and state-of-the-art claims until a design capable of
+  supporting each claim exists.
 
 ## Funding thesis
 

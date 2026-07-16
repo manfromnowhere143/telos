@@ -1,0 +1,27 @@
+{
+  "accelerator_allocations_in_this_iteration": 0,
+  "accelerator_hours_in_this_iteration": 0,
+  "execution_authorized": false,
+  "maximum_remaining_cohort_accelerator_hours_after_preflight": 62,
+  "monetary_budget": {
+    "amount": null,
+    "approval_receipt_sha256": null,
+    "approved": false,
+    "currency": null
+  },
+  "non_cohort_preflight_accelerator_hours_ceiling": 2,
+  "preflight_shape": {
+    "enters_scientific_cohort": false,
+    "seeds": 1,
+    "tasks": 1
+  },
+  "schema_version": "telos.tcp1.resource_budget.v1",
+  "status": "blocked",
+  "throughput_admission": {
+    "planned_natural_trajectories": 60,
+    "projected_total_formula": "preflight_observed_accelerator_hours_per_trajectory * 60 + frozen_control_budget",
+    "required_headroom_fraction": "0.10",
+    "stop_if_projection_exceeds_total_ceiling": true
+  },
+  "total_accelerator_hours_ceiling": 64
+}

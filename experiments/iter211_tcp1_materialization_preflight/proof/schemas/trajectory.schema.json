@@ -1,0 +1,618 @@
+{
+  "$id": "https://telos.invalid/schemas/tcp1-trajectory.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "container_digest": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "grader_results": {
+      "additionalProperties": false,
+      "properties": {
+        "hidden_consequence_pass": {
+          "type": "boolean"
+        },
+        "hidden_output": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        },
+        "hidden_suite_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "visible_grader_pass": {
+          "type": "boolean"
+        },
+        "visible_output": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "visible_grader_pass",
+        "visible_output",
+        "hidden_consequence_pass",
+        "hidden_output",
+        "hidden_suite_sha256"
+      ],
+      "type": "object"
+    },
+    "hidden_evidence_agent_visible": {
+      "const": false
+    },
+    "model_binding": {
+      "additionalProperties": false,
+      "properties": {
+        "inference_engine_source_commit": {
+          "pattern": "^[0-9a-f]{40}$",
+          "type": "string"
+        },
+        "inference_engine_version": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "model_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "quantization": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "tokenizer_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "weight_digest": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model_id",
+        "weight_digest",
+        "tokenizer_digest",
+        "inference_engine_version",
+        "inference_engine_source_commit",
+        "quantization"
+      ],
+      "type": "object"
+    },
+    "monitor_dispositions": {
+      "additionalProperties": false,
+      "properties": {
+        "action_only": {
+          "enum": [
+            "accept",
+            "reject",
+            "abstain"
+          ]
+        },
+        "consequence": {
+          "enum": [
+            "accept",
+            "reject",
+            "abstain"
+          ]
+        },
+        "final_diff": {
+          "enum": [
+            "accept",
+            "reject",
+            "abstain"
+          ]
+        },
+        "full_trajectory": {
+          "enum": [
+            "accept",
+            "reject",
+            "abstain"
+          ]
+        }
+      },
+      "required": [
+        "action_only",
+        "final_diff",
+        "full_trajectory",
+        "consequence"
+      ],
+      "type": "object"
+    },
+    "raw_evidence_complete": {
+      "type": "boolean"
+    },
+    "receipt": {
+      "additionalProperties": false,
+      "properties": {
+        "bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "media_type": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "path": {
+          "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+          "type": "string"
+        },
+        "producer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "path",
+        "bytes",
+        "sha256",
+        "media_type",
+        "producer"
+      ],
+      "type": "object"
+    },
+    "resource_usage": {
+      "additionalProperties": false,
+      "properties": {
+        "accelerator_seconds": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "cost_usd": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "energy_estimate_kwh": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "input_tokens": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "output_tokens": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "wall_seconds": {
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "wall_seconds",
+        "accelerator_seconds",
+        "input_tokens",
+        "output_tokens",
+        "energy_estimate_kwh",
+        "cost_usd"
+      ],
+      "type": "object"
+    },
+    "sampling": {
+      "additionalProperties": false,
+      "properties": {
+        "max_output_tokens": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "stop": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "temperature": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "top_k": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "top_p": {
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        }
+      },
+      "required": [
+        "temperature",
+        "top_p",
+        "top_k",
+        "max_output_tokens",
+        "stop"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "telos.tcp1.trajectory.v1"
+    },
+    "seed": {
+      "maximum": 4294967295,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_class": {
+      "enum": [
+        "natural",
+        "legitimate_control",
+        "integrity_attack_control"
+      ]
+    },
+    "source_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "task_id": {
+      "pattern": "^tcp1-task-[0-9]{3}$",
+      "type": "string"
+    },
+    "trace_artifacts": {
+      "additionalProperties": false,
+      "properties": {
+        "commands_and_exits": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        },
+        "file_access_log": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        },
+        "final_output": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        },
+        "messages": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        },
+        "patch": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        },
+        "redaction_manifest": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        },
+        "tool_calls": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        },
+        "tool_outputs": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "media_type": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "path": {
+              "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+              "type": "string"
+            },
+            "producer": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "path",
+            "bytes",
+            "sha256",
+            "media_type",
+            "producer"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "messages",
+        "tool_calls",
+        "tool_outputs",
+        "file_access_log",
+        "patch",
+        "commands_and_exits",
+        "final_output",
+        "redaction_manifest"
+      ],
+      "type": "object"
+    },
+    "trajectory_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "trajectory_id",
+    "task_id",
+    "source_class",
+    "seed",
+    "source_commit",
+    "container_digest",
+    "model_binding",
+    "sampling",
+    "trace_artifacts",
+    "grader_results",
+    "monitor_dispositions",
+    "resource_usage",
+    "receipt",
+    "hidden_evidence_agent_visible",
+    "raw_evidence_complete"
+  ],
+  "title": "TCP-1 complete trajectory custody record",
+  "type": "object"
+}
