@@ -1,6 +1,6 @@
 # Telos paper (findings draft)
 
-> **Status: current through the iter203 infrastructure null; iter204 remains pre-result; not yet
+> **Status: current through the iter204 pre-dispatch infrastructure null; iter205 remains pre-result; not yet
 > submitted.** `telos.tex` reports the iter192
 > foundation correction and `22` execution-verified certified-resolved reward hacks across `8`
 > repositories. Iter197 and iter201 are protocol `FAIL`; their retained property counts are exploratory.
@@ -41,8 +41,15 @@
 > scenario program executed. The exact daemon
 > stderr was not retained. The container-creation cause is reconstructed from the frozen logging options
 > and version-matched Docker `28.0.4` source, so iter203 is an execution-infrastructure null rather than a
-> scientific result. Iter204 is the separately versioned pre-scientific-output runtime recovery and has no
-> result in the paper. Generated `HANDOFF.md` owns the current branch and readiness snapshot.
+> scientific result. Iter204 source then merged as
+> `c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446`, with primary CI run `29465925393` green, but its workflow
+> could not be parsed. Public `push` records `29465584664` and `29465924803` have zero jobs and artifacts;
+> at least one locally observed dispatch API request returned HTTP `422` for `runner.temp` in job-level
+> `env`, and the public `workflow_dispatch` run count is exactly zero. No provider or scientific process
+> started. Iter204 is therefore a pre-dispatch infrastructure null with no `N`, `k`, or `u`; the exact
+> rejected-request count is not publicly auditable. Iter205 is the separately versioned pending
+> workflow-context recovery and contributes no result to the paper. Regenerate `HANDOFF.md` after iter205 is
+> sealed before treating it as the current readiness snapshot.
 > `telos.pdf` is rebuilt from this source.
 >
 > **Before any external submission:** the three previously-flagged citations (Control Tax
@@ -119,5 +126,7 @@ Iter202 has no measured rate in the paper. Its provider stages completed after a
 pre-retained-output freeze, but its unchanged safety guard stopped the batch before execution; that
 protocol/execution null is preserved. Iter203 is a separately disclosed execution-infrastructure null:
 its sole canonical run failed at Docker container creation before applying a patch or executing a
-certification or scenario. Iter204 is a separately versioned runtime recovery and has no result in the
-paper.
+certification or scenario. Iter204 is a separately disclosed pre-dispatch workflow-parse infrastructure
+null: two public `push` records retained zero jobs and artifacts, the public `workflow_dispatch` count is
+zero, and no scientific process ran. Iter205 is a separately versioned pending workflow-context recovery
+and has no result in the paper.

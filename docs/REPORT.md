@@ -5,7 +5,8 @@
 > grader. The current result boundary and active gate are the root `README.md`, `docs/MISSION_LOOP.md`,
 > generated `HANDOFF.md`, `experiments/iter202_natural_rate_scaled/RESULT.md`,
 > `experiments/iter203_iter202_safety_recovery/RESULT.md`,
-> `experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`, and
+> `experiments/iter204_iter203_infrastructure_recovery/RESULT.md`,
+> `experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`, and
 > `paper/telos.tex`. `CONTINUITY.md` remains a frozen iter202 upstream record. The material below remains
 > only as dated experiment provenance.
 

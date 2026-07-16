@@ -9,6 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import json
 from pathlib import Path
+from pathlib import PurePosixPath
 import re
 from typing import Any
 
@@ -18,6 +19,7 @@ class LedgerValidationError(ValueError):
 
 
 VALID_STATUSES = {"pass", "fail", "null", "blocked", "pending"}
+LEARNING_RECORD_PATTERN = "experiments/*/proof/learning_record*.json"
 
 
 @dataclass(frozen=True)
@@ -86,6 +88,45 @@ def load_learning_record(path: str | Path, root: Path | None = None) -> Learning
     if not isinstance(data, dict):
         raise LedgerValidationError("learning record root must be an object")
     return validate_learning_record(data, root=root)
+
+
+def discover_learning_record_paths(root: str | Path) -> list[Path]:
+    """Return canonical records and additive adjudication records in stable order."""
+
+    base = Path(root)
+    paths = sorted(base.glob(LEARNING_RECORD_PATTERN))
+    invalid = [path for path in paths if path.is_symlink() or not path.is_file()]
+    if invalid:
+        rendered = ", ".join(path.as_posix() for path in invalid)
+        raise LedgerValidationError(f"learning record is not a regular file: {rendered}")
+    return paths
+
+
+def select_active_learning_record(
+    records: list[LearningRecord], active_gate: str
+) -> LearningRecord:
+    """Bind the current action to the mission contract's exact active gate."""
+
+    if not isinstance(active_gate, str) or not active_gate.strip():
+        raise LedgerValidationError("mission active_gate must be a non-empty string")
+    gate = PurePosixPath(active_gate)
+    if gate.is_absolute() or ".." in gate.parts or gate.as_posix() != active_gate:
+        raise LedgerValidationError("mission active_gate must be normalized and relative")
+    matches = [record for record in records if record.result_path == active_gate]
+    if len(matches) != 1:
+        raise LedgerValidationError(
+            "active_gate must have exactly one learning record; "
+            f"found {len(matches)} for {active_gate}"
+        )
+    record = matches[0]
+    expected_experiment_id = gate.parent.name
+    if record.experiment_id != expected_experiment_id:
+        raise LedgerValidationError(
+            "active learning record experiment_id does not match active_gate parent"
+        )
+    if record.status != "pending":
+        raise LedgerValidationError("active learning record status must be pending")
+    return record
 
 
 def _experiment_sort_key(record: LearningRecord) -> tuple[int, int | str, str]:

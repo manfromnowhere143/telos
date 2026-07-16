@@ -35,6 +35,10 @@ Learning records live at:
 experiments/<id>/proof/learning_record.json
 ```
 
+If an immutable pre-result record later closes as a null or failure, retain that original file and add a
+terminal adjudication record at `learning_record.<adjudication>.json`. The ledger reads both forms; this
+keeps chronology auditable without allowing a stale pending action to remain operational.
+
 They must contain:
 
 - `experiment_id`
@@ -52,11 +56,12 @@ python3 scripts/validate_learning_ledger.py
 
 ## Current Learning State
 
-The machine source of truth for each completed learning record is the set of
-`experiments/*/proof/learning_record.json` files plus `python3 scripts/validate_learning_ledger.py`.
-This hand-written table is historical context and may lag the newest records; the validator is
-authoritative for validating and reading the newest completed record. Generated `HANDOFF.md` owns the
-current operational action.
+The machine source of truth for each completed learning record is the set of canonical and additive
+`experiments/*/proof/learning_record*.json` files plus `python3 scripts/validate_learning_ledger.py`.
+This hand-written table is historical context and may lag the newest records. The validator checks the
+historical completed-record chain, then binds its displayed `active_next` to the unique pending record whose
+`result_path` equals `mission/loop.json.active_gate`. Generated `HANDOFF.md` owns the current operational
+action and remains the resume authority.
 
 Selected historical records:
 
@@ -185,6 +190,7 @@ To validate the contemporaneous next action stored with the newest completed lea
 python3 scripts/validate_learning_ledger.py
 ```
 
-The validator reads the newest non-pending learning record by experiment id and rejects missing
-evidence paths. It does not determine the mission's current operational action; generated `HANDOFF.md`
-is the current resume authority.
+The validator still reads the newest non-pending learning record by experiment id as historical evidence,
+but it displays the current next action only from the unique pending record bound to
+`mission/loop.json.active_gate`. It rejects missing evidence, duplicate active records, non-pending active
+records, and experiment-ID mismatches. Generated `HANDOFF.md` remains the current resume authority.

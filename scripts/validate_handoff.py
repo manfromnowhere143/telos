@@ -37,16 +37,40 @@ REQUIRED_RECOVERY_FACTS = (
     "exact daemon stderr was redirected into temporary files and not retained",
     "root cause is reconstructed",
     "execution-infrastructure null",
-    "first global iter204 dispatch and run attempt `1`",
-    "Any failure closes iter204 and requires iter205",
-    "Never dispatch the frozen iter202 or iter203 workflows",
-    "Do not rerun it, do not dispatch iter204 again",
+    "exactly two iter204 workflow records",
+    "push parse-failure run `29465584664`",
+    "push parse-failure run `29465924803`",
+    "zero jobs and zero artifacts",
+    "zero `workflow_dispatch` runs",
+    "false to say that iter204 has zero workflow runs",
+    "at least one locally observed dispatch API request returned HTTP `422`",
+    "no run ID, no run attempt, and no public workflow-dispatch job or run log",
+    "no provider process, container create/run invocation",
+    "contributes no `N`, `k`, or `u`; those quantities are absent, not zero",
+    "bf2062825e604d9439b0d29375d7e5219a1064ae4a33701efb74a62f81a59a45",
+    "Never reconstruct that frozen manifest from the current tree",
+    "empty complete iter205 all-event and dispatch histories",
+    "transient read-only query failure before the request does not consume iter205's request allowance",
+    "Once execution reaches the request command, never re-enter this block",
+    "discovery poll timeout or temporarily absent run is not by itself a null",
+    "No observation ever authorizes another request",
+    "Any API rejection, parser record, authorization failure, smoke failure, shard failure, collector",
+    "closes iter205 and requires iter206",
+    "Never re-enter the dispatch block",
+    "Never dispatch the frozen iter202, iter203, or iter204",
     "never redownload or rerun the workflow",
-    'gh workflow run iter204-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
-    "actions/workflows/iter204-execute.yml/runs",
-    "scripts/collect_iter204_execution.py check",
-    "scripts/adjudicate_iter204_infrastructure_recovery.py",
-    "scripts/run_iter204_infrastructure_recovery_blind_judge.py",
+    "iter205-execute\t.github/workflows/iter205-execute.yml\tactive",
+    'test "$ITER205_ALL_COUNT" -eq 0',
+    'test "$ITER205_DISPATCH_COUNT" -eq 0',
+    'gh workflow run iter205-execute.yml --ref master -f expected_primary_sha="$HEAD_SHA"',
+    "actions/workflows/iter205-execute.yml/runs",
+    "scripts/collect_iter205_execution.py check",
+    "scripts/adjudicate_iter205_workflow_context_recovery.py",
+    "scripts/run_iter205_workflow_context_recovery_blind_judge.py",
+    "scripts/validate_iter204_pre_dispatch_null.py",
+    "scripts/build_iter205_runtime_manifest.py --check",
+    "scripts/validate_iter205_publication_safety.py --check",
+    "scripts/validate_iter205_runtime_recovery.py",
 )
 
 
@@ -60,16 +84,37 @@ def recovery_content_failures(handoff: str) -> list[str]:
     if re.search(r"\b[A-Z][A-Z0-9_]*(?:KEY|TOKEN|SECRET)\b", handoff):
         failures.append("HANDOFF.md names a credential variable")
     if re.search(
-        r"\bcredentials?\b.{0,80}\b(?:absent|missing|unavailable|not present)\b|"
-        r"\b(?:absent|missing|unavailable)\b.{0,80}\bcredentials?\b",
+        r"\b(?:credentials?|credits?|billing|quota|authentication|authorization|access)\b"
+        r".{0,80}\b(?:absent|missing|unavailable|not present|exhausted)\b|"
+        r"\b(?:absent|missing|unavailable|not present|exhausted)\b.{0,80}"
+        r"\b(?:credentials?|credits?|billing|quota|authentication|authorization|access)\b",
         handoff,
         re.IGNORECASE | re.DOTALL,
     ):
-        failures.append("HANDOFF.md describes credentials as unavailable")
+        failures.append("HANDOFF.md describes access or account capacity as unavailable")
+    if re.search(
+        r"(?:^|[\s`])\.env(?:[\s`/]|$)|"
+        r"\bcredential(?:s)?\s+(?:file|path|location)\b",
+        handoff,
+        re.IGNORECASE | re.MULTILINE,
+    ):
+        failures.append("HANDOFF.md names a credential location")
     if 'gh run rerun "$RUN_ID"' in handoff:
         failures.append("HANDOFF.md authorizes a forbidden workflow rerun")
     if "gh workflow run iter203-execute.yml" in handoff:
         failures.append("HANDOFF.md authorizes the sealed iter203 workflow")
+    if "gh workflow run iter204-execute.yml" in handoff:
+        failures.append("HANDOFF.md authorizes the sealed iter204 workflow")
+    if handoff.count("gh workflow run iter205-execute.yml") != 1:
+        failures.append("HANDOFF.md must contain exactly one iter205 dispatch command")
+    for stale in (
+        "## Exact Authorized Iter204 Dispatch",
+        "scripts/collect_iter204_execution.py check",
+        "scripts/adjudicate_iter204_infrastructure_recovery.py",
+        "scripts/run_iter204_infrastructure_recovery_blind_judge.py",
+    ):
+        if stale in handoff:
+            failures.append(f"HANDOFF.md retains stale iter204 operational instruction: {stale}")
     return failures
 
 

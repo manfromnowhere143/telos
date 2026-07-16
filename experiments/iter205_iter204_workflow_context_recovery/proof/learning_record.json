@@ -1,0 +1,20 @@
+{
+  "evidence_paths": [
+    ".github/workflows/iter205-execute.yml",
+    "experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md",
+    "experiments/iter204_iter203_infrastructure_recovery/RESULT.md",
+    "experiments/iter204_iter203_infrastructure_recovery/proof/pre_dispatch_infrastructure_null.json",
+    "experiments/iter204_iter203_infrastructure_recovery/proof/raw/public_dispatch_metadata/manifest.json",
+    "experiments/iter204_iter203_infrastructure_recovery/proof/raw/runtime_manifest.json",
+    "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+    "scripts/build_iter205_runtime_manifest.py",
+    "scripts/validate_iter204_pre_dispatch_null.py"
+  ],
+  "experiment_id": "iter205_iter204_workflow_context_recovery",
+  "insight": "Iter204 is a pre-dispatch infrastructure null: two public push parse-failure records exist with zero jobs and artifacts, at least one locally observed dispatch request was rejected with HTTP 422 before run creation, and the complete public dispatch history is empty. Iter204 has no provider, container, or scientific execution and no N, k, or u. Iter205 is an active pre-dispatch/pre-scientific-output recovery that permits only separately versioned mechanical identities, moving the runner.temp smoke-receipt binding from job-level to step-level env, additive iter204 admission-null guards, and stronger workflow-context validation; all scientific inputs and rules remain fixed.",
+  "next_action": "Complete and adversarially validate the additive iter205 source and runtime manifest, require green primary CI, then prove the exact active iter205 workflow object plus empty unfiltered and workflow_dispatch histories before issuing exactly one dispatch request for the approved commit. Accept only a created first global iter205 workflow_dispatch run at attempt 1 with a complete same-attempt eight-shard aggregate. Any rejection, parser record, authorization, smoke, shard, collector, or incomplete-corpus failure closes iter205 and advances to iter206 without retry.",
+  "result_path": "experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md",
+  "schema_version": "telos.learning_record.v1",
+  "status": "pending",
+  "timing": "post_iter204_pre_dispatch_infrastructure_null_and_before_any_iter205_dispatch_or_scientific_output"
+}

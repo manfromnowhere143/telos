@@ -1,7 +1,7 @@
 # Next Phase
 
 > **CURRENT AUTHORITY (2026-07-16):** the active gate is
-> [`../experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md`](../experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md).
+> [`../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md`](../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md).
 > Iter202 retained `50` patches and `38` scenario programs after completing its provider stages. Its frozen
 > static-safety guard then rejected `9` programs with `21` findings, admitted `29`, and stopped the batch
 > before any scenario or certification execution; one eligible patch already had an original missing
@@ -16,15 +16,26 @@
 > the exact daemon message is absent, and the root cause is reconstructed from the frozen options and
 > Docker's version-matched validation source.
 >
-> Iter204 repairs only that pre-outcome runtime defect: it preserves every iter202/iter203 evidence byte and
-> row assignment, adds `compress=false` to the one-file local log cap, retains bounded visible Docker-launch
-> diagnostics, and requires a non-scientific exact-launcher preflight. Only the first global iter204 dispatch
-> and run attempt `1` are eligible. Any failure closes iter204 and requires iter205; do not rerun or make a
-> second dispatch. Do not rerun iter202 or iter203, repair or regenerate a provider output, relabel a
-> scenario, or mount or execute an unsafe scenario.
-> `CONTINUITY.md` remains the exact-byte iter202 runtime artifact; the iter204 hypothesis and generated
-> `HANDOFF.md` govern the active recovery. No iter204 execution may start until its source is committed,
-> reviewed, merged, and green on the primary branch.
+> Iter204 separately froze that narrow runtime repair and reached approved source commit
+> `c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446`; primary CI run `29465925393` passed both required jobs.
+> The iter204 workflow was syntactically invalid. Two public event=`push` records (`29465584664` and
+> `29465924803`) concluded failure at attempt `1` with zero jobs and zero artifacts, and their log-download
+> endpoints return `404`. At least one locally observed authorized dispatch API request returned HTTP `422`:
+> line `318`, column `36` referenced `runner.temp` from job-level `env`, where that context is unavailable.
+> The exact number of rejected API requests is not publicly auditable, so only a lower bound of one is
+> claimed. A subsequent public API query found exactly zero iter204 `workflow_dispatch` runs. No provider,
+> container, patch, certification, scenario, adjudication, or judge process started. Iter204 is therefore a
+> pre-dispatch infrastructure null with no `N`, `k`, or `u`; its two `push` records are not scientific
+> attempts.
+>
+> The frozen iter204 rule requires a new iteration for a source correction. Do not retry or mutate iter204.
+> Iter205 may correct only the invalid workflow-context scope while preserving the exact scientific inputs,
+> order, safety dispositions, missingness, certification, and judge contract. Do not rerun iter202 or
+> iter203, repair or regenerate a provider output, relabel a scenario, or mount or execute an unsafe
+> scenario. `CONTINUITY.md` remains the exact-byte iter202 artifact; the published iter203 and iter204
+> results and the iter205 hypothesis govern recovery. Regenerate `HANDOFF.md` only after the iter205 source,
+> guards, and runtime closure are sealed; no iter205 execution may start before review, merge, and green
+> primary CI.
 >
 > Everything below preserves the plan at the iter108-era boundary. It is historical provenance, not a
 > current action list.

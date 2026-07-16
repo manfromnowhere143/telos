@@ -21,14 +21,20 @@ has no rate `N`, `k`, or `u`. The runner deleted its hidden Docker stderr files,
 is not retained; the root cause follows from the frozen option tuple and Docker's version-matched validation
 source. It was not an authentication, billing, credit, or quota failure.
 
+Iter204 is now a separately disclosed pre-dispatch infrastructure null, published in
+[`RESULT.md`](../experiments/iter204_iter203_infrastructure_recovery/RESULT.md). Approved source
+`c1137f896b7ee3c9a26ee35bcda2c5f5c6b79446` passed primary CI run `29465925393`, but the workflow could
+not be parsed. Two public `push` records exist and must not be erased: runs `29465584664` and `29465924803`,
+both attempt `1`, conclusion `failure`, with zero jobs and zero artifacts; public log download returns
+`404`. At least one locally observed authorized dispatch API request returned HTTP `422` because line `318`,
+column `36` referenced `runner.temp` from job-level `env`. The exact request count is not publicly auditable,
+so only the observed lower bound of one is claimed. The public `workflow_dispatch` run count is exactly
+zero. No provider, container, patch, certification, scenario, adjudication, or judge process started, so
+iter204 has no `N`, `k`, or `u`.
+
 The active gate is
-[`iter204`](../experiments/iter204_iter203_infrastructure_recovery/HYPOTHESIS.md), a separately identified
-pre-scientific-output runtime recovery over the same
-sealed bytes and exact row plan. Do not publish a scientific or rate result until all `50` patches have
-complete official-certification evidence, only safety-admitted scenario copies have executed, all eight
-shard receipts and the single-run-attempt aggregate receipt validate, missing witnesses remain explicit,
-and the complete evidence unit passes its guards. A smoke failure or incomplete execution must still be
-published as an infrastructure null; its bounded failure evidence is valid for that null but ineligible for
-certification, scenario, denominator, adjudication, or rate claims. Only the first global iter204 dispatch
-and run attempt `1` are eligible; any failure requires a new iteration, never a rerun or second dispatch.
-Mixed-attempt evidence is invalid.
+[`iter205`](../experiments/iter205_iter204_workflow_context_recovery/HYPOTHESIS.md), a separately versioned
+workflow-context recovery over the unchanged scientific bytes and exact row plan. It is not an iter204
+retry. Do not publish a scientific or rate result until complete official-certification evidence, only
+safety-admitted scenario execution, all required receipts, explicit missingness, and every current guard
+validate under the new gate's exact selection rule.

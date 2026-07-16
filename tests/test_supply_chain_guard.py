@@ -38,7 +38,10 @@ def test_workflow_guard_rejects_mutable_action_runner_and_permissions(tmp_path: 
     assert "top-level permissions must be exactly" in failures
 
 
-@pytest.mark.parametrize("workflow_name", ["iter203-execute.yml", "iter204-execute.yml"])
+@pytest.mark.parametrize(
+    "workflow_name",
+    ["iter203-execute.yml", "iter204-execute.yml", "iter205-execute.yml"],
+)
 def test_workflow_guard_allows_only_execution_workflows_read_only_actions_and_checks(
     tmp_path: Path,
     workflow_name: str,
