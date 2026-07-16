@@ -35,7 +35,7 @@
  },
  "current_gate_state": {
   "date": "2026-07-16",
-  "stage": "iter219_temporal_consequence_test_yield",
+  "stage": "iter220_iter219_publication_ci_recovery",
   "iter200_denominator": "complete: 37 executed, 24 certified, k=1, u=6; historical 1/15 is not poolable",
   "iter200_corrected_baseline": {
    "complete_case_sensitivity": "1/18",
@@ -398,6 +398,30 @@
    "repository_test_executions": 0,
    "estimated_spend_usd": 0.0,
    "tcp1_admission_unchanged": "2 of 11 gates pass; 9 blocked; execution_authorized=false"
+  },
+  "iter220_publication_recovery": {
+   "status": "active_local_publication_recovery",
+   "predecessor_seal": "11e335e82100319a4f5f47d86eaea0c8e81edbbc",
+   "failed_push_ci": 29539630378,
+   "failed_pull_request_ci": 29539645041,
+   "failed_step": "Detector methodology-correction guard",
+   "failed_draft_pull_request": 13,
+   "iter219_branch_mutated_after_observation": false,
+   "iter219_workflow_rerun_after_observation": false,
+   "proximate_cause": "HANDOFF.md wrapped the required phrase 'locator-assisted, gold-validated'; the scanner matched raw substrings with no whitespace normalization.",
+   "root_cause": "iter219's local closure ran roughly 7 hand-listed guards while CI declares 257. A verification set chosen by the author is not an independent check.",
+   "corrections": [
+    "C1: validate_detector_methodology_correction.py normalizes whitespace and blockquote markers before matching; a positive control proves it still fails on genuine absence.",
+    "C2: scripts/run_ci_closure.py derives every guard command from .github/workflows/ci.yml and honours its env overrides, so local closure equals CI closure."
+   ],
+   "bug_class_occurrence": 4,
+   "iter219_science_changed": false,
+   "provider_calls": 0,
+   "gpu_allocations": 0,
+   "containers_built": 0,
+   "repository_test_executions": 0,
+   "workflow_reruns": 0,
+   "tcp1_admission_unchanged": "2 of 11 gates pass; 9 blocked; execution_authorized=false"
   }
  },
  "source_of_truth": [
@@ -604,7 +628,7 @@
   "tests/test_tcp1.py"
  ],
  "active_gate": "experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
- "active_publication_gate": "experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md",
+ "active_publication_gate": "experiments/iter220_iter219_publication_ci_recovery/HYPOTHESIS.md",
  "frozen_upstream_gate": "experiments/iter202_natural_rate_scaled/HYPOTHESIS.md",
  "loop": [
   {

@@ -1,0 +1,54 @@
+{
+ "schema_version": "telos.iter220.ci_failure.v1",
+ "gate": "experiments/iter220_iter219_publication_ci_recovery/HYPOTHESIS.md",
+ "failed_predecessor": {
+  "iteration": "iter219_temporal_consequence_test_yield",
+  "source_commit": "78348446598bb4bb87ee5cda115f29d64db5237e",
+  "seal_commit": "11e335e82100319a4f5f47d86eaea0c8e81edbbc",
+  "branch": "agent/iter219-temporal-consequence-test-yield",
+  "draft_pull_request": 13,
+  "branch_mutated_after_observation": false,
+  "workflow_rerun_after_observation": false,
+  "merged": false
+ },
+ "push_ci": {
+  "run_id": 29539630378,
+  "failed_jobs": ["verify py3.11", "verify py3.12"],
+  "failed_step": "Detector methodology-correction guard"
+ },
+ "pull_request_ci": {
+  "run_id": 29539645041,
+  "failed_jobs": ["verify py3.11", "verify py3.12"],
+  "failed_step": "Detector methodology-correction guard"
+ },
+ "exact_message": "HANDOFF.md is missing corrected detector text: locator-assisted, gold-validated",
+ "proximate_cause": "HANDOFF.md wraps the required phrase as 'locator-assisted,\\ngold-validated'. scripts/validate_detector_methodology_correction.py matched raw substrings with no whitespace normalization, so a correct sentence failed a required-phrase scan purely because of line width.",
+ "recurrence": {
+  "occurrence": 4,
+  "bug_class": "a markdown formatting artifact silently defeats a required-phrase scan",
+  "prior_instances": [
+   "iter214 handoff seal: the same phrase 'locator-assisted, gold-validated' wrapped and failed the same scanner in the previous session",
+   "iter219 amendment A1 guard: a wrapped phrase defeated the guard's own required-phrase check during development",
+   "iter219 validate_current_paper: a blockquote continuation marker normalized to 'right > reason' and defeated a required-phrase check"
+  ]
+ },
+ "root_cause": {
+  "statement": "Iter219's local closure ran a hand-listed subset of guards written from memory. scripts/validate_detector_methodology_correction.py was never in that list.",
+  "local_guards_run_by_iter219": 7,
+  "guard_commands_declared_by_ci": 257,
+  "why_it_matters": "A verification set chosen by the same agent that wrote the change is not an independent check. It is Standard 9 at local scale: the gate passes against the author's idea of the gate rather than the real one. Reflowing the sentence would repair this instance and leave the mechanism intact.",
+  "correction": "scripts/run_ci_closure.py derives its command list from .github/workflows/ci.yml and honours the workflow's env overrides, so local closure equals CI closure and cannot drift."
+ },
+ "unaffected": [
+  "every iter219 yield, control, interval, exact paired test, and bar verdict",
+  "iter219 HYPOTHESIS.md, RESULT.md, proof/yield_report.json, proof/analysis_amendment.json",
+  "all 729 tests, which passed in each failed job",
+  "every iter219 receipt closure"
+ ],
+ "provider_calls": 0,
+ "gpu_allocations": 0,
+ "containers_built": 0,
+ "repository_test_executions": 0,
+ "workflow_reruns": 0,
+ "scientific_result_claimed": false
+}

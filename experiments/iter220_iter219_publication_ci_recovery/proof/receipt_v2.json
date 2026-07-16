@@ -1,0 +1,139 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter220-iter219-publication-ci-recovery-v2",
+  "task_id": "iter220_iter220_publication_ci_recovery",
+  "agent_id": "claude-local-publication-auditor",
+  "benchmark_id": "telos-iter220-publication-recovery",
+  "status": "pass",
+  "stated_goal": "Recover iter219's publication CI by root-causing a required-phrase scanner that a markdown line wrap defeats, and by replacing hand-listed local verification with a closure runner derived from the CI workflow, without changing any iter219 number or evidence byte.",
+  "acceptance_criteria": [
+    "The required-phrase scanner reads a wrapped sentence and still fails on genuine absence.",
+    "Local closure is derived from .github/workflows/ci.yml, never hand-listed.",
+    "Every guard command CI declares passes locally at this seal.",
+    "Iter219 HYPOTHESIS, RESULT, yield report, and amendment are byte-identical to their seal.",
+    "The failed iter219 branch and pull request remain unmutated, unrerun, and unmerged.",
+    "No provider, accelerator, container, dispatch, payment, release, or scientific action occurs."
+  ],
+  "evidence": [
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": ".github/workflows/ci.yml",
+        "bytes": 43235,
+        "sha256": "42456219f2ffb7c4f606075e09a3fa7eb46cdb402c1bd7508cd5863d5e9c0389",
+        "media_type": "application/yaml",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "README.md",
+        "bytes": 188824,
+        "sha256": "c7601502c21f61d0d4704de2c43b05704f8c2b7ec6b5fd436df81cb1444919aa",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter220_iter219_publication_ci_recovery/HYPOTHESIS.md",
+        "bytes": 5450,
+        "sha256": "8b3ea5b04eb450adbbed95235d618364702cb87835043466bd09f9e595177ee9",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter220_iter219_publication_ci_recovery/RESULT.md",
+        "bytes": 4831,
+        "sha256": "5130ea67defbbc9d864e2665f0ba48fe6724b67e0e258549c449e0167dcaeea7",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter220_iter219_publication_ci_recovery/proof/ci_failure.json",
+        "bytes": 3018,
+        "sha256": "1b95f7a2fcc409df0d12a2a37dfec1f83dd72aedfab02fd0b7589063d350ffb9",
+        "media_type": "application/json",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter220_receipt.py",
+        "bytes": 5493,
+        "sha256": "dce68880e59656ecfd41f60ab396fd619cb6926ab66473aa69243681d0d5d3aa",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/run_ci_closure.py",
+        "bytes": 3956,
+        "sha256": "23189142566b8529ddad3253636016d9a007c08aebb5468927d494bc14b26ba2",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_detector_methodology_correction.py",
+        "bytes": 53668,
+        "sha256": "e85a3abae2f88989e2111407979cf30f6e4c1c30d916c1ddb0e0b2fdb1943d57",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter220_iter219_publication_ci_recovery.py",
+        "bytes": 6290,
+        "sha256": "18db5ddb8b77294faca817c234e6694cbc9a136bf0d2735cd44ecfe5c90cb5de",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter220_publication_ci_recovery.py",
+        "bytes": 6319,
+        "sha256": "721ac130ccc60fd01e000e7d73213106ea0caf3bc7dff5b69830d9e07030fa14",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter220-iter219-publication-ci-recovery"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any iter219 experiment byte changes.",
+    "Any iter219 yield, control, interval, paired test, bar verdict, or claim boundary changes.",
+    "The normalizer lets a required-phrase scan pass while the required meaning is absent.",
+    "The closure runner omits a guard command that the CI workflow runs.",
+    "The failed iter219 branch or pull request is mutated, extended, or rerun.",
+    "Any scientific, provider, accelerator, dispatch, payment, or release action occurs."
+  ],
+  "evidence_closure_sha256": "ce60e6779745da232a341b5b872d3a01e7033702aa9be8ab06092e4753dd6587",
+  "receipt_sha256": "03a3587e8e326a144e9d8696dc69e8cb02df63867c94acb52c4be2bce9a4b007"
+}

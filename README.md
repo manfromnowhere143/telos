@@ -32,7 +32,12 @@ The failed, unchanged publication predecessor is
 [iter213 iter211 post-seal validation recovery](experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md).
 The merged publication-engineering gate is
 [iter214 TCP-1 cross-platform numeric recovery](experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md).
-The active published null is
+The active publication-engineering gate is
+[iter220 iter219 publication CI recovery](experiments/iter220_iter219_publication_ci_recovery/HYPOTHESIS.md),
+which preserves the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that
+a Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
+from the CI workflow itself.
+The published null is
 [iter219 temporal consequence-test yield](experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md),
 whose [result](experiments/iter219_temporal_consequence_test_yield/RESULT.md) falsifies static symbol-name
 matching as a detector of temporal consequence-test targeting and records why its own cross-repository

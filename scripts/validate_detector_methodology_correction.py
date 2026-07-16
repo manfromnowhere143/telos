@@ -1224,20 +1224,36 @@ def validate_frozen_evidence() -> list[str]:
     return failures
 
 
+def normalize_prose(text: str) -> str:
+    """Collapse whitespace runs and strip blockquote markers before phrase matching.
+
+    A required phrase that wraps across a Markdown line break is still present and still
+    correct, but a raw substring scan cannot see it.  This exact failure broke the iter214
+    handoff seal on the phrase "locator-assisted, gold-validated", then broke iter219's
+    publication CI on the same phrase in the same file.  Match against normalized prose so
+    the scan tests meaning rather than line width.
+
+    Normalization only ever makes a required phrase easier to find and a forbidden phrase
+    easier to catch, so it cannot hide a real defect.
+    """
+
+    lines = [re.sub(r"^\s*>+\s?", "", line) for line in text.splitlines()]
+    return " ".join(" ".join(lines).split())
+
+
 def validate_public_surfaces() -> list[str]:
     failures: list[str] = []
     for path, snippets in PUBLIC_REQUIREMENTS.items():
-        text = path.read_text(encoding="utf-8")
-        folded = text.casefold()
+        folded = normalize_prose(path.read_text(encoding="utf-8")).casefold()
         for snippet in snippets:
-            if snippet.casefold() not in folded:
+            if normalize_prose(snippet).casefold() not in folded:
                 failures.append(
                     f"{path.relative_to(ROOT)} is missing corrected detector text: {snippet}"
                 )
     for path, phrases in FORBIDDEN_STANDING_PHRASES.items():
-        text = path.read_text(encoding="utf-8").casefold()
+        text = normalize_prose(path.read_text(encoding="utf-8")).casefold()
         for phrase in phrases:
-            if phrase.casefold() in text:
+            if normalize_prose(phrase).casefold() in text:
                 failures.append(
                     f"{path.relative_to(ROOT)} retains stale detector/public wording: {phrase}"
                 )

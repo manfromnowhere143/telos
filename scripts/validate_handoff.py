@@ -50,6 +50,9 @@ ITER214_HANDOFF_SCHEMA = "telos.iter214.handoff.v1"
 ITER214_PREDECESSOR_SEAL = "dbe008211022e0abdff5bc9e47e871b02b6d5501"
 ITER214_RECEIPT = "experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/receipt_v2.json"
 ITER219_BRANCH = "agent/iter219-temporal-consequence-test-yield"
+ITER220_BRANCH = "agent/iter220-iter219-publication-ci-recovery"
+ITER220_HANDOFF_SCHEMA = "telos.iter220.handoff.v1"
+ITER220_PREDECESSOR_SEAL = "11e335e82100319a4f5f47d86eaea0c8e81edbbc"
 ITER219_HANDOFF_SCHEMA = "telos.iter219.handoff.v1"
 ITER219_PREDECESSOR_MERGE = "470ca3627b7635d9a315cf2811ceb2eed6575fb9"
 ITER219_RECEIPT = "experiments/iter219_temporal_consequence_test_yield/proof/receipt_v2.json"
@@ -1402,6 +1405,112 @@ def iter213_handoff_failures(handoff: str) -> list[str]:
     return failures
 
 
+def iter220_declared_repository_state(handoff: str) -> dict[str, str]:
+    """Parse the iter220 source-bound publication-recovery identity block."""
+
+    matches = re.findall(
+        r"^## Repository State\n\n```text\n"
+        r"handoff_schema: ([^\n]+)\n"
+        r"source_branch: ([^\n]+)\n"
+        r"source_commit: ([^\n]+)\n"
+        r"predecessor_seal: ([^\n]+)\n"
+        r"publication_target: ([^\n]+)\n```$",
+        handoff,
+        re.MULTILINE,
+    )
+    if len(matches) != 1:
+        raise ValueError("HANDOFF.md must record exactly one iter220 repository-state block")
+    schema, branch, source, predecessor, target = matches[0]
+    if schema != ITER220_HANDOFF_SCHEMA:
+        raise ValueError(f"HANDOFF.md iter220 schema differs: {schema}")
+    if branch != ITER220_BRANCH:
+        raise ValueError(f"HANDOFF.md iter220 source branch differs: {branch}")
+    if re.fullmatch(r"[0-9a-f]{40}", source) is None:
+        raise ValueError("HANDOFF.md iter220 source commit is not a full lowercase Git id")
+    if predecessor != ITER220_PREDECESSOR_SEAL:
+        raise ValueError("HANDOFF.md iter220 predecessor seal differs")
+    if target != "master":
+        raise ValueError("HANDOFF.md iter220 publication target must be master")
+    return {
+        "source_branch": branch,
+        "source_commit": source,
+        "predecessor_seal": predecessor,
+        "publication_target": target,
+    }
+
+
+def iter220_content_failures(handoff: str, contract: dict[str, object]) -> list[str]:
+    """Keep iter219's null, its averted false positive, and the closure discipline explicit.
+
+    The next operator must not be able to read this file and conclude that the fix was a
+    reflowed sentence.  The mechanism was a self-selected local guard list, and the handoff
+    must say so.
+    """
+
+    failures: list[str] = []
+    try:
+        iter220_declared_repository_state(handoff)
+    except ValueError as exc:
+        failures.append(str(exc))
+    if REPOSITORY_DECLARATION not in handoff:
+        failures.append("HANDOFF.md does not declare the standalone TELOS repository")
+    if FORBIDDEN_WORKSPACE_LABEL in handoff.casefold():
+        failures.append("HANDOFF.md names an unrelated workspace")
+    if re.search(r"\b[A-Z][A-Z0-9_]*(?:KEY|TOKEN|SECRET)\b", handoff):
+        failures.append("HANDOFF.md names a credential variable")
+    if re.search(r"(?im)^[ \t]*gh[ \t]+(?:run[ \t]+rerun|workflow[ \t]+run)\b", handoff):
+        failures.append("HANDOFF.md authorizes a workflow dispatch or rerun")
+    required = (
+        "Local status: **PASS; fresh publication seal pending**.",
+        "Iter219 remains a NULL and its evidence is unchanged.",
+        "forward `0.4066`",
+        "backward within-repository control `0.4336`",
+        "difference `-0.0270` at `p = 0.925`",
+        "cross-repository control alone reads `0.4066` versus `0.1660` at `p = 3.48e-24`",
+        "a control that cannot fail for the right reason manufactures significance",
+        "It does NOT falsify the harvest hypothesis",
+        "Push CI run `29539630378` and pull-request CI run `29539645041` both failed",
+        "iter219's local closure ran roughly `7` hand-listed guards while CI declares `257`",
+        "Run `python3 scripts/run_ci_closure.py` before any push.",
+        "The iter219 branch and PR `#13` remain unchanged, were not rerun, and must not be merged.",
+        "Iter212 remains unchanged and inactive",
+        "`2` passing local-design gates, `9` blocked external gates",
+        "The receipt proves byte identity, not authorship, external chronology, licensing, independence, or semantic truth.",
+        "Repository publication authorizes no release, paper submission, provider request, GPU allocation",
+        "python3 scripts/build_iter220_receipt.py --check",
+        "python3 scripts/validate_iter220_iter219_publication_ci_recovery.py",
+        "python3 scripts/validate_handoff.py",
+        "pytest -q",
+    )
+    normalized = " ".join(handoff.split())
+    for fact in required:
+        if " ".join(fact.split()) not in normalized:
+            failures.append(f"HANDOFF.md is missing iter220 recovery fact: {fact}")
+    if handoff.count(f"Active gate: `{contract.get('active_gate')}`") != 1:
+        failures.append("HANDOFF.md does not bind the sealed runtime gate exactly once")
+    if handoff.count(f"Active publication gate: `{contract.get('active_publication_gate')}`") != 1:
+        failures.append("HANDOFF.md does not bind the active publication gate exactly once")
+    frozen_line = (
+        "Frozen upstream gate recorded by runtime-bound `CONTINUITY.md`: "
+        f"`{contract.get('frozen_upstream_gate')}`"
+    )
+    if handoff.count(frozen_line) != 1:
+        failures.append("HANDOFF.md does not bind the frozen upstream gate exactly once")
+    return failures
+
+
+def iter220_handoff_failures(handoff: str) -> list[str]:
+    """Validate the iter220 publication-recovery handoff against the mission contract."""
+
+    try:
+        contract = json.loads(MISSION_CONTRACT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return [f"cannot load mission gate contract: {exc}"]
+    if not isinstance(contract, dict):
+        return ["mission gate contract root is not an object"]
+    return iter220_content_failures(handoff, contract)
+
+
 def iter219_declared_repository_state(handoff: str) -> dict[str, str]:
     """Parse the iter219 source-bound published-null identity block."""
 
@@ -1689,6 +1798,15 @@ def iter214_handoff_failures(handoff: str) -> list[str]:
 def main() -> int:
     failures: list[str] = []
     handoff = HANDOFF.read_text(encoding="utf-8")
+    if f"handoff_schema: {ITER220_HANDOFF_SCHEMA}" in handoff:
+        failures.extend(iter220_handoff_failures(handoff))
+        if failures:
+            print("handoff guard failed:")
+            for failure in failures:
+                print(f" - {failure}")
+            return 1
+        print("handoff guard: clean iter220 publication CI recovery seal")
+        return 0
     if f"handoff_schema: {ITER219_HANDOFF_SCHEMA}" in handoff:
         failures.extend(iter219_handoff_failures(handoff))
         if failures:

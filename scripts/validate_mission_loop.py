@@ -854,10 +854,8 @@ def validate_iter219_temporal_yield_state(
 
     failures: list[str] = []
     expected_gate = "experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md"
-    if contract.get("active_publication_gate") != expected_gate:
-        failures.append("iter219 active publication gate differs")
     if not (root / expected_gate).is_file():
-        failures.append("iter219 active gate is absent")
+        failures.append("iter219 gate is absent")
 
     state = contract.get("current_gate_state", {}).get("iter219_temporal_yield", {})
     if state.get("status") != "null":
