@@ -1,0 +1,708 @@
+from __future__ import annotations
+
+from scripts.measure_iter219_temporal_yield import (
+    build_derangement,
+    changed_old_lines,
+    enclosing_symbols,
+    is_source_path,
+    is_test_path,
+    permutation_key,
+    extract_test_function_identifiers,
+)
+
+MIXED_PATCH = """diff --git a/pkg/core.py b/pkg/core.py
+--- a/pkg/core.py
++++ b/pkg/core.py
+@@ -10,7 +10,8 @@ class Widget:
+     def render(self):
+-        return self.a
++        return self.b
++        # extra
+
+@@ -40,0 +41,2 @@ def helper():
++def brand_new():
++    pass
+"""
+
+SOURCE = """
+class Widget:
+    def render(self):
+        x = 1
+        return x
+
+    def other(self):
+        pass
+
+def free_func():
+    return 2
+"""
+
+TESTS = """
+import pytest
+
+@pytest.mark.parametrize("x", [1])
+def test_render_regression(x):
+    w = Widget()
+    assert w.render() == 1
+
+class TestGroup:
+    def test_other_thing(self):
+        assert helper_symbol()
+
+def not_a_test():
+    assert render()
+"""
+
+
+def test_pure_insertion_hunk_never_attributes_the_untouched_preceding_line() -> None:
+    # ``@@ -40,0 +41,2 @@`` inserts after original line 40.  Line 39 is untouched and
+    # must never enter the symbol set; attributing it would inflate the measured yield.
+    assert changed_old_lines(MIXED_PATCH) == {"pkg/core.py": {11, 40}}
+
+
+def test_deleted_files_contribute_no_changed_lines() -> None:
+    patch = (
+        "--- a/pkg/gone.py\n"
+        "+++ /dev/null\n"
+        "@@ -1,3 +0,0 @@\n"
+        "-a = 1\n"
+        "-b = 2\n"
+        "-c = 3\n"
+    )
+    assert changed_old_lines(patch) == {}
+
+
+def test_changed_lines_are_tracked_per_file() -> None:
+    patch = (
+        "--- a/x.py\n"
+        "+++ b/x.py\n"
+        "@@ -5,2 +5,2 @@\n"
+        "-old\n"
+        "+new\n"
+        "--- a/tests/test_x.py\n"
+        "+++ b/tests/test_x.py\n"
+        "@@ -1,1 +1,2 @@\n"
+        " keep\n"
+        "+added\n"
+    )
+    assert changed_old_lines(patch) == {"x.py": {5}, "tests/test_x.py": {1}}
+
+
+def test_enclosing_symbol_is_the_innermost_definition() -> None:
+    assert enclosing_symbols(SOURCE, {4}) == {"render"}
+    assert enclosing_symbols(SOURCE, {11}) == {"free_func"}
+    assert enclosing_symbols(SOURCE, {2}) == {"Widget"}
+
+
+def test_module_level_lines_contribute_no_symbol() -> None:
+    assert enclosing_symbols("x = 1\ny = 2\n", {1, 2}) == set()
+
+
+def test_only_test_prefixed_functions_are_collected_with_decorator_text() -> None:
+    collected = extract_test_function_identifiers(TESTS)
+
+    assert sorted(collected) == ["TestGroup.test_other_thing", "test_render_regression"]
+    assert "not_a_test" not in collected
+    assert "render" in collected["test_render_regression"]
+    assert "parametrize" in collected["test_render_regression"]
+    assert "helper_symbol" in collected["TestGroup.test_other_thing"]
+
+
+def test_unparseable_test_module_yields_no_functions() -> None:
+    assert extract_test_function_identifiers("def test_x( :\n") == {}
+
+
+def test_frozen_test_path_convention() -> None:
+    for path in (
+        "tests/test_a.py",
+        "pkg/tests/foo.py",
+        "a/b_test.py",
+        "conftest.py",
+        "pkg/testing/x.py",
+    ):
+        assert is_test_path(path), path
+        assert not is_source_path(path), path
+
+    assert is_source_path("pkg/core.py")
+    assert not is_test_path("pkg/core.py")
+    assert not is_source_path("README.md")
+
+
+def test_permutation_key_is_deterministic_and_salt_bound() -> None:
+    assert permutation_key(1) == permutation_key(1)
+    assert permutation_key(1) != permutation_key(2)
+
+
+def test_derangement_is_a_bijection_without_fixed_points_or_same_repo_pairs() -> None:
+    ids = [f"i{n}" for n in range(10)]
+    repo_of = {f"i{n}": ("A" if n < 5 else "B") for n in range(10)}
+
+    pairing = build_derangement(ids, repo_of)
+
+    assert sorted(pairing.values()) == sorted(ids)
+    for source, dest in pairing.items():
+        assert dest != source
+        assert repo_of[dest] != repo_of[source]
+
+
+def test_derangement_is_stable_across_calls() -> None:
+    ids = [f"i{n}" for n in range(12)]
+    repo_of = {f"i{n}": ("A" if n % 3 == 0 else "B" if n % 3 == 1 else "C") for n in range(12)}
+
+    assert build_derangement(ids, repo_of) == build_derangement(ids, repo_of)
+
+
+# --------------------------------------------------------------------------- #
+# Positive controls: every guard must FAIL on a broken input, or it guards nothing.
+# --------------------------------------------------------------------------- #
+
+import copy  # noqa: E402
+
+import pytest  # noqa: E402
+
+from scripts import validate_iter219_temporal_consequence_test_yield as guard  # noqa: E402
+from telos.tcp1 import exact_one_sided_mcnemar, wilson_interval  # noqa: E402
+
+
+def _synthetic_report() -> dict:
+    rows = [
+        {"instance_id": "a__1", "repo": "org/a", "control_partner": "b__1", "real": True,
+         "control": False, "backward_control": False,
+         "symbol_count": 2, "forward_added_tests": 4, "backward_added_tests": 3},
+        {"instance_id": "b__1", "repo": "org/b", "control_partner": "a__1", "real": False,
+         "control": False, "backward_control": False,
+         "symbol_count": 1, "forward_added_tests": 2, "backward_added_tests": 1},
+    ]
+    pairs = [(r["real"], r["control"]) for r in rows]
+    back_pairs = [(r["real"], r["backward_control"]) for r in rows]
+    block = {
+        "n": 2,
+        "real_hits": 1,
+        "real_yield": 0.5,
+        "real_wilson_95": list(wilson_interval(1, 2)),
+        "control_hits": 0,
+        "control_yield": 0.0,
+        "control_wilson_95": list(wilson_interval(0, 2)),
+        "yield_difference": 0.5,
+        "mcnemar_real_gt_control": exact_one_sided_mcnemar(pairs),
+        "backward_control_hits": 0,
+        "backward_control_yield": 0.0,
+        "backward_control_wilson_95": list(wilson_interval(0, 2)),
+        "backward_yield_difference": 0.5,
+        "mcnemar_real_gt_backward": exact_one_sided_mcnemar(back_pairs),
+        "exposure": {
+            "forward_added_tests_total": 6,
+            "backward_added_tests_total": 4,
+            "forward_added_tests_median": 3.0,
+            "backward_added_tests_median": 2.0,
+            "forward_over_backward_total_ratio": 1.5,
+            "instances_with_zero_forward_tests": 0,
+            "instances_with_zero_backward_tests": 0,
+            "symbol_count_median": 1.5,
+        },
+        "per_repo_real_hits": {"org/a": 1},
+        "max_single_repo_share_of_hits": 1.0,
+        "rows": rows,
+    }
+    return {
+        "schema_version": "telos.iter219.yield_report.v1",
+        "deltas_days": list(guard.DELTAS_DAYS),
+        "permutation_salt": guard.PERMUTATION_SALT,
+        "instances_seen": 3,
+        "instances_included": 2,
+        "instances_excluded": 1,
+        "exclusion_counts": {"no_enclosing_symbol": 1},
+        "results_by_delta": {str(d): copy.deepcopy(block) for d in guard.DELTAS_DAYS},
+        "provider_calls": 0,
+        "gpu_allocations": 0,
+        "containers_built": 0,
+        "repository_test_executions": 0,
+        "scientific_result_claimed": False,
+    }
+
+
+def test_clean_synthetic_report_passes_every_guard() -> None:
+    report = _synthetic_report()
+    guard.check_report_recomputes(report)
+    guard.check_zero_action(report)
+
+
+def test_guard_fires_when_instance_accounting_does_not_close() -> None:
+    report = _synthetic_report()
+    report["instances_excluded"] = 5
+    with pytest.raises(guard.Iter219ValidationError, match="does not close"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_reported_hits_disagree_with_rows() -> None:
+    report = _synthetic_report()
+    report["results_by_delta"]["365"]["real_hits"] = 2
+    with pytest.raises(guard.Iter219ValidationError, match="real_hits"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_a_confidence_interval_is_tampered_with() -> None:
+    report = _synthetic_report()
+    report["results_by_delta"]["365"]["real_wilson_95"] = [0.99, 1.0]
+    with pytest.raises(guard.Iter219ValidationError, match="Wilson"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_the_paired_test_is_tampered_with() -> None:
+    report = _synthetic_report()
+    report["results_by_delta"]["365"]["mcnemar_real_gt_control"]["one_sided_exact_p_value"] = 0.0
+    with pytest.raises(guard.Iter219ValidationError, match="McNemar"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_an_instance_is_its_own_control() -> None:
+    report = _synthetic_report()
+    report["results_by_delta"]["365"]["rows"][0]["control_partner"] = "a__1"
+    with pytest.raises(guard.Iter219ValidationError, match="its own control"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_the_control_shares_the_instance_repository() -> None:
+    report = _synthetic_report()
+    report["results_by_delta"]["365"]["rows"][1]["repo"] = "org/a"
+    with pytest.raises(guard.Iter219ValidationError, match="within its own repository"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_the_window_set_drifts_from_the_instrument() -> None:
+    report = _synthetic_report()
+    report["deltas_days"] = [365]
+    with pytest.raises(guard.Iter219ValidationError, match="windows drifted"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_the_permutation_salt_drifts() -> None:
+    report = _synthetic_report()
+    report["permutation_salt"] = "retuned-salt:"
+    with pytest.raises(guard.Iter219ValidationError, match="salt drifted"):
+        guard.check_report_recomputes(report)
+
+
+@pytest.mark.parametrize(
+    "field", ["provider_calls", "gpu_allocations", "containers_built", "repository_test_executions"]
+)
+def test_guard_fires_on_any_forbidden_action(field: str) -> None:
+    report = _synthetic_report()
+    report[field] = 1
+    with pytest.raises(guard.Iter219ValidationError, match=field):
+        guard.check_zero_action(report)
+
+
+def test_guard_fires_when_the_result_overclaims() -> None:
+    with pytest.raises(guard.Iter219ValidationError, match="forbidden claim"):
+        guard.check_claim_boundary("This screen establishes the state of the art.")
+
+
+def test_guard_fires_when_the_result_drops_the_screen_framing() -> None:
+    with pytest.raises(guard.Iter219ValidationError, match="screen"):
+        guard.check_claim_boundary("Later tests reference task symbols.")
+
+
+def test_sealed_hypothesis_matches_the_instrument_constants() -> None:
+    assert guard.validate(preflight=True) == []
+
+
+def test_sealed_rules_guard_fires_when_prose_and_code_disagree() -> None:
+    text = guard.HYPOTHESIS.read_text(encoding="utf-8").replace(
+        "primary window is `Δ = 365`", "primary window is `Δ = 180`"
+    )
+    with pytest.raises(guard.Iter219ValidationError, match="primary window"):
+        guard.check_sealed_rules_match_instrument(text)
+
+
+# --------------------------------------------------------------------------- #
+# Amendment A1: the confound that would have faked the entire result.
+# --------------------------------------------------------------------------- #
+
+from scripts.measure_iter219_temporal_yield import own_test_functions  # noqa: E402
+
+TEST_PATCH = """diff --git a/tests/test_widget.py b/tests/test_widget.py
+--- a/tests/test_widget.py
++++ b/tests/test_widget.py
+@@ -1,3 +1,9 @@
+ import pytest
++
++def test_render_after_fix():
++    assert Widget().render() == 1
++
++async def test_async_render():
++    assert True
+"""
+
+
+def test_own_fixing_pr_tests_are_identified_for_exclusion() -> None:
+    assert own_test_functions(TEST_PATCH) == {
+        ("tests/test_widget.py", "test_render_after_fix"),
+        ("tests/test_widget.py", "test_async_render"),
+    }
+
+
+def test_own_test_functions_ignores_deleted_test_files() -> None:
+    patch = "--- a/tests/test_gone.py\n+++ /dev/null\n@@ -1,2 +0,0 @@\n-def test_x():\n-    pass\n"
+    assert own_test_functions(patch) == set()
+
+
+def test_own_test_functions_ignores_non_test_helpers() -> None:
+    patch = (
+        "--- a/tests/test_w.py\n+++ b/tests/test_w.py\n@@ -1,0 +1,2 @@\n"
+        "+def helper_thing():\n+    pass\n"
+    )
+    assert own_test_functions(patch) == set()
+
+
+def test_guard_fires_if_the_hypothesis_ever_drops_amendment_a1() -> None:
+    # Without A1 the forward window silently readmits the task's own fixing-PR tests and
+    # the primary yield becomes a tautology.  The guard must refuse that hypothesis.
+    text = guard.normalize(guard.HYPOTHESIS.read_text(encoding="utf-8")).replace(
+        "visible grader, not a hidden consequence test", "hidden consequence test"
+    )
+    with pytest.raises(guard.Iter219ValidationError, match="amendment A1"):
+        guard.check_sealed_rules_match_instrument(text)
+
+
+def test_guard_fires_if_the_hypothesis_drops_the_backward_control() -> None:
+    text = guard.HYPOTHESIS.read_text(encoding="utf-8").replace("Y_backward", "Y_removed")
+    with pytest.raises(guard.Iter219ValidationError, match="amendment A2"):
+        guard.check_sealed_rules_match_instrument(text)
+
+
+def test_amendment_records_that_no_outcome_existed_when_written() -> None:
+    import json as _json
+
+    amendment = _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+    guard.check_amendment(amendment)
+
+
+def test_guard_fires_if_the_amendment_claims_a_moved_threshold() -> None:
+    import copy as _copy
+    import json as _json
+
+    amendment = _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+    tampered = _copy.deepcopy(amendment)
+    tampered["amendments"][0]["changes_thresholds"] = True
+    with pytest.raises(guard.Iter219ValidationError, match="must not move a sealed threshold"):
+        guard.check_amendment(tampered)
+
+
+def test_guard_fires_if_the_amendment_was_written_after_observation() -> None:
+    import copy as _copy
+    import json as _json
+
+    amendment = _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+    tampered = _copy.deepcopy(amendment)
+    tampered["observation_state_at_amendment"]["instances_measured"] = 500
+    with pytest.raises(guard.Iter219ValidationError, match="no outcome existed"):
+        guard.check_amendment(tampered)
+
+
+def test_guard_fires_when_the_backward_control_is_tampered_with() -> None:
+    report = _synthetic_report()
+    report["results_by_delta"]["365"]["backward_control_hits"] = 2
+    with pytest.raises(guard.Iter219ValidationError, match="backward_control_hits"):
+        guard.check_report_recomputes(report)
+
+
+def test_sealed_rule_scan_survives_markdown_rewrapping() -> None:
+    # A wrapped sentence silently defeated a required-phrase scan in this repository
+    # before.  Rewrapping the sealed prose must not change any verdict.
+    raw = guard.HYPOTHESIS.read_text(encoding="utf-8")
+    rewrapped = raw.replace("visible grader, not a hidden", "visible\n   grader,\n   not a hidden")
+
+    guard.check_sealed_rules_match_instrument(raw)
+    guard.check_sealed_rules_match_instrument(rewrapped)
+
+
+# --------------------------------------------------------------------------- #
+# L1: exposure imbalance must be visible, or a growth artifact reads as a result.
+# --------------------------------------------------------------------------- #
+
+from scripts.measure_iter219_temporal_yield import exposure_diagnostic  # noqa: E402
+
+
+def test_exposure_diagnostic_reports_the_forward_backward_imbalance() -> None:
+    rows = [
+        {"forward_added_tests": 10, "backward_added_tests": 2, "symbol_count": 3},
+        {"forward_added_tests": 0, "backward_added_tests": 0, "symbol_count": 1},
+    ]
+    exposure = exposure_diagnostic(rows)
+
+    assert exposure["forward_added_tests_total"] == 10
+    assert exposure["backward_added_tests_total"] == 2
+    assert exposure["forward_over_backward_total_ratio"] == 5.0
+    assert exposure["instances_with_zero_forward_tests"] == 1
+    assert exposure["instances_with_zero_backward_tests"] == 1
+
+
+def test_exposure_diagnostic_handles_an_empty_backward_side() -> None:
+    rows = [{"forward_added_tests": 5, "backward_added_tests": 0, "symbol_count": 1}]
+    assert exposure_diagnostic(rows)["forward_over_backward_total_ratio"] == float("inf")
+
+
+def test_guard_fires_when_the_exposure_diagnostic_is_missing() -> None:
+    report = _synthetic_report()
+    del report["results_by_delta"]["365"]["exposure"]
+    with pytest.raises(guard.Iter219ValidationError, match="exposure diagnostic missing"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_exposure_totals_are_tampered_with() -> None:
+    report = _synthetic_report()
+    report["results_by_delta"]["365"]["exposure"]["forward_added_tests_total"] = 999
+    with pytest.raises(guard.Iter219ValidationError, match="forward exposure total"):
+        guard.check_report_recomputes(report)
+
+
+def test_guard_fires_when_a_known_limitation_is_dropped() -> None:
+    import copy as _copy
+    import json as _json
+
+    amendment = _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+    tampered = _copy.deepcopy(amendment)
+    tampered["known_limitations_disclosed_not_fixed"] = [
+        item for item in tampered["known_limitations_disclosed_not_fixed"] if item["id"] != "L1"
+    ]
+    with pytest.raises(guard.Iter219ValidationError, match="must remain disclosed"):
+        guard.check_amendment(tampered)
+
+
+def test_guard_fires_when_a_limitation_hides_its_direction_of_bias() -> None:
+    import copy as _copy
+    import json as _json
+
+    amendment = _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+    tampered = _copy.deepcopy(amendment)
+    tampered["known_limitations_disclosed_not_fixed"][0]["direction_of_bias"] = ""
+    with pytest.raises(guard.Iter219ValidationError, match="direction of bias"):
+        guard.check_amendment(tampered)
+
+
+# --------------------------------------------------------------------------- #
+# L4: what a null means must be fixed before the null is known.
+# --------------------------------------------------------------------------- #
+
+
+def _amendment() -> dict:
+    import json as _json
+
+    return _json.loads(guard.AMENDMENT.read_text(encoding="utf-8"))
+
+
+def test_l4_fixes_the_inference_for_pass_and_null_before_observation() -> None:
+    guard.check_amendment(_amendment())
+
+
+def test_guard_fires_if_l4_loses_its_null_branch() -> None:
+    import copy as _copy
+
+    tampered = _copy.deepcopy(_amendment())
+    for item in tampered["known_limitations_disclosed_not_fixed"]:
+        if item["id"] == "L4":
+            item["inference_rule_fixed_before_observation"]["if_null"] = ""
+    with pytest.raises(guard.Iter219ValidationError, match="both a pass and a null"):
+        guard.check_amendment(tampered)
+
+
+def test_guard_fires_if_a_null_is_rewritten_as_absence_of_consequence_tests() -> None:
+    # The tempting post-hoc story: "we measured a low yield, therefore maintainer
+    # consequence tests do not exist."  This instrument cannot show that -- it is blind to
+    # public-API tests that never name the changed symbol.  The guard must refuse.
+    import copy as _copy
+
+    tampered = _copy.deepcopy(_amendment())
+    for item in tampered["known_limitations_disclosed_not_fixed"]:
+        if item["id"] == "L4":
+            item["inference_rule_fixed_before_observation"]["if_null"] = (
+                "A null shows maintainer consequence tests are absent; buy annotators."
+            )
+    with pytest.raises(guard.Iter219ValidationError, match="does not falsify the harvest"):
+        guard.check_amendment(tampered)
+
+
+def test_guard_fires_if_l4_is_dropped_entirely() -> None:
+    import copy as _copy
+
+    tampered = _copy.deepcopy(_amendment())
+    tampered["known_limitations_disclosed_not_fixed"] = [
+        item for item in tampered["known_limitations_disclosed_not_fixed"] if item["id"] != "L4"
+    ]
+    with pytest.raises(guard.Iter219ValidationError, match="L4 must remain disclosed|must remain disclosed"):
+        guard.check_amendment(tampered)
+
+
+# --------------------------------------------------------------------------- #
+# Work-directory lock: two instruments racing corrupts clones silently.
+# --------------------------------------------------------------------------- #
+
+import os as _os  # noqa: E402
+
+from scripts.measure_iter219_temporal_yield import WorkDirLock  # noqa: E402
+
+
+def test_lock_refuses_a_second_live_instrument(tmp_path) -> None:
+    first = WorkDirLock(tmp_path)
+    first.acquire()
+
+    second = WorkDirLock(tmp_path)
+    with pytest.raises(RuntimeError, match="already running"):
+        second.acquire()
+
+    first.release()
+    second.acquire()  # released locks are reusable
+    second.release()
+
+
+def test_lock_ignores_a_stale_pid_from_a_dead_run(tmp_path) -> None:
+    # A killed run leaves its lock behind.  A dead holder must never block forever.
+    (tmp_path / ".instrument.lock").write_text("999999")
+
+    lock = WorkDirLock(tmp_path)
+    lock.acquire()
+    assert (tmp_path / ".instrument.lock").read_text() == str(_os.getpid())
+    lock.release()
+
+
+def test_lock_ignores_a_corrupt_lock_file(tmp_path) -> None:
+    (tmp_path / ".instrument.lock").write_text("not-a-pid")
+
+    lock = WorkDirLock(tmp_path)
+    lock.acquire()
+    lock.release()
+    assert not (tmp_path / ".instrument.lock").exists()
+
+
+# --------------------------------------------------------------------------- #
+# Fabricated-digest guard.  A 64-hex string is the one claim nobody checks by
+# hand; one was invented while drafting this result and caught before commit.
+# --------------------------------------------------------------------------- #
+
+REAL_DIGEST = "a" * 64
+FAKE_DIGEST = "b" * 64
+
+
+def _report_with_digest() -> dict:
+    return {
+        "dataset": {"rows_sha256": REAL_DIGEST},
+        "repositories": {"org/a": {"head_sha": "c" * 40, "url": "u", "default_branch": "main"}},
+    }
+
+
+def test_result_may_cite_a_digest_present_in_the_evidence() -> None:
+    guard.check_result_digests_are_not_invented(
+        f"rows SHA-256 `{REAL_DIGEST}` as recorded.", _report_with_digest()
+    )
+
+
+def test_guard_fires_on_a_fabricated_digest() -> None:
+    with pytest.raises(guard.Iter219ValidationError, match="absent from the evidence"):
+        guard.check_result_digests_are_not_invented(
+            f"rows SHA-256 `{FAKE_DIGEST}`.", _report_with_digest()
+        )
+
+
+def test_guard_fires_on_a_digest_with_a_correct_prefix_but_invented_tail() -> None:
+    # The exact failure mode: copy the 16 chars visible in a log, invent the other 48.
+    invented = REAL_DIGEST[:16] + ("f" * 48)
+    with pytest.raises(guard.Iter219ValidationError, match="absent from the evidence"):
+        guard.check_result_digests_are_not_invented(
+            f"rows SHA-256 `{invented}`.", _report_with_digest()
+        )
+
+
+def test_committed_result_cites_only_real_digests() -> None:
+    import json as _json
+
+    report = _json.loads(guard.REPORT.read_text(encoding="utf-8"))
+    guard.check_result_digests_are_not_invented(
+        guard.RESULT.read_text(encoding="utf-8"), report
+    )
+
+
+# --------------------------------------------------------------------------- #
+# Mission-loop contract: the null's boundary must survive future edits.
+# --------------------------------------------------------------------------- #
+
+import json as _mj  # noqa: E402
+
+from scripts.validate_mission_loop import (  # noqa: E402
+    validate_iter219_temporal_yield_state,
+)
+
+
+def _contract() -> dict:
+    return _mj.loads((guard.ROOT / "mission/loop.json").read_text(encoding="utf-8"))
+
+
+def test_mission_loop_records_iter219_null_within_its_boundary() -> None:
+    assert validate_iter219_temporal_yield_state(_contract()) == []
+
+
+def test_mission_loop_guard_fires_if_the_null_is_upgraded_to_a_result() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["status"] = "pass"
+    assert "iter219 must be recorded as a null" in validate_iter219_temporal_yield_state(contract)
+
+
+def test_mission_loop_guard_fires_if_the_harvest_boundary_is_dropped() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["does_not_establish"] = (
+        "Maintainer consequence tests do not exist."
+    )
+    failures = validate_iter219_temporal_yield_state(contract)
+    assert any("does not falsify the harvest hypothesis" in f for f in failures)
+
+
+def test_mission_loop_guard_fires_if_the_averted_false_positive_is_hidden() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["false_positive_averted"] = ""
+    failures = validate_iter219_temporal_yield_state(contract)
+    assert any("averted cross-repository false positive" in f for f in failures)
+
+
+def test_mission_loop_guard_fires_on_any_claimed_action() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["provider_calls"] = 1
+    assert "iter219 provider_calls must be zero" in validate_iter219_temporal_yield_state(contract)
+
+
+def test_mission_loop_guard_fires_if_tcp1_admission_is_claimed_advanced() -> None:
+    contract = _contract()
+    contract["current_gate_state"]["iter219_temporal_yield"]["tcp1_admission_unchanged"] = (
+        "all gates pass"
+    )
+    failures = validate_iter219_temporal_yield_state(contract)
+    assert any("TCP-1 admission as unchanged" in f for f in failures)
+
+
+# --------------------------------------------------------------------------- #
+# Blockquote normalizer: the third instance of a markdown artifact silently
+# defeating a required-phrase scan in this repository.
+# --------------------------------------------------------------------------- #
+
+from scripts.validate_current_paper import normalized_prose  # noqa: E402
+
+
+def test_blockquote_wrapped_phrase_normalizes_without_the_marker(tmp_path) -> None:
+    doc = tmp_path / "x.md"
+    doc.write_text("> a control that cannot fail for the right\n> reason, and more.\n")
+
+    text = normalized_prose(doc)
+
+    assert "cannot fail for the right reason" in text
+    assert ">" not in text
+
+
+def test_normalizer_preserves_ordinary_prose(tmp_path) -> None:
+    doc = tmp_path / "y.md"
+    doc.write_text("plain sentence\nwrapped across lines\n")
+    assert normalized_prose(doc) == "plain sentence wrapped across lines"
+
+
+def test_normalizer_handles_nested_blockquotes(tmp_path) -> None:
+    doc = tmp_path / "z.md"
+    doc.write_text(">> deep quote\n> shallow quote\n")
+    assert normalized_prose(doc) == "deep quote shallow quote"

@@ -1,0 +1,130 @@
+{
+  "schema_version": "telos.proof-receipt.v2",
+  "receipt_id": "telos-iter219-temporal-consequence-test-yield-v2",
+  "task_id": "iter219_temporal_consequence_test_yield",
+  "agent_id": "claude-local-measurement-auditor",
+  "benchmark_id": "telos-iter219-temporal-yield-screen",
+  "status": "pass",
+  "stated_goal": "Measure whether test functions added after a task's base commit statically reference the task's touched symbols above two matched controls, without any provider call, accelerator, container, or repository test execution.",
+  "acceptance_criteria": [
+    "The hypothesis was sealed before any instance was scored.",
+    "Amendments A1, A2, and A3 were recorded before any overlap or control count existed.",
+    "The instrument's frozen constants equal the sealed hypothesis rules.",
+    "Every reported number recomputes from the report's own rows.",
+    "Every excluded instance is reported with an exact machine-readable reason.",
+    "Static token overlap is reported as a screen, never as executed coverage.",
+    "No provider call, GPU allocation, container, or repository test execution occurs."
+  ],
+  "evidence": [
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md",
+        "bytes": 14826,
+        "sha256": "613693311bd9cdd33cfbd503e71058ee8dad44474d96a937ae4e79263604e428",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter219_temporal_consequence_test_yield/RESULT.md",
+        "bytes": 8939,
+        "sha256": "d7c5188773deaa60ecf2582a2219b39a42d30fd153b632b5db1753f333f3238b",
+        "media_type": "text/markdown; charset=utf-8",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter219_temporal_consequence_test_yield/proof/analysis_amendment.json",
+        "bytes": 7887,
+        "sha256": "e2c6cafa7fa918933f41197a7d3c03026ba11e0015f2d2acfbd952389aef7a62",
+        "media_type": "application/json",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    },
+    {
+      "kind": "artifact",
+      "status": "pass",
+      "artifact": {
+        "path": "experiments/iter219_temporal_consequence_test_yield/proof/yield_report.json",
+        "bytes": 597015,
+        "sha256": "c1759634d847b9f8211e36edb0d05cecaaae4733bd58b52c980cdb24d97addbd",
+        "media_type": "application/json",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/build_iter219_receipt.py",
+        "bytes": 5571,
+        "sha256": "72a738172dbe64360010631ea5988d2887e3422f98baccefb8034860908e18f2",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/measure_iter219_temporal_yield.py",
+        "bytes": 32750,
+        "sha256": "9018a345871eb49674ac807b9b6901e0f6b3bc9de8df2c2de1d1e29f63bfb797",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    },
+    {
+      "kind": "adversarial_review",
+      "status": "pass",
+      "artifact": {
+        "path": "scripts/validate_iter219_temporal_consequence_test_yield.py",
+        "bytes": 14178,
+        "sha256": "d9ece902590810edaee6b6072498f367e798adefa34830eacf0f6d45a8731008",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    },
+    {
+      "kind": "build",
+      "status": "pass",
+      "artifact": {
+        "path": "telos/tcp1.py",
+        "bytes": 15714,
+        "sha256": "8869676b628f9435669a0e0923519a0a0453a4e4c5fe2f12c944626df52035e4",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    },
+    {
+      "kind": "test",
+      "status": "pass",
+      "artifact": {
+        "path": "tests/test_iter219_temporal_yield.py",
+        "bytes": 26270,
+        "sha256": "f03c11ecc4d26059a71b62b48322ef03e2b1b82d65ef7fc13bb2e6ccb574e9fc",
+        "media_type": "text/x-python; charset=utf-8",
+        "producer": "iter219-temporal-consequence-test-yield"
+      }
+    }
+  ],
+  "falsifiers": [
+    "Any outcome was observed before the hypothesis was sealed.",
+    "Any sample rule, qualification rule, window, seed, or bar changed after observation.",
+    "A test function added by the task's own test_patch is counted as hidden evidence.",
+    "Either control's interval overlaps the primary's at the primary window.",
+    "Static token overlap is described as proving executed coverage.",
+    "The screen is described as establishing TCP-1 feasibility or any model behavior.",
+    "Any provider, accelerator, container, payment, dispatch, or release action occurs."
+  ],
+  "evidence_closure_sha256": "680d8bfe855ccbfb392c25f5689ac3b574bf91ea5bd8016329753a37c5d9c569",
+  "receipt_sha256": "062b7c93baf761fb38af5408dd1c3df1c4fa679f9d486c7d1e722093d580b712"
+}

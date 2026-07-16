@@ -841,17 +841,62 @@ def validate_iter213_recovery_state(
     return failures
 
 
+def validate_iter219_temporal_yield_state(
+    contract: dict[str, Any], *, root: Path = ROOT
+) -> list[str]:
+    """Validate the active published null and the claim boundary it must keep.
+
+    The contract must never lose two things: that this is a null, and that the null
+    falsifies only the static detector rather than the underlying harvest idea.  It must
+    also keep the averted false positive visible, because the cross-repository control
+    alone reads as a 10^-24 effect.
+    """
+
+    failures: list[str] = []
+    expected_gate = "experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md"
+    if not (root / expected_gate).is_file():
+        failures.append("iter219 gate is absent")
+
+    state = contract.get("current_gate_state", {}).get("iter219_temporal_yield", {})
+    if state.get("status") != "null":
+        failures.append("iter219 must be recorded as a null")
+    if state.get("instances_seen") != 500 or state.get("instances_included") != 482:
+        failures.append("iter219 sample accounting differs")
+    if state.get("failed_bar", "").find("both controls") == -1 and "BOTH" not in state.get(
+        "failed_bar", ""
+    ):
+        failures.append("iter219 must record that bar 2 failed against both controls")
+    if "does NOT falsify the harvest hypothesis" not in state.get("does_not_establish", ""):
+        failures.append("iter219 must preserve that the null does not falsify the harvest hypothesis")
+    if "false positive" not in state.get("false_positive_averted", ""):
+        failures.append("iter219 must keep the averted cross-repository false positive visible")
+    for field in (
+        "provider_calls",
+        "gpu_allocations",
+        "containers_built",
+        "repository_test_executions",
+    ):
+        if state.get(field) != 0:
+            failures.append(f"iter219 {field} must be zero")
+    if state.get("tcp1_admission_unchanged", "").find("9 blocked") == -1:
+        failures.append("iter219 must record TCP-1 admission as unchanged at 9 blocked gates")
+    return failures
+
+
 def validate_iter214_recovery_state(
     contract: dict[str, Any], *, root: Path = ROOT
 ) -> list[str]:
-    """Validate the active pre-data numeric and descendant-validation recovery."""
+    """Validate the merged pre-data numeric and descendant-validation recovery.
+
+    Iter214 merged as `470ca3627b7635d9a315cf2811ceb2eed6575fb9`, so it no longer holds the
+    active publication gate; iter219 does.  Its recorded state stays frozen and checked,
+    matching how iter208 through iter211 are validated after their own merges.
+    """
 
     failures: list[str] = []
     expected_gate = "experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md"
-    if contract.get("active_publication_gate") != expected_gate:
-        failures.append("iter214 active publication gate differs")
     if not (root / expected_gate).is_file():
-        failures.append("iter214 active recovery gate is absent")
+        failures.append("iter214 recovery gate is absent")
     state = contract.get("current_gate_state", {}).get("iter214_recovery", {})
     if state.get("status") != "active_local_pre_data_numeric_recovery":
         failures.append("iter214 recovery status differs")
@@ -1322,6 +1367,7 @@ def main() -> int:
     failures.extend(validate_iter211_materialization_state(contract))
     failures.extend(validate_iter213_recovery_state(contract))
     failures.extend(validate_iter214_recovery_state(contract))
+    failures.extend(validate_iter219_temporal_yield_state(contract))
 
     phases = [phase.get("phase") for phase in contract.get("loop", [])]
     if phases != REQUIRED_PHASES:

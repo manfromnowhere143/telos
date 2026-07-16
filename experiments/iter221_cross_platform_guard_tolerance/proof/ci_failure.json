@@ -1,0 +1,45 @@
+{
+ "schema_version": "telos.iter221.ci_failure.v1",
+ "gate": "experiments/iter221_cross_platform_guard_tolerance/HYPOTHESIS.md",
+ "failed_predecessor": {
+  "iteration": "iter220_iter219_publication_ci_recovery",
+  "source_commit": "5b7717715169a007574d51204dfe7636de748629",
+  "seal_commit": "3cee092420c2d13227005c8d78e584ec69da832f",
+  "branch": "agent/iter220-iter219-publication-ci-recovery",
+  "draft_pull_request": 14,
+  "branch_mutated_after_observation": false,
+  "workflow_rerun_after_observation": false,
+  "merged": false
+ },
+ "push_ci": {
+  "run_id": 29540341974,
+  "failed_jobs": ["verify py3.11", "verify py3.12"],
+  "failed_step": "Iter219 temporal consequence-test yield guard"
+ },
+ "pull_request_ci": {
+  "run_id": 29540356205,
+  "failed_jobs": ["verify py3.11", "verify py3.12"],
+  "failed_step": "Iter219 temporal consequence-test yield guard"
+ },
+ "exact_message": "iter219: delta=180: control Wilson interval does not recompute",
+ "proximate_cause": "scripts/validate_iter219_temporal_consequence_test_yield.py compared stored Wilson intervals to recomputed ones with bit-exact float equality. telos.tcp1.wilson_interval calls sqrt, whose last-place result depends on the platform libm. The report's intervals were computed on macOS; Linux recomputes them to within one unit in the last place and exact equality fails on a correct value.",
+ "why_it_surfaced_now": "CI stops a job at its first failing step. Iter219's CI died at the detector guard and never reached this one. Iter220 repaired the detector guard, CI advanced, and the next latent defect reached daylight for the first time. Each recovery is a new real defect, not repeated churn.",
+ "relationship_to_iter214": "Iter214 canonicalized the two mathematically exact Wilson boundaries, lower=0.0 at k=0 and upper=1.0 at k=n. Interior Wilson values have no exact closed form to canonicalize and remain genuinely platform-dependent, so iter214 could not have prevented this. Same bug class, interior rather than boundary.",
+ "root_cause": {
+  "statement": "A guard asserted bit-exact floating-point equality across machines, which IEEE 754 does not promise for sqrt-derived values.",
+  "why_the_derived_closure_missed_it": "Iter220 fixed the closure's command set but not its platform. run_ci_closure.py runs on macOS under Python 3.14; CI runs Linux under 3.11 and 3.12. A macOS closure cannot certify a Linux libm.",
+  "correction": "Make guards platform-independent by construction rather than verified on one platform. Wilson intervals compare at rel_tol=1e-9; integer counts, yields, exposure totals, and the exact paired test stay exact because each is exactly reproducible.",
+  "deterministic_by_contrast": "exact_one_sided_mcnemar sums comb() over exact integers and divides by 2**n. IEEE 754 division is exactly specified, so its p-value is bit-identical across platforms and keeps an exact check."
+ },
+ "unaffected": [
+  "every iter219 yield, control, interval, exact paired test, and bar verdict",
+  "iter219 HYPOTHESIS.md, RESULT.md, proof/yield_report.json, proof/analysis_amendment.json",
+  "iter220's detector normalizer and derived closure runner"
+ ],
+ "provider_calls": 0,
+ "gpu_allocations": 0,
+ "containers_built": 0,
+ "repository_test_executions": 0,
+ "workflow_reruns": 0,
+ "scientific_result_claimed": false
+}
