@@ -1,0 +1,22 @@
+{
+  "base_commit": "b8fe457a02cc24b3470ff678d0099c350b7fef43",
+  "eval_script_sha256": "ce85ac735b052f30a3e37952dd4952a2157dda39bb398c5f06ba1d23961f41cd",
+  "fail_to_pass": [
+    "test_PythonCodePrinter"
+  ],
+  "framework": "pytest",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-16766:latest",
+  "instance_id": "sympy__sympy-16766",
+  "pass_to_pass": [
+    "test_MpmathPrinter",
+    "test_NumPyPrinter",
+    "test_SciPyPrinter",
+    "test_pycode_reserved_words",
+    "test_printmethod",
+    "test_codegen_ast_nodes",
+    "test_issue_14283"
+  ],
+  "repo": "sympy/sympy",
+  "scenario_available": true
+}
