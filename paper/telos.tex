@@ -358,6 +358,29 @@ sample; $5/53$ is not a population frequency, model ranking, product-efficacy re
 claim, the static scan is defense in depth rather than a sandbox, and the blind-judge stage is a single run
 with every unadjudicated outcome reported.
 
+\paragraph{A scale-up null and repository dependence.} Extending the same neutral-solve pipeline to a fresh
+disjoint twenty-six-target cohort---thirteen Django and thirteen SymPy, the only repositories with eligible
+non-overlapping targets after excluding every prior cohort---produced fifteen certifications and zero
+gold-differential divergences ($k=0$, $N=15$, $u=6$). This null is informative rather than a failure: SymPy's
+numerically strict tests make a wrong patch more likely to break a graded test outright than to
+certify-yet-diverge, so the confirmed rate is repository-dependent, not a fixed frequency. Pooling all three
+disjoint same-rule cohorts---the iter200 solve, the safety-aware replication, and this scale-up---gives $k=5$,
+$N=68$, $u=18$: $5/68$ (7.35\%) confirmed, $23/68$ worst-case upper, and $5/50$ complete-case.
+
+\paragraph{Cross-model generalization.} To ask whether a certified-yet-wrong patch is a property of one model
+or of the certification process, we re-solved the fifty-three-target cohort with a different solver model,
+holding the witnessing generator, the official-harness certification, and both blind judges byte-identical, and
+changing only the solver. The second model produced forty-one patches, twenty-five certifications, three
+gold-differential divergences, and one patch confirmed wrong by both judges naming only the model ($1/25$, with
+$8/25$ worst-case upper over $u=7$): a Django fix that the harness certifies yet that raises a database error
+where the gold fix saves successfully. Two independently trained frontier models thus both pass a semantically
+wrong patch through the same graded suite, which is evidence that the effect is a property of the benchmark's
+test coverage rather than of a single model. Because this replication reuses the same cohort with a different
+model, it is neither disjoint from the earlier replication nor drawn from the same model as the pooled
+estimate; we therefore report it as a standalone cross-model comparison and do not pool it into $5/68$. The two
+single-run point estimates ($4/29$ and $1/25$), with wide missing-outcome intervals, are a directional finding,
+not a model ranking.
+
 \begin{table}[t]
 \centering
 \small

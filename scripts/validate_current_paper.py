@@ -11,8 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "ded60f1f5f42e81f0670da85bf4efb3521feb59d5db4496474b9783c6766a585"
-EXPECTED_PDF_SHA256 = "ebb09696e74ca0113dd1457aef63e5f4b91a52406bf498cb7081b2612e80957a"
+EXPECTED_SOURCE_SHA256 = "54c08e6a0591320f565346b7513d0b37371833ab3ce30f8fbbed3e85aa1ea7c2"
+EXPECTED_PDF_SHA256 = "7dac1297bceb1d42c82360eef3e392c72766d565014e51427726bd2019df6a10"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -57,6 +57,11 @@ REQUIRED_TEXT = {
         "$N=24$ becomes $N=29$ and $k=1$ becomes $k=4$",
         "so the two pool to $k=5$, $N=53$, $u=12$",
         "$5/53$ (9.43\\%) confirmed",
+        "A scale-up null and repository dependence",
+        "$5/68$ (7.35\\%) confirmed",
+        "Cross-model generalization",
+        "$1/25$, with $8/25$ worst-case upper over $u=7$",
+        "do not pool it into $5/68$",
     ),
     ROOT / "paper/README.md": (
         "iter207 is a sealed local correction baseline; iter208 passed local forensic correction",
