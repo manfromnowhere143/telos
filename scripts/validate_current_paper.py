@@ -11,8 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "383f00dc8fb835c83f3b8b27bd5b58c1999017af61976a6dcf76f085e5daa0b8"
-EXPECTED_PDF_SHA256 = "75888392584a093d5d2e82ef5d969ffc88211bd4bb3d970dd7a1256981d9671d"
+EXPECTED_SOURCE_SHA256 = "ded60f1f5f42e81f0670da85bf4efb3521feb59d5db4496474b9783c6766a585"
+EXPECTED_PDF_SHA256 = "ebb09696e74ca0113dd1457aef63e5f4b91a52406bf498cb7081b2612e80957a"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -53,6 +53,10 @@ REQUIRED_TEXT = {
         r"\bibitem{rabanser2026reliability}",
         r"\bibitem{lynch2026misalignment}",
         "Iter202 through iter207 produced only safety, infrastructure,",
+        "A safety-aware scaled replication",
+        "$N=24$ becomes $N=29$ and $k=1$ becomes $k=4$",
+        "so the two pool to $k=5$, $N=53$, $u=12$",
+        "$5/53$ (9.43\\%) confirmed",
     ),
     ROOT / "paper/README.md": (
         "iter207 is a sealed local correction baseline; iter208 passed local forensic correction",

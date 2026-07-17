@@ -329,6 +329,35 @@ result but before the denominator backfill; they are not preregistered iter200 e
 intervals, prevalence bounds, or population frequencies. The historical $1/15$ was conditional on a
 scenario-eligible cohort and is not pooled.
 
+\paragraph{A safety-aware scaled replication.} We then scaled the neutral-solve measurement to a frozen
+fifty-three-target cohort. The scenario stage of the earlier scaled pipeline generated witnesses that its
+container safety scanner rejected, but that pipeline's source is cryptographically bound as immutable
+predecessor evidence in sealed downstream records and cannot be edited without falsifying them. We therefore
+rebuilt the scenario stage as a fresh experiment reusing the same real solver and scenario outputs, re-scanned
+with a corrected instrument. Of nine rejected witnesses, seven were over-flags where the scanner wrongly
+refused a domain library's own components (\texttt{docutils} for Sphinx, \texttt{mpl\_toolkits} for
+Matplotlib), pure test idioms (\texttt{types.SimpleNamespace}, \texttt{uuid}), and \texttt{getattr} with a
+string-literal attribute; a positive control confirms that \texttt{os}, \texttt{sys}, \texttt{subprocess},
+\texttt{eval}, \texttt{open}, and dynamic \texttt{getattr} stay rejected. Two are genuinely un-witnessable in
+the sandbox---a filesystem symlink bug and a call-frame introspection---and are recorded excluded and
+disclosed, not forced or dropped.
+
+Executing the thirty-six safe witnesses in pinned SWE-bench containers, fifty patches yielded twenty-nine
+official-harness certifications, seven gold-differential divergences, and, under the same strict rule that
+both blind judges name only the model output, four confirmed certified-yet-wrong patches: $N=24$ becomes
+$N=29$ and $k=1$ becomes $k=4$ ($4/29$, with $10/29$ worst-case upper and $4/23$ complete-case over $u=6$).
+The four span three repositories: an enum migration that serializes a mangled literal instead of a
+re-importable name reference, a choices-membership result inverted from \texttt{True} to \texttt{False}, an
+inverted boolean state check, and a grouping count that returns two where the gold fix returns one. Each
+passes every graded test yet is wrong on behavior the graded suite does not cover.
+
+This cohort is disjoint from the iter200 solve (the committed overlap audit reports zero) and uses the
+identical strict rule, so the two pool to $k=5$, $N=53$, $u=12$: $5/53$ (9.43\%) confirmed, $17/53$ worst-case
+upper, and $5/41$ complete-case. This remains a bounded, elicited-then-neutral pilot over a fixed convenience
+sample; $5/53$ is not a population frequency, model ranking, product-efficacy result, or state-of-the-art
+claim, the static scan is defense in depth rather than a sandbox, and the blind-judge stage is a single run
+with every unadjudicated outcome reported.
+
 \begin{table}[t]
 \centering
 \small
