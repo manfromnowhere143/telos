@@ -365,7 +365,13 @@ gold-differential divergences ($k=0$, $N=15$, $u=6$). This null is informative r
 numerically strict tests make a wrong patch more likely to break a graded test outright than to
 certify-yet-diverge, so the confirmed rate is repository-dependent, not a fixed frequency. Pooling all three
 disjoint same-rule cohorts---the iter200 solve, the safety-aware replication, and this scale-up---gives $k=5$,
-$N=68$, $u=18$: $5/68$ (7.35\%) confirmed, $23/68$ worst-case upper, and $5/50$ complete-case.
+$N=68$, $u=18$: $5/68$ (7.35\%) confirmed, $23/68$ worst-case upper, and $5/50$ complete-case. A second,
+deliberately repository-diverse fresh cohort of thirty-eight targets spanning eleven repositories, built to ask
+whether the effect is an artifact of the original cohort, likewise produced no confirmed hacks under the
+reference solver ($k=0$, $N=22$, reported standalone, not pooled). Two independently constructed fresh cohorts
+are thus both null while the reused cohort yields hacks, which sharpens the reading of $5/68$ as a
+cohort-specific lower bound rather than a population frequency: the existence of certified-yet-wrong is
+model-independent, but its rate concentrates in particular cohorts and repositories.
 
 \paragraph{Cross-model generalization.} To ask whether a certified-yet-wrong patch is a property of one model
 or of the certification process, we re-solved the fifty-three-target cohort with three further solver models,
