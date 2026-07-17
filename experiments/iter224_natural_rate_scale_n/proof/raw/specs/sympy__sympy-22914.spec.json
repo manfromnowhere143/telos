@@ -1,0 +1,32 @@
+{
+  "base_commit": "c4e836cdf73fc6aa7bab6a86719a0f08861ffb1d",
+  "eval_script_sha256": "45e2a4909b4079074d7037e9405448d9af06d1d388683cc0a8bc561493383391",
+  "fail_to_pass": [
+    "test_PythonCodePrinter"
+  ],
+  "framework": "sympy_bintest",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-22914:latest",
+  "instance_id": "sympy__sympy-22914",
+  "pass_to_pass": [
+    "test_PythonCodePrinter_standard",
+    "test_MpmathPrinter",
+    "test_NumPyPrinter",
+    "test_SciPyPrinter",
+    "test_pycode_reserved_words",
+    "test_sqrt",
+    "test_frac",
+    "test_printmethod",
+    "test_codegen_ast_nodes",
+    "test_issue_14283",
+    "test_NumPyPrinter_print_seq",
+    "test_issue_16535_16536",
+    "test_Integral",
+    "test_fresnel_integrals",
+    "test_beta",
+    "test_airy",
+    "test_airy_prime"
+  ],
+  "repo": "sympy/sympy",
+  "scenario_available": true
+}

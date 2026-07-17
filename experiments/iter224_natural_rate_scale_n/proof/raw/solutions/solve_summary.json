@@ -1,0 +1,896 @@
+{
+  "checkpoint_schema": {
+    "finished": "telos.iter224.provider_attempt.finished.v1",
+    "started": "telos.iter224.provider_attempt.started.v1"
+  },
+  "estimated_spend_usd": 1.3,
+  "manifest": [
+    {
+      "base_commit": "4c1b401e8250f9f520b3c7dc369554477ce8b15a",
+      "fail_to_pass": [
+        "test_templates (model_enums.tests.ChoicesTests)"
+      ],
+      "identical_to_gold": true,
+      "instance_id": "django__django-12304",
+      "model_patch_sha256": "d0de5e22f6c38c314279df50abe9c37ce6901ded00e7155d7958e753d4d624f9",
+      "pass_to_pass_count": 17,
+      "provider_attempt_id": "ff689edf246e0e559f609adcec92d000",
+      "provider_response_sha256": "89e0d3ea30a5f3aa8511e2551bbc1a6966d1d0c0a75e071ffd74c8d917ade17a",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 535,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 512,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 309,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 844
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/models/enums.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "2e0f04507b17362239ba49830d26fec504d46978",
+      "fail_to_pass": [
+        "test_json_display_for_field (admin_utils.tests.UtilsTests)",
+        "test_label_for_field (admin_utils.tests.UtilsTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12308",
+      "model_patch_sha256": "35c3e7f35cf902a1f647ecd2c6b0214354469ea729399cb8a92ff394c798491b",
+      "pass_to_pass_count": 20,
+      "provider_attempt_id": "51355ac3ebfbed69200abc2220a4b0a2",
+      "provider_response_sha256": "39186b9877515467eb838b0a6b3e780327d5101b3628bc991d07976c5eba82d2",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 690,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 652,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 275,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 965
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/contrib/admin/utils.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "7fa1a93c6c8109010a6ff3f604fda83b604e0e97",
+      "fail_to_pass": [
+        "test_middleware_headers (project_template.test_settings.TestStartProjectSettings)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12419",
+      "model_patch_sha256": "bc56b5f6c61406deefaaf91bd83a94fafd668bb9c3a06210b57981fe4d323a30",
+      "pass_to_pass_count": 0,
+      "provider_attempt_id": "61c7b90800cf27e638482d97f5616d49",
+      "provider_response_sha256": "ba3b314c1a444f2c2e2cbceb1476be12196da24667f3591614893abca4d75875",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 18,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 333,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 351
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/conf/global_settings.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "fa5e7e46d875d4143510944f19d79df7b1739bab",
+      "fail_to_pass": [
+        "test_subquery_filter_by_lazy (expressions.tests.BasicExpressionsTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12663",
+      "model_patch_sha256": "52943e14e52c0786f258e14a78fccf8af2985ff3a828897813718a0d64428a5a",
+      "pass_to_pass_count": 135,
+      "provider_attempt_id": "d57a90d51bc674a22ffafa227492f55b",
+      "provider_response_sha256": "3de3a501d6208d910e2bbf256cb95f7a2a52267734c37a920ae6c4440dd35312",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1375,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1340,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 543,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1918
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/models/sql/query.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "447980e72ac01da1594dd3373a03ba40b7ee6f80",
+      "fail_to_pass": [
+        "test_alter_index_together_remove_with_unique_together (migrations.test_operations.OperationTests)"
+      ],
+      "identical_to_gold": true,
+      "instance_id": "django__django-12708",
+      "model_patch_sha256": "03645a06338c386b3596536f4fc0be3522e41df03185b96cb9f87d90ad52fa86",
+      "pass_to_pass_count": 101,
+      "provider_attempt_id": "6e1f1d6201835fb3cebe30e4d29ef081",
+      "provider_response_sha256": "91fbac5d6701b39213231dfa112d67b737c973e7f3997b32afba6c3ecece7090",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 306,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 260,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 446,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 752
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/backends/base/schema.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "5b884d45ac5b76234eca614d90c83b347294c332",
+      "fail_to_pass": [
+        "test_formfield_overrides_m2m_filter_widget (admin_widgets.tests.AdminFormfieldForDBFieldTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12713",
+      "model_patch_sha256": "430396a1ad3890f969134b262b9fad3719e6786de8805c0ac56afd0bcdae320e",
+      "pass_to_pass_count": 58,
+      "provider_attempt_id": "34a3103cef8a02960bcac23666659068",
+      "provider_response_sha256": "2d5d68ef74ba14fd229d4a81a8e866c2711ad0ed37ad174d8578b1d27f340d70",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 413,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 259,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 354,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 767
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/contrib/admin/options.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "18759b2209ff556aed7f20d83cbf23e3d234e41c",
+      "fail_to_pass": [
+        "test_add_model_with_field_removed_from_base_model (migrations.test_autodetector.AutodetectorTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12754",
+      "model_patch_sha256": "94d189637d7240ba5288cc06cfcd5eb6ec5f6c959d7c45cc6243282fa343f11a",
+      "pass_to_pass_count": 112,
+      "provider_attempt_id": "9a8593c2bdacc4ff5c85e2475e88dcf2",
+      "provider_response_sha256": "b72bcc32ccb2c8dcc824babb893f25f08b06944c89a4ba04a4ef9e8401ad7928",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1901,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1822,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 382,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2283
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/migrations/autodetector.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "67f9d076cfc1858b94f9ed6d1a5ce2327dcc8d0d",
+      "fail_to_pass": [
+        "test_in_bulk_meta_constraint (lookup.tests.LookupTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12774",
+      "model_patch_sha256": "4413b2741b1d1050a8a4f2584916e3dd371d58ad1ca8184f98627735d5854d51",
+      "pass_to_pass_count": 41,
+      "provider_attempt_id": "891d4d7f5d3e197ac398d8a712547faa",
+      "provider_response_sha256": "2c9585eced5b9a1aa7bc7ac8fce321d9bf18bf441c1aa587b046df2b71db300b",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1795,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1687,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 497,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2292
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/models/query.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "f2051eb8a7febdaaa43bd33bf5a6108c5f428e59",
+      "fail_to_pass": [
+        "test_ordering_pointing_to_lookup_not_transform (invalid_models_tests.test_models.OtherModelTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12858",
+      "model_patch_sha256": "b28bf87569cb19d85792c7a4ed7f1a9439c09c29d04f8b423a4d55b59e6d9e60",
+      "pass_to_pass_count": 73,
+      "provider_attempt_id": "b670b5e41614077af7a532f3b9426304",
+      "provider_response_sha256": "b84f2522c80b3c7c52485aa451dc4fbd80c9a141faa7f0b249384f8c7a9ded54",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 559,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 512,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 392,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 951
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/models/base.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "437196da9a386bd4cc62b0ce3f2de4aba468613d",
+      "fail_to_pass": [
+        "test_fast_delete_all (delete.tests.FastDeleteTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12965",
+      "model_patch_sha256": "f10260dae335fae6964b3e10fb4c8ec96abc97fc74e550b0691ab65a3c4e8e4e",
+      "pass_to_pass_count": 52,
+      "provider_attempt_id": "e3c6d8bcf94a0f01c4636642c581a121",
+      "provider_response_sha256": "ffc213bacb755c8bd48c4b4e8ba28d9c4211064cc61511a9e66f921f428d5a31",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1043,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 988,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 597,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1640
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/models/sql/compiler.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "22a59c01c00cf9fbefaee0e8e67fab82bbaf1fd2",
+      "fail_to_pass": [
+        "test_empty_group_by (expressions.tests.ExpressionWrapperTests)",
+        "test_non_empty_group_by (expressions.tests.ExpressionWrapperTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-13012",
+      "model_patch_sha256": "f9f6eece16629c2c70588c7085a61b76192f7b25de5698f6bf9f59a09a54f554",
+      "pass_to_pass_count": 137,
+      "provider_attempt_id": "7fb4722cb93c6ff2b60f48b44e13b30c",
+      "provider_response_sha256": "7191307ae757f619380589c85106889c9669c2d4f0b678bbb1cffb553c04e855",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 838,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 802,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 494,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1332
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/models/expressions.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "f83b44075dafa429d59e8755aa47e15577cc49f9",
+      "fail_to_pass": [
+        "test_invalid_value (model_fields.test_decimalfield.DecimalFieldTests)",
+        "test_lookup_really_big_value (model_fields.test_decimalfield.DecimalFieldTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-13023",
+      "model_patch_sha256": "2b6b0ec7cf5b35a8bc1c08a38291c8136ae9bd087b4f69be4cbc9d2a45c3bbeb",
+      "pass_to_pass_count": 9,
+      "provider_attempt_id": "c7beceb375674b3d26df1d529646a1fe",
+      "provider_response_sha256": "b580186ebd4302c21c3d60100b76d5eba9d215a7838e2e59921cf807eca141dd",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 421,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 398,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 289,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 710
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/models/fields/__init__.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "78ad4b4b0201003792bfdbf1a7781cbc9ee03539",
+      "fail_to_pass": [
+        "test_field_with_filterable (queries.tests.Queries1Tests)",
+        "test_ticket8439 (queries.tests.Queries1Tests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-13028",
+      "model_patch_sha256": "fd7975101ecc5624240ae20b8bd03379e245da0d07dd6130b37b422507052e27",
+      "pass_to_pass_count": 276,
+      "provider_attempt_id": "dbd81f05f056e3580b7dc49dc0d48c51",
+      "provider_response_sha256": "e5219e38c0622ac79746ce0e47fde802471dbb0de0958b7589f258dcf86d2bc7",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 539,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 512,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 533,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1072
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "django/db/models/sql/query.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "63f8f465d48559fecb4e4bf3c48b75bf15a3e0ef",
+      "fail_to_pass": [
+        "test_kernS"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-19637",
+      "model_patch_sha256": "39d4991242feb007084c9fbe396ddb6cffe53818f1ae639f01153996db6fe29a",
+      "pass_to_pass_count": 40,
+      "provider_attempt_id": "63321fc1df6cdc352049be02ae549a46",
+      "provider_response_sha256": "4ce44f9c9fa937cdd093a88117b2c92c3c316dbcf5adb654f92e7d83fd31e33f",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 532,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 512,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 239,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 771
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/core/sympify.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "c0e85160406f9bf2bcaa2992138587668a1cd0bc",
+      "fail_to_pass": [
+        "test_issue_20427"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-20428",
+      "model_patch_sha256": "a97f8e7a5c2fbe303f0c0e34882a85b3d9f24c932b7614410b5422950e93efeb",
+      "pass_to_pass_count": 154,
+      "provider_attempt_id": "63d401db3b1f912c0449eb2c6b076955",
+      "provider_response_sha256": "3f2551f88a5aa0718d56490be1fc647c29de6786698c8d6389e59b15138fb199",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 736,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 702,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 746,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1482
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/polys/domains/expressiondomain.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "cffd4e0f86fefd4802349a9f9b19ed70934ea354",
+      "fail_to_pass": [
+        "test_immutable"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-20590",
+      "model_patch_sha256": "76b9145909c2908912a88a9ba3b11b53cb37ec698504d62f01032fbf872e3698",
+      "pass_to_pass_count": 21,
+      "provider_attempt_id": "ebd9702b05b4893b9beb54873119d293",
+      "provider_response_sha256": "257ba01fb2f549c08f510c4c6167eab57b0c56c0317a7abd4a2b8e812e7cac07",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 129,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 110,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 374,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 503
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/core/_print_helpers.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "e11d3fed782146eebbffdc9ced0364b223b84b6c",
+      "fail_to_pass": [
+        "test_zero_not_false"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-20801",
+      "model_patch_sha256": "35a4491828a275022b8dc669aec54f04f174faeecd242065b1ac109e0fa6f27b",
+      "pass_to_pass_count": 96,
+      "provider_attempt_id": "7f38989e17d4303f6247838e058625ec",
+      "provider_response_sha256": "021dc36e8dbb20312afb0893274ea8b4d9df7505b8f4dea67c7a849db1343a00",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 202,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 168,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 397,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 599
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/core/numbers.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b4777fdcef467b7132c055f8ac2c9a5059e6a145",
+      "fail_to_pass": [
+        "test_Mul"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-21612",
+      "model_patch_sha256": "3bfe7fef9b6ae2bbaf1aa095ffa06fcdfe10da8b6b471361d652e34a79e44270",
+      "pass_to_pass_count": 98,
+      "provider_attempt_id": "b8717630c9b59d2d7db1629de76f6ad1",
+      "provider_response_sha256": "16d3c9ca35a209b6a411a3adb96fab498b3fb5934add094a029aa1f024681acf",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 2026,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1926,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 434,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2460
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/printing/str.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "3ff4717b6aef6086e78f01cdfa06f64ae23aed7e",
+      "fail_to_pass": [
+        "test_issue_22684"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-22714",
+      "model_patch_sha256": "9af29bcf015765aca7175d87e85cb3d89edf6c646503d97a91b0574cfa9f2070",
+      "pass_to_pass_count": 11,
+      "provider_attempt_id": "5b777f7d8208d0aac271aff90407efca",
+      "provider_response_sha256": "cc79042614cdb8ab9d4769147440bfec2f76b99bbaba3f9dfc31117fd8ecdd70",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1579,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1536,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 639,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2218
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/geometry/point.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "c4e836cdf73fc6aa7bab6a86719a0f08861ffb1d",
+      "fail_to_pass": [
+        "test_PythonCodePrinter"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-22914",
+      "model_patch_sha256": "cd19788427ebf049860dfcf66dc648c0b491ded88368077d0def969a1dde2222",
+      "pass_to_pass_count": 17,
+      "provider_attempt_id": "1c19c40bcb122554175122019ecbbefb",
+      "provider_response_sha256": "bb730d019fac8895e0970848ae93b05690e3ba18124ba7333774e3ac8de6fd21",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 250,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 211,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 322,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 572
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/printing/pycode.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "832c24fec1046eaa544a4cab4c69e3af3e651759",
+      "fail_to_pass": [
+        "test_symbols"
+      ],
+      "identical_to_gold": true,
+      "instance_id": "sympy__sympy-23534",
+      "model_patch_sha256": "1d064a3be0bb83e1bb65acb020e8d94e8ec42a3d1c1cec60c8d9005ef6700de6",
+      "pass_to_pass_count": 11,
+      "provider_attempt_id": "9777f3ff8cf97849fbb8d9b6a4dbfeb3",
+      "provider_response_sha256": "677be52f49bf743b48aad52d4c4f5dc788decab646368421904e66c48f6f5e2a",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 322,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 295,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 331,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 653
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/core/symbol.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "39de9a2698ad4bb90681c0fdb70b30a78233145f",
+      "fail_to_pass": [
+        "test_kahane_simplify1"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-23824",
+      "model_patch_sha256": "a3760fb3a0eff91a1502dc98439ec1f5b96d08a39b7087d87ebe7dea949e18b1",
+      "pass_to_pass_count": 2,
+      "provider_attempt_id": "bf571dfc8e7b64a09c10c85207a6d730",
+      "provider_response_sha256": "87f00539b690b8728e3d9fdc2b6c4fb4d078a01822fb0f7721c03f9e17dd652b",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 360,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 311,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 629,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 989
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/physics/hep/gamma_matrices.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "88664e6e0b781d0a8b5347896af74b555e92891e",
+      "fail_to_pass": [
+        "test_as_set"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-23950",
+      "model_patch_sha256": "725c48c668dcd052bcae6586b71a07cc2155b7e48b124520922a9000c6604c59",
+      "pass_to_pass_count": 4,
+      "provider_attempt_id": "39c7488a063bb2d377310d44d49399e3",
+      "provider_response_sha256": "ce3b80240a56faf5f5967720b8732bceafffd53580bd993aa7e80cb3d7c1b025",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 406,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 380,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 364,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 770
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/sets/contains.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "514579c655bf22e2af14f0743376ae1d7befe345",
+      "fail_to_pass": [
+        "test_issue_24062"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-24066",
+      "model_patch_sha256": "e4b60b809d84b4fe929c6b87390deef1da11c6d1878bbfef3d9c9c0b28d66c0c",
+      "pass_to_pass_count": 30,
+      "provider_attempt_id": "af4f2c94dec7e0bb0ec070d0d87594ce",
+      "provider_response_sha256": "c56731c7cf9efb5d1e269af444fb209798eb99bd4caddbd03bb5d0a2656b95ac",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1885,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1834,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 366,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2251
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/physics/units/unitsystem.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "e8c22f6eac7314be8d92590bfff92ced79ee03e2",
+      "fail_to_pass": [
+        "test_issue_24211"
+      ],
+      "identical_to_gold": true,
+      "instance_id": "sympy__sympy-24213",
+      "model_patch_sha256": "070dcd3e530c91549a7b8c94bfe90f67457151c961adca4a021803152592b469",
+      "pass_to_pass_count": 31,
+      "provider_attempt_id": "ca9a634a5145caf80f703a20af39b93e",
+      "provider_response_sha256": "2390bb54833ad51e630755d067634b0a0be1f19b54898454f312dcaa6cd7a987",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 460,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 430,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 460,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 920
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gpt-5.6-terra",
+      "src_file": "sympy/physics/units/unitsystem.py",
+      "status": "solution"
+    },
+    {
+      "instance_id": "sympy__sympy-24661",
+      "status": "empty_fix"
+    }
+  ],
+  "schema_version": "telos.iter200.solve_summary.v1",
+  "solutions": 25,
+  "solver_model": "gpt-5.6-terra",
+  "targets": 26
+}

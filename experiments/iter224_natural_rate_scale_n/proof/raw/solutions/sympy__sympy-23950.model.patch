@@ -1,0 +1,11 @@
+diff --git a/sympy/sets/contains.py b/sympy/sets/contains.py
+--- a/sympy/sets/contains.py
++++ b/sympy/sets/contains.py
+@@ -45,4 +45,5 @@ def binary_symbols(self):
+             isinstance(i, (Eq, Ne))])
+ 
+     def as_set(self):
+-        raise NotImplementedError()
++    def as_set(self):
++        return self.args[1]
+
