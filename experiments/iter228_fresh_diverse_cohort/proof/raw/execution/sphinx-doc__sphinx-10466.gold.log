@@ -1,0 +1,10 @@
+IMAGE_ID=sha256:d2f6905b2cc047701162ed856a5ef9ccc387f80b4e7a12614c252609ffb56416
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-10466@sha256:e018d387e9df8df98e19f26977de07145c3f8ba87c98e9d4ca7888753e925598
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/sphinx-doc__sphinx-10466.scenario.py", line 12, in <module>
+    print("RESULT=" + repr(next(iter(catalog)).positions))
+AttributeError: 'Message' object has no attribute 'positions'
+SCENARIO_EXIT=1
+>>>>> Scenario End
