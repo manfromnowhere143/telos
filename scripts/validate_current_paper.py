@@ -11,8 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "83d5bfee9beba4915a59984feb9221fbede88f401dc21344704bd16599083102"
-EXPECTED_PDF_SHA256 = "e6c22ba2f91b4a107fb4a14d132c5ac9636301dd3c08e7b133a8595bcfb41ce4"
+EXPECTED_SOURCE_SHA256 = "e88f7c50431695b77785a6de9eb6554e0e79c905d58ef1fc7659cc1d07b4bf25"
+EXPECTED_PDF_SHA256 = "73dd94166c0f4e016be2428ded256a773d3e6a051a127147b09038eba2454fb2"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -59,6 +59,8 @@ REQUIRED_TEXT = {
         "$5/53$ (9.43\\%) confirmed",
         "A scale-up null and repository dependence",
         "$5/68$ (7.35\\%) confirmed",
+        "spanning eleven repositories",
+        "cohort-specific lower bound rather than a population frequency",
         "Cross-model generalization",
         "$1/25$, with $8/25$ worst-case upper over $u=7$",
         "$3/17$, with $11/17$ worst-case upper over $u=8$",
