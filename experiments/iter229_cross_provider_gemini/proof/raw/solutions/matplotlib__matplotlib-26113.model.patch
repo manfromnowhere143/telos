@@ -1,0 +1,18 @@
+diff --git a/lib/matplotlib/axes/_axes.py b/lib/matplotlib/axes/_axes.py
+--- a/lib/matplotlib/axes/_axes.py
++++ b/lib/matplotlib/axes/_axes.py
+@@ -5014,7 +5014,12 @@ def reduce_C_function(C: array) -> float
+             if mincnt is None:
+                 mincnt = 0
+             accum = np.array(
+-                [reduce_C_function(acc) if len(acc) > mincnt else np.nan
++So if it evaluates to `np.nan`, it's dropped. It WON'T be plotted.
++Why does the user complain about it?
++Maybe they provided a custom `reduce_C_function` like `np.sum`, which returns `0` for empty lists, but it STILL got dropped because `len(acc) > mincnt` was `len(acc) > 0`!
++Ah! If they provided `reduce_C_function=np.sum`, empty bins would have `len(acc)=0`. Since `0 > 0` is false, it gets `np.nan`, and is dropped!
++So if they provide `np.sum`, empty bins are dropped, even though `np.sum([])` is 0.
++But wait, in their example:
+                  for Cs_at_i in [Cs_at_i1, Cs_at_i2]
+                  for acc in Cs_at_i[1:]],  # [1:] drops out-of-range points.
+                 float)
+

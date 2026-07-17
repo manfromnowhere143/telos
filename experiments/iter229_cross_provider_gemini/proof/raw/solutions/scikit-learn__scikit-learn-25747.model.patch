@@ -1,0 +1,36 @@
+diff --git a/sklearn/utils/_set_output.py b/sklearn/utils/_set_output.py
+--- a/sklearn/utils/_set_output.py
++++ b/sklearn/utils/_set_output.py
+@@ -34,7 +34,21 @@ def _wrap_in_pandas_container(
+         `range(n_features)`.
+ 
+     index : array-like, default=None
+-        Index for data.
++]`
++`np.hstack([pd.Series([1,2,3])])` returns a 1D array: `array([1, 2, 3])`!
++Then `_wrap_in_pandas_container` is called with `data_to_wrap = array([1, 2, 3])`.
++It then tries to do `pd.DataFrame(array([1,2,3]), columns=['mytransformer__value'])`, which throws the error!
++Wait, but what if the user code had `return X[["value"]].groupby(X["date"]).sum()`?
++Then it would return a DataFrame!
++If it returns a DataFrame, `np.hstack` would return a 2D array: `array([[1], [2], [3]])`.
++Then `_wrap_in_pandas_container` would do `pd.DataFrame(array([[1], [2], [3]]), columns=['...'])`.
++This would work, but wait! The original index of the DataFrame is lost by `np.hstack`!
++And `_wrap_in_pandas_container` will assign `index=index` (which is the original input's index).
++If the input index has 96 elements, and the data has 4 elements, `pd.DataFrame(..., index=index)` will raise a length mismatch error!
++
++Wait, let's look at the bug description again:
++"FeatureUnion not working when aggregating data and pandas transform output selected"
++If `MyTransformer`
+ 
+     Returns
+     -------
+@@ -55,8 +55,6 @@ def _wrap_in_pandas_container(
+     if isinstance(data_to_wrap, pd.DataFrame):
+         if columns is not None:
+             data_to_wrap.columns = columns
+-        if index is not None:
+-            data_to_wrap.index = index
+         return data_to_wrap
+ 
+     return pd.DataFrame(data_to_wrap, index=index, columns=columns)
+

@@ -1,0 +1,1666 @@
+{
+  "checkpoint_schema": {
+    "finished": "telos.iter229.provider_attempt.finished.v1",
+    "started": "telos.iter229.provider_attempt.started.v1"
+  },
+  "estimated_spend_usd": 2.65,
+  "manifest": [
+    {
+      "base_commit": "a7038adbd02c916315b16939b835f021c2ee8880",
+      "fail_to_pass": [
+        "test_union_with_values (queries.test_qs_combinators.QuerySetSetOperationTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11490",
+      "model_patch_sha256": "85b2ee0ba6150ff69ea1f97bea564074c7abf00a2bfcabff6b013fab1648a419",
+      "pass_to_pass_count": 23,
+      "provider_attempt_id": "85f018d40629af6aa5dca9b2ffae7212",
+      "provider_response_sha256": "348e49d5b1820c55ed3940a866825e2bf61aebb8dc8692ab52f84b9bd3687fa7",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 327,
+          "promptTokenCount": 358,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 358
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 15725,
+          "totalTokenCount": 16410
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/models/sql/compiler.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "8dd5877f58f84f2b11126afbd0813e24545919ed",
+      "fail_to_pass": [
+        "test_order_by_ptr_field_with_default_ordering_by_expression (ordering.tests.OrderingTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11555",
+      "model_patch_sha256": "388b7712e37c3b5c90ec01c7e4e0eb9dddade5e6510069decca40e0f87a57d8f",
+      "pass_to_pass_count": 26,
+      "provider_attempt_id": "d19df1a0c3894a63ea3829fa49adcb4c",
+      "provider_response_sha256": "2f82bad30d8dd07eb42f23c23f55cad4380997aaaf7fcce47e61c7fed474da83",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 126,
+          "promptTokenCount": 346,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 346
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7446,
+          "totalTokenCount": 7918
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/models/sql/compiler.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b1d6b35e146aea83b171c1b921178bbaae2795ed",
+      "fail_to_pass": [
+        "test_username_field_max_length_defaults_to_254 (auth_tests.test_forms.AuthenticationFormTest)",
+        "test_username_field_max_length_matches_user_model (auth_tests.test_forms.AuthenticationFormTest)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11790",
+      "model_patch_sha256": "620b344f14d38185dbe4de1dc4d96930ae34288ab0d705f2ad46a7c063057b2d",
+      "pass_to_pass_count": 77,
+      "provider_attempt_id": "deff3b927c7cc793f0faaef676c5faf0",
+      "provider_response_sha256": "551feea541191282e1c7ae49af56929e172a999a2ad4132201738645f5dccd61",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 138,
+          "promptTokenCount": 377,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 377
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 4198,
+          "totalTokenCount": 4713
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/contrib/auth/forms.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "e02f67ef2d03d48128e7a118bf75f0418e24e8ac",
+      "fail_to_pass": [
+        "test_serialize_class_based_validators (migrations.test_writer.WriterTests)",
+        "test_serialize_enums (migrations.test_writer.WriterTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11815",
+      "model_patch_sha256": "5c7265dd8a930a3eaa148de9a049a85e6da4a9be06c333949ec171faa71e89d9",
+      "pass_to_pass_count": 44,
+      "provider_attempt_id": "156b2e575021a3867498f95aecef7cb3",
+      "provider_response_sha256": "e6662e0a5df10955d953389df19aee923d2f2615f788adda61ad776a34838594",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 97,
+          "promptTokenCount": 606,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 606
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 5259,
+          "totalTokenCount": 5962
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/migrations/serializer.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "06909fe084f87a65459a83bd69d7cdbe4fce9a7c",
+      "fail_to_pass": [
+        "test_field_deep_copy_error_messages (forms_tests.tests.test_forms.FormsTestCase)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11880",
+      "model_patch_sha256": "0e6eee23e23d650c52eaefc233358b4b1f8196b81805dd11a904abec40e25662",
+      "pass_to_pass_count": 114,
+      "provider_attempt_id": "0685a646245c205cbbd9d5c1cce65537",
+      "provider_response_sha256": "a876340bed9dbbd01bc5a378c30f22756ef83ec98af43a88e0b22c94ea4ef4cd",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 70,
+          "promptTokenCount": 478,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 478
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 772,
+          "totalTokenCount": 1320
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/forms/fields.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "312049091288dbba2299de8d07ea3e3311ed7238",
+      "fail_to_pass": [
+        "test_explicit_batch_size_respects_max_batch_size (bulk_create.tests.BulkCreateTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11951",
+      "model_patch_sha256": "2b72270608ffcc60e5093c41ac85cb67165a31a30f544901ced67668d54dbb01",
+      "pass_to_pass_count": 21,
+      "provider_attempt_id": "883c209585459a5d721a6d3e5aa05e34",
+      "provider_response_sha256": "76d0439ff5e51d062abaafe87dde18760e3ee5cfde920aeee40134da4358246a",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 171,
+          "promptTokenCount": 453,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 453
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2008,
+          "totalTokenCount": 2632
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/models/query.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "fc2b1cc926e34041953738e58fa6ad3053059b22",
+      "fail_to_pass": [
+        "test_str (model_enums.tests.ChoicesTests)",
+        "test_textchoices (model_enums.tests.ChoicesTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11964",
+      "model_patch_sha256": "7290771a01c4915ef771a9bbabf6803b4ec9f234413cbd99eed3b46e6fdadc9b",
+      "pass_to_pass_count": 15,
+      "provider_attempt_id": "7cefc7424a84728d351e983dd0e2646c",
+      "provider_response_sha256": "a539e865d8897b0702f52ca1c163b9088bd9d8fcef2a95b1eedca72c9bfa8c6d",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 53,
+          "promptTokenCount": 601,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 601
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3462,
+          "totalTokenCount": 4116
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/models/enums.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "84633905273fc916e3d17883810d9969c03f73c2",
+      "fail_to_pass": [
+        "test_overriding_FIELD_display (model_fields.tests.GetFieldDisplayTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11999",
+      "model_patch_sha256": "b7d47e9a539240d2d7ac45a1e42adeb66886e0246875d9f0a4ff609e78b276ee",
+      "pass_to_pass_count": 30,
+      "provider_attempt_id": "35aecebba0b34fb7f2b374b77f1487f1",
+      "provider_response_sha256": "5cc59f284ca60bb365c26f7ba8c7755b035162a10a942a8465af65059eb8717e",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 70,
+          "promptTokenCount": 395,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 395
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7863,
+          "totalTokenCount": 8328
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/models/fields/__init__.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b93a0e34d9b9b99d41103782b7e7aeabf47517e3",
+      "fail_to_pass": [
+        "test_iterable_lookup_value (queries.test_query.TestQuery)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12050",
+      "model_patch_sha256": "5833943f2d5db07593b5d3fe1c05b46d4e1e0317c65e66320af32d8b86ee1667",
+      "pass_to_pass_count": 10,
+      "provider_attempt_id": "09c57c8b9bb06424e5fdd1200ccb9ea2",
+      "provider_response_sha256": "30e5a5a90d7c590df644275e7627199936ce85a72a1bc8fece63e45cfa419fd1",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 199,
+          "promptTokenCount": 407,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 407
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 5391,
+          "totalTokenCount": 5997
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/models/sql/query.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "89d41cba392b759732ba9f1db4ff29ed47da6a56",
+      "fail_to_pass": [
+        "test_serialize_nested_class (migrations.test_writer.WriterTests)",
+        "test_serialize_numbers (migrations.test_writer.WriterTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12125",
+      "model_patch_sha256": "edb6e9f382b7ce4ffa6fa70723e049198a3e533077ad241717f8a67894364341",
+      "pass_to_pass_count": 45,
+      "provider_attempt_id": "6e0a926155ae103ae83764203d9f9001",
+      "provider_response_sha256": "3464082a5d28aa49e5848a1ac88d1f397e058a46a2ac9a7128c81e0797b9cc60",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 66,
+          "promptTokenCount": 607,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 607
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3161,
+          "totalTokenCount": 3834
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/migrations/serializer.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "5573a54d409bb98b5c5acdb308310bed02d392c2",
+      "fail_to_pass": [
+        "test_get_list_editable_queryset_with_regex_chars_in_prefix (admin_changelist.tests.ChangeListTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12143",
+      "model_patch_sha256": "f88ac3bc8fc5ecb0f733a1a963e95d0baf19929d2be3f5a1bc29e2284b20b9ad",
+      "pass_to_pass_count": 52,
+      "provider_attempt_id": "56aa1c8e4ff495da0d35ff760336866f",
+      "provider_response_sha256": "9dd6c3d36bf3fd63a23d4f9b5f5d91faa9ade8b7587a676f2726088cd97a167c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 98,
+          "promptTokenCount": 661,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 661
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3078,
+          "totalTokenCount": 3837
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/contrib/admin/options.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "3fb7c12158a2402f0f80824f6778112071235803",
+      "fail_to_pass": [
+        "test_get_context_does_not_mutate_attrs (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12193",
+      "model_patch_sha256": "a4c3a12a39faa0e1d51674ee5856dadc6db0df1025ef93a5bc4586cd8321e8f8",
+      "pass_to_pass_count": 11,
+      "provider_attempt_id": "bbcb54980ef9dc105626f651757f5666",
+      "provider_response_sha256": "063469e71e29825de82693dc6d731a76a9153095f83349258b1759afe8eee47c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 60,
+          "promptTokenCount": 374,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 374
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2924,
+          "totalTokenCount": 3358
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/forms/widgets.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "5a68f024987e6d16c2626a31bf653a2edddea579",
+      "fail_to_pass": [
+        "partial(func, *args, **keywords) - new function with partial application"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12209",
+      "model_patch_sha256": "6053f2e6021179e07143d4ad9928863d72ecf2f2c2d19afa30e9a0a6ef7160e7",
+      "pass_to_pass_count": 0,
+      "provider_attempt_id": "1f685afb2863a662fd78fa589fc89477",
+      "provider_response_sha256": "fe2de767191a552027a0da2a32fde993a186a63687405553d06d78556540abe5",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 326,
+          "promptTokenCount": 484,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 484
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7862,
+          "totalTokenCount": 8672
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/db/models/base.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "69331bb851c34f05bc77e9fc24020fe6908b9cd5",
+      "fail_to_pass": [
+        "test_inclusion_tag_errors (template_tests.test_custom.InclusionTagTests)",
+        "test_inclusion_tags (template_tests.test_custom.InclusionTagTests)",
+        "test_simple_tag_errors (template_tests.test_custom.SimpleTagTests)",
+        "test_simple_tags (template_tests.test_custom.SimpleTagTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12262",
+      "model_patch_sha256": "864399d75c7b0c0b964a715c54b899f8d8a1b028d45c9198045c6f2a5eb50f28",
+      "pass_to_pass_count": 18,
+      "provider_attempt_id": "ca4f0dfca0cbf41531df5dfc96c10ff6",
+      "provider_response_sha256": "7688a10be86adc5abe74cdbbb7d3abb987d783083de2a49d13a386e34655704b",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 81,
+          "promptTokenCount": 451,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 451
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2110,
+          "totalTokenCount": 2642
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/template/library.py",
+      "status": "solution"
+    },
+    {
+      "instance_id": "django__django-12273",
+      "status": "empty_fix"
+    },
+    {
+      "base_commit": "53d8646f799de7f92ab9defe9dc56c6125448102",
+      "fail_to_pass": [
+        "test_use_required_attribute (forms_tests.widget_tests.test_fileinput.FileInputTest)",
+        "test_filefield_with_fileinput_required (forms_tests.tests.test_forms.FormsTestCase)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12276",
+      "model_patch_sha256": "999f4ae65b69ff4d5f225a234465bd090a87485c1e1f3bfcd5659c65a079cef4",
+      "pass_to_pass_count": 117,
+      "provider_attempt_id": "cc1918d7c710b28d271bdb2f998b5735",
+      "provider_response_sha256": "e49268047a279ff968dd3658c9f63beee1fafa39951a5ded494dc3547bf20c19",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 124,
+          "promptTokenCount": 423,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 423
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2445,
+          "totalTokenCount": 2992
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "django/forms/widgets.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "66ba515e671638971bd11a34cff12c107a437e0b",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_pickle.py::test_complete[png]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "model_patch_sha256": "29ad4e44d9d737e8d3aba4612892c78307a50c28b206f599ce824df57137ce69",
+      "pass_to_pass_count": 181,
+      "provider_attempt_id": "190ba233fa8a342d5fe894a2a2f1ebb5",
+      "provider_response_sha256": "89b7255920117bda906ca2195305609fc35b2130da329e281e811b3c691fb938",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 231,
+          "promptTokenCount": 585,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 585
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 6919,
+          "totalTokenCount": 7735
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "lib/matplotlib/cbook.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "5ca694b38d861c0e24cd8743753427dda839b90b",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_axes.py::test_hexbin_mincnt_behavior_upon_C_parameter[png]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "matplotlib__matplotlib-26113",
+      "model_patch_sha256": "acf5ad403378e98dac0163c497a00b3768b907830aee87905eb338ae3ee7a53a",
+      "pass_to_pass_count": 812,
+      "provider_attempt_id": "99091713214df71728f0266f89eb8e0c",
+      "provider_response_sha256": "7376789e23ce57fd5405b8e27fab458d68abd8a9c99f1cbb971afd51699ac1f5",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 328,
+          "promptTokenCount": 771,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 771
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7860,
+          "totalTokenCount": 8959
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "lib/matplotlib/axes/_axes.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "fa68f46289adf4a8a4bc7ba97ded8258ec9d079c",
+      "fail_to_pass": [
+        "lib/mpl_toolkits/axes_grid1/tests/test_axes_grid1.py::test_inset_axes_tight"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "matplotlib__matplotlib-26291",
+      "model_patch_sha256": "20eed844ea82cea1cd04ad32d5ed8207d03ef659d2b20633fc2a1e95c81e2c63",
+      "pass_to_pass_count": 49,
+      "provider_attempt_id": "65cb21318561454c2f83a25ea66758ab",
+      "provider_response_sha256": "18fd2a1feb8ec7bb1020f230a067e2c23c09d55a20e6d55ca375ec1463a6be9e",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 86,
+          "promptTokenCount": 716,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 716
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 15728,
+          "totalTokenCount": 16530
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "lib/mpl_toolkits/axes_grid1/inset_locator.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "2aee6ccd7c7e1f8d282c1e7579f4ee546b838542",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_contour.py::test_contour_set_paths[png]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "matplotlib__matplotlib-26342",
+      "model_patch_sha256": "6b871af9bfb5b5b79ed67137579545fc16b063f45273827785a28e457ca737b3",
+      "pass_to_pass_count": 81,
+      "provider_attempt_id": "c5bd60ffe7de4800573d02bf843b817f",
+      "provider_response_sha256": "f5fd4637a6ecc3b7ea09d53171218220b8bf8237c4b232fc0c72dee30865b571",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 69,
+          "promptTokenCount": 419,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 419
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7863,
+          "totalTokenCount": 8351
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "lib/matplotlib/collections.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "851dadeb0338403e5021c3fbe80cbc9127ee672d",
+      "fail_to_pass": [
+        "xarray/tests/test_computation.py::test_where_attrs"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pydata__xarray-6461",
+      "model_patch_sha256": "f5c635a7024b1bf7e002eb74a98976c7378db252c8572abe47ff28a7b7ccab41",
+      "pass_to_pass_count": 247,
+      "provider_attempt_id": "b01ad531237037abe906d326f164bb6a",
+      "provider_response_sha256": "8aa306bf4870d723349749d409fdcb7d6d442812b1de6b63a50dbeab62895347",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 128,
+          "promptTokenCount": 583,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 583
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7865,
+          "totalTokenCount": 8576
+        }
+      },
+      "repo": "pydata/xarray",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "xarray/core/computation.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "cc183652bf6e1273e985e1c4b3cba79c896c1193",
+      "fail_to_pass": [
+        "xarray/tests/test_dataset.py::TestDataset::test_chunks_does_not_load_data"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pydata__xarray-6721",
+      "model_patch_sha256": "5cf22f04a7057465a6c8c5c0f9a83b5c5af7f032c0bc7b892b27c3f9fd5c8cb9",
+      "pass_to_pass_count": 1405,
+      "provider_attempt_id": "c69469110ea0a0f59b7319f6626e5321",
+      "provider_response_sha256": "ae76b91a296a946ea28b81b432cd69665d2870e2e4bf97d41febaf8152c5aa47",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 69,
+          "promptTokenCount": 693,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 693
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3916,
+          "totalTokenCount": 4678
+        }
+      },
+      "repo": "pydata/xarray",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "xarray/core/common.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "51d37d1be95547059251076b3fadaa317750aab3",
+      "fail_to_pass": [
+        "xarray/tests/test_coarsen.py::TestCoarsenConstruct::test_coarsen_construct_keeps_all_coords"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pydata__xarray-7233",
+      "model_patch_sha256": "744e67f3b40f55eee5545f22dec1c88c7d4f7f361fd9c1bd15b69a578671faf4",
+      "pass_to_pass_count": 189,
+      "provider_attempt_id": "c6dc1ce575e200335c2f382034b74c1a",
+      "provider_response_sha256": "70c182b932db0cc47f2fb8ffb6cfc78e95ce5521760108cab25c262ca62c569f",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 327,
+          "promptTokenCount": 782,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 782
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7861,
+          "totalTokenCount": 8970
+        }
+      },
+      "repo": "pydata/xarray",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "xarray/core/rolling.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "41d211c24a6781843b174379d6d6538f5c17adb9",
+      "fail_to_pass": [
+        "testing/test_capture.py::TestCaptureFixture::test_cafd_preserves_newlines[\\r\\n]",
+        "testing/test_capture.py::TestCaptureFixture::test_cafd_preserves_newlines[\\r]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pytest-dev__pytest-7521",
+      "model_patch_sha256": "6089bfbb93faf44ae68229f2120f385d919ca5423fd40f250f078057b1ab62d2",
+      "pass_to_pass_count": 125,
+      "provider_attempt_id": "8492d50771ab6dcf8aa3b7e0622470ec",
+      "provider_response_sha256": "c7823564bfd8e8edaaefbe52fa4f89dd5343bddbd82663bc8e4e87dcc5bb4ac7",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 63,
+          "promptTokenCount": 724,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 724
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1525,
+          "totalTokenCount": 2312
+        }
+      },
+      "repo": "pytest-dev/pytest",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "src/_pytest/capture.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "a7e38c5c61928033a2dc1915cbee8caa8544a4d0",
+      "fail_to_pass": [
+        "testing/test_collection.py::test_collect_symlink_dir"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pytest-dev__pytest-7982",
+      "model_patch_sha256": "846ba551a979c693575385eacf91bddc9fd26d2fb23023cb04eedb2d01412e2c",
+      "pass_to_pass_count": 78,
+      "provider_attempt_id": "d1ea67e1aa6002e583968e1c9600941b",
+      "provider_response_sha256": "afcbc8abcdfc539bf5ffde24e67118244978ef9fbf0d08b5e7c4c99488dd408c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 67,
+          "promptTokenCount": 342,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 342
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 491,
+          "totalTokenCount": 900
+        }
+      },
+      "repo": "pytest-dev/pytest",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "src/_pytest/pathlib.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "a62775e99f2a5ea3d51db7160fad783f6cd8a4c5",
+      "fail_to_pass": [
+        "sklearn/tests/test_pipeline.py::test_make_pipeline_memory"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "model_patch_sha256": "a9e23975a7043bb70ab42fcfe9969f6d3cf747d2e242ccb320ea0477b63fb917",
+      "pass_to_pass_count": 40,
+      "provider_attempt_id": "85730cd2c303250d17beacbda63583be",
+      "provider_response_sha256": "efdf422c580addd34b02fb3fda4b1a01bc8899ee14d6e4f8e834cdd8e8079cf8",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 80,
+          "promptTokenCount": 666,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 666
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 904,
+          "totalTokenCount": 1650
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sklearn/pipeline.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b34751b7ed02b2cfcc36037fb729d4360480a299",
+      "fail_to_pass": [
+        "sklearn/ensemble/tests/test_voting.py::test_none_estimator_with_weights[X0-y0-voter0]",
+        "sklearn/ensemble/tests/test_voting.py::test_none_estimator_with_weights[X1-y1-voter1]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-13779",
+      "model_patch_sha256": "56884497ef089ea4cdfcaced66e239aaef1d939cb1cee610da841e187010135a",
+      "pass_to_pass_count": 18,
+      "provider_attempt_id": "785d0175a4b2d57e721406681f102343",
+      "provider_response_sha256": "cf6feda5d794dec75268e534b28082660e15a8cddc8f618473afc17b8b6e31ab",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 83,
+          "promptTokenCount": 384,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 384
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2901,
+          "totalTokenCount": 3368
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sklearn/ensemble/voting.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "6ab8c86c383dd847a1be7103ad115f174fe23ffd",
+      "fail_to_pass": [
+        "sklearn/tree/tests/test_export.py::test_export_text"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-14053",
+      "model_patch_sha256": "5e75624fbe750efad4df0a0d4b37f6fae0e96b7c99d079cd0c70f31c58c5b321",
+      "pass_to_pass_count": 5,
+      "provider_attempt_id": "9dd932f0da4b03c43b259226059fbd5a",
+      "provider_response_sha256": "666a7d2896432e416653b323033c9b96146b5891e6a7c66a40b11fb8522c3510",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 72,
+          "promptTokenCount": 646,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 646
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2638,
+          "totalTokenCount": 3356
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sklearn/tree/export.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "3d997697fdd166eff428ea9fd35734b6a8ba113e",
+      "fail_to_pass": [
+        "sklearn/utils/tests/test_show_versions.py::test_get_deps_info"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-14141",
+      "model_patch_sha256": "31b459ac4198d4e46cfaef35bf1d3aa4a337b5961bd7f311a6b1e18bed6293bf",
+      "pass_to_pass_count": 2,
+      "provider_attempt_id": "7db309afdfe6c0ac9eb11fd0481f6331",
+      "provider_response_sha256": "8cc4079bf5aa037de6831c5e68ecb42abe200f185b43510ee4c29bb53df4cd49",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 38,
+          "promptTokenCount": 196,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 196
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 567,
+          "totalTokenCount": 801
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sklearn/utils/_show_versions.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6",
+      "fail_to_pass": [
+        "sklearn/svm/tests/test_svm.py::test_sparse_fit_support_vectors_empty"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "model_patch_sha256": "bc972d6dbe0271365678a1cb45e323ddddc4073b778103a4147b298a80f4d4dd",
+      "pass_to_pass_count": 85,
+      "provider_attempt_id": "38237682547506c8ca41e978bc3aeb91",
+      "provider_response_sha256": "e9d5cffd8020a0d16e6ddb6526fd6b5257d0d9817a9bb4ee3dd7afc100e92054",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 116,
+          "promptTokenCount": 904,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 904
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 6129,
+          "totalTokenCount": 7149
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sklearn/svm/base.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "2c867b8f822eb7a684f0d5c4359e4426e1c9cfe0",
+      "fail_to_pass": [
+        "sklearn/utils/tests/test_set_output.py::test_set_output_pandas_keep_index"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "model_patch_sha256": "b728f05af3474d4e356d769689c24bcf33c17be9907669335aa11ee86750fd4d",
+      "pass_to_pass_count": 14,
+      "provider_attempt_id": "1a083876beedb3f2b31d3e2a41f3572e",
+      "provider_response_sha256": "fdc080a5b0fa8b056e11a695de39949dda80b075211dba131ce179cae38f559c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 326,
+          "promptTokenCount": 658,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 658
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7862,
+          "totalTokenCount": 8846
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sklearn/utils/_set_output.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "4b452338f914d4f6b54704222d70ae8a746e3db5",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_info_field_list_var"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-8638",
+      "model_patch_sha256": "a8ea372b02a15ee6ceb78673790153619370fff57dda87fe7f688f61de0911ab",
+      "pass_to_pass_count": 34,
+      "provider_attempt_id": "da08e06f00ee975e1baff6eca0583916",
+      "provider_response_sha256": "e9949c434aa0e816971aa9fcaba90676dc2112f6ac25801bbef3eca54f3b1c0b",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 98,
+          "promptTokenCount": 606,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 606
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2802,
+          "totalTokenCount": 3506
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sphinx/domains/python.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "82ef497a8c88f0f6e50d84520e7276bfbf65025d",
+      "fail_to_pass": [
+        "tests/test_ext_viewcode.py::test_viewcode_epub_default"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "model_patch_sha256": "afdfba3732b401b88279760f986bbb67268cfc460562cfe6e44bf7afc3f908d6",
+      "pass_to_pass_count": 3,
+      "provider_attempt_id": "83d9cc9831c2fdcd033db98c8518d7db",
+      "provider_response_sha256": "558ab2b64ad98a49a232f5d7bef6b365d64769f0cfdee68f2737a8394ade80f6",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 105,
+          "promptTokenCount": 371,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 371
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 4193,
+          "totalTokenCount": 4669
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sphinx/ext/viewcode.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "567ff22716ac258b9edd2c1711d766b440ac0b11",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_info_field_list"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "model_patch_sha256": "c24987d7c536d6d0aaefb7ead46bd7cc7ac1623272b6230d99cf429c68590602",
+      "pass_to_pass_count": 44,
+      "provider_attempt_id": "dd0508f0c747888d626db27c8b545cb0",
+      "provider_response_sha256": "f28f1ddc228738febc1c67c5ff27cfc3066771b79e3a8b54f4847d5e34cd83a8",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 63,
+          "promptTokenCount": 697,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 697
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1132,
+          "totalTokenCount": 1892
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sphinx/util/docfields.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "06107f838c28ab6ca6bfc2cc208e15997fcb2146",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_info_field_list_piped_type"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "model_patch_sha256": "6eeef23688686bb55fa7359f91cbe5fdd6748f57635638f290d5a913bfef3171",
+      "pass_to_pass_count": 45,
+      "provider_attempt_id": "aec5aa4aab74ed05ba4e2557b17b1a00",
+      "provider_response_sha256": "90b08091102a19fcdbe813af6922860590436e0c12505a22a544dc6077684b1e",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 72,
+          "promptTokenCount": 390,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 390
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2358,
+          "totalTokenCount": 2820
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sphinx/domains/python.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "9ed054279aeffd5b1d0642e2d24a8800389de29f",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_pyproperty"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-9591",
+      "model_patch_sha256": "ef37b3e1828d5c8e4e67b1e9863cc7bba6a7da72f21708cf35cf89d35dea87b4",
+      "pass_to_pass_count": 44,
+      "provider_attempt_id": "74e762ff6458a69f18bfb04c03f310ff",
+      "provider_response_sha256": "2965ea6b552ed7bafe03249de204db37bb2bd731a1c0f890e6e65515065ffa12",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 61,
+          "promptTokenCount": 653,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 653
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2642,
+          "totalTokenCount": 3356
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sphinx/domains/python.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "f050a7775dfc9000f55d023d36d925a8d02ccfa8",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_pymethod_options"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "model_patch_sha256": "cadd31c9fae05501d160470ad0da79d3b44ec8378369ebce23154231ea44c350",
+      "pass_to_pass_count": 45,
+      "provider_attempt_id": "31b46c87601e2221a98594f5565f0870",
+      "provider_response_sha256": "ade2dd3a3f5af7a50e3fac96cc09844c5adc456f5c3ee21b95e6213a6a6cf8e9",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 99,
+          "promptTokenCount": 503,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 503
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 574,
+          "totalTokenCount": 1176
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sphinx/domains/python.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "7121bdf1facdd90d05b6994b4c2e5b2865a4638a",
+      "fail_to_pass": [
+        "test_latex_basic"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-13798",
+      "model_patch_sha256": "1c9f0c1b5c30ceb7e72b04cacb0c5db4afb9295544e8f58c826aae26efbfae84",
+      "pass_to_pass_count": 102,
+      "provider_attempt_id": "6f137d448d4397d30163bb7918b16b7a",
+      "provider_response_sha256": "920d56dd35cabd26ab51b0455b57ef098141686b8b82d92c37bfaf1c88058683",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 139,
+          "promptTokenCount": 480,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 480
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2913,
+          "totalTokenCount": 3532
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/printing/latex.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "c6753448b5c34f95e250105d76709fe4d349ca1f",
+      "fail_to_pass": [
+        "test_Vector"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-14711",
+      "model_patch_sha256": "aae9b3ae541619fe68ccf44763c7a5c76b53cda1e231424caeb8efeae465f871",
+      "pass_to_pass_count": 2,
+      "provider_attempt_id": "670cd15ccdc3eb13605f609d7eca4f08",
+      "provider_response_sha256": "c229d71d92c422a1d1dd9d51d96fa7c95f2391978692612f275169f6fd5626b7",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 60,
+          "promptTokenCount": 512,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 512
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3108,
+          "totalTokenCount": 3680
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/physics/vector/vector.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "9cbea134220b0b951587e11b63e2c832c7246cbc",
+      "fail_to_pass": [
+        "test_MpmathPrinter"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-14976",
+      "model_patch_sha256": "8895fa9a3ee55a3db47fd406f52735f816fbba1e8cddd1627059cd715cdd0c1b",
+      "pass_to_pass_count": 13,
+      "provider_attempt_id": "5b77a3533edea1d973e29b24587e067f",
+      "provider_response_sha256": "fe18bb1d711aca0ee56c720f7577ba4f262ecc98f790d6db713c1d91cbf7fcb7",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 136,
+          "promptTokenCount": 527,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 527
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 6019,
+          "totalTokenCount": 6682
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/printing/pycode.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "6810dee426943c1a2fe85b5002dd0d4cf2246a05",
+      "fail_to_pass": [
+        "test_ndim_array_initiation"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-15017",
+      "model_patch_sha256": "9bfccd57ce27ca7859556d1dcaf53b1085970f179881ed1cd362210bdf298115",
+      "pass_to_pass_count": 14,
+      "provider_attempt_id": "4219616fabc1b3888f4ccd725f6334ad",
+      "provider_response_sha256": "e5328ac9e4a0225f2bc773308818ee2feb608723a291b2fcafe78df7f7e42442",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 79,
+          "promptTokenCount": 546,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 546
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1449,
+          "totalTokenCount": 2074
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/tensor/array/dense_ndim_array.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "768da1c6f6ec907524b8ebbf6bf818c92b56101b",
+      "fail_to_pass": [
+        "test_quaternion_conversions"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-15349",
+      "model_patch_sha256": "2e2ec3d4e039076eb866b787201cd046db261dde529ba9220ea178352ca9fef8",
+      "pass_to_pass_count": 3,
+      "provider_attempt_id": "f7126aa45c89d4ea6406c365eb18f084",
+      "provider_response_sha256": "f476d541df24e144313cd2cbee909896916f01cc1845ae9efe46b35eb2e5b757",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 138,
+          "promptTokenCount": 530,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 530
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 2481,
+          "totalTokenCount": 3149
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/algebras/quaternion.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b506169ad727ee39cb3d60c8b3ff5e315d443d8e",
+      "fail_to_pass": [
+        "test_Add_is_zero"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-15875",
+      "model_patch_sha256": "cc7ab69d79de091787f49eba1af8ee46d9dc7e88fb502bdddc2dc8f0d716e148",
+      "pass_to_pass_count": 80,
+      "provider_attempt_id": "4d6b902e16c793aecd4ad71ba7c71fb5",
+      "provider_response_sha256": "210d505431dfa5ed4eb77125bf591c8464913ab475d112199d1051ce842b10ca",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 58,
+          "promptTokenCount": 365,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 365
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7860,
+          "totalTokenCount": 8283
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/core/add.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "aefdd023dc4f73c441953ed51f5f05a076f0862f",
+      "fail_to_pass": [
+        "test_posify"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-16450",
+      "model_patch_sha256": "419bbc353e125d736a03e03feecdb2df81f5934813400efe45798893f141db15",
+      "pass_to_pass_count": 38,
+      "provider_attempt_id": "d2f320cf131566aa768264f7d349a693",
+      "provider_response_sha256": "179dfb8a7ae64eaddfc05815056734d6fe5eb54b315a988f8ccfae7b350cd20a",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 327,
+          "promptTokenCount": 507,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 507
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7861,
+          "totalTokenCount": 8695
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/simplify/simplify.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b8fe457a02cc24b3470ff678d0099c350b7fef43",
+      "fail_to_pass": [
+        "test_PythonCodePrinter"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-16766",
+      "model_patch_sha256": "0902161cf652d4db46f6f628ee9d21355782659b3ae58e2e84275db4e6105ede",
+      "pass_to_pass_count": 7,
+      "provider_attempt_id": "c2e0c73795e90c0ab05d7b24f0f9620a",
+      "provider_response_sha256": "9ec42a271ea112340381131b5456804507e054b960d97ac20f91c6a350f231dd",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 120,
+          "promptTokenCount": 381,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 381
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 5095,
+          "totalTokenCount": 5596
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/printing/pycode.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "c50643a49811e9fe2f4851adff4313ad46f7325e",
+      "fail_to_pass": [
+        "test_encode_morse"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-16886",
+      "model_patch_sha256": "882e5c4a3603b7af11ab1e5e65e05027bf36ca39436349cac1a3ab46f956758d",
+      "pass_to_pass_count": 42,
+      "provider_attempt_id": "3aa920d949fd16de2e77f5a87c5136e2",
+      "provider_response_sha256": "87cdf05725a957d9fdf87da0f87b300f6d4d9b477c0180a920e28917f97ba99a",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 105,
+          "promptTokenCount": 279,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 279
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 331,
+          "totalTokenCount": 715
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/crypto/crypto.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "1d3327b8e90a186df6972991963a5ae87053259d",
+      "fail_to_pass": [
+        "test__TR56",
+        "test_issue_17137"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-17139",
+      "model_patch_sha256": "0de19ed606a83bd082f43d6124a3308fb7408f09918d888871d90e78b48856bb",
+      "pass_to_pass_count": 67,
+      "provider_attempt_id": "a747b192596584f934c861fed7379092",
+      "provider_response_sha256": "1b447e7a176b285c5eafb4d7914a06f5e8d77c5a6eeec5c47a8432390f1dde75",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 60,
+          "promptTokenCount": 783,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 783
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 3459,
+          "totalTokenCount": 4302
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/simplify/fu.py",
+      "status": "solution"
+    },
+    {
+      "instance_id": "sympy__sympy-17630",
+      "status": "empty_fix"
+    },
+    {
+      "base_commit": "f5e965947af2410ded92cfad987aaf45262ea434",
+      "fail_to_pass": [
+        "test_point",
+        "test_point3D"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-17655",
+      "model_patch_sha256": "bbc86a0993ff67fbdba999c701d3b5dc0b615024b71a1cc633bda80c5bfdb453",
+      "pass_to_pass_count": 9,
+      "provider_attempt_id": "0116a737881b6fc01a6b196c747802e5",
+      "provider_response_sha256": "02d89865b2cdbf3529e218c216add54a658e92f9a3e53cc99ccb5d49a9ed849c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 72,
+          "promptTokenCount": 638,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 638
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 1557,
+          "totalTokenCount": 2267
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/geometry/point.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "1923822ddf8265199dbd9ef9ce09641d3fd042b9",
+      "fail_to_pass": [
+        "test_diophantine"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-18189",
+      "model_patch_sha256": "d7d90e6cc9a7fd618e89e716149b09df32e9bb80b486232db8c4fdec83eb3373",
+      "pass_to_pass_count": 41,
+      "provider_attempt_id": "4153d50a293b9a70e84e29a9959deac7",
+      "provider_response_sha256": "46d1ba1cd7e92e2e9ce6b793d5119a6a4712c57ad7255fc57f3c4608e61604b4",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 102,
+          "promptTokenCount": 568,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 568
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7862,
+          "totalTokenCount": 8532
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/solvers/diophantine.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "70381f282f2d9d039da860e391fe51649df2779d",
+      "fail_to_pass": [
+        "test_latex_subs"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-18763",
+      "model_patch_sha256": "50df0aad3bb1243bc3f599a2e35b50ae3641981c6d35da6043c3eaf27d49bcc1",
+      "pass_to_pass_count": 141,
+      "provider_attempt_id": "89c4b5712ba442d83b6be598e3897546",
+      "provider_response_sha256": "52c680e5edd76ee89e4e31cdabf15d8baff0dfe23f79d27a78a3cffe53aa9ade",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 327,
+          "promptTokenCount": 478,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 478
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7861,
+          "totalTokenCount": 8666
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/printing/latex.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b9179e80d2daa1bb6cba1ffe35ca9e6612e115c9",
+      "fail_to_pass": [
+        "test_issue_5786"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-19040",
+      "model_patch_sha256": "0b6bebf3b0c40dc72046a3cd773ee8f63f2a1a8f48de24b13b0c48303c6c512e",
+      "pass_to_pass_count": 148,
+      "provider_attempt_id": "9d9b1d5ddc8c03c72c392e2e907429ea",
+      "provider_response_sha256": "de86d26b2859f9e79be6950413d97b37e6e977a5f872971d3bd732b2a12d31d0",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 328,
+          "promptTokenCount": 571,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 571
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7860,
+          "totalTokenCount": 8759
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/polys/factortools.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "94fb720696f5f5d12bad8bc813699fd696afd2fb",
+      "fail_to_pass": [
+        "test_dict"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-19346",
+      "model_patch_sha256": "91f054c6a00f57d4f933db52d382d5ad4b4a7a69d92d7d2d1ec73314b998471a",
+      "pass_to_pass_count": 40,
+      "provider_attempt_id": "c3dc8c1130b6e9c700ebd4aeaff142dc",
+      "provider_response_sha256": "823c8bbff8ac3fa85291b7143f2a7c5e109c5f6deaaa44bbfe39ddc4a3c3bd7c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "candidatesTokenCount": 186,
+          "promptTokenCount": 374,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 374
+            }
+          ],
+          "serviceTier": "standard",
+          "thoughtsTokenCount": 7860,
+          "totalTokenCount": 8420
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "gemini-3.1-pro-preview",
+      "src_file": "sympy/printing/repr.py",
+      "status": "solution"
+    }
+  ],
+  "provider_calls": 53,
+  "schema_version": "telos.iter200.solve_summary.v1",
+  "solutions": 51,
+  "solver_model": "gemini-3.1-pro-preview",
+  "targets": 53
+}

@@ -1,0 +1,26 @@
+diff --git a/sympy/polys/factortools.py b/sympy/polys/factortools.py
+--- a/sympy/polys/factortools.py
++++ b/sympy/polys/factortools.py
+@@ -1147,7 +1147,20 @@ def dmp_ext_factor(f, u, K):
+         return lc, []
+ 
+     f, F = dmp_sqf_part(f, u, K), f
+-    s, g, r = dmp_sqf_norm(f, u, K)
++` `f` is a nested list.
++If `f` is in `u` variables, it's a list of polynomials in `u-1` variables.
++The content is the GCD of all these coefficients, which is a polynomial in `u-1` variables.
++So `cont` is in `u-1` variables!
++And the primitive part `f` is in `u` variables.
++Wait, let me double check this.
++If `f` is `[[1, -1], [-1, 1]]` (which is `(y-1)x - (y-1)`).
++`u=1` (2 variables).
++The coefficients are `[1, -1]` (which is `y-1`) and `[-1, 1]` (which is `-y+1`).
++Their GCD is `[1, -1]`. So `cont = [1, -1]`. This is in `u-1 = 0` variables.
++The primitive part is `f / cont` = `[[1], [-1]]`. This is in `u=1` variables, representing `1*x - 1`.
++Wait! `f / cont` gives `[[1], [-1]]`?
++No, the primitive part must have the same number of variables as `f`! So it is `[[1], [-1]]`. Wait, `[1]` is a degree 0 polynomial in `y`.
++So `f` becomes `[[1], [-1
+ 
+     factors = dmp_factor_list_include(r, u, K.dom)
+ 
+

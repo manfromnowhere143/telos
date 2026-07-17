@@ -1,0 +1,24 @@
+diff --git a/django/db/models/sql/compiler.py b/django/db/models/sql/compiler.py
+--- a/django/db/models/sql/compiler.py
++++ b/django/db/models/sql/compiler.py
+@@ -722,6 +722,19 @@ def find_ordering_name(self, name, opts, alias=None, default_order='ASC',
+ 
+             results = []
+             for item in opts.ordering:
++            results = []
++            for item in opts.ordering:
++                if hasattr(item, 'resolve_expression') and not isinstance(item, OrderBy):
++                    item = item.asc()
++                if isinstance(item, OrderBy):
++                    if order == 'DESC':
++                        item = item.copy()
++                        item.reverse_ordering()
++                    results.append((item, False))
++                    continue
++                results.extend(self.find_ordering_name(item, opts, alias,
++                                                       order, already_seen))
++            return results
+                 results.extend(self.find_ordering_name(item, opts, alias,
+                                                        order, already_seen))
+             return results
+

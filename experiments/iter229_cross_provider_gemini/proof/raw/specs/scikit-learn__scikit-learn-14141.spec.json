@@ -1,0 +1,17 @@
+{
+  "base_commit": "3d997697fdd166eff428ea9fd35734b6a8ba113e",
+  "eval_script_sha256": "ef85d38f3b3bf3214f85a906eed6876a64f1f833abd037adcd0070d5318ae201",
+  "fail_to_pass": [
+    "sklearn/utils/tests/test_show_versions.py::test_get_deps_info"
+  ],
+  "framework": "pytest",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14141:latest",
+  "instance_id": "scikit-learn__scikit-learn-14141",
+  "pass_to_pass": [
+    "sklearn/utils/tests/test_show_versions.py::test_get_sys_info",
+    "sklearn/utils/tests/test_show_versions.py::test_show_versions_with_blas"
+  ],
+  "repo": "scikit-learn/scikit-learn",
+  "scenario_available": true
+}
