@@ -11,8 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "e88f7c50431695b77785a6de9eb6554e0e79c905d58ef1fc7659cc1d07b4bf25"
-EXPECTED_PDF_SHA256 = "73dd94166c0f4e016be2428ded256a773d3e6a051a127147b09038eba2454fb2"
+EXPECTED_SOURCE_SHA256 = "ae675336d0c02db943f120de98019228c79dec7d085a86d9d8a989f24cf29cc7"
+EXPECTED_PDF_SHA256 = "aa719c80826271d35ba22ee6440d7326977b927fd2b0b65b62e68b79782cc96c"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -65,7 +65,8 @@ REQUIRED_TEXT = {
         "$1/25$, with $8/25$ worst-case upper over $u=7$",
         "$3/17$, with $11/17$ worst-case upper over $u=8$",
         "$3/14$, with $9/14$ worst-case upper over $u=6$",
-        "across three generations and two providers",
+        "$1/16$, with $11/16$ worst-case upper over $u=10$",
+        "across three generations and three providers",
         "a frontier model from a \\emph{different provider}",
         "do not pool them into $5/68$",
     ),
