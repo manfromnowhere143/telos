@@ -1,0 +1,32 @@
+{
+  "base_commit": "40cc2ffd7887959157aaf469e09585ec2be7f528",
+  "eval_script_sha256": "7a6faf7f0dc28a1a5be841222d53030e4dc815abdef68f930944e50f979a175d",
+  "fail_to_pass": [
+    "tests/checkers/unittest_similar.py::test_set_duplicate_lines_to_zero"
+  ],
+  "framework": "pytest",
+  "identical_to_gold": true,
+  "image": "swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-4970:latest",
+  "instance_id": "pylint-dev__pylint-4970",
+  "pass_to_pass": [
+    "tests/checkers/unittest_similar.py::test_ignore_comments",
+    "tests/checkers/unittest_similar.py::test_ignore_docstrings",
+    "tests/checkers/unittest_similar.py::test_ignore_imports",
+    "tests/checkers/unittest_similar.py::test_multiline_imports",
+    "tests/checkers/unittest_similar.py::test_ignore_multiline_imports",
+    "tests/checkers/unittest_similar.py::test_ignore_signatures_fail",
+    "tests/checkers/unittest_similar.py::test_ignore_signatures_pass",
+    "tests/checkers/unittest_similar.py::test_ignore_signatures_class_methods_fail",
+    "tests/checkers/unittest_similar.py::test_ignore_signatures_class_methods_pass",
+    "tests/checkers/unittest_similar.py::test_ignore_signatures_empty_functions_fail",
+    "tests/checkers/unittest_similar.py::test_ignore_signatures_empty_functions_pass",
+    "tests/checkers/unittest_similar.py::test_no_hide_code_with_imports",
+    "tests/checkers/unittest_similar.py::test_ignore_nothing",
+    "tests/checkers/unittest_similar.py::test_lines_without_meaningful_content_do_not_trigger_similarity",
+    "tests/checkers/unittest_similar.py::test_help",
+    "tests/checkers/unittest_similar.py::test_no_args",
+    "tests/checkers/unittest_similar.py::test_get_map_data"
+  ],
+  "repo": "pylint-dev/pylint",
+  "scenario_available": false
+}

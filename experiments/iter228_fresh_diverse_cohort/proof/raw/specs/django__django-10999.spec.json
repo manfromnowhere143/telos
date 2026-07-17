@@ -1,0 +1,26 @@
+{
+  "base_commit": "36300ef336e3f130a0dadc1143163ff3d23dc843",
+  "eval_script_sha256": "826d117ad4ff7c399c3301ef0e9414cd6388484274b802df1eb5e969634ee788",
+  "fail_to_pass": [
+    "test_negative (utils_tests.test_dateparse.DurationParseTests)",
+    "test_parse_postgresql_format (utils_tests.test_dateparse.DurationParseTests)"
+  ],
+  "framework": "django_runtests",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.django_1776_django-10999:latest",
+  "instance_id": "django__django-10999",
+  "pass_to_pass": [
+    "test_parse_date (utils_tests.test_dateparse.DateParseTests)",
+    "test_parse_datetime (utils_tests.test_dateparse.DateParseTests)",
+    "test_parse_time (utils_tests.test_dateparse.DateParseTests)",
+    "test_days (utils_tests.test_dateparse.DurationParseTests)",
+    "test_fractions_of_seconds (utils_tests.test_dateparse.DurationParseTests)",
+    "test_hours_minutes_seconds (utils_tests.test_dateparse.DurationParseTests)",
+    "test_iso_8601 (utils_tests.test_dateparse.DurationParseTests)",
+    "test_minutes_seconds (utils_tests.test_dateparse.DurationParseTests)",
+    "test_parse_python_format (utils_tests.test_dateparse.DurationParseTests)",
+    "test_seconds (utils_tests.test_dateparse.DurationParseTests)"
+  ],
+  "repo": "django/django",
+  "scenario_available": true
+}

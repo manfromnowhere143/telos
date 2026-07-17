@@ -1,0 +1,13 @@
+diff --git a/sympy/geometry/point.py b/sympy/geometry/point.py
+--- a/sympy/geometry/point.py
++++ b/sympy/geometry/point.py
+@@ -266,6 +266,8 @@ def distance(self, p):
+         sqrt(x**2 + y**2)
+ 
+         """
++        return sqrt(sum([(a - b)**2 for a, b in zip_longest(
++            self.args, p.args if isinstance(p, Point) else p, fillvalue=0)]))
+         return sqrt(sum([(a - b)**2 for a, b in zip(
+             self.args, p.args if isinstance(p, Point) else p)]))
+ 
+

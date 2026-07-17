@@ -1,0 +1,546 @@
+{
+  "checkpoint_schema": {
+    "finished": "telos.iter228.provider_attempt.finished.v1",
+    "started": "telos.iter228.provider_attempt.started.v1"
+  },
+  "differing_solutions": 28,
+  "estimated_spend_usd": 1.4,
+  "manifest": [
+    {
+      "instance_id": "astropy__astropy-14096",
+      "provider_attempt_id": "9051b619fe15617557d3f1a7ec0c3279",
+      "scenario_sha256": "17b1204658d3a525f2929675d25570a40932444bd126a8f6c7b58110eaa506fa",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "unsafe import root: astropy"
+    },
+    {
+      "instance_id": "astropy__astropy-7166",
+      "provider_attempt_id": "e339817af0c77e26148bc0cdecf9aab5",
+      "scenario_sha256": "fd8d680a1de48775875e6b1403b2b81e8780100058f78acc113fb16de2b0e9b3",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "unsafe import root: astropy"
+    },
+    {
+      "func": "the changed function",
+      "instance_id": "django__django-10999",
+      "provider_attempt_id": "b9ced8dcabed151ac3f2b3f7feca6701",
+      "provider_response_sha256": "12f86c533a4b0431392fd2c73086790d9a2f6e17e958edb07e6315d6242da1d8",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 480,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 443,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 688,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1168
+        }
+      },
+      "repo": "django/django",
+      "scenario_sha256": "38d50df41ff857e8d221b7901909a80d439648954529091706f073a9bf5cbdd8",
+      "status": "scenario"
+    },
+    {
+      "instance_id": "django__django-11141",
+      "provider_attempt_id": "1e2e1894af84581162ab48d69f40b389",
+      "scenario_sha256": "2b6de363acbd19255ca8a7c1ecff1438d99346097bfb10e3fe8c10774c4cf0f9",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "call through unsafe import alias: os; call through unsafe import alias: sys; call through unsafe import alias: tempfile; unsafe dynamic/builtin call: open; unsafe import alias: os; unsafe import alias"
+    },
+    {
+      "func": "model_to_dict",
+      "instance_id": "django__django-11163",
+      "provider_attempt_id": "e1587a747e4958045a030d03ba8e3afb",
+      "provider_response_sha256": "d33e4d879109e46bcd023de2f9ed44f7812740a557ecdf301b09f0c46166669d",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 417,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 291,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 525,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 942
+        }
+      },
+      "repo": "django/django",
+      "scenario_sha256": "f55772e3bfb35fa0dc1caa62a671c7035ca4ab1b38902c933d71aceb23832bde",
+      "status": "scenario"
+    },
+    {
+      "func": "hist",
+      "instance_id": "matplotlib__matplotlib-13989",
+      "provider_attempt_id": "d5c0555706731959632a37b52e46221a",
+      "provider_response_sha256": "4200caa79269a7eead466d0edf2211c0ad1cd7dc6ea32a33df0f361c2ac0acc8",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 2161,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 2048,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 538,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2699
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "55abb4476c89a6b51544d3ad7b5b2c181819cf125e4b0e9bc3c1d0a2545685c3",
+      "status": "scenario"
+    },
+    {
+      "func": "_make_image",
+      "instance_id": "matplotlib__matplotlib-20488",
+      "provider_attempt_id": "7be34df84f353a1b2779a670eaade9b6",
+      "provider_response_sha256": "017a395db77ce735d9776cc287367c597202a4500199e9a2d24b71c910a2357a",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 3720,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 3494,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 703,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4423
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "2e77b3e0891fce6f02fb77d191c0950ce0b875fd915bc0d5cedcd94c6a178b1b",
+      "status": "scenario"
+    },
+    {
+      "func": "new_axes",
+      "instance_id": "matplotlib__matplotlib-20676",
+      "provider_attempt_id": "ef42df1087727f2f56fb5fb1eb5560ad",
+      "provider_response_sha256": "42b8643b3343273f3158612e31f5012a558e2c291a45e9f4cd487ce9ce4aea62",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 2523,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 2363,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 591,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 3114
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "706120321e3fe5d920b266f8bebc529c3f37a6fe006ed391fee143905ad5547e",
+      "status": "scenario"
+    },
+    {
+      "func": "clear",
+      "instance_id": "matplotlib__matplotlib-20826",
+      "provider_attempt_id": "00b00f764c0593d2256bfc724a8819a4",
+      "provider_response_sha256": "398edafd6b47e2dcd77e2f40dc503e1bdabd4013476018bc779258c1d39a8fee",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1170,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1024,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 572,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1742
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "be351c7e215dfbd6b4fdddecef1a5711fcef04fd332148ef7ecdd3477bd61dc0",
+      "status": "scenario"
+    },
+    {
+      "func": "_wrap_in_tex",
+      "instance_id": "matplotlib__matplotlib-21568",
+      "provider_attempt_id": "6c4c5d0fa6bb96f99c654637bfbc74d0",
+      "provider_response_sha256": "3cc928a4b992d9b4d37c31cd5746df814c384abfc59ae5cebe6dcd5a379136ce",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 169,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 117,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 671,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 840
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "416ec8cf66e6707c93d2d1ac0b8da568956d58638dcf5bad5abdd956ded8acbd",
+      "status": "scenario"
+    },
+    {
+      "func": "draw",
+      "instance_id": "matplotlib__matplotlib-23412",
+      "provider_attempt_id": "914136c905c87570c5bf40e7b92ed653",
+      "provider_response_sha256": "df6d7ee4f29487ff06aeeab21285b8f9e67856dfa367b21b8180515ada45e34d",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 2242,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 2048,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 569,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2811
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "scenario_sha256": "a2c4f100c38247e612769496353b915e93358e637aab368424e30f065d392bfb",
+      "status": "scenario"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-24627",
+      "provider_attempt_id": "d19b5e3454c027efc84a2a6cfcc9a0bc",
+      "scenario_sha256": "b8a6f2034d83e3432fdcb4c94ab199930405fd65430670357c9e97b79982d3b8",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "unsafe process/network/filesystem call: remove"
+    },
+    {
+      "instance_id": "pallets__flask-5014",
+      "provider_attempt_id": "6d09f9a028a230d1b54c41d98d99e6c7",
+      "scenario_sha256": "23e6f8b511629b25dfd65190af8313daaeb9f1edb2b8413a4af9bbd60f4c0358",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "unsafe import root: flask"
+    },
+    {
+      "instance_id": "psf__requests-1142",
+      "provider_attempt_id": "e470157c85a7223afc9a14bd8e98a487",
+      "scenario_sha256": "af30424b98378bece9bd0260b94686b5ce63dfe2ed7e0dd6c59244e7c3422f1c",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "call through unsafe import alias: PreparedRequest; unsafe import root: requests"
+    },
+    {
+      "instance_id": "psf__requests-1921",
+      "provider_attempt_id": "a0fbe4b1f933a60a62eb0dcd2a1a2fc9",
+      "scenario_sha256": "92c18cb39bd77eec8cdda92bb9f70d58d09ab2a8440f1c64f7e18e9577acfd90",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "call through unsafe import alias: merge_setting; unsafe import root: requests"
+    },
+    {
+      "func": "as_compatible_data",
+      "instance_id": "pydata__xarray-2905",
+      "provider_attempt_id": "0b7a36831335f7d712479629d96c40fe",
+      "provider_response_sha256": "1b0284d0ec4d5ea4b02896765ebcd712d3de29d9ac1bdf2959c087816ffdd593",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 697,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 639,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 552,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1249
+        }
+      },
+      "repo": "pydata/xarray",
+      "scenario_sha256": "6a711a8d80820d28d934ad8e49105ae789748f3a8207b23772807bcc3fb05df7",
+      "status": "scenario"
+    },
+    {
+      "func": "combine_by_coords",
+      "instance_id": "pydata__xarray-3151",
+      "provider_attempt_id": "77dbf44c4a504ec4a3695d9d51b36c00",
+      "provider_response_sha256": "5c1215e16d5353cbbd85329a66855df49a34c851540017c4c0f43e4832fe6421",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 487,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 398,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 816,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1303
+        }
+      },
+      "repo": "pydata/xarray",
+      "scenario_sha256": "b3b96aefd3d2e07633653d04c4ea718dda0dece163a7af2823b76e855c241f94",
+      "status": "scenario"
+    },
+    {
+      "func": "merge",
+      "instance_id": "pydata__xarray-3677",
+      "provider_attempt_id": "8242bd67e0ab67e8b03e0672be090e1e",
+      "provider_response_sha256": "7c48b427e1493302772208409fc816ab54dc71fbf8c54515384704ba0af2d9ee",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1099,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1024,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 473,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1572
+        }
+      },
+      "repo": "pydata/xarray",
+      "scenario_sha256": "e0d8ec2c94d5d90a19311dd0e491118446ab1b1b35f6fffb788acaec3f4cf55a",
+      "status": "scenario"
+    },
+    {
+      "func": "_sum_of_weights",
+      "instance_id": "pydata__xarray-4075",
+      "provider_attempt_id": "9905054befca9345e7b3536afcb8481a",
+      "provider_response_sha256": "45ec8f55e1a6a32eb89bc6928ab7d050faae7a5fff9eefaabb88d4cadd2e0cf7",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1013,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 930,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 691,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1704
+        }
+      },
+      "repo": "pydata/xarray",
+      "scenario_sha256": "84ba854a98320e7532e27be5321cb51b4689ca4a74904447825b0b76ad1f5b33",
+      "status": "scenario"
+    },
+    {
+      "instance_id": "pylint-dev__pylint-6903",
+      "provider_attempt_id": "132fdb1b638ab2bb160c10a86e296e77",
+      "scenario_sha256": "b73ed0d7df48389fa9affce57cf03234a9cc4825479276d5d4f9c18ebfc38924",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "unsafe import root: io; unsafe import root: pylint"
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7080",
+      "provider_attempt_id": "7dc3a54c9943a0d38c2e782a0ef99d6e",
+      "scenario_sha256": "e739c29a43f11b68cb6fe68ca236d23a9d4ba399c62d2df82bbcfb84ae3bc89b",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "absolute or parent-traversal path literal is forbidden; unsafe import root: pylint"
+    },
+    {
+      "instance_id": "pylint-dev__pylint-7277",
+      "provider_attempt_id": "0756bfa9e64fb3673f98fd5a1064a8e2",
+      "scenario_sha256": "6f366f9e99100263be27b4084566814acf3c7c53ae310a191b9d66facfe1b6fc",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "absolute or parent-traversal path literal is forbidden; call through unsafe import alias: os; unsafe import alias: os; unsafe import alias: sys; unsafe import root: os; unsafe import root: pylint; uns"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-10081",
+      "provider_attempt_id": "2cae1169f3e8f557c26dfee521a1b8fe",
+      "scenario_sha256": "f74ba5d22bcf857b70deac58395ca708d6a87aa92427712061fe09b8da8eb230",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "call through unsafe import alias: Path; call through unsafe import alias: tempfile; global/nonlocal state mutation is forbidden; unsafe import alias: tempfile; unsafe import root: io; unsafe import ro"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-5262",
+      "provider_attempt_id": "462bf561b45c90dfeff07272638439e2",
+      "scenario_sha256": "5a6712edd8fe7ffa8c46aad4edd232284f900e72c7b965bf3d2071a17b4b2693",
+      "status": "excluded_unsafe",
+      "unsafe_reason": "unsafe import root: _pytest"
+    },
+    {
+      "func": "inverse_transform",
+      "instance_id": "scikit-learn__scikit-learn-10908",
+      "provider_attempt_id": "e4303bca21ae2d8df4118c5bd0656168",
+      "provider_response_sha256": "50f19cb4d82943814bea7b62e118452e0ad15ff04ccb9e6d55a3de989c40df66",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1110,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1024,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 508,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1618
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "scenario_sha256": "6bb2cab4ce74505a8d76e6d7f82b8a0b1349f1f80b3184fb982d216cc6e687b6",
+      "status": "scenario"
+    },
+    {
+      "func": "add",
+      "instance_id": "sphinx-doc__sphinx-10466",
+      "provider_attempt_id": "95496c58e05f31e1b5a1387b3b7d650d",
+      "provider_response_sha256": "1e9b936f7cb44a0b220ef1a6734f590196291b17833e32b8725fdba93bef4468",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1866,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1730,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 623,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2489
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "scenario_sha256": "ef95ca7bcb40090ff9bc7bc3c6063a14c447bbdc25b069d61f8dd9b6d9c73593",
+      "status": "scenario"
+    },
+    {
+      "func": "distance",
+      "instance_id": "sympy__sympy-11618",
+      "provider_attempt_id": "d4daba32816a582ce95f9265a75d10e0",
+      "provider_response_sha256": "9922dec0e2af9df72ca6e36b7c4e6774210d4410dac398168269fe30527a7f5e",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 1595,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 1536,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 669,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 2264
+        }
+      },
+      "repo": "sympy/sympy",
+      "scenario_sha256": "1c340605949d680a9a352bc939d742f6710c3c21e5b600dc7d23b0855bd656a5",
+      "status": "scenario"
+    },
+    {
+      "func": "_eval_evalf",
+      "instance_id": "sympy__sympy-12096",
+      "provider_attempt_id": "1380268f1c868b3210cab94f0f70d11a",
+      "provider_response_sha256": "2aeaa542e0d28e0b871b54c5279f07cc34c290be9a9bf5a9e67a5300de42297f",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "completion_tokens": 579,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 512,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 515,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 1094
+        }
+      },
+      "repo": "sympy/sympy",
+      "scenario_sha256": "4cb74517c2bd06ff6294eef6a5674548cf3d1e2a09e8e46f72e41ca72a403d22",
+      "status": "scenario"
+    }
+  ],
+  "model": "gpt-5.6-terra",
+  "provider_calls": 28,
+  "scenarios": 16,
+  "schema_version": "telos.iter200.scenarios_summary.v1"
+}

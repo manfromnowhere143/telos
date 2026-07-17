@@ -1,0 +1,18 @@
+diff --git a/sphinx/builders/gettext.py b/sphinx/builders/gettext.py
+--- a/sphinx/builders/gettext.py
++++ b/sphinx/builders/gettext.py
+@@ -57,7 +57,12 @@ def add(self, msg: str, origin: Union[Element, "MsgOrigin"]) -> None:
+ 
+     def __iter__(self) -> Generator[Message, None, None]:
+         for message in self.messages:
+-            positions = [(source, line) for source, line, uuid in self.metadata[message]]
++            positions = []
++            uuids = []
++            for source, line, uuid in self.metadata[message]:
++                if (source, line) not in positions:
++                    positions.append((source, line))
++                    uuids.append(uuid)
+             uuids = [uuid for source, line, uuid in self.metadata[message]]
+             yield Message(message, positions, uuids)
+ 
+
