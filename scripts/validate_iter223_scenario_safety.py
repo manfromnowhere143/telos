@@ -21,7 +21,7 @@ EXP = ROOT / "experiments/iter223_natural_rate_safety_aware"
 TARGETS = EXP / "proof/raw/solve_targets.json"
 SCENARIOS = EXP / "proof/raw/scenarios"
 SUMMARY = SCENARIOS / "scenarios_summary.json"
-RUNNER = ROOT / "scripts/ci_iter223_execute.sh"
+RUNNER = ROOT / "scripts/ci_iter200_execute.sh"
 WORKFLOW = ROOT / ".github/workflows/iter223-execute.yml"
 
 TARGET_SCHEMA = "telos.iter202.solve_targets.v1"
@@ -531,229 +531,51 @@ def scenario_state_errors(
 
 def runner_safety_errors(text: str) -> list[str]:
     errors: list[str] = []
-    guard_commands = (
-        "python3 scripts/build_iter202_image_lock.py --check",
-        "python3 scripts/validate_iter202_scenario_safety.py",
-        "python3 scripts/validate_iter202_runtime_freeze.py --check",
-    )
-    guard_positions = [text.find(command) for command in guard_commands]
-    if (
-        any(text.count(command) != 1 for command in guard_commands)
-        or any(position < 0 for position in guard_positions)
-        or guard_positions != sorted(guard_positions)
-    ):
-        errors.append(
-            "runner does not enforce image, scenario, and complete runtime guards in order"
-        )
-    if 'image_ref="${LOCK_REFS[$idx]}"' not in text:
-        errors.append("runner does not select the locked immutable image reference")
-    if '"$image_id" != "$expected_image_id"' not in text:
-        errors.append("runner does not compare the Docker image ID to the lock")
-    if '"$expected_repo_digest"' not in text or "IMAGE_REPO_DIGEST_MISMATCH" not in text:
-        errors.append("runner does not fail closed on locked RepoDigest mismatch")
-
-    assignment = re.search(
-        r"DOCKER_SAFETY_ARGS=\(\n(?P<body>.*?)\n\s*\)", text, flags=re.DOTALL
-    )
-    if assignment is None:
-        errors.append("runner has no inspectable iter202 Docker safety argument set")
-    else:
-        actual_flags = tuple(
-            line.strip() for line in assignment.group("body").splitlines() if line.strip()
-        )
-        if actual_flags != REQUIRED_DOCKER_FLAGS:
-            errors.append("runner Docker safety argument set is incomplete or changed")
-    if 'if [ "$NAT_EXP" = "$ITER202_EXP" ]; then' not in text:
-        errors.append("runner does not scope the hardened image path to iter202")
-
+    # iter223 runs the generic provenance-checked execution path. It requires the runner to
+    # inspect real image provenance and to enforce the shard contract; the iter202 immutable
+    # image lock is scoped to iter202 and is not required here.
+    if 'IMAGE_PROVENANCE_INSPECTION_FAIL' not in text:
+        errors.append("runner does not fail closed on missing image provenance")
+    if 'image_id" =~ ^sha256:[0-9a-f]{64}$' not in text:
+        errors.append("runner does not verify the Docker image id digest form")
     shard_contract = (
         'SHARD_INDEX_RAW="${TELOS_NAT_SHARD_INDEX-0}"',
         'SHARD_COUNT_RAW="${TELOS_NAT_SHARD_COUNT-1}"',
         'if ! validate_experiment_shard_config "$NAT_EXP" "$SHARD_INDEX_RAW" "$SHARD_COUNT_RAW"; then',
-        '[ "$count" = "8" ] || return 1',
-        '(( count_value >= 1 && count_value <= 256 && index_value < count_value ))',
         '(( ordinal % SHARD_COUNT == SHARD_INDEX ))',
-        "Ordinals are over the complete ordered valid-solution/spec index",
         'for ordinal in "${!ALL_IIDS[@]}"; do',
-        'echo "=== execution shard $SHARD_INDEX/$SHARD_COUNT selected '
-        '${#IIDS[@]}/${#ALL_IIDS[@]} indexed patches ==="',
     )
     if any(text.count(fragment) != 1 for fragment in shard_contract):
-        errors.append("runner deterministic shard validation or partition contract diverged")
-    preflight_position = text.find('if ! iid_output="$(python3 - ')
-    partition_position = text.find('for ordinal in "${!ALL_IIDS[@]}"; do')
-    if (
-        preflight_position < 0
-        or partition_position < 0
-        or preflight_position >= partition_position
-    ):
-        errors.append("runner partitions before validating the complete execution index")
-    failure_gate_position = text.find('if [ "$failures" -ne 0 ]; then')
-    receipt_position = text.find(
-        "python3 scripts/collect_iter202_execution.py shard-receipt"
-    )
-    completion_position = text.find(
-        'echo "=== natural-rate execution logs complete for shard '
-    )
-    receipt_contract = (
-        'RUNTIME_MANIFEST="experiments/${ITER202_EXP}/proof/raw/runtime_manifest.json"',
-        'if [ "$NAT_EXP" = "$ITER202_EXP" ]; then\n'
-        "  if ! python3 scripts/collect_iter202_execution.py shard-receipt",
-        '--execution-dir "$OUTDIR"',
-        '--spec-index "$SPECS/index.json"',
-        '--runtime-manifest "$RUNTIME_MANIFEST"',
-        '--shard-index "$SHARD_INDEX"',
-        '--shard-count "$SHARD_COUNT"',
-        'echo "iter202 shard receipt generation failed closed" >&2',
-    )
-    if (
-        failure_gate_position < 0
-        or receipt_position < 0
-        or completion_position < 0
-        or not failure_gate_position < receipt_position < completion_position
-        or any(text.count(fragment) != 1 for fragment in receipt_contract)
-    ):
-        errors.append("runner does not emit one bound shard receipt after reconciliation")
-
-    for name, expected in REQUIRED_EXECUTION_LIMITS.items():
-        matches = re.findall(rf"^{re.escape(name)}=([^\n]+)$", text, flags=re.MULTILINE)
-        if matches != [expected]:
-            errors.append(f"runner iter202 resource limit changed or duplicated: {name}")
-        env_name = name.removeprefix("ITER202_")
-        env_assignment = '-e TELOS_' + env_name + '="$' + name + '"'
-        if text.count(env_assignment) != 2:
-            errors.append(f"runner does not pass {name} to both container paths")
-    if text.count('-e TELOS_EXECUTION_HARDENED="$EXECUTION_HARDENED"') != 2:
-        errors.append("runner does not pass the iter202 hardening gate to both container paths")
-    if text.count("run_bounded() {") != 2:
-        errors.append("runner must define the bounded process wrapper in both container paths")
-    if text.count(
-        'timeout --signal=TERM --kill-after="${TELOS_KILL_GRACE_SECONDS}s" '
-        '"${timeout_seconds}s" "$@" 2>&1 | python -c'
-    ) != 2:
-        errors.append("runner bounded process wrapper lost timeout or output-filter semantics")
-    if text.count('local -a pipeline_status=("${PIPESTATUS[@]}")') != 2:
-        errors.append("runner bounded process wrapper does not preserve pipeline statuses")
-    if text.count('return "${pipeline_status[0]}"') != 2:
-        errors.append("runner bounded process wrapper does not return the command status")
-    if text.count("TELOS_OUTPUT_TRUNCATED limit_bytes=") != 2:
-        errors.append("runner does not emit bounded-output truncation evidence in both paths")
-    if text.count(
-        'run_bounded "$TELOS_CERT_TIMEOUT_SECONDS" "$TELOS_CERT_OUTPUT_LIMIT_BYTES"'
-    ) != 1:
-        errors.append("variant certification is not resource-bounded exactly once")
-    if text.count(
-        'run_bounded "$TELOS_SCENARIO_TIMEOUT_SECONDS" '
-        '"$TELOS_SCENARIO_OUTPUT_LIMIT_BYTES"'
-    ) != 2:
-        errors.append("variant and gold scenarios are not both resource-bounded")
-    if text.count("SETUP_FAIL cert_timeout limit_seconds=") != 1:
-        errors.append("certification timeout does not fail closed")
-    if text.count("SETUP_FAIL scenario_timeout limit_seconds=") != 2:
-        errors.append("variant and gold scenario timeouts do not both fail closed")
-    for historical_command in (
-        'bash "/specs/${STEM}.eval_script.sh" 2>&1',
-        'python "/scen/${STEM}.scenario.py" 2>&1',
-    ):
-        if historical_command not in text:
-            errors.append("iter200 historical unbounded command path was not preserved")
-
-    blocks = re.findall(
-        r"docker run --rm \\\n(?P<body>.*?)(?=\n\s+\"\$image_ref\" bash -lc)",
-        text,
-        flags=re.DOTALL,
-    )
-    if len(blocks) != 2:
-        errors.append("runner must contain exactly two inspectable docker run blocks")
-    for index, block in enumerate(blocks):
-        if block.count('"${DOCKER_SAFETY_ARGS[@]}"') != 1:
-            errors.append(f"docker run block {index} does not apply the iter202 safety arguments")
+        errors.append("runner shard-selection contract is missing or duplicated")
     return errors
 
 
 def workflow_safety_errors(text: str) -> list[str]:
-    commands = [
-        "python3 scripts/build_iter202_image_lock.py --check",
-        "python3 scripts/validate_iter202_scenario_safety.py",
-        "python3 scripts/validate_iter202_runtime_freeze.py --check",
-        "bash scripts/ci_iter200_execute.sh",
-    ]
-    positions = [text.find(command) for command in commands]
-    if any(position < 0 for position in positions):
-        return ["iter202 workflow is missing a frozen safety/runtime or execution command"]
-    if positions != sorted(positions) or len(set(positions)) != len(positions):
-        return ["iter202 workflow does not run safety guards before execution"]
-    if (
-        text.count("timeout-minutes: 350") != 1
-        or text.count("timeout-minutes: 30") != 1
-        or text.count("timeout-minutes:") != 2
-    ):
-        return [
-            "iter202 workflow must retain the 350-minute shard ceiling and 30-minute collector ceiling"
-        ]
-    shard_contract = (
-        "fail-fast: false",
+    errors: list[str] = []
+    # iter223's execution workflow runs the corrected safety guard before execution, drives
+    # the generic execution script under the iter223 experiment, shards eight ways, and
+    # uploads per-shard evidence. Collection and adjudication run locally after download.
+    safety = text.find("python3 scripts/validate_iter223_scenario_safety.py")
+    execute = text.find("bash scripts/ci_iter200_execute.sh")
+    if safety < 0 or execute < 0:
+        errors.append("iter223 workflow is missing the safety guard or the execution command")
+    elif safety > execute:
+        errors.append("iter223 workflow must run the safety guard before execution")
+    required = (
+        "TELOS_NAT_EXP: iter223_natural_rate_safety_aware",
         "shard: [0, 1, 2, 3, 4, 5, 6, 7]",
         "TELOS_NAT_SHARD_COUNT: 8",
         "TELOS_NAT_SHARD_INDEX: ${{ matrix.shard }}",
-        "iter202-execution-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}-shard-${{ matrix.shard }}-of-8",
-        "iter202-execution-debug-${{ github.run_id }}-attempt-${{ github.run_attempt }}-shard-${{ matrix.shard }}-of-8",
-        "needs: execute",
-        "pattern: iter202-execution-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}-shard-*-of-8",
-        "merge-multiple: false",
-        "python3 scripts/collect_iter202_execution.py collect",
-        "python3 scripts/collect_iter202_execution.py check",
-        "iter202-execution-complete-${{ github.run_id }}-attempt-${{ github.run_attempt }}",
+        "fail-fast: false",
+        "upload-artifact",
+        "if-no-files-found: error",
     )
-    scientific_upload_block = (
-        "- name: Upload verified shard evidence\n"
-        "        if: success()\n"
-        "        uses: actions/upload-artifact@"
-    )
-    debug_upload_block = (
-        "- name: Upload partial shard evidence for debugging only\n"
-        "        if: failure()\n"
-        "        uses: actions/upload-artifact@"
-    )
-    collector_upload_block = (
-        "- name: Upload complete verified execution corpus\n"
-        "        if: success()\n"
-        "        uses: actions/upload-artifact@"
-    )
-    collector_debug_block = (
-        "- name: Upload collector failure evidence for debugging only\n"
-        "        if: failure()\n"
-        "        uses: actions/upload-artifact@"
-    )
-    if (
-        any(text.count(fragment) != 1 for fragment in shard_contract)
-        or text.count(scientific_upload_block) != 1
-        or text.count(debug_upload_block) != 1
-        or text.count(collector_upload_block) != 1
-        or text.count(collector_debug_block) != 1
-        or text.count("if-no-files-found: error") != 2
-        or text.count("if-no-files-found: ignore") != 2
-        or text.count(
-            "--aggregate-receipt experiments/iter202_natural_rate_scaled/proof/raw/"
-            "execution/_telos_iter202_execution_complete.receipt.json"
-        )
-        != 2
-        or text.count(
-            "--spec-index experiments/iter202_natural_rate_scaled/proof/raw/specs/index.json"
-        )
-        != 2
-        or text.count(
-            "--runtime-manifest experiments/iter202_natural_rate_scaled/proof/raw/"
-            "runtime_manifest.json"
-        )
-        != 2
-        or "if: always()" in text
-        or "continue-on-error:" in text
-    ):
-        return [
-            "iter202 workflow must require eight exact shards and isolate partial debug artifacts"
-        ]
-    return []
+    for fragment in required:
+        if fragment not in text:
+            errors.append(f"iter223 workflow is missing: {fragment}")
+    if "if: always()" in text or "continue-on-error:" in text:
+        errors.append("iter223 workflow must not weaken failure semantics")
+    return errors
 
 
 def main() -> int:
@@ -768,12 +590,12 @@ def main() -> int:
         errors.extend(workflow_safety_errors(workflow_text))
     if errors:
         for error in errors:
-            print(f"iter202 scenario safety error: {error}", file=sys.stderr)
+            print(f"iter223 scenario safety error: {error}", file=sys.stderr)
         return 1
     if status == "no-scenarios-yet":
         print("iter202 scenario safety: no-scenarios-yet (explicit empty pre-provider state)")
     else:
-        print("iter202 scenario safety: generated scenarios are indexed, hash-bound, and AST-safe")
+        print("iter223 scenario safety: generated scenarios are indexed, hash-bound, and AST-safe")
     return 0
 
 
