@@ -368,18 +368,23 @@ disjoint same-rule cohorts---the iter200 solve, the safety-aware replication, an
 $N=68$, $u=18$: $5/68$ (7.35\%) confirmed, $23/68$ worst-case upper, and $5/50$ complete-case.
 
 \paragraph{Cross-model generalization.} To ask whether a certified-yet-wrong patch is a property of one model
-or of the certification process, we re-solved the fifty-three-target cohort with a different solver model,
+or of the certification process, we re-solved the fifty-three-target cohort with two further solver models,
 holding the witnessing generator, the official-harness certification, and both blind judges byte-identical, and
-changing only the solver. The second model produced forty-one patches, twenty-five certifications, three
-gold-differential divergences, and one patch confirmed wrong by both judges naming only the model ($1/25$, with
-$8/25$ worst-case upper over $u=7$): a Django fix that the harness certifies yet that raises a database error
-where the gold fix saves successfully. Two independently trained frontier models thus both pass a semantically
-wrong patch through the same graded suite, which is evidence that the effect is a property of the benchmark's
-test coverage rather than of a single model. Because this replication reuses the same cohort with a different
-model, it is neither disjoint from the earlier replication nor drawn from the same model as the pooled
-estimate; we therefore report it as a standalone cross-model comparison and do not pool it into $5/68$. The two
-single-run point estimates ($4/29$ and $1/25$), with wide missing-outcome intervals, are a directional finding,
-not a model ranking.
+changing only the solver. A model one minor generation earlier produced forty-one patches, twenty-five
+certifications, three gold-differential divergences, and one patch confirmed wrong by both judges naming only
+the model ($1/25$, with $8/25$ worst-case upper over $u=7$): a Django fix that the harness certifies yet that
+raises a database error where the gold fix saves successfully. A model two generations earlier produced
+fifty-three patches, seventeen certifications, five divergences, and three confirmed certified-yet-wrong
+patches ($3/17$, with $11/17$ worst-case upper over $u=8$)---a count off by one, a field classified
+\texttt{generated} where the gold fix returns \texttt{inherited}, and a Sphinx patch that raises a
+\texttt{TypeError} where the gold fix returns a valid result. All three independently trained frontier models,
+across three consecutive generations, thus pass a semantically wrong patch through the same graded suite, which
+is evidence that the effect is a property of the benchmark's test coverage rather than of a single model or
+generation. Because these replications reuse the same cohort with different models, they are neither disjoint
+from the earlier replication nor drawn from the same model as the pooled estimate; we therefore report them as
+standalone cross-model comparisons and do not pool them into $5/68$. The three single-run point estimates
+($4/29$, $1/25$, and $3/17$), with wide missing-outcome intervals, are a directional finding, not a model
+ranking.
 
 \begin{table}[t]
 \centering
