@@ -1,0 +1,25 @@
+{
+  "base_commit": "f5e965947af2410ded92cfad987aaf45262ea434",
+  "eval_script_sha256": "f28014be11c0ff48f4ec4b61f9ad4aa08ef892aee0d683a8fdcb426669a94728",
+  "fail_to_pass": [
+    "test_point",
+    "test_point3D"
+  ],
+  "framework": "sympy_bintest",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-17655:latest",
+  "instance_id": "sympy__sympy-17655",
+  "pass_to_pass": [
+    "test_Point2D",
+    "test_issue_9214",
+    "test_issue_11617",
+    "test_transform",
+    "test_concyclic_doctest_bug",
+    "test_arguments",
+    "test_unit",
+    "test_dot",
+    "test__normalize_dimension"
+  ],
+  "repo": "sympy/sympy",
+  "scenario_available": true
+}

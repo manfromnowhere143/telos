@@ -1,0 +1,36 @@
+{
+  "base_commit": "69331bb851c34f05bc77e9fc24020fe6908b9cd5",
+  "eval_script_sha256": "6e302a361a290755eb1600c0dc0b340edc84e13c6a26cd3dd0e83e94be1fc88b",
+  "fail_to_pass": [
+    "test_inclusion_tag_errors (template_tests.test_custom.InclusionTagTests)",
+    "test_inclusion_tags (template_tests.test_custom.InclusionTagTests)",
+    "test_simple_tag_errors (template_tests.test_custom.SimpleTagTests)",
+    "test_simple_tags (template_tests.test_custom.SimpleTagTests)"
+  ],
+  "framework": "django_runtests",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.django_1776_django-12262:latest",
+  "instance_id": "django__django-12262",
+  "pass_to_pass": [
+    "test_decorated_filter (template_tests.test_custom.CustomFilterTests)",
+    "test_filter (template_tests.test_custom.CustomFilterTests)",
+    "test_15070_use_l10n (template_tests.test_custom.InclusionTagTests)",
+    "test_include_tag_missing_context (template_tests.test_custom.InclusionTagTests)",
+    "test_inclusion_tag_registration (template_tests.test_custom.InclusionTagTests)",
+    "test_inclusion_tags_from_template (template_tests.test_custom.InclusionTagTests)",
+    "test_no_render_side_effect (template_tests.test_custom.InclusionTagTests)",
+    "test_render_context_is_cleared (template_tests.test_custom.InclusionTagTests)",
+    "test_simple_tag_escaping_autoescape_off (template_tests.test_custom.SimpleTagTests)",
+    "test_simple_tag_explicit_escaping (template_tests.test_custom.SimpleTagTests)",
+    "test_simple_tag_format_html_escaping (template_tests.test_custom.SimpleTagTests)",
+    "test_simple_tag_missing_context (template_tests.test_custom.SimpleTagTests)",
+    "test_simple_tag_naive_escaping (template_tests.test_custom.SimpleTagTests)",
+    "test_simple_tag_registration (template_tests.test_custom.SimpleTagTests)",
+    "test_load_annotated_function (template_tests.test_custom.TemplateTagLoadingTests)",
+    "test_load_error (template_tests.test_custom.TemplateTagLoadingTests)",
+    "test_load_error_egg (template_tests.test_custom.TemplateTagLoadingTests)",
+    "test_load_working_egg (template_tests.test_custom.TemplateTagLoadingTests)"
+  ],
+  "repo": "django/django",
+  "scenario_available": true
+}
