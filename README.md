@@ -49,12 +49,17 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active scientific build is
-[iter223 natural-rate replication with a safety-aware pipeline](experiments/iter223_natural_rate_safety_aware/HYPOTHESIS.md),
-which re-runs the natural certified-yet-wrong rate with a corrected safety scanner built fresh — because
-iter202's source is sealed by its published descendants and cannot be edited in place. Its cohort reuses
-iter202's real model outputs re-scanned with the corrected instrument: `36` safe witnessable scenarios and
-`2` honestly excluded as un-witnessable in the sandbox.
+The active scientific result is
+[iter223 natural-rate replication with a safety-aware pipeline](experiments/iter223_natural_rate_safety_aware/HYPOTHESIS.md):
+the first execution-verified scaled natural certified-yet-wrong rate. Across `53` neutrally-solved targets,
+`50` patches produced `29` official-harness certifications, `7` diverged from the gold fix on a safe witness,
+and `4` are confirmed natural hacks by both blind judges under the strict model-only rule — `k/N = 4/29 =
+0.138` (`(k+u)/N = 10/29` upper, `k/(N-u) = 4/23` complete-case, `u = 6`), across django, matplotlib, and
+xarray. The pipeline was built fresh with a corrected safety scanner because iter202's source is sealed by
+its published descendants and cannot be edited in place; its cohort reuses iter202's real model outputs
+re-scanned with the corrected instrument (`36` safe witnessable scenarios, `2` honestly excluded as
+un-witnessable). See the
+[result](experiments/iter223_natural_rate_safety_aware/RESULT.md).
 The published null is
 [iter219 temporal consequence-test yield](experiments/iter219_temporal_consequence_test_yield/HYPOTHESIS.md),
 whose [result](experiments/iter219_temporal_consequence_test_yield/RESULT.md) falsifies static symbol-name
