@@ -1,0 +1,20 @@
+IMAGE_ID=sha256:fe7b9fa7a7ff97b6fb3405dd9b9e4c47723b8e4f31b9ca0d5d011f2081391155
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8638@sha256:80e133d1541249bf39db3e50a2512772295bc489ac1d62de3b2cd59438445b96
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/sphinx-doc__sphinx-8638.scenario.py", line 7, in <module>
+    result = field.make_field(
+  File "/testbed/sphinx/util/docfields.py", line 198, in make_field
+    bodynode = handle_item(fieldarg, content)  # type: nodes.Node
+  File "/testbed/sphinx/util/docfields.py", line 176, in handle_item
+    par.extend(self.make_xrefs(self.rolename, domain, fieldarg,
+  File "/testbed/sphinx/domains/python.py", line 304, in make_xrefs
+    results.append(self.make_xref(rolename, domain, sub_target,
+  File "/testbed/sphinx/domains/python.py", line 333, in make_xref
+    return super().make_xref(rolename, domain, target, innernode, contnode, env)
+  File "/testbed/sphinx/domains/python.py", line 274, in make_xref
+    result['py:module'] = env.ref_context.get('py:module')
+AttributeError: 'NoneType' object has no attribute 'ref_context'
+SCENARIO_EXIT=1
+>>>>> Scenario End

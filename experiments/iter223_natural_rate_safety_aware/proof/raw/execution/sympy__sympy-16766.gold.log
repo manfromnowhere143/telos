@@ -1,0 +1,39 @@
+IMAGE_ID=sha256:b803d788613526ac1ca763e31dd889f32b305f99de67b2aa3e861fee41d0a592
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sympy_1776_sympy-16766@sha256:c4c205d71d76746601186ac470a26e3d5965fe2b0242ba9c004f2caab0e60a4f
+APPLY_OK gold
+>>>>> Scenario Start
+/testbed/sympy/solvers/diophantine.py:3185: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+/testbed/sympy/plotting/plot.py:644: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+/testbed/sympy/plotting/plot.py:664: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+/testbed/sympy/plotting/plot.py:677: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+/testbed/sympy/plotting/plot.py:684: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+Traceback (most recent call last):
+  File "/testbed/sympy/core/sympify.py", line 384, in sympify
+    expr = parse_expr(a, local_dict=locals, transformations=transformations, evaluate=evaluate)
+  File "/testbed/sympy/parsing/sympy_parser.py", line 1008, in parse_expr
+    return eval_expr(code, local_dict, global_dict)
+  File "/testbed/sympy/parsing/sympy_parser.py", line 902, in eval_expr
+    expr = eval(
+  File "<string>", line 1
+    <Symbol ('__main__' ).Indexed object at Integer (0x7f69170f8e80 )>
+    ^
+SyntaxError: invalid syntax
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scen/sympy__sympy-16766.scenario.py", line 17, in <module>
+    result = PythonCodePrinter().doprint(Indexed())
+  File "/testbed/sympy/printing/codeprinter.py", line 93, in doprint
+    expr = sympify(expr)
+  File "/testbed/sympy/core/sympify.py", line 386, in sympify
+    raise SympifyError('could not parse %r' % a, exc)
+sympy.core.sympify.SympifyError: Sympify of expression 'could not parse '<__main__.Indexed object at 0x7f69170f8e80>'' failed, because of exception being raised:
+SyntaxError: invalid syntax (<string>, line 1)
+SCENARIO_EXIT=1
+>>>>> Scenario End
