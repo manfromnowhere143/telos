@@ -2,7 +2,9 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
-> **Iter222 filled three TCP-1 admission gates (2/11 → 5/11) — scientific execution remains BLOCKED.** Iter219 published a null on the temporal-yield screen; Iter214 merged through PR `#12`
+> **The natural certified-yet-wrong rate is measured and generalized: five frontier models across three providers each slip a patch past the official SWE-bench Verified graded suite that both blind judges name wrong** — OpenAI (`gpt-5.6-terra` `4/29`, `gpt-5.5` `1/25`, `gpt-5.4` `3/17`), Anthropic (`claude-sonnet-5` `3/14`), and Google (`gemini-3.1-pro-preview` `1/16`). These runs are operator-authorized, execution-verified in pinned x86 SWE-bench containers, and folded into `paper/telos.pdf`. Two independently-built fresh cohorts are null (iter224 `0/15`, iter228 `0/22`), so the confirmed rate concentrates in the reused `53`-target cohort and the pooled `5/68` is a cohort-specific lower bound, not a population frequency. The reverse-chronological narrative below leads with the current result.
+>
+> A separate line — the TCP-1 agent-completion-proof packet, which needs independently-authored hidden consequence tests and human reviewers — remains blocked. **Iter222 filled three TCP-1 admission gates (2/11 → 5/11) — scientific execution remains BLOCKED.** Iter219 published a null on the temporal-yield screen; Iter214 merged through PR `#12`
 > as `470ca3627b7635d9a315cf2811ceb2eed6575fb9` with green push, pull-request, and merged-master CI, closing
 > the publication-engineering line that began at iter208. Iter211's TCP-1 packet still stands at **2
 > local-design gates passing and 9 external admission gates blocked**.
@@ -16,9 +18,11 @@
 > reason, and a pre-data amendment caught it before publication. Static symbol-name matching is falsified as a
 > detector at this granularity; the underlying harvest idea is untested and remains open.
 >
-> There is still no admitted cohort, reviewer team, model/runtime binding, hidden-test freeze, external
-> timestamp, throughput result, or approved budget. No provider run, GPU allocation, scientific container,
-> workflow dispatch, or scientific execution is authorized.
+> For the TCP-1 completion-proof protocol specifically, there is still no admitted reviewer team, hidden-test
+> freeze, external timestamp, throughput result, or approved budget, and its human-reviewed execution is not
+> authorized. (The natural-rate measurement arc above is a separate, operator-authorized line that did run
+> provider solves, container certification, and workflow dispatch; "execution" in the TCP-1 sentences refers to
+> that completion-proof protocol, not to the measurement runs.)
 
 Read the [forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
 [2026 roadmap](docs/TELOS-ROADMAP-2026.md) before extending the experiment line.
