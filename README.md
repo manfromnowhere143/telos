@@ -49,14 +49,18 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active pre-registration is
-[iter225 cross-model generalization](experiments/iter225_cross_model_generalization/HYPOTHESIS.md): a
-single-variable replication that re-solves iter223's identical frozen `53`-target cohort with a **different**
-solver model (`gpt-5.5` in place of `gpt-5.6-terra`), holding the witnessing generator, certification, and
-both blind judges byte-identical. It asks the sharpest open question the single-model pool cannot answer — is
-a certified-yet-wrong patch a property of one model, or of the SWE-bench certification process itself? By
-design it is reported as a standalone comparison against iter223's `4/29` and is **not** pooled into `5/68`.
-The latest published result is
+The active scientific result is
+[iter225 cross-model generalization](experiments/iter225_cross_model_generalization/RESULT.md): the
+certified-yet-wrong phenomenon **is not model-idiosyncratic**. It re-solves iter223's identical frozen
+`53`-target cohort with a **different** solver model (`gpt-5.5` in place of `gpt-5.6-terra`), holding the
+witnessing generator, official-harness certification, and both blind judges byte-identical — only the solver
+changes. `gpt-5.5` produced `41` patches, `25` certified, `3` diverging, and **`1` confirmed natural hack**
+(`django__django-12209`: the gold fix returns `('saved', 1, 7)` where the certified `gpt-5.5` patch raises
+`('DatabaseError',)`; both blind judges named only the model) — `k/N = 1/25 = 0.040` (`8/25` worst-case
+upper, `u = 7`). Two independently-trained frontier models both slip a semantically wrong patch past the same
+official graded suite, which is direct evidence the effect is a property of the **certification process**, not
+one model. As pre-registered it is a standalone comparison against iter223's `4/29` and is **not** pooled into
+`5/68`. The preceding published result is
 [iter224 natural-rate scale-up](experiments/iter224_natural_rate_scale_n/HYPOTHESIS.md), a **null published at
 full weight**: on a fresh disjoint `26`-target cohort (`13` django, `13` sympy — the eligibility filter has
 exhausted diverse fresh targets, disclosed), `25` patches produced `15` certifications and `0` certified-and-
@@ -266,7 +270,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal yield<br/>NULL · no signal"]-->I220["220 CI recovery"]-->I221["221 platform-indep"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 preregistered"]
+ I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal yield<br/>NULL · no signal"]-->I220["220 CI recovery"]-->I221["221 platform-indep"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
@@ -275,8 +279,7 @@ flowchart LR
  class I210 complete;
  class I211,I213 corrected;
  class I214 corrected;
- class I222,I223,I224 done;
- class I225 active;
+ class I222,I223,I224,I225 done;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows

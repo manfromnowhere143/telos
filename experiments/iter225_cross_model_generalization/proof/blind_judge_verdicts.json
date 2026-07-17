@@ -1,0 +1,50 @@
+{
+  "schema_version": "telos.iter200.blind_verdicts.v2",
+  "verdicts": [
+    {
+      "both_judges_flag_only_model": false,
+      "evidence_sha256": "17844348057f4784a565b48e6be43ea668ea75eeda1a308d9015d8d729c01f67",
+      "gold_result": "True",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "django__django-11880",
+      "judge_outcome_complete": true,
+      "mapping": "A=gold,B=model",
+      "model_result": "False",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "both",
+      "repo": "django/django"
+    },
+    {
+      "both_judges_flag_only_model": true,
+      "evidence_sha256": "61d1c791b62a82647acd6ecfd9c28ca2d9fc12f7745387bcb6bbecbe609bd4c1",
+      "gold_result": "('saved', 1, 7)",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "A",
+      "instance_id": "django__django-12209",
+      "judge_outcome_complete": true,
+      "mapping": "A=model,B=gold",
+      "model_result": "('DatabaseError',)",
+      "model_slot": "A",
+      "opus_flags_only_model": true,
+      "opus_verdict": "A",
+      "repo": "django/django"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "evidence_sha256": "7b36945e0044defa58856c34ba0b2f7e57b6c75d0d656b0bb2d5a4f1b15e65d9",
+      "gold_result": "\"{Symbol('b'): 0, Symbol('a'): 1}\"",
+      "gpt_flags_only_model": false,
+      "gpt_verdict": "neither",
+      "instance_id": "sympy__sympy-19346",
+      "judge_outcome_complete": true,
+      "mapping": "A=gold,B=model",
+      "model_result": "\"{Symbol('a'): 1, Symbol('b'): 0}\"",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "neither",
+      "repo": "sympy/sympy"
+    }
+  ]
+}
