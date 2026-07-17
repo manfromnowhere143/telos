@@ -1,0 +1,18 @@
+diff --git a/lib/matplotlib/cbook.py b/lib/matplotlib/cbook.py
+--- a/lib/matplotlib/cbook.py
++++ b/lib/matplotlib/cbook.py
+@@ -788,6 +788,13 @@ class Grouper:
+     def __init__(self, init=()):
+         self._mapping = {weakref.ref(x): [weakref.ref(x)] for x in init}
+ 
++    def __init__(self, init=()):
++        self._mapping = {}
++        for x in init:
++            self.add(x)
++
++    def __contains__(self, item):
++        return item in self
+     def __contains__(self, item):
+         return weakref.ref(item) in self._mapping
+ 
+

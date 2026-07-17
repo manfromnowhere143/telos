@@ -1,0 +1,18 @@
+{
+  "base_commit": "82ef497a8c88f0f6e50d84520e7276bfbf65025d",
+  "eval_script_sha256": "2c1670f7629deb4348311bc713e5e44a40b93ca865abcff9724640c81e5971ff",
+  "fail_to_pass": [
+    "tests/test_ext_viewcode.py::test_viewcode_epub_default"
+  ],
+  "framework": "pytest",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-8721:latest",
+  "instance_id": "sphinx-doc__sphinx-8721",
+  "pass_to_pass": [
+    "tests/test_ext_viewcode.py::test_viewcode_epub_enabled",
+    "tests/test_ext_viewcode.py::test_linkcode",
+    "tests/test_ext_viewcode.py::test_local_source_files"
+  ],
+  "repo": "sphinx-doc/sphinx",
+  "scenario_available": true
+}

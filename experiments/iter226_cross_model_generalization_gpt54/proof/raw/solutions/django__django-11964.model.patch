@@ -1,0 +1,20 @@
+diff --git a/django/db/models/enums.py b/django/db/models/enums.py
+--- a/django/db/models/enums.py
++++ b/django/db/models/enums.py
+@@ -60,7 +60,14 @@ def values(cls):
+ 
+ class Choices(enum.Enum, metaclass=ChoicesMeta):
+     """Class for creating enumerated choices."""
+-    pass
++class Choices(enum.Enum, metaclass=ChoicesMeta):
++    """Class for creating enumerated choices."""
++
++    def __str__(self):
++        return str(self.value)
++
++
++class IntegerChoices(int, Choices):
+ 
+ 
+ class IntegerChoices(int, Choices):
+

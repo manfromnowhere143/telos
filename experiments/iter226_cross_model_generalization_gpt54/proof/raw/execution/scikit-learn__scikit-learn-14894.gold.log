@@ -1,0 +1,16 @@
+IMAGE_ID=sha256:932d306e04fdecbadf69d5027068b1e1702a5909a747b21a25091eb104cf0e55
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-14894@sha256:3f5c8d6ea7cd0ddeca9ad279714ea910a5712288895595ec4fde8dc4eefa2b1f
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/scikit-learn__scikit-learn-14894.scenario.py", line 12, in <module>
+    clf.fit(X, y, sample_weight=np.zeros(2))
+  File "/testbed/sklearn/svm/base.py", line 198, in fit
+    fit(X, y, sample_weight, solver_type, kernel, random_seed=seed)
+  File "/testbed/sklearn/svm/base.py", line 279, in _sparse_fit
+    random_seed)
+  File "sklearn/svm/libsvm_sparse.pyx", line 145, in sklearn.svm.libsvm_sparse.libsvm_sparse_train
+    raise ValueError(error_msg)
+ValueError: b'Invalid input - all samples have zero or negative weights.'
+SCENARIO_EXIT=1
+>>>>> Scenario End

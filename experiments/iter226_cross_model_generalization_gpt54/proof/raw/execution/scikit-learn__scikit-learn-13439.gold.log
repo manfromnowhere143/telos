@@ -1,0 +1,14 @@
+IMAGE_ID=sha256:3d90f7cccd8dc02d687000bc560fc85b1a301df0cca555478d0bc2fffb08e440
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.scikit-learn_1776_scikit-learn-13439@sha256:4dbb5161445cdc477f27bcd2f699132b4c458402d5fde278b1699b386228ddcc
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/scikit-learn__scikit-learn-13439.scenario.py", line 3, in <module>
+    pipeline = Pipeline([("step", "active")])
+  File "/testbed/sklearn/pipeline.py", line 131, in __init__
+    self._validate_steps()
+  File "/testbed/sklearn/pipeline.py", line 188, in _validate_steps
+    "'%s' (type %s) doesn't" % (estimator, type(estimator)))
+TypeError: Last step of Pipeline should implement fit or be the string 'passthrough'. 'active' (type <class 'str'>) doesn't
+SCENARIO_EXIT=1
+>>>>> Scenario End
