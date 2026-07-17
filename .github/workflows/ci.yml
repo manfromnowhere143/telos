@@ -201,6 +201,9 @@ jobs:
       - name: Iter222 agent-solvable admission evidence guard
         run: python3 scripts/validate_iter222_tcp1_agent_solvable_admission_evidence.py
 
+      - name: Iter223 safety-aware scenario evidence guard
+        run: python3 scripts/validate_iter223_scenario_safety.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
