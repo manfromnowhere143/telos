@@ -1,0 +1,14 @@
+IMAGE_ID=sha256:f57493bf143d2465536987f507f485b921b6b20616af2c2be627d31090b4e8f9
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.pydata_1776_xarray-3677@sha256:3c3216130f2652514e1860ab6dfbf9ded3aaa651f6c5c0466a73cfb60ca64c02
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/pydata__xarray-3677.scenario.py", line 6, in <module>
+    xr.Dataset().merge(xr.DataArray(0, name="value"), inplace=False)
+  File "/testbed/xarray/core/dataset.py", line 3606, in merge
+    _check_inplace(inplace)
+  File "/testbed/xarray/core/utils.py", line 40, in _check_inplace
+    raise TypeError(
+TypeError: The `inplace` argument has been removed from xarray. You can achieve an identical effect with python's standard assignment.
+SCENARIO_EXIT=1
+>>>>> Scenario End

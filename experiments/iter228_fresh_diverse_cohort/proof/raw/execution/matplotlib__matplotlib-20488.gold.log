@@ -1,0 +1,20 @@
+IMAGE_ID=sha256:4eeb2c30f9713660951fdc8bc559fbc6c10a7e8ef552c24e919de05385c74682
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-20488@sha256:1c99ac91deeba869e422fc7cdcec3e154b893e8e1afbabbc4ce7bcf7975a4acf
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/matplotlib__matplotlib-20488.scenario.py", line 20, in <module>
+    ax.imshow(
+  File "/testbed/lib/matplotlib/__init__.py", line 1377, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "/testbed/lib/matplotlib/axes/_axes.py", line 5578, in imshow
+    im = mimage.AxesImage(self, cmap, norm, interpolation, origin, extent,
+  File "/testbed/lib/matplotlib/image.py", line 898, in __init__
+    super().__init__(
+  File "/testbed/lib/matplotlib/image.py", line 257, in __init__
+    self.update(kwargs)
+  File "/testbed/lib/matplotlib/artist.py", line 1057, in update
+    raise AttributeError(f"{type(self).__name__!r} object "
+AttributeError: 'AxesImage' object has no property 'interpolation_stage'
+SCENARIO_EXIT=1
+>>>>> Scenario End

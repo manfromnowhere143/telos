@@ -1,0 +1,22 @@
+{
+  "base_commit": "d4df5e1b0b1c643fe0fc521add0236764ec8e92a",
+  "eval_script_sha256": "f521afeacf37d6e8d85c74ec1613c92118bef5b4be080d46faae09a392f7bd1f",
+  "fail_to_pass": [
+    "test_autoescape_off (template_tests.test_engine.RenderToStringTest)"
+  ],
+  "framework": "django_runtests",
+  "identical_to_gold": true,
+  "image": "swebench/sweb.eval.x86_64.django_1776_django-11119:latest",
+  "instance_id": "django__django-11119",
+  "pass_to_pass": [
+    "test_cached_loader_priority (template_tests.test_engine.LoaderTests)",
+    "test_loader_priority (template_tests.test_engine.LoaderTests)",
+    "test_origin (template_tests.test_engine.LoaderTests)",
+    "test_basic_context (template_tests.test_engine.RenderToStringTest)",
+    "test_multiple_engines_configured (template_tests.test_engine.GetDefaultTests)",
+    "test_no_engines_configured (template_tests.test_engine.GetDefaultTests)",
+    "test_single_engine_configured (template_tests.test_engine.GetDefaultTests)"
+  ],
+  "repo": "django/django",
+  "scenario_available": false
+}

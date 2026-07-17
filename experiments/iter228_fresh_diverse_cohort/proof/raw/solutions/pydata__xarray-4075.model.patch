@@ -1,0 +1,19 @@
+diff --git a/xarray/core/weighted.py b/xarray/core/weighted.py
+--- a/xarray/core/weighted.py
++++ b/xarray/core/weighted.py
+@@ -142,7 +142,13 @@ def _sum_of_weights(
+         # we need to mask data values that are nan; else the weights are wrong
+         mask = da.notnull()
+ 
+-        sum_of_weights = self._reduce(mask, self.weights, dim=dim, skipna=False)
++        # bool -> int, because ``xr.dot([True, True], [True, True])`` is `True`
++        if self.weights.dtype == bool:
++            weights = self.weights.astype(int)
++        else:
++            weights = self.weights
++
++        sum_of_weights = self._reduce(mask, weights, dim=dim, skipna=False)
+ 
+         # 0-weights are not valid
+         valid_weights = sum_of_weights != 0.0
+

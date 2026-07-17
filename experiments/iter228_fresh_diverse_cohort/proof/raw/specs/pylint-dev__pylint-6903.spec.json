@@ -1,0 +1,23 @@
+{
+  "base_commit": "ca80f03a43bc39e4cc2c67dc99817b3c9f13b8a6",
+  "eval_script_sha256": "16dc95539a9344bee0a4391e1e4ff368fffec72f9971152d9374be590e6f1dff",
+  "fail_to_pass": [
+    "tests/test_pylint_runners.py::test_pylint_run_jobs_equal_zero_dont_crash_with_cpu_fraction"
+  ],
+  "framework": "pytest",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-6903:latest",
+  "instance_id": "pylint-dev__pylint-6903",
+  "pass_to_pass": [
+    "tests/test_pylint_runners.py::test_runner[run_epylint]",
+    "tests/test_pylint_runners.py::test_runner[run_pylint]",
+    "tests/test_pylint_runners.py::test_runner[run_pyreverse]",
+    "tests/test_pylint_runners.py::test_runner[run_symilar]",
+    "tests/test_pylint_runners.py::test_runner_with_arguments[run_epylint]",
+    "tests/test_pylint_runners.py::test_runner_with_arguments[run_pylint]",
+    "tests/test_pylint_runners.py::test_runner_with_arguments[run_pyreverse]",
+    "tests/test_pylint_runners.py::test_runner_with_arguments[run_symilar]"
+  ],
+  "repo": "pylint-dev/pylint",
+  "scenario_available": false
+}
