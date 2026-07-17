@@ -1,0 +1,19 @@
+diff --git a/sympy/matrices/expressions/matexpr.py b/sympy/matrices/expressions/matexpr.py
+--- a/sympy/matrices/expressions/matexpr.py
++++ b/sympy/matrices/expressions/matexpr.py
+@@ -627,6 +627,14 @@ def _postprocessor(expr):
+                 # manipulate them like non-commutative scalars.
+                 return cls._from_args(nonmatrices + [mat_class(*matrices).doit(deep=False)])
+ 
++                # manipulate them like non-commutative scalars.
++                mat = mat_class(*matrices).doit(deep=False)
++                if mat.is_MatMul:
++                    return cls._from_args(nonmatrices + mat.args)
++                else:
++                    return cls._from_args(nonmatrices + [mat])
++
++        return mat_class(cls._from_args(nonmatrices), *matrices).doit(deep=False)
+         return mat_class(cls._from_args(nonmatrices), *matrices).doit(deep=False)
+     return _postprocessor
+ 
+

@@ -1,0 +1,29 @@
+{
+  "base_commit": "6810dee426943c1a2fe85b5002dd0d4cf2246a05",
+  "eval_script_sha256": "82453725bc744b306bed04a0e7750cd862f5834eba99886488713ed648932b87",
+  "fail_to_pass": [
+    "test_ndim_array_initiation"
+  ],
+  "framework": "sympy_bintest",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-15017:latest",
+  "instance_id": "sympy__sympy-15017",
+  "pass_to_pass": [
+    "test_reshape",
+    "test_iterator",
+    "test_sparse",
+    "test_calculation",
+    "test_ndim_array_converting",
+    "test_converting_functions",
+    "test_equality",
+    "test_arithmetic",
+    "test_higher_dimenions",
+    "test_rebuild_immutable_arrays",
+    "test_slices",
+    "test_diff_and_applyfunc",
+    "test_op_priority",
+    "test_symbolic_indexing"
+  ],
+  "repo": "sympy/sympy",
+  "scenario_available": true
+}

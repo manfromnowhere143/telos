@@ -1,0 +1,19 @@
+diff --git a/sympy/core/add.py b/sympy/core/add.py
+--- a/sympy/core/add.py
++++ b/sympy/core/add.py
+@@ -554,7 +554,13 @@ def _eval_is_zero(self):
+                 return
+         if z == len(self.args):
+             return True
+-        if len(nz) == len(self.args):
++                return
++        if z == len(self.args):
++            return True
++        if not nz:
++            return
++        b = self.func(*nz)
++        if b.is_zero:
+             return None
+         b = self.func(*nz)
+         if b.is_zero:
+

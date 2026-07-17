@@ -1,0 +1,17 @@
+diff --git a/django/forms/fields.py b/django/forms/fields.py
+--- a/django/forms/fields.py
++++ b/django/forms/fields.py
+@@ -199,6 +199,12 @@ def __deepcopy__(self, memo):
+         result = copy.copy(self)
+         memo[id(self)] = result
+         result.widget = copy.deepcopy(self.widget, memo)
++        result = copy.copy(self)
++        memo[id(self)] = result
++        result.widget = copy.deepcopy(self.widget, memo)
++        result.error_messages = copy.deepcopy(self.error_messages, memo)
++        result.validators = self.validators[:]
++        return result
+         result.validators = self.validators[:]
+         return result
+ 
+
