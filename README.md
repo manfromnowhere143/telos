@@ -49,13 +49,17 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active pre-registration is
-[iter226 third cross-model point](experiments/iter226_cross_model_generalization_gpt54/HYPOTHESIS.md): a third
-solver, `gpt-5.4` (a full generation below `gpt-5.5` and two below `gpt-5.6-terra`), on the identical frozen
-`53`-target cohort, holding the witnessing generator, certification, and both blind judges byte-identical. It
-tests whether the certified-yet-wrong effect spans a capability range across three consecutive generations;
-reported standalone alongside iter223's `4/29` and iter225's `1/25`, **not** pooled into `5/68`.
-The published cross-model result is
+The active scientific result is
+[iter226 third cross-model point](experiments/iter226_cross_model_generalization_gpt54/RESULT.md): the
+certified-yet-wrong effect **spans three model generations**. A third solver, `gpt-5.4` (a full generation
+below `gpt-5.5` and two below `gpt-5.6-terra`), on the identical frozen `53`-target cohort, holding the
+witnessing generator, certification, and both blind judges byte-identical, produced `17` certifications, `5`
+divergences, and **`3` confirmed natural hacks** (`k/N = 3/17`, `u = 8`) — a Django count off by one, a field
+classified `generated` where gold returns `inherited`, and a Sphinx patch that raises a `TypeError` where gold
+succeeds, each named wrong by both judges. All three tested models are now positive (`gpt-5.6-terra` `4/29`,
+`gpt-5.5` `1/25`, `gpt-5.4` `3/17`), which is strong evidence the effect is a property of the certification
+process across a capability range, not one model. Reported standalone; **not** pooled into `5/68`. The first
+published cross-model result is
 [iter225 cross-model generalization](experiments/iter225_cross_model_generalization/RESULT.md): the
 certified-yet-wrong phenomenon **is not model-idiosyncratic**. It re-solves iter223's identical frozen
 `53`-target cohort with a **different** solver model (`gpt-5.5` in place of `gpt-5.6-terra`), holding the
@@ -276,7 +280,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal yield<br/>NULL · no signal"]-->I220["220 CI recovery"]-->I221["221 platform-indep"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]-->I226["226 3rd model<br/>gpt-5.4 preregistered"]
+ I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal yield<br/>NULL · no signal"]-->I220["220 CI recovery"]-->I221["221 platform-indep"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]-->I226["226 3rd model<br/>gpt-5.4 · 3/17 hacks"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
@@ -285,8 +289,7 @@ flowchart LR
  class I210 complete;
  class I211,I213 corrected;
  class I214 corrected;
- class I222,I223,I224,I225 done;
- class I226 active;
+ class I222,I223,I224,I225,I226 done;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows

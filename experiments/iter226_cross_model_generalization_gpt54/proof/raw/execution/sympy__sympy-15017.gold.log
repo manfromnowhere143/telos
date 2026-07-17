@@ -1,0 +1,12 @@
+IMAGE_ID=sha256:d4739d6e97397ad0c8ac8ee1695f5245acf8c5daf65636552d5d28f874459f83
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sympy_1776_sympy-15017@sha256:0b363b64edac0066371646a225353cf06af037cdb57c062c8dc7dd11aa498a88
+APPLY_OK gold
+>>>>> Scenario Start
+/testbed/sympy/solvers/diophantine.py:3188: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+Traceback (most recent call last):
+  File "/scen/sympy__sympy-15017.scenario.py", line 10, in <module>
+    obj = Probe._new([1], ())
+AttributeError: type object 'Probe' has no attribute '_new'
+SCENARIO_EXIT=1
+>>>>> Scenario End

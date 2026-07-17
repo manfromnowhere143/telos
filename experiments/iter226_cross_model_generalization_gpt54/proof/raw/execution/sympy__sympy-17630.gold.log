@@ -1,0 +1,10 @@
+IMAGE_ID=sha256:386ddddca2d26d01c82fc28554c633d286a3d94d41455aa985db8032cd1c57aa
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sympy_1776_sympy-17630@sha256:1ead1984c599794d4a2917d994f13e7e0c34d67dcf0ea301153962fdf05577ca
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/sympy__sympy-17630.scenario.py", line 3, in <module>
+    from sympy.matrices.expressions.matexpr import _postprocessor
+ImportError: cannot import name '_postprocessor' from 'sympy.matrices.expressions.matexpr' (/testbed/sympy/matrices/expressions/matexpr.py)
+SCENARIO_EXIT=1
+>>>>> Scenario End
