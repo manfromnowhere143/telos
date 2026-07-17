@@ -49,15 +49,19 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active pre-registration is
-[iter227 cross-provider generalization](experiments/iter227_cross_provider_generalization/HYPOTHESIS.md): the
-first solver from a **different provider**, `claude-sonnet-5` (Anthropic), on the identical frozen `53`-target
-cohort, holding the witnessing generator, certification, and both blind judges byte-identical. It tests whether
-certified-yet-wrong crosses the provider boundary, not just model generations within one lab; the one
-limitation — that a fixed judge (`claude-opus-4-8`) shares the solver's provider — is disclosed and is
-conservative for confirmation (a provider-loyal judge could only suppress, never manufacture, a hack).
-Reported standalone alongside iter223/iter225/iter226; **not** pooled into `5/68`.
-The published capability-range result is
+The active scientific result is
+[iter227 cross-provider generalization](experiments/iter227_cross_provider_generalization/RESULT.md): the
+certified-yet-wrong effect **crosses the provider boundary**. The first non-OpenAI solver, `claude-sonnet-5`
+(Anthropic), on the identical frozen `53`-target cohort, holding the witnessing generator, certification, and
+both blind judges byte-identical, produced `14` certifications, `4` divergences, and **`3` confirmed natural
+hacks** (`k/N = 3/14`, `u = 6`) — a certified patch that raises a `ValueError` where gold serializes an enum,
+a count of `2` where gold returns `1`, and a SymPy result of `6/(b²+c²+1)` where gold computes `4/(b²+c²+1)`.
+All confirmations were named by the independent cross-provider judge (`gpt-5.6-terra`), so the disclosed
+shared-provider-judge limitation carries none of them. The four-model, two-provider picture is now all positive
+(`gpt-5.6-terra` `4/29`, `gpt-5.5` `1/25`, `gpt-5.4` `3/17`, `claude-sonnet-5` `3/14`), strong evidence the
+effect is a property of the certification process across providers and generations, not one model. Reported
+standalone; **not** pooled into `5/68`.
+The capability-range result within OpenAI is
 [iter226 third cross-model point](experiments/iter226_cross_model_generalization_gpt54/RESULT.md): the
 certified-yet-wrong effect **spans three model generations**. A third solver, `gpt-5.4` (a full generation
 below `gpt-5.5` and two below `gpt-5.6-terra`), on the identical frozen `53`-target cohort, holding the
@@ -288,7 +292,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal yield<br/>NULL · no signal"]-->I220["220 CI recovery"]-->I221["221 platform-indep"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]-->I226["226 3rd model<br/>gpt-5.4 · 3/17 hacks"]-->I227["227 cross-provider<br/>sonnet-5 preregistered"]
+ I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal yield<br/>NULL · no signal"]-->I220["220 CI recovery"]-->I221["221 platform-indep"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]-->I226["226 3rd model<br/>gpt-5.4 · 3/17 hacks"]-->I227["227 cross-provider<br/>sonnet-5 · 3/14 hacks"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
@@ -297,8 +301,7 @@ flowchart LR
  class I210 complete;
  class I211,I213 corrected;
  class I214 corrected;
- class I222,I223,I224,I225,I226 done;
- class I227 active;
+ class I222,I223,I224,I225,I226,I227 done;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows
