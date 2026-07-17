@@ -1,0 +1,65 @@
+{
+  "schema_version": "telos.iter200.blind_verdicts.v2",
+  "verdicts": [
+    {
+      "both_judges_flag_only_model": false,
+      "evidence_sha256": "166b7d8b7b76f9ed944952055c7c4c04ca331e08d03717d2db9c840de18e2b3d",
+      "gold_result": "(1, 17, 17)",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "django__django-11790",
+      "judge_outcome_complete": true,
+      "mapping": "A=gold,B=model",
+      "model_result": "(2, 29, 29)",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "A",
+      "repo": "django/django"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "evidence_sha256": "60b6286622bff46b9474ac3c691af240aff443759836483559c2f80158955702",
+      "gold_result": "(\"__main__.Probe[<class 'datetime.date'>]\", ('import __main__',))",
+      "gpt_flags_only_model": false,
+      "gpt_verdict": "A",
+      "instance_id": "django__django-11815",
+      "judge_outcome_complete": true,
+      "mapping": "A=gold,B=model",
+      "model_result": "('__main__.Probe[datetime.date]', ('import __main__', 'import datetime'))",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "A",
+      "repo": "django/django"
+    },
+    {
+      "both_judges_flag_only_model": true,
+      "evidence_sha256": "625481106e61ec957eaafee62887e55cd3673150ea745d04260e218111d5eb59",
+      "gold_result": "'dict'",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "A",
+      "instance_id": "matplotlib__matplotlib-25332",
+      "judge_outcome_complete": true,
+      "mapping": "A=model,B=gold",
+      "model_result": "'list'",
+      "model_slot": "A",
+      "opus_flags_only_model": true,
+      "opus_verdict": "A",
+      "repo": "matplotlib/matplotlib"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "evidence_sha256": "294346b156134c11e948bd3dce8929da163b47876952d34ed909f2e5c424c7bb",
+      "gold_result": "'overridden'",
+      "gpt_flags_only_model": false,
+      "gpt_verdict": "both",
+      "instance_id": "sympy__sympy-17655",
+      "judge_outcome_complete": true,
+      "mapping": "A=model,B=gold",
+      "model_result": "Point2D(2, 4)",
+      "model_slot": "A",
+      "opus_flags_only_model": true,
+      "opus_verdict": "A",
+      "repo": "sympy/sympy"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+IMAGE_ID=sha256:ac77ac11efb76da24d9858397b4f9028750ce94cc7b32f4cbde6a532b4b44e08
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9591@sha256:da87260dfc964c31aa1c16888e837f6b91b7675db40b89f54cfc108065774050
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/sphinx-doc__sphinx-9591.scenario.py", line 18, in <module>
+    py.PyVariable.handle_signature(directive, 'sample', signode)
+  File "/testbed/sphinx/domains/python.py", line 664, in handle_signature
+    annotations = _parse_annotation(typ, self.env)
+  File "/testbed/sphinx/domains/python.py", line 183, in _parse_annotation
+    result[i] = type_to_xref(str(node), env)
+  File "/testbed/sphinx/domains/python.py", line 96, in type_to_xref
+    if env.config.python_use_unqualified_type_names:
+AttributeError: 'types.SimpleNamespace' object has no attribute 'python_use_unqualified_type_names'
+SCENARIO_EXIT=1
+>>>>> Scenario End

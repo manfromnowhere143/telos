@@ -1,0 +1,12 @@
+IMAGE_ID=sha256:7ce91c48fad3bc52871bc2f9924b76380e48f1bd7a6ca2013da3a795fc440d36
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-9258@sha256:3d74154aa95d96637165167503ee0d912ec7a469df43a345274b1688dd3a5b3b
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/sphinx-doc__sphinx-9258.scenario.py", line 8, in <module>
+    class Probe:
+  File "/scen/sphinx-doc__sphinx-9258.scenario.py", line 9, in Probe
+    make_xref = PyObject.make_xref
+AttributeError: type object 'PyObject' has no attribute 'make_xref'
+SCENARIO_EXIT=1
+>>>>> Scenario End

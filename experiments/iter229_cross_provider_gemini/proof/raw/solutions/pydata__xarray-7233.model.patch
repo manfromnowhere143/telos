@@ -1,0 +1,19 @@
+diff --git a/xarray/core/rolling.py b/xarray/core/rolling.py
+--- a/xarray/core/rolling.py
++++ b/xarray/core/rolling.py
+@@ -973,7 +973,13 @@ def construct(
+             else:
+                 reshaped[key] = var
+ 
+-        should_be_coords = set(window_dim) & set(self.obj.coords)
++        obj = self.obj
++        if isinstance(obj, DataArray):
++            obj = obj._to_temp_dataset()
++        
++        reshaped = Dataset()
++        for key, var in obj.variables.items():
++            ...
+         result = reshaped.set_coords(should_be_coords)
+         if isinstance(self.obj, DataArray):
+             return self.obj._from_temp_dataset(result)
+

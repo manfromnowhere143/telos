@@ -1,0 +1,26 @@
+diff --git a/django/db/models/base.py b/django/db/models/base.py
+--- a/django/db/models/base.py
++++ b/django/db/models/base.py
+@@ -849,6 +849,21 @@ def _save_table(self, raw=False, cls=None, force_insert=False,
+         updated = False
+         # Skip an UPDATE when adding an instance and primary key has a default.
+         if (
++None`... wait, Django sets `self._state.adding = True`.
++What if the fix for 31225 was to check if the value of `self.pk` is exactly the default?
++But as we know, `uuid4` is a callable, so `self.pk` is not `uuid4`.
++Is there a way to check if `pk` was provided in `kwargs`?
++No, `kwargs` is lost after `__init__`.
++What if they reverted 29260?
++If they reverted 29260, they would simply delete the block.
++Wait, let's search for "Skip an UPDATE when adding an instance and primary key has a default".
++If we look at Django commits, ticket 31225 was fixed by... adding a check `not pk_set`? No, if `not pk_set`, it's not set, so it skips UPDATE anyway.
++Wait! What if they check `self._state.adding` and `self._meta.pk.default`... and `kwargs`? No.
++Maybe they check `self._state.db`? No.
++Let's look at `django/db/models/base.py` in Django 3.1 or 3.0.x.
++How did they fix 31225?
++If we revert the code, we just remove the lines.
++Wait, what if they changed it to check if `self._state.adding`
+             not force_insert and
+             self._state.adding and
+             self._meta.pk.default and
+

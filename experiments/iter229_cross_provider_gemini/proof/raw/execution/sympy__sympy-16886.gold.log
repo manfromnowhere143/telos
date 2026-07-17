@@ -1,0 +1,20 @@
+IMAGE_ID=sha256:8d3a78075416ffa94f89a782daeef6c09ffd40fbc9360616bd9153cd36856103
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sympy_1776_sympy-16886@sha256:73b31a743dab3e473a76cc20328a4876dfafbdfced13bfb76c44d64ad79b508f
+APPLY_OK gold
+>>>>> Scenario Start
+/testbed/sympy/solvers/diophantine.py:3185: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+/testbed/sympy/plotting/plot.py:645: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+/testbed/sympy/plotting/plot.py:674: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+/testbed/sympy/plotting/plot.py:681: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+Traceback (most recent call last):
+  File "/scen/sympy__sympy-16886.scenario.py", line 12, in <module>
+    ciphertext = encipher_kid_rsa("1", public_key)
+  File "/testbed/sympy/crypto/crypto.py", line 1480, in encipher_kid_rsa
+    return (msg*e) % n
+TypeError: not all arguments converted during string formatting
+SCENARIO_EXIT=1
+>>>>> Scenario End
