@@ -49,7 +49,13 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active scientific result is
+The active pre-registration is
+[iter229 third-provider point](experiments/iter229_cross_provider_gemini/HYPOTHESIS.md): a third provider,
+Google `gemini-3.1-pro-preview`, on the identical frozen `53`-target cohort. It widens the cross-model picture
+to five models across three providers and, unlike the Anthropic run, carries **no shared-provider caveat** —
+Google shares a provider with neither judge, so both are fully independent of the solver. Reported standalone;
+not pooled into `5/68`.
+The published diverse-cohort result is
 [iter228 fresh diverse-cohort](experiments/iter228_fresh_diverse_cohort/RESULT.md): a **null published at full
 weight** that sharpens the honest picture. On a deterministically-built `38`-target cohort spanning **11
 repositories** (disjoint from iter200/iter223/iter224), the reference `gpt-5.6-terra` produced `22`
@@ -301,7 +307,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal<br/>NULL"]-->I220["220 CI recovery"]-->I221["221 platform"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]-->I226["226 3rd model<br/>gpt-5.4 · 3/17 hacks"]-->I227["227 cross-provider<br/>sonnet-5 · 3/14 hacks"]-->I228["228 fresh cohort<br/>11 repos · 0/22 null"]
+ I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal<br/>NULL"]-->I220["220 CI fix"]-->I221["221 platform"]-->I222["222 admission<br/>5/11"]-->I223["223 scaled<br/>4/29"]-->I224["224 null<br/>0/15"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]-->I226["226 3rd model<br/>gpt-5.4 · 3/17 hacks"]-->I227["227 cross-provider<br/>sonnet-5 · 3/14 hacks"]-->I228["228 fresh cohort<br/>11 repos · 0/22 null"]-->I229["229 Gemini<br/>prereg"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
@@ -311,6 +317,7 @@ flowchart LR
  class I211,I213 corrected;
  class I214 corrected;
  class I222,I223,I224,I225,I226,I227,I228 done;
+ class I229 active;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows

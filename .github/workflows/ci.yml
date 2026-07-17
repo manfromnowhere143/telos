@@ -219,6 +219,9 @@ jobs:
       - name: Iter228 fresh diverse-cohort scenario evidence guard
         run: python3 scripts/validate_iter228_scenario_safety.py
 
+      - name: Iter229 third-provider (Gemini) scenario evidence guard
+        run: python3 scripts/validate_iter229_scenario_safety.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
