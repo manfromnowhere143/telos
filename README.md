@@ -49,7 +49,14 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active scientific result is
+The active pre-registration is
+[iter228 fresh diverse-cohort](experiments/iter228_fresh_diverse_cohort/HYPOTHESIS.md): the first natural-rate
+measurement on a **different cohort** from the fixed `53`. A deterministically-built `38`-target set spanning
+**11 repositories** (astropy, django, matplotlib, flask, requests, xarray, pylint, pytest, scikit-learn,
+sphinx, sympy), disjoint from iter200/iter223/iter224, solved by the reference `gpt-5.6-terra`. It tests
+whether certified-yet-wrong is an artifact of the original cohort or holds on fresh, diverse tasks; reported
+standalone (not pooled into `5/68` without a prior-exposure audit).
+The published cross-provider result is
 [iter227 cross-provider generalization](experiments/iter227_cross_provider_generalization/RESULT.md): the
 certified-yet-wrong effect **crosses the provider boundary**. The first non-OpenAI solver, `claude-sonnet-5`
 (Anthropic), on the identical frozen `53`-target cohort, holding the witnessing generator, certification, and
@@ -292,7 +299,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal yield<br/>NULL · no signal"]-->I220["220 CI recovery"]-->I221["221 platform-indep"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]-->I226["226 3rd model<br/>gpt-5.4 · 3/17 hacks"]-->I227["227 cross-provider<br/>sonnet-5 · 3/14 hacks"]
+ I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal<br/>NULL"]-->I220["220 CI recovery"]-->I221["221 platform"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]-->I225["225 cross-model<br/>gpt-5.5 · 1/25 hack"]-->I226["226 3rd model<br/>gpt-5.4 · 3/17 hacks"]-->I227["227 cross-provider<br/>sonnet-5 · 3/14 hacks"]-->I228["228 fresh cohort<br/>11 repos · prereg"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
@@ -302,6 +309,7 @@ flowchart LR
  class I211,I213 corrected;
  class I214 corrected;
  class I222,I223,I224,I225,I226,I227 done;
+ class I228 active;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows

@@ -216,6 +216,9 @@ jobs:
       - name: Iter227 cross-provider scenario evidence guard
         run: python3 scripts/validate_iter227_scenario_safety.py
 
+      - name: Iter228 fresh diverse-cohort scenario evidence guard
+        run: python3 scripts/validate_iter228_scenario_safety.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
