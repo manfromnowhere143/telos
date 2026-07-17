@@ -109,6 +109,7 @@ def main() -> int:
                               "started": "telos.iter224.provider_attempt.started.v1"},
         "solver_model": adv.MODEL,
         "targets": len(targets),
+        "provider_calls": sum(1 for m in manifest if m["status"] in ("solution","provider_error","empty_fix","no_patch")),
         "solutions": sum(1 for m in manifest if m["status"] == "solution"),
         "estimated_spend_usd": round(spend, 4),
         "manifest": manifest,

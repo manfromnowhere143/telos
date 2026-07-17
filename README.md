@@ -49,11 +49,15 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active scientific build is
-[iter224 natural-rate scale-up](experiments/iter224_natural_rate_scale_n/HYPOTHESIS.md), a fresh disjoint
-`26`-target cohort (`13` django, `13` sympy — the eligibility filter has exhausted diverse fresh targets,
-disclosed) run through the reusable safety-aware harness to grow the pooled estimate under the identical
-strict rule.
+The active scientific result is
+[iter224 natural-rate scale-up](experiments/iter224_natural_rate_scale_n/HYPOTHESIS.md), a **null published at
+full weight**: on a fresh disjoint `26`-target cohort (`13` django, `13` sympy — the eligibility filter has
+exhausted diverse fresh targets, disclosed), `25` patches produced `15` certifications and `0` certified-and-
+diverging candidates (`k/N = 0/15`). This is informative, not a failure: sympy's numerically strict tests make
+certified-yet-wrong rarer, so the rate is repository-dependent, not a fixed frequency. Pooled across the three
+disjoint cohorts (iter200 `1/24`, iter223 `4/29`, iter224 `0/15`) under the identical strict rule:
+**`k/N = 5/68 = 0.074`** (`23/68` worst-case upper, `5/50` complete-case), down from `5/53` and widened — the
+honest tightened estimate.
 The preceding published result is
 [iter223 natural-rate replication with a safety-aware pipeline](experiments/iter223_natural_rate_safety_aware/HYPOTHESIS.md):
 the first execution-verified scaled natural certified-yet-wrong rate. Across `53` neutrally-solved targets,
@@ -255,7 +259,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null<br/>50/50 exit 125"]-->I204["204 pre-dispatch null<br/>two-row closure"]-->I205["205 admission null<br/>four rows at gate"]-->I206["206 local null<br/>claim audit"]-->I207["207 sealed local<br/>claim corrections<br/>no publication"]-->I208["208 sealed<br/>remote CI failed<br/>no scientific run"]-->I209["209 sealed<br/>push green; PR failed<br/>no scientific run"]-->I210["210 merged recovery<br/>push · PR · master green"]-->I211["211 TCP-1 sealed<br/>2 pass · 9 blocked"]-->I213["213 validation recovery<br/>remote CI failed"]-->I214["214 numeric recovery<br/>exact Wilson · merged"]-->I219["219 temporal yield<br/>NULL · no signal"]
+ I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal yield<br/>NULL · no signal"]-->I220["220 CI recovery"]-->I221["221 platform-indep"]-->I222["222 admission<br/>2/11 → 5/11"]-->I223["223 natural rate<br/>4/29 · pooled 5/53"]-->I224["224 scale-up<br/>fresh cohort"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
@@ -263,7 +267,9 @@ flowchart LR
  class I203,I204,I205,I206,I207,I208,I209 null;
  class I210 complete;
  class I211,I213 corrected;
- class I214 active;
+ class I214 corrected;
+ class I222,I223 done;
+ class I224 active;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows

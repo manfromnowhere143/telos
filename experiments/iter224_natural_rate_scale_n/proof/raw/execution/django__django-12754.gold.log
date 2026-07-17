@@ -1,0 +1,12 @@
+IMAGE_ID=sha256:9191431ff6a4aa1fd52d70490466bb8dfd6931e137bcae09568bd102b79614f5
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.django_1776_django-12754@sha256:0afab24d63fd4753314e07af78fb2c6ec5f8805a83456012c30badd87822a49b
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/django__django-12754.scenario.py", line 44, in <module>
+    detector.generate_created_models()
+  File "/testbed/django/db/migrations/autodetector.py", line 521, in generate_created_models
+    old_keys = self.old_model_keys | self.old_unmanaged_keys
+AttributeError: 'MigrationAutodetector' object has no attribute 'old_model_keys'
+SCENARIO_EXIT=1
+>>>>> Scenario End
