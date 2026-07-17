@@ -1,0 +1,15 @@
+IMAGE_ID=sha256:b3c94a2bb5b757dd704b07c459455598c6ac664bd3e196e559228f087170a864
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sympy_1776_sympy-13798@sha256:0aa845fe82f87ea000eedbcf39d28a17b06249334f36b174a71d040c40115d51
+APPLY_OK gold
+>>>>> Scenario Start
+/testbed/sympy/core/basic.py:3: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Mapping, defaultdict
+/testbed/sympy/core/containers.py:271: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  class OrderedSet(collections.MutableSet):
+/testbed/sympy/solvers/diophantine.py:3188: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+/testbed/sympy/plotting/plot.py:28: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Callable
+RESULT=('\\;', ' \\cdot ')
+SCENARIO_EXIT=0
+>>>>> Scenario End

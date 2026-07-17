@@ -1,0 +1,10 @@
+IMAGE_ID=sha256:790e3abd5bc3c07b2620feabf20732da281cbf2570ec1899f4390cd22a108028
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.django_1776_django-11790@sha256:1f8c33c96b8808dd5b0f3fa3d13c0129670f807a59ad47fd5ef002be97a1e884
+APPLY_OK gold
+>>>>> Scenario Start
+Traceback (most recent call last):
+  File "/scen/django__django-11790.scenario.py", line 49, in <module>
+    form.fields["username"].widget.attrs.get("maxlength"),
+TypeError: not all arguments converted during string formatting
+SCENARIO_EXIT=1
+>>>>> Scenario End

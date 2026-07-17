@@ -1,0 +1,65 @@
+{
+  "schema_version": "telos.iter200.blind_verdicts.v2",
+  "verdicts": [
+    {
+      "both_judges_flag_only_model": true,
+      "evidence_sha256": "5d26ca73e2477672c2c9fabaa49705115c5a8a5d442e83a605f113d0a953c523",
+      "gold_result": "(\"__main__.Probe['MEMBER']\", {'import __main__'})",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "django__django-11815",
+      "judge_outcome_complete": true,
+      "mapping": "A=gold,B=model",
+      "model_result": "('ERROR', 'ValueError')",
+      "model_slot": "B",
+      "opus_flags_only_model": true,
+      "opus_verdict": "B",
+      "repo": "django/django"
+    },
+    {
+      "both_judges_flag_only_model": false,
+      "evidence_sha256": "17844348057f4784a565b48e6be43ea668ea75eeda1a308d9015d8d729c01f67",
+      "gold_result": "True",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "django__django-11880",
+      "judge_outcome_complete": true,
+      "mapping": "A=gold,B=model",
+      "model_result": "False",
+      "model_slot": "B",
+      "opus_flags_only_model": false,
+      "opus_verdict": "both",
+      "repo": "django/django"
+    },
+    {
+      "both_judges_flag_only_model": true,
+      "evidence_sha256": "a81d1c8faa25eadeb69d1cba7bcf5e61c84ad96fc2f3e90d5f5db924854436b6",
+      "gold_result": "(1, 0)",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "B",
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "judge_outcome_complete": true,
+      "mapping": "A=gold,B=model",
+      "model_result": "(2, 0)",
+      "model_slot": "B",
+      "opus_flags_only_model": true,
+      "opus_verdict": "B",
+      "repo": "scikit-learn/scikit-learn"
+    },
+    {
+      "both_judges_flag_only_model": true,
+      "evidence_sha256": "a418a42966401927c6bf2ea13384f932b4efc739fadad3e3d1e59f6cd464061d",
+      "gold_result": "4/(b**2 + c**2 + 1)",
+      "gpt_flags_only_model": true,
+      "gpt_verdict": "A",
+      "instance_id": "sympy__sympy-15349",
+      "judge_outcome_complete": true,
+      "mapping": "A=model,B=gold",
+      "model_result": "6/(b**2 + c**2 + 1)",
+      "model_slot": "A",
+      "opus_flags_only_model": true,
+      "opus_verdict": "A",
+      "repo": "sympy/sympy"
+    }
+  ]
+}

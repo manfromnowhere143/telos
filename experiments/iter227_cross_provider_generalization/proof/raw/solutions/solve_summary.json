@@ -1,0 +1,1679 @@
+{
+  "checkpoint_schema": {
+    "finished": "telos.iter227.provider_attempt.finished.v1",
+    "started": "telos.iter227.provider_attempt.started.v1"
+  },
+  "estimated_spend_usd": 2.65,
+  "manifest": [
+    {
+      "base_commit": "a7038adbd02c916315b16939b835f021c2ee8880",
+      "fail_to_pass": [
+        "test_union_with_values (queries.test_qs_combinators.QuerySetSetOperationTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11490",
+      "model_patch_sha256": "f3bfe5e8552f3d81408a680265f9648debba6c418430cb3aa8cf22c128ca6dd1",
+      "pass_to_pass_count": 23,
+      "provider_attempt_id": "85f018d40629af6aa5dca9b2ffae7212",
+      "provider_response_sha256": "4ee40c02fbd7a4b04a35960c8e9aa8b55eb1ed25c110477e8519c6a609a594d2",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 477,
+          "output_tokens": 150,
+          "output_tokens_details": {
+            "thinking_tokens": 28
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/models/sql/compiler.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "8dd5877f58f84f2b11126afbd0813e24545919ed",
+      "fail_to_pass": [
+        "test_order_by_ptr_field_with_default_ordering_by_expression (ordering.tests.OrderingTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11555",
+      "model_patch_sha256": "652dc0e5c5aa523876bfe9e358874e82b0fd70400e949147ea7f6e56533644f1",
+      "pass_to_pass_count": 26,
+      "provider_attempt_id": "d19df1a0c3894a63ea3829fa49adcb4c",
+      "provider_response_sha256": "45c58dc1495e0001581db1076c8a98d52b1e9aa57c0b9567b8de78f05d895dc2",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 494,
+          "output_tokens": 141,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/models/sql/compiler.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b1d6b35e146aea83b171c1b921178bbaae2795ed",
+      "fail_to_pass": [
+        "test_username_field_max_length_defaults_to_254 (auth_tests.test_forms.AuthenticationFormTest)",
+        "test_username_field_max_length_matches_user_model (auth_tests.test_forms.AuthenticationFormTest)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11790",
+      "model_patch_sha256": "620b344f14d38185dbe4de1dc4d96930ae34288ab0d705f2ad46a7c063057b2d",
+      "pass_to_pass_count": 77,
+      "provider_attempt_id": "deff3b927c7cc793f0faaef676c5faf0",
+      "provider_response_sha256": "551feea541191282e1c7ae49af56929e172a999a2ad4132201738645f5dccd61",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 511,
+          "output_tokens": 171,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/contrib/auth/forms.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "e02f67ef2d03d48128e7a118bf75f0418e24e8ac",
+      "fail_to_pass": [
+        "test_serialize_class_based_validators (migrations.test_writer.WriterTests)",
+        "test_serialize_enums (migrations.test_writer.WriterTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11815",
+      "model_patch_sha256": "b82db9a265324aa4020bf650a824a99cc2674436f58a2f7abfc36ed1a74665e5",
+      "pass_to_pass_count": 44,
+      "provider_attempt_id": "156b2e575021a3867498f95aecef7cb3",
+      "provider_response_sha256": "906514d1f93522b84f13ab46023595e84daf20ed792c54f463837aeb9dfb7a5e",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 818,
+          "output_tokens": 130,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/migrations/serializer.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "06909fe084f87a65459a83bd69d7cdbe4fce9a7c",
+      "fail_to_pass": [
+        "test_field_deep_copy_error_messages (forms_tests.tests.test_forms.FormsTestCase)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11880",
+      "model_patch_sha256": "69f29c7f4c9fb9f54cad2b17174e35ec2c00e68295b98f59cc3408dbccf635bf",
+      "pass_to_pass_count": 114,
+      "provider_attempt_id": "0685a646245c205cbbd9d5c1cce65537",
+      "provider_response_sha256": "614dcc12450e278f051b1fb1eb71b89e866e49890ee7ed2c75e565859ba6cce4",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 629,
+          "output_tokens": 91,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/forms/fields.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "312049091288dbba2299de8d07ea3e3311ed7238",
+      "fail_to_pass": [
+        "test_explicit_batch_size_respects_max_batch_size (bulk_create.tests.BulkCreateTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11951",
+      "model_patch_sha256": "2b72270608ffcc60e5093c41ac85cb67165a31a30f544901ced67668d54dbb01",
+      "pass_to_pass_count": 21,
+      "provider_attempt_id": "883c209585459a5d721a6d3e5aa05e34",
+      "provider_response_sha256": "76d0439ff5e51d062abaafe87dde18760e3ee5cfde920aeee40134da4358246a",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 614,
+          "output_tokens": 227,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/models/query.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "fc2b1cc926e34041953738e58fa6ad3053059b22",
+      "fail_to_pass": [
+        "test_str (model_enums.tests.ChoicesTests)",
+        "test_textchoices (model_enums.tests.ChoicesTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11964",
+      "model_patch_sha256": "d4e4f5cf8b4bb3c06a4f3365e68818ea279e717f1d9755ca248baeefb4182889",
+      "pass_to_pass_count": 15,
+      "provider_attempt_id": "7cefc7424a84728d351e983dd0e2646c",
+      "provider_response_sha256": "7dbd48f8906142bfd5148df920f225636fe65dcc1cbb95598c6a2e19627e75b1",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 829,
+          "output_tokens": 200,
+          "output_tokens_details": {
+            "thinking_tokens": 68
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/models/enums.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "84633905273fc916e3d17883810d9969c03f73c2",
+      "fail_to_pass": [
+        "test_overriding_FIELD_display (model_fields.tests.GetFieldDisplayTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-11999",
+      "model_patch_sha256": "4a3cabe5f184586efa450826c1bd6806b093fc7cb746768d6a47439148687e5e",
+      "pass_to_pass_count": 30,
+      "provider_attempt_id": "35aecebba0b34fb7f2b374b77f1487f1",
+      "provider_response_sha256": "19a34bd143885e4ae8871442e8da6d9e38190ce81c0426fae17869c2e0bb715d",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 529,
+          "output_tokens": 166,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/models/fields/__init__.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b93a0e34d9b9b99d41103782b7e7aeabf47517e3",
+      "fail_to_pass": [
+        "test_iterable_lookup_value (queries.test_query.TestQuery)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12050",
+      "model_patch_sha256": "e920a7c6ee83a817d8fc81417d11a9bbaeb5626238d4343643e89e4952f85a2c",
+      "pass_to_pass_count": 10,
+      "provider_attempt_id": "09c57c8b9bb06424e5fdd1200ccb9ea2",
+      "provider_response_sha256": "4493a8e67ab05cacddd48d68a9c1b64f02d71e8cb865b8114484dd5dfc3dbdd6",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 587,
+          "output_tokens": 43,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/models/sql/query.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "89d41cba392b759732ba9f1db4ff29ed47da6a56",
+      "fail_to_pass": [
+        "test_serialize_nested_class (migrations.test_writer.WriterTests)",
+        "test_serialize_numbers (migrations.test_writer.WriterTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12125",
+      "model_patch_sha256": "60fef618deb87dfdf25407103934df87262724c1921bba848fdf1bd927c8c920",
+      "pass_to_pass_count": 45,
+      "provider_attempt_id": "6e0a926155ae103ae83764203d9f9001",
+      "provider_response_sha256": "e0e0d6ce2272054a02dce5263e5cd50d5aad7e8c0f05aa0ddd609f7b8f1a09b7",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 819,
+          "output_tokens": 88,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/migrations/serializer.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "5573a54d409bb98b5c5acdb308310bed02d392c2",
+      "fail_to_pass": [
+        "test_get_list_editable_queryset_with_regex_chars_in_prefix (admin_changelist.tests.ChangeListTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12143",
+      "model_patch_sha256": "50336167b6b113f520c18e1ccecda39d47e07ced9ee751b91d946a650da4ad87",
+      "pass_to_pass_count": 52,
+      "provider_attempt_id": "56aa1c8e4ff495da0d35ff760336866f",
+      "provider_response_sha256": "0266e8aae86670344a36172be84985b30cfb4beb05e41732e22bc72983926e8b",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 868,
+          "output_tokens": 134,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/contrib/admin/options.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "3fb7c12158a2402f0f80824f6778112071235803",
+      "fail_to_pass": [
+        "test_get_context_does_not_mutate_attrs (forms_tests.widget_tests.test_checkboxinput.CheckboxInputTest)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12193",
+      "model_patch_sha256": "76a63a08ee1256906cf379b5016edda195a87ed783f77cd4f14230d09cb0d0c3",
+      "pass_to_pass_count": 11,
+      "provider_attempt_id": "bbcb54980ef9dc105626f651757f5666",
+      "provider_response_sha256": "24a8b430f8017bc919afded0f624abd42f348ba468a8bc18f2256d2c1e19b20f",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 531,
+          "output_tokens": 106,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/forms/widgets.py",
+      "status": "solution"
+    },
+    {
+      "instance_id": "django__django-12209",
+      "status": "empty_fix"
+    },
+    {
+      "base_commit": "69331bb851c34f05bc77e9fc24020fe6908b9cd5",
+      "fail_to_pass": [
+        "test_inclusion_tag_errors (template_tests.test_custom.InclusionTagTests)",
+        "test_inclusion_tags (template_tests.test_custom.InclusionTagTests)",
+        "test_simple_tag_errors (template_tests.test_custom.SimpleTagTests)",
+        "test_simple_tags (template_tests.test_custom.SimpleTagTests)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12262",
+      "model_patch_sha256": "864399d75c7b0c0b964a715c54b899f8d8a1b028d45c9198045c6f2a5eb50f28",
+      "pass_to_pass_count": 18,
+      "provider_attempt_id": "ca4f0dfca0cbf41531df5dfc96c10ff6",
+      "provider_response_sha256": "7688a10be86adc5abe74cdbbb7d3abb987d783083de2a49d13a386e34655704b",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 687,
+          "output_tokens": 2267,
+          "output_tokens_details": {
+            "thinking_tokens": 2144
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/template/library.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "927c903f3cd25c817c21738328b53991c035b415",
+      "fail_to_pass": [
+        "test_create_new_instance_with_pk_equals_none (model_inheritance_regress.tests.ModelInheritanceTest)",
+        "test_create_new_instance_with_pk_equals_none_multi_inheritance (model_inheritance_regress.tests.ModelInheritanceTest)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12273",
+      "model_patch_sha256": "8029d9f6bfed6247e80b67993fa8b83bc37c07e24533cd31fe9e9d2eb81a9893",
+      "pass_to_pass_count": 27,
+      "provider_attempt_id": "7d8a11bb5b91653afb3040a6095414fb",
+      "provider_response_sha256": "e0821c17c18702af6ea403af7e2d652e4d0a043b9d89f553174ce95faa7bedd6",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 632,
+          "output_tokens": 218,
+          "output_tokens_details": {
+            "thinking_tokens": 72
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/db/models/base.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "53d8646f799de7f92ab9defe9dc56c6125448102",
+      "fail_to_pass": [
+        "test_use_required_attribute (forms_tests.widget_tests.test_fileinput.FileInputTest)",
+        "test_filefield_with_fileinput_required (forms_tests.tests.test_forms.FormsTestCase)"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "django__django-12276",
+      "model_patch_sha256": "999f4ae65b69ff4d5f225a234465bd090a87485c1e1f3bfcd5659c65a079cef4",
+      "pass_to_pass_count": 117,
+      "provider_attempt_id": "cc1918d7c710b28d271bdb2f998b5735",
+      "provider_response_sha256": "9b245ebc5436f084f259e50fb073603a6362315ba9275e80eb21e33d30e7298c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 536,
+          "output_tokens": 145,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "django/django",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "django/forms/widgets.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "66ba515e671638971bd11a34cff12c107a437e0b",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_pickle.py::test_complete[png]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "model_patch_sha256": "bd474be971ea39a3d9d19f39ec528ad6bac91c396777e1da39403989dec424ee",
+      "pass_to_pass_count": 181,
+      "provider_attempt_id": "190ba233fa8a342d5fe894a2a2f1ebb5",
+      "provider_response_sha256": "159b9d8dc3cdd9cd6cff85803ccbe480d6793faede5fd6e5958686e674ab652b",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 703,
+          "output_tokens": 398,
+          "output_tokens_details": {
+            "thinking_tokens": 165
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "lib/matplotlib/cbook.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "5ca694b38d861c0e24cd8743753427dda839b90b",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_axes.py::test_hexbin_mincnt_behavior_upon_C_parameter[png]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "matplotlib__matplotlib-26113",
+      "model_patch_sha256": "bc7ed79527885da977d2a5ff6a1175be3a59756d701d5611276767340692b89f",
+      "pass_to_pass_count": 812,
+      "provider_attempt_id": "99091713214df71728f0266f89eb8e0c",
+      "provider_response_sha256": "69df9c696194252f24b479aa56ae6e4742d9d60c5643beee2f45b92d993ebbe3",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 988,
+          "output_tokens": 1415,
+          "output_tokens_details": {
+            "thinking_tokens": 1280
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "lib/matplotlib/axes/_axes.py",
+      "status": "solution"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-26291",
+      "status": "empty_fix"
+    },
+    {
+      "base_commit": "2aee6ccd7c7e1f8d282c1e7579f4ee546b838542",
+      "fail_to_pass": [
+        "lib/matplotlib/tests/test_contour.py::test_contour_set_paths[png]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "matplotlib__matplotlib-26342",
+      "model_patch_sha256": "712a2aded46101f0bb4a90471874af79e74890fb87a2280a9e9efbd72b11ae85",
+      "pass_to_pass_count": 81,
+      "provider_attempt_id": "c5bd60ffe7de4800573d02bf843b817f",
+      "provider_response_sha256": "5270d77cbf6372f65d1bb0236f033e861b596ddc5599cefb9a905a6e380172d2",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 550,
+          "output_tokens": 62,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "matplotlib/matplotlib",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "lib/matplotlib/collections.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "851dadeb0338403e5021c3fbe80cbc9127ee672d",
+      "fail_to_pass": [
+        "xarray/tests/test_computation.py::test_where_attrs"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pydata__xarray-6461",
+      "model_patch_sha256": "ca9253195e2ead6b112bbb72a8cf8c6fde01104627cba486706500a597f2bcd0",
+      "pass_to_pass_count": 247,
+      "provider_attempt_id": "b01ad531237037abe906d326f164bb6a",
+      "provider_response_sha256": "4a7f9c50b9905eec5a418d62ab4c439805a3ef05b343090e04a8e459f5106417",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 734,
+          "output_tokens": 168,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "pydata/xarray",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "xarray/core/computation.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "cc183652bf6e1273e985e1c4b3cba79c896c1193",
+      "fail_to_pass": [
+        "xarray/tests/test_dataset.py::TestDataset::test_chunks_does_not_load_data"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pydata__xarray-6721",
+      "model_patch_sha256": "1fb3125f19cb1e5f145eed8ef73bba460b8e2f6dabcf97dd4987bef9859aa98c",
+      "pass_to_pass_count": 1405,
+      "provider_attempt_id": "c69469110ea0a0f59b7319f6626e5321",
+      "provider_response_sha256": "2b30284dc850d6fc56db7541d46940582555f09ce7e8e40fbce5a50fb1da57ec",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 910,
+          "output_tokens": 105,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "pydata/xarray",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "xarray/core/common.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "51d37d1be95547059251076b3fadaa317750aab3",
+      "fail_to_pass": [
+        "xarray/tests/test_coarsen.py::TestCoarsenConstruct::test_coarsen_construct_keeps_all_coords"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pydata__xarray-7233",
+      "model_patch_sha256": "60af424dd6cb9efd6e19643672ba9aaa08fbaaff09a3b9246b08038eccd3a8df",
+      "pass_to_pass_count": 189,
+      "provider_attempt_id": "c6dc1ce575e200335c2f382034b74c1a",
+      "provider_response_sha256": "7749b6f38f0253e0bc02a9e95dd68f9c8212bbb2efd556145fb6ef60c29786bf",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 953,
+          "output_tokens": 123,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "pydata/xarray",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "xarray/core/rolling.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "41d211c24a6781843b174379d6d6538f5c17adb9",
+      "fail_to_pass": [
+        "testing/test_capture.py::TestCaptureFixture::test_cafd_preserves_newlines[\\r\\n]",
+        "testing/test_capture.py::TestCaptureFixture::test_cafd_preserves_newlines[\\r]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pytest-dev__pytest-7521",
+      "model_patch_sha256": "6089bfbb93faf44ae68229f2120f385d919ca5423fd40f250f078057b1ab62d2",
+      "pass_to_pass_count": 125,
+      "provider_attempt_id": "8492d50771ab6dcf8aa3b7e0622470ec",
+      "provider_response_sha256": "a28bc6366e2f0408fbf0fdc49548e25ecff75dab96ffed838159c31bc8c6094d",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 925,
+          "output_tokens": 85,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "pytest-dev/pytest",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "src/_pytest/capture.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "a7e38c5c61928033a2dc1915cbee8caa8544a4d0",
+      "fail_to_pass": [
+        "testing/test_collection.py::test_collect_symlink_dir"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "pytest-dev__pytest-7982",
+      "model_patch_sha256": "846ba551a979c693575385eacf91bddc9fd26d2fb23023cb04eedb2d01412e2c",
+      "pass_to_pass_count": 78,
+      "provider_attempt_id": "d1ea67e1aa6002e583968e1c9600941b",
+      "provider_response_sha256": "afcbc8abcdfc539bf5ffde24e67118244978ef9fbf0d08b5e7c4c99488dd408c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 448,
+          "output_tokens": 88,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "pytest-dev/pytest",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "src/_pytest/pathlib.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "a62775e99f2a5ea3d51db7160fad783f6cd8a4c5",
+      "fail_to_pass": [
+        "sklearn/tests/test_pipeline.py::test_make_pipeline_memory"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "model_patch_sha256": "556bde373ecd35944d9e77a55029d3d618f1ed09a7f20559840190f05ddf6a6d",
+      "pass_to_pass_count": 40,
+      "provider_attempt_id": "85730cd2c303250d17beacbda63583be",
+      "provider_response_sha256": "941a97d6d36ed5a22998172cb374b3dfaf4259a1628db91d23cf528a7187be56",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 847,
+          "output_tokens": 116,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sklearn/pipeline.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b34751b7ed02b2cfcc36037fb729d4360480a299",
+      "fail_to_pass": [
+        "sklearn/ensemble/tests/test_voting.py::test_none_estimator_with_weights[X0-y0-voter0]",
+        "sklearn/ensemble/tests/test_voting.py::test_none_estimator_with_weights[X1-y1-voter1]"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-13779",
+      "model_patch_sha256": "fe825923d58661667ee39a2d3d25bd31737d6cf01e0afc2b1ea7b51551ecdb5e",
+      "pass_to_pass_count": 18,
+      "provider_attempt_id": "785d0175a4b2d57e721406681f102343",
+      "provider_response_sha256": "0138017ff4aae047be9506422c19f3d8b5479a9ea568e9230d563725dae1e03a",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 531,
+          "output_tokens": 109,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sklearn/ensemble/voting.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "6ab8c86c383dd847a1be7103ad115f174fe23ffd",
+      "fail_to_pass": [
+        "sklearn/tree/tests/test_export.py::test_export_text"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-14053",
+      "model_patch_sha256": "bcde35b50381189214637795c4969b9dc5d4806afc302f2f72e4f2718be639e0",
+      "pass_to_pass_count": 5,
+      "provider_attempt_id": "9dd932f0da4b03c43b259226059fbd5a",
+      "provider_response_sha256": "1623517416cf658b12df8fd7d206a2f26a2a7d87731b1cae0674e28d3e0d183f",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 853,
+          "output_tokens": 119,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sklearn/tree/export.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "3d997697fdd166eff428ea9fd35734b6a8ba113e",
+      "fail_to_pass": [
+        "sklearn/utils/tests/test_show_versions.py::test_get_deps_info"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-14141",
+      "model_patch_sha256": "31b459ac4198d4e46cfaef35bf1d3aa4a337b5961bd7f311a6b1e18bed6293bf",
+      "pass_to_pass_count": 2,
+      "provider_attempt_id": "7db309afdfe6c0ac9eb11fd0481f6331",
+      "provider_response_sha256": "8fb6a0d30e6a140ca18d7df3f3fb766401125d63d16ae337639367f9745deaf4",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 288,
+          "output_tokens": 48,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sklearn/utils/_show_versions.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "fdbaa58acbead5a254f2e6d597dc1ab3b947f4c6",
+      "fail_to_pass": [
+        "sklearn/svm/tests/test_svm.py::test_sparse_fit_support_vectors_empty"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "model_patch_sha256": "fa4e497760eee2837e34eee448d0cea72290dda5dcdfc2971fbb02e5f0823276",
+      "pass_to_pass_count": 85,
+      "provider_attempt_id": "38237682547506c8ca41e978bc3aeb91",
+      "provider_response_sha256": "568c9bceddb228631ef3543a37e374a2f1f2427c146e35aa1d2418ad6acfcb06",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 1104,
+          "output_tokens": 220,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "scikit-learn/scikit-learn",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sklearn/svm/base.py",
+      "status": "solution"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "status": "empty_fix"
+    },
+    {
+      "base_commit": "4b452338f914d4f6b54704222d70ae8a746e3db5",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_info_field_list_var"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-8638",
+      "model_patch_sha256": "5e850bbb42e7f46ec93eb07b1eb319f747b1effb9db06df0fd07f775635c72ff",
+      "pass_to_pass_count": 34,
+      "provider_attempt_id": "da08e06f00ee975e1baff6eca0583916",
+      "provider_response_sha256": "2407c2d5fbcbfe1f6fdede1d5c7b0f3985edbe03ff6445e9d9704ded227f3aa3",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 835,
+          "output_tokens": 411,
+          "output_tokens_details": {
+            "thinking_tokens": 331
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sphinx/domains/python.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "82ef497a8c88f0f6e50d84520e7276bfbf65025d",
+      "fail_to_pass": [
+        "tests/test_ext_viewcode.py::test_viewcode_epub_default"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "model_patch_sha256": "881cb7bfcfc860dd0b078e95d71f39339469c42d08a950972d05996fa5d19c50",
+      "pass_to_pass_count": 3,
+      "provider_attempt_id": "83d9cc9831c2fdcd033db98c8518d7db",
+      "provider_response_sha256": "5f31f0d021531a2e9b637a122d21e8b4df45840b151114ebdd9a67cc138873d5",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 501,
+          "output_tokens": 155,
+          "output_tokens_details": {
+            "thinking_tokens": 37
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sphinx/ext/viewcode.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "567ff22716ac258b9edd2c1711d766b440ac0b11",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_info_field_list"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "model_patch_sha256": "c24987d7c536d6d0aaefb7ead46bd7cc7ac1623272b6230d99cf429c68590602",
+      "pass_to_pass_count": 44,
+      "provider_attempt_id": "dd0508f0c747888d626db27c8b545cb0",
+      "provider_response_sha256": "f28f1ddc228738febc1c67c5ff27cfc3066771b79e3a8b54f4847d5e34cd83a8",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 831,
+          "output_tokens": 166,
+          "output_tokens_details": {
+            "thinking_tokens": 82
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sphinx/util/docfields.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "06107f838c28ab6ca6bfc2cc208e15997fcb2146",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_info_field_list_piped_type"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "model_patch_sha256": "943baf62e0c59c2fb8b9d0473d850b85e5ca627d809475abd2733b4877627467",
+      "pass_to_pass_count": 45,
+      "provider_attempt_id": "aec5aa4aab74ed05ba4e2557b17b1a00",
+      "provider_response_sha256": "abe61fe6262206471c27681228650f0ab402ac5303d4f97d9271ee0a3875ea8f",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 564,
+          "output_tokens": 186,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sphinx/domains/python.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "9ed054279aeffd5b1d0642e2d24a8800389de29f",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_pyproperty"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-9591",
+      "model_patch_sha256": "0987b1513e66c35f1320819b44a3d942a677ea3fc74579d76c4cac42e2a998c2",
+      "pass_to_pass_count": 44,
+      "provider_attempt_id": "74e762ff6458a69f18bfb04c03f310ff",
+      "provider_response_sha256": "d0f63b1b9225fcbd361660feb5d50dc11b7053f10ff4a02ddae6883a1824a499",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 755,
+          "output_tokens": 103,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sphinx/domains/python.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "f050a7775dfc9000f55d023d36d925a8d02ccfa8",
+      "fail_to_pass": [
+        "tests/test_domain_py.py::test_pymethod_options"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "model_patch_sha256": "cadd31c9fae05501d160470ad0da79d3b44ec8378369ebce23154231ea44c350",
+      "pass_to_pass_count": 45,
+      "provider_attempt_id": "31b46c87601e2221a98594f5565f0870",
+      "provider_response_sha256": "ade2dd3a3f5af7a50e3fac96cc09844c5adc456f5c3ee21b95e6213a6a6cf8e9",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 631,
+          "output_tokens": 125,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sphinx-doc/sphinx",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sphinx/domains/python.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "7121bdf1facdd90d05b6994b4c2e5b2865a4638a",
+      "fail_to_pass": [
+        "test_latex_basic"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-13798",
+      "model_patch_sha256": "58bb6edf3ef299b77145a1e35678a4068227ee37d5a5783ac28ff91ef3fc39d9",
+      "pass_to_pass_count": 102,
+      "provider_attempt_id": "6f137d448d4397d30163bb7918b16b7a",
+      "provider_response_sha256": "ee2dd35f4e21eb3bcf57e1db85ed1dbda0d40a069be3871874b71caf0ad391f5",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 682,
+          "output_tokens": 217,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/printing/latex.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "c6753448b5c34f95e250105d76709fe4d349ca1f",
+      "fail_to_pass": [
+        "test_Vector"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-14711",
+      "model_patch_sha256": "66650fe1624064eba289601cd7fee644499da3e47cda6e8d420334f0c3d7e6bc",
+      "pass_to_pass_count": 2,
+      "provider_attempt_id": "670cd15ccdc3eb13605f609d7eca4f08",
+      "provider_response_sha256": "e1b7915da1b329daae54e2f3b799a33ea67a43c30a8a453bdc5dc92489357a0c",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 649,
+          "output_tokens": 69,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/physics/vector/vector.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "9cbea134220b0b951587e11b63e2c832c7246cbc",
+      "fail_to_pass": [
+        "test_MpmathPrinter"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-14976",
+      "model_patch_sha256": "a0dbdec80f183a1c989a6412e17a05c398a4de5732806338e5d6aa2bfb535a25",
+      "pass_to_pass_count": 13,
+      "provider_attempt_id": "5b77a3533edea1d973e29b24587e067f",
+      "provider_response_sha256": "c924f6115a933876cbd94aee1028ad20c450fd937f1e72245c3f1e846dc4ee5e",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 625,
+          "output_tokens": 218,
+          "output_tokens_details": {
+            "thinking_tokens": 58
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/printing/pycode.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "6810dee426943c1a2fe85b5002dd0d4cf2246a05",
+      "fail_to_pass": [
+        "test_ndim_array_initiation"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-15017",
+      "model_patch_sha256": "9bfccd57ce27ca7859556d1dcaf53b1085970f179881ed1cd362210bdf298115",
+      "pass_to_pass_count": 14,
+      "provider_attempt_id": "4219616fabc1b3888f4ccd725f6334ad",
+      "provider_response_sha256": "e5328ac9e4a0225f2bc773308818ee2feb608723a291b2fcafe78df7f7e42442",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 715,
+          "output_tokens": 95,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/tensor/array/dense_ndim_array.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "768da1c6f6ec907524b8ebbf6bf818c92b56101b",
+      "fail_to_pass": [
+        "test_quaternion_conversions"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-15349",
+      "model_patch_sha256": "2e2ec3d4e039076eb866b787201cd046db261dde529ba9220ea178352ca9fef8",
+      "pass_to_pass_count": 3,
+      "provider_attempt_id": "f7126aa45c89d4ea6406c365eb18f084",
+      "provider_response_sha256": "2b0324e1f0429ce121408cef770f58861176ac28fe15b9352c765fa0c6f7ee44",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 671,
+          "output_tokens": 146,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/algebras/quaternion.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b506169ad727ee39cb3d60c8b3ff5e315d443d8e",
+      "fail_to_pass": [
+        "test_Add_is_zero"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-15875",
+      "model_patch_sha256": "83c80bd080a13af671b2ec84a55dc96d0e055e19af739d5bd44db481f182787c",
+      "pass_to_pass_count": 80,
+      "provider_attempt_id": "4d6b902e16c793aecd4ad71ba7c71fb5",
+      "provider_response_sha256": "c65f962d2c7f5c68742003e6638b3b179ad90767a5a646143d2b155c4cfa8503",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 483,
+          "output_tokens": 1142,
+          "output_tokens_details": {
+            "thinking_tokens": 1076
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/core/add.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "aefdd023dc4f73c441953ed51f5f05a076f0862f",
+      "fail_to_pass": [
+        "test_posify"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-16450",
+      "model_patch_sha256": "73de62cfc38d02127a87f734c67f50e813800387fd60d6c644027ddbbcbe4a11",
+      "pass_to_pass_count": 38,
+      "provider_attempt_id": "d2f320cf131566aa768264f7d349a693",
+      "provider_response_sha256": "151669dfc9f3052a86950f5ffee1288af104dde819b86d2228ac0af519dc8479",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 673,
+          "output_tokens": 162,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/simplify/simplify.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "b8fe457a02cc24b3470ff678d0099c350b7fef43",
+      "fail_to_pass": [
+        "test_PythonCodePrinter"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-16766",
+      "model_patch_sha256": "0902161cf652d4db46f6f628ee9d21355782659b3ae58e2e84275db4e6105ede",
+      "pass_to_pass_count": 7,
+      "provider_attempt_id": "c2e0c73795e90c0ab05d7b24f0f9620a",
+      "provider_response_sha256": "9ec42a271ea112340381131b5456804507e054b960d97ac20f91c6a350f231dd",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 510,
+          "output_tokens": 164,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/printing/pycode.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "c50643a49811e9fe2f4851adff4313ad46f7325e",
+      "fail_to_pass": [
+        "test_encode_morse"
+      ],
+      "identical_to_gold": true,
+      "instance_id": "sympy__sympy-16886",
+      "model_patch_sha256": "e311e8bba944d634a2621fd8370236ea2d2affec4db65765bef09d5356882bc4",
+      "pass_to_pass_count": 42,
+      "provider_attempt_id": "3aa920d949fd16de2e77f5a87c5136e2",
+      "provider_response_sha256": "502cbd1cdffc243e65487dc4130080d1633af4f87ed203c2271efb10c73aa84f",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 383,
+          "output_tokens": 21,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/crypto/crypto.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "1d3327b8e90a186df6972991963a5ae87053259d",
+      "fail_to_pass": [
+        "test__TR56",
+        "test_issue_17137"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-17139",
+      "model_patch_sha256": "d0b36830a3d11b5fd83ee735174c1e465de11d64a47e83eaa50b41068506ad0d",
+      "pass_to_pass_count": 67,
+      "provider_attempt_id": "a747b192596584f934c861fed7379092",
+      "provider_response_sha256": "074486e90b5fc44470820729e0aff4cc94ba5d66bc56a3e4a16c1cb4f6ebeacc",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 1004,
+          "output_tokens": 202,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/simplify/fu.py",
+      "status": "solution"
+    },
+    {
+      "instance_id": "sympy__sympy-17630",
+      "status": "empty_fix"
+    },
+    {
+      "base_commit": "f5e965947af2410ded92cfad987aaf45262ea434",
+      "fail_to_pass": [
+        "test_point",
+        "test_point3D"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-17655",
+      "model_patch_sha256": "83e68917d5d8f3a9f39b07cf98c5025309fffb2dd6314011d1740cc5151e8bdb",
+      "pass_to_pass_count": 9,
+      "provider_attempt_id": "0116a737881b6fc01a6b196c747802e5",
+      "provider_response_sha256": "6c28dd847bc6759d2cfd0654b5e9a3f6aa083e7c675b0e9529258282fce95a13",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 818,
+          "output_tokens": 178,
+          "output_tokens_details": {
+            "thinking_tokens": 52
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/geometry/point.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "1923822ddf8265199dbd9ef9ce09641d3fd042b9",
+      "fail_to_pass": [
+        "test_diophantine"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-18189",
+      "model_patch_sha256": "0bf72bfb3295ae6c4114329164b45d84c5ad097acc4d0eb086857eb88165fbdb",
+      "pass_to_pass_count": 41,
+      "provider_attempt_id": "4153d50a293b9a70e84e29a9959deac7",
+      "provider_response_sha256": "9630e96ac83976c9a75f0d30aa888cbe468314338afa57d910bf961bf325ceb7",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 687,
+          "output_tokens": 121,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/solvers/diophantine.py",
+      "status": "solution"
+    },
+    {
+      "base_commit": "70381f282f2d9d039da860e391fe51649df2779d",
+      "fail_to_pass": [
+        "test_latex_subs"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-18763",
+      "model_patch_sha256": "5fd9629c66458f9ff36616c649ab2778659be8fc6f708d3693384732f426f02d",
+      "pass_to_pass_count": 141,
+      "provider_attempt_id": "89c4b5712ba442d83b6be598e3897546",
+      "provider_response_sha256": "a7b745e5f562e8cf98bd20953b5dd8b2e0f101dd03164b67c934ef744fae5580",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 608,
+          "output_tokens": 857,
+          "output_tokens_details": {
+            "thinking_tokens": 686
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/printing/latex.py",
+      "status": "solution"
+    },
+    {
+      "instance_id": "sympy__sympy-19040",
+      "status": "empty_fix"
+    },
+    {
+      "base_commit": "94fb720696f5f5d12bad8bc813699fd696afd2fb",
+      "fail_to_pass": [
+        "test_dict"
+      ],
+      "identical_to_gold": false,
+      "instance_id": "sympy__sympy-19346",
+      "model_patch_sha256": "ca627db6835eb8a60abbdf57562972801a7fd76a717a201217bff217597761cb",
+      "pass_to_pass_count": 40,
+      "provider_attempt_id": "c3dc8c1130b6e9c700ebd4aeaff142dc",
+      "provider_response_sha256": "5f749487badb7115f76e5dfb7fcab1b75208cf7e73c597e5834fd03d0da31e31",
+      "provider_usage": {
+        "status": "valid",
+        "value": {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "inference_geo": "global",
+          "input_tokens": 506,
+          "output_tokens": 239,
+          "output_tokens_details": {
+            "thinking_tokens": 0
+          },
+          "service_tier": "standard"
+        }
+      },
+      "repo": "sympy/sympy",
+      "solver_model": "claude-sonnet-5",
+      "src_file": "sympy/printing/repr.py",
+      "status": "solution"
+    }
+  ],
+  "provider_calls": 53,
+  "schema_version": "telos.iter200.solve_summary.v1",
+  "solutions": 48,
+  "solver_model": "claude-sonnet-5",
+  "targets": 53
+}
