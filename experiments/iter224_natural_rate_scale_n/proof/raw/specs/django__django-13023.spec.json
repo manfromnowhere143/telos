@@ -1,0 +1,25 @@
+{
+  "base_commit": "f83b44075dafa429d59e8755aa47e15577cc49f9",
+  "eval_script_sha256": "12ed73a641e9b2a5c75f3d0e9f7fb3d8daa597578b1e9e2bb0d06a2c55b7e6ed",
+  "fail_to_pass": [
+    "test_invalid_value (model_fields.test_decimalfield.DecimalFieldTests)",
+    "test_lookup_really_big_value (model_fields.test_decimalfield.DecimalFieldTests)"
+  ],
+  "framework": "django_runtests",
+  "identical_to_gold": false,
+  "image": "swebench/sweb.eval.x86_64.django_1776_django-13023:latest",
+  "instance_id": "django__django-13023",
+  "pass_to_pass": [
+    "test_default (model_fields.test_decimalfield.DecimalFieldTests)",
+    "test_filter_with_strings (model_fields.test_decimalfield.DecimalFieldTests)",
+    "test_get_prep_value (model_fields.test_decimalfield.DecimalFieldTests)",
+    "test_max_decimal_places_validation (model_fields.test_decimalfield.DecimalFieldTests)",
+    "test_max_digits_validation (model_fields.test_decimalfield.DecimalFieldTests)",
+    "test_max_whole_digits_validation (model_fields.test_decimalfield.DecimalFieldTests)",
+    "Trailing zeros in the fractional part aren't truncated.",
+    "test_save_without_float_conversion (model_fields.test_decimalfield.DecimalFieldTests)",
+    "test_to_python (model_fields.test_decimalfield.DecimalFieldTests)"
+  ],
+  "repo": "django/django",
+  "scenario_available": true
+}

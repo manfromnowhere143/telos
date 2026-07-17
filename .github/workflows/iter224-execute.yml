@@ -1,0 +1,44 @@
+name: iter224-execute
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  execute:
+    name: iter224 certify + witness shard ${{ matrix.shard }}/8 (x86, native)
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    env:
+      TELOS_NAT_EXP: iter224_natural_rate_scale_n
+      TELOS_NAT_SHARD_COUNT: 8
+      TELOS_NAT_SHARD_INDEX: ${{ matrix.shard }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - name: Free disk
+        run: sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android /opt/hostedtoolcache/CodeQL || true
+      - name: Validate corrected safety-aware scenario evidence
+        run: python3 scripts/validate_iter224_scenario_safety.py
+      - name: Run iter224 execution
+        run: |
+          chmod +x scripts/ci_iter200_execute.sh
+          bash scripts/ci_iter200_execute.sh
+      - name: Upload verified shard evidence
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: iter224-execution-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}-shard-${{ matrix.shard }}-of-8
+          path: experiments/iter224_natural_rate_scale_n/proof/raw/execution/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload partial shard evidence for debugging only
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: iter224-execution-debug-${{ github.run_id }}-attempt-${{ github.run_attempt }}-shard-${{ matrix.shard }}-of-8
+          path: experiments/iter224_natural_rate_scale_n/proof/raw/execution/
+          if-no-files-found: ignore
+          retention-days: 14

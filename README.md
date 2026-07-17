@@ -49,7 +49,12 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active scientific result is
+The active scientific build is
+[iter224 natural-rate scale-up](experiments/iter224_natural_rate_scale_n/HYPOTHESIS.md), a fresh disjoint
+`26`-target cohort (`13` django, `13` sympy — the eligibility filter has exhausted diverse fresh targets,
+disclosed) run through the reusable safety-aware harness to grow the pooled estimate under the identical
+strict rule.
+The preceding published result is
 [iter223 natural-rate replication with a safety-aware pipeline](experiments/iter223_natural_rate_safety_aware/HYPOTHESIS.md):
 the first execution-verified scaled natural certified-yet-wrong rate. Across `53` neutrally-solved targets,
 `50` patches produced `29` official-harness certifications, `7` diverged from the gold fix on a safe witness,

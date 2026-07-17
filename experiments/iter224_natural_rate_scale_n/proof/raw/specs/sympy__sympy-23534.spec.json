@@ -1,0 +1,26 @@
+{
+  "base_commit": "832c24fec1046eaa544a4cab4c69e3af3e651759",
+  "eval_script_sha256": "62e4afd2c8fc37af18124085842203f14ed00799d4b6b9bad07409a549ec9981",
+  "fail_to_pass": [
+    "test_symbols"
+  ],
+  "framework": "sympy_bintest",
+  "identical_to_gold": true,
+  "image": "swebench/sweb.eval.x86_64.sympy_1776_sympy-23534:latest",
+  "instance_id": "sympy__sympy-23534",
+  "pass_to_pass": [
+    "test_Str",
+    "test_Symbol",
+    "test_Dummy",
+    "test_Dummy_force_dummy_index",
+    "test_lt_gt",
+    "test_no_len",
+    "test_ineq_unequal",
+    "test_Wild_properties",
+    "test_symbols_become_functions_issue_3539",
+    "test_unicode",
+    "test_uniquely_named_symbol_and_Symbol"
+  ],
+  "repo": "sympy/sympy",
+  "scenario_available": false
+}

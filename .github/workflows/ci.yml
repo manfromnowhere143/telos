@@ -204,6 +204,9 @@ jobs:
       - name: Iter223 safety-aware scenario evidence guard
         run: python3 scripts/validate_iter223_scenario_safety.py
 
+      - name: Iter224 scale-up scenario evidence guard
+        run: python3 scripts/validate_iter224_scenario_safety.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 

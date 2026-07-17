@@ -1,0 +1,32 @@
+{
+  "base_commit": "4c1b401e8250f9f520b3c7dc369554477ce8b15a",
+  "eval_script_sha256": "92d5f84427152bc4be39fa767b2a144168c58edfc681b721c190a4de35de954d",
+  "fail_to_pass": [
+    "test_templates (model_enums.tests.ChoicesTests)"
+  ],
+  "framework": "django_runtests",
+  "identical_to_gold": true,
+  "image": "swebench/sweb.eval.x86_64.django_1776_django-12304:latest",
+  "instance_id": "django__django-12304",
+  "pass_to_pass": [
+    "test_integerchoices (model_enums.tests.ChoicesTests)",
+    "test_integerchoices_auto_label (model_enums.tests.ChoicesTests)",
+    "test_integerchoices_containment (model_enums.tests.ChoicesTests)",
+    "test_integerchoices_empty_label (model_enums.tests.ChoicesTests)",
+    "test_integerchoices_functional_api (model_enums.tests.ChoicesTests)",
+    "test_invalid_definition (model_enums.tests.ChoicesTests)",
+    "test_str (model_enums.tests.ChoicesTests)",
+    "test_textchoices (model_enums.tests.ChoicesTests)",
+    "test_textchoices_auto_label (model_enums.tests.ChoicesTests)",
+    "test_textchoices_blank_value (model_enums.tests.ChoicesTests)",
+    "test_textchoices_containment (model_enums.tests.ChoicesTests)",
+    "test_textchoices_empty_label (model_enums.tests.ChoicesTests)",
+    "test_textchoices_functional_api (model_enums.tests.ChoicesTests)",
+    "test_bool_unsupported (model_enums.tests.CustomChoicesTests)",
+    "test_labels_valid (model_enums.tests.CustomChoicesTests)",
+    "test_timezone_unsupported (model_enums.tests.CustomChoicesTests)",
+    "test_uuid_unsupported (model_enums.tests.CustomChoicesTests)"
+  ],
+  "repo": "django/django",
+  "scenario_available": false
+}
