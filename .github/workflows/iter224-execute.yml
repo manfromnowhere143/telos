@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 350
     env:
-      TELOS_NAT_EXP: iter224_natural_rate_safety_aware
+      TELOS_NAT_EXP: iter224_natural_rate_scale_n
       TELOS_NAT_SHARD_COUNT: 8
       TELOS_NAT_SHARD_INDEX: ${{ matrix.shard }}
     steps:
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: iter224-execution-run-${{ github.run_id }}-attempt-${{ github.run_attempt }}-shard-${{ matrix.shard }}-of-8
-          path: experiments/iter224_natural_rate_safety_aware/proof/raw/execution/
+          path: experiments/iter224_natural_rate_scale_n/proof/raw/execution/
           if-no-files-found: error
           retention-days: 14
       - name: Upload partial shard evidence for debugging only
@@ -39,6 +39,6 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: iter224-execution-debug-${{ github.run_id }}-attempt-${{ github.run_attempt }}-shard-${{ matrix.shard }}-of-8
-          path: experiments/iter224_natural_rate_safety_aware/proof/raw/execution/
+          path: experiments/iter224_natural_rate_scale_n/proof/raw/execution/
           if-no-files-found: ignore
           retention-days: 14

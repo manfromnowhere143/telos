@@ -432,8 +432,8 @@ def scenario_state_errors(
     if summary.get("model") != FROZEN_MODEL:
         errors.append("scenario summary model is not the frozen iter202 model")
     if summary.get("checkpoint_schema") != {
-        "finished": "telos.iter202.provider_attempt.finished.v2",
-        "started": "telos.iter202.provider_attempt.started.v2",
+        "finished": "telos.iter224.provider_attempt.finished.v1",
+        "started": "telos.iter224.provider_attempt.started.v1",
     }:
         errors.append("scenario summary checkpoint schema is not frozen")
     manifest = summary.get("manifest")
