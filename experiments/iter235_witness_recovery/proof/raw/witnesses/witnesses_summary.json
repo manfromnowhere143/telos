@@ -1,0 +1,495 @@
+{
+  "generator_model": "gpt-5.6-terra",
+  "manifest": [
+    {
+      "attempts": 1,
+      "instance_id": "matplotlib__matplotlib-22865",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "35f17afb0d38dabc60fe10c70043b9440b6ba4ad3e25551a330646eb3456edf9",
+      "rejected_attempts": [],
+      "repo": "matplotlib/matplotlib",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "status": "witness",
+      "witness_sha256": "16300897ea30453a5690c48e6f43be5ea4e5767fc783615244ec982717c08ab2"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "matplotlib__matplotlib-23476",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "d7086bcd5c7bce261d0763b61c51cb7979c15848ae58ac83fb0277ae7d3ddd7f",
+      "rejected_attempts": [],
+      "repo": "matplotlib/matplotlib",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "status": "witness",
+      "witness_sha256": "c6c039c1ab4fa1e6e603790132802a0750562ac71735f4a82759e2fdfe88cf0f"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "pydata__xarray-4966",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "89dce75e9ac255c790958f97b3294652de37a76776d0f19a6fe2e034dba2eedc",
+      "rejected_attempts": [
+        "attempt 1: absolute or parent-traversal path literal is forbidden; call through unsafe import alias: tempfile; unsafe import alias: tempfile; unsafe import root: tempfile",
+        "attempt 2: no RESULT= marker"
+      ],
+      "repo": "pydata/xarray",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "status": "witness",
+      "witness_sha256": "09bd98690fb1e1d0076d0dfcbba58e03aab9a128871952b5081cabab32155a34"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "pytest-dev__pytest-7432",
+      "prior_state": "scenario_without_usable_result",
+      "rejected_attempts": [
+        "attempt 1: call through unsafe import alias: Path; call through unsafe import alias: os; call through unsafe import alias: tempfile; unsafe import alias: os; unsafe import",
+        "attempt 2: call through unsafe import alias: os; call through unsafe import alias: tempfile; unsafe dynamic/builtin call: open; unsafe import alias: os; unsafe import alia",
+        "attempt 3: call through unsafe import alias: Path; call through unsafe import alias: os; call through unsafe import alias: tempfile; unsafe import alias: os; unsafe import"
+      ],
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "status": "no_valid_witness"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "scikit-learn__scikit-learn-13142",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "22bf47378a3d580573ccb145e2c92ba7394e1ee0679007059d038e114d5b66c9",
+      "rejected_attempts": [],
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "status": "witness",
+      "witness_sha256": "76ad67f71ffaaa94402f5b77556e5494c056e3190b53f08aa01d5f5455949ef7"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "django__django-11880",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "8a418a1bfaf074f4bd49a601aaa10b3dfc7e8695639971ba115facfb440b07d0",
+      "rejected_attempts": [],
+      "repo": "django/django",
+      "run": "iter223_natural_rate_safety_aware",
+      "status": "witness",
+      "witness_sha256": "19ebc836427b947fccaa747e4bfe8b40e6653340a7b774091f16eaeea539af34"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "c7bcea1045ae5e394affb98bce717d5ae772f50268121cf89362616cbccdd2b2",
+      "rejected_attempts": [],
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter223_natural_rate_safety_aware",
+      "status": "witness",
+      "witness_sha256": "0ebbba41c513e00ad80a305a07f03d4d2ef8b4f9975dfe462155149c9b758e9c"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "6e71756931e0518cc23c16354ef882d87b6a2f3330a139cebcbeb5c9a2cc37e9",
+      "rejected_attempts": [],
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter223_natural_rate_safety_aware",
+      "status": "witness",
+      "witness_sha256": "50fdc7df24f6432cab595f062249a3dbda8c3c8093d6fa33f4bca10e94e63fbe"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-16766",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "eba76ba1348c1d4c56db3c874be193fe6ed1e4a893b5a6c44c8304664432b56b",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter223_natural_rate_safety_aware",
+      "status": "witness",
+      "witness_sha256": "3aa83e71c2cae8addf5b01a29a8e370eaa90d5082a0b0274779bccb8b1ea5ac4"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "sympy__sympy-19346",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "08ab1874e9a1a5c86dd64fc6dba55cad422f9ed02bb4df87e96285ce55026508",
+      "rejected_attempts": [
+        "attempt 1: global/nonlocal state mutation is forbidden; unsafe import root: gc",
+        "attempt 2: call through unsafe import alias: sys; unsafe import alias: sys; unsafe import root: sys"
+      ],
+      "repo": "sympy/sympy",
+      "run": "iter223_natural_rate_safety_aware",
+      "status": "witness",
+      "witness_sha256": "bd5e9e6b32796850f81af3255379fc43724b1f2eff7d2364042485dda174c988"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "django__django-12143",
+      "prior_state": "no_scenario",
+      "rejected_attempts": [
+        "attempt 1: absolute or parent-traversal path literal is forbidden",
+        "attempt 2: no RESULT= marker",
+        "attempt 3: no RESULT= marker"
+      ],
+      "run": "iter225_cross_model_generalization",
+      "status": "no_valid_witness"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "prior_state": "no_scenario",
+      "rejected_attempts": [
+        "attempt 1: call through unsafe import alias: pickle; unsafe import alias: pickle; unsafe import root: pickle",
+        "attempt 2: call through unsafe import alias: pickle; unsafe import alias: pickle; unsafe import root: pickle",
+        "attempt 3: call through unsafe import alias: pickle; unsafe import alias: pickle; unsafe import root: pickle"
+      ],
+      "run": "iter225_cross_model_generalization",
+      "status": "no_valid_witness"
+    },
+    {
+      "attempts": 2,
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "0fe55e1a3c113977d19c4216449283d6a8dbd1d076329857a7d6de28dd2620e0",
+      "rejected_attempts": [
+        "attempt 1: unsafe import alias: sys; unsafe import root: sys"
+      ],
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter225_cross_model_generalization",
+      "status": "witness",
+      "witness_sha256": "b4e8946bab4779003ef2140bb06c9b902e6d8ce5426091ba6ac9bc1b7455c063"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "d0aab7b717df60280b766f6839c7e3a68463ab113d05ddad65e928b934e82e47",
+      "rejected_attempts": [],
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter225_cross_model_generalization",
+      "status": "witness",
+      "witness_sha256": "baac158f8b094d31cd2e8901bc0f58529fefb33cd98533dea23f6bbad5415550"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "59b0f8b687ee7be3bcca51e7b78ddae965b6bcaa3374ea114645d5441ffbab06",
+      "rejected_attempts": [
+        "attempt 1: call through unsafe import alias: os; call through unsafe import alias: tempfile; unsafe dynamic/builtin call: open; unsafe import alias: os; unsafe import alia",
+        "attempt 2: call through unsafe import alias: Path; call through unsafe import alias: tempfile; unsafe import alias: tempfile; unsafe import root: io; unsafe import root: p"
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter225_cross_model_generalization",
+      "status": "witness",
+      "witness_sha256": "c1e4f388e7120f21679b88d372765ac85d1eacc9d5926b5f5179efcb99bbd4c8"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-14976",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "331816512bbf3776e2b429bfd7e2b703e2b175f8d332465b9f23b45a6d30abe1",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter225_cross_model_generalization",
+      "status": "witness",
+      "witness_sha256": "200518717a3f34b32c47abf69e0e8fa061f6b6ff19a62b670dbf90dd5dff1feb"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-15017",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "8cc17f61522b56fe3cd91c5e621194f33191720399027fe1b0586292373468f1",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter225_cross_model_generalization",
+      "status": "witness",
+      "witness_sha256": "9dce6481fb17e0b4c68de5950d024120ab933cbee82baba615a70c0fd090be6e"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "django__django-11815",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "7816afcd6ad25acc7b7876ad033b7aaf9f5eb1b01818caf9705ffc09032e026d",
+      "rejected_attempts": [],
+      "repo": "django/django",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "status": "witness",
+      "witness_sha256": "35ee9792a8c7258d05a3ba21525025b5a6fd2f0c1750c07535146ad7f886acde"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "django__django-12143",
+      "prior_state": "no_scenario",
+      "rejected_attempts": [
+        "attempt 1: no RESULT= marker",
+        "attempt 2: no RESULT= marker",
+        "attempt 3: no RESULT= marker"
+      ],
+      "run": "iter226_cross_model_generalization_gpt54",
+      "status": "no_valid_witness"
+    },
+    {
+      "attempts": 2,
+      "instance_id": "django__django-12273",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "5ab7c10d30c707557266edbd096e499e1eb091c2efe26723a16bcd898b63bc26",
+      "rejected_attempts": [
+        "attempt 1: unsafe dynamic/builtin call: getattr"
+      ],
+      "repo": "django/django",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "status": "witness",
+      "witness_sha256": "aa8b9765c582ca7f0d3278bfe187f63938613b1d9eeb3a59649586c9451b82f0"
+    },
+    {
+      "attempts": 2,
+      "instance_id": "matplotlib__matplotlib-26342",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "d8e6890a66c1bad34ee5faf7f1dfff9b73ab9d98e83ea660dbec1be675ecda39",
+      "rejected_attempts": [
+        "attempt 1: unsafe import root: inspect"
+      ],
+      "repo": "matplotlib/matplotlib",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "status": "witness",
+      "witness_sha256": "1274138dbe0ffb353cf556b884146170674b6741c5f3185c6f58e8a28fca0051"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "prior_state": "no_scenario",
+      "rejected_attempts": [
+        "attempt 1: call through unsafe import alias: Path; call through unsafe import alias: tempfile; unsafe import alias: tempfile; unsafe import root: io; unsafe import root: p",
+        "attempt 2: call through unsafe import alias: Path; call through unsafe import alias: tempfile; unsafe import alias: tempfile; unsafe import root: io; unsafe import root: p",
+        "attempt 3: call through unsafe import alias: Path; call through unsafe import alias: tempfile; unsafe import alias: tempfile; unsafe import root: io; unsafe import root: p"
+      ],
+      "run": "iter226_cross_model_generalization_gpt54",
+      "status": "no_valid_witness"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-15017",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "ffd821d43c279e481f47afd2a27267aee1d3cc19213b05f54244aaf89676421f",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "status": "witness",
+      "witness_sha256": "280fb9e8008dc742b8550aa9df9fa789c9b2f5c659111ecb65936d6522d244aa"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-15349",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "1910459934e59ef431d1aa0736326c1006343e6c7e29ffa0cc49517b54cc9a40",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "status": "witness",
+      "witness_sha256": "d42b971cc8b31fb1e548d894c63ffdba40b28b000f62137d65fd754b19aae777"
+    },
+    {
+      "attempts": 2,
+      "instance_id": "sympy__sympy-16886",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "ea4004c21644050ac52f04a84d3a30cadd1f2266dfbebfeb654586167f89edd6",
+      "rejected_attempts": [
+        "attempt 1: no RESULT= marker"
+      ],
+      "repo": "sympy/sympy",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "status": "witness",
+      "witness_sha256": "9f58f106f6913810e7ff98e43f12fc6054e6355a93b25904c7f1c875a42909c7"
+    },
+    {
+      "attempts": 2,
+      "instance_id": "django__django-11790",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "76cd47a7db662ea2f279bf3973586aa7a7b04b66e79d53ffa019496dcc1d6123",
+      "rejected_attempts": [
+        "attempt 1: unsafe import root: unittest"
+      ],
+      "repo": "django/django",
+      "run": "iter227_cross_provider_generalization",
+      "status": "witness",
+      "witness_sha256": "8402eccd9ab714a1f70bd970bfc0f4f940832a9c8ff1fd9df9980869deb75957"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "django__django-12143",
+      "prior_state": "no_scenario",
+      "rejected_attempts": [
+        "attempt 1: absolute or parent-traversal path literal is forbidden",
+        "attempt 2: absolute or parent-traversal path literal is forbidden",
+        "attempt 3: no RESULT= marker"
+      ],
+      "run": "iter227_cross_provider_generalization",
+      "status": "no_valid_witness"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "prior_state": "no_scenario",
+      "rejected_attempts": [
+        "attempt 1: call through unsafe import alias: pickle; unsafe import alias: pickle; unsafe import root: pickle",
+        "attempt 2: call through unsafe import alias: pickle; unsafe import alias: pickle; unsafe import root: pickle",
+        "attempt 3: call through unsafe import alias: pickle; unsafe import alias: pickle; unsafe import root: pickle"
+      ],
+      "run": "iter227_cross_provider_generalization",
+      "status": "no_valid_witness"
+    },
+    {
+      "attempts": 2,
+      "instance_id": "matplotlib__matplotlib-26342",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "a11356458515f2109b1c32864e819bb76bc483aaeba631ce963c813b84125e8f",
+      "rejected_attempts": [
+        "attempt 1: unsafe import root: inspect"
+      ],
+      "repo": "matplotlib/matplotlib",
+      "run": "iter227_cross_provider_generalization",
+      "status": "witness",
+      "witness_sha256": "93f12c64eef432023706a483c267f990943f89419e2f94553ec9fcd4275b8d38"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "c4a08af6eb13e86af45d7d08206e3df27786d07d0d2ba900d1c20bd68f6d92bf",
+      "rejected_attempts": [
+        "attempt 1: call through unsafe import alias: Path; call through unsafe import alias: shutil; call through unsafe import alias: tempfile; unsafe import alias: shutil; unsaf",
+        "attempt 2: call through unsafe import alias: Path; call through unsafe import alias: tempfile; unsafe import alias: tempfile; unsafe import root: io; unsafe import root: p"
+      ],
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter227_cross_provider_generalization",
+      "status": "witness",
+      "witness_sha256": "696d2f3d66a9a04068362c1c7b3447036a8f36da3a3a88d623d9c277d08c8a9c"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-15017",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "a3acd390bd8d9e5f800b1e2ff10bec55fdaca99f0cedc38d83d6ad338670f3c8",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter227_cross_provider_generalization",
+      "status": "witness",
+      "witness_sha256": "e6bbfa3d3f5fa5204b21d9f772caa1fa9384025379fd24574714fc66ac146e8b"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "django__django-11880",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "f070329124c4be71ca10e44c09ed267506a475a5df3ff1df16e6881c8a7aa02c",
+      "rejected_attempts": [],
+      "repo": "django/django",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "7ab4a5365dc63c68b2142b05b6fcb57e6283b4c222ac5083046e27d7ab8a1386"
+    },
+    {
+      "attempts": 3,
+      "instance_id": "django__django-12143",
+      "prior_state": "no_scenario",
+      "rejected_attempts": [
+        "attempt 1: absolute or parent-traversal path literal is forbidden",
+        "attempt 2: no RESULT= marker",
+        "attempt 3: no RESULT= marker"
+      ],
+      "run": "iter229_cross_provider_gemini",
+      "status": "no_valid_witness"
+    },
+    {
+      "attempts": 2,
+      "instance_id": "matplotlib__matplotlib-26342",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "e57084b99171783607a496ad55cbcad0be18011ba5f0ce2ca3250de78854a408",
+      "rejected_attempts": [
+        "attempt 1: unsafe import root: ast; unsafe import root: inspect"
+      ],
+      "repo": "matplotlib/matplotlib",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "dcb76b674c8fbbbed110b2a3f614705915287e65730bba73b06e216961b16403"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "eb881f3a73119a1f5714162cac32d3d9fa56767aac05f64a711593518555a576",
+      "rejected_attempts": [],
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "b452012d8f46db003a5c1ac198cfb9c344d93c4c08a19a09936e080e5ae78452"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "a9cd424e5ed2b2e5c0656b54df26f7a86bf34cabf1cb1d92515bdbdbbecd4813",
+      "rejected_attempts": [],
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "f45d90ddfa841ce38b5f498a2886ac59f9d6bd4e3005e84622eb52524885f3a7"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "d9861d8dc57c5cc3509981824af9b247a8f2a272bec11c78e41192d435346d9a",
+      "rejected_attempts": [],
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "da61452862fffff8f9f3f11a080dfb589012381148484dc04d16529983c05a1b"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "2195fdf372c8e6a523ab1711e8649a7d4c555eeac225a0ee88a08dc0295b6c08",
+      "rejected_attempts": [],
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "e983addda26d542651f60813ef2c69e622c8c0397a7378af35eb4cc8d3c270cf"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-15017",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "08f7e487c2bdab4d83a9cc9429726dcb54c873081139923beb8f8d9bad59992b",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "9a77d2de93434fa1933fd826ec0f36ac665ea5ab6582948069286376a5e14129"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-15349",
+      "prior_state": "no_scenario",
+      "provider_response_sha256": "82e72448ad6739659993e61c3aa8aca744ac599b7d16a615dcf3c876e701f188",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "18beeae7705121e19b70f4df0c7bd08bd98c256495abc664f67e53cd6b1d80d0"
+    },
+    {
+      "attempts": 1,
+      "instance_id": "sympy__sympy-16886",
+      "prior_state": "scenario_without_usable_result",
+      "provider_response_sha256": "c319fd113b05adbfb7e5d89f758f0a3964b8b32f7e805591512e5fc9075c76a6",
+      "rejected_attempts": [],
+      "repo": "sympy/sympy",
+      "run": "iter229_cross_provider_gemini",
+      "status": "witness",
+      "witness_sha256": "a25c37b3dea9bd35da23e29e8d235440941610c453785b8124c075eb2e84e0dc"
+    }
+  ],
+  "max_attempts": 3,
+  "no_valid_witness": 8,
+  "schema_version": "telos.iter235.witnesses_summary.v1",
+  "targets": 41,
+  "witnesses": 33
+}
