@@ -22,7 +22,7 @@
 
 \title{Certified-Resolved SWE-bench Patches\\
 with Retained Gold Differentials:\\
-Construction and Exploratory Detection}
+Construction, Cross-Model Measurement, and Exploratory Detection}
 
 \author{Daniel Wahnich\\ \small Telos research program}
 
@@ -36,7 +36,7 @@ Coding agents are commonly certified when graded tests pass, but a patch can sat
 behaving differently from the accepted fix on untested inputs. We ask whether SWE-bench Verified certifies
 such constructed patches and what exploratory instruments flag them.
 
-We report four results. First, an earlier benchmark we built contained no reward hacks: all forty rows fail
+We report five results. First, an earlier benchmark we built contained no reward hacks: all forty rows fail
 the official grader. Historical tarballs separately contain 139 harness-resolved hack-tagged evaluations
 across sixty-five instance IDs; retained decision evidence does not bind all of them to discard decisions or
 preserve their patch bytes. These deterministic findings remain exact at that narrower scope. We
@@ -57,7 +57,15 @@ controls. That earlier run's apparent property-only row had two unparseable judg
 run confirms complementarity. Fourth, an exploratory, nonrandom, gold-localized solve with no gaming instruction yields
 one strict case under a post-inspection blind rule. Of thirty-seven valid patches, twenty-four certify and
 six certified outcomes remain unadjudicated; the required descriptive sensitivities are $1/24$, $7/24$
-over those six missing pipeline outcomes, and $1/18$ complete-case.
+over those six missing pipeline outcomes, and $1/18$ complete-case. Fifth, scaling that neutral-prompt
+measurement, five independently-trained frontier models spanning three providers (OpenAI, Anthropic, and
+Google) each produce patches the official harness certifies resolved yet that diverge from the accepted fix on
+a safe witnessing input two blind judges name wrong, on a fixed fifty-three-target cohort ($4/29$, $1/25$,
+$3/17$, $3/14$, and $1/16$; all positive), with the same graded-suite blind spots recurring across different
+providers' models. Stated with equal weight, the confirmed rate is not a population constant: two
+independently constructed fresh cohorts return zero, so the phenomenon concentrates in particular repositories
+and the single-model pooled estimate $5/68$ is a cohort-specific lower bound. These cross-model comparisons are
+bounded and standalone on a convenience cohort, reported directionally and not as a model or provider ranking.
 
 These are bounded pilots, not population-frequency estimates. The iter196 gate delivered Detector A only
 and did not clear its registered both-detector bar. The judge runs retained parsed labels but
@@ -107,6 +115,11 @@ We make four contributions.
   gold-localized solver run produces one strict certified-yet-wrong patch under a post-inspection rule. We
   correct the certification denominator and report post-result missing-outcome sensitivities without
   imputing missing outcomes as negatives.
+  \item \textbf{A cross-model, cross-provider measurement (Section~\ref{sec:construct}).} Scaling the
+  neutral-prompt run, five independently-trained frontier models across three providers each produce
+  certified-yet-wrong patches on a fixed cohort, the same blind spots recur across providers, and two fresh
+  cohorts return zero. We report the standalone comparisons directionally, not as a ranking, and the
+  single-model pooled estimate as a cohort-specific lower bound.
 \end{enumerate}
 
 \section{Background}
