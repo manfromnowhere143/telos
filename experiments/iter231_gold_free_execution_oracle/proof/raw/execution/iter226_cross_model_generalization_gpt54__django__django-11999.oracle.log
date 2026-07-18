@@ -1,0 +1,17 @@
+IMAGE_ID=sha256:5e80a14f8eb04d5ae52e42a19a133f30477da3b60fbd76ca745487dbc6a300f1
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.django_1776_django-11999@sha256:bd195694e41d3190e701c670b97a84ce43d6b81aa97f9913d075e69ef21e17db
+APPLY_OK candidate
+>>>>> Exercise Start
+Traceback (most recent call last):
+  File "/telos/exercise.py", line 35, in <module>
+    InheritedOverride(value="a").get_value_display(),
+TypeError: not all arguments converted during string formatting
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/telos/exercise.py", line 38, in <module>
+    print("RESULT=%r" % ("ERROR", type(exc).__name__))
+TypeError: not all arguments converted during string formatting
+EXERCISE_EXIT=1
+>>>>> Exercise End

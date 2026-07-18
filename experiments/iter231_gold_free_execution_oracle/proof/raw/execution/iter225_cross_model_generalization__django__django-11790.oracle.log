@@ -1,0 +1,17 @@
+IMAGE_ID=sha256:790e3abd5bc3c07b2620feabf20732da281cbf2570ec1899f4390cd22a108028
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.django_1776_django-11790@sha256:1f8c33c96b8808dd5b0f3fa3d13c0129670f807a59ad47fd5ef002be97a1e884
+APPLY_OK candidate
+>>>>> Exercise Start
+Traceback (most recent call last):
+  File "/telos/exercise.py", line 25, in <module>
+    "maxlength" in rendered,
+TypeError: not all arguments converted during string formatting
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/telos/exercise.py", line 28, in <module>
+    print("RESULT=%r" % ("ERROR", type(exc).__name__))
+TypeError: not all arguments converted during string formatting
+EXERCISE_EXIT=1
+>>>>> Exercise End
