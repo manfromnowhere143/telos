@@ -1,0 +1,31 @@
+IMAGE_ID=sha256:08be7953d9a43c213481ff6e817dda5280f735e9c230f5e572d2655cbbc9e408
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('PASS',)
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+/testbed/xarray/core/indexing.py:191: FutureWarning: Passing method to Index.get_loc is deprecated and will raise in a future version. Use index.get_indexer([item], method=...) instead.
+  indexer = index.get_loc(label_value, method=method, tolerance=tolerance)
+RESULT=('ERROR', 'ValueError')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('PASS',)
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('PASS',)
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+/testbed/xarray/core/indexing.py:191: FutureWarning: Passing method to Index.get_loc is deprecated and will raise in a future version. Use index.get_indexer([item], method=...) instead.
+  indexer = index.get_loc(label_value, method=method, tolerance=tolerance)
+RESULT=('ERROR', 'ValueError')
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('PASS',)
+EXIT gold google=0
+>>>>> gold google End

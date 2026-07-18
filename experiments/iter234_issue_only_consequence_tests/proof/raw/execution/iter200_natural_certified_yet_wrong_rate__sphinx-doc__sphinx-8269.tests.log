@@ -1,0 +1,19 @@
+IMAGE_ID=sha256:456929e886ab4dd8ffaeb9087eb630e2f0c8e24956372bee5ccd13fdeeb4f91c
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('ERROR', 'AttributeError')
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('ERROR', 'AttributeError')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('ERROR', 'AttributeError')
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('ERROR', 'AttributeError')
+EXIT gold anthropic=0
+>>>>> gold anthropic End

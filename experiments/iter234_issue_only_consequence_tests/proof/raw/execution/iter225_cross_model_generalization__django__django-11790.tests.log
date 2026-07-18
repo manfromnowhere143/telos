@@ -1,0 +1,27 @@
+IMAGE_ID=sha256:790e3abd5bc3c07b2620feabf20732da281cbf2570ec1899f4390cd22a108028
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('PASS',)
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('FAIL', 'maxlength=150')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('PASS',)
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('PASS',)
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('FAIL', 'maxlength=150')
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('PASS',)
+EXIT gold google=0
+>>>>> gold google End

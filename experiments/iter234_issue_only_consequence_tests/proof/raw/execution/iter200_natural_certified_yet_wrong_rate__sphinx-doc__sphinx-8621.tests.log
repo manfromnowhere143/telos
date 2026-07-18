@@ -1,0 +1,39 @@
+IMAGE_ID=sha256:28ca44864f52b059e9dc5dadabe1b6a27c444e8a45c09bf716730cdc12f88ba3
+APPLY_OK candidate
+>>>>> candidate openai Start
+Traceback (most recent call last):
+  File "/telos/test_openai.py", line 2, in <module>
+    from sphinx.roles import KbdRole
+ImportError: cannot import name 'KbdRole' from 'sphinx.roles' (/testbed/sphinx/roles.py)
+EXIT candidate openai=1
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+<string>:1: (ERROR/3) Unknown interpreted text role "kbd".
+<string>:1: (ERROR/3) Unknown interpreted text role "kbd".
+<string>:1: (ERROR/3) Unknown interpreted text role "kbd".
+RESULT=('FAIL', "single '-' produced 0 kbd elements")
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('FAIL', 'Incomplete generation block')
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+Traceback (most recent call last):
+  File "/telos/test_openai.py", line 2, in <module>
+    from sphinx.roles import KbdRole
+ImportError: cannot import name 'KbdRole' from 'sphinx.roles' (/testbed/sphinx/roles.py)
+EXIT gold openai=1
+>>>>> gold openai End
+>>>>> gold anthropic Start
+<string>:1: (ERROR/3) Unknown interpreted text role "kbd".
+<string>:1: (ERROR/3) Unknown interpreted text role "kbd".
+<string>:1: (ERROR/3) Unknown interpreted text role "kbd".
+RESULT=('FAIL', "single '-' produced 0 kbd elements")
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('FAIL', 'Incomplete generation block')
+EXIT gold google=0
+>>>>> gold google End

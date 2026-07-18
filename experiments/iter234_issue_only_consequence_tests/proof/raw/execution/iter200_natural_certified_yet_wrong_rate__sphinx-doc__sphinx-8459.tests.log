@@ -1,0 +1,17 @@
+IMAGE_ID=sha256:f953c4221c2822b3f3f9a8954d5f32c9d3a7ef13c125dbb34e9a723b0b03d61e
+APPLY_OK candidate
+>>>>> candidate openai Start
+Traceback (most recent call last):
+  File "/telos/test_openai.py", line 3, in <module>
+    from sphinx.ext.autodoc.typehints import process_docstring
+ImportError: cannot import name 'process_docstring' from 'sphinx.ext.autodoc.typehints' (/testbed/sphinx/ext/autodoc/typehints.py)
+EXIT candidate openai=1
+>>>>> candidate openai End
+APPLY_OK gold
+>>>>> gold openai Start
+Traceback (most recent call last):
+  File "/telos/test_openai.py", line 3, in <module>
+    from sphinx.ext.autodoc.typehints import process_docstring
+ImportError: cannot import name 'process_docstring' from 'sphinx.ext.autodoc.typehints' (/testbed/sphinx/ext/autodoc/typehints.py)
+EXIT gold openai=1
+>>>>> gold openai End

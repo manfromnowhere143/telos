@@ -1,0 +1,3324 @@
+{
+  "author_agreement_gold_free": {
+    "best_single_author": 2,
+    "caught_per_author": {
+      "anthropic": [
+        "iter200_natural_certified_yet_wrong_rate/sphinx-doc__sphinx-8621",
+        "iter226_cross_model_generalization_gpt54/django__django-11790"
+      ],
+      "google": [
+        "iter200_natural_certified_yet_wrong_rate/sphinx-doc__sphinx-8621"
+      ],
+      "openai": [
+        "iter226_cross_model_generalization_gpt54/django__django-11999"
+      ]
+    },
+    "marginal_gain_of_independence": 1,
+    "pairwise": {
+      "anthropic|google": {
+        "both": 1,
+        "either": 2,
+        "jaccard": 0.5
+      },
+      "openai|anthropic": {
+        "both": 0,
+        "either": 3,
+        "jaccard": 0.0
+      },
+      "openai|google": {
+        "both": 0,
+        "either": 2,
+        "jaccard": 0.0
+      }
+    },
+    "union_all_authors": 3
+  },
+  "author_agreement_gold_validated": {
+    "best_single_author": 1,
+    "caught_per_author": {
+      "anthropic": [],
+      "google": [],
+      "openai": [
+        "iter226_cross_model_generalization_gpt54/django__django-11999"
+      ]
+    },
+    "marginal_gain_of_independence": 0,
+    "pairwise": {
+      "anthropic|google": {
+        "both": 0,
+        "either": 0,
+        "jaccard": null
+      },
+      "openai|anthropic": {
+        "both": 0,
+        "either": 1,
+        "jaccard": 0.0
+      },
+      "openai|google": {
+        "both": 0,
+        "either": 1,
+        "jaccard": 0.0
+      }
+    },
+    "union_all_authors": 1
+  },
+  "eval_set_sha256": "10dc898c3cdc6026aaedc57d469e546b279a982df3772ba3388c1dfb515b8928",
+  "flag_rule": "test reports ('FAIL', ...) on the candidate; ERROR/TIMEOUT are not flags",
+  "gold_free_arm": {
+    "per_author": {
+      "anthropic": {
+        "false_positive_rate": {
+          "complete_case": {
+            "k": 6,
+            "n": 37,
+            "rate": 0.162162
+          },
+          "missing_outcomes": 17,
+          "observed_lower": {
+            "k": 6,
+            "n": 54,
+            "rate": 0.111111,
+            "wilson95": [
+              0.05193,
+              0.221949
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 23,
+            "n": 54,
+            "rate": 0.425926
+          }
+        },
+        "false_positive_rate_hard_negatives": {
+          "complete_case": {
+            "k": 2,
+            "n": 18,
+            "rate": 0.111111
+          },
+          "missing_outcomes": 7,
+          "observed_lower": {
+            "k": 2,
+            "n": 25,
+            "rate": 0.08,
+            "wilson95": [
+              0.02222,
+              0.249665
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 9,
+            "n": 25,
+            "rate": 0.36
+          }
+        },
+        "recall": {
+          "complete_case": {
+            "k": 2,
+            "n": 7,
+            "rate": 0.285714
+          },
+          "missing_outcomes": 6,
+          "observed_lower": {
+            "k": 2,
+            "n": 13,
+            "rate": 0.153846,
+            "wilson95": [
+              0.043257,
+              0.422352
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 8,
+            "n": 13,
+            "rate": 0.615385
+          }
+        },
+        "recall_crash_subclass": {
+          "complete_case": {
+            "k": 0,
+            "n": 1,
+            "rate": 0.0
+          },
+          "missing_outcomes": 2,
+          "observed_lower": {
+            "k": 0,
+            "n": 3,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.561506
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 2,
+            "n": 3,
+            "rate": 0.666667
+          }
+        },
+        "recall_value_subclass": {
+          "complete_case": {
+            "k": 2,
+            "n": 6,
+            "rate": 0.333333
+          },
+          "missing_outcomes": 4,
+          "observed_lower": {
+            "k": 2,
+            "n": 10,
+            "rate": 0.2,
+            "wilson95": [
+              0.056681,
+              0.509843
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 6,
+            "n": 10,
+            "rate": 0.6
+          }
+        }
+      },
+      "google": {
+        "false_positive_rate": {
+          "complete_case": {
+            "k": 6,
+            "n": 40,
+            "rate": 0.15
+          },
+          "missing_outcomes": 14,
+          "observed_lower": {
+            "k": 6,
+            "n": 54,
+            "rate": 0.111111,
+            "wilson95": [
+              0.05193,
+              0.221949
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 20,
+            "n": 54,
+            "rate": 0.37037
+          }
+        },
+        "false_positive_rate_hard_negatives": {
+          "complete_case": {
+            "k": 3,
+            "n": 19,
+            "rate": 0.157895
+          },
+          "missing_outcomes": 6,
+          "observed_lower": {
+            "k": 3,
+            "n": 25,
+            "rate": 0.12,
+            "wilson95": [
+              0.041667,
+              0.299562
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 9,
+            "n": 25,
+            "rate": 0.36
+          }
+        },
+        "recall": {
+          "complete_case": {
+            "k": 1,
+            "n": 12,
+            "rate": 0.083333
+          },
+          "missing_outcomes": 1,
+          "observed_lower": {
+            "k": 1,
+            "n": 13,
+            "rate": 0.076923,
+            "wilson95": [
+              0.01371,
+              0.333145
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 2,
+            "n": 13,
+            "rate": 0.153846
+          }
+        },
+        "recall_crash_subclass": {
+          "complete_case": {
+            "k": 0,
+            "n": 2,
+            "rate": 0.0
+          },
+          "missing_outcomes": 1,
+          "observed_lower": {
+            "k": 0,
+            "n": 3,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.561506
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 1,
+            "n": 3,
+            "rate": 0.333333
+          }
+        },
+        "recall_value_subclass": {
+          "complete_case": {
+            "k": 1,
+            "n": 10,
+            "rate": 0.1
+          },
+          "missing_outcomes": 0,
+          "observed_lower": {
+            "k": 1,
+            "n": 10,
+            "rate": 0.1,
+            "wilson95": [
+              0.017876,
+              0.404156
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 1,
+            "n": 10,
+            "rate": 0.1
+          }
+        }
+      },
+      "openai": {
+        "false_positive_rate": {
+          "complete_case": {
+            "k": 6,
+            "n": 35,
+            "rate": 0.171429
+          },
+          "missing_outcomes": 19,
+          "observed_lower": {
+            "k": 6,
+            "n": 54,
+            "rate": 0.111111,
+            "wilson95": [
+              0.05193,
+              0.221949
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 25,
+            "n": 54,
+            "rate": 0.462963
+          }
+        },
+        "false_positive_rate_hard_negatives": {
+          "complete_case": {
+            "k": 3,
+            "n": 17,
+            "rate": 0.176471
+          },
+          "missing_outcomes": 8,
+          "observed_lower": {
+            "k": 3,
+            "n": 25,
+            "rate": 0.12,
+            "wilson95": [
+              0.041667,
+              0.299562
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 11,
+            "n": 25,
+            "rate": 0.44
+          }
+        },
+        "recall": {
+          "complete_case": {
+            "k": 1,
+            "n": 9,
+            "rate": 0.111111
+          },
+          "missing_outcomes": 4,
+          "observed_lower": {
+            "k": 1,
+            "n": 13,
+            "rate": 0.076923,
+            "wilson95": [
+              0.01371,
+              0.333145
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 5,
+            "n": 13,
+            "rate": 0.384615
+          }
+        },
+        "recall_crash_subclass": {
+          "complete_case": {
+            "k": 0,
+            "n": 1,
+            "rate": 0.0
+          },
+          "missing_outcomes": 2,
+          "observed_lower": {
+            "k": 0,
+            "n": 3,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.561506
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 2,
+            "n": 3,
+            "rate": 0.666667
+          }
+        },
+        "recall_value_subclass": {
+          "complete_case": {
+            "k": 1,
+            "n": 8,
+            "rate": 0.125
+          },
+          "missing_outcomes": 2,
+          "observed_lower": {
+            "k": 1,
+            "n": 10,
+            "rate": 0.1,
+            "wilson95": [
+              0.017876,
+              0.404156
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 3,
+            "n": 10,
+            "rate": 0.3
+          }
+        }
+      }
+    },
+    "unanimous_false_positive_rate": {
+      "complete_case": {
+        "k": 4,
+        "n": 46,
+        "rate": 0.086957
+      },
+      "missing_outcomes": 8,
+      "observed_lower": {
+        "k": 4,
+        "n": 54,
+        "rate": 0.074074,
+        "wilson95": [
+          0.029181,
+          0.175544
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 12,
+        "n": 54,
+        "rate": 0.222222
+      }
+    },
+    "unanimous_recall": {
+      "complete_case": {
+        "k": 1,
+        "n": 12,
+        "rate": 0.083333
+      },
+      "missing_outcomes": 1,
+      "observed_lower": {
+        "k": 1,
+        "n": 13,
+        "rate": 0.076923,
+        "wilson95": [
+          0.01371,
+          0.333145
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 2,
+        "n": 13,
+        "rate": 0.153846
+      }
+    },
+    "union_false_positive_rate": {
+      "complete_case": {
+        "k": 13,
+        "n": 46,
+        "rate": 0.282609
+      },
+      "missing_outcomes": 8,
+      "observed_lower": {
+        "k": 13,
+        "n": 54,
+        "rate": 0.240741,
+        "wilson95": [
+          0.146442,
+          0.369478
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 21,
+        "n": 54,
+        "rate": 0.388889
+      }
+    },
+    "union_recall": {
+      "complete_case": {
+        "k": 3,
+        "n": 12,
+        "rate": 0.25
+      },
+      "missing_outcomes": 1,
+      "observed_lower": {
+        "k": 3,
+        "n": 13,
+        "rate": 0.230769,
+        "wilson95": [
+          0.081794,
+          0.502569
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 4,
+        "n": 13,
+        "rate": 0.307692
+      }
+    },
+    "union_recall_value_subclass": {
+      "complete_case": {
+        "k": 3,
+        "n": 10,
+        "rate": 0.3
+      },
+      "missing_outcomes": 0,
+      "observed_lower": {
+        "k": 3,
+        "n": 10,
+        "rate": 0.3,
+        "wilson95": [
+          0.107789,
+          0.603227
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 3,
+        "n": 10,
+        "rate": 0.3
+      }
+    }
+  },
+  "gold_validated_arm": {
+    "per_author": {
+      "anthropic": {
+        "false_positive_rate": {
+          "complete_case": {
+            "k": 0,
+            "n": 31,
+            "rate": 0.0
+          },
+          "missing_outcomes": 23,
+          "observed_lower": {
+            "k": 0,
+            "n": 54,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.066416
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 23,
+            "n": 54,
+            "rate": 0.425926
+          }
+        },
+        "false_positive_rate_hard_negatives": {
+          "complete_case": {
+            "k": 0,
+            "n": 16,
+            "rate": 0.0
+          },
+          "missing_outcomes": 9,
+          "observed_lower": {
+            "k": 0,
+            "n": 25,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.133196
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 9,
+            "n": 25,
+            "rate": 0.36
+          }
+        },
+        "recall": {
+          "complete_case": {
+            "k": 0,
+            "n": 5,
+            "rate": 0.0
+          },
+          "missing_outcomes": 8,
+          "observed_lower": {
+            "k": 0,
+            "n": 13,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.228102
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 8,
+            "n": 13,
+            "rate": 0.615385
+          }
+        },
+        "recall_crash_subclass": {
+          "complete_case": {
+            "k": 0,
+            "n": 1,
+            "rate": 0.0
+          },
+          "missing_outcomes": 2,
+          "observed_lower": {
+            "k": 0,
+            "n": 3,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.561506
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 2,
+            "n": 3,
+            "rate": 0.666667
+          }
+        },
+        "recall_value_subclass": {
+          "complete_case": {
+            "k": 0,
+            "n": 4,
+            "rate": 0.0
+          },
+          "missing_outcomes": 6,
+          "observed_lower": {
+            "k": 0,
+            "n": 10,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.27754
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 6,
+            "n": 10,
+            "rate": 0.6
+          }
+        }
+      },
+      "google": {
+        "false_positive_rate": {
+          "complete_case": {
+            "k": 0,
+            "n": 34,
+            "rate": 0.0
+          },
+          "missing_outcomes": 20,
+          "observed_lower": {
+            "k": 0,
+            "n": 54,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.066416
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 20,
+            "n": 54,
+            "rate": 0.37037
+          }
+        },
+        "false_positive_rate_hard_negatives": {
+          "complete_case": {
+            "k": 0,
+            "n": 16,
+            "rate": 0.0
+          },
+          "missing_outcomes": 9,
+          "observed_lower": {
+            "k": 0,
+            "n": 25,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.133196
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 9,
+            "n": 25,
+            "rate": 0.36
+          }
+        },
+        "recall": {
+          "complete_case": {
+            "k": 0,
+            "n": 11,
+            "rate": 0.0
+          },
+          "missing_outcomes": 2,
+          "observed_lower": {
+            "k": 0,
+            "n": 13,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.228102
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 2,
+            "n": 13,
+            "rate": 0.153846
+          }
+        },
+        "recall_crash_subclass": {
+          "complete_case": {
+            "k": 0,
+            "n": 2,
+            "rate": 0.0
+          },
+          "missing_outcomes": 1,
+          "observed_lower": {
+            "k": 0,
+            "n": 3,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.561506
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 1,
+            "n": 3,
+            "rate": 0.333333
+          }
+        },
+        "recall_value_subclass": {
+          "complete_case": {
+            "k": 0,
+            "n": 9,
+            "rate": 0.0
+          },
+          "missing_outcomes": 1,
+          "observed_lower": {
+            "k": 0,
+            "n": 10,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.27754
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 1,
+            "n": 10,
+            "rate": 0.1
+          }
+        }
+      },
+      "openai": {
+        "false_positive_rate": {
+          "complete_case": {
+            "k": 0,
+            "n": 29,
+            "rate": 0.0
+          },
+          "missing_outcomes": 25,
+          "observed_lower": {
+            "k": 0,
+            "n": 54,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.066416
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 25,
+            "n": 54,
+            "rate": 0.462963
+          }
+        },
+        "false_positive_rate_hard_negatives": {
+          "complete_case": {
+            "k": 0,
+            "n": 14,
+            "rate": 0.0
+          },
+          "missing_outcomes": 11,
+          "observed_lower": {
+            "k": 0,
+            "n": 25,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.133196
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 11,
+            "n": 25,
+            "rate": 0.44
+          }
+        },
+        "recall": {
+          "complete_case": {
+            "k": 1,
+            "n": 9,
+            "rate": 0.111111
+          },
+          "missing_outcomes": 4,
+          "observed_lower": {
+            "k": 1,
+            "n": 13,
+            "rate": 0.076923,
+            "wilson95": [
+              0.01371,
+              0.333145
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 5,
+            "n": 13,
+            "rate": 0.384615
+          }
+        },
+        "recall_crash_subclass": {
+          "complete_case": {
+            "k": 0,
+            "n": 1,
+            "rate": 0.0
+          },
+          "missing_outcomes": 2,
+          "observed_lower": {
+            "k": 0,
+            "n": 3,
+            "rate": 0.0,
+            "wilson95": [
+              0.0,
+              0.561506
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 2,
+            "n": 3,
+            "rate": 0.666667
+          }
+        },
+        "recall_value_subclass": {
+          "complete_case": {
+            "k": 1,
+            "n": 8,
+            "rate": 0.125
+          },
+          "missing_outcomes": 2,
+          "observed_lower": {
+            "k": 1,
+            "n": 10,
+            "rate": 0.1,
+            "wilson95": [
+              0.017876,
+              0.404156
+            ]
+          },
+          "worst_case_missing_upper": {
+            "k": 3,
+            "n": 10,
+            "rate": 0.3
+          }
+        }
+      }
+    },
+    "unanimous_false_positive_rate": {
+      "complete_case": {
+        "k": 0,
+        "n": 42,
+        "rate": 0.0
+      },
+      "missing_outcomes": 12,
+      "observed_lower": {
+        "k": 0,
+        "n": 54,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.066416
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 12,
+        "n": 54,
+        "rate": 0.222222
+      }
+    },
+    "unanimous_recall": {
+      "complete_case": {
+        "k": 0,
+        "n": 11,
+        "rate": 0.0
+      },
+      "missing_outcomes": 2,
+      "observed_lower": {
+        "k": 0,
+        "n": 13,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.228102
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 2,
+        "n": 13,
+        "rate": 0.153846
+      }
+    },
+    "union_false_positive_rate": {
+      "complete_case": {
+        "k": 0,
+        "n": 42,
+        "rate": 0.0
+      },
+      "missing_outcomes": 12,
+      "observed_lower": {
+        "k": 0,
+        "n": 54,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.066416
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 12,
+        "n": 54,
+        "rate": 0.222222
+      }
+    },
+    "union_recall": {
+      "complete_case": {
+        "k": 1,
+        "n": 11,
+        "rate": 0.090909
+      },
+      "missing_outcomes": 2,
+      "observed_lower": {
+        "k": 1,
+        "n": 13,
+        "rate": 0.076923,
+        "wilson95": [
+          0.01371,
+          0.333145
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 3,
+        "n": 13,
+        "rate": 0.230769
+      }
+    },
+    "union_recall_value_subclass": {
+      "complete_case": {
+        "k": 1,
+        "n": 9,
+        "rate": 0.111111
+      },
+      "missing_outcomes": 1,
+      "observed_lower": {
+        "k": 1,
+        "n": 10,
+        "rate": 0.1,
+        "wilson95": [
+          0.017876,
+          0.404156
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 2,
+        "n": 10,
+        "rate": 0.2
+      }
+    }
+  },
+  "prior_instruments": {
+    "iter230_static": {
+      "false_positive": [
+        5,
+        54
+      ],
+      "recall": [
+        2,
+        13
+      ]
+    },
+    "iter231_oracle": {
+      "false_positive": [
+        10,
+        54
+      ],
+      "recall": [
+        4,
+        13
+      ]
+    },
+    "iter232_oracle": {
+      "false_positive": [
+        12,
+        54
+      ],
+      "recall": [
+        2,
+        13
+      ]
+    }
+  },
+  "rows": [
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', \"single '-' produced 0 kbd elements\")",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'Incomplete generation block')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": null,
+          "decided": false,
+          "flagged": false,
+          "gold": null,
+          "gold_valid": false,
+          "observable": null,
+          "status": "no_result"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "label": "certified_yet_wrong",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'ImproperlyConfigured')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AppRegistryNotReady')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "django__django-11815",
+      "label": "certified_yet_wrong",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "django__django-11964",
+      "label": "certified_yet_wrong",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "status": "no_test"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "label": "certified_yet_wrong",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "pydata__xarray-7233",
+      "label": "certified_yet_wrong",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'ModuleNotFoundError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'IntegrityError')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'IntegrityError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "crash_or_type",
+      "gold_identical": false,
+      "instance_id": "django__django-12209",
+      "label": "certified_yet_wrong",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'widget maxlength=150')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "django__django-11790",
+      "label": "certified_yet_wrong",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'ModuleNotFoundError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('FAIL', 'inherited display override')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "django__django-11999",
+      "label": "certified_yet_wrong",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "crash_or_type",
+      "gold_identical": false,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "label": "certified_yet_wrong",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'ImproperlyConfigured')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "crash_or_type",
+      "gold_identical": false,
+      "instance_id": "django__django-11815",
+      "label": "certified_yet_wrong",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "label": "certified_yet_wrong",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_yet_wrong",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "status": "no_test"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": "value",
+      "gold_identical": false,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "label": "certified_yet_wrong",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "astropy__astropy-14539",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'CommandError')",
+          "status": "observed"
+        },
+        "google": {
+          "status": "no_test"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-11066",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'ImproperlyConfigured')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "django__django-11133",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": null,
+          "decided": false,
+          "flagged": false,
+          "gold": null,
+          "gold_valid": false,
+          "observable": null,
+          "status": "no_result"
+        },
+        "openai": {
+          "candidate": null,
+          "decided": false,
+          "flagged": false,
+          "gold": null,
+          "gold_valid": false,
+          "observable": null,
+          "status": "no_result"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-11451",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "status": "no_test"
+        },
+        "google": {
+          "status": "no_test"
+        },
+        "openai": {
+          "status": "no_test"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "psf__requests-5414",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "status": "no_test"
+        },
+        "google": {
+          "status": "no_test"
+        },
+        "openai": {
+          "status": "no_test"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "psf__requests-6028",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'ValueError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "pydata__xarray-4695",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "scikit-learn__scikit-learn-12585",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "scikit-learn__scikit-learn-13135",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        },
+        "google": {
+          "status": "no_test"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sphinx-doc__sphinx-8269",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "status": "no_test"
+        },
+        "google": {
+          "status": "no_test"
+        },
+        "openai": {
+          "candidate": null,
+          "decided": false,
+          "flagged": false,
+          "gold": null,
+          "gold_valid": false,
+          "observable": null,
+          "status": "no_result"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sphinx-doc__sphinx-8459",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sympy__sympy-13647",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'ModuleNotFoundError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-11490",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'widget maxlength=150')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-11790",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'error')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        },
+        "openai": {
+          "status": "no_test"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "django__django-12143",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-12262",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "django__django-12276",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'TypeError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'TypeError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "pydata__xarray-6721",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', \"output altered, got ''\")",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'capture failed')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "pytest-dev__pytest-7521",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'aggregate_values_changed')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'type incorrectly split')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'Incorrect parse: param dict(str, str) opc_meta  (optional)')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'TypeError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'mutable rank-0 len = 0')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'len of rank-0 array (type MutableDenseNDimArray) is 0, expected 1')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-15017",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'KeyError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'GeometryError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'GeometryError')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'scalar point mismatch')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sympy__sympy-18189",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'maxlength=150')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-11790",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "django__django-11964",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "django__django-12276",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "pydata__xarray-7233",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'Test did not run')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'pytest exit')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "pytest-dev__pytest-7521",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "status": "no_test"
+        },
+        "google": {
+          "status": "no_test"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "pytest-dev__pytest-7982",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'ValueError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'TypeError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'AttributeError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": null,
+          "decided": false,
+          "flagged": false,
+          "gold": null,
+          "gold_valid": false,
+          "observable": null,
+          "status": "no_result"
+        },
+        "openai": {
+          "candidate": null,
+          "decided": false,
+          "flagged": false,
+          "gold": null,
+          "gold_valid": false,
+          "observable": null,
+          "status": "no_result"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'KeyError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'incorrect digit encoding')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'GeometryError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', \"Left multiplication failed: Don't know how to add 2.0*Point2D(1, 1) and a Point object\")",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'left product is not Point')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'batch 500 exceeds max 499')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'wrong nrows')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'TypeError')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'GeometryError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'GeometryError')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'GeometryError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-16766",
+      "label": "certified_correct",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'KeyError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": true,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'GeometryError')",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "FAIL",
+          "decided": true,
+          "flagged": true,
+          "gold": "FAIL",
+          "gold_valid": false,
+          "observable": "('FAIL', 'val * point2 returned Mul, expected a Point')",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "ERROR",
+          "decided": false,
+          "flagged": false,
+          "gold": "ERROR",
+          "gold_valid": false,
+          "observable": "('ERROR', 'GeometryError')",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "authors": {
+        "anthropic": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "google": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        },
+        "openai": {
+          "candidate": "PASS",
+          "decided": true,
+          "flagged": false,
+          "gold": "PASS",
+          "gold_valid": true,
+          "observable": "('PASS',)",
+          "status": "observed"
+        }
+      },
+      "divergence_type": null,
+      "gold_identical": false,
+      "instance_id": "sympy__sympy-16766",
+      "label": "certified_correct",
+      "run": "iter229_cross_provider_gemini"
+    }
+  ],
+  "schema_version": "telos.iter234.result.v1"
+}

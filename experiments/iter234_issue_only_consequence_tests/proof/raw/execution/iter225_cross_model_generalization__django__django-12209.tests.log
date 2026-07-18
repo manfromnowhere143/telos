@@ -1,0 +1,27 @@
+IMAGE_ID=sha256:df4ce296fb54cc020d7c92fa38c0df7c7d2162c282c993d13b10b5c308603689
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('ERROR', 'IntegrityError')
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('ERROR', 'ModuleNotFoundError')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('ERROR', 'IntegrityError')
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('ERROR', 'IntegrityError')
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('ERROR', 'ModuleNotFoundError')
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('ERROR', 'IntegrityError')
+EXIT gold google=0
+>>>>> gold google End
