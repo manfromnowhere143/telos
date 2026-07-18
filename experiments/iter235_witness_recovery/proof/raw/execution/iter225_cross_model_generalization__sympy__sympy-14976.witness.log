@@ -1,0 +1,13 @@
+IMAGE_ID=sha256:e43b3f14cb27d3fc125b208cf33cd4558b93bc30f904dcad91ce672f5b3164b5
+APPLY_OK candidate
+>>>>> candidate Start
+/testbed/sympy/solvers/diophantine.py:3188: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+RESULT='mpmath.mpf(232)/mpmath.mpf(3)'
+EXIT candidate=0
+>>>>> candidate End
+APPLY_OK gold
+>>>>> gold Start
+RESULT='mpmath.mpf(232)/mpmath.mpf(3)'
+EXIT gold=0
+>>>>> gold End
