@@ -54,7 +54,15 @@ ITER231_RESULT = ROOT / (
 
 
 def preflight_verdict(text: str) -> tuple[str, str | None]:
-    """('ok'|'error'|'missing', detail) from the container's own stage B verdict."""
+    """('ok'|'error'|'missing', detail) from the container's own stage B verdict.
+
+    RETAINED AS RECORDED EVIDENCE, NOT USED FOR CLASSIFICATION. The isolated-import probe rests on a
+    premise that is false for configuration-dependent frameworks: Django refuses to import app modules
+    before ``settings.configure()`` runs, and the probe executes imports stripped of the prologue that
+    calls it. It rejected 6 rows and 4 of those rejections were demonstrably wrong -- the full exercise
+    ran and produced a clean observable. Nothing may gate on this verdict; see
+    ``reported_nothing`` below for the criterion that replaced it.
+    """
 
     match = PREFLIGHT_RE.search(text)
     if not match:
@@ -63,6 +71,30 @@ def preflight_verdict(text: str) -> tuple[str, str | None]:
     if value.startswith("('ERROR'"):
         return "error", value[:200]
     return "ok", value[:200]
+
+
+def reported_nothing(text: str) -> bool:
+    """The instrument-failure criterion that replaced the stage B probe.
+
+    Every exercise is instructed to wrap its whole run in try/except and always print a ``RESULT=``
+    line, reporting an exception as ``('ERROR', <type>)``. So an exercise that exits non-zero having
+    printed nothing died BEFORE it could report -- at import or definition time, or in a broken
+    handler. That is an instrument defect by construction, whatever the exception type, and unlike the
+    probe it cannot false-alarm on an exercise that actually worked.
+
+    It also catches what the probe's narrower ImportError test missed: ``django-11066`` died on
+    ``ImproperlyConfigured`` while defining a model without configuring settings -- a real instrument
+    defect that is not an import error at all.
+
+    Residual ambiguity, stated rather than hidden: a patch that hard-crashes the interpreter, or one
+    that breaks module import for an exercise whose imports sit outside its try block, would also
+    report nothing and be counted here as instrument failure. A timeout is not affected -- the executor
+    emits an explicit ``RESULT=('TIMEOUT', ...)``.
+    """
+
+    return not re.search(r"^RESULT=", text, re.MULTILINE) and bool(
+        re.search(r"^EXERCISE_EXIT=[1-9]", text, re.MULTILINE)
+    )
 
 
 def build() -> dict:
@@ -98,6 +130,7 @@ def build() -> dict:
             "flagged": False,
             "instance_id": key[1],
             "instrument_valid": None,
+            "preflight_deprecated_verdict": None,
             "label": item["label"],
             "observable": None,
             "outcome": None,
@@ -114,9 +147,11 @@ def build() -> dict:
             continue
 
         text = log_path.read_text(errors="replace")
-        verdict, detail = preflight_verdict(text)
+        _verdict, detail = preflight_verdict(text)
         row["preflight"] = detail
-        row["instrument_valid"] = verdict == "ok"
+        row["preflight_deprecated_verdict"] = _verdict
+        # Classification uses the real run, not the isolated probe.
+        row["instrument_valid"] = not reported_nothing(text)
 
         flagged, reasons, observable = adjudicate_log(text)
         if observable is None and not reasons:
@@ -150,13 +185,23 @@ def build() -> dict:
             divergence: slice_rates([r for r in positives if r["divergence_type"] == divergence])
             for divergence in ("crash_or_type", "value")
         },
-        # Stage B turns iter231's post-hoc guess into committed measurement: the container itself says
-        # whether the exercise could import. A row that fails stage B is not evidence about the patch.
-        "stage_b": {
-            "instrument_valid": sum(1 for r in rows if r["instrument_valid"] is True),
-            "instrument_invalid": sum(1 for r in rows if r["instrument_valid"] is False),
-            "invalid_rows": sorted(
-                f"{r['run']}/{r['instance_id']}: {r['preflight']}"
+        # CORRECTION: the isolated-import probe is retained as recorded evidence but no longer
+        # classifies anything. Its verdict is reported here so the defect stays visible and auditable.
+        "stage_b_deprecated_probe": {
+            "note": "false-alarms on configuration-dependent imports; superseded by reported_nothing",
+            "probe_rejected": sum(
+                1 for r in rows if r["preflight_deprecated_verdict"] == "error"
+            ),
+            "probe_rejected_but_exercise_worked": sum(
+                1 for r in rows
+                if r["preflight_deprecated_verdict"] == "error" and r["instrument_valid"] is True
+            ),
+        },
+        "instrument_failures": {
+            "criterion": "non-zero exit with no RESULT= line (the exercise never reported)",
+            "count": sum(1 for r in rows if r["instrument_valid"] is False),
+            "rows": sorted(
+                f"{r['run']}/{r['instance_id']}"
                 for r in rows if r["instrument_valid"] is False
             ),
         },
@@ -221,8 +266,11 @@ def main() -> int:
         f"  instrument-valid only: recall {valid['recall_k']}/{valid['recall_n']}, "
         f"FPR {valid['false_positive_k']}/{valid['false_positive_n']}"
     )
-    print(f"  stage B: {built['stage_b']['instrument_valid']} valid, "
-          f"{built['stage_b']['instrument_invalid']} invalid")
+    failures = built["instrument_failures"]
+    probe = built["stage_b_deprecated_probe"]
+    print(f"  instrument failures (reported nothing): {failures['count']}")
+    print(f"  deprecated probe: rejected {probe['probe_rejected']}, of which "
+          f"{probe['probe_rejected_but_exercise_worked']} were false alarms")
     for divergence, rates in built["recall_by_divergence_type"].items():
         print(f"  {divergence}: {rates['observed_lower']['k']}/{rates['observed_lower']['n']} "
               f"(missing {rates['missing_outcomes']})")

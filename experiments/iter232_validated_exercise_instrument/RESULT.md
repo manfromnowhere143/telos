@@ -45,28 +45,47 @@ The direction matters. A repaired instrument moved the headline number **down**,
 expectation that execution would beat static judging is now falsified twice, the second time with no excuse
 available.
 
-## A false-alarm mode in my own stage B gate
+## CORRECTION — the stage B gate was defective and is withdrawn
 
-Stage B — executing an exercise's imports in isolation inside its container — rejected `6` rows. **Four of
-those six rejections were wrong**: the full exercise ran fine and produced a clean observable. The failures
-were `ImproperlyConfigured: Requested setting INSTALLED_APPS`, which is Django refusing to import app modules
-before `settings.configure()` runs. The exercises call `settings.configure()` in their prologue; the probe
-strips everything but the imports and so removes the very setup the imports depend on.
+Stage B — executing an exercise's imports in isolation inside its container — rejected `6` rows. **Five of
+those six rejections were wrong**: the full exercise ran and reported an observable. The failures were
+`ImproperlyConfigured: Requested setting INSTALLED_APPS`, Django refusing to import app modules before
+`settings.configure()` runs. The exercises call it in their prologue; the probe strips everything but the
+imports and so removes the very setup those imports depend on.
 
-The premise "imports can be executed in isolation" is false for any framework requiring configuration before
-import. A corrected gate must run the exercise's prologue up to its imports, or distinguish import-time from
-behavior-time failure inside the real run rather than in a separate probe.
+The premise "imports can be executed in isolation" is false for any configuration-dependent framework. The
+probe is therefore **withdrawn as a classifier**. Its output is retained in the committed logs and reported as
+`stage_b_deprecated_probe` so the defect stays visible and auditable, but nothing gates on it.
 
-**This did not affect the measurement**, because stage B ran alongside the oracle rather than gating which
-exercises were committed — stage A did that. But it is worth stating plainly: had stage B been used as the
-commit gate as originally designed, it would have discarded four working instruments and the result would have
-rested on a quietly smaller denominator. The gate is reported here as partially defective rather than being
-quietly dropped, and `instrument_valid_only` in the committed JSON is **not** a corrected headline: it wrongly
-excludes those four working rows.
+### What replaced it
 
-Stage B's two genuine catches remain: `django-11066`, whose full exercise also produced no observable, and
-`sphinx-9698`. Its real successes in iter231's terms — the `sklearn.svm._base` and `BackendArray` import
-failures — were fixed upstream by the hardened prompt's public-API rule and never reached this run.
+A row is an instrument failure iff it **exited non-zero having printed no `RESULT=` line**. Every exercise is
+instructed to wrap its whole run in try/except and always report, so one that printed nothing died before it
+could — at import or definition time, or in a broken handler. That is an instrument defect by construction,
+whatever the exception type, and unlike the probe it cannot false-alarm on an exercise that actually worked.
+
+It also catches what the probe's narrower import test missed. `django-11066` died on `ImproperlyConfigured`
+while defining a model without configuring settings — a real instrument defect that is not an import error at
+all, and the only genuine one in the run.
+
+Residual ambiguity, stated rather than hidden: a patch that hard-crashes the interpreter, or that breaks
+module import for an exercise whose imports sit outside its try block, would also report nothing and be
+counted as instrument failure. Timeouts are unaffected; the executor emits an explicit
+`RESULT=('TIMEOUT', ...)`.
+
+### The corrected secondary figure
+
+| Figure | Previously published | Corrected |
+| --- | --- | --- |
+| Instrument-valid-only recall | `2/13` | `2/13` (unchanged) |
+| Instrument-valid-only false positives | `10/54` | **`11/54`** |
+
+The headline frozen-rule numbers are untouched: recall `2/13`, false positives `12/54`. The correction makes
+the oracle look slightly *worse*, and it arrived by auditing my own gate rather than the hypothesis.
+
+**This did not corrupt the measurement.** Stage A gated which exercises were committed; stage B only ran
+alongside. But had stage B been used as the commit gate as originally designed, it would have discarded five
+working instruments and the result would have rested on a quietly smaller denominator.
 
 ## A pre-registered sub-prediction that failed
 
