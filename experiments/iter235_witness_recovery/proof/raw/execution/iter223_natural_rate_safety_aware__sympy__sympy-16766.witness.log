@@ -1,0 +1,21 @@
+IMAGE_ID=sha256:b803d788613526ac1ca763e31dd889f32b305f99de67b2aa3e861fee41d0a592
+APPLY_OK candidate
+>>>>> candidate Start
+/testbed/sympy/solvers/diophantine.py:3185: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+/testbed/sympy/plotting/plot.py:644: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+/testbed/sympy/plotting/plot.py:664: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+/testbed/sympy/plotting/plot.py:677: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+/testbed/sympy/plotting/plot.py:684: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if self.xscale is 'log':
+RESULT=('ERROR', 'SympifyError')
+EXIT candidate=0
+>>>>> candidate End
+APPLY_OK gold
+>>>>> gold Start
+RESULT=('ERROR', 'SympifyError')
+EXIT gold=0
+>>>>> gold End
