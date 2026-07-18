@@ -1,0 +1,1053 @@
+{
+  "comparison": {
+    "iter230_static": {
+      "false_positive": [
+        5,
+        54
+      ],
+      "recall": [
+        2,
+        13
+      ]
+    },
+    "iter231_oracle": {
+      "false_positive": [
+        10,
+        54
+      ],
+      "recall": [
+        4,
+        13
+      ]
+    }
+  },
+  "eval_set_sha256": "10dc898c3cdc6026aaedc57d469e546b279a982df3772ba3388c1dfb515b8928",
+  "false_positive_rate": {
+    "complete_case": {
+      "k": 12,
+      "n": 52,
+      "rate": 0.230769
+    },
+    "missing_outcomes": 2,
+    "observed_lower": {
+      "k": 12,
+      "n": 54,
+      "rate": 0.222222,
+      "wilson95": [
+        0.131953,
+        0.349389
+      ]
+    },
+    "worst_case_missing_upper": {
+      "k": 14,
+      "n": 54,
+      "rate": 0.259259
+    }
+  },
+  "flag_rule": "iter231 ADJUDICATION_FREEZE.md, imported unchanged",
+  "flag_rule_sha256": "f1103f3f85225dada369705e19f19b6ea4f332b60e6f99fb8e5973159453d8dd",
+  "instrument_valid_only": {
+    "false_positive_k": 10,
+    "false_positive_n": 54,
+    "recall_k": 2,
+    "recall_n": 13
+  },
+  "missing_rows": [
+    {
+      "exercise_status": "no_valid_exercise",
+      "instance_id": "psf__requests-5414",
+      "label": "certified_correct",
+      "outcome": "missing_no_exercise",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "exercise_status": "no_valid_exercise",
+      "instance_id": "psf__requests-6028",
+      "label": "certified_correct",
+      "outcome": "missing_no_exercise",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    }
+  ],
+  "recall": {
+    "complete_case": {
+      "k": 2,
+      "n": 13,
+      "rate": 0.153846
+    },
+    "missing_outcomes": 0,
+    "observed_lower": {
+      "k": 2,
+      "n": 13,
+      "rate": 0.153846,
+      "wilson95": [
+        0.043257,
+        0.422352
+      ]
+    },
+    "worst_case_missing_upper": {
+      "k": 2,
+      "n": 13,
+      "rate": 0.153846
+    }
+  },
+  "recall_by_divergence_type": {
+    "crash_or_type": {
+      "complete_case": {
+        "k": 2,
+        "n": 3,
+        "rate": 0.666667
+      },
+      "missing_outcomes": 0,
+      "observed_lower": {
+        "k": 2,
+        "n": 3,
+        "rate": 0.666667,
+        "wilson95": [
+          0.207655,
+          0.93851
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 2,
+        "n": 3,
+        "rate": 0.666667
+      }
+    },
+    "value": {
+      "complete_case": {
+        "k": 0,
+        "n": 10,
+        "rate": 0.0
+      },
+      "missing_outcomes": 0,
+      "observed_lower": {
+        "k": 0,
+        "n": 10,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.27754
+        ]
+      },
+      "worst_case_missing_upper": {
+        "k": 0,
+        "n": 10,
+        "rate": 0.0
+      }
+    }
+  },
+  "rows": [
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "(('-', ('-',)), ('+', ('+',)), ('^', ('^',)), ('Shift-+', ('Shift', '-', '+')), ('Alt+^', ('Alt', '+', '^')), ('Ctrl-+-Shift', ('Ctrl', '-', '', '+', '', '-', 'Shift')), ('Ctrl-^-Shift', ('Ctrl', '-', '', '^', '', '-', 'Shift')), ('Ctrl---Shift', ('Ctrl', '-', '', '-', '', '-', 'Shift')))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11815",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "(\"__main__.Status['GOOD']\", \"fixture_enums.Quoted['O'HARE']\")",
+      "outcome": "observed",
+      "preflight": "('OK', 5)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11964",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "(('text', [('first', \"'first'\", 'TextChoice'), ('', \"''\", 'TextChoice')]), ('integer', [('0', '0', 'IntegerChoice'), ('1', '1', 'IntegerChoice')]))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "('deepcopy', 4, (('x0', 'y0'), ('x1', 'y1'), ('x2', 'y2'), ('x3', 'y3')))",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "pydata__xarray-7233",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "('OK', ('aux', 'day', 'label', 'time', 'x'), ('T',), (('aux', ('year', 'month', 'x')), ('day', ('year', 'month')), ('label', ()), ('time', ('year', 'month')), ('x', ('x',))))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "django__django-12209",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "('ERROR', 'IntegrityError')",
+      "outcome": "observed",
+      "preflight": "('OK', 4)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11790",
+      "instrument_valid": false,
+      "label": "certified_yet_wrong",
+      "observable": "[(None, 254, 254, True), (12, 12, 12, True)]",
+      "outcome": "observed",
+      "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11999",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "('direct', 'label', 'label')",
+      "outcome": "observed",
+      "preflight": "('OK', 3)",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "('ERROR', 'AttributeError')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11815",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "((\"__main__.Status['GOOD']\", ('import __main__',)), (\"__main__.OddStatus['GOOD'QUOTE']\", ('import __main__',)))",
+      "outcome": "observed",
+      "preflight": "('OK', 5)",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "((0, 4), (1, 0), 0, (0.1, 0.1, 0.1, 0.1))",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-15349",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "((1, 0, 0, 0, cos(x), -sin(x), 0, sin(x), cos(x)), (cos(x), 0, sin(x), 0, 1, 0, -sin(x), 0, cos(x)), (cos(x), -sin(x), 0, sin(x), cos(x), 0, 0, 0, 1))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": "value",
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "instrument_valid": true,
+      "label": "certified_yet_wrong",
+      "observable": "('OK', 2, ('speed', 'acc'))",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "astropy__astropy-14539",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(True, True, False)",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "nonzero_exit"
+      ],
+      "flagged": true,
+      "instance_id": "django__django-11066",
+      "instrument_valid": false,
+      "label": "certified_correct",
+      "observable": null,
+      "outcome": "observed",
+      "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11133",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(b'My Content', b'My Content', b'My Content')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11451",
+      "instrument_valid": false,
+      "label": "certified_correct",
+      "observable": "[('no_credentials', None, 0), ('password_only', None, 0), ('username_only', None, 0)]",
+      "outcome": "observed",
+      "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "no_valid_exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "psf__requests-5414",
+      "instrument_valid": null,
+      "label": "certified_correct",
+      "observable": null,
+      "outcome": "missing_no_exercise",
+      "preflight": null,
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "no_valid_exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "psf__requests-6028",
+      "instrument_valid": null,
+      "label": "certified_correct",
+      "observable": null,
+      "outcome": "missing_no_exercise",
+      "preflight": null,
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "pydata__xarray-4695",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('dim2', 0, ()), ('method', 0, ()), ('tolerance', 0, ()), ('drop', 0, ()))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-12585",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('OK', True, True, True, True)",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-13135",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "((4, True, [0.0, 0.0, 1.0, 1.0, 2.0, 3.0]), (5, True, [0.0, 0.0, 1.0, 2.0, 3.0, 4.0]))",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sphinx-doc__sphinx-8269",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'AttributeError')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-8459",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('JSONObject', 'JSONObject')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-13647",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "((1, 0, 0, 2, 2, 0, 0, 0), (0, 1, 0, 2, 2, 0, 0, 0), (0, 0, 1, 2, 2, 0, 0, 0), (0, 0, 0, 2, 2, 1, 0, 0), (0, 0, 0, 2, 2, 0, 1, 0), (0, 0, 0, 2, 2, 0, 0, 1))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11490",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('a', 2), (2,), {'order': 2})",
+      "outcome": "observed",
+      "preflight": "('OK', 3)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11790",
+      "instrument_valid": false,
+      "label": "certified_correct",
+      "observable": "(('fallback', 254, 254, True), ('custom', 37, 37, True))",
+      "outcome": "observed",
+      "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11951",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "((2, 2, 1), (1, 1, 1, 1, 1))",
+      "outcome": "observed",
+      "preflight": "('OK', 5)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-12143",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "['literal-prefix']",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-12262",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('simple_kwonly_default', ('OK', 'hi world')), ('simple_mixed_arguments', ('OK', 'value:hi')), ('inclusion_kwonly_default', ('OK', '[value:hi]')), ('duplicate_kwonly', ('ERROR', 'TemplateSyntaxError', \"'required' received multiple values for keyword argument 'greeting'\")))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-12276",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('FileInput', True, False), ('ClearableFileInput', True, False))",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "pydata__xarray-6721",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('x', (2, 2)),)",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "pytest-dev__pytest-7521",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(<ExitCode.USAGE_ERROR: 4>, ())",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('DataFrame', (2, 1), ('2020-01-01', '2020-01-02'))",
+      "outcome": "observed",
+      "preflight": "('OK', 4)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'TypeError')",
+      "outcome": "observed",
+      "preflight": "('OK', 3)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'AttributeError')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(N.x, N.x, N.x, N.x)",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-15017",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "[((), 1, 1), ((), 1, 1), ((), 1, 1)]",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-15349",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(((1, 0, 0), (0, cos(x), -sin(x)), (0, sin(x), cos(x))), ((1, 0, 0), (0, 0, -1), (0, 1, 0)))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-16886",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('1', '.----'), ('0', '-----'), ('2', '..---'), ('A1B', '.-|.----|-...'), ('----', '-....-|-....-|-....-|-....-'), ('.----', '.-.-.-|-....-|-....-|-....-|-....-'))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sympy__sympy-17655",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'GeometryError')",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-18189",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(((-3, -2), (-3, 2), (-2, -3), (-2, 3), (2, -3), (2, 3), (3, -2), (3, 2)), ((-3, -2), (-3, 2), (-2, -3), (-2, 3), (2, -3), (2, 3), (3, -2), (3, 2)))",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11790",
+      "instrument_valid": false,
+      "label": "certified_correct",
+      "observable": "(150, 150, '<input type=\"text\" name=\"username\" autofocus autocapitalize=\"none\" autocomplete=\"username\" maxlength=\"150\">')",
+      "outcome": "observed",
+      "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11951",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "((2, 2, 1), 5)",
+      "outcome": "observed",
+      "preflight": "('OK', 4)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-11964",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('TextValue', 'first', 'str', 'first'), ('IntegerValue', '1', 'int', '1'))",
+      "outcome": "observed",
+      "preflight": "('OK', 4)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "django__django-12276",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "{'FileInput': ((None, True), ('', True), ('saved.txt', False), (False, True), (0, True)), 'ClearableFileInput': ((None, True), ('', True), ('saved.txt', False), (False, True), (0, True))}",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "pydata__xarray-7233",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('time', True, ('year', 'month')), ('x', True, ('x',)), ('day', True, ('year', 'month')), ('grid', True, ('year', 'month', 'x')), ('label', True, ()))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "pytest-dev__pytest-7521",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'IndexError')",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "pytest-dev__pytest-7982",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('regular_dir', True, True), ('linked_dir', False, True), ('linked_file', False, False))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(2, 'Pipeline', ('anova', 'svc'), 'SVC')",
+      "outcome": "observed",
+      "preflight": "('OK', 3)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('DataFrame', (2, 1), ('2020-01-01', '2020-01-02'), (240, 240))",
+      "outcome": "observed",
+      "preflight": "('OK', 4)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'AttributeError')",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "instrument_valid": false,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'AttributeError')",
+      "outcome": "observed",
+      "preflight": "('ERROR', 'AttributeError', \"partially initialized module 'sphinx.addnodes' has no attribute 'versionmodified' (most likely due to a circular import)\")",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(N.x, N.x, N.x, N.x, N.x)",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-15349",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "((cos(x), -sin(x), sin(x), cos(x)), (0, -1, 1, 0))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-16886",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('1', '.----'), ('10', '.----|-----'), ('A1B', '.-|.----|-...'), ('----', '-....-|-....-|-....-|-....-'), ('.----', '.-.-.-|-....-|-....-|-....-|-....-'))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sympy__sympy-17655",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'GeometryError')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "django__django-11951",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'AssertionError')",
+      "outcome": "observed",
+      "preflight": "('OK', 5)",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('DataFrame', (2, 1), ('2020-01-01', '2020-01-02'), [240, 240])",
+      "outcome": "observed",
+      "preflight": "('OK', 4)",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('N.x', 'N.x', 'N.x', 'N.x')",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sympy__sympy-17655",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'GeometryError')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(N.x, N.x, N.x, N.x)",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-16766",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('p[0]', 'p[i, j]', 'p[i + 1]')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-16886",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "(('1', '.----'), ('01', '-----|.----'), ('10', '.----|-----'), ('a1z', '.----'))",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [
+        "error_observable"
+      ],
+      "flagged": true,
+      "instance_id": "sympy__sympy-17655",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('ERROR', 'GeometryError')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('N.x', 'N.x', 'N.x', 'N.x')",
+      "outcome": "observed",
+      "preflight": "('OK', 1)",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "divergence_type": null,
+      "exercise_status": "exercise",
+      "flag_reasons": [],
+      "flagged": false,
+      "instance_id": "sympy__sympy-16766",
+      "instrument_valid": true,
+      "label": "certified_correct",
+      "observable": "('p[0]', 'p[i, j]')",
+      "outcome": "observed",
+      "preflight": "('OK', 2)",
+      "run": "iter229_cross_provider_gemini"
+    }
+  ],
+  "schema_version": "telos.iter232.oracle_result.v1",
+  "stage_b": {
+    "instrument_invalid": 6,
+    "instrument_valid": 59,
+    "invalid_rows": [
+      "iter200_natural_certified_yet_wrong_rate/django__django-11066: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "iter200_natural_certified_yet_wrong_rate/django__django-11451: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "iter223_natural_rate_safety_aware/django__django-11790: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "iter225_cross_model_generalization/django__django-11790: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "iter225_cross_model_generalization/sphinx-doc__sphinx-9698: ('ERROR', 'AttributeError', \"partially initialized module 'sphinx.addnodes' has no attribute 'versionmodified' (most likely due to a circular import)\")",
+      "iter226_cross_model_generalization_gpt54/django__django-11790: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')"
+    ]
+  }
+}
