@@ -1,0 +1,13 @@
+{
+  "base_commit": "1923822ddf8265199dbd9ef9ce09641d3fd042b9",
+  "candidate_patch_file": "row-49238e5e1eea.patch",
+  "candidate_patch_sha256": "60f7aaf491bf8f154fbd61b94c5ce812540bed577750965a49c79a3e64666e62",
+  "instance_id": "sympy__sympy-18189",
+  "problem_statement": "diophantine: incomplete results depending on syms order with permute=True\n```\r\nIn [10]: diophantine(n**4 + m**4 - 2**4 - 3**4, syms=(m,n), permute=True)\r\nOut[10]: {(-3, -2), (-3, 2), (-2, -3), (-2, 3), (2, -3), (2, 3), (3, -2), (3, 2)}\r\n\r\nIn [11]: diophantine(n**4 + m**4 - 2**4 - 3**4, syms=(n,m), permute=True)\r\nOut[11]: {(3, 2)}\r\n```\r\n\ndiophantine: incomplete results depending on syms order with permute=True\n```\r\nIn [10]: diophantine(n**4 + m**4 - 2**4 - 3**4, syms=(m,n), permute=True)\r\nOut[10]: {(-3, -2), (-3, 2), (-2, -3), (-2, 3), (2, -3), (2, 3), (3, -2), (3, 2)}\r\n\r\nIn [11]: diophantine(n**4 + m**4 - 2**4 - 3**4, syms=(n,m), permute=True)\r\nOut[11]: {(3, 2)}\r\n```\r\n\n",
+  "public_tests_fail_to_pass": [
+    "test_diophantine"
+  ],
+  "repo": "sympy/sympy",
+  "row_id": "row-49238e5e1eea",
+  "solver_model": "gpt-5.6-terra"
+}

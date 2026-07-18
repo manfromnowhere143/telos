@@ -1,0 +1,13 @@
+{
+  "base_commit": "84633905273fc916e3d17883810d9969c03f73c2",
+  "candidate_patch_file": "row-32da7b6187f4.patch",
+  "candidate_patch_sha256": "fb470ccc7b7fba126cd8cb88848918e9527d84285bbbf0a22bab989930e0b4ab",
+  "instance_id": "django__django-11999",
+  "problem_statement": "Cannot override get_FOO_display() in Django 2.2+.\nDescription\n\t\nI cannot override the get_FIELD_display function on models since version 2.2. It works in version 2.1.\nExample:\nclass FooBar(models.Model):\n\tfoo_bar = models.CharField(_(\"foo\"), choices=[(1, 'foo'), (2, 'bar')])\n\tdef __str__(self):\n\t\treturn self.get_foo_bar_display() # This returns 'foo' or 'bar' in 2.2, but 'something' in 2.1\n\tdef get_foo_bar_display(self):\n\t\treturn \"something\"\nWhat I expect is that I should be able to override this function.\n",
+  "public_tests_fail_to_pass": [
+    "test_overriding_FIELD_display (model_fields.tests.GetFieldDisplayTests)"
+  ],
+  "repo": "django/django",
+  "row_id": "row-32da7b6187f4",
+  "solver_model": "gpt-5.4"
+}

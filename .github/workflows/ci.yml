@@ -246,6 +246,15 @@ jobs:
       - name: Iter232 oracle result regeneration guard
         run: python3 scripts/adjudicate_iter232.py --check
 
+      - name: Iter233 release rebuild guard
+        run: python3 scripts/build_iter233_release.py --check
+
+      - name: Iter233 release leakage and integrity guard
+        run: python3 scripts/validate_iter233_release.py
+
+      - name: Iter233 release harness reproduces committed baselines
+        run: python3 scripts/score_iter233_release.py --reproduce-baselines
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 

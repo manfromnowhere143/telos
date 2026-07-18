@@ -1,0 +1,13 @@
+{
+  "base_commit": "c50643a49811e9fe2f4851adff4313ad46f7325e",
+  "candidate_patch_file": "row-cea7be3a4ba3.patch",
+  "candidate_patch_sha256": "e311e8bba944d634a2621fd8370236ea2d2affec4db65765bef09d5356882bc4",
+  "instance_id": "sympy__sympy-16886",
+  "problem_statement": "Morse encoding for \"1\" is not correct\nThe current Morse mapping in simpy.crypto.crypto contains an incorrect mapping of \r\n`\"----\": \"1\"`   \r\n\r\nThe correct mapping is `\".----\": \"1\"`.\r\n\r\n\n",
+  "public_tests_fail_to_pass": [
+    "test_encode_morse"
+  ],
+  "repo": "sympy/sympy",
+  "row_id": "row-cea7be3a4ba3",
+  "solver_model": "gpt-5.5"
+}
