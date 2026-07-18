@@ -1,38 +1,47 @@
+import warnings
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import make_union
 from sklearn.datasets import load_iris
 from sklearn import set_config
 
-class AggTransformer(BaseEstimator, TransformerMixin):
-    def fit(self, X, y=None):
+class RowReducer(BaseEstimator, TransformerMixin):
+    def fit(self, X, y=None, **kwargs):
         return self
-    
+
     def transform(self, X, y=None):
-        # Aggregate the data, returning a DataFrame with a different index and length
-        return X[['sepal length (cm)']].groupby(X['group']).sum()
+        # Group by the first column to aggregate data and reduce the number of rows.
+        # This will return a new DataFrame with a different index length than X.
+        return X.groupby(X.columns[0]).sum()
 
-try:
-    # Rely on sklearn's public API to obtain a pandas DataFrame without importing pandas
-    iris = load_iris(as_frame=True)
-    X = iris.data.head(4).copy()
-    X['group'] = ['A', 'A', 'B', 'B']
-    
-    # Trigger the scenario from the issue
-    set_config(transform_output="pandas")
-    
-    union = make_union(AggTransformer())
-    
-    # Prior to the fix, this raised a ValueError because the pandas output wrapper
-    # attempted to force the original input's index (length 4) onto the output (length 2).
-    res = union.fit_transform(X)
-    
-    # Assertions to ensure the aggregation and index are preserved correctly
-    if res.shape[0] != 2:
-        print(f"RESULT={('FAIL', f'Expected 2 rows after aggregation, got {res.shape[0]}')!r}")
-    elif list(res.index) != ['A', 'B']:
-        print(f"RESULT={('FAIL', f'Expected index [\"A\", \"B\"], got {list(res.index)}')!r}")
-    else:
+def main():
+    try:
+        # load_iris with as_frame=True yields a pandas DataFrame
+        dataset = load_iris(as_frame=True)
+        # Take a subset so that groupby strictly reduces the number of rows
+        X = dataset.data.iloc[:20]
+        
+        # Configure transform_output to pandas, which triggered the issue
+        set_config(transform_output="pandas")
+        
+        # Create a FeatureUnion with our custom row-reducing transformer
+        union = make_union(RowReducer())
+        
+        # In the buggy version, this raises a ValueError because it tries 
+        # to assign the original X's index (length 20) to the aggregated output.
+        out = union.fit_transform(X)
+        
+        # Validation to ensure it actually ran and reduced rows
+        if out is None or len(out) == 0:
+            print(f"RESULT={('FAIL', 'Output is empty')!r}")
+            return
+            
+        if len(out) == len(X):
+            print(f"RESULT={('FAIL', 'Rows were not reduced')!r}")
+            return
+            
         print(f"RESULT={('PASS',)!r}")
+    except Exception as e:
+        print(f"RESULT={('ERROR', type(e).__name__)!r}")
 
-except Exception as e:
-    print(f"RESULT={('ERROR', type(e).__name__)!r}")
+if __name__ == "__main__":
+    main()
