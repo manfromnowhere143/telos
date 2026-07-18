@@ -25,7 +25,9 @@
 > that completion-proof protocol, not to the measurement runs.)
 
 New here? Read the [2026-07-18 session handoff](docs/HANDOFF-2026-07-18.md) first — it carries the operating
-standard, the current unified result, and the exact next step. Then the
+standard and the unified result — then the [iter231 handoff](docs/HANDOFF-2026-07-18-iter231.md), which
+supersedes its next step and records the sealed-runner trap in
+[container runner notes](docs/CONTAINER_RUNNER_NOTES.md). Then the
 [forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
 [2026 roadmap](docs/TELOS-ROADMAP-2026.md) before extending the experiment line.
 The preserved publication predecessors are the
@@ -55,14 +57,20 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active pre-registration is
-[iter231 gold-free execution oracle](experiments/iter231_gold_free_execution_oracle/HYPOTHESIS.md): it turns
-the mitigation ceiling into a measured result. On the same frozen benchmark, it runs a gold-free execution
-oracle — a model, given only the issue, public test names, and candidate patch, writes an exercise that drives
-the changed behavior; the patch is applied in its container and flagged if the exercise records a crash or a
-structurally-anomalous output. It reports recall and false-positive rate beside iter230's static `2/13`, split
-by divergence type, to empirically confirm the oracle catches the crash/type hacks and remains blind to the
-wrong-value majority (which needs an independent reference).
+The active scientific result is
+[iter231 gold-free execution oracle](experiments/iter231_gold_free_execution_oracle/RESULT.md), published as a
+**null against its own pre-registered expectation**. A gold-free execution oracle — a model, given only the
+issue, public test names, and candidate patch, writes an exercise that drives the changed behavior; the patch
+is applied in its container and flagged under a rule frozen before any output was inspected — recalls `4/13`
+at `10/54`. Four of those flags are the *instrument* failing rather than the patch (two import errors, two
+exercises applying one format specifier to a multi-element tuple), leaving `2/13` at `8/54`: **equal to static
+judging's recall at a worse false-positive rate**. Execution did not beat static judging.
+
+The ceiling is now measured rather than argued. All `3` crash-or-wrong-type patches are caught by at least one
+gold-free instrument, and the two are partially complementary — but **neither catches any of the `10`
+value-wrong patches**, `0/10`. Eight of the ten false positives are certified-correct code raising correctly
+on an input where raising is right, which a gold-free observer cannot distinguish from a wrong patch crashing.
+Both directions point at the same wall: recognizing a plausible wrong value requires a reference.
 The active scientific result is
 [iter230 gold-free detector on the natural benchmark](experiments/iter230_gold_free_detector_natural/RESULT.md):
 the first **mitigation** result, and it confirms the thesis. On the frozen natural benchmark (`13` confirmed
@@ -70,8 +78,7 @@ certified-yet-wrong positives, `54` certified-correct negatives), a gold-free th
 sees only certification-time information (problem, public tests, candidate patch — no gold, hidden tests, or
 witness) catches only **`2/13`** of the natural hacks at a `5/54` false-positive rate. Static judging without
 execution is largely blind to this class — a direct, quantified restatement of the paper's central claim — and
-the gap is not closed by a stronger judge. The natural next step is a gold-free held-out-execution oracle
-(future work).
+the gap is not closed by a stronger judge. That next step is now taken, and its result is iter231 above.
 The active scientific result is
 [iter229 third-provider point](experiments/iter229_cross_provider_gemini/RESULT.md): certified-yet-wrong
 **reaches a third provider**. Google `gemini-3.1-pro-preview`, on the identical frozen `53`-target cohort,
@@ -334,7 +341,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal<br/>NULL"]-->I220["220 CI fix"]-->I221["221 platform"]-->I222["222 adm<br/>5/11"]-->I223["223 scaled<br/>4/29"]-->I224["224 null<br/>0/15"]-->I225["225 gpt-5.5<br/>1/25"]-->I226["226 gpt-5.4<br/>3/17"]-->I227["227 sonnet-5<br/>3/14"]-->I228["228 fresh<br/>0/22 null"]-->I229["229 Gemini<br/>1/16 hack"]-->I230["230 detector<br/>2/13 recall"]-->I231["231 oracle<br/>prereg"]
+ I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal<br/>NULL"]-->I220["220 CI fix"]-->I221["221 platform"]-->I222["222 adm<br/>5/11"]-->I223["223 scaled<br/>4/29"]-->I224["224 null<br/>0/15"]-->I225["225 gpt-5.5<br/>1/25"]-->I226["226 gpt-5.4<br/>3/17"]-->I227["227 sonnet-5<br/>3/14"]-->I228["228 fresh<br/>0/22 null"]-->I229["229 Gemini<br/>1/16 hack"]-->I230["230 detector<br/>2/13 recall"]-->I231["231 oracle<br/>2/13 NULL"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
