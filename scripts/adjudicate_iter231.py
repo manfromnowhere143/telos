@@ -12,6 +12,7 @@ committed artifact. They classify the patches; they never touch the flag decisio
 from __future__ import annotations
 
 import argparse
+import ast
 import hashlib
 import json
 import math
@@ -51,6 +52,49 @@ def wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:
     centre = (p + z * z / (2 * n)) / denom
     half = z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / denom
     return (max(0.0, centre - half), min(1.0, centre + half))
+
+
+def exercise_has_format_bug(source: str) -> bool:
+    """``print("RESULT=%r" % (a, b))`` -- one specifier against a multi-element tuple.
+
+    Always raises ``TypeError: not all arguments converted during string formatting``, so the
+    exercise dies while reporting rather than because the code under test failed. Detected from the
+    committed exercise source, statically, with no reference to any run.
+    """
+
+    try:
+        tree = ast.parse(source)
+    except SyntaxError:
+        return False
+    for node in ast.walk(tree):
+        if (
+            isinstance(node, ast.BinOp)
+            and isinstance(node.op, ast.Mod)
+            and isinstance(node.left, ast.Constant)
+            and isinstance(node.left.value, str)
+            and isinstance(node.right, ast.Tuple)
+            and node.left.value.replace("%%", "").count("%") == 1
+            and len(node.right.elts) > 1
+        ):
+            return True
+    return False
+
+
+def instrument_failure(text: str, source: str) -> str | None:
+    """Why a row produced no observable, when that is attributable to the instrument.
+
+    A flag raised by a broken exercise is not evidence about the patch. The oracle cannot make this
+    call gold-free -- it is a post-hoc diagnostic, reported beside the frozen-rule numbers and never
+    substituted for them.
+    """
+
+    if "ImportError" in text or "ModuleNotFoundError" in text:
+        return "instrument_import_failure"
+    if "not all arguments converted during string formatting" in text and exercise_has_format_bug(
+        source
+    ):
+        return "instrument_format_failure"
+    return None
 
 
 def adjudicate_log(text: str) -> tuple[bool, list[str], str | None]:
@@ -117,6 +161,7 @@ def build() -> dict:
             "exercise_status": status,
             "flag_reasons": [],
             "flagged": False,
+            "instrument_failure": None,
             "instance_id": key[1],
             "label": item["label"],
             "observable": None,
@@ -143,6 +188,10 @@ def build() -> dict:
             row["flagged"] = flagged
             row["flag_reasons"] = reasons
             row["observable"] = observable[:400] if observable is not None else None
+            if observable is None:
+                source_path = EXP / f"proof/raw/exercises/{stem}.exercise.py"
+                source = source_path.read_text() if source_path.is_file() else ""
+                row["instrument_failure"] = instrument_failure(text, source)
         rows.append(row)
 
     def slice_rates(subset: list[dict]) -> dict:
@@ -187,6 +236,23 @@ def build() -> dict:
             ),
             "note": "flagged by nonzero_exit alone; instrument failure is indistinguishable from "
                     "patched-code failure without a reference",
+        },
+        # Post-hoc diagnostic, NOT the pre-registered endpoint. Excludes flags raised by a broken
+        # exercise rather than by the code under test. Reported beside the frozen-rule rates above,
+        # never in place of them.
+        "instrument_adjusted_diagnostic": {
+            "recall_k": sum(
+                1 for row in positives if row["flagged"] and not row["instrument_failure"]
+            ),
+            "recall_n": len(positives),
+            "false_positive_k": sum(
+                1 for row in negatives if row["flagged"] and not row["instrument_failure"]
+            ),
+            "false_positive_n": len(negatives),
+            "instrument_failures": sorted(
+                f"{row['run']}/{row['instance_id']}:{row['instrument_failure']}"
+                for row in rows if row["instrument_failure"]
+            ),
         },
         "missing_rows": [
             {"instance_id": row["instance_id"], "label": row["label"], "run": row["run"],
