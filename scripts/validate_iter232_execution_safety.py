@@ -40,6 +40,7 @@ SUMMARY = EXERCISES / "exercises_summary.json"
 RUNNER = ROOT / "scripts/ci_iter232_execute.sh"
 WORKFLOW = ROOT / ".github/workflows/iter232-execute.yml"
 GENERATOR = ROOT / "scripts/run_iter232_exercises.py"
+PROBE = ROOT / "scripts/iter232_import_probe.py"
 
 # Acceptance bar 1. The benchmark is reused from iter230 unchanged.
 FROZEN_EVAL_SET_SHA256 = "10dc898c3cdc6026aaedc57d469e546b279a982df3772ba3388c1dfb515b8928"
@@ -399,6 +400,52 @@ def generator_safety_errors(text: str) -> list[str]:
     return errors
 
 
+def probe_compatibility_errors(text: str) -> list[str]:
+    """The stage B probe must parse on the OLDEST interpreter in the benchmark (3.6).
+
+    Not hypothetical: the first probe used `from __future__ import annotations` (3.7+) and died with
+    SyntaxError inside three containers, costing a full eight-shard run. The probe cannot be validated
+    by running it here, because this host's interpreter is far newer than the images'; so its syntax is
+    constrained statically instead.
+    """
+
+    errors: list[str] = []
+    try:
+        tree = ast.parse(text)
+    except SyntaxError as exc:
+        return [f"stage B probe does not parse: {exc}"]
+    for node in ast.walk(tree):
+        if isinstance(node, ast.ImportFrom) and node.module == "__future__":
+            for alias in node.names:
+                if alias.name == "annotations":
+                    errors.append("probe uses `from __future__ import annotations` (needs 3.7+)")
+        if isinstance(node, ast.JoinedStr):
+            errors.append("probe uses an f-string")
+        if isinstance(node, ast.AnnAssign):
+            errors.append("probe uses a variable annotation")
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            if node.returns is not None or any(
+                arg.annotation is not None
+                for arg in list(node.args.args) + list(node.args.kwonlyargs)
+            ):
+                errors.append(f"probe annotates the signature of {node.name}()")
+        if (
+            isinstance(node, ast.Call)
+            and isinstance(node.func, ast.Attribute)
+            and node.func.attr == "Module"
+            and any(keyword.arg == "type_ignores" for keyword in node.keywords)
+        ):
+            errors.append("probe passes ast.Module(type_ignores=...) (needs 3.8+)")
+        if (
+            isinstance(node, ast.BinOp)
+            and isinstance(node.op, ast.Mod)
+            and isinstance(node.left, ast.Constant)
+            and isinstance(node.left.value, str)
+        ):
+            errors.append("probe uses %-formatting")
+    return sorted(set(errors))
+
+
 def workflow_safety_errors(text: str) -> list[str]:
     errors: list[str] = []
     safety = text.find("python3 scripts/validate_iter232_execution_safety.py")
@@ -428,6 +475,7 @@ def main() -> int:
     for path, checker, label in (
         (RUNNER, runner_safety_errors, "executor"),
         (GENERATOR, generator_safety_errors, "generator"),
+        (PROBE, probe_compatibility_errors, "stage B probe"),
         (WORKFLOW, workflow_safety_errors, "workflow"),
     ):
         try:
