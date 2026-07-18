@@ -57,6 +57,13 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
+The active release is
+[iter233 natural benchmark release](experiments/iter233_natural_benchmark_release/release/README.md): the
+frozen `67`-row benchmark packaged as a standard eval, with inputs and answers separated, opaque row ids, a
+scoring harness that reproduces all three committed baselines, and its defects disclosed in the artifact
+itself — notably that `29` of the `54` negatives are byte-identical to public gold, so any detector consulting
+gold scores `13/13` recall without understanding anything.
+
 The active scientific result is
 [iter232 validated exercise instrument](experiments/iter232_validated_exercise_instrument/RESULT.md). Iter231's
 oracle wasted `6` of its `51` exercises on defects and had no exercise at all for `16` of the `67` rows, so its

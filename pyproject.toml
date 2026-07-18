@@ -8,7 +8,9 @@ requires-python = ">=3.11"
 line-length = 100
 target-version = "py311"
 # Raw evidence artifacts (committed exactly as run, e.g. cloud-VM harnesses) are not linted source.
-extend-exclude = ["experiments/*/proof/raw"]
+# The iter233 release ships generated model outputs verbatim as data; linting them would either fail
+# the build or tempt someone to edit shipped evidence to satisfy a style rule.
+extend-exclude = ["experiments/*/proof/raw", "experiments/*/release"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,0 +1,554 @@
+{
+  "answers": [
+    {
+      "divergence_type": "value",
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "label": "certified_yet_wrong",
+      "row_id": "row-187cbc4c92e4",
+      "source_run": "iter200_natural_certified_yet_wrong_rate",
+      "witness_candidate_observable": "('literal', ('kbd',), (('literal', ('kbd',), ('A',)), '-', ('literal', ('kbd',), ()), '\\n', ('literal', ('kbd',), ('B',))))",
+      "witness_gold_observable": "('literal', ('kbd',), (('literal', ('kbd',), ('A-',)), '\\n', ('literal', ('kbd',), ('B',))))"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "django__django-11815",
+      "label": "certified_yet_wrong",
+      "row_id": "row-608958255142",
+      "source_run": "iter223_natural_rate_safety_aware",
+      "witness_candidate_observable": "\"__main__.QuotedNameEnum['O'REILLY']\"",
+      "witness_gold_observable": "'__main__.QuotedNameEnum[\"O\\'REILLY\"]'"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "django__django-11964",
+      "label": "certified_yet_wrong",
+      "row_id": "row-959f3d0dd460",
+      "source_run": "iter223_natural_rate_safety_aware",
+      "witness_candidate_observable": "(['first'], 'first', False)",
+      "witness_gold_observable": "(['first'], 'first', True)"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "matplotlib__matplotlib-25332",
+      "label": "certified_yet_wrong",
+      "row_id": "row-b1ef19d74a50",
+      "source_run": "iter223_natural_rate_safety_aware",
+      "witness_candidate_observable": "False",
+      "witness_gold_observable": "True"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "pydata__xarray-7233",
+      "label": "certified_yet_wrong",
+      "row_id": "row-f973210b31b8",
+      "source_run": "iter223_natural_rate_safety_aware",
+      "witness_candidate_observable": "(2, ('day',), ('T',), (('year', 2), ('month', 12)))",
+      "witness_gold_observable": "(1, ('day',), ('T',), (('year', 2), ('month', 12)))"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "instance_id": "django__django-12209",
+      "label": "certified_yet_wrong",
+      "row_id": "row-2decd44e3cd7",
+      "source_run": "iter225_cross_model_generalization",
+      "witness_candidate_observable": "('DatabaseError',)",
+      "witness_gold_observable": "('saved', 1, 7)"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "django__django-11790",
+      "label": "certified_yet_wrong",
+      "row_id": "row-a54d11bd2033",
+      "source_run": "iter226_cross_model_generalization_gpt54",
+      "witness_candidate_observable": "151",
+      "witness_gold_observable": "150"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "django__django-11999",
+      "label": "certified_yet_wrong",
+      "row_id": "row-32da7b6187f4",
+      "source_run": "iter226_cross_model_generalization_gpt54",
+      "witness_candidate_observable": "'generated'",
+      "witness_gold_observable": "'inherited'"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "label": "certified_yet_wrong",
+      "row_id": "row-547ea7b35658",
+      "source_run": "iter226_cross_model_generalization_gpt54",
+      "witness_candidate_observable": "('error', 'TypeError', (\"'ProbeModules' object is not iterable\",))",
+      "witness_gold_observable": "('pages', ())"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "instance_id": "django__django-11815",
+      "label": "certified_yet_wrong",
+      "row_id": "row-e18a56347d3c",
+      "source_run": "iter227_cross_provider_generalization",
+      "witness_candidate_observable": "('ERROR', 'ValueError')",
+      "witness_gold_observable": "(\"__main__.Probe['MEMBER']\", {'import __main__'})"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "label": "certified_yet_wrong",
+      "row_id": "row-a3cb370af3c9",
+      "source_run": "iter227_cross_provider_generalization",
+      "witness_candidate_observable": "(2, 0)",
+      "witness_gold_observable": "(1, 0)"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_yet_wrong",
+      "row_id": "row-81094012c591",
+      "source_run": "iter227_cross_provider_generalization",
+      "witness_candidate_observable": "6/(b**2 + c**2 + 1)",
+      "witness_gold_observable": "4/(b**2 + c**2 + 1)"
+    },
+    {
+      "divergence_type": "value",
+      "instance_id": "matplotlib__matplotlib-25332",
+      "label": "certified_yet_wrong",
+      "row_id": "row-7f9bf52cdc36",
+      "source_run": "iter229_cross_provider_gemini",
+      "witness_candidate_observable": "'list'",
+      "witness_gold_observable": "'dict'"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "astropy__astropy-14539",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-d6fe9434d13f",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11066",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-51c1fba0931f",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11133",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-62a13e4ae81d",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11451",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-f5365879d98b",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "psf__requests-5414",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-e1d15e1bd24b",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "psf__requests-6028",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-8365930a5a2a",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "pydata__xarray-4695",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-04a684322dc8",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "scikit-learn__scikit-learn-12585",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-36855d44e8dc",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "scikit-learn__scikit-learn-13135",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-d355ef33c496",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sphinx-doc__sphinx-8269",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-6f5ae5c5987b",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sphinx-doc__sphinx-8459",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-a3e8f60dfca2",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-13647",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-7b88ba195f70",
+      "source_run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11490",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-cbf762c6c92c",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11790",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-81dc164775c1",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-11312a8f2f48",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-12143",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-e29bf7818dfc",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-12262",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-7e23260fc948",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-12276",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-c0fcf44ff36b",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "pydata__xarray-6721",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-1f7f122eac02",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "pytest-dev__pytest-7521",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-1a31cf83b4e6",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-5dc3fd2e8a7c",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-6953259cfb8f",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-8aa10277457f",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-ed4762b2cc74",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-15017",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-fa05521f6fb6",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-1dea9ad840c5",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-7e5d0e7bc2b9",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-0bb55e62f9a5",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-18189",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-49238e5e1eea",
+      "source_run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11790",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-1e9067f050ab",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-4047df78440f",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11964",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-d9174f449663",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-12276",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-70d72ab9ff29",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "pydata__xarray-7233",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-84953479cb59",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "pytest-dev__pytest-7521",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-3bcafda087f5",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "pytest-dev__pytest-7982",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-27ffd2c21191",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-adfa355de504",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-dc4283f585a6",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-b7d64ef1e8c1",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-42a17ea0d782",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-8ccd9aafa706",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-cef85db07346",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-cea7be3a4ba3",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-712917a512aa",
+      "source_run": "iter225_cross_model_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-f9a6930795fb",
+      "source_run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-72b884c326a7",
+      "source_run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-507119aa4939",
+      "source_run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-d64b36e84577",
+      "source_run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-155a8049a26f",
+      "source_run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-16766",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-103309975208",
+      "source_run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-8282ca5db3a6",
+      "source_run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-e75b36171128",
+      "source_run": "iter227_cross_provider_generalization"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-199477d15ba1",
+      "source_run": "iter229_cross_provider_gemini"
+    },
+    {
+      "divergence_type": null,
+      "instance_id": "sympy__sympy-16766",
+      "label": "certified_correct",
+      "note": "negatives carry no gold-differential witness",
+      "row_id": "row-ee96b756739d",
+      "source_run": "iter229_cross_provider_gemini"
+    }
+  ],
+  "schema_version": "telos.iter233.answers.v1"
+}
