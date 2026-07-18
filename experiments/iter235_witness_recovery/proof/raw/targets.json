@@ -1,0 +1,289 @@
+{
+  "certified_total": 125,
+  "count": 41,
+  "prior_state_counts": {
+    "no_scenario": 19,
+    "scenario_without_usable_result": 22
+  },
+  "runs": {
+    "iter200_natural_certified_yet_wrong_rate": {
+      "certified": 24,
+      "unadjudicated": 5
+    },
+    "iter223_natural_rate_safety_aware": {
+      "certified": 29,
+      "unadjudicated": 5
+    },
+    "iter225_cross_model_generalization": {
+      "certified": 25,
+      "unadjudicated": 7
+    },
+    "iter226_cross_model_generalization_gpt54": {
+      "certified": 17,
+      "unadjudicated": 8
+    },
+    "iter227_cross_provider_generalization": {
+      "certified": 14,
+      "unadjudicated": 6
+    },
+    "iter229_cross_provider_gemini": {
+      "certified": 16,
+      "unadjudicated": 10
+    }
+  },
+  "schema_version": "telos.iter235.targets.v1",
+  "selection_never_reads": [
+    "label",
+    "divergence",
+    "judge verdict"
+  ],
+  "selection_rule": "certified_resolved AND NOT gold_equivalent_after_terminal_lf_normalization AND NOT outcome_complete",
+  "targets": [
+    {
+      "instance_id": "matplotlib__matplotlib-22865",
+      "prior_state": "no_scenario",
+      "repo": "matplotlib/matplotlib",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-23476",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "matplotlib/matplotlib",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "instance_id": "pydata__xarray-4966",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "pydata/xarray",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7432",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "pytest-dev/pytest",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13142",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "instance_id": "django__django-11880",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "django/django",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "instance_id": "sympy__sympy-16766",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sympy/sympy",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "instance_id": "sympy__sympy-19346",
+      "prior_state": "no_scenario",
+      "repo": "sympy/sympy",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "instance_id": "django__django-12143",
+      "prior_state": "no_scenario",
+      "repo": "django/django",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25332",
+      "prior_state": "no_scenario",
+      "repo": "matplotlib/matplotlib",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "prior_state": "no_scenario",
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "instance_id": "sympy__sympy-14976",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sympy/sympy",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "instance_id": "sympy__sympy-15017",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sympy/sympy",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "instance_id": "django__django-11815",
+      "prior_state": "no_scenario",
+      "repo": "django/django",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "instance_id": "django__django-12143",
+      "prior_state": "no_scenario",
+      "repo": "django/django",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "instance_id": "django__django-12273",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "django/django",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-26342",
+      "prior_state": "no_scenario",
+      "repo": "matplotlib/matplotlib",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "prior_state": "no_scenario",
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "instance_id": "sympy__sympy-15017",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sympy/sympy",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "instance_id": "sympy__sympy-15349",
+      "prior_state": "no_scenario",
+      "repo": "sympy/sympy",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "instance_id": "sympy__sympy-16886",
+      "prior_state": "no_scenario",
+      "repo": "sympy/sympy",
+      "run": "iter226_cross_model_generalization_gpt54"
+    },
+    {
+      "instance_id": "django__django-11790",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "django/django",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "instance_id": "django__django-12143",
+      "prior_state": "no_scenario",
+      "repo": "django/django",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25332",
+      "prior_state": "no_scenario",
+      "repo": "matplotlib/matplotlib",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-26342",
+      "prior_state": "no_scenario",
+      "repo": "matplotlib/matplotlib",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "instance_id": "sympy__sympy-15017",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sympy/sympy",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "instance_id": "django__django-11880",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "django/django",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "django__django-12143",
+      "prior_state": "no_scenario",
+      "repo": "django/django",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-26342",
+      "prior_state": "no_scenario",
+      "repo": "matplotlib/matplotlib",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "prior_state": "no_scenario",
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "scikit-learn/scikit-learn",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sphinx-doc/sphinx",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "sympy__sympy-15017",
+      "prior_state": "no_scenario",
+      "repo": "sympy/sympy",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "sympy__sympy-15349",
+      "prior_state": "no_scenario",
+      "repo": "sympy/sympy",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "instance_id": "sympy__sympy-16886",
+      "prior_state": "scenario_without_usable_result",
+      "repo": "sympy/sympy",
+      "run": "iter229_cross_provider_gemini"
+    }
+  ]
+}
