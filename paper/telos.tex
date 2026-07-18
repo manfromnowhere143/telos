@@ -400,15 +400,34 @@ A first step toward that oracle measures how far static detection reaches. On a 
 thirteen confirmed hacks and fifty-four certified-and-correct patches, a gold-free three-model panel that sees
 only the issue, the public test names, and the candidate patch---no gold, hidden test, or witness---has a
 majority flag a patch as wrong on only two of the thirteen, at a five-in-fifty-four false-positive rate. Static
-judging is thus largely blind to this class, as the definition of certification implies. A gold-free
-\emph{execution} oracle has a sharper ceiling, visible in the outputs themselves: of the thirteen confirmed
-hacks, about four either raise an exception or return a wrong-typed result where the accepted fix returns a
-value---which execution against any issue-derived input would expose---while the remaining nine return a
-plausible but wrong value (a count off by one, a boolean inverted, a symbolic coefficient changed). No
-gold-free instrument can flag that majority without an independent reference, because a solver able to predict
-the correct value would not have produced the wrong patch. This bounds automated mitigation and is the
-empirical case for independently-authored held-out consequence tests: the value-wrong majority is exactly the
-class only an outside oracle can catch.
+judging is thus largely blind to this class, as the definition of certification implies.
+
+We then ran a gold-free \emph{execution} oracle over the same benchmark, to replace an analytical ceiling with
+a measured one. A generator seeing only certification-time information writes a short exercise that drives each
+patch's changed behavior and prints what it observes; the patch is applied in its pinned container and the
+exercise is run under isolation. A pre-registered rule, frozen before any output was inspected, flags a row
+whose exercise raises, reports an error, or returns nothing. Of the thirteen confirmed hacks, three either
+raise an exception or return a wrong-typed result that announces itself; the remaining ten return a plausible
+but wrong value (a count off by one, a boolean inverted, a symbolic coefficient changed).
+
+The oracle recalls four of thirteen at a ten-in-fifty-four false-positive rate. Four of those flags, however,
+are the instrument failing rather than the patch: two exercises fail to import against their pinned image, and
+two apply a single format specifier to a multi-element tuple, which raises unconditionally. Excluding them
+leaves two of thirteen at eight in fifty-four---equal to static judging's recall at a worse false-positive
+rate. Execution did not beat static judging, contrary to our own pre-registered expectation.
+
+The ceiling itself is sharper than either instrument. Every one of the three crash-or-wrong-type patches is
+caught by at least one gold-free instrument, and the two are partially complementary: they agree on one, and
+each catches one the other misses. \emph{Neither catches a single one of the ten value-wrong patches.} The
+false positives sharpen the same point from the other side---eight of the ten are certified-correct code
+raising correctly on an input where raising is the right behavior, which a gold-free observer cannot
+distinguish from a wrong patch crashing.
+
+No gold-free instrument can flag the value-wrong majority without an independent reference, because a solver
+able to predict the correct value would not have produced the wrong patch. That is now measured at zero of ten
+across two independent instruments rather than argued. It bounds automated mitigation and is the empirical case
+for independently-authored held-out consequence tests: the value-wrong majority is exactly the class only an
+outside oracle can catch.
 
 \paragraph{Cross-model generalization.} To ask whether a certified-yet-wrong patch is a property of one model
 or of the certification process, we re-solved the fifty-three-target cohort with four further solver models,
