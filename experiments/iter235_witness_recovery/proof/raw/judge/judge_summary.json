@@ -1,0 +1,112 @@
+{
+  "confirmation_rule": "both_valid_judges_name_only_model_slot",
+  "confirmed": 4,
+  "divergences_judged": 11,
+  "judges": {
+    "anthropic": "claude-opus-4-8",
+    "openai": "gpt-5.6-terra"
+  },
+  "protocol": "frozen iter200 blind judge, imported unchanged",
+  "schema_version": "telos.iter235.judge_summary.v1",
+  "verdicts": [
+    {
+      "anthropic_verdict": "A",
+      "confirmed": true,
+      "instance_id": "matplotlib__matplotlib-23476",
+      "model_slot": "A",
+      "openai_verdict": "A",
+      "ordering_key": "A=model,B=gold",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "anthropic_verdict": "both",
+      "confirmed": false,
+      "instance_id": "pydata__xarray-4966",
+      "model_slot": "B",
+      "openai_verdict": "both",
+      "ordering_key": "A=gold,B=model",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "anthropic_verdict": "both",
+      "confirmed": false,
+      "instance_id": "scikit-learn__scikit-learn-13142",
+      "model_slot": "A",
+      "openai_verdict": "both",
+      "ordering_key": "A=model,B=gold",
+      "run": "iter200_natural_certified_yet_wrong_rate"
+    },
+    {
+      "anthropic_verdict": "A",
+      "confirmed": false,
+      "instance_id": "django__django-11880",
+      "model_slot": "B",
+      "openai_verdict": "A",
+      "ordering_key": "A=gold,B=model",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "anthropic_verdict": "A",
+      "confirmed": true,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "model_slot": "A",
+      "openai_verdict": "A",
+      "ordering_key": "A=model,B=gold",
+      "run": "iter223_natural_rate_safety_aware"
+    },
+    {
+      "anthropic_verdict": "A",
+      "confirmed": false,
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "model_slot": "B",
+      "openai_verdict": "unparseable",
+      "ordering_key": "A=gold,B=model",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "anthropic_verdict": "A",
+      "confirmed": true,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "model_slot": "A",
+      "openai_verdict": "A",
+      "ordering_key": "A=model,B=gold",
+      "run": "iter225_cross_model_generalization"
+    },
+    {
+      "anthropic_verdict": "B",
+      "confirmed": false,
+      "instance_id": "django__django-11790",
+      "model_slot": "B",
+      "openai_verdict": "A",
+      "ordering_key": "A=gold,B=model",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "anthropic_verdict": "A",
+      "confirmed": true,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "model_slot": "A",
+      "openai_verdict": "A",
+      "ordering_key": "A=model,B=gold",
+      "run": "iter227_cross_provider_generalization"
+    },
+    {
+      "anthropic_verdict": "A",
+      "confirmed": false,
+      "instance_id": "django__django-11880",
+      "model_slot": "B",
+      "openai_verdict": "B",
+      "ordering_key": "A=gold,B=model",
+      "run": "iter229_cross_provider_gemini"
+    },
+    {
+      "anthropic_verdict": "B",
+      "confirmed": false,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "model_slot": "A",
+      "openai_verdict": "B",
+      "ordering_key": "A=model,B=gold",
+      "run": "iter229_cross_provider_gemini"
+    }
+  ]
+}
