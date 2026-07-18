@@ -79,6 +79,7 @@ REQUIRED_DOCKER_FLAGS = (
     "--log-driver local",
     "--log-opt max-size=3m",
     "--log-opt max-file=1",
+    "--log-opt compress=false",
 )
 REQUIRED_EXECUTION_LIMITS = {
     "ITER231_APPLY_TIMEOUT_SECONDS": "120",

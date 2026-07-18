@@ -69,6 +69,10 @@ DOCKER_SAFETY_ARGS=(
   --log-driver local
   --log-opt max-size=3m
   --log-opt max-file=1
+  # The local driver compresses rotated files by default, which Docker rejects at max-file=1
+  # ("compression cannot be enabled when max file count is 1"). Observed live: every row failed
+  # docker-run exit 125 before the container started.
+  --log-opt compress=false
 )
 
 if ! row_output="$(python3 - "$EVAL_SET" "$EXDIR" "$FROZEN_EVAL_SET_SHA256" <<'PY'
@@ -326,6 +330,16 @@ exit 0
   row_end="$(date -u +%s)"
   echo "ROW_END stem=$stem epoch=$row_end elapsed=$((row_end - row_start))"
 
+  if [ "$row_rc" -eq 125 ]; then
+    # Docker exit 125 is the daemon refusing to start the container -- a malformed flag set, not a
+    # failing row. It is identical for every row, so grinding through the rest wastes the shard and
+    # buries the cause under a pile of duplicate evidence errors. Abort loudly on the first one.
+    echo "$stem CONTAINER_FLAGS_REJECTED exit=125" >&2
+    echo "docker refused to start the container; the safety flag set is invalid on this daemon:" >&2
+    head -3 "$log" >&2
+    write_progress "flags_rejected" "$stem" "$completed"
+    exit 2
+  fi
   if [ "$row_rc" -eq 124 ] || [ "$row_rc" -eq 137 ]; then
     # The reproducible container-hang mode, bounded rather than allowed to stall the shard.
     echo "$stem ROW_CEILING_EXCEEDED seconds=$ITER231_ROW_CEILING_SECONDS" >&2
