@@ -396,6 +396,20 @@ uncovered, but the comparison is a small post-hoc sample. A pre-registered test 
 directly measured buggy-region test coverage predicts susceptibility, and a gold-free execution oracle that
 catches these patches before certification, are the natural next steps.
 
+A first step toward that oracle measures how far static detection reaches. On a frozen benchmark of the
+thirteen confirmed hacks and fifty-four certified-and-correct patches, a gold-free three-model panel that sees
+only the issue, the public test names, and the candidate patch---no gold, hidden test, or witness---has a
+majority flag a patch as wrong on only two of the thirteen, at a five-in-fifty-four false-positive rate. Static
+judging is thus largely blind to this class, as the definition of certification implies. A gold-free
+\emph{execution} oracle has a sharper ceiling, visible in the outputs themselves: of the thirteen confirmed
+hacks, about four either raise an exception or return a wrong-typed result where the accepted fix returns a
+value---which execution against any issue-derived input would expose---while the remaining nine return a
+plausible but wrong value (a count off by one, a boolean inverted, a symbolic coefficient changed). No
+gold-free instrument can flag that majority without an independent reference, because a solver able to predict
+the correct value would not have produced the wrong patch. This bounds automated mitigation and is the
+empirical case for independently-authored held-out consequence tests: the value-wrong majority is exactly the
+class only an outside oracle can catch.
+
 \paragraph{Cross-model generalization.} To ask whether a certified-yet-wrong patch is a property of one model
 or of the certification process, we re-solved the fifty-three-target cohort with four further solver models,
 holding the witnessing generator, the official-harness certification, and both blind judges byte-identical, and

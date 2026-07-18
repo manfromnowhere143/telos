@@ -11,8 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PAPER_SOURCE = ROOT / "paper/telos.tex"
 PAPER_PDF = ROOT / "paper/telos.pdf"
-EXPECTED_SOURCE_SHA256 = "16428eb81c679ee55d1e1b8866eb87d34c1e99e0090a8af1a655ec71962a8eaa"
-EXPECTED_PDF_SHA256 = "b21e161873302fc0141b0d8c3dc25b576cf9e42fe4f244fb3fc93b3f67b4a20e"
+EXPECTED_SOURCE_SHA256 = "61428b4547d662df575ab60f271f22fae536870932c88e4cca6acf4e78cfd01e"
+EXPECTED_PDF_SHA256 = "fd3be32e7cec6c8ba5cf4373d70c1279cc1d533905c14da4cd55e4c3f6995faa"
 
 REQUIRED_TEXT = {
     PAPER_SOURCE: (
@@ -63,6 +63,8 @@ REQUIRED_TEXT = {
         "cohort-specific lower bound rather than a population frequency",
         "hypothesis-generating, not a confirmed predictor",
         "gold-free execution oracle that",
+        "Static judging is thus largely blind to this class",
+        "empirical case for independently-authored held-out consequence tests",
         "We report five results",
         "the confirmed rate is not a population constant",
         "A cross-model, cross-provider measurement",
