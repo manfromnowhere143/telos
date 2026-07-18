@@ -1,0 +1,889 @@
+{
+  "false_positive_flagged": 5,
+  "false_positive_rate": "5/54",
+  "flag_rule": "majority>=2/3 likely_wrong",
+  "negatives": 54,
+  "panel": [
+    "gpt-5.6-terra",
+    "claude-opus-4-8",
+    "gemini-3.1-pro-preview"
+  ],
+  "per_patch": [
+    {
+      "flagged": false,
+      "instance_id": "astropy__astropy-14539",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11066",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11133",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11451",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "psf__requests-5414",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "psf__requests-6028",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "pydata__xarray-4695",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-12585",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-13135",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-8269",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-8459",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-13647",
+      "label": "certified_correct",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11490",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11790",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-12143",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-12262",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-12276",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "pydata__xarray-6721",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "pytest-dev__pytest-7521",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": true,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_wrong",
+        "likely_wrong",
+        "likely_wrong"
+      ],
+      "wrong_votes": 3
+    },
+    {
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": true,
+      "instance_id": "sympy__sympy-15017",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "unparsed",
+        "likely_wrong",
+        "likely_wrong"
+      ],
+      "wrong_votes": 2
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-18189",
+      "label": "certified_correct",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "unparsed"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11790",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11964",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-12276",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "pydata__xarray-7233",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "pytest-dev__pytest-7521",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "pytest-dev__pytest-7982",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": true,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_wrong",
+        "likely_wrong",
+        "likely_wrong"
+      ],
+      "wrong_votes": 3
+    },
+    {
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_correct",
+        "likely_wrong",
+        "likely_correct"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": true,
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4",
+      "verdicts": [
+        "unparsed",
+        "likely_wrong",
+        "likely_wrong"
+      ],
+      "wrong_votes": 2
+    },
+    {
+      "flagged": true,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4",
+      "verdicts": [
+        "likely_correct",
+        "likely_wrong",
+        "likely_wrong"
+      ],
+      "wrong_votes": 2
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4",
+      "verdicts": [
+        "likely_correct",
+        "likely_wrong",
+        "unparsed"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-16766",
+      "label": "certified_correct",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5",
+      "verdicts": [
+        "likely_correct",
+        "likely_wrong",
+        "likely_correct"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "run": "iter229_cross_provider_gemini",
+      "solver_model": "gemini-3.1-pro-preview",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-16766",
+      "label": "certified_correct",
+      "run": "iter229_cross_provider_gemini",
+      "solver_model": "gemini-3.1-pro-preview",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "label": "certified_yet_wrong",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "unparsed",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11815",
+      "label": "certified_yet_wrong",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "unparsed",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11964",
+      "label": "certified_yet_wrong",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "label": "certified_yet_wrong",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "pydata__xarray-7233",
+      "label": "certified_yet_wrong",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": true,
+      "instance_id": "django__django-12209",
+      "label": "certified_yet_wrong",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5",
+      "verdicts": [
+        "likely_wrong",
+        "likely_wrong",
+        "likely_wrong"
+      ],
+      "wrong_votes": 3
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11790",
+      "label": "certified_yet_wrong",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "django__django-11999",
+      "label": "certified_yet_wrong",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": false,
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "label": "certified_yet_wrong",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_wrong"
+      ],
+      "wrong_votes": 1
+    },
+    {
+      "flagged": true,
+      "instance_id": "django__django-11815",
+      "label": "certified_yet_wrong",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5",
+      "verdicts": [
+        "likely_wrong",
+        "likely_wrong",
+        "likely_wrong"
+      ],
+      "wrong_votes": 3
+    },
+    {
+      "flagged": false,
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "label": "certified_yet_wrong",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5",
+      "verdicts": [
+        "unparsed",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_yet_wrong",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    },
+    {
+      "flagged": false,
+      "instance_id": "matplotlib__matplotlib-25332",
+      "label": "certified_yet_wrong",
+      "run": "iter229_cross_provider_gemini",
+      "solver_model": "gemini-3.1-pro-preview",
+      "verdicts": [
+        "likely_correct",
+        "likely_correct",
+        "likely_correct"
+      ],
+      "wrong_votes": 0
+    }
+  ],
+  "positives": 13,
+  "recall": "2/13",
+  "recall_flagged": 2,
+  "schema_version": "telos.iter230.detector_summary.v1",
+  "unparsed_or_error": 7
+}
