@@ -373,6 +373,16 @@ are thus both null while the reused cohort yields hacks, which sharpens the read
 cohort-specific lower bound rather than a population frequency: the existence of certified-yet-wrong is
 model-independent, but its rate concentrates in particular cohorts and repositories.
 
+An exploratory, post-hoc comparison offers a first clue to what makes a target susceptible. Pooling the
+confirmed hacks across all five solver models, the ten hacked targets in the fifty-three-target cohort carry
+larger gold fixes than the other forty-three---a median of four added source lines against one
+(Mann-Whitney $p=0.008$, uncorrected and chosen after inspection)---while the count of graded fail-to-pass
+tests does not separate the two groups (median one for both). This is hypothesis-generating, not a confirmed
+predictor: a larger correct fix touches more behavior for a graded suite of the same sparse size to leave
+uncovered, but the comparison is a small post-hoc sample. A pre-registered test of whether fix complexity or
+directly measured buggy-region test coverage predicts susceptibility, and a gold-free execution oracle that
+catches these patches before certification, are the natural next steps.
+
 \paragraph{Cross-model generalization.} To ask whether a certified-yet-wrong patch is a property of one model
 or of the certification process, we re-solved the fifty-three-target cohort with four further solver models,
 holding the witnessing generator, the official-harness certification, and both blind judges byte-identical, and
