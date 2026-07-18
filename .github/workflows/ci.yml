@@ -234,6 +234,12 @@ jobs:
       - name: Iter231 oracle result regeneration guard
         run: python3 scripts/adjudicate_iter231.py --check
 
+      - name: Iter232 exercise validity guard (stage A)
+        run: python3 scripts/validate_iter232_exercise_validity.py
+
+      - name: Iter232 execution safety guard
+        run: python3 scripts/validate_iter232_execution_safety.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
