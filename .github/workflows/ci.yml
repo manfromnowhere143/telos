@@ -261,6 +261,9 @@ jobs:
       - name: Iter234 result regeneration guard
         run: python3 scripts/adjudicate_iter234.py --check
 
+      - name: Iter235 recovery-cohort derivation guard
+        run: python3 scripts/build_iter235_targets.py --check
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
