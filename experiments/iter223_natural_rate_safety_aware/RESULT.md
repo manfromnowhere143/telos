@@ -1,5 +1,12 @@
 # Iter223 result — natural-rate replication with a safety-aware pipeline
 
+> **iter235 correction (added after publication).** This run's unadjudicated rows have since been
+> recovered. `k` 4 -> 5, `u` 5 -> 0, worst-case upper 9/29 -> 5/29. The figures below are the originals and are left
+> unchanged; the corrected values and the reason are in
+> [iter235 witness recovery](../iter235_witness_recovery/RESULT.md). Those rows were certified long ago
+> and lost only because their gold-differential witness could not run, not because they were correct.
+
+
 Status: **PASS — first execution-verified scaled natural certified-yet-wrong rate.** Bounded elicited-neutral
 pilot; not a population frequency.
 

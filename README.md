@@ -2,7 +2,7 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
-> **The natural certified-yet-wrong rate is measured and generalized: five frontier models across three providers each slip a patch past the official SWE-bench Verified graded suite that both blind judges name wrong** — OpenAI (`gpt-5.6-terra` `4/29`, `gpt-5.5` `1/25`, `gpt-5.4` `3/17`), Anthropic (`claude-sonnet-5` `3/14`), and Google (`gemini-3.1-pro-preview` `1/16`). These runs are operator-authorized, execution-verified in pinned x86 SWE-bench containers, and folded into `paper/telos.pdf`. Two independently-built fresh cohorts are null (iter224 `0/15`, iter228 `0/22`), so the confirmed rate concentrates in the reused `53`-target cohort and the pooled `5/68` is a cohort-specific lower bound, not a population frequency. The reverse-chronological narrative below leads with the current result.
+> **The natural certified-yet-wrong rate is measured and generalized: five frontier models across three providers each slip a patch past the official SWE-bench Verified graded suite that both blind judges name wrong** — OpenAI (`gpt-5.6-terra` `5/29`, `gpt-5.5` `2/25`, `gpt-5.4` `3/17`), Anthropic (`claude-sonnet-5` `4/14`), and Google (`gemini-3.1-pro-preview` `1/16`) — corrected by [iter235](experiments/iter235_witness_recovery/RESULT.md), which recovered `33` of the `41` certified patches whose witness never ran, cutting the missing-outcome term `u` from `41` to `8` across all six runs. These runs are operator-authorized, execution-verified in pinned x86 SWE-bench containers, and folded into `paper/telos.pdf`. Two independently-built fresh cohorts are null (iter224 `0/15`, iter228 `0/22`), so the confirmed rate concentrates in the reused `53`-target cohort and remains a cohort-specific lower bound, not a population frequency. The pooled `5/68` quoted below predates the iter235 correction and is flagged for re-derivation; pooled over all six runs the band between the observed rate and its worst case narrows from `[0.104, 0.432]` to `[0.136, 0.200]`. The reverse-chronological narrative below leads with the current result.
 >
 > A separate line — the TCP-1 agent-completion-proof packet, which needs independently-authored hidden consequence tests and human reviewers — remains blocked. **Iter222 filled three TCP-1 admission gates (2/11 → 5/11) — scientific execution remains BLOCKED.** Iter219 published a null on the temporal-yield screen; Iter214 merged through PR `#12`
 > as `470ca3627b7635d9a315cf2811ceb2eed6575fb9` with green push, pull-request, and merged-master CI, closing
@@ -58,14 +58,20 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active pre-registration is
-[iter235 witness recovery](experiments/iter235_witness_recovery/HYPOTHESIS.md): across six natural-rate runs
-`125` patches were certified and **`41` were never adjudicated** — certified, not gold-equivalent, and lacking
-a usable gold-differential witness. Those `41` are exactly the `u` term forcing every published rate to carry
-a worst-case missing upper bound, and the expensive compute for them is already spent: only the witness stage
-failed. Iter235 applies iter232's validate-and-retry treatment to the witness generator, which was written
-once and shipped without a validity gate. A `$0` analysis first ruled out the two obvious alternatives — fresh
-cohorts yielded `0` from `59` solved patches, and the `p=0.008` fix-size lead does not transfer.
+The active scientific result is
+[iter235 witness recovery](experiments/iter235_witness_recovery/RESULT.md): across six natural-rate runs
+`125` patches were certified and `41` were never adjudicated — certified, not gold-equivalent, and lacking a
+usable gold-differential witness. The witness generator had been written once and shipped without the
+validity gate iter232 gave the exercise generator. Adding one, plus a paired preflight requiring an
+observable under **both** implementations, made `33` of the `41` adjudicable; all `33` produced results on
+both arms, `11` diverged, and `4` confirmed under the unmodified two-judge rule.
+
+**`u` falls from `41` to `8`; `k` rises from `13` to `17`.** The band between the observed natural rate and
+its worst case narrows from `[0.104, 0.432]` to `[0.136, 0.200]` — the point estimate barely moves, but the
+share of uncertainty that was *lost measurement* rather than sampling largely disappears. The headline is
+deliberately `u`, not `k`: three of the four new confirmations are the same instance under different solvers,
+so distinct susceptible instances rise only from `11` to `12`, and the correlation problem that makes this
+benchmark statistically weak is **not** solved.
 
 The active scientific result is
 [iter234 issue-only consequence tests](experiments/iter234_issue_only_consequence_tests/RESULT.md): **the
@@ -387,7 +393,7 @@ turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
 flowchart LR
- I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI failed"]-->I209["209 PR failed"]-->I210["210 merged"]-->I211["211 TCP-1 2/11"]-->I213["213 CI failed"]-->I214["214 Wilson fix"]-->I219["219 temporal<br/>NULL"]-->I220["220 CI fix"]-->I221["221 platform"]-->I222["222 adm<br/>5/11"]-->I223["223 scaled<br/>4/29"]-->I224["224 null<br/>0/15"]-->I225["225 gpt-5.5<br/>1/25"]-->I226["226 gpt-5.4<br/>3/17"]-->I227["227 sonnet-5<br/>3/14"]-->I228["228 fresh<br/>0/22 null"]-->I229["229 Gemini<br/>1/16 hack"]-->I230["230 detector<br/>2/13 recall"]-->I231["231 oracle<br/>2/13 NULL"]
+ I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI"]-->I209["209 PR"]-->I210["210 ok"]-->I211["211 TCP-1"]-->I213["213 CI fail"]-->I214["214 Wilson"]-->I219["219<br/>NULL"]-->I220["220 CI"]-->I221["221 plat"]-->I222["222<br/>5/11"]-->I223["223<br/>5/29"]-->I224["224<br/>0/15"]-->I225["225<br/>2/25"]-->I226["226<br/>3/17"]-->I227["227<br/>4/14"]-->I228["228 fresh<br/>0/22"]-->I229["229<br/>1/16"]-->I230["230 static<br/>2/13"]-->I231["231 oracle<br/>2/13"]-->I232["232 valid<br/>0/10"]-->I233["233 release"]-->I234["234 issue<br/>1/10"]-->I235["235 recover<br/>u41-8"]
  classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
  classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;

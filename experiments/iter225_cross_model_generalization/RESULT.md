@@ -1,5 +1,12 @@
 # Iter225 result — the certified-yet-wrong phenomenon generalizes across solver models
 
+> **iter235 correction (added after publication).** This run's unadjudicated rows have since been
+> recovered. `k` 1 -> 2, `u` 7 -> 2, worst-case upper 8/25 -> 4/25. The figures below are the originals and are left
+> unchanged; the corrected values and the reason are in
+> [iter235 witness recovery](../iter235_witness_recovery/RESULT.md). Those rows were certified long ago
+> and lost only because their gold-differential witness could not run, not because they were correct.
+
+
 Status: **positive result, published at full weight.** A second, distinct frontier model produces a
 certified-yet-wrong patch on the identical cohort and pipeline, confirmed by both blind judges under the
 strict model-only rule. This is evidence that certified-yet-wrong reflects the certification process, not one

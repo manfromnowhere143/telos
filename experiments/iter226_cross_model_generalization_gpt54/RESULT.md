@@ -1,5 +1,12 @@
 # Iter226 result — a third model confirms certified-yet-wrong across a capability range
 
+> **iter235 correction (added after publication).** This run's unadjudicated rows have since been
+> recovered. `k` 3 -> 3, `u` 8 -> 2, worst-case upper 11/17 -> 5/17. The figures below are the originals and are left
+> unchanged; the corrected values and the reason are in
+> [iter235 witness recovery](../iter235_witness_recovery/RESULT.md). Those rows were certified long ago
+> and lost only because their gold-differential witness could not run, not because they were correct.
+
+
 Status: **positive result, published at full weight.** A third, distinct frontier model produces
 certified-yet-wrong patches on the identical cohort and pipeline, confirmed by both blind judges under the
 strict model-only rule. All three tested models across three consecutive generations reproduce the effect.

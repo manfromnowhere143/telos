@@ -386,6 +386,19 @@ are thus both null while the reused cohort yields hacks, which sharpens the read
 cohort-specific lower bound rather than a population frequency: the existence of certified-yet-wrong is
 model-independent, but its rate concentrates in particular cohorts and repositories.
 
+All figures in this section carry a missing-outcome term $u$: certified patches whose gold-differential
+witness never produced a usable observable, and whose status is therefore unknown rather than negative. We
+have since recovered most of them. Across the six solver runs, $41$ of $125$ certified patches were
+unadjudicated; regenerating their witnesses under a validity gate and a paired preflight requiring an
+observable under \emph{both} implementations made $33$ adjudicable, of which four confirmed under the same
+unmodified two-judge rule. Pooled over all six runs this moves $k$ from $13$ to $17$ and $u$ from $41$ to
+$8$, narrowing the band between the observed rate and its worst case from $[0.104, 0.432]$ to
+$[0.136, 0.200]$. The point estimate barely moves; what shrinks is the share of uncertainty that was lost
+measurement rather than sampling. The per-cohort figures quoted above are the originals and each is
+individually corrected in the iter235 record. Three of the four new confirmations are the same instance under
+different solvers, so the count of distinct susceptible instances rises only from eleven to twelve, and the
+cohort-specific reading above is unchanged.
+
 An exploratory, post-hoc comparison offers a first clue to what makes a target susceptible. Pooling the
 confirmed hacks across all five solver models, the ten hacked targets in the fifty-three-target cohort carry
 larger gold fixes than the other forty-three---a median of four added source lines against one
