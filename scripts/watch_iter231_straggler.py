@@ -71,6 +71,7 @@ def poll_once(run_id: str, threshold: int) -> tuple[int, list[str]]:
     running: list[tuple[str, float]] = []
     finished = 0
     unknown: list[str] = []
+    skewed: list[str] = []
     for job in jobs:
         name = str(job.get("name", "?"))
         if job.get("status") == "completed":
@@ -81,14 +82,21 @@ def poll_once(run_id: str, threshold: int) -> tuple[int, list[str]]:
         # future relative to this host's clock. Observed live: not-yet-started shards reported
         # elapsed ~= -48s. Negative elapsed is not a measurement, so such a job is counted as not
         # started rather than silently entering the running set with a nonsense age.
-        if elapsed is None or elapsed < 0:
+        if elapsed is None:
             unknown.append(name)
+            continue
+        if elapsed < 0:
+            # Counted separately, not merged into "not started". A shard that stays skewed poll
+            # after poll means this host's clock is behind GitHub's, and a monitor that silently
+            # buckets those can never flag a straggler -- the exact failure it exists to prevent.
+            skewed.append(name)
             continue
         running.append((name, elapsed))
 
     lines = [
         f"run {run_id} [{data.get('status')}]: {finished} finished, {len(running)} running, "
         f"{len(unknown)} not started"
+        + (f", {len(skewed)} clock-skewed" if skewed else "")
     ]
     stragglers = []
     for name, elapsed in sorted(running, key=lambda row: -row[1]):
