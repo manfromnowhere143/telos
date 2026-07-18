@@ -421,8 +421,20 @@ outcomes from four to zero.
 With a working instrument the oracle recalls two of thirteen---exactly static judging's recall---at
 twelve in fifty-four against static's five, and the raw four-of-thirteen is confirmed to have been artifact.
 Repairing the measuring device moved the headline down, and improved coverage bought additional false alarms
-rather than additional detections. Execution did not beat static judging, contrary to our own pre-registered
-expectation, and the second run removed the explanation that the instrument had simply been broken.
+rather than additional detections. Execution did not beat static judging on recall, contrary to our own
+pre-registered expectation, and the second run removed the explanation that the instrument had simply been
+broken.
+
+The false-positive comparison, however, is an artifact of how the benchmark is composed, and we report the
+correction rather than the flattering aggregate. Twenty-nine of the fifty-four correct patches are
+byte-identical to the accepted fix, because they certified by being gold-equivalent. The static panel never
+flags one of those---a judge shown canonical code approves it---so its aggregate five-in-fifty-four rests on
+half a benchmark it cannot fail, and on the twenty-five patches that genuinely differ from the accepted fix it
+false-alarms at five in twenty-five. The execution oracle is nearly indifferent to the distinction, since it
+observes whether code raises rather than whether it looks canonical, and on those same twenty-five patches it
+false-alarms at four in twenty-three. On the harder half the ordering reverses. The honest statement is that
+the two instruments have indistinguishable recall and indistinguishable false-alarm rates once the
+trivially-separable patches are excluded.
 
 The ceiling itself is sharper than either instrument. Across both, \emph{not one of the ten value-wrong
 patches is flagged}: zero of ten with no missing outcomes, a Wilson upper bound of $0.278$. The false

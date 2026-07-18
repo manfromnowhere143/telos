@@ -54,7 +54,21 @@ external reference we cannot remove, because the instances are public.
 
 If your detector consults gold, or any resource derived from it, **its number here is meaningless.** For a
 harder read, score only against the `25` negatives that are *not* gold-identical; `answers.json` carries what
-you need to select them.
+you need to select them, and `scripts/score_iter233_release.py --stratify` prints the split.
+
+**The shortcut also biases the baselines, unequally.** Stratifying the committed decisions:
+
+| Detector | Gold-identical negatives | Hard negatives |
+| --- | --- | --- |
+| Static panel | `0/29 = 0.000` | `5/25 = 0.200` |
+| Execution oracle (defective) | `5/20 = 0.250` | `5/22 = 0.227` |
+| Execution oracle (validated) | `8/29 = 0.276` | `4/23 = 0.174` |
+
+The static panel never flags a patch that *is* the canonical fix, so its whole headline false-positive rate
+comes from the harder half and `5/54 = 0.093` understates it by more than twofold. The execution oracles are
+roughly indifferent to the distinction, because they observe whether code raises rather than whether it looks
+canonical. On the harder half the ordering **reverses**: the validated oracle false-alarms less often than the
+static panel, not more. Compare detectors on the hard subset, not on the full negative set.
 
 **Some issues contain the fix.** In a few instances the reporter proposed the accepted change in the issue
 text — `django-11951`'s issue writes out the one-liner. That text stays, because it is genuine
