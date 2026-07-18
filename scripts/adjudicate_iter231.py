@@ -133,13 +133,16 @@ def build() -> dict:
             continue
         text = log_path.read_text(errors="replace")
         flagged, reasons, observable = adjudicate_log(text)
-        if observable is None:
+        # The frozen rule lists nonzero_exit as a flag condition in its own right, so a crashed
+        # exercise is an observation even with no RESULT= line. Only a row that yields neither a
+        # RESULT= nor any flag reason is genuinely missing.
+        if observable is None and not reasons:
             row["outcome"] = "missing_no_result"
         else:
             row["outcome"] = "observed"
             row["flagged"] = flagged
             row["flag_reasons"] = reasons
-            row["observable"] = observable[:400]
+            row["observable"] = observable[:400] if observable is not None else None
         rows.append(row)
 
     def slice_rates(subset: list[dict]) -> dict:
@@ -166,6 +169,24 @@ def build() -> dict:
         "iter230_static_baseline": {
             "recall": {"k": ITER230_STATIC_RECALL[0], "n": ITER230_STATIC_RECALL[1]},
             "false_positive_rate": {"k": ITER230_STATIC_FPR[0], "n": ITER230_STATIC_FPR[1]},
+        },
+        # Honest caveat on the flag counts, not a change to the frozen rule. A row flagged only by
+        # nonzero_exit with no RESULT= line died before it could report -- which happens when the
+        # PATCHED CODE crashes, but also when the EXERCISE ITSELF is broken (an import that does not
+        # exist in the pinned image, a buggy except handler). Both were observed. The oracle cannot
+        # tell them apart gold-free, so the count is published beside the rates rather than being
+        # quietly folded into them.
+        "flagged_without_observable": {
+            "certified_yet_wrong": sum(
+                1 for row in positives
+                if row["flagged"] and row["observable"] is None
+            ),
+            "certified_correct": sum(
+                1 for row in negatives
+                if row["flagged"] and row["observable"] is None
+            ),
+            "note": "flagged by nonzero_exit alone; instrument failure is indistinguishable from "
+                    "patched-code failure without a reference",
         },
         "missing_rows": [
             {"instance_id": row["instance_id"], "label": row["label"], "run": row["run"],

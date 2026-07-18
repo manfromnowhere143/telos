@@ -191,9 +191,22 @@ row_complete() {
   [ "$(grep -F -x -c ">>>>> Exercise Start" "$file" 2>/dev/null)" -eq 1 ] || return 1
   [ "$(grep -F -x -c ">>>>> Exercise End" "$file" 2>/dev/null)" -eq 1 ] || return 1
   [ "$(grep -E -c '^EXERCISE_EXIT=[0-9]+$' "$file" 2>/dev/null)" -eq 1 ] || return 1
-  # Exactly one RESULT= observable. Zero means the exercise produced nothing to adjudicate, which is
-  # an evidence failure, not a null observation.
-  [ "$(grep -E -c '^RESULT=' "$file" 2>/dev/null)" -eq 1 ] || return 1
+  # An observation is either exactly one RESULT= line, or a non-zero exercise exit. The frozen flag
+  # rule (ADJUDICATION_FREEZE.md, committed before any output existed) already lists nonzero_exit as
+  # a flag condition in its own right, so a crashed exercise IS an observation, not a hole -- even
+  # when it died before printing RESULT=. Observed live: an exercise whose own except handler was
+  # buggy ("RESULT=%r" % (a, b)) crashed while reporting the patched code's TypeError, and another
+  # died on an ImportError against the pinned image.
+  #
+  # This bar is being corrected to match the pre-registered rule; the rule itself is unchanged.
+  #
+  # Exit 0 with no RESULT= remains an evidence failure: the exercise ran to completion and silently
+  # produced nothing to adjudicate.
+  local result_lines exercise_exit
+  result_lines="$(grep -E -c '^RESULT=' "$file" 2>/dev/null)"
+  exercise_exit="$(grep -E -m1 '^EXERCISE_EXIT=[0-9]+$' "$file" 2>/dev/null | cut -d= -f2)"
+  [ "$result_lines" -le 1 ] || return 1
+  [ "$result_lines" -eq 1 ] || [ "${exercise_exit:-0}" -ne 0 ] || return 1
 }
 
 PROGRESS="$OUTDIR/_shard-$SHARD_INDEX-of-$SHARD_COUNT.progress.json"
@@ -349,8 +362,10 @@ exit 0
   fi
 
   if ! row_complete "$stem" "$status"; then
+    # Reported here for locality, but NOT counted here: the reconciliation loop below re-checks
+    # every selected row and owns the tally. Counting in both places double-reported the failure
+    # count on the first real run (2 incomplete rows surfaced as "4 evidence errors").
     echo "$stem INCOMPLETE_ORACLE_EVIDENCE" >&2
-    failures=$((failures + 1))
   else
     completed=$((completed + 1))
   fi
