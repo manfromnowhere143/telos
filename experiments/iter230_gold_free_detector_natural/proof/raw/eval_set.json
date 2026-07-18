@@ -1,0 +1,600 @@
+{
+  "description": "Frozen natural certified-yet-wrong detector benchmark assembled from the committed natural-rate arc (iter200/223/225/226/227/229). Positives are confirmed certified-yet-wrong patches (both blind judges named the model); negatives are certified-and-believed-correct patches (normalized-identical to gold, or witness-executed with no divergence). Patch bytes live in each run's committed solutions directory, bound here by SHA-256.",
+  "negative_count": 54,
+  "negatives": [
+    {
+      "instance_id": "astropy__astropy-14539",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/astropy__astropy-14539.model.patch",
+      "model_patch_sha256": "6df2a31458ccb6444253ea103006830eeb96f9a89eb9db2959f46060a28fe691",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11066",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/django__django-11066.model.patch",
+      "model_patch_sha256": "ee3b84ed76d44a90804ae0af1440ddc0edeedfcfcdd3a991df3be3cdcdd65848",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11133",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/django__django-11133.model.patch",
+      "model_patch_sha256": "7f805043ff9e5ef4d292f89d6b849e378e2606e763d83fa31e66c9d023af478c",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11451",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/django__django-11451.model.patch",
+      "model_patch_sha256": "36c3152d40b1b5653734204552615181633beaba076540961ba2153f2e817f7d",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "psf__requests-5414",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/psf__requests-5414.model.patch",
+      "model_patch_sha256": "61e27612c18e3f1d500251cda7742a176a508d0e792145d6e5098072618d3f77",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "psf__requests-6028",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/psf__requests-6028.model.patch",
+      "model_patch_sha256": "cd417d52f398ea271e81187cedda160ebc432c54c1e7eec44438e704a1e9a6b3",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "pydata__xarray-4695",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/pydata__xarray-4695.model.patch",
+      "model_patch_sha256": "c8f80ca2ab218e0728eb1b216f6d2c3c84588164291aa57387159a8e56c9901c",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-12585",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/scikit-learn__scikit-learn-12585.model.patch",
+      "model_patch_sha256": "6df99caf109075b4b328954c8255ee286785662dc51231607e6b8e2e1b2f1933",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13135",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/scikit-learn__scikit-learn-13135.model.patch",
+      "model_patch_sha256": "2d11087cfb61ae830acc12c76c1bd363952b8824f28df7f9ae482df244696a89",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8269",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/sphinx-doc__sphinx-8269.model.patch",
+      "model_patch_sha256": "65ed4542a120eb90c294b2709396047669ef36734d3d9bfed68707bc612a4051",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8459",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/sphinx-doc__sphinx-8459.model.patch",
+      "model_patch_sha256": "8bf406df3ba81a273c45b95b9c14c70ba7e4ae7c0a5e387c5544d0d608d4900d",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sympy__sympy-13647",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/sympy__sympy-13647.model.patch",
+      "model_patch_sha256": "7ad953b9784cbd87a0f59281f614cb94e8ff7c37d3d0ddb09827b0431ed811c0",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11490",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-11490.model.patch",
+      "model_patch_sha256": "0852350a723751f2b8009bafa4998709c3f7c4f2173c220c7dc041259a61defc",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11790",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-11790.model.patch",
+      "model_patch_sha256": "45134a10c54998cc6a8454e4a13ecf9366976fe6876aa64ae59317e229304c3a",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-11951.model.patch",
+      "model_patch_sha256": "b382abb1894bfce82e22ecdfdba4ee2f0e2204848fd62933935d4785652ec85b",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-12143",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-12143.model.patch",
+      "model_patch_sha256": "cd29992ea2851e956a0d446773bc61bad5a1b6b73f41ec230e0836b8936bf9a9",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-12262",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-12262.model.patch",
+      "model_patch_sha256": "9ec3e3ad1dd4c1993e6c0fb4698939f8f7eb192128fe0d696add4abb969e7037",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-12276",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-12276.model.patch",
+      "model_patch_sha256": "6e2c9dce194832456154736299b00a1ce567f2cc5fa1b1e2b8e95eabdcd99fbf",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "pydata__xarray-6721",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/pydata__xarray-6721.model.patch",
+      "model_patch_sha256": "47497c21bbb7e54a64da12a51355c18933620cd48dc4cf36f8cf4ba509b0eb88",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7521",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/pytest-dev__pytest-7521.model.patch",
+      "model_patch_sha256": "e1f62165b6ecc14c60b08bb71a59b927adba0c3b9a8393394481cc6a4f0f8f0e",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/scikit-learn__scikit-learn-25747.model.patch",
+      "model_patch_sha256": "d961139b918d6d2ac8b3e0716cad76b524608b8276a621d169e443ef40e38665",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sphinx-doc__sphinx-9230.model.patch",
+      "model_patch_sha256": "e6cc08c8b1858c3d41964c220e396638c15e601f88fa9cb6493938e5fdd814c6",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9258",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sphinx-doc__sphinx-9258.model.patch",
+      "model_patch_sha256": "d2e286c77a107834927d2a38438dc8c59609034a5116588b2f10620ba7f80aef",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "model_patch_sha256": "7673d194f45edf70ab090b3d83e8521956601303f18ab412b25f8ca05ded6072",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sympy__sympy-15017",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-15017.model.patch",
+      "model_patch_sha256": "fdcf94ae6992de4568134a87b4ef0d4eef461027ae06ac366506936d3df9df8d",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-15349.model.patch",
+      "model_patch_sha256": "14d79be0430f201c1938906118c86d18fd0b2103a4510afd9f957c14876361e4",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-16886.model.patch",
+      "model_patch_sha256": "e311e8bba944d634a2621fd8370236ea2d2affec4db65765bef09d5356882bc4",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-17655.model.patch",
+      "model_patch_sha256": "b5c2707f5d41f7bf18b17edef6e55a32dbfc96c8378b54db6a7fe68747088c49",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "sympy__sympy-18189",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-18189.model.patch",
+      "model_patch_sha256": "60f7aaf491bf8f154fbd61b94c5ce812540bed577750965a49c79a3e64666e62",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11790",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/django__django-11790.model.patch",
+      "model_patch_sha256": "45134a10c54998cc6a8454e4a13ecf9366976fe6876aa64ae59317e229304c3a",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/django__django-11951.model.patch",
+      "model_patch_sha256": "b382abb1894bfce82e22ecdfdba4ee2f0e2204848fd62933935d4785652ec85b",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "django__django-11964",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/django__django-11964.model.patch",
+      "model_patch_sha256": "fa4906a51c1c43f38d16d57e1c8f5410e172508c85e251643b34f3073747ad03",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "django__django-12276",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/django__django-12276.model.patch",
+      "model_patch_sha256": "6e2c9dce194832456154736299b00a1ce567f2cc5fa1b1e2b8e95eabdcd99fbf",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "pydata__xarray-7233",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/pydata__xarray-7233.model.patch",
+      "model_patch_sha256": "9e6388b6d5a8902f979f92a188d1d3247d74d180ca5fafe6169ca6200b2b2652",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7521",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/pytest-dev__pytest-7521.model.patch",
+      "model_patch_sha256": "e1f62165b6ecc14c60b08bb71a59b927adba0c3b9a8393394481cc6a4f0f8f0e",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "pytest-dev__pytest-7982",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/pytest-dev__pytest-7982.model.patch",
+      "model_patch_sha256": "76762ad86ffeec79de2f946c2dd097c003a9dd6097b8c9e7829d71338056222f",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-13439",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/scikit-learn__scikit-learn-13439.model.patch",
+      "model_patch_sha256": "0b613409756c7288bb772749c5a5a22eccd9047661acc02239069fe86e6a6bd6",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/scikit-learn__scikit-learn-25747.model.patch",
+      "model_patch_sha256": "48e163dedba1f0e4cedc2ebbd28194995e8315a1afcbe048e2f7340e9ba920d4",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9230",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sphinx-doc__sphinx-9230.model.patch",
+      "model_patch_sha256": "e6cc08c8b1858c3d41964c220e396638c15e601f88fa9cb6493938e5fdd814c6",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-9698",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sphinx-doc__sphinx-9698.model.patch",
+      "model_patch_sha256": "9e5f742f4b369b8998d7ae36fde7926cec5cbf73121408346bd09695fc956219",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "model_patch_sha256": "7673d194f45edf70ab090b3d83e8521956601303f18ab412b25f8ca05ded6072",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sympy__sympy-15349.model.patch",
+      "model_patch_sha256": "14d79be0430f201c1938906118c86d18fd0b2103a4510afd9f957c14876361e4",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sympy__sympy-16886.model.patch",
+      "model_patch_sha256": "e311e8bba944d634a2621fd8370236ea2d2affec4db65765bef09d5356882bc4",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sympy__sympy-17655.model.patch",
+      "model_patch_sha256": "6c25daf0f09d3e6abeff3a19d99ed4f5eb927c920419384793d5a72ee1bd011d",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "django__django-11951",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/django__django-11951.model.patch",
+      "model_patch_sha256": "b382abb1894bfce82e22ecdfdba4ee2f0e2204848fd62933935d4785652ec85b",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-25747",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/scikit-learn__scikit-learn-25747.model.patch",
+      "model_patch_sha256": "f65718f68bcec5ca4bf1a71093a03a9054972877d1a2443e553fde29c7567369",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4"
+    },
+    {
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "model_patch_sha256": "aae9b3ae541619fe68ccf44763c7a5c76b53cda1e231424caeb8efeae465f871",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4"
+    },
+    {
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/sympy__sympy-17655.model.patch",
+      "model_patch_sha256": "b4d5211d9c2600d7238a336fd1ca1fa656b1961042eef20bc92cf10ef137b165",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4"
+    },
+    {
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "model_patch_sha256": "66650fe1624064eba289601cd7fee644499da3e47cda6e8d420334f0c3d7e6bc",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5"
+    },
+    {
+      "instance_id": "sympy__sympy-16766",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-16766.model.patch",
+      "model_patch_sha256": "0902161cf652d4db46f6f628ee9d21355782659b3ae58e2e84275db4e6105ede",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5"
+    },
+    {
+      "instance_id": "sympy__sympy-16886",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-16886.model.patch",
+      "model_patch_sha256": "e311e8bba944d634a2621fd8370236ea2d2affec4db65765bef09d5356882bc4",
+      "reason": "certified_gold_equivalent_normalized",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5"
+    },
+    {
+      "instance_id": "sympy__sympy-17655",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-17655.model.patch",
+      "model_patch_sha256": "83e68917d5d8f3a9f39b07cf98c5025309fffb2dd6314011d1740cc5151e8bdb",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5"
+    },
+    {
+      "instance_id": "sympy__sympy-14711",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter229_cross_provider_gemini/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "model_patch_sha256": "aae9b3ae541619fe68ccf44763c7a5c76b53cda1e231424caeb8efeae465f871",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter229_cross_provider_gemini",
+      "solver_model": "gemini-3.1-pro-preview"
+    },
+    {
+      "instance_id": "sympy__sympy-16766",
+      "label": "certified_correct",
+      "model_patch_path": "experiments/iter229_cross_provider_gemini/proof/raw/solutions/sympy__sympy-16766.model.patch",
+      "model_patch_sha256": "0902161cf652d4db46f6f628ee9d21355782659b3ae58e2e84275db4e6105ede",
+      "reason": "certified_no_observed_divergence",
+      "run": "iter229_cross_provider_gemini",
+      "solver_model": "gemini-3.1-pro-preview"
+    }
+  ],
+  "positive_count": 13,
+  "positives": [
+    {
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/sphinx-doc__sphinx-8621.model.patch",
+      "model_patch_sha256": "8f9bc53d4020db2bfd5cf7132895486ef9abbad2fd29fe20f17dbd8d9d3e35e4",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11815",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-11815.model.patch",
+      "model_patch_sha256": "f8a50a531984c3f7a4f3e710d8b38a9260e26faa59911347e063e5dece5ba34d",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-11964",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-11964.model.patch",
+      "model_patch_sha256": "424e82683d6d8e2e3c2471a989d7094e572a6b9b32c13711458676c251808664",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25332",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/matplotlib__matplotlib-25332.model.patch",
+      "model_patch_sha256": "f40846eeb1ec66e6d453c2a2cfeb1a6030675691e1f608fccc953c60bcd3ab6b",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "pydata__xarray-7233",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/pydata__xarray-7233.model.patch",
+      "model_patch_sha256": "9e6388b6d5a8902f979f92a188d1d3247d74d180ca5fafe6169ca6200b2b2652",
+      "run": "iter223_natural_rate_safety_aware",
+      "solver_model": "gpt-5.6-terra"
+    },
+    {
+      "instance_id": "django__django-12209",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/django__django-12209.model.patch",
+      "model_patch_sha256": "16e620c407ec73301848d0c4458278f1f1ce7161ca0bc09279fbfeac6bba446e",
+      "run": "iter225_cross_model_generalization",
+      "solver_model": "gpt-5.5"
+    },
+    {
+      "instance_id": "django__django-11790",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/django__django-11790.model.patch",
+      "model_patch_sha256": "39e78ac3b51cc1636c7d41529705fb6866707b1876ad29ac1750b3423d02bdf3",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4"
+    },
+    {
+      "instance_id": "django__django-11999",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/django__django-11999.model.patch",
+      "model_patch_sha256": "fb470ccc7b7fba126cd8cb88848918e9527d84285bbbf0a22bab989930e0b4ab",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4"
+    },
+    {
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/sphinx-doc__sphinx-8721.model.patch",
+      "model_patch_sha256": "c07ecef2d7ad18160e4f85aaf7e1e03ed5449f9f40689f20f3dc72189c2f4e4f",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "solver_model": "gpt-5.4"
+    },
+    {
+      "instance_id": "django__django-11815",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/django__django-11815.model.patch",
+      "model_patch_sha256": "b82db9a265324aa4020bf650a824a99cc2674436f58a2f7abfc36ed1a74665e5",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5"
+    },
+    {
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/scikit-learn__scikit-learn-14894.model.patch",
+      "model_patch_sha256": "fa4e497760eee2837e34eee448d0cea72290dda5dcdfc2971fbb02e5f0823276",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5"
+    },
+    {
+      "instance_id": "sympy__sympy-15349",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-15349.model.patch",
+      "model_patch_sha256": "2e2ec3d4e039076eb866b787201cd046db261dde529ba9220ea178352ca9fef8",
+      "run": "iter227_cross_provider_generalization",
+      "solver_model": "claude-sonnet-5"
+    },
+    {
+      "instance_id": "matplotlib__matplotlib-25332",
+      "label": "certified_yet_wrong",
+      "model_patch_path": "experiments/iter229_cross_provider_gemini/proof/raw/solutions/matplotlib__matplotlib-25332.model.patch",
+      "model_patch_sha256": "29ad4e44d9d737e8d3aba4612892c78307a50c28b206f599ce824df57137ce69",
+      "run": "iter229_cross_provider_gemini",
+      "solver_model": "gemini-3.1-pro-preview"
+    }
+  ],
+  "schema_version": "telos.iter230.natural_detector_eval.v1"
+}
