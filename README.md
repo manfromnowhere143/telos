@@ -25,8 +25,9 @@
 > that completion-proof protocol, not to the measurement runs.)
 
 New here? Read the [2026-07-18 session handoff](docs/HANDOFF-2026-07-18.md) first — it carries the operating
-standard and the unified result — then the [iter232 handoff](docs/HANDOFF-2026-07-18-iter232.md), which
-supersedes its next step, and the [iter231 handoff](docs/HANDOFF-2026-07-18-iter231.md) and
+standard and the unified result — then the [iter233 handoff](docs/HANDOFF-2026-07-18-iter233.md), which
+supersedes its next step, and the [iter232](docs/HANDOFF-2026-07-18-iter232.md) /
+[iter231](docs/HANDOFF-2026-07-18-iter231.md) handoffs and
 [container runner notes](docs/CONTAINER_RUNNER_NOTES.md) for the sealed-runner trap. Then the
 [forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
 [2026 roadmap](docs/TELOS-ROADMAP-2026.md) before extending the experiment line.
