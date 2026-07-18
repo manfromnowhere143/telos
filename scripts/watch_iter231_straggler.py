@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 import json
 import subprocess
 import time
@@ -47,6 +48,34 @@ def _gh_json(args: list[str]) -> object:
         raise SystemExit(f"gh returned unparseable JSON: {exc}")
 
 
+def _github_now() -> datetime:
+    """GitHub's clock, not this host's.
+
+    ``startedAt`` is stamped in GitHub's clock domain, so elapsed must be measured against the same
+    clock. Measured live on this host: GitHub ran ~65s ahead, which made every just-started job look
+    like it began in the future and understated every elapsed time by that offset. Comparing
+    timestamps across two clock domains is wrong even when the error is small enough not to matter
+    against a 20-minute threshold. Falls back to local UTC if the header is unavailable.
+    """
+
+    try:
+        out = subprocess.run(
+            ["gh", "api", "rate_limit", "--include"],
+            capture_output=True, text=True, check=True, timeout=60,
+        ).stdout
+    except (OSError, subprocess.SubprocessError):
+        return datetime.now(timezone.utc)
+    for line in out.splitlines():
+        if line.lower().startswith("date:"):
+            try:
+                return parsedate_to_datetime(line.split(":", 1)[1].strip())
+            except (TypeError, ValueError):
+                break
+        if not line.strip():
+            break
+    return datetime.now(timezone.utc)
+
+
 def _elapsed_seconds(started_at: str, now: datetime) -> float | None:
     try:
         started = datetime.fromisoformat(started_at.replace("Z", "+00:00"))
@@ -67,7 +96,7 @@ def poll_once(run_id: str, threshold: int) -> tuple[int, list[str]]:
     if not jobs:
         return 0, [f"run {run_id}: no jobs visible yet"]
 
-    now = datetime.now(timezone.utc)
+    now = _github_now()
     running: list[tuple[str, float]] = []
     finished = 0
     unknown: list[str] = []
