@@ -24,7 +24,9 @@
 > provider solves, container certification, and workflow dispatch; "execution" in the TCP-1 sentences refers to
 > that completion-proof protocol, not to the measurement runs.)
 
-Read the [forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
+New here? Read the [2026-07-18 session handoff](docs/HANDOFF-2026-07-18.md) first — it carries the operating
+standard, the current unified result, and the exact next step. Then the
+[forensic audit](docs/FORENSIC-AUDIT-2026-07-16.md) and the
 [2026 roadmap](docs/TELOS-ROADMAP-2026.md) before extending the experiment line.
 The preserved publication predecessors are the
 [iter208 post-seal forensic correction](experiments/iter208_post_seal_forensic_correction/HYPOTHESIS.md),
