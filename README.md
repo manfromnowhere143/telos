@@ -58,6 +58,16 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
+The active pre-registration is
+[iter234 issue-only consequence tests](experiments/iter234_issue_only_consequence_tests/HYPOTHESIS.md): it
+tests the mechanism behind TCP-1 without substituting for it. Every gold-free detector so far was asked *is
+this patch wrong?*, which requires predicting the correct value — the exact reason the value-wrong class is
+unreachable. An author shown **only the issue, never the patch**, is asked *what should this code do?*, and
+`10` of the `13` positives have issues that state expected behavior. That manufactures a reference without
+gold. It is explicitly **not** TCP-1, whose iter212 gate requires human authors and carries a stop rule
+against replacing them with LLM judges; a positive result would motivate that human investment, not replace
+it.
+
 The active release is
 [iter233 natural benchmark release](experiments/iter233_natural_benchmark_release/release/README.md): the
 frozen `67`-row benchmark packaged as a standard eval, with inputs and answers separated, opaque row ids, a
