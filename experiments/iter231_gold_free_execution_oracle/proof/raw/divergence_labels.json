@@ -1,0 +1,101 @@
+{
+  "crash_or_type": 3,
+  "eval_set_sha256": "10dc898c3cdc6026aaedc57d469e546b279a982df3772ba3388c1dfb515b8928",
+  "labels": [
+    {
+      "divergence_type": "value",
+      "gold_observable": "('literal', ('kbd',), (('literal', ('kbd',), ('A-',)), '\\n', ('literal', ('kbd',), ('B',))))",
+      "instance_id": "sphinx-doc__sphinx-8621",
+      "run": "iter200_natural_certified_yet_wrong_rate",
+      "variant_observable": "('literal', ('kbd',), (('literal', ('kbd',), ('A',)), '-', ('literal', ('kbd',), ()), '\\n', ('literal', ('kbd',), ('B',))))"
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "'__main__.QuotedNameEnum[\"O\\'REILLY\"]'",
+      "instance_id": "django__django-11815",
+      "run": "iter223_natural_rate_safety_aware",
+      "variant_observable": "\"__main__.QuotedNameEnum['O'REILLY']\""
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "(['first'], 'first', True)",
+      "instance_id": "django__django-11964",
+      "run": "iter223_natural_rate_safety_aware",
+      "variant_observable": "(['first'], 'first', False)"
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "True",
+      "instance_id": "matplotlib__matplotlib-25332",
+      "run": "iter223_natural_rate_safety_aware",
+      "variant_observable": "False"
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "(1, ('day',), ('T',), (('year', 2), ('month', 12)))",
+      "instance_id": "pydata__xarray-7233",
+      "run": "iter223_natural_rate_safety_aware",
+      "variant_observable": "(2, ('day',), ('T',), (('year', 2), ('month', 12)))"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "gold_observable": "('saved', 1, 7)",
+      "instance_id": "django__django-12209",
+      "run": "iter225_cross_model_generalization",
+      "variant_observable": "('DatabaseError',)"
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "150",
+      "instance_id": "django__django-11790",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "variant_observable": "151"
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "'inherited'",
+      "instance_id": "django__django-11999",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "variant_observable": "'generated'"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "gold_observable": "('pages', ())",
+      "instance_id": "sphinx-doc__sphinx-8721",
+      "run": "iter226_cross_model_generalization_gpt54",
+      "variant_observable": "('error', 'TypeError', (\"'ProbeModules' object is not iterable\",))"
+    },
+    {
+      "divergence_type": "crash_or_type",
+      "gold_observable": "(\"__main__.Probe['MEMBER']\", {'import __main__'})",
+      "instance_id": "django__django-11815",
+      "run": "iter227_cross_provider_generalization",
+      "variant_observable": "('ERROR', 'ValueError')"
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "(1, 0)",
+      "instance_id": "scikit-learn__scikit-learn-14894",
+      "run": "iter227_cross_provider_generalization",
+      "variant_observable": "(2, 0)"
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "4/(b**2 + c**2 + 1)",
+      "instance_id": "sympy__sympy-15349",
+      "run": "iter227_cross_provider_generalization",
+      "variant_observable": "6/(b**2 + c**2 + 1)"
+    },
+    {
+      "divergence_type": "value",
+      "gold_observable": "'dict'",
+      "instance_id": "matplotlib__matplotlib-25332",
+      "run": "iter229_cross_provider_gemini",
+      "variant_observable": "'list'"
+    }
+  ],
+  "positives": 13,
+  "schema_version": "telos.iter231.divergence_labels.v1",
+  "source": "gold-differential witness logs of the originating runs",
+  "value": 10
+}

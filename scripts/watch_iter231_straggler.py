@@ -77,8 +77,11 @@ def poll_once(run_id: str, threshold: int) -> tuple[int, list[str]]:
             finished += 1
             continue
         elapsed = _elapsed_seconds(str(job.get("startedAt") or ""), now)
-        if elapsed is None:
-            # Queued jobs have no start stamp yet; that is not a straggler.
+        # A queued job carries no start stamp, and GitHub may report a start stamp slightly in the
+        # future relative to this host's clock. Observed live: not-yet-started shards reported
+        # elapsed ~= -48s. Negative elapsed is not a measurement, so such a job is counted as not
+        # started rather than silently entering the running set with a nonsense age.
+        if elapsed is None or elapsed < 0:
             unknown.append(name)
             continue
         running.append((name, elapsed))
