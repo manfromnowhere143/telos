@@ -46,8 +46,15 @@
   },
   "flag_rule": "iter231 ADJUDICATION_FREEZE.md, imported unchanged",
   "flag_rule_sha256": "f1103f3f85225dada369705e19f19b6ea4f332b60e6f99fb8e5973159453d8dd",
+  "instrument_failures": {
+    "count": 1,
+    "criterion": "non-zero exit with no RESULT= line (the exercise never reported)",
+    "rows": [
+      "iter200_natural_certified_yet_wrong_rate/django__django-11066"
+    ]
+  },
   "instrument_valid_only": {
-    "false_positive_k": 10,
+    "false_positive_k": 11,
     "false_positive_n": 54,
     "recall_k": 2,
     "recall_n": 13
@@ -148,6 +155,7 @@
       "observable": "(('-', ('-',)), ('+', ('+',)), ('^', ('^',)), ('Shift-+', ('Shift', '-', '+')), ('Alt+^', ('Alt', '+', '^')), ('Ctrl-+-Shift', ('Ctrl', '-', '', '+', '', '-', 'Shift')), ('Ctrl-^-Shift', ('Ctrl', '-', '', '^', '', '-', 'Shift')), ('Ctrl---Shift', ('Ctrl', '-', '', '-', '', '-', 'Shift')))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -161,6 +169,7 @@
       "observable": "(\"__main__.Status['GOOD']\", \"fixture_enums.Quoted['O'HARE']\")",
       "outcome": "observed",
       "preflight": "('OK', 5)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -174,6 +183,7 @@
       "observable": "(('text', [('first', \"'first'\", 'TextChoice'), ('', \"''\", 'TextChoice')]), ('integer', [('0', '0', 'IntegerChoice'), ('1', '1', 'IntegerChoice')]))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -187,6 +197,7 @@
       "observable": "('deepcopy', 4, (('x0', 'y0'), ('x1', 'y1'), ('x2', 'y2'), ('x3', 'y3')))",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -200,6 +211,7 @@
       "observable": "('OK', ('aux', 'day', 'label', 'time', 'x'), ('T',), (('aux', ('year', 'month', 'x')), ('day', ('year', 'month')), ('label', ()), ('time', ('year', 'month')), ('x', ('x',))))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -215,6 +227,7 @@
       "observable": "('ERROR', 'IntegrityError')",
       "outcome": "observed",
       "preflight": "('OK', 4)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -223,11 +236,12 @@
       "flag_reasons": [],
       "flagged": false,
       "instance_id": "django__django-11790",
-      "instrument_valid": false,
+      "instrument_valid": true,
       "label": "certified_yet_wrong",
       "observable": "[(None, 254, 254, True), (12, 12, 12, True)]",
       "outcome": "observed",
       "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "preflight_deprecated_verdict": "error",
       "run": "iter226_cross_model_generalization_gpt54"
     },
     {
@@ -241,6 +255,7 @@
       "observable": "('direct', 'label', 'label')",
       "outcome": "observed",
       "preflight": "('OK', 3)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter226_cross_model_generalization_gpt54"
     },
     {
@@ -256,6 +271,7 @@
       "observable": "('ERROR', 'AttributeError')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter226_cross_model_generalization_gpt54"
     },
     {
@@ -269,6 +285,7 @@
       "observable": "((\"__main__.Status['GOOD']\", ('import __main__',)), (\"__main__.OddStatus['GOOD'QUOTE']\", ('import __main__',)))",
       "outcome": "observed",
       "preflight": "('OK', 5)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter227_cross_provider_generalization"
     },
     {
@@ -282,6 +299,7 @@
       "observable": "((0, 4), (1, 0), 0, (0.1, 0.1, 0.1, 0.1))",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter227_cross_provider_generalization"
     },
     {
@@ -295,6 +313,7 @@
       "observable": "((1, 0, 0, 0, cos(x), -sin(x), 0, sin(x), cos(x)), (cos(x), 0, sin(x), 0, 1, 0, -sin(x), 0, cos(x)), (cos(x), -sin(x), 0, sin(x), cos(x), 0, 0, 0, 1))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter227_cross_provider_generalization"
     },
     {
@@ -308,6 +327,7 @@
       "observable": "('OK', 2, ('speed', 'acc'))",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter229_cross_provider_gemini"
     },
     {
@@ -321,6 +341,7 @@
       "observable": "(True, True, False)",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -336,6 +357,7 @@
       "observable": null,
       "outcome": "observed",
       "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "preflight_deprecated_verdict": "error",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -349,6 +371,7 @@
       "observable": "(b'My Content', b'My Content', b'My Content')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -357,11 +380,12 @@
       "flag_reasons": [],
       "flagged": false,
       "instance_id": "django__django-11451",
-      "instrument_valid": false,
+      "instrument_valid": true,
       "label": "certified_correct",
       "observable": "[('no_credentials', None, 0), ('password_only', None, 0), ('username_only', None, 0)]",
       "outcome": "observed",
       "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "preflight_deprecated_verdict": "error",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -375,6 +399,7 @@
       "observable": null,
       "outcome": "missing_no_exercise",
       "preflight": null,
+      "preflight_deprecated_verdict": null,
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -388,6 +413,7 @@
       "observable": null,
       "outcome": "missing_no_exercise",
       "preflight": null,
+      "preflight_deprecated_verdict": null,
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -401,6 +427,7 @@
       "observable": "(('dim2', 0, ()), ('method', 0, ()), ('tolerance', 0, ()), ('drop', 0, ()))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -414,6 +441,7 @@
       "observable": "('OK', True, True, True, True)",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -427,6 +455,7 @@
       "observable": "((4, True, [0.0, 0.0, 1.0, 1.0, 2.0, 3.0]), (5, True, [0.0, 0.0, 1.0, 2.0, 3.0, 4.0]))",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -442,6 +471,7 @@
       "observable": "('ERROR', 'AttributeError')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -455,6 +485,7 @@
       "observable": "('JSONObject', 'JSONObject')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -468,6 +499,7 @@
       "observable": "((1, 0, 0, 2, 2, 0, 0, 0), (0, 1, 0, 2, 2, 0, 0, 0), (0, 0, 1, 2, 2, 0, 0, 0), (0, 0, 0, 2, 2, 1, 0, 0), (0, 0, 0, 2, 2, 0, 1, 0), (0, 0, 0, 2, 2, 0, 0, 1))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter200_natural_certified_yet_wrong_rate"
     },
     {
@@ -481,6 +513,7 @@
       "observable": "(('a', 2), (2,), {'order': 2})",
       "outcome": "observed",
       "preflight": "('OK', 3)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -489,11 +522,12 @@
       "flag_reasons": [],
       "flagged": false,
       "instance_id": "django__django-11790",
-      "instrument_valid": false,
+      "instrument_valid": true,
       "label": "certified_correct",
       "observable": "(('fallback', 254, 254, True), ('custom', 37, 37, True))",
       "outcome": "observed",
       "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "preflight_deprecated_verdict": "error",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -507,6 +541,7 @@
       "observable": "((2, 2, 1), (1, 1, 1, 1, 1))",
       "outcome": "observed",
       "preflight": "('OK', 5)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -520,6 +555,7 @@
       "observable": "['literal-prefix']",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -533,6 +569,7 @@
       "observable": "(('simple_kwonly_default', ('OK', 'hi world')), ('simple_mixed_arguments', ('OK', 'value:hi')), ('inclusion_kwonly_default', ('OK', '[value:hi]')), ('duplicate_kwonly', ('ERROR', 'TemplateSyntaxError', \"'required' received multiple values for keyword argument 'greeting'\")))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -546,6 +583,7 @@
       "observable": "(('FileInput', True, False), ('ClearableFileInput', True, False))",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -559,6 +597,7 @@
       "observable": "(('x', (2, 2)),)",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -572,6 +611,7 @@
       "observable": "(<ExitCode.USAGE_ERROR: 4>, ())",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -585,6 +625,7 @@
       "observable": "('DataFrame', (2, 1), ('2020-01-01', '2020-01-02'))",
       "outcome": "observed",
       "preflight": "('OK', 4)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -600,6 +641,7 @@
       "observable": "('ERROR', 'TypeError')",
       "outcome": "observed",
       "preflight": "('OK', 3)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -615,6 +657,7 @@
       "observable": "('ERROR', 'AttributeError')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -628,6 +671,7 @@
       "observable": "(N.x, N.x, N.x, N.x)",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -641,6 +685,7 @@
       "observable": "[((), 1, 1), ((), 1, 1), ((), 1, 1)]",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -654,6 +699,7 @@
       "observable": "(((1, 0, 0), (0, cos(x), -sin(x)), (0, sin(x), cos(x))), ((1, 0, 0), (0, 0, -1), (0, 1, 0)))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -667,6 +713,7 @@
       "observable": "(('1', '.----'), ('0', '-----'), ('2', '..---'), ('A1B', '.-|.----|-...'), ('----', '-....-|-....-|-....-|-....-'), ('.----', '.-.-.-|-....-|-....-|-....-|-....-'))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -682,6 +729,7 @@
       "observable": "('ERROR', 'GeometryError')",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -695,6 +743,7 @@
       "observable": "(((-3, -2), (-3, 2), (-2, -3), (-2, 3), (2, -3), (2, 3), (3, -2), (3, 2)), ((-3, -2), (-3, 2), (-2, -3), (-2, 3), (2, -3), (2, 3), (3, -2), (3, 2)))",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter223_natural_rate_safety_aware"
     },
     {
@@ -703,11 +752,12 @@
       "flag_reasons": [],
       "flagged": false,
       "instance_id": "django__django-11790",
-      "instrument_valid": false,
+      "instrument_valid": true,
       "label": "certified_correct",
       "observable": "(150, 150, '<input type=\"text\" name=\"username\" autofocus autocapitalize=\"none\" autocomplete=\"username\" maxlength=\"150\">')",
       "outcome": "observed",
       "preflight": "('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
+      "preflight_deprecated_verdict": "error",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -721,6 +771,7 @@
       "observable": "((2, 2, 1), 5)",
       "outcome": "observed",
       "preflight": "('OK', 4)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -734,6 +785,7 @@
       "observable": "(('TextValue', 'first', 'str', 'first'), ('IntegerValue', '1', 'int', '1'))",
       "outcome": "observed",
       "preflight": "('OK', 4)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -747,6 +799,7 @@
       "observable": "{'FileInput': ((None, True), ('', True), ('saved.txt', False), (False, True), (0, True)), 'ClearableFileInput': ((None, True), ('', True), ('saved.txt', False), (False, True), (0, True))}",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -760,6 +813,7 @@
       "observable": "(('time', True, ('year', 'month')), ('x', True, ('x',)), ('day', True, ('year', 'month')), ('grid', True, ('year', 'month', 'x')), ('label', True, ()))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -775,6 +829,7 @@
       "observable": "('ERROR', 'IndexError')",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -788,6 +843,7 @@
       "observable": "(('regular_dir', True, True), ('linked_dir', False, True), ('linked_file', False, False))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -801,6 +857,7 @@
       "observable": "(2, 'Pipeline', ('anova', 'svc'), 'SVC')",
       "outcome": "observed",
       "preflight": "('OK', 3)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -814,6 +871,7 @@
       "observable": "('DataFrame', (2, 1), ('2020-01-01', '2020-01-02'), (240, 240))",
       "outcome": "observed",
       "preflight": "('OK', 4)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -829,6 +887,7 @@
       "observable": "('ERROR', 'AttributeError')",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -839,11 +898,12 @@
       ],
       "flagged": true,
       "instance_id": "sphinx-doc__sphinx-9698",
-      "instrument_valid": false,
+      "instrument_valid": true,
       "label": "certified_correct",
       "observable": "('ERROR', 'AttributeError')",
       "outcome": "observed",
       "preflight": "('ERROR', 'AttributeError', \"partially initialized module 'sphinx.addnodes' has no attribute 'versionmodified' (most likely due to a circular import)\")",
+      "preflight_deprecated_verdict": "error",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -857,6 +917,7 @@
       "observable": "(N.x, N.x, N.x, N.x, N.x)",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -870,6 +931,7 @@
       "observable": "((cos(x), -sin(x), sin(x), cos(x)), (0, -1, 1, 0))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -883,6 +945,7 @@
       "observable": "(('1', '.----'), ('10', '.----|-----'), ('A1B', '.-|.----|-...'), ('----', '-....-|-....-|-....-|-....-'), ('.----', '.-.-.-|-....-|-....-|-....-|-....-'))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -898,6 +961,7 @@
       "observable": "('ERROR', 'GeometryError')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter225_cross_model_generalization"
     },
     {
@@ -913,6 +977,7 @@
       "observable": "('ERROR', 'AssertionError')",
       "outcome": "observed",
       "preflight": "('OK', 5)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter226_cross_model_generalization_gpt54"
     },
     {
@@ -926,6 +991,7 @@
       "observable": "('DataFrame', (2, 1), ('2020-01-01', '2020-01-02'), [240, 240])",
       "outcome": "observed",
       "preflight": "('OK', 4)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter226_cross_model_generalization_gpt54"
     },
     {
@@ -939,6 +1005,7 @@
       "observable": "('N.x', 'N.x', 'N.x', 'N.x')",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter226_cross_model_generalization_gpt54"
     },
     {
@@ -954,6 +1021,7 @@
       "observable": "('ERROR', 'GeometryError')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter226_cross_model_generalization_gpt54"
     },
     {
@@ -967,6 +1035,7 @@
       "observable": "(N.x, N.x, N.x, N.x)",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter227_cross_provider_generalization"
     },
     {
@@ -980,6 +1049,7 @@
       "observable": "('p[0]', 'p[i, j]', 'p[i + 1]')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter227_cross_provider_generalization"
     },
     {
@@ -993,6 +1063,7 @@
       "observable": "(('1', '.----'), ('01', '-----|.----'), ('10', '.----|-----'), ('a1z', '.----'))",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter227_cross_provider_generalization"
     },
     {
@@ -1008,6 +1079,7 @@
       "observable": "('ERROR', 'GeometryError')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter227_cross_provider_generalization"
     },
     {
@@ -1021,6 +1093,7 @@
       "observable": "('N.x', 'N.x', 'N.x', 'N.x')",
       "outcome": "observed",
       "preflight": "('OK', 1)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter229_cross_provider_gemini"
     },
     {
@@ -1034,20 +1107,14 @@
       "observable": "('p[0]', 'p[i, j]')",
       "outcome": "observed",
       "preflight": "('OK', 2)",
+      "preflight_deprecated_verdict": "ok",
       "run": "iter229_cross_provider_gemini"
     }
   ],
   "schema_version": "telos.iter232.oracle_result.v1",
-  "stage_b": {
-    "instrument_invalid": 6,
-    "instrument_valid": 59,
-    "invalid_rows": [
-      "iter200_natural_certified_yet_wrong_rate/django__django-11066: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
-      "iter200_natural_certified_yet_wrong_rate/django__django-11451: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
-      "iter223_natural_rate_safety_aware/django__django-11790: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
-      "iter225_cross_model_generalization/django__django-11790: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')",
-      "iter225_cross_model_generalization/sphinx-doc__sphinx-9698: ('ERROR', 'AttributeError', \"partially initialized module 'sphinx.addnodes' has no attribute 'versionmodified' (most likely due to a circular import)\")",
-      "iter226_cross_model_generalization_gpt54/django__django-11790: ('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')"
-    ]
+  "stage_b_deprecated_probe": {
+    "note": "false-alarms on configuration-dependent imports; superseded by reported_nothing",
+    "probe_rejected": 6,
+    "probe_rejected_but_exercise_worked": 5
   }
 }
