@@ -1,0 +1,19 @@
+IMAGE_ID=sha256:5b4bd5527d5e351057035571461541718606de1236bb8531898d1e0820574a46
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('PASS',)
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('ERROR', 'CommandError')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('PASS',)
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('ERROR', 'CommandError')
+EXIT gold anthropic=0
+>>>>> gold anthropic End

@@ -1,0 +1,61 @@
+IMAGE_ID=sha256:a2e4e11f25bc2d993b4d65eac96b3be49204044dce20390b2dd55b706b3253fa
+APPLY_OK candidate
+>>>>> candidate openai Start
+ERROR: usage: test_openai.py [options] [file_or_dir] [file_or_dir] [...]
+test_openai.py: error: unrecognized arguments: -rfEX
+  inifile: /testbed/pyproject.toml
+  rootdir: /testbed
+
+RESULT=('FAIL', 'capture failed')
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+...                                                                      [100%]
+=============================== warnings summary ===============================
+src/_pytest/compat.py:340
+  /testbed/src/_pytest/compat.py:340: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+  See https://docs.pytest.org/en/stable/deprecations.html#terminalreporter-writer for more information.
+    return getattr(object, name, default)
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+3 passed, 1 warning in 0.03s
+RESULT=('PASS',)
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+Greetings from DOS
+!!!!!!!!!!!!!!!!!!!!!!!!! _pytest.outcomes.Exit: done !!!!!!!!!!!!!!!!!!!!!!!!!!
+no tests ran in 0.04s
+RESULT=('FAIL', "output altered, got ''")
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+ERROR: usage: test_openai.py [options] [file_or_dir] [file_or_dir] [...]
+test_openai.py: error: unrecognized arguments: -rfEX
+  inifile: /testbed/pyproject.toml
+  rootdir: /testbed
+
+RESULT=('FAIL', 'capture failed')
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+...                                                                      [100%]
+=============================== warnings summary ===============================
+src/_pytest/compat.py:340
+  /testbed/src/_pytest/compat.py:340: PytestDeprecationWarning: The TerminalReporter.writer attribute is deprecated, use TerminalReporter._tw instead at your own risk.
+  See https://docs.pytest.org/en/stable/deprecations.html#terminalreporter-writer for more information.
+    return getattr(object, name, default)
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+3 passed, 1 warning in 0.03s
+RESULT=('PASS',)
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+Greetings from DOS
+!!!!!!!!!!!!!!!!!!!!!!!!! _pytest.outcomes.Exit: done !!!!!!!!!!!!!!!!!!!!!!!!!!
+no tests ran in 0.04s
+RESULT=('FAIL', "output altered, got ''")
+EXIT gold google=0
+>>>>> gold google End

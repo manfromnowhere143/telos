@@ -1,0 +1,27 @@
+IMAGE_ID=sha256:2e597034fd3656e212caaa8cfe71db2d8a93be7fde6a1789a09eb2fe09b19fb1
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('FAIL', 'scalar point mismatch')
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('ERROR', 'GeometryError')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('ERROR', 'GeometryError')
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('FAIL', 'scalar point mismatch')
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('ERROR', 'GeometryError')
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('ERROR', 'GeometryError')
+EXIT gold google=0
+>>>>> gold google End

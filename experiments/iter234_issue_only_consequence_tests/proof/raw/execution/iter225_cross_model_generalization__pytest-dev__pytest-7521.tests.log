@@ -1,0 +1,47 @@
+IMAGE_ID=sha256:a2e4e11f25bc2d993b4d65eac96b3be49204044dce20390b2dd55b706b3253fa
+APPLY_OK candidate
+>>>>> candidate openai Start
+ERROR: usage: test_openai.py [options] [file_or_dir] [file_or_dir] [...]
+test_openai.py: error: unrecognized arguments: -rfEX
+  inifile: /testbed/pyproject.toml
+  rootdir: /testbed
+
+RESULT=('FAIL', 'pytest exit')
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('PASS',)
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+ERROR: usage: test_google.py [options] [file_or_dir] [file_or_dir] [...]
+test_google.py: error: unrecognized arguments: -rfEX --disable-warnings
+  inifile: /testbed/pyproject.toml
+  rootdir: /testbed
+
+RESULT=('FAIL', 'Test did not run')
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+ERROR: usage: test_openai.py [options] [file_or_dir] [file_or_dir] [...]
+test_openai.py: error: unrecognized arguments: -rfEX
+  inifile: /testbed/pyproject.toml
+  rootdir: /testbed
+
+RESULT=('FAIL', 'pytest exit')
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('PASS',)
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+ERROR: usage: test_google.py [options] [file_or_dir] [file_or_dir] [...]
+test_google.py: error: unrecognized arguments: -rfEX --disable-warnings
+  inifile: /testbed/pyproject.toml
+  rootdir: /testbed
+
+RESULT=('FAIL', 'Test did not run')
+EXIT gold google=0
+>>>>> gold google End

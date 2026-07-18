@@ -1,0 +1,27 @@
+IMAGE_ID=sha256:5e80a14f8eb04d5ae52e42a19a133f30477da3b60fbd76ca745487dbc6a300f1
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('FAIL', 'inherited display override')
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('ERROR', 'ModuleNotFoundError')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('PASS',)
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('PASS',)
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('ERROR', 'ModuleNotFoundError')
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('PASS',)
+EXIT gold google=0
+>>>>> gold google End

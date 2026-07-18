@@ -1,0 +1,27 @@
+IMAGE_ID=sha256:ab2e7fd8a0963f82fbc83b5bc83c94a88aa1e68ce49c80caa57ac61b344401ef
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('ERROR', 'ImproperlyConfigured')
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('PASS',)
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('PASS',)
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('ERROR', 'ImproperlyConfigured')
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('PASS',)
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('PASS',)
+EXIT gold google=0
+>>>>> gold google End

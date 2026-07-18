@@ -1,0 +1,37 @@
+IMAGE_ID=sha256:82a78047a58345505afee06bf0a129927e851a950797239f73c954698e211d01
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('ERROR', 'TypeError')
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+<test>:1: (ERROR/3) Unknown directive type "py:function".
+
+.. py:function:: foo(opc_meta)
+
+   :param dict(str, str) opc_meta: (optional)
+RESULT=('FAIL', 'type incorrectly split')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('FAIL', 'Incorrect parse: param dict(str, str) opc_meta  (optional)')
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('ERROR', 'TypeError')
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+<test>:1: (ERROR/3) Unknown directive type "py:function".
+
+.. py:function:: foo(opc_meta)
+
+   :param dict(str, str) opc_meta: (optional)
+RESULT=('FAIL', 'type incorrectly split')
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('FAIL', 'Incorrect parse: param dict(str, str) opc_meta  (optional)')
+EXIT gold google=0
+>>>>> gold google End

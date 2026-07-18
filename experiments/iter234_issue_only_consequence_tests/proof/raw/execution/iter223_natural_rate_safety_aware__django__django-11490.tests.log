@@ -1,0 +1,27 @@
+IMAGE_ID=sha256:7b16a5dae05b95aaedd9f0eecb2f9878017722ad7583ebb20a7cb8d099c5f435
+APPLY_OK candidate
+>>>>> candidate openai Start
+RESULT=('PASS',)
+EXIT candidate openai=0
+>>>>> candidate openai End
+>>>>> candidate anthropic Start
+RESULT=('ERROR', 'ModuleNotFoundError')
+EXIT candidate anthropic=0
+>>>>> candidate anthropic End
+>>>>> candidate google Start
+RESULT=('PASS',)
+EXIT candidate google=0
+>>>>> candidate google End
+APPLY_OK gold
+>>>>> gold openai Start
+RESULT=('PASS',)
+EXIT gold openai=0
+>>>>> gold openai End
+>>>>> gold anthropic Start
+RESULT=('ERROR', 'ModuleNotFoundError')
+EXIT gold anthropic=0
+>>>>> gold anthropic End
+>>>>> gold google Start
+RESULT=('PASS',)
+EXIT gold google=0
+>>>>> gold google End
