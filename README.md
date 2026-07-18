@@ -57,16 +57,20 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active pre-registration is
-[iter232 validated exercise instrument](experiments/iter232_validated_exercise_instrument/HYPOTHESIS.md): it
-repairs the measuring instrument and re-measures. Iter231's oracle wasted `6` of its `51` exercises on defects
-(two could not import against their pinned image, two applied one `%` specifier to a multi-element tuple and
-raised unconditionally) and had no exercise at all for `16` of the `67` rows, so every bound was widened by
-instrument quality rather than by the science. Iter232 gates each exercise on parsing, static safety, and
-actually importing inside its own pinned container, regenerates the failures — **triggered by instrument
-validity only, never by a row's oracle outcome or label** — and re-runs the oracle under the byte-identical
-iter231 flag rule. Its pre-registered expectation names its own strongest test: the value class stays at
-`0/N`, now without the excuse that the instrument was broken.
+The active scientific result is
+[iter232 validated exercise instrument](experiments/iter232_validated_exercise_instrument/RESULT.md). Iter231's
+oracle wasted `6` of its `51` exercises on defects and had no exercise at all for `16` of the `67` rows, so its
+bounds were set by instrument quality rather than by the science. Iter232 gates every exercise on parsing,
+static safety, and an always-raising-format check, regenerates the failures under a hardened prompt —
+**triggered by instrument validity only, never by a row's oracle outcome or label** — and re-runs the oracle
+under the byte-identical iter231 flag rule. Coverage rises to `65/67` and missing positive outcomes fall to
+`0`.
+
+With a working instrument the oracle recalls **`2/13`** — *exactly* static judging's recall — at `12/54` false
+positives against static's `5/54`. Iter231's raw `4/13` is confirmed to have been artifact. Repairing the
+measuring device moved the headline **down**, and better coverage bought more false alarms rather than more
+detections. The ceiling is now airtight: the value-wrong class is flagged **`0/10` with zero missing
+outcomes**, Wilson upper bound `0.278`.
 
 The active scientific result is
 [iter231 gold-free execution oracle](experiments/iter231_gold_free_execution_oracle/RESULT.md), published as a
