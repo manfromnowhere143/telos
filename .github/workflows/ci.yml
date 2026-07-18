@@ -264,6 +264,9 @@ jobs:
       - name: Iter235 recovery-cohort derivation guard
         run: python3 scripts/build_iter235_targets.py --check
 
+      - name: Iter235 witness recovery safety guard
+        run: python3 scripts/validate_iter235_execution_safety.py
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
