@@ -27,6 +27,8 @@ import argparse
 import ast
 import json
 from pathlib import Path
+import shutil
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -92,12 +94,47 @@ def format_bug_errors(tree: ast.AST) -> list[str]:
     return errors
 
 
+# The oldest interpreter this toolchain can run. SWE-bench images pin Pythons from 3.6 up, and 3.12
+# RELAXED f-string syntax -- nested f-strings with escaped quotes, and backslashes inside expression
+# parts, parse on 3.12+ and are SyntaxErrors before. A generator running on a newer host therefore
+# accepts tests that cannot parse in their own container.
+#
+# Observed live: a Gemini-authored test used f'...[\"A\", \"B\"]...' nested inside an outer
+# f-string. It parsed on this host (3.14) at generation time and failed under 3.11 in CI.
+#
+# A hand-rolled scanner for this got it wrong -- nested braces defeated the depth tracking -- so the
+# check is ground truth rather than a heuristic: hand the source to the oldest interpreter available
+# and see whether it parses. When this guard itself runs under an old enough interpreter, the
+# caller's own ast.parse already covers it.
+COMPAT_PYTHON = "python3.11"
+
+
+def _compat_parse_errors(source: str) -> list[str]:
+    if sys.version_info < (3, 12):
+        return []
+    executable = shutil.which(COMPAT_PYTHON)
+    if not executable:
+        return []
+    try:
+        proc = subprocess.run(
+            [executable, "-c", "import ast,sys; ast.parse(sys.stdin.read())"],
+            input=source, capture_output=True, text=True, timeout=30,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return []
+    if proc.returncode != 0:
+        detail = (proc.stderr.strip().splitlines() or ["unknown"])[-1]
+        return [f"does not parse on {COMPAT_PYTHON}: {detail[:110]}"]
+    return []
+
+
 def exercise_errors(source: str) -> list[str]:
     errors: list[str] = []
     try:
         tree = ast.parse(source)
     except SyntaxError as exc:
         return [f"does not parse: {exc}"]
+    errors.extend(_compat_parse_errors(source))
     errors.extend(format_bug_errors(tree))
     # The shared instrument is run unmodified; only the enumerated extension above is subtracted from
     # its verdict, so every other rejection it makes still stands.
