@@ -111,11 +111,18 @@ row_complete() {
   local stem="$1" authors="$2"
   local file="$OUTDIR/$stem.tests.log"
   [ -f "$file" ] || return 1
+  # A row no author could write a valid test for is complete once it is RECORDED as such. It never
+  # enters a container, so it has no image id and no apply markers, and checking for those first made
+  # the two psf/requests rows -- uncoverable by construction, since every test needs the forbidden
+  # `requests` import -- fail two shards closed.
+  if [ "$authors" = "-" ]; then
+    grep -F -x -q "NO_TESTS" "$file" || return 1
+    return 0
+  fi
   [ "$(grep -E -c '^IMAGE_ID=sha256:[0-9a-f]{64}$' "$file" 2>/dev/null)" -eq 1 ] || return 1
   [ "$(grep -F -x -c "APPLY_OK candidate" "$file" 2>/dev/null)" -eq 1 ] || return 1
   [ "$(grep -F -x -c "APPLY_OK gold" "$file" 2>/dev/null)" -eq 1 ] || return 1
   ! grep -E -q '^(APPLY_FAIL|SETUP_FAIL)' "$file" || return 1
-  [ "$authors" = "-" ] && return 0
   local author
   for author in ${authors//,/ }; do
     # Both arms must be present for every author with a test, or the row cannot be scored.
