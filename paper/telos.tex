@@ -410,18 +410,31 @@ whose exercise raises, reports an error, or returns nothing. Of the thirteen con
 raise an exception or return a wrong-typed result that announces itself; the remaining ten return a plausible
 but wrong value (a count off by one, a boolean inverted, a symbolic coefficient changed).
 
-The oracle recalls four of thirteen at a ten-in-fifty-four false-positive rate. Four of those flags, however,
-are the instrument failing rather than the patch: two exercises fail to import against their pinned image, and
-two apply a single format specifier to a multi-element tuple, which raises unconditionally. Excluding them
-leaves two of thirteen at eight in fifty-four---equal to static judging's recall at a worse false-positive
-rate. Execution did not beat static judging, contrary to our own pre-registered expectation.
+The oracle recalls four of thirteen at a ten-in-fifty-four false-positive rate, but four of those flags are
+the instrument failing rather than the patch: two exercises fail to import against their pinned image, and two
+apply a single format specifier to a multi-element tuple, which raises unconditionally. We therefore repaired
+the instrument and re-ran the identical rule. Every exercise was gated on parsing, static safety, and an
+always-raising-format check, and the defective and previously-unrepresented rows were regenerated under a
+hardened prompt, raising coverage from fifty-one of sixty-seven to sixty-five and reducing missing positive
+outcomes from four to zero.
 
-The ceiling itself is sharper than either instrument. Every one of the three crash-or-wrong-type patches is
-caught by at least one gold-free instrument, and the two are partially complementary: they agree on one, and
-each catches one the other misses. \emph{Neither catches a single one of the ten value-wrong patches.} The
-false positives sharpen the same point from the other side---eight of the ten are certified-correct code
-raising correctly on an input where raising is the right behavior, which a gold-free observer cannot
-distinguish from a wrong patch crashing.
+With a working instrument the oracle recalls two of thirteen---exactly static judging's recall---at
+twelve in fifty-four against static's five, and the raw four-of-thirteen is confirmed to have been artifact.
+Repairing the measuring device moved the headline down, and improved coverage bought additional false alarms
+rather than additional detections. Execution did not beat static judging, contrary to our own pre-registered
+expectation, and the second run removed the explanation that the instrument had simply been broken.
+
+The ceiling itself is sharper than either instrument. Across both, \emph{not one of the ten value-wrong
+patches is flagged}: zero of ten with no missing outcomes, a Wilson upper bound of $0.278$. The false
+positives sharpen the same point from the other side---the great majority are certified-correct code raising
+correctly on an input where raising is the right behavior, which a gold-free observer cannot distinguish from
+a wrong patch crashing.
+
+Even the crash-reachable class is smaller than its label suggests. One patch classified crash-or-wrong-type by
+its gold-differential witness returned a well-formed value under an independently generated exercise, because
+the classification describes how the \emph{witness} diverged rather than a property of the patch. A patch that
+crashes on one issue-plausible input can return a plausible wrong value on another, so without a reference even
+the class execution was expected to own is only partially reachable.
 
 No gold-free instrument can flag the value-wrong majority without an independent reference, because a solver
 able to predict the correct value would not have produced the wrong patch. That is now measured at zero of ten
