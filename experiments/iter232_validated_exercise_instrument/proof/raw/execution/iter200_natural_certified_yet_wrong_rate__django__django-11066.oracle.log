@@ -1,0 +1,24 @@
+IMAGE_ID=sha256:5b4bd5527d5e351057035571461541718606de1236bb8531898d1e0820574a46
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.django_1776_django-11066@sha256:d76032bd6cb8c79adaa290ad3b341a9285d30f6b0cc0232e62730be959cbb643
+APPLY_OK candidate
+PREFLIGHT=('ERROR', 'ImproperlyConfigured', 'Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANG')
+PREFLIGHT_EXIT=1
+>>>>> Exercise Start
+Traceback (most recent call last):
+  File "/telos/exercise.py", line 5, in <module>
+    from django.contrib.contenttypes.models import ContentType
+  File "/testbed/django/contrib/contenttypes/models.py", line 133, in <module>
+    class ContentType(models.Model):
+  File "/testbed/django/db/models/base.py", line 103, in __new__
+    app_config = apps.get_containing_app_config(module)
+  File "/testbed/django/apps/registry.py", line 252, in get_containing_app_config
+    self.check_apps_ready()
+  File "/testbed/django/apps/registry.py", line 134, in check_apps_ready
+    settings.INSTALLED_APPS
+  File "/testbed/django/conf/__init__.py", line 76, in __getattr__
+    self._setup(name)
+  File "/testbed/django/conf/__init__.py", line 61, in _setup
+    % (desc, ENVIRONMENT_VARIABLE))
+django.core.exceptions.ImproperlyConfigured: Requested setting INSTALLED_APPS, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
+EXERCISE_EXIT=1
+>>>>> Exercise End

@@ -1,0 +1,29 @@
+IMAGE_ID=sha256:b9bab19e33e75a2e0fda04d684ef3fc26514093e9130395da8b416bf749ef238
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sympy_1776_sympy-14711@sha256:4285e771c489f97e7b5a966184982ba24246c80446d03ed7dad26ff60d36c142
+APPLY_OK candidate
+/testbed/sympy/core/basic.py:3: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Mapping, defaultdict
+/testbed/sympy/core/expr.py:12: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import defaultdict, Iterable
+/testbed/sympy/core/containers.py:271: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  class OrderedSet(collections.MutableSet):
+/testbed/sympy/solvers/diophantine.py:3188: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+/testbed/sympy/plotting/plot.py:28: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Callable
+/testbed/sympy/physics/vector/printing.py:151: SyntaxWarning: "is not" with a literal. Did you mean "!="?
+  if len(base_split) is not 1:
+PREFLIGHT=('OK', 1)
+PREFLIGHT_EXIT=0
+>>>>> Exercise Start
+/testbed/sympy/core/basic.py:3: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Mapping, defaultdict
+/testbed/sympy/core/expr.py:12: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import defaultdict, Iterable
+/testbed/sympy/core/containers.py:271: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  class OrderedSet(collections.MutableSet):
+/testbed/sympy/plotting/plot.py:28: DeprecationWarning: Using or importing the ABCs from 'collections' instead of from 'collections.abc' is deprecated since Python 3.3, and in 3.10 it will stop working
+  from collections import Callable
+RESULT=(N.x, N.x, N.x, N.x)
+EXERCISE_EXIT=0
+>>>>> Exercise End

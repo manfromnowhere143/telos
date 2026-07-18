@@ -240,6 +240,12 @@ jobs:
       - name: Iter232 execution safety guard
         run: python3 scripts/validate_iter232_execution_safety.py
 
+      - name: Iter232 oracle execution collection guard
+        run: python3 scripts/collect_iter232_execution.py check
+
+      - name: Iter232 oracle result regeneration guard
+        run: python3 scripts/adjudicate_iter232.py --check
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 

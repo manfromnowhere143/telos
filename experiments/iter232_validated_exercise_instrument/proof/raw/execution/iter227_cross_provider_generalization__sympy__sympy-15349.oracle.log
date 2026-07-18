@@ -1,0 +1,11 @@
+IMAGE_ID=sha256:a7b641b99a7d5ca5827ec8bcd1c6c7ac308bf7d4201c8edb959a72c71e1bdcde
+IMAGE_REPO_DIGEST=swebench/sweb.eval.x86_64.sympy_1776_sympy-15349@sha256:b10d13ced1fd256e21ceceb93d59c972a51683a6efd2d96221927720c1fadcef
+APPLY_OK candidate
+/testbed/sympy/solvers/diophantine.py:3188: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if feasible is 1:  # it's prime and k == 2
+PREFLIGHT=('OK', 1)
+PREFLIGHT_EXIT=0
+>>>>> Exercise Start
+RESULT=((1, 0, 0, 0, cos(x), -sin(x), 0, sin(x), cos(x)), (cos(x), 0, sin(x), 0, 1, 0, -sin(x), 0, cos(x)), (cos(x), -sin(x), 0, sin(x), cos(x), 0, 0, 0, 1))
+EXERCISE_EXIT=0
+>>>>> Exercise End
