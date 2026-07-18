@@ -58,6 +58,15 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
+The active pre-registration is
+[iter235 witness recovery](experiments/iter235_witness_recovery/HYPOTHESIS.md): across six natural-rate runs
+`125` patches were certified and **`41` were never adjudicated** — certified, not gold-equivalent, and lacking
+a usable gold-differential witness. Those `41` are exactly the `u` term forcing every published rate to carry
+a worst-case missing upper bound, and the expensive compute for them is already spent: only the witness stage
+failed. Iter235 applies iter232's validate-and-retry treatment to the witness generator, which was written
+once and shipped without a validity gate. A `$0` analysis first ruled out the two obvious alternatives — fresh
+cohorts yielded `0` from `59` solved patches, and the `p=0.008` fix-size lead does not transfer.
+
 The active scientific result is
 [iter234 issue-only consequence tests](experiments/iter234_issue_only_consequence_tests/RESULT.md): **the
 value-wrong wall is not absolute.** Every earlier gold-free detector asked *is this patch wrong?*, which
