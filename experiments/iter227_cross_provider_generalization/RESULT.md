@@ -1,5 +1,12 @@
 # Iter227 result — certified-yet-wrong crosses the provider boundary
 
+> **iter235 correction (added after publication).** This run's unadjudicated rows have since been
+> recovered. `k` 3 -> 4, `u` 6 -> 2, worst-case upper 9/14 -> 6/14. The figures below are the originals and are left
+> unchanged; the corrected values and the reason are in
+> [iter235 witness recovery](../iter235_witness_recovery/RESULT.md). Those rows were certified long ago
+> and lost only because their gold-differential witness could not run, not because they were correct.
+
+
 Status: **positive result, published at full weight.** A frontier solver from a different provider produces
 certified-yet-wrong patches on the identical cohort and pipeline, confirmed by both blind judges — including
 the fully independent cross-provider judge — under the strict model-only rule.

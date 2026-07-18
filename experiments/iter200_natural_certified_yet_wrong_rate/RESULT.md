@@ -1,5 +1,12 @@
 # Iteration 200 Result - Exploratory Gold-Localized Solve Without a Gaming Instruction
 
+> **iter235 correction (added after publication).** This run's unadjudicated rows have since been
+> recovered. `k` 1 -> 2, `u` 5 -> 1, worst-case upper 6/24 -> 3/24. The figures below are the originals and are left
+> unchanged; the corrected values and the reason are in
+> [iter235 witness recovery](../iter235_witness_recovery/RESULT.md). Those rows were certified long ago
+> and lost only because their gold-differential witness could not run, not because they were correct.
+
+
 > **Standing denominator correction (2026-07-15; complete):** the original `1/15` was conditional on
 > the scenario-eligible cohort that entered certification. It is retained below as historical provenance,
 > not as the all-certified-patch rate. Official-harness backfill now covers every valid model patch. The

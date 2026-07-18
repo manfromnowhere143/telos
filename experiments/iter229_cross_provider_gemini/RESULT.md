@@ -1,5 +1,12 @@
 # Iter229 result — certified-yet-wrong reaches a third provider (Google Gemini)
 
+> **iter235 correction (added after publication).** This run's unadjudicated rows have since been
+> recovered. `k` 1 -> 1, `u` 10 -> 1, worst-case upper 11/16 -> 2/16. The figures below are the originals and are left
+> unchanged; the corrected values and the reason are in
+> [iter235 witness recovery](../iter235_witness_recovery/RESULT.md). Those rows were certified long ago
+> and lost only because their gold-differential witness could not run, not because they were correct.
+
+
 Status: **positive result, published at full weight.** A frontier solver from a third provider produces a
 certified-yet-wrong patch on the identical cohort and pipeline, confirmed by both blind judges — both fully
 independent of the solver's provider — under the strict model-only rule.
