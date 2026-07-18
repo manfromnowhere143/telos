@@ -58,15 +58,19 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
-The active pre-registration is
-[iter234 issue-only consequence tests](experiments/iter234_issue_only_consequence_tests/HYPOTHESIS.md): it
-tests the mechanism behind TCP-1 without substituting for it. Every gold-free detector so far was asked *is
-this patch wrong?*, which requires predicting the correct value — the exact reason the value-wrong class is
-unreachable. An author shown **only the issue, never the patch**, is asked *what should this code do?*, and
-`10` of the `13` positives have issues that state expected behavior. That manufactures a reference without
-gold. It is explicitly **not** TCP-1, whose iter212 gate requires human authors and carries a stop rule
-against replacing them with LLM judges; a positive result would motivate that human investment, not replace
-it.
+The active scientific result is
+[iter234 issue-only consequence tests](experiments/iter234_issue_only_consequence_tests/RESULT.md): **the
+value-wrong wall is not absolute.** Every earlier gold-free detector asked *is this patch wrong?*, which
+requires predicting the correct value from the patch — and both scored `0/10` on the value subclass. Three
+patch-blind authors across three providers were instead asked *what should this code do?*, seeing only the
+issue. One of the ten value-wrong patches was caught, by a test that **passes on the accepted fix and fails on
+the certified-wrong one**, exercising an input the graded suite never covered.
+
+Two of the other three apparent catches were tests that fail on *every* implementation, which is why each test
+is validated against the accepted fix before being counted — the headline is `1/10`, not the flattering
+`3/10`. It costs `13/54` false alarms, worse than static judging, because roughly a third of issue-derived
+tests are simply wrong. So the ceiling is a property of gold-free detectors **that reason from the patch**,
+not of the class itself. The independence endpoint is underpowered and reported as such.
 
 The active release is
 [iter233 natural benchmark release](experiments/iter233_natural_benchmark_release/release/README.md): the

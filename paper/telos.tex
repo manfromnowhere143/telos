@@ -448,11 +448,29 @@ the classification describes how the \emph{witness} diverged rather than a prope
 crashes on one issue-plausible input can return a plausible wrong value on another, so without a reference even
 the class execution was expected to own is only partially reachable.
 
-No gold-free instrument can flag the value-wrong majority without an independent reference, because a solver
-able to predict the correct value would not have produced the wrong patch. That is now measured at zero of ten
-across two independent instruments rather than argued. It bounds automated mitigation and is the empirical case
-for independently-authored held-out consequence tests: the value-wrong majority is exactly the class only an
-outside oracle can catch.
+Both instruments reason \emph{from the patch}, and for such an instrument the argument is airtight: a solver
+able to predict the correct value would not have produced the wrong patch. Zero of ten, measured twice, rather
+than argued.
+
+The bound is narrower than it first appears, and we tested it directly. An author reading only the issue---not
+the patch---is asked a different question: not \emph{is this wrong?} but \emph{what should this code do?} The
+reference then need not be predicted, because the bug report frequently states it; ten of our thirteen issues
+name the expected behaviour explicitly. We had three model authors across three providers, each blind to the
+patch, write consequence tests from the issue alone, and ran them against the certified patches.
+
+One of the ten value-wrong patches was caught, by a test that passes on the accepted fix and fails on the
+certified-wrong one, exercising an input the graded suite never covered. Two of the other three apparent
+catches were tests that fail on \emph{every} implementation, which is why we validate each test against the
+accepted fix before counting it. So the ceiling is a property of gold-free detectors that reason from the
+patch, not of the value-wrong class itself.
+
+It is a single case, with a Wilson interval from $0.02$ to $0.40$, bought at a false-alarm rate of thirteen in
+fifty-four---worse than static judging---because roughly a third of issue-derived tests are simply wrong. The
+mitigation argument is therefore sharpened rather than overturned: automated gold-free verification remains
+impractical here, but the class is not unreachable in principle. That a patch-blind author can separate a
+certified-wrong patch from a correct one, even once, is the first direct evidence for the mechanism, and it is
+the
+empirical case for independently-authored held-out consequence tests.
 
 \paragraph{Cross-model generalization.} To ask whether a certified-yet-wrong patch is a property of one model
 or of the certification process, we re-solved the fifty-three-target cohort with four further solver models,
