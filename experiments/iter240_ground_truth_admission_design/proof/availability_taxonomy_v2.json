@@ -1,0 +1,882 @@
+{
+  "availability_counts": {
+    "excluded_unsafe": 7,
+    "no_scenario": 1,
+    "paired_invalid_both_arms": 3,
+    "paired_invalid_candidate_only": 2
+  },
+  "claim_boundary": "Retrospective availability diagnosis only. Absence and exceptions remain unresolved; historical exposed scenarios cannot be future primary endpoints.",
+  "diagnostic_builder_boundary": {
+    "legacy_build_all_invoked": false,
+    "legacy_build_all_tripwire_installed": true,
+    "legacy_preflight_invoked": false,
+    "legacy_preflight_tripwire_installed": true,
+    "mutable_seal_registry_read": false,
+    "selected_rows_loaded_from_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+    "source_boundary_derivation": "raw_pinned_commit_headers"
+  },
+  "future_primary_endpoint_rows": 0,
+  "immutable_source_boundary": {
+    "commits": {
+      "activation": {
+        "commit": "63f5786b9b5c60d2bea90f2077208cfb745c31a2",
+        "parents": [
+          "cf809ac0e06f37127553e99a2ab9b0705f8e2fae"
+        ],
+        "tree": "351bf81beaf18686fb1dd89770b8f428d61962c4"
+      },
+      "authorization": {
+        "commit": "cf809ac0e06f37127553e99a2ab9b0705f8e2fae",
+        "parents": [
+          "b597b763f2eb52b2f4f2d36e7daaa31654be076b"
+        ],
+        "tree": "4e9b510907aef19219ba9ea217ca3cd6f618836b"
+      },
+      "predecessor": {
+        "commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "parents": [
+          "fb87af7eb15b5235a722a7bb3fd3a48962019188",
+          "56fb78f5f8afcd8709fde1170e8422072626f367"
+        ],
+        "tree": "776f60e7c75616767ce6bb1e45a3eb7279f37a97"
+      },
+      "selection": {
+        "commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "parents": [
+          "63f5786b9b5c60d2bea90f2077208cfb745c31a2"
+        ],
+        "tree": "957876c597b687babe4e9e21c1567d420e0f0fa5"
+      }
+    },
+    "derivation": "raw_git_commit_headers",
+    "history_overlay_policy": "replacement refs disabled and rejected; nonempty graft and shallow history files rejected; inherited Git configuration disabled",
+    "source_artifact_policy": "named regular nonsymlink Git blobs; HEAD and worktree bytes must equal the exact merged predecessor blob",
+    "source_blob_count": 163
+  },
+  "paired_valid_rows": 0,
+  "retained_evidence_recovery": "blocked",
+  "rows": [
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:acffeec9e23f7cf220dfa337fcc4950847ce6d837973ee9af837e2d0873b14ce",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.django_1776_django-12713@sha256:613b282075a49a666c04f502c55930e5ed8bd7358a5aec80479268734c7fecbd",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        },
+        "candidate": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:acffeec9e23f7cf220dfa337fcc4950847ce6d837973ee9af837e2d0873b14ce",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.django_1776_django-12713@sha256:613b282075a49a666c04f502c55930e5ed8bd7358a5aec80479268734c7fecbd",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        }
+      },
+      "availability_state": "excluded_unsafe",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": false,
+      "instance_id": "django__django-12713",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": {
+        "head_tree_entry": "absent",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/django__django-12713.scenario.py",
+        "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "predecessor_tree_entry": "absent",
+        "worktree_entry": "absent"
+      },
+      "scenario_pointer": {
+        "json_pointer": "/manifest/3",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "excluded_unsafe",
+      "source_run": "iter224_natural_rate_scale_n",
+      "unsafe_reason": "unsafe interpreter attribute: __class__"
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": true,
+          "exit_code": 1,
+          "exit_marker_count": 1,
+          "image_id": "sha256:9191431ff6a4aa1fd52d70490466bb8dfd6931e137bcae09568bd102b79614f5",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.django_1776_django-12754@sha256:0afab24d63fd4753314e07af78fb2c6ec5f8805a83456012c30badd87822a49b",
+          "result_byte_count": null,
+          "result_count": 0,
+          "result_like_line_count": 0,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": 394,
+          "section_contract_failures": [],
+          "section_error_sentinels": [
+            "exception_or_error",
+            "traceback"
+          ],
+          "valid": false,
+          "validity_state": "invalid",
+          "whole_file_failure_sentinels": []
+        },
+        "candidate": {
+          "apply_ok": true,
+          "exit_code": 1,
+          "exit_marker_count": 1,
+          "image_id": "sha256:9191431ff6a4aa1fd52d70490466bb8dfd6931e137bcae09568bd102b79614f5",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.django_1776_django-12754@sha256:0afab24d63fd4753314e07af78fb2c6ec5f8805a83456012c30badd87822a49b",
+          "result_byte_count": null,
+          "result_count": 0,
+          "result_like_line_count": 0,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": 394,
+          "section_contract_failures": [],
+          "section_error_sentinels": [
+            "exception_or_error",
+            "traceback"
+          ],
+          "valid": false,
+          "validity_state": "invalid",
+          "whole_file_failure_sentinels": []
+        }
+      },
+      "availability_state": "paired_invalid_both_arms",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": true,
+      "instance_id": "django__django-12754",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": null,
+      "scenario_pointer": {
+        "json_pointer": "/manifest/4",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "scenario",
+      "source_run": "iter224_natural_rate_scale_n",
+      "unsafe_reason": null
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": true,
+          "exit_code": 0,
+          "exit_marker_count": 1,
+          "image_id": "sha256:67a3151db3f069e42641afb5cad698c9e8b17ad041dda561c6441366356cfff2",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.django_1776_django-12774@sha256:583b8062be9c05f1ca69b25e4b4aff7e3de9f522ecfdeda7959c61b17dc4d386",
+          "result_byte_count": 2,
+          "result_count": 1,
+          "result_like_line_count": 1,
+          "result_payload_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+          "scenario_section_byte_count": 25,
+          "section_contract_failures": [],
+          "section_error_sentinels": [],
+          "valid": true,
+          "validity_state": "valid",
+          "whole_file_failure_sentinels": []
+        },
+        "candidate": {
+          "apply_ok": true,
+          "exit_code": 1,
+          "exit_marker_count": 1,
+          "image_id": "sha256:67a3151db3f069e42641afb5cad698c9e8b17ad041dda561c6441366356cfff2",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.django_1776_django-12774@sha256:583b8062be9c05f1ca69b25e4b4aff7e3de9f522ecfdeda7959c61b17dc4d386",
+          "result_byte_count": null,
+          "result_count": 0,
+          "result_like_line_count": 0,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": 565,
+          "section_contract_failures": [],
+          "section_error_sentinels": [
+            "exception_or_error",
+            "traceback"
+          ],
+          "valid": false,
+          "validity_state": "invalid",
+          "whole_file_failure_sentinels": []
+        }
+      },
+      "availability_state": "paired_invalid_candidate_only",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": true,
+      "instance_id": "django__django-12774",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": null,
+      "scenario_pointer": {
+        "json_pointer": "/manifest/5",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "scenario",
+      "source_run": "iter224_natural_rate_scale_n",
+      "unsafe_reason": null
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:744267f65647e2efa970de0cf91cf887e23006fdc838e782239160e115c40d3d",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.django_1776_django-13028@sha256:074eefd8f5516ecb01e03780be18942064f1bd63f81c5a3b42875b8edccd9451",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        },
+        "candidate": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:744267f65647e2efa970de0cf91cf887e23006fdc838e782239160e115c40d3d",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.django_1776_django-13028@sha256:074eefd8f5516ecb01e03780be18942064f1bd63f81c5a3b42875b8edccd9451",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        }
+      },
+      "availability_state": "excluded_unsafe",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": false,
+      "instance_id": "django__django-13028",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": {
+        "head_tree_entry": "absent",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/django__django-13028.scenario.py",
+        "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "predecessor_tree_entry": "absent",
+        "worktree_entry": "absent"
+      },
+      "scenario_pointer": {
+        "json_pointer": "/manifest/10",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "excluded_unsafe",
+      "source_run": "iter224_natural_rate_scale_n",
+      "unsafe_reason": "unsafe interpreter attribute: __class__"
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": true,
+          "exit_code": 0,
+          "exit_marker_count": 1,
+          "image_id": "sha256:d02fefda8f3e5e630897011cb55971f1a3a5fb718feb73869d0778144512daf9",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-22714@sha256:4fc5afd7115936e812e60e14e3d4074a0c7002539bb75da5b05290f452834740",
+          "result_byte_count": 15,
+          "result_count": 1,
+          "result_like_line_count": 1,
+          "result_payload_sha256": "cd4503aac63a2afdae9aa81d09bf73de512f12066f65927dd57cd4c114f31ad0",
+          "scenario_section_byte_count": 38,
+          "section_contract_failures": [],
+          "section_error_sentinels": [],
+          "valid": true,
+          "validity_state": "valid",
+          "whole_file_failure_sentinels": []
+        },
+        "candidate": {
+          "apply_ok": true,
+          "exit_code": 1,
+          "exit_marker_count": 1,
+          "image_id": "sha256:d02fefda8f3e5e630897011cb55971f1a3a5fb718feb73869d0778144512daf9",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-22714@sha256:4fc5afd7115936e812e60e14e3d4074a0c7002539bb75da5b05290f452834740",
+          "result_byte_count": null,
+          "result_count": 0,
+          "result_like_line_count": 0,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": 328,
+          "section_contract_failures": [],
+          "section_error_sentinels": [
+            "exception_or_error",
+            "traceback"
+          ],
+          "valid": false,
+          "validity_state": "invalid",
+          "whole_file_failure_sentinels": []
+        }
+      },
+      "availability_state": "paired_invalid_candidate_only",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": true,
+      "instance_id": "sympy__sympy-22714",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": null,
+      "scenario_pointer": {
+        "json_pointer": "/manifest/16",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "scenario",
+      "source_run": "iter224_natural_rate_scale_n",
+      "unsafe_reason": null
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:5377290ee6e47c978f4622d249813d964e8240bc45b4afda20aa38ef723a9844",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-23824@sha256:6af3fe0188e3b228690b922284e451caf7a26d89c22d29f72cb91694dc3578c1",
+          "not_evaluated_reason": "no_scenario",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        },
+        "candidate": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:5377290ee6e47c978f4622d249813d964e8240bc45b4afda20aa38ef723a9844",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.sympy_1776_sympy-23824@sha256:6af3fe0188e3b228690b922284e451caf7a26d89c22d29f72cb91694dc3578c1",
+          "not_evaluated_reason": "no_scenario",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        }
+      },
+      "availability_state": "no_scenario",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": false,
+      "instance_id": "sympy__sympy-23824",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": {
+        "head_tree_entry": "absent",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/sympy__sympy-23824.scenario.py",
+        "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "predecessor_tree_entry": "absent",
+        "worktree_entry": "absent"
+      },
+      "scenario_pointer": {
+        "json_pointer": "/manifest/18",
+        "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "no_scenario",
+      "source_run": "iter224_natural_rate_scale_n",
+      "unsafe_reason": null
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:9d9be4d74395fcac061ae9653ca43b306b92472a3e31829aaad4bd5473437f3b",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.astropy_1776_astropy-7166@sha256:6909381901b865b904d9cfce69e412f659de0dc1e0454abb052c88b116654a83",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        },
+        "candidate": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:9d9be4d74395fcac061ae9653ca43b306b92472a3e31829aaad4bd5473437f3b",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.astropy_1776_astropy-7166@sha256:6909381901b865b904d9cfce69e412f659de0dc1e0454abb052c88b116654a83",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        }
+      },
+      "availability_state": "excluded_unsafe",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": false,
+      "instance_id": "astropy__astropy-7166",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": {
+        "head_tree_entry": "absent",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/astropy__astropy-7166.scenario.py",
+        "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "predecessor_tree_entry": "absent",
+        "worktree_entry": "absent"
+      },
+      "scenario_pointer": {
+        "json_pointer": "/manifest/1",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "excluded_unsafe",
+      "source_run": "iter228_fresh_diverse_cohort",
+      "unsafe_reason": "unsafe import root: astropy"
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": true,
+          "exit_code": 1,
+          "exit_marker_count": 1,
+          "image_id": "sha256:4eeb2c30f9713660951fdc8bc559fbc6c10a7e8ef552c24e919de05385c74682",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-20488@sha256:1c99ac91deeba869e422fc7cdcec3e154b893e8e1afbabbc4ce7bcf7975a4acf",
+          "result_byte_count": null,
+          "result_count": 0,
+          "result_like_line_count": 0,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": 788,
+          "section_contract_failures": [],
+          "section_error_sentinels": [
+            "exception_or_error",
+            "traceback"
+          ],
+          "valid": false,
+          "validity_state": "invalid",
+          "whole_file_failure_sentinels": []
+        },
+        "candidate": {
+          "apply_ok": true,
+          "exit_code": 1,
+          "exit_marker_count": 1,
+          "image_id": "sha256:4eeb2c30f9713660951fdc8bc559fbc6c10a7e8ef552c24e919de05385c74682",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-20488@sha256:1c99ac91deeba869e422fc7cdcec3e154b893e8e1afbabbc4ce7bcf7975a4acf",
+          "result_byte_count": null,
+          "result_count": 0,
+          "result_like_line_count": 0,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": 788,
+          "section_contract_failures": [],
+          "section_error_sentinels": [
+            "exception_or_error",
+            "traceback"
+          ],
+          "valid": false,
+          "validity_state": "invalid",
+          "whole_file_failure_sentinels": []
+        }
+      },
+      "availability_state": "paired_invalid_both_arms",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": true,
+      "instance_id": "matplotlib__matplotlib-20488",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": null,
+      "scenario_pointer": {
+        "json_pointer": "/manifest/6",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "scenario",
+      "source_run": "iter228_fresh_diverse_cohort",
+      "unsafe_reason": null
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:c6c015731f65607b6d34d859f845687fce050190b5ee399d7dfe369723e6b0e3",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24627@sha256:3b3150bbdf9e28cce2996933dc2ec2ad33d36e76a9d8354b73b35ff1134ebc02",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        },
+        "candidate": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:c6c015731f65607b6d34d859f845687fce050190b5ee399d7dfe369723e6b0e3",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.matplotlib_1776_matplotlib-24627@sha256:3b3150bbdf9e28cce2996933dc2ec2ad33d36e76a9d8354b73b35ff1134ebc02",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        }
+      },
+      "availability_state": "excluded_unsafe",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": false,
+      "instance_id": "matplotlib__matplotlib-24627",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": {
+        "head_tree_entry": "absent",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/matplotlib__matplotlib-24627.scenario.py",
+        "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "predecessor_tree_entry": "absent",
+        "worktree_entry": "absent"
+      },
+      "scenario_pointer": {
+        "json_pointer": "/manifest/11",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "excluded_unsafe",
+      "source_run": "iter228_fresh_diverse_cohort",
+      "unsafe_reason": "unsafe process/network/filesystem call: remove"
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:01c2e67d74f8159a4731071b69feb399408f90ef4f17b7d38d28ec758b4414f9",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.psf_1776_requests-1142@sha256:9b0b13a4a762e809a60424f8fd9ba40b45f87874de87479a771e4e673f937d59",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        },
+        "candidate": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:01c2e67d74f8159a4731071b69feb399408f90ef4f17b7d38d28ec758b4414f9",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.psf_1776_requests-1142@sha256:9b0b13a4a762e809a60424f8fd9ba40b45f87874de87479a771e4e673f937d59",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        }
+      },
+      "availability_state": "excluded_unsafe",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": false,
+      "instance_id": "psf__requests-1142",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": {
+        "head_tree_entry": "absent",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/psf__requests-1142.scenario.py",
+        "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "predecessor_tree_entry": "absent",
+        "worktree_entry": "absent"
+      },
+      "scenario_pointer": {
+        "json_pointer": "/manifest/13",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "excluded_unsafe",
+      "source_run": "iter228_fresh_diverse_cohort",
+      "unsafe_reason": "call through unsafe import alias: PreparedRequest; unsafe import root: requests"
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:21a8630ecdef62fd11eac3b8be5947bba45008d1bc3429ec75a04845b3aa8feb",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-6903@sha256:e7d9fbb7ef58d03ce827264f5202c2ef09ce44c8a2d57d31d04c4721459a2e60",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        },
+        "candidate": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:21a8630ecdef62fd11eac3b8be5947bba45008d1bc3429ec75a04845b3aa8feb",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.pylint-dev_1776_pylint-6903@sha256:e7d9fbb7ef58d03ce827264f5202c2ef09ce44c8a2d57d31d04c4721459a2e60",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        }
+      },
+      "availability_state": "excluded_unsafe",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": false,
+      "instance_id": "pylint-dev__pylint-6903",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": {
+        "head_tree_entry": "absent",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/pylint-dev__pylint-6903.scenario.py",
+        "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "predecessor_tree_entry": "absent",
+        "worktree_entry": "absent"
+      },
+      "scenario_pointer": {
+        "json_pointer": "/manifest/19",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "excluded_unsafe",
+      "source_run": "iter228_fresh_diverse_cohort",
+      "unsafe_reason": "unsafe import root: io; unsafe import root: pylint"
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:1ec4ac2a0f2da197fa8ccafcb10d0082ea0858217cfbfabebd6681ab11af0697",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-10081@sha256:cb98e7a43ca4a8499a80ae446d100c6afb9ecac747dfafe1f4eca287a8321ecb",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        },
+        "candidate": {
+          "apply_ok": null,
+          "exit_code": null,
+          "exit_marker_count": null,
+          "image_id": "sha256:1ec4ac2a0f2da197fa8ccafcb10d0082ea0858217cfbfabebd6681ab11af0697",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.pytest-dev_1776_pytest-10081@sha256:cb98e7a43ca4a8499a80ae446d100c6afb9ecac747dfafe1f4eca287a8321ecb",
+          "not_evaluated_reason": "excluded_unsafe",
+          "result_byte_count": null,
+          "result_count": null,
+          "result_like_line_count": null,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": null,
+          "section_contract_failures": null,
+          "section_error_sentinels": null,
+          "valid": null,
+          "validity_state": "not_evaluated",
+          "whole_file_failure_sentinels": null
+        }
+      },
+      "availability_state": "excluded_unsafe",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": false,
+      "instance_id": "pytest-dev__pytest-10081",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": {
+        "head_tree_entry": "absent",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/pytest-dev__pytest-10081.scenario.py",
+        "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "predecessor_tree_entry": "absent",
+        "worktree_entry": "absent"
+      },
+      "scenario_pointer": {
+        "json_pointer": "/manifest/22",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "excluded_unsafe",
+      "source_run": "iter228_fresh_diverse_cohort",
+      "unsafe_reason": "call through unsafe import alias: Path; call through unsafe import alias: tempfile; global/nonlocal state mutation is forbidden; unsafe import alias: tempfile; unsafe import root: io; unsafe import ro"
+    },
+    {
+      "arm_summaries": {
+        "accepted": {
+          "apply_ok": true,
+          "exit_code": 1,
+          "exit_marker_count": 1,
+          "image_id": "sha256:d2f6905b2cc047701162ed856a5ef9ccc387f80b4e7a12614c252609ffb56416",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-10466@sha256:e018d387e9df8df98e19f26977de07145c3f8ba87c98e9d4ca7888753e925598",
+          "result_byte_count": null,
+          "result_count": 0,
+          "result_like_line_count": 0,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": 245,
+          "section_contract_failures": [],
+          "section_error_sentinels": [
+            "exception_or_error",
+            "traceback"
+          ],
+          "valid": false,
+          "validity_state": "invalid",
+          "whole_file_failure_sentinels": []
+        },
+        "candidate": {
+          "apply_ok": true,
+          "exit_code": 1,
+          "exit_marker_count": 1,
+          "image_id": "sha256:d2f6905b2cc047701162ed856a5ef9ccc387f80b4e7a12614c252609ffb56416",
+          "image_repository_digest": "swebench/sweb.eval.x86_64.sphinx-doc_1776_sphinx-10466@sha256:e018d387e9df8df98e19f26977de07145c3f8ba87c98e9d4ca7888753e925598",
+          "result_byte_count": null,
+          "result_count": 0,
+          "result_like_line_count": 0,
+          "result_payload_sha256": null,
+          "scenario_section_byte_count": 245,
+          "section_contract_failures": [],
+          "section_error_sentinels": [
+            "exception_or_error",
+            "traceback"
+          ],
+          "valid": false,
+          "validity_state": "invalid",
+          "whole_file_failure_sentinels": []
+        }
+      },
+      "availability_state": "paired_invalid_both_arms",
+      "diagnostic_state_exposed": true,
+      "future_primary_endpoint_eligible": false,
+      "historical_scenario_outcome_exposed": true,
+      "instance_id": "sphinx-doc__sphinx-10466",
+      "retained_blind_verdict_count": 0,
+      "retained_blind_verdict_pointers": [],
+      "scenario_absence_proof": null,
+      "scenario_pointer": {
+        "json_pointer": "/manifest/25",
+        "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/scenarios_summary.json"
+      },
+      "scenario_status": "scenario",
+      "source_run": "iter228_fresh_diverse_cohort",
+      "unsafe_reason": null
+    }
+  ],
+  "schema_version": "telos.iter240.availability_taxonomy.v2",
+  "selected_count": 13,
+  "selection_authority": {
+    "frozen_artifacts": {
+      "selection_census": {
+        "byte_count": 6087,
+        "git_blob_oid": "d4dfb76e9c0855b672daa796d9d4ca99c275ec7c",
+        "git_mode": "100644",
+        "path": "experiments/iter240_ground_truth_admission_design/proof/selection_census.json",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "2a781111199da79a5132469d4ffe36ccba94ceae4adc762675bac578873fb187"
+      },
+      "selection_receipt": {
+        "byte_count": 1696,
+        "git_blob_oid": "43fbdb100b697709e58a489051dabc8423ca552f",
+        "git_mode": "100644",
+        "path": "experiments/iter240_ground_truth_admission_design/proof/selection_freeze_receipt.json",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "7b797eed51e15a6d5a355e18c9cd0d08176b7508f11082f6c3c65cd65c29eec9"
+      },
+      "selector_builder": {
+        "byte_count": 74333,
+        "git_blob_oid": "55dfe290bb23c3beaeb5cbe1d32024af0d6ec13e",
+        "git_mode": "100644",
+        "path": "scripts/build_iter240_ground_truth_admission.py",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "dfe28416fb8080b56567a76dc91d399d2a4ffa23294b66180958009d35e8cbc7"
+      }
+    },
+    "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+    "selection_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+    "selection_parent": "63f5786b9b5c60d2bea90f2077208cfb745c31a2",
+    "selection_tree": "957876c597b687babe4e9e21c1567d420e0f0fa5"
+  },
+  "supersedes": {
+    "authority": "post_freeze_v2_only",
+    "reason": "The unversioned v1 diagnostic layer did not pin the temporal selection commit, encoded unmeasured arms as false, and lacked independent field reconstruction. Only these post-freeze v2 artifacts are diagnostic authority.",
+    "superseded_paths": [
+      "experiments/iter240_ground_truth_admission_design/proof/availability_taxonomy.json",
+      "experiments/iter240_ground_truth_admission_design/proof/decision_curves.json",
+      "experiments/iter240_ground_truth_admission_design/proof/ground_truth_frame.json",
+      "experiments/iter240_ground_truth_admission_design/proof/materialization_receipt.json",
+      "experiments/iter240_ground_truth_admission_design/proof/missingness_manifest.json"
+    ]
+  }
+}

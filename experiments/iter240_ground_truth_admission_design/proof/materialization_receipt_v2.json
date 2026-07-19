@@ -1,0 +1,1456 @@
+{
+  "claim_boundary": "Byte materialization receipt for the post-freeze offline diagnostic layer. It is not semantic ground truth or execution, acquisition, publication, provider, human-contact, GPU, or spend authority.",
+  "control_inputs": {
+    "diagnostic_builder": {
+      "byte_count": 67007,
+      "path": "scripts/build_iter240_ground_truth_diagnostics.py",
+      "sha256_file_bytes": "3d3d445fc5f53b3544dace682bf78d2634a8afcc68a57f9c5dae2850ed4a03e5"
+    },
+    "independent_validator": {
+      "byte_count": 138932,
+      "path": "scripts/validate_iter240_ground_truth_diagnostics.py",
+      "sha256_file_bytes": "af3b29b198058963d36ab99911a264b9b4a58b55f6fb0225baca6506e0790291"
+    },
+    "role_policy": {
+      "byte_count": 30274,
+      "path": "experiments/iter240_ground_truth_admission_design/proof/role_view_policy.json",
+      "sha256_file_bytes": "58479fd72b223da68e3ed14734a4505a9c24db261d2e1ca95a3978c7c7fc87c6"
+    }
+  },
+  "diagnostic_builder_boundary": {
+    "legacy_build_all_invoked": false,
+    "legacy_build_all_tripwire_installed": true,
+    "legacy_preflight_invoked": false,
+    "legacy_preflight_tripwire_installed": true,
+    "mutable_seal_registry_read": false,
+    "selected_rows_loaded_from_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+    "source_boundary_derivation": "raw_pinned_commit_headers"
+  },
+  "external_actions": {
+    "cohort_acquisitions": 0,
+    "gpu_allocations": 0,
+    "human_contacts": 0,
+    "model_judgment_calls": 0,
+    "provider_calls": 0,
+    "scientific_containers": 0,
+    "spend_usd": "0.00",
+    "target_executions": 0
+  },
+  "immutable_source_boundary": {
+    "commits": {
+      "activation": {
+        "commit": "63f5786b9b5c60d2bea90f2077208cfb745c31a2",
+        "parents": [
+          "cf809ac0e06f37127553e99a2ab9b0705f8e2fae"
+        ],
+        "tree": "351bf81beaf18686fb1dd89770b8f428d61962c4"
+      },
+      "authorization": {
+        "commit": "cf809ac0e06f37127553e99a2ab9b0705f8e2fae",
+        "parents": [
+          "b597b763f2eb52b2f4f2d36e7daaa31654be076b"
+        ],
+        "tree": "4e9b510907aef19219ba9ea217ca3cd6f618836b"
+      },
+      "predecessor": {
+        "commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "parents": [
+          "fb87af7eb15b5235a722a7bb3fd3a48962019188",
+          "56fb78f5f8afcd8709fde1170e8422072626f367"
+        ],
+        "tree": "776f60e7c75616767ce6bb1e45a3eb7279f37a97"
+      },
+      "selection": {
+        "commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "parents": [
+          "63f5786b9b5c60d2bea90f2077208cfb745c31a2"
+        ],
+        "tree": "957876c597b687babe4e9e21c1567d420e0f0fa5"
+      }
+    },
+    "derivation": "raw_git_commit_headers",
+    "history_overlay_policy": "replacement refs disabled and rejected; nonempty graft and shallow history files rejected; inherited Git configuration disabled",
+    "source_artifact_policy": "named regular nonsymlink Git blobs; HEAD and worktree bytes must equal the exact merged predecessor blob",
+    "source_blob_count": 163
+  },
+  "outputs": [
+    {
+      "byte_count": 38791,
+      "path": "experiments/iter240_ground_truth_admission_design/proof/availability_taxonomy_v2.json",
+      "sha256_file_bytes": "fde4cb120767918dc9b4d760357dacb9498204531e39652d86acd79987999dd2"
+    },
+    {
+      "byte_count": 90949,
+      "path": "experiments/iter240_ground_truth_admission_design/proof/decision_curves_v2.json",
+      "sha256_file_bytes": "e582a56d03b326f9a17ad0847308478f6eff8724dfabe89c385ae453856ea5ee"
+    },
+    {
+      "byte_count": 128688,
+      "path": "experiments/iter240_ground_truth_admission_design/proof/ground_truth_frame_v2.json",
+      "sha256_file_bytes": "325453f4d5cfe50347320b63634b34cb2dbf8a45e3f8026f00e3dd3fadc7e991"
+    },
+    {
+      "byte_count": 59744,
+      "path": "experiments/iter240_ground_truth_admission_design/proof/missingness_manifest_v2.json",
+      "sha256_file_bytes": "f5fd2d81531659ce01a4db0bdd748e2e6090859582f816f1233a9c41d8860532"
+    }
+  ],
+  "result_status": {
+    "cohort_acquisition": "not_authorized",
+    "design_preflight": "supported",
+    "independent_ground_truth": "blocked",
+    "retained_evidence_recovery": "blocked"
+  },
+  "schema_version": "telos.iter240.materialization_receipt.v2",
+  "selection_authority": {
+    "frozen_artifacts": {
+      "selection_census": {
+        "byte_count": 6087,
+        "git_blob_oid": "d4dfb76e9c0855b672daa796d9d4ca99c275ec7c",
+        "git_mode": "100644",
+        "path": "experiments/iter240_ground_truth_admission_design/proof/selection_census.json",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "2a781111199da79a5132469d4ffe36ccba94ceae4adc762675bac578873fb187"
+      },
+      "selection_receipt": {
+        "byte_count": 1696,
+        "git_blob_oid": "43fbdb100b697709e58a489051dabc8423ca552f",
+        "git_mode": "100644",
+        "path": "experiments/iter240_ground_truth_admission_design/proof/selection_freeze_receipt.json",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "7b797eed51e15a6d5a355e18c9cd0d08176b7508f11082f6c3c65cd65c29eec9"
+      },
+      "selector_builder": {
+        "byte_count": 74333,
+        "git_blob_oid": "55dfe290bb23c3beaeb5cbe1d32024af0d6ec13e",
+        "git_mode": "100644",
+        "path": "scripts/build_iter240_ground_truth_admission.py",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "dfe28416fb8080b56567a76dc91d399d2a4ffa23294b66180958009d35e8cbc7"
+      }
+    },
+    "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+    "selection_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+    "selection_parent": "63f5786b9b5c60d2bea90f2077208cfb745c31a2",
+    "selection_tree": "957876c597b687babe4e9e21c1567d420e0f0fa5"
+  },
+  "source_count": 163,
+  "source_inputs": [
+    {
+      "byte_count": 8174852,
+      "git_blob_oid": "a72246b21243fafca7a41dff915055ba643aad65",
+      "git_mode": "100644",
+      "path": "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/swebench_verified_rows_snapshot.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "8b912e9e1aff87ab16ebcdb37c636bd45fb23bf7dd90c4b88ca2ab11f0bd6385"
+    },
+    {
+      "byte_count": 4111,
+      "git_blob_oid": "43180bac0a83d939075fd86cc47472fc9881270e",
+      "git_mode": "100644",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/blind_judge_verdicts.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "bfa0f2f07ed5b2df65f727c5dfbc12756b3bc199e6453fcce4931a89481f1928"
+    },
+    {
+      "byte_count": 17626,
+      "git_blob_oid": "76ecefdbe4fd65a6e7b6178a3a3bda9fb1dc0513",
+      "git_mode": "100644",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "0681df5895f9b11a20d9d8ae02a2935b51ad510f6d4226312ee7de70edb24056"
+    },
+    {
+      "byte_count": 615,
+      "git_blob_oid": "631b79cc34d936fb0e635fbbb0a4bab859a755a6",
+      "git_mode": "100644",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/django__django-11133.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "2958744b72c3b5094fe0d1cbeffefdc22cf65b1cddeae3b435d32027a9a502ef"
+    },
+    {
+      "byte_count": 579,
+      "git_blob_oid": "7e03f23ac1b5a638c9fe081bd89756e9b41a85d5",
+      "git_mode": "100644",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/matplotlib__matplotlib-23476.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "0241ceccbcc790088fbe51e8fd8c12d4943cded4e1892850bdf528db5ee16e65"
+    },
+    {
+      "byte_count": 588,
+      "git_blob_oid": "f3403e279f9b0392290b992f09a0decb8ed9c5e0",
+      "git_mode": "100644",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/psf__requests-5414.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "06586071521356b1898d88c8311bbef4868d9c2edc0e35e1822ffd0dee78d6e1"
+    },
+    {
+      "byte_count": 358,
+      "git_blob_oid": "4eb0e78f9a3a1e0817dfda869c2e81e4214c29b9",
+      "git_mode": "100644",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/psf__requests-6028.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "42252d22e67c029e6e0fcfe4d204f05017de0bff6a303c54ce5a1a1132a4707b"
+    },
+    {
+      "byte_count": 599,
+      "git_blob_oid": "2286b11cf0b59b6f387dfd6b83d6c6dce869ea5b",
+      "git_mode": "100644",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/scikit-learn__scikit-learn-13135.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "83bbe8b1f5799789287188992516191bc0a81c9d98868abceb0ad871d608e0a3"
+    },
+    {
+      "byte_count": 502,
+      "git_blob_oid": "000f833d631ceddfba244ce614368b32a1e267ae",
+      "git_mode": "100644",
+      "path": "experiments/iter200_natural_certified_yet_wrong_rate/proof/raw/solutions/sphinx-doc__sphinx-8621.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "536185acb95fe610135b3a4928c5badf9ff680018a27900cbc70caafa7fef87f"
+    },
+    {
+      "byte_count": 4425,
+      "git_blob_oid": "f920482b87898f4be566116a3e52b6e67625560d",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/blind_judge_verdicts.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "2dd87ee8f1a829fa55778e1f973d4c85c4d0569fb9aab5d7af9aa2e93e85d121"
+    },
+    {
+      "byte_count": 23616,
+      "git_blob_oid": "e6c262816d2555ff49a5e71a998f1703930ff65c",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "03c82536e92cacf7d9c3fe1d8c146b8dcd0b758edff629826251e63fb9172695"
+    },
+    {
+      "byte_count": 725,
+      "git_blob_oid": "b9df0814517b12bdf4e586c62f845553fed29f72",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-11815.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "87aa9e91c4271d162d147e4cfd0ab311dfc3fb76267f543e352113d0471fb667"
+    },
+    {
+      "byte_count": 376,
+      "git_blob_oid": "45c9537383e9107133c96fb63fd11e3ff95e0997",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-11964.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "900a4f9494ac005f4348af8011deab5b3597aaee56e5f356554b84bb880d61d9"
+    },
+    {
+      "byte_count": 746,
+      "git_blob_oid": "412bcdb5fc9df735a6a8c2383b2e219cda2b7117",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-12143.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "8fe84072e96ab933c7700f49483efec6273203c3db8aa020f4e6b4ef9f8cf312"
+    },
+    {
+      "byte_count": 838,
+      "git_blob_oid": "dfc36009e529ce41e0e286120b128a541f828aa9",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/django__django-12276.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "feee8e2de3ec8f2f15e1dd62a6a137b6e527682374fa9a9c9f18a561151eb2f8"
+    },
+    {
+      "byte_count": 815,
+      "git_blob_oid": "13dd6d02da87e0bb7815ab33fae352e3184b0a4b",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/matplotlib__matplotlib-25332.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a27bc9f115ca9fa62731c4551d368810fda7faef471190e4fe86085011aca3d0"
+    },
+    {
+      "byte_count": 542,
+      "git_blob_oid": "bddf59976c14a7661fab9dd794efa66be7f336af",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/pydata__xarray-7233.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "5e91e5de8f09c72c3afda6bc4410a016419d882ed58f2d8596c4eb380f161573"
+    },
+    {
+      "byte_count": 998,
+      "git_blob_oid": "48d3e8c75a090cc8873fca33d425d023047d07ff",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/scikit-learn__scikit-learn-25747.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "53123ca65677398ed001dac9e236e2348005880d78ac357385da63f4aa65341f"
+    },
+    {
+      "byte_count": 515,
+      "git_blob_oid": "0bb8fc6c39e64346251d43f97f3baf9cf74d9470",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sphinx-doc__sphinx-8721.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "258895635b03bfa84ffad28e1264e686699c3dc3236c420b545dacd64d5bdb80"
+    },
+    {
+      "byte_count": 490,
+      "git_blob_oid": "254e854a02b8f6b75c59c1a7d2b52db323d7f9cc",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "85bc37c1ccb19cd3586bc9675c84beafcb1a4fce2f4247a67a3a6b42d3fb1eef"
+    },
+    {
+      "byte_count": 581,
+      "git_blob_oid": "9240736f438fa0f15c533cd686e6fdc85d88289e",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-15017.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "c21dac7e2b3e6227969c962cdb82cde9ed932dafca00d560f7b30b18f7c6101d"
+    },
+    {
+      "byte_count": 400,
+      "git_blob_oid": "8e066887253a90001b1042de461ce97b31285de3",
+      "git_mode": "100644",
+      "path": "experiments/iter223_natural_rate_safety_aware/proof/raw/solutions/sympy__sympy-17655.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "7fa6c51de150fc844942223f6c9414aee1540c6680d6ff58b31e50dd3f5c956c"
+    },
+    {
+      "byte_count": 4861,
+      "git_blob_oid": "5ca265e4a21fc73ebc0f79fd3ff705bebaea9c2a",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/audit_report.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "ece91f6824a887b94dcfea3eadaf24654cb00c254c4c26f0727c900b3fcb8dec"
+    },
+    {
+      "byte_count": 76,
+      "git_blob_oid": "0d2f05a9f6d09716cd1bb80e74946632bb78be6a",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/blind_judge_verdicts.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "423bc4c8a8bfc6911cb5a882afe28487c4885d73d171f8d163228def3e8ea1d9"
+    },
+    {
+      "byte_count": 11326,
+      "git_blob_oid": "8838844c1a99cff6660e17fcb9a8ec6e8ecf76ea",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "18ecf9c43e19d3a87c61605737a11f4a3716a8a2d7883415ea4e1b4b058a5b51"
+    },
+    {
+      "byte_count": 243,
+      "git_blob_oid": "5362c3779775cd3a7cdd1a5d7cd730c247ae6943",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/django__django-12713.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e8178af9f54a108596e37f0dd55f4598809290bd96437450f791117b181a16e6"
+    },
+    {
+      "byte_count": 23162,
+      "git_blob_oid": "7fbb756c920171d6139e21f9664fd65a22ede1d9",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/django__django-12713.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "bfefd0ee591eea41f7fa23abab8a5aeaaacb6c12769ada7fdd0cd1eb8c18c2f8"
+    },
+    {
+      "byte_count": 671,
+      "git_blob_oid": "6435320c118197c23a4a26c00b5e1c5d27cc61e0",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/django__django-12754.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "355a0587dbaf9b53afa322b4491e2962e671cd8744e19f9e39571493e6b7fbfd"
+    },
+    {
+      "byte_count": 27620,
+      "git_blob_oid": "f99d1286dac98bc5e12ab38a696c361bb95f575b",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/django__django-12754.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "f5e335775feaee4b56c5835a237f5bee9421b18c6ec67eeed73d1086a091caf8"
+    },
+    {
+      "byte_count": 302,
+      "git_blob_oid": "bb612e6b1e78c97d410c1bb09e78cc4890dae62e",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/django__django-12774.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d9d005796499aa66c6321a78338a3b13d63b80ebd60ae3f642631c21916677a1"
+    },
+    {
+      "byte_count": 18568,
+      "git_blob_oid": "7e6031e79ea76225dce41b66961f40d88ba1c0a1",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/django__django-12774.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "95043540536cd0ff05e5e39398f62974c94752da66e3a0d7afc0105cc075cd12"
+    },
+    {
+      "byte_count": 243,
+      "git_blob_oid": "f435a681dba57ab5a0c2c33fae383614fb6b973d",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/django__django-13028.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "be366084d7de36530e8c790c4109117c2bf325019ad03921e0eb39df76c31c0c"
+    },
+    {
+      "byte_count": 37699,
+      "git_blob_oid": "a3e5925c7ab3e95378efac5a2f1f647ceeda8bb3",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/django__django-13028.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "6346c93a52e8237bc3eb3625330317aa5cba5631c2485ba2e5ff043f84328140"
+    },
+    {
+      "byte_count": 313,
+      "git_blob_oid": "5604f243f8bf5720adf12306cc6b1130107e7987",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/sympy__sympy-22714.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "4a6355a9c16dd4755c946d79d6fe75f382a985efad925f59fa24bd41b9886238"
+    },
+    {
+      "byte_count": 14856,
+      "git_blob_oid": "23f0efe3fd5b13804afbfbd2dad3c6c902557dbe",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/sympy__sympy-22714.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "4652b7f084b54f2d5646e0ab3c08ff64761e1ddb3b73822f3b0e61b54314855c"
+    },
+    {
+      "byte_count": 241,
+      "git_blob_oid": "1517c9dd326832bea69f3def83902b835a23fc95",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/sympy__sympy-23824.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "3cc6b8066de8fe9a5411225f611f1c052bf74ecf2c85d78ad500d271e35f7075"
+    },
+    {
+      "byte_count": 14330,
+      "git_blob_oid": "0b211d2ec609103a8f33d17bdadc78d00e1c880a",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/execution/sympy__sympy-23824.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "77c9574151fb5053c63f181a1b88c2437ee09a3291b8afb774472f5b5489d501"
+    },
+    {
+      "byte_count": 1327,
+      "git_blob_oid": "68cd7ae376c9c4fb7574bcdd1c323acfae41db9a",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/django__django-12754.scenario.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "f13f7b67a36a8ab2572b03d4973d0097777c28fb1cebbf3e6368551b70d6b2c1"
+    },
+    {
+      "byte_count": 562,
+      "git_blob_oid": "66fa8b827fa1b0bdb4f8bde0ecf5a7f49a1a4790",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/django__django-12774.scenario.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "db1a20e8e7967e2402b1399117fbbcc4d37469da80eb1083cc760be29be6fbab"
+    },
+    {
+      "byte_count": 16913,
+      "git_blob_oid": "2d8119ab940f5436e26d6a2754909e9c389d1d38",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/scenarios_summary.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "8ec7d3a39e2b220be1a67fbf3d831b9b82c04a4ec91101309d3a2f4d73327379"
+    },
+    {
+      "byte_count": 85,
+      "git_blob_oid": "58ba39f0884bccd314e4b8562fba9f797daf3bdc",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/scenarios/sympy__sympy-22714.scenario.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "34180b518379c0fb85e02dba89f6d985af2a8e677e242f5bb55f75afef6cb5b8"
+    },
+    {
+      "byte_count": 1986,
+      "git_blob_oid": "573b4b9919921cfa359109741c200aa3d804f05b",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/django__django-12713.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a99542c2cd4921f681ec42111964372a0d6dffbfc717c8f5ab06b0b5b63abc63"
+    },
+    {
+      "byte_count": 1902,
+      "git_blob_oid": "d0322c5a606a57680bbd716d60ff55928b97e6a0",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/django__django-12713.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "add936fbfa948b27ffca739a6484240747c126541302cb4e47d2de2e661a9d0d"
+    },
+    {
+      "byte_count": 1377,
+      "git_blob_oid": "2402244c42d3fdc378eaace48a62cbac39599f59",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/django__django-12754.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "f49018031142900beff2cb1c53fabd0af5a562aa1cfe2c4519344c2fbfaa8c5e"
+    },
+    {
+      "byte_count": 872,
+      "git_blob_oid": "09ed76a45ea1b4a8c761e577f9c935d879e751d1",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/django__django-12754.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "1c088e8d319e5d612a522d852c599e1d074f645cce384451b40eee241ae9895d"
+    },
+    {
+      "byte_count": 947,
+      "git_blob_oid": "8f1ed4cc4a448911952f23a8c8900238c271c2bb",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/django__django-12774.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d0b9b8daa663676ec20792e9adfd03c280b7e80f2b45d40197d805c1baea6dce"
+    },
+    {
+      "byte_count": 959,
+      "git_blob_oid": "d414a25979948a6ec69f2d09475047cf7fe9304c",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/django__django-12774.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "40547a444b926a8a7588c6018346857334f67abef16c5bb15dae135786a93b01"
+    },
+    {
+      "byte_count": 693,
+      "git_blob_oid": "b99208c3525f99a8f3a7caf4e793d6f2f229c120",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/django__django-13028.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "0e12b55011f1fc82169c317af7dea00f71a4b608f2690fc64fac5845c5291358"
+    },
+    {
+      "byte_count": 633,
+      "git_blob_oid": "cf6be3cad37c3d7b36b14bbb69489498f44a25f5",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/django__django-13028.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e5fff0bd85d1cfe0eb5df7fc053e07ac0412c82b4b706cc2dfee4de75acaee07"
+    },
+    {
+      "byte_count": 31621,
+      "git_blob_oid": "3df6d322d87190ff0b483e4fbc582abef36701e6",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/solve_summary.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "765a5b9a4f2f8fb277a1ab08a1c2e87a30041051de2ef57813e8d8d1c0503cb4"
+    },
+    {
+      "byte_count": 669,
+      "git_blob_oid": "7ad9e643a8458fac99da69a2016ed46d8ca814d6",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/sympy__sympy-22714.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "1e50cdf5a6d2ede21b40239ee2b9cc117f7356b9dbd979cc3236c1a0e789d289"
+    },
+    {
+      "byte_count": 668,
+      "git_blob_oid": "c69a2fd57e454d92b6e77391d3a6e41e851884b0",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/sympy__sympy-22714.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "f84fed0cf759e3dc53541bdd2e1129f64c4bcf827d20ab53b06082d7109980b1"
+    },
+    {
+      "byte_count": 632,
+      "git_blob_oid": "7918c0dd0d448b89d713e3428c90feece7276134",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/sympy__sympy-23824.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "eadefff453a6ec9255b3a7c5d22e2facb674c6edb515a3525fffc1c8ce17ddb9"
+    },
+    {
+      "byte_count": 654,
+      "git_blob_oid": "b6bc22db58e0cde0c4af0698ec15c62e7a4a613f",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/sympy__sympy-23824.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "5df367822387d1513499424e3a62e997daea8fe9c077b8eeb6f4000ead69acb0"
+    },
+    {
+      "byte_count": 2532,
+      "git_blob_oid": "c4eb128ed3fc8e212b4fe9ba15ffe93350a881e7",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/django__django-12713.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "97cbd951cd861083d4d8c4fee12cf5d7b1516e55c9379064cf89dd08dcfd6270"
+    },
+    {
+      "byte_count": 5272,
+      "git_blob_oid": "9590f9ea249e9c70f93e365d1d0c16c3e75dead0",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/django__django-12713.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "7cf4d37801bbf4398b3297b3df0bc11a3b385425d011f932fd69fb230cb41c22"
+    },
+    {
+      "byte_count": 2418,
+      "git_blob_oid": "144c35db28f9f255c68166a74af3198d10dda118",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/django__django-12754.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e630bf2941752cb338d3e56c14308da496e7aff319c6710f262a6c4b6811788c"
+    },
+    {
+      "byte_count": 9481,
+      "git_blob_oid": "d75ca1dac746754a6f70cb58baed57b11c0baae7",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/django__django-12754.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "044fb80e8be965e380f718e358f55c5df9d935106f51d543acf4958ea979ccc8"
+    },
+    {
+      "byte_count": 3992,
+      "git_blob_oid": "0e8a230479e035a1632f573fd7992452d058495a",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/django__django-12774.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "5b7a95a419743f30425885fd809048f9a13f4319c5501d1ca16adfac9fca79a6"
+    },
+    {
+      "byte_count": 2865,
+      "git_blob_oid": "b2680718b6420c9f9a715e885958c47f1a9d2c3c",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/django__django-12774.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "cf6b9419eb1995f0f9fc6f731812c7180800e18ba00b7892c03c08f9be9a7384"
+    },
+    {
+      "byte_count": 3042,
+      "git_blob_oid": "caee47a99f059848c00b17f1d6c6e98a6044365b",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/django__django-13028.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "106ac03a28234b33ec82cb57038a1a2f1a5308c8c30fdd90d435607c8234891f"
+    },
+    {
+      "byte_count": 18504,
+      "git_blob_oid": "43be692b4d9004f0ed55aecebbb0a5f666d9f9a5",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/django__django-13028.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d5b2dbb6480574676cce83728f1b5a8448711013acd1afdb43086f6cbba87ee2"
+    },
+    {
+      "byte_count": 7729,
+      "git_blob_oid": "29b18681ee97512f316e0f62d45492a44155f055",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/index.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "b55d490805db79d5b8a6bc5aa9e6c03ce333644e5d846d9232de2b1ed0e56c55"
+    },
+    {
+      "byte_count": 1460,
+      "git_blob_oid": "ae0b33655ef0523263a5ba9a90a5331fdece45d2",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/sympy__sympy-22714.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "8ca8d56b102dfea95ba63de3bf91a2465191a472b2798d65aa28b3d49730d569"
+    },
+    {
+      "byte_count": 703,
+      "git_blob_oid": "8c76eea58df5a338078b76c3894505073697e191",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/sympy__sympy-22714.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "37afdfe0816a63eafafac2e9efd70a32a548b7a6bfbb1bdafacb830976918410"
+    },
+    {
+      "byte_count": 1565,
+      "git_blob_oid": "9bfe1183e8059696c19c90f963f1de29a7e0c5c0",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/sympy__sympy-23824.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "959316721fb4b6f057bd9d1a75f5bd007c80e4b2e5a6e03f73680f2d9497b1be"
+    },
+    {
+      "byte_count": 520,
+      "git_blob_oid": "6f9e4fa14aa3d205128a11d54ac8c2ec7a6d9074",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/raw/specs/sympy__sympy-23824.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "f01560e1415d0aba692f2379506b66996eba87c2b5acb9f79ccfd151a6b68c9e"
+    },
+    {
+      "byte_count": 1705,
+      "git_blob_oid": "fc87464c3be1207aab0e56487a48d7fe8686a462",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/blind_judge_verdicts.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "606c348c12254065668a1beba8bb9bcdf5ff4abc806476122f2a402372d29cae"
+    },
+    {
+      "byte_count": 19197,
+      "git_blob_oid": "cd98fe1e96ecc524e9f99b020e9ce8b09beced5b",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "eb99f612fda15dfe628bc183fedbb94dc55bd01039ae7e59bbb0ee2bc01a0061"
+    },
+    {
+      "byte_count": 558,
+      "git_blob_oid": "e617e65c7366c01e28b629dbaf36c6389a088a7e",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/django__django-11964.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "6c174bd57f6b105c15175ef355cc9ece708eef709e54a332bc5951a29e29f6a6"
+    },
+    {
+      "byte_count": 609,
+      "git_blob_oid": "adda296fd4de7d56dea6c8a292f52c1bb0b20579",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/django__django-12209.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "2ca77644f0b1fb2f5601d00fdce7e01cad5c10965632796b8b8f0d0123c4cabb"
+    },
+    {
+      "byte_count": 838,
+      "git_blob_oid": "dfc36009e529ce41e0e286120b128a541f828aa9",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/django__django-12276.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "feee8e2de3ec8f2f15e1dd62a6a137b6e527682374fa9a9c9f18a561151eb2f8"
+    },
+    {
+      "byte_count": 542,
+      "git_blob_oid": "bddf59976c14a7661fab9dd794efa66be7f336af",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/pydata__xarray-7233.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "5e91e5de8f09c72c3afda6bc4410a016419d882ed58f2d8596c4eb380f161573"
+    },
+    {
+      "byte_count": 481,
+      "git_blob_oid": "f6e0fc071aa4ea15d99019b10c5729be5dbf81ba",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/scikit-learn__scikit-learn-13439.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "04c84695fb2bb22db9f68e1d30c55927d2dca917990b70400624b1b4e536aebb"
+    },
+    {
+      "byte_count": 1188,
+      "git_blob_oid": "52799359880ce0a00ac1ecf485ba2ef7ae0f43d2",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/scikit-learn__scikit-learn-25747.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "c46c51907282ecb0f2fbf15a379719cb7d7bfad3ca4b8f9e36dcd29756da6dd7"
+    },
+    {
+      "byte_count": 707,
+      "git_blob_oid": "7436a9c7fe7c6592f22736fa7dc4b750595cba18",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sphinx-doc__sphinx-8721.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "578ca03d67463b8a9ce3c3e0906631291f5399b9502121d178fd3a2db9f43476"
+    },
+    {
+      "byte_count": 490,
+      "git_blob_oid": "254e854a02b8f6b75c59c1a7d2b52db323d7f9cc",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "85bc37c1ccb19cd3586bc9675c84beafcb1a4fce2f4247a67a3a6b42d3fb1eef"
+    },
+    {
+      "byte_count": 603,
+      "git_blob_oid": "56ed4f2582b30dbd0a25a0c6a34dbff7915cab36",
+      "git_mode": "100644",
+      "path": "experiments/iter225_cross_model_generalization/proof/raw/solutions/sympy__sympy-17655.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "44b8679260a5022b117fcb70f01c6ca97c702b2a40ae99eb106f4833c2366e03"
+    },
+    {
+      "byte_count": 2717,
+      "git_blob_oid": "3584b36c5dca6dd69f1de491f40c3685e3aee0e0",
+      "git_mode": "100644",
+      "path": "experiments/iter226_cross_model_generalization_gpt54/proof/blind_judge_verdicts.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "0bfa027f6cd302635343f65122f27095bc2069f350b1de6cf93eb1120e77ecbb"
+    },
+    {
+      "byte_count": 23943,
+      "git_blob_oid": "6de2e282165acac7001bd3569a0d02d8602f4544",
+      "git_mode": "100644",
+      "path": "experiments/iter226_cross_model_generalization_gpt54/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "95c155e73c37db51b0f857d33884dc6c77ecd37f9badf212fcf90b701d5b8c99"
+    },
+    {
+      "byte_count": 771,
+      "git_blob_oid": "7c1938c327bfc1519f5f2acf66e6923d187a9b8d",
+      "git_mode": "100644",
+      "path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/django__django-11790.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "01e5e0926d7aa5bd8bbddc9af615c00ad080fdba2cc64d02cbd022e4c338bfcc"
+    },
+    {
+      "byte_count": 814,
+      "git_blob_oid": "2f33254ba47d93943a56954a94cf1c6a40e7a5b6",
+      "git_mode": "100644",
+      "path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/django__django-11999.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a4b12d96796525d06a33ef804cafc815a433905e1c7fe31446338b88a5d41f35"
+    },
+    {
+      "byte_count": 1232,
+      "git_blob_oid": "d22a88726fa8e356332d71c3816a9f549cad8406",
+      "git_mode": "100644",
+      "path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/scikit-learn__scikit-learn-25747.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a66b6f92e31bcd8077bfa2d4a39c0468eec2038445bb0ee1fe305bc95a24a97b"
+    },
+    {
+      "byte_count": 698,
+      "git_blob_oid": "7479534a252ec6ce9b8024d834adfdd1c25f4bb6",
+      "git_mode": "100644",
+      "path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/sphinx-doc__sphinx-8721.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "0b6f7703be8607e5f6b00b3b24636f05e3fdc3e9bab7634f57264e487e33ecfa"
+    },
+    {
+      "byte_count": 566,
+      "git_blob_oid": "20a8ffe32b6282e8c9b4203c54e3dbe278c33c9f",
+      "git_mode": "100644",
+      "path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d6401b4c13d6f8d0a3bf571e67d764e6539b02992a113cf0b53ba922a8a5c93d"
+    },
+    {
+      "byte_count": 701,
+      "git_blob_oid": "250ead136a5576c3dec655882e7b835df09fbea4",
+      "git_mode": "100644",
+      "path": "experiments/iter226_cross_model_generalization_gpt54/proof/raw/solutions/sympy__sympy-17655.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "546870220d765d4cb41dfd01b7d863178055f6a682b13f26cce3f68900d75c79"
+    },
+    {
+      "byte_count": 2232,
+      "git_blob_oid": "ecd1f6bface1f4ae60bc0fe3f14ebeca84869c7d",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/blind_judge_verdicts.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d62f95c16c54d92014e6c9dd904fdc34017a16a82b959dff5584618066874c24"
+    },
+    {
+      "byte_count": 21712,
+      "git_blob_oid": "dfcecd2140b508fa1dba9e92c4fb3f8acc6b1308",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "dccfd3cfd15c90209d2aa69657b0c5b277291888989c3a92d4d588e657fe4b38"
+    },
+    {
+      "byte_count": 953,
+      "git_blob_oid": "4b3a0d1417416fb652e5a6ce16275e23eedeae98",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/django__django-11815.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "edf2d9b0ec41818fd58ecf87d349e555198ec7805ff60727df20a52f36e4cedb"
+    },
+    {
+      "byte_count": 1172,
+      "git_blob_oid": "464d7e42ee61bab5e680fb6df39c032a5219f45c",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/scikit-learn__scikit-learn-14894.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "77cc366e38ad65588c34d2d20369d5168d63ecd1f7655ae3657fa80cf3ed4611"
+    },
+    {
+      "byte_count": 707,
+      "git_blob_oid": "2a40567a7c7008b46cdf68ab400f783874774504",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sphinx-doc__sphinx-8721.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "337eafdd5d7018c94b951d35f951f08477300c13921a7f1d7a34c1e3c97ee893"
+    },
+    {
+      "byte_count": 568,
+      "git_blob_oid": "dc438c1fe3f503823c9b19fc98702f594c4cba49",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "8671993c6cb38fe5f3d4aecbad43dfc11dba3ff178bed60ac0c71e6275b6ecb9"
+    },
+    {
+      "byte_count": 603,
+      "git_blob_oid": "b35c10334c9169f737149b2ac664d66fee5b0dfd",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-15349.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "88a32dbfe7e566e2b80d0143a0af5193e32439f17fe887419d22a3f758126687"
+    },
+    {
+      "byte_count": 775,
+      "git_blob_oid": "2d0a1c397da20ed230a6394611fa29e6ed0510f6",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-16766.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "8ecd0a81504f6000d0bce0ea999fdda4b1f232fc58a85b39b37bbbdbab958245"
+    },
+    {
+      "byte_count": 711,
+      "git_blob_oid": "312e2ec46762705f908f63cf92ca7953f38b7cba",
+      "git_mode": "100644",
+      "path": "experiments/iter227_cross_provider_generalization/proof/raw/solutions/sympy__sympy-17655.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "641c4a79b5a09a43bd83f00ebae9c3511da963ba902662a8209928d5bb2ae9a1"
+    },
+    {
+      "byte_count": 4916,
+      "git_blob_oid": "efeb5d4c03113de1e60574816ce3ce8b35f1f3e7",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/audit_report.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "fd286bb2924575361e65d98dd223a22ba90d14e9e04d4a6043a18619c40bfb5a"
+    },
+    {
+      "byte_count": 636,
+      "git_blob_oid": "78554bc7583bcfedc0a92a09f4d507146aee0384",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/blind_judge_verdicts.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "05273bcc604437bd1e7e5dfb4ae82206cc921703160594753b65541d830c7d9c"
+    },
+    {
+      "byte_count": 17008,
+      "git_blob_oid": "be49cda181974a01df9e35041de634f10e35d3ee",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "93adda06adda5cc2da6600facab87143ee979b563c584d157c4fcb52fbe85010"
+    },
+    {
+      "byte_count": 244,
+      "git_blob_oid": "a2f21424062041310fe4a5b169aac373808cb9b8",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/astropy__astropy-7166.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "917ba91f4c9771adf097b6849fc93450033166e962a102cd23f98c5898c62b5f"
+    },
+    {
+      "byte_count": 296247,
+      "git_blob_oid": "221a123c8c99dde37f5f27b51287d57aaa1dfce3",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/astropy__astropy-7166.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "7a6669fc4d3bec825b36f6ea003496ca6c16d0090181e808ec67c9d2b035af1f"
+    },
+    {
+      "byte_count": 1073,
+      "git_blob_oid": "1b2ec49340f3ea0489edfade06106f52ccb07277",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/matplotlib__matplotlib-20488.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "1ec84cd4e9c2bdc56f96e752b399d5193f7ac8834acd38a130385be6119bf519"
+    },
+    {
+      "byte_count": 35417,
+      "git_blob_oid": "cb8578f155b3f2657110205f8ba52beaa10a1611",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/matplotlib__matplotlib-20488.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "c66ce90cb6ed9830084eb0d34f31b3c17044e5b5abd134c88fa2cfba55089e78"
+    },
+    {
+      "byte_count": 251,
+      "git_blob_oid": "601c87fa91c4d8c58f0feb53bac6cd49b3678e13",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/matplotlib__matplotlib-24627.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "20bb04a173dfd6e264e4c901954606857ddcef5b5adf62898439c8434054d1a1"
+    },
+    {
+      "byte_count": 79622,
+      "git_blob_oid": "da5ff4a44a7c3cb6e746b3e495db260508b19f7f",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/matplotlib__matplotlib-24627.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "b4723c659b501691454e232a2162640508c9f202288219102e26dd32eef45e40"
+    },
+    {
+      "byte_count": 241,
+      "git_blob_oid": "8245c4c9b1dacb3248fe4cafda5d0fc7bcc240b5",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/psf__requests-1142.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e03828c1734e1001a6dbc25579b099fad7eb1e6454e3f3a9bc8a75739b662c6f"
+    },
+    {
+      "byte_count": 54495,
+      "git_blob_oid": "b046283fb332577e5683c2f7d8f330c1b76a58ee",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/psf__requests-1142.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e26faf0cbe682a858770cf55f0cc5920a3bbee819dba2d341c3d8e7a719dc8e8"
+    },
+    {
+      "byte_count": 246,
+      "git_blob_oid": "ccee5f0494788a32df26d0a929232bb433600a87",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/pylint-dev__pylint-6903.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "4d8be3ad9ba9282a058759019963a042221873c5ded1998d1f2e700118c0485a"
+    },
+    {
+      "byte_count": 18825,
+      "git_blob_oid": "526849e1207a9a94fd8fd6bdc61f413f676e87c5",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/pylint-dev__pylint-6903.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "ea0d90b6766d948adc24677b4935e7e112125b21d6907f481ed5bbf88a06a886"
+    },
+    {
+      "byte_count": 247,
+      "git_blob_oid": "9c905d5414b8ab6c03fa018c1ee0129ef55881b6",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/pytest-dev__pytest-10081.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "99e5bc387294bd7132bb21217d210252f01c6eadddf7dbad94a6dd79f3f2e373"
+    },
+    {
+      "byte_count": 86766,
+      "git_blob_oid": "f30436b0648865028161ac3c752a8e1b659453d3",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/pytest-dev__pytest-10081.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d2776784aa92931950c77ddee3faf6ce97057ae89fb2b3a1c10e10b4eb367aa6"
+    },
+    {
+      "byte_count": 526,
+      "git_blob_oid": "e7dbd681cc58cf1ec6b203508fc47b5b9a675461",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/sphinx-doc__sphinx-10466.gold.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "287f20e18e11b6c5bca366ef3d343e1a44dd0e3f8839f7473fb6f916a0c038f6"
+    },
+    {
+      "byte_count": 72751,
+      "git_blob_oid": "83a07fe9555e37e18c1e003d71e2e2534cab0494",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/execution/sphinx-doc__sphinx-10466.variant.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "6c9d30b11567f1b43d7224ed9357d91c6da0eedadd539c5575c17e20c9c7778d"
+    },
+    {
+      "byte_count": 631,
+      "git_blob_oid": "5869cad04b56012bfb759cf5b7a3f4550f1fd2a5",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/matplotlib__matplotlib-20488.scenario.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "7ecb0e4fc5209b04ec4501dc8a0379d3bd83a9f79e1b55371be456b022f4e1d0"
+    },
+    {
+      "byte_count": 20156,
+      "git_blob_oid": "e041ebe9ddfedef8bb75ccb5aa6d8dd6baa08146",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/scenarios_summary.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "2863efba55eed0222be986be20a35e7c1e807ee82107e7de4517257419842d34"
+    },
+    {
+      "byte_count": 355,
+      "git_blob_oid": "230572597abe0205832dcbd293be53815db639c2",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/scenarios/sphinx-doc__sphinx-10466.scenario.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "736deea28bd2338a472a0973f50436c621ef1dc35afc8434a80f739982f59b03"
+    },
+    {
+      "byte_count": 1165,
+      "git_blob_oid": "d650f33e0c3e0c1547f1021f8e98aef83a91c00f",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/astropy__astropy-7166.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "b720439fe90e5673cf5d75523a36c25927c9f78f785f280508433447293be578"
+    },
+    {
+      "byte_count": 1154,
+      "git_blob_oid": "4542475742cffc89a5400c5dd11ff118901eca99",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/astropy__astropy-7166.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a36ff0840d7a23f71d57b591716557ffa5f424b0011f01607b26c422a49f66a2"
+    },
+    {
+      "byte_count": 928,
+      "git_blob_oid": "d57e2a1fcd7c8a21d7e8a54d45a40eb5cd9b8391",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/matplotlib__matplotlib-20488.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d4a54cfb2e82e869c697c33a5051f5f00753f12ad7aa5a79530e9ebe98954736"
+    },
+    {
+      "byte_count": 888,
+      "git_blob_oid": "57f2f7894f050285ff3ec833ccbb3dfb8877efc8",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/matplotlib__matplotlib-20488.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a866996e96d8898f84e42f1876f1ffcbbd47fc740a7178524886eb1952e3478c"
+    },
+    {
+      "byte_count": 627,
+      "git_blob_oid": "9f9a76d11c14d55c42d9851fafe8b0bab169a343",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/matplotlib__matplotlib-24627.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "9f92573bf95ae9b6aa1d4cefca099e425a1fb846c6258293f32a5f38cae5c4f0"
+    },
+    {
+      "byte_count": 625,
+      "git_blob_oid": "df9f446dbc0521c8ebb1e47e60b33d2739891432",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/matplotlib__matplotlib-24627.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "1644b164a1a8d837a102b5f52a9233001f6e7ae866d8803a60cda2e17848f1c5"
+    },
+    {
+      "byte_count": 743,
+      "git_blob_oid": "76a294afb19c5b8751e678eac135c00a85724140",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/psf__requests-1142.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "c25c1f930edaf8514d3a5f2bc5631a8e8080ecb2511c789ec171f37d14e627a6"
+    },
+    {
+      "byte_count": 1056,
+      "git_blob_oid": "be624682c1b50fc65da4f595f68f8554a11a33b1",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/psf__requests-1142.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "375a60dc1e5f9d3020a5631743d48f22ddb3cad8e7d62ea62141df33bce051d2"
+    },
+    {
+      "byte_count": 558,
+      "git_blob_oid": "5fee5490cf8d2a81b3e28c8dcb2583f2c1481096",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/pylint-dev__pylint-6903.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "4b0aa53db6637dcaab2ff2373a8ebf3495df12181640b7dd38e5bb19c0e9fbcd"
+    },
+    {
+      "byte_count": 376,
+      "git_blob_oid": "db48668a4dd4a5ff2bfc3f33722ae4e710abab2c",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/pylint-dev__pylint-6903.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "de8756eadf1a5a2f390c2d52a9b0d1a475814516050ecb26ec3048722a2fbde6"
+    },
+    {
+      "byte_count": 908,
+      "git_blob_oid": "8498417ec27e47129698490a55bb298568cfd282",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/pytest-dev__pytest-10081.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "30b7bbcd61e92e71c186f5c36c622301a6d5dde818e67c97535fa30d7897af93"
+    },
+    {
+      "byte_count": 767,
+      "git_blob_oid": "27239cdcf34edf59bbe7fe20c53903fef4e8c73b",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/pytest-dev__pytest-10081.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "810bc1c762c03b18b3a21b59b3a52626de2c19942da40dab8f455c84eafeee4b"
+    },
+    {
+      "byte_count": 84129,
+      "git_blob_oid": "c8b6e544b9e96919dcf6255ba49c04fa41f84d1a",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/solve_summary.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e1c5a4ba5a03ecbc4787745eeaa6d460758db7d935f30c108f765354b498f3b8"
+    },
+    {
+      "byte_count": 685,
+      "git_blob_oid": "9fdb0e503dbb08b61d1c7fa7ddea278652bee609",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/sphinx-doc__sphinx-10466.gold.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "22dcf920cefa9d231e88032a81ba21641de55211c5417845fe94e996304dd4d9"
+    },
+    {
+      "byte_count": 811,
+      "git_blob_oid": "3e95df0697e7d2575a5898a9ee40776c38d0272d",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/sphinx-doc__sphinx-10466.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "fc78368084e3a89cf609804759e2a17cd4c85325b160d4bee5afbe7ab277e19c"
+    },
+    {
+      "byte_count": 1550,
+      "git_blob_oid": "9fed0d03299df3d39cacd9072d05d51de9f9889d",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/astropy__astropy-7166.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "ada6af4b0b6d4482f4f5d7f2eee746456b7b9f4068f9c292775308a4a5bafb16"
+    },
+    {
+      "byte_count": 886,
+      "git_blob_oid": "668cda0cd5df92b782c4a72784855f990a58a8e9",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/astropy__astropy-7166.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e66528550e96b4a8cffa6f44a629395845b969d05d31557051dcefbe8012d264"
+    },
+    {
+      "byte_count": 11252,
+      "git_blob_oid": "30159109fe1672fea3046ed7bb5b758e742a27cc",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/index.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d1328384047d92fd83297ad78bd2d7c5fe389d66a1c11441310038dc432c0007"
+    },
+    {
+      "byte_count": 2148,
+      "git_blob_oid": "1d5cdf78d54abf890dc63010cee1b42a36654a31",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/matplotlib__matplotlib-20488.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "06d3c176ec9d0be625f338ab7416e03fd74e11989aa762383b3ce45dc2a9b457"
+    },
+    {
+      "byte_count": 8355,
+      "git_blob_oid": "633e42fe9cbc33d192e9d017de2da9ba0910bffa",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/matplotlib__matplotlib-20488.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "f06447aeb81450a680683d13fbceca06ebcf57443c1a73f349419731421a0f29"
+    },
+    {
+      "byte_count": 1376,
+      "git_blob_oid": "82530a6e3f6a47e641deefa69cb18bbec6fe288d",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/matplotlib__matplotlib-24627.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "20a30f0d667e3fad4987d5c01cb1f158f2ef3bf2cae695a9e0d255173750c32d"
+    },
+    {
+      "byte_count": 56843,
+      "git_blob_oid": "77b8b9daf61d0ab612170b49f14329f1bed95cdd",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/matplotlib__matplotlib-24627.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a13afc62db55db530479d9ad22b34208ee4f73ac91964dc88a03ec01b166a2e6"
+    },
+    {
+      "byte_count": 1255,
+      "git_blob_oid": "061ce50b7764bbe87e734f706ef13ac88ad1d8d5",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/psf__requests-1142.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "7c1b567c7a139bd101d845a0f1dca55fe4f95daaeceacfcb3ae8e5e0522ab972"
+    },
+    {
+      "byte_count": 831,
+      "git_blob_oid": "e812d5db15300351f047fc94dff78fc699565a46",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/psf__requests-1142.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "14b035e5324278afc133cbe7dfee5ab76444b71f24d218feefe39968120d6161"
+    },
+    {
+      "byte_count": 2722,
+      "git_blob_oid": "26833a17579daac712842e25d1bf275df8257526",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/pylint-dev__pylint-6903.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "16dc95539a9344bee0a4391e1e4ff368fffec72f9971152d9374be590e6f1dff"
+    },
+    {
+      "byte_count": 1096,
+      "git_blob_oid": "e84b011ccf6b4fb710900fafee8b19af0280dca7",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/pylint-dev__pylint-6903.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "fd9220fffa420443a93b20924c74c133b1504955cd370937b1aa20e015829d87"
+    },
+    {
+      "byte_count": 3334,
+      "git_blob_oid": "b6055411a6a07dab9f31b7c12ab963ecc0537ead",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/pytest-dev__pytest-10081.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "91b74efe244ad935815ceae069eeff94d319e5c684719e5117c3442a06d6681c"
+    },
+    {
+      "byte_count": 4934,
+      "git_blob_oid": "7fc1b495ad9dbfe9ab6a874929bbbe8bd936b938",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/pytest-dev__pytest-10081.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a3ff85aed67c006c33867dbd2004ae2ef59fa5867e0a9be3e4584190563a0329"
+    },
+    {
+      "byte_count": 1854,
+      "git_blob_oid": "75e0e0bb6e73e2ea8dc998dfe16983a258c06615",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/sphinx-doc__sphinx-10466.eval_script.sh",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a229e1c9dae4b453400bcead87628a0968adc76a81cea53ca42d2a1001281bb0"
+    },
+    {
+      "byte_count": 897,
+      "git_blob_oid": "56b506f04ce8d9311623e75d24dfa4442718ff28",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/specs/sphinx-doc__sphinx-10466.spec.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e7699102c4e321931f6c21bbc30bab20191870311be7d432388b358a3e8a1f7a"
+    },
+    {
+      "byte_count": 2295,
+      "git_blob_oid": "c7cefde4b5996dd6a9bd892f3c29f941faf79fa2",
+      "git_mode": "100644",
+      "path": "experiments/iter229_cross_provider_gemini/proof/blind_judge_verdicts.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "e83e1a70a06196ceaa41d53b3bd6d0a16d50383344b2247fad7868e05057a376"
+    },
+    {
+      "byte_count": 22965,
+      "git_blob_oid": "f9aab4557127b7e2256e524b51d0c1d784dba6d2",
+      "git_mode": "100644",
+      "path": "experiments/iter229_cross_provider_gemini/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "672dfcccc4fc175d5f969c687376dc892bf13a4ab5072d548445fa3483318a5d"
+    },
+    {
+      "byte_count": 1220,
+      "git_blob_oid": "6240b992ffaaab012461760411d9bbecf93da8c1",
+      "git_mode": "100644",
+      "path": "experiments/iter229_cross_provider_gemini/proof/raw/solutions/matplotlib__matplotlib-25332.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "ac3682875e6d90a24e7d85204df2432f85f1baf48c42e864f2b6214dcc564dc5"
+    },
+    {
+      "byte_count": 566,
+      "git_blob_oid": "20a8ffe32b6282e8c9b4203c54e3dbe278c33c9f",
+      "git_mode": "100644",
+      "path": "experiments/iter229_cross_provider_gemini/proof/raw/solutions/sympy__sympy-14711.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "d6401b4c13d6f8d0a3bf571e67d764e6539b02992a113cf0b53ba922a8a5c93d"
+    },
+    {
+      "byte_count": 775,
+      "git_blob_oid": "2d0a1c397da20ed230a6394611fa29e6ed0510f6",
+      "git_mode": "100644",
+      "path": "experiments/iter229_cross_provider_gemini/proof/raw/solutions/sympy__sympy-16766.model.patch",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "8ecd0a81504f6000d0bce0ea999fdda4b1f232fc58a85b39b37bbbdbab958245"
+    },
+    {
+      "byte_count": 31178,
+      "git_blob_oid": "c0e9966585153766c9a114e0a05d8110e7d1fe75",
+      "git_mode": "100644",
+      "path": "experiments/iter230_gold_free_detector_natural/proof/raw/eval_set.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "10dc898c3cdc6026aaedc57d469e546b279a982df3772ba3388c1dfb515b8928"
+    },
+    {
+      "byte_count": 266,
+      "git_blob_oid": "721005fe93f18c3751066a8fae99cfa3429a16e7",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/execution/iter200_natural_certified_yet_wrong_rate__matplotlib__matplotlib-23476.witness.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "1b061a15926f62ba6a93b7b6a9dfb31f1d6d543ddc6168a9428b5bfc4b8c96a7"
+    },
+    {
+      "byte_count": 261,
+      "git_blob_oid": "c66d396c40073e92e0048f2e5e8827831013d3ef",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/execution/iter223_natural_rate_safety_aware__sphinx-doc__sphinx-8721.witness.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "9ad6289d6518516207044ae7f415269dd199b0263a6ac152389b049167ce8196"
+    },
+    {
+      "byte_count": 262,
+      "git_blob_oid": "d54eb4f1184f0c3eedb3e1064ac4be9fd9213b08",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/execution/iter225_cross_model_generalization__sphinx-doc__sphinx-8721.witness.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "f9c991576099211fe22b3c42ac5b96cffa4877cc95d70bd57ea80e813ce167ed"
+    },
+    {
+      "byte_count": 262,
+      "git_blob_oid": "edbc75439e272224a15b946094d3df138d37c7ac",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/execution/iter227_cross_provider_generalization__sphinx-doc__sphinx-8721.witness.log",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "802e49faf37777fa9bfba3e6af56ac4d6a30fbb70c83f0c9bee61884fe103f25"
+    },
+    {
+      "byte_count": 3270,
+      "git_blob_oid": "3f7762afe7ad043296721b275882c936ba8c3762",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/judge/judge_summary.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "a2671b3aa893b246f3142cb72927640cd2cb33c48ae6f29e32095a45d1e306a0"
+    },
+    {
+      "byte_count": 8911,
+      "git_blob_oid": "5facf702cfc2f6bf7a777df09bc43fd5bd6b3884",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/targets.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "2701bd9c83f3a8c944863cdb99c2a977bffba19ac99c8a9edbecc5e565fe7f38"
+    },
+    {
+      "byte_count": 502,
+      "git_blob_oid": "3bec3132fbe951fb3fea9519b10e52fc40e8b4fb",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/witnesses/iter200_natural_certified_yet_wrong_rate__matplotlib__matplotlib-23476.witness.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "05e6f5cba54e040fffcb6950bd4b832fe450c203d2333389d04cdd47a97e1ab1"
+    },
+    {
+      "byte_count": 1232,
+      "git_blob_oid": "4515ed02eba64dfcf33f02ece4eac0347feb1880",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/witnesses/iter223_natural_rate_safety_aware__sphinx-doc__sphinx-8721.witness.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "04da14c771c4a8dbf437df0000407f6c8eef974b476dc5cb29ab00dd45a6ec77"
+    },
+    {
+      "byte_count": 775,
+      "git_blob_oid": "921a32cba323b807d238d8e50358dcc0a997ba6e",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/witnesses/iter225_cross_model_generalization__sphinx-doc__sphinx-8721.witness.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "2583ba7a9d821c2780568ef1bf51d740b4ad791340c4adf82974d85c2412d357"
+    },
+    {
+      "byte_count": 1007,
+      "git_blob_oid": "50030764178cf7ac003b9bb8d014a5a088f8bd22",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/witnesses/iter227_cross_provider_generalization__sphinx-doc__sphinx-8721.witness.py",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "2ab0297a54e1ffe1ba96b62b4d1e77ba5082eecc3cdc738eb622d94b60d0815b"
+    },
+    {
+      "byte_count": 21631,
+      "git_blob_oid": "5d5a9fbbc69b2be67c42aeb4c6442f2ac8f3a712",
+      "git_mode": "100644",
+      "path": "experiments/iter235_witness_recovery/proof/raw/witnesses/witnesses_summary.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "372b167a1d8eff51d6c26ef5b7dd94a9d47908fc29189ff31d4757ead804fae0"
+    },
+    {
+      "byte_count": 4605,
+      "git_blob_oid": "6f9d0c1efb81a1127712f095bbe929d2c1f29e4e",
+      "git_mode": "100644",
+      "path": "experiments/iter237_truth_maintenance_gate/proof/correction.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "6962ea6f2591305d69791e64a4596e5aa05343629117f8aef3772600f81151e6"
+    }
+  ],
+  "source_reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+  "supersedes": {
+    "authority": "post_freeze_v2_only",
+    "reason": "The unversioned v1 diagnostic layer did not pin the temporal selection commit, encoded unmeasured arms as false, and lacked independent field reconstruction. Only these post-freeze v2 artifacts are diagnostic authority.",
+    "superseded_paths": [
+      "experiments/iter240_ground_truth_admission_design/proof/availability_taxonomy.json",
+      "experiments/iter240_ground_truth_admission_design/proof/decision_curves.json",
+      "experiments/iter240_ground_truth_admission_design/proof/ground_truth_frame.json",
+      "experiments/iter240_ground_truth_admission_design/proof/materialization_receipt.json",
+      "experiments/iter240_ground_truth_admission_design/proof/missingness_manifest.json"
+    ]
+  }
+}

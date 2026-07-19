@@ -1,0 +1,167 @@
+{
+  "cases": [
+    {
+      "expected_message": "forbidden field/evidence",
+      "id": "selector_reads_status",
+      "kind": "selector_source",
+      "source": "def select_missing_candidates(document):\n    selected = []\n    for row in document[\"candidates\"]:\n        if row[\"certified_resolved\"] is True and row[\"gold_equivalent_after_terminal_lf_normalization\"] is False and row[\"outcome_complete\"] is False and row[\"status\"] == \"certified_unadjudicated\":\n            selected.append(row)\n    return selected\n"
+    },
+    {
+      "expected_message": "permissive mapping access",
+      "id": "selector_uses_get",
+      "kind": "selector_source",
+      "source": "def select_missing_candidates(document):\n    selected = []\n    for row in document.get(\"candidates\", []):\n        if row.get(\"certified_resolved\") is True and row.get(\"gold_equivalent_after_terminal_lf_normalization\") is False and row.get(\"outcome_complete\") is False:\n            selected.append(row)\n    return selected\n"
+    },
+    {
+      "candidate": {
+        "certified_resolved": true,
+        "gold_equivalent_after_terminal_lf_normalization": false,
+        "outcome_complete": false
+      },
+      "expected_message": "exact boolean",
+      "id": "selector_integer_boolean",
+      "kind": "selector_input",
+      "numeric_substitutes": {
+        "certified_resolved": 1,
+        "gold_equivalent_after_terminal_lf_normalization": 0,
+        "outcome_complete": 0
+      }
+    },
+    {
+      "expected_message": "count accounting",
+      "id": "selected_count_12",
+      "kind": "missingness_mutation",
+      "operation": "drop_last",
+      "selected_count": 12,
+      "unique_task_count": 12
+    },
+    {
+      "expected_message": "count accounting",
+      "id": "selected_count_14",
+      "kind": "missingness_mutation",
+      "operation": "append_first",
+      "selected_count": 14,
+      "unique_task_count": 13
+    },
+    {
+      "expected_message": "differs from independent selector",
+      "id": "selected_duplicate_row",
+      "kind": "missingness_mutation",
+      "operation": "replace_last_with_first",
+      "selected_count": 13,
+      "unique_task_count": 13
+    },
+    {
+      "candidate_log": "IMAGE_ID=sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nIMAGE_REPO_DIGEST=fixture/repo@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\nAPPLY_OK variant\n>>>>> Scenario Start\nTraceback (most recent call last):\nRuntimeError: candidate exploded\nSCENARIO_EXIT=1\n>>>>> Scenario End\n",
+      "gold_log": "IMAGE_ID=sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nIMAGE_REPO_DIGEST=fixture/repo@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\nAPPLY_OK gold\n>>>>> Scenario Start\nRESULT={\"observable\": \"accepted\"}\nSCENARIO_EXIT=0\n>>>>> Scenario End\n",
+      "id": "candidate_only_exception",
+      "kind": "scenario_pair"
+    },
+    {
+      "arm": "variant",
+      "expected_result_count": 0,
+      "id": "missing_result",
+      "kind": "scenario_arm",
+      "log": "IMAGE_ID=sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nIMAGE_REPO_DIGEST=fixture/repo@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\nAPPLY_OK variant\n>>>>> Scenario Start\nSCENARIO_EXIT=0\n>>>>> Scenario End\n"
+    },
+    {
+      "arm": "variant",
+      "expected_result_count": 2,
+      "id": "duplicate_result",
+      "kind": "scenario_arm",
+      "log": "IMAGE_ID=sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\nIMAGE_REPO_DIGEST=fixture/repo@sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\nAPPLY_OK variant\n>>>>> Scenario Start\nRESULT=first\nRESULT=second\nSCENARIO_EXIT=0\n>>>>> Scenario End\n"
+    },
+    {
+      "committed": "{\"state\":\"frozen\"}\n",
+      "expected_message": "worktree bytes differ",
+      "id": "source_worktree_drift",
+      "kind": "source_drift",
+      "path": "frozen/source.json",
+      "worktree": "{\"state\":\"drifted\"}\n"
+    },
+    {
+      "expected_message": "cluster accounting",
+      "id": "repeated_tasks_counted_as_rows",
+      "kind": "frame_mutation",
+      "unique_task_count": 55
+    },
+    {
+      "expected_message": "37/64 acquisition yield is confused with conditional 37/62",
+      "id": "acquisition_uses_37_over_62",
+      "kind": "curve_mutation",
+      "path": [
+        "acquisition_sensitivity",
+        "historical_certification_yield",
+        "denominator"
+      ],
+      "value": 62
+    },
+    {
+      "answers": [
+        {
+          "denominator": 10912,
+          "numerator": 145,
+          "x": 0
+        },
+        {
+          "denominator": 332816,
+          "numerator": 17835,
+          "x": 1
+        },
+        {
+          "denominator": 273524,
+          "numerator": 159675,
+          "x": 6
+        },
+        {
+          "denominator": 68381,
+          "numerator": 46995,
+          "x": 7
+        },
+        {
+          "denominator": 79732246,
+          "numerator": 77578883,
+          "x": 13
+        }
+      ],
+      "id": "fisher_exact_known_answers",
+      "kind": "fisher_answers"
+    },
+    {
+      "drop_x": 13,
+      "expected_message": "branch grid is incomplete",
+      "id": "fisher_branch_missing",
+      "kind": "curve_branch_mutation"
+    },
+    {
+      "expected_bounds": {
+        "1": "0.950000000000000000",
+        "28": "0.101465735572724711",
+        "29": "0.098144627677295739",
+        "58": "0.050339338330420122",
+        "59": "0.049507609888226947",
+        "148": "0.020037951689104168",
+        "149": "0.019904816220685084",
+        "298": "0.010002432437677695",
+        "299": "0.009969146792899271",
+        "500": "0.005973551516349560"
+      },
+      "id": "zero_event_known_bounds",
+      "kind": "zero_answers"
+    },
+    {
+      "expected_message": "decimal differs beyond the registered tolerance",
+      "id": "zero_n_minus_one_copied_from_n",
+      "kind": "zero_crossing_mutation",
+      "threshold": "0.05"
+    },
+    {
+      "id": "zero_libm_bit_exact",
+      "kind": "source_trap",
+      "n": 59,
+      "source": "import math\n\ndef accepts(actual, n):\n    expected = 1.0 - math.pow(0.05, 1.0 / n)\n    return actual == expected\n"
+    }
+  ],
+  "claim_boundary": "Known-bad local fixtures for the iter240 offline design gate. They perform no provider, model, container, GPU, target, human, publication, or spending action.",
+  "schema_version": "telos.iter240.ground_truth_known_bad.v1"
+}

@@ -1,0 +1,135 @@
+{
+  "cases": [
+    {
+      "expected_error": "raw response byte binding differs",
+      "id": "raw_digest_mismatch",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "capture-attempt marker byte binding differs",
+      "id": "attempt_marker_digest_mismatch",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "capture-attempt fixed plan differs",
+      "id": "attempt_marker_state_changed",
+      "surface": "attempt_marker"
+    },
+    {
+      "expected_error": "capture instrument byte binding differs",
+      "id": "capture_instrument_digest_mismatch",
+      "surface": "attempt_marker"
+    },
+    {
+      "expected_error": "remote acceptance raw file set differs",
+      "id": "unexpected_raw_file",
+      "surface": "filesystem"
+    },
+    {
+      "expected_error": "raw response byte binding differs",
+      "id": "oversized_raw_response",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "duplicate JSON key",
+      "id": "duplicate_json_key",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "remote acceptance request counts differ",
+      "id": "write_count_nonzero",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "response inventory fixed metadata differs",
+      "id": "pagination_link_present",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "response inventory fixed metadata differs",
+      "id": "numeric_http_status_float",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "pull-request merge projection differs",
+      "id": "pull_request_not_merged",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "workflow run acceptance differs",
+      "id": "sealed_run_second_attempt",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "workflow run identity differs",
+      "id": "workflow_run_id_float",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "required check is absent, duplicated, or from the wrong app",
+      "id": "required_check_wrong_app",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "required check is absent, duplicated, or from the wrong app",
+      "id": "required_check_duplicated",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "required check acceptance differs",
+      "id": "required_check_suite_mismatch",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "sealed run does not predate merge",
+      "id": "sealed_run_completed_after_merge",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "workflow run acceptance differs",
+      "id": "merged_run_stale_head",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "post-merge master branch projection differs",
+      "id": "master_unprotected",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "post-merge ruleset identity/enforcement differs",
+      "id": "ruleset_bypass_enabled",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "post-merge effective rules differ",
+      "id": "effective_rule_missing",
+      "surface": "raw_response"
+    },
+    {
+      "expected_error": "receipt conclusion differs or overclaims",
+      "id": "independent_review_overclaim",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "remote acceptance limitations differ",
+      "id": "limitation_weakened",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "final response predates merged-master CI",
+      "id": "response_predates_merged_ci",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "GitHub response request IDs are absent or duplicated",
+      "id": "duplicate_request_id",
+      "surface": "receipt"
+    },
+    {
+      "expected_error": "GitHub response dates are absent or out of request order",
+      "id": "response_dates_out_of_order",
+      "surface": "receipt"
+    }
+  ],
+  "schema_version": "telos.iter239.remote_acceptance.known_bad.v1"
+}

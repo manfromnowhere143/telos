@@ -1,0 +1,3064 @@
+{
+  "acquisition_sensitivity": {
+    "authority": "planning_sensitivity_only_not_purchase_authority",
+    "blockers": [
+      "task_level_endpoint_aggregation",
+      "supported_label_yield",
+      "consequence_validity",
+      "adjudication_completion",
+      "certification_yield_uncertainty",
+      "cohort_shift"
+    ],
+    "conditional_solution_patch_diagnostic": {
+      "certified": 37,
+      "denominator": 62,
+      "forbidden_as_acquisition_input": true,
+      "interpretation": "conditional on a solution-producing patch"
+    },
+    "future_unique_task_acquisition_contract": {
+      "attempted_task_id_sampling": "without_replacement",
+      "attempted_task_ids_unique_required": true,
+      "certified_task_ids_must_be_subset_of_attempted": true,
+      "cross_cohort_task_reuse_allowed": false,
+      "unit": "unique_task_identity"
+    },
+    "illustrative_post_hypothesis_grid": {
+      "completeness_claim": false,
+      "point_count": 7,
+      "points": [
+        {
+          "certification_yield": {
+            "denominator": 5,
+            "numerator": 2
+          },
+          "matches_retrospective_point_observation": false,
+          "targets": [
+            {
+              "expected_count_threshold_solve_attempts": 73,
+              "target_unique_certified_tasks": 29
+            },
+            {
+              "expected_count_threshold_solve_attempts": 148,
+              "target_unique_certified_tasks": 59
+            },
+            {
+              "expected_count_threshold_solve_attempts": 373,
+              "target_unique_certified_tasks": 149
+            },
+            {
+              "expected_count_threshold_solve_attempts": 748,
+              "target_unique_certified_tasks": 299
+            }
+          ]
+        },
+        {
+          "certification_yield": {
+            "denominator": 2,
+            "numerator": 1
+          },
+          "matches_retrospective_point_observation": false,
+          "targets": [
+            {
+              "expected_count_threshold_solve_attempts": 58,
+              "target_unique_certified_tasks": 29
+            },
+            {
+              "expected_count_threshold_solve_attempts": 118,
+              "target_unique_certified_tasks": 59
+            },
+            {
+              "expected_count_threshold_solve_attempts": 298,
+              "target_unique_certified_tasks": 149
+            },
+            {
+              "expected_count_threshold_solve_attempts": 598,
+              "target_unique_certified_tasks": 299
+            }
+          ]
+        },
+        {
+          "certification_yield": {
+            "denominator": 64,
+            "numerator": 37
+          },
+          "matches_retrospective_point_observation": true,
+          "targets": [
+            {
+              "expected_count_threshold_solve_attempts": 51,
+              "target_unique_certified_tasks": 29
+            },
+            {
+              "expected_count_threshold_solve_attempts": 103,
+              "target_unique_certified_tasks": 59
+            },
+            {
+              "expected_count_threshold_solve_attempts": 258,
+              "target_unique_certified_tasks": 149
+            },
+            {
+              "expected_count_threshold_solve_attempts": 518,
+              "target_unique_certified_tasks": 299
+            }
+          ]
+        },
+        {
+          "certification_yield": {
+            "denominator": 5,
+            "numerator": 3
+          },
+          "matches_retrospective_point_observation": false,
+          "targets": [
+            {
+              "expected_count_threshold_solve_attempts": 49,
+              "target_unique_certified_tasks": 29
+            },
+            {
+              "expected_count_threshold_solve_attempts": 99,
+              "target_unique_certified_tasks": 59
+            },
+            {
+              "expected_count_threshold_solve_attempts": 249,
+              "target_unique_certified_tasks": 149
+            },
+            {
+              "expected_count_threshold_solve_attempts": 499,
+              "target_unique_certified_tasks": 299
+            }
+          ]
+        },
+        {
+          "certification_yield": {
+            "denominator": 3,
+            "numerator": 2
+          },
+          "matches_retrospective_point_observation": false,
+          "targets": [
+            {
+              "expected_count_threshold_solve_attempts": 44,
+              "target_unique_certified_tasks": 29
+            },
+            {
+              "expected_count_threshold_solve_attempts": 89,
+              "target_unique_certified_tasks": 59
+            },
+            {
+              "expected_count_threshold_solve_attempts": 224,
+              "target_unique_certified_tasks": 149
+            },
+            {
+              "expected_count_threshold_solve_attempts": 449,
+              "target_unique_certified_tasks": 299
+            }
+          ]
+        },
+        {
+          "certification_yield": {
+            "denominator": 4,
+            "numerator": 3
+          },
+          "matches_retrospective_point_observation": false,
+          "targets": [
+            {
+              "expected_count_threshold_solve_attempts": 39,
+              "target_unique_certified_tasks": 29
+            },
+            {
+              "expected_count_threshold_solve_attempts": 79,
+              "target_unique_certified_tasks": 59
+            },
+            {
+              "expected_count_threshold_solve_attempts": 199,
+              "target_unique_certified_tasks": 149
+            },
+            {
+              "expected_count_threshold_solve_attempts": 399,
+              "target_unique_certified_tasks": 299
+            }
+          ]
+        },
+        {
+          "certification_yield": {
+            "denominator": 5,
+            "numerator": 4
+          },
+          "matches_retrospective_point_observation": false,
+          "targets": [
+            {
+              "expected_count_threshold_solve_attempts": 37,
+              "target_unique_certified_tasks": 29
+            },
+            {
+              "expected_count_threshold_solve_attempts": 74,
+              "target_unique_certified_tasks": 59
+            },
+            {
+              "expected_count_threshold_solve_attempts": 187,
+              "target_unique_certified_tasks": 149
+            },
+            {
+              "expected_count_threshold_solve_attempts": 374,
+              "target_unique_certified_tasks": 299
+            }
+          ]
+        }
+      ],
+      "rationale": "Seven exact arithmetic stress points spanning 2/5 through 4/5, including the retrospective 37/64 point, were chosen during post-hypothesis implementation; they were not preregistered and are neither exhaustive nor estimates.",
+      "status": "illustrative_post_hypothesis_grid"
+    },
+    "retrospective_fresh_point_observation": {
+      "attempted_task_count": 64,
+      "attempted_task_ids": [
+        "astropy__astropy-12907",
+        "astropy__astropy-14096",
+        "astropy__astropy-7166",
+        "django__django-10097",
+        "django__django-10880",
+        "django__django-10914",
+        "django__django-10999",
+        "django__django-11119",
+        "django__django-11141",
+        "django__django-11163",
+        "django__django-11179",
+        "django__django-12304",
+        "django__django-12308",
+        "django__django-12419",
+        "django__django-12663",
+        "django__django-12708",
+        "django__django-12713",
+        "django__django-12754",
+        "django__django-12774",
+        "django__django-12858",
+        "django__django-12965",
+        "django__django-13012",
+        "django__django-13023",
+        "django__django-13028",
+        "matplotlib__matplotlib-13989",
+        "matplotlib__matplotlib-20488",
+        "matplotlib__matplotlib-20676",
+        "matplotlib__matplotlib-20826",
+        "matplotlib__matplotlib-21568",
+        "matplotlib__matplotlib-23314",
+        "matplotlib__matplotlib-23412",
+        "matplotlib__matplotlib-24177",
+        "matplotlib__matplotlib-24627",
+        "pallets__flask-5014",
+        "psf__requests-1142",
+        "psf__requests-1921",
+        "pydata__xarray-2905",
+        "pydata__xarray-3151",
+        "pydata__xarray-3677",
+        "pydata__xarray-4075",
+        "pylint-dev__pylint-4970",
+        "pylint-dev__pylint-6903",
+        "pylint-dev__pylint-7080",
+        "pylint-dev__pylint-7277",
+        "pytest-dev__pytest-10081",
+        "pytest-dev__pytest-5262",
+        "scikit-learn__scikit-learn-10908",
+        "sphinx-doc__sphinx-10466",
+        "sympy__sympy-11618",
+        "sympy__sympy-12096",
+        "sympy__sympy-12481",
+        "sympy__sympy-19637",
+        "sympy__sympy-20428",
+        "sympy__sympy-20590",
+        "sympy__sympy-20801",
+        "sympy__sympy-21612",
+        "sympy__sympy-22714",
+        "sympy__sympy-22914",
+        "sympy__sympy-23534",
+        "sympy__sympy-23824",
+        "sympy__sympy-23950",
+        "sympy__sympy-24066",
+        "sympy__sympy-24213",
+        "sympy__sympy-24661"
+      ],
+      "attempted_task_ids_unique": true,
+      "certification_yield_fraction": {
+        "denominator": 64,
+        "numerator": 37
+      },
+      "certified_task_cohorts_pairwise_disjoint": true,
+      "certified_task_count": 37,
+      "certified_task_ids": [
+        "astropy__astropy-12907",
+        "astropy__astropy-7166",
+        "django__django-10880",
+        "django__django-10914",
+        "django__django-11119",
+        "django__django-11163",
+        "django__django-11179",
+        "django__django-12304",
+        "django__django-12419",
+        "django__django-12708",
+        "django__django-12713",
+        "django__django-12754",
+        "django__django-12774",
+        "django__django-12858",
+        "django__django-13028",
+        "matplotlib__matplotlib-20488",
+        "matplotlib__matplotlib-20826",
+        "matplotlib__matplotlib-23314",
+        "matplotlib__matplotlib-24177",
+        "matplotlib__matplotlib-24627",
+        "psf__requests-1142",
+        "pydata__xarray-2905",
+        "pydata__xarray-3151",
+        "pydata__xarray-4075",
+        "pylint-dev__pylint-4970",
+        "pylint-dev__pylint-6903",
+        "pytest-dev__pytest-10081",
+        "scikit-learn__scikit-learn-10908",
+        "sphinx-doc__sphinx-10466",
+        "sympy__sympy-12096",
+        "sympy__sympy-19637",
+        "sympy__sympy-20590",
+        "sympy__sympy-20801",
+        "sympy__sympy-22714",
+        "sympy__sympy-23534",
+        "sympy__sympy-23824",
+        "sympy__sympy-24213"
+      ],
+      "certified_task_ids_subset_attempted": true,
+      "certified_task_ids_unique": true,
+      "cohorts": [
+        {
+          "attempted_task_count": 26,
+          "attempted_task_ids": [
+            "django__django-12304",
+            "django__django-12308",
+            "django__django-12419",
+            "django__django-12663",
+            "django__django-12708",
+            "django__django-12713",
+            "django__django-12754",
+            "django__django-12774",
+            "django__django-12858",
+            "django__django-12965",
+            "django__django-13012",
+            "django__django-13023",
+            "django__django-13028",
+            "sympy__sympy-19637",
+            "sympy__sympy-20428",
+            "sympy__sympy-20590",
+            "sympy__sympy-20801",
+            "sympy__sympy-21612",
+            "sympy__sympy-22714",
+            "sympy__sympy-22914",
+            "sympy__sympy-23534",
+            "sympy__sympy-23824",
+            "sympy__sympy-23950",
+            "sympy__sympy-24066",
+            "sympy__sympy-24213",
+            "sympy__sympy-24661"
+          ],
+          "attempted_task_ids_unique": true,
+          "certified_task_count": 15,
+          "certified_task_ids": [
+            "django__django-12304",
+            "django__django-12419",
+            "django__django-12708",
+            "django__django-12713",
+            "django__django-12754",
+            "django__django-12774",
+            "django__django-12858",
+            "django__django-13028",
+            "sympy__sympy-19637",
+            "sympy__sympy-20590",
+            "sympy__sympy-20801",
+            "sympy__sympy-22714",
+            "sympy__sympy-23534",
+            "sympy__sympy-23824",
+            "sympy__sympy-24213"
+          ],
+          "certified_task_ids_subset_attempted": true,
+          "certified_task_ids_unique": true,
+          "pointers": {
+            "attempted_tasks": {
+              "json_pointer": "/manifest",
+              "path": "experiments/iter224_natural_rate_scale_n/proof/raw/solutions/solve_summary.json"
+            },
+            "certification_rows": {
+              "json_pointer": "/candidates",
+              "path": "experiments/iter224_natural_rate_scale_n/proof/iter200_per_candidate.json"
+            }
+          },
+          "solution_patch_task_count": 25,
+          "source_run": "iter224_natural_rate_scale_n"
+        },
+        {
+          "attempted_task_count": 38,
+          "attempted_task_ids": [
+            "astropy__astropy-12907",
+            "astropy__astropy-14096",
+            "astropy__astropy-7166",
+            "django__django-10097",
+            "django__django-10880",
+            "django__django-10914",
+            "django__django-10999",
+            "django__django-11119",
+            "django__django-11141",
+            "django__django-11163",
+            "django__django-11179",
+            "matplotlib__matplotlib-13989",
+            "matplotlib__matplotlib-20488",
+            "matplotlib__matplotlib-20676",
+            "matplotlib__matplotlib-20826",
+            "matplotlib__matplotlib-21568",
+            "matplotlib__matplotlib-23314",
+            "matplotlib__matplotlib-23412",
+            "matplotlib__matplotlib-24177",
+            "matplotlib__matplotlib-24627",
+            "pallets__flask-5014",
+            "psf__requests-1142",
+            "psf__requests-1921",
+            "pydata__xarray-2905",
+            "pydata__xarray-3151",
+            "pydata__xarray-3677",
+            "pydata__xarray-4075",
+            "pylint-dev__pylint-4970",
+            "pylint-dev__pylint-6903",
+            "pylint-dev__pylint-7080",
+            "pylint-dev__pylint-7277",
+            "pytest-dev__pytest-10081",
+            "pytest-dev__pytest-5262",
+            "scikit-learn__scikit-learn-10908",
+            "sphinx-doc__sphinx-10466",
+            "sympy__sympy-11618",
+            "sympy__sympy-12096",
+            "sympy__sympy-12481"
+          ],
+          "attempted_task_ids_unique": true,
+          "certified_task_count": 22,
+          "certified_task_ids": [
+            "astropy__astropy-12907",
+            "astropy__astropy-7166",
+            "django__django-10880",
+            "django__django-10914",
+            "django__django-11119",
+            "django__django-11163",
+            "django__django-11179",
+            "matplotlib__matplotlib-20488",
+            "matplotlib__matplotlib-20826",
+            "matplotlib__matplotlib-23314",
+            "matplotlib__matplotlib-24177",
+            "matplotlib__matplotlib-24627",
+            "psf__requests-1142",
+            "pydata__xarray-2905",
+            "pydata__xarray-3151",
+            "pydata__xarray-4075",
+            "pylint-dev__pylint-4970",
+            "pylint-dev__pylint-6903",
+            "pytest-dev__pytest-10081",
+            "scikit-learn__scikit-learn-10908",
+            "sphinx-doc__sphinx-10466",
+            "sympy__sympy-12096"
+          ],
+          "certified_task_ids_subset_attempted": true,
+          "certified_task_ids_unique": true,
+          "pointers": {
+            "attempted_tasks": {
+              "json_pointer": "/manifest",
+              "path": "experiments/iter228_fresh_diverse_cohort/proof/raw/solutions/solve_summary.json"
+            },
+            "certification_rows": {
+              "json_pointer": "/candidates",
+              "path": "experiments/iter228_fresh_diverse_cohort/proof/iter200_per_candidate.json"
+            }
+          },
+          "solution_patch_task_count": 37,
+          "source_run": "iter228_fresh_diverse_cohort"
+        }
+      ],
+      "cohorts_pairwise_disjoint": true,
+      "interpretation": "retrospective_point_observation",
+      "solution_patch_task_count": 62,
+      "stable_estimate": false
+    },
+    "symbolic_expected_count_rule": {
+      "domain": "0 < y <= 1",
+      "expected_count": "n * y",
+      "fixed_point_yield_assumption": true,
+      "not_a": [
+        "probability_guarantee",
+        "power_calculation",
+        "stable_yield_estimate",
+        "independent_label_count",
+        "purchase_authority"
+      ],
+      "positive_y_threshold_rule": "ceil(target_unique_certified_tasks / y)",
+      "quantity": "minimum integer n whose expected certified count reaches the target under one fixed point yield y",
+      "yield_symbol": "y",
+      "yield_zero_boundary": {
+        "disposition_for_positive_target": "unattainable",
+        "y": "0"
+      }
+    }
+  },
+  "assurance_delta_readiness": {
+    "missing_measured_inputs": [
+      "task_level_endpoint_aggregation",
+      "supported_label_yield",
+      "consequence_validity",
+      "adjudication_completion",
+      "within_task_discordance",
+      "control_false_rejection_behavior",
+      "certification_yield_uncertainty",
+      "cohort_shift"
+    ],
+    "paired_detector_power": "blocked",
+    "selected_or_optimized_branch": null
+  },
+  "binomial_model_sensitivity": {
+    "acquisition_connection": {
+      "blockers": [
+        "task_level_endpoint_aggregation",
+        "supported_label_yield",
+        "consequence_validity",
+        "adjudication_completion"
+      ],
+      "status": "blocked_disconnected",
+      "unlock_condition": "all blockers prospectively frozen from independent ground-truth measurements before any acquisition calculation"
+    },
+    "assumptions": {
+      "common_event_probability_across_tasks": true,
+      "completed_independently_adjudicated_endpoint_per_unique_task": 1,
+      "endpoint_type": "Bernoulli",
+      "independent_bernoulli_task_endpoints": true,
+      "model": "iid_binomial",
+      "population_inference_for_current_convenience_cohorts": false
+    },
+    "confidence": "one_sided_95_percent",
+    "formula": "1 - 0.05 ** (1 / n)",
+    "grid": [
+      {
+        "n_unique_tasks": 1,
+        "one_sided_95_percent_upper_bound": "0.950000000000000000"
+      },
+      {
+        "n_unique_tasks": 2,
+        "one_sided_95_percent_upper_bound": "0.776393202250021030"
+      },
+      {
+        "n_unique_tasks": 3,
+        "one_sided_95_percent_upper_bound": "0.631596850135961339"
+      },
+      {
+        "n_unique_tasks": 4,
+        "one_sided_95_percent_upper_bound": "0.527129195498412093"
+      },
+      {
+        "n_unique_tasks": 5,
+        "one_sided_95_percent_upper_bound": "0.450719728346941124"
+      },
+      {
+        "n_unique_tasks": 6,
+        "one_sided_95_percent_upper_bound": "0.393037768997082768"
+      },
+      {
+        "n_unique_tasks": 7,
+        "one_sided_95_percent_upper_bound": "0.348163655131160866"
+      },
+      {
+        "n_unique_tasks": 8,
+        "one_sided_95_percent_upper_bound": "0.312343978066367904"
+      },
+      {
+        "n_unique_tasks": 9,
+        "one_sided_95_percent_upper_bound": "0.283128835563113550"
+      },
+      {
+        "n_unique_tasks": 10,
+        "one_sided_95_percent_upper_bound": "0.258865550893052283"
+      },
+      {
+        "n_unique_tasks": 11,
+        "one_sided_95_percent_upper_bound": "0.238404190380852659"
+      },
+      {
+        "n_unique_tasks": 12,
+        "one_sided_95_percent_upper_bound": "0.220922191945555908"
+      },
+      {
+        "n_unique_tasks": 13,
+        "one_sided_95_percent_upper_bound": "0.205816665186550674"
+      },
+      {
+        "n_unique_tasks": 14,
+        "one_sided_95_percent_upper_bound": "0.192636175650135328"
+      },
+      {
+        "n_unique_tasks": 15,
+        "one_sided_95_percent_upper_bound": "0.181036272522084679"
+      },
+      {
+        "n_unique_tasks": 16,
+        "one_sided_95_percent_upper_bound": "0.170749722982480942"
+      },
+      {
+        "n_unique_tasks": 17,
+        "one_sided_95_percent_upper_bound": "0.161566111260740123"
+      },
+      {
+        "n_unique_tasks": 18,
+        "one_sided_95_percent_upper_bound": "0.153317553957278237"
+      },
+      {
+        "n_unique_tasks": 19,
+        "one_sided_95_percent_upper_bound": "0.145868503312243446"
+      },
+      {
+        "n_unique_tasks": 20,
+        "one_sided_95_percent_upper_bound": "0.139108340668265205"
+      },
+      {
+        "n_unique_tasks": 21,
+        "one_sided_95_percent_upper_bound": "0.132945911026523407"
+      },
+      {
+        "n_unique_tasks": 22,
+        "one_sided_95_percent_upper_bound": "0.127305431654838738"
+      },
+      {
+        "n_unique_tasks": 23,
+        "one_sided_95_percent_upper_bound": "0.122123388906523063"
+      },
+      {
+        "n_unique_tasks": 24,
+        "one_sided_95_percent_upper_bound": "0.117346156154948764"
+      },
+      {
+        "n_unique_tasks": 25,
+        "one_sided_95_percent_upper_bound": "0.112928145006843234"
+      },
+      {
+        "n_unique_tasks": 26,
+        "one_sided_95_percent_upper_bound": "0.108830355760784833"
+      },
+      {
+        "n_unique_tasks": 27,
+        "one_sided_95_percent_upper_bound": "0.105019230176344303"
+      },
+      {
+        "n_unique_tasks": 28,
+        "one_sided_95_percent_upper_bound": "0.101465735572724711"
+      },
+      {
+        "n_unique_tasks": 29,
+        "one_sided_95_percent_upper_bound": "0.098144627677295739"
+      },
+      {
+        "n_unique_tasks": 30,
+        "one_sided_95_percent_upper_bound": "0.095033852855304139"
+      },
+      {
+        "n_unique_tasks": 31,
+        "one_sided_95_percent_upper_bound": "0.092114059947323732"
+      },
+      {
+        "n_unique_tasks": 32,
+        "one_sided_95_percent_upper_bound": "0.089368198986264780"
+      },
+      {
+        "n_unique_tasks": 33,
+        "one_sided_95_percent_upper_bound": "0.086781189291474960"
+      },
+      {
+        "n_unique_tasks": 34,
+        "one_sided_95_percent_upper_bound": "0.084339643350625408"
+      },
+      {
+        "n_unique_tasks": 35,
+        "one_sided_95_percent_upper_bound": "0.082031635856670465"
+      },
+      {
+        "n_unique_tasks": 36,
+        "one_sided_95_percent_upper_bound": "0.079846509519894413"
+      },
+      {
+        "n_unique_tasks": 37,
+        "one_sided_95_percent_upper_bound": "0.077774711005137937"
+      },
+      {
+        "n_unique_tasks": 38,
+        "one_sided_95_percent_upper_bound": "0.075807651682964563"
+      },
+      {
+        "n_unique_tasks": 39,
+        "one_sided_95_percent_upper_bound": "0.073937588926686559"
+      },
+      {
+        "n_unique_tasks": 40,
+        "one_sided_95_percent_upper_bound": "0.072157524505514570"
+      },
+      {
+        "n_unique_tasks": 41,
+        "one_sided_95_percent_upper_bound": "0.070461117270164076"
+      },
+      {
+        "n_unique_tasks": 42,
+        "one_sided_95_percent_upper_bound": "0.068842607840394905"
+      },
+      {
+        "n_unique_tasks": 43,
+        "one_sided_95_percent_upper_bound": "0.067296753413867841"
+      },
+      {
+        "n_unique_tasks": 44,
+        "one_sided_95_percent_upper_bound": "0.065818771144933965"
+      },
+      {
+        "n_unique_tasks": 45,
+        "one_sided_95_percent_upper_bound": "0.064404288807783507"
+      },
+      {
+        "n_unique_tasks": 46,
+        "one_sided_95_percent_upper_bound": "0.063049301674054497"
+      },
+      {
+        "n_unique_tasks": 47,
+        "one_sided_95_percent_upper_bound": "0.061750134710824504"
+      },
+      {
+        "n_unique_tasks": 48,
+        "one_sided_95_percent_upper_bound": "0.060503409348894318"
+      },
+      {
+        "n_unique_tasks": 49,
+        "one_sided_95_percent_upper_bound": "0.059306014189697079"
+      },
+      {
+        "n_unique_tasks": 50,
+        "one_sided_95_percent_upper_bound": "0.058155079116972269"
+      },
+      {
+        "n_unique_tasks": 51,
+        "one_sided_95_percent_upper_bound": "0.057047952360442778"
+      },
+      {
+        "n_unique_tasks": 52,
+        "one_sided_95_percent_upper_bound": "0.055982180126235558"
+      },
+      {
+        "n_unique_tasks": 53,
+        "one_sided_95_percent_upper_bound": "0.054955488465177841"
+      },
+      {
+        "n_unique_tasks": 54,
+        "one_sided_95_percent_upper_bound": "0.053965767097376282"
+      },
+      {
+        "n_unique_tasks": 55,
+        "one_sided_95_percent_upper_bound": "0.053011054951253772"
+      },
+      {
+        "n_unique_tasks": 56,
+        "one_sided_95_percent_upper_bound": "0.052089527208779442"
+      },
+      {
+        "n_unique_tasks": 57,
+        "one_sided_95_percent_upper_bound": "0.051199483677039235"
+      },
+      {
+        "n_unique_tasks": 58,
+        "one_sided_95_percent_upper_bound": "0.050339338330420122"
+      },
+      {
+        "n_unique_tasks": 59,
+        "one_sided_95_percent_upper_bound": "0.049507609888226947"
+      },
+      {
+        "n_unique_tasks": 60,
+        "one_sided_95_percent_upper_bound": "0.048702913310097506"
+      },
+      {
+        "n_unique_tasks": 61,
+        "one_sided_95_percent_upper_bound": "0.047923952106607333"
+      },
+      {
+        "n_unique_tasks": 62,
+        "one_sided_95_percent_upper_bound": "0.047169511375356825"
+      },
+      {
+        "n_unique_tasks": 63,
+        "one_sided_95_percent_upper_bound": "0.046438451483938241"
+      },
+      {
+        "n_unique_tasks": 64,
+        "one_sided_95_percent_upper_bound": "0.045729702330762461"
+      },
+      {
+        "n_unique_tasks": 65,
+        "one_sided_95_percent_upper_bound": "0.045042258123013534"
+      },
+      {
+        "n_unique_tasks": 66,
+        "one_sided_95_percent_upper_bound": "0.044375172618184307"
+      },
+      {
+        "n_unique_tasks": 67,
+        "one_sided_95_percent_upper_bound": "0.043727554781889460"
+      },
+      {
+        "n_unique_tasks": 68,
+        "one_sided_95_percent_upper_bound": "0.043098564820088384"
+      },
+      {
+        "n_unique_tasks": 69,
+        "one_sided_95_percent_upper_bound": "0.042487410548593699"
+      },
+      {
+        "n_unique_tasks": 70,
+        "one_sided_95_percent_upper_bound": "0.041893344066888587"
+      },
+      {
+        "n_unique_tasks": 71,
+        "one_sided_95_percent_upper_bound": "0.041315658706909487"
+      },
+      {
+        "n_unique_tasks": 72,
+        "one_sided_95_percent_upper_bound": "0.040753686230639932"
+      },
+      {
+        "n_unique_tasks": 73,
+        "one_sided_95_percent_upper_bound": "0.040206794253165857"
+      },
+      {
+        "n_unique_tasks": 74,
+        "one_sided_95_percent_upper_bound": "0.039674383870313463"
+      },
+      {
+        "n_unique_tasks": 75,
+        "one_sided_95_percent_upper_bound": "0.039155887472171252"
+      },
+      {
+        "n_unique_tasks": 76,
+        "one_sided_95_percent_upper_bound": "0.038650766725725507"
+      },
+      {
+        "n_unique_tasks": 77,
+        "one_sided_95_percent_upper_bound": "0.038158510711545468"
+      },
+      {
+        "n_unique_tasks": 78,
+        "one_sided_95_percent_upper_bound": "0.037678634200968475"
+      },
+      {
+        "n_unique_tasks": 79,
+        "one_sided_95_percent_upper_bound": "0.037210676061580267"
+      },
+      {
+        "n_unique_tasks": 80,
+        "one_sided_95_percent_upper_bound": "0.036754197779982314"
+      },
+      {
+        "n_unique_tasks": 81,
+        "one_sided_95_percent_upper_bound": "0.036308782091904273"
+      },
+      {
+        "n_unique_tasks": 82,
+        "one_sided_95_percent_upper_bound": "0.035874031710671158"
+      },
+      {
+        "n_unique_tasks": 83,
+        "one_sided_95_percent_upper_bound": "0.035449568145885050"
+      },
+      {
+        "n_unique_tasks": 84,
+        "one_sided_95_percent_upper_bound": "0.035035030604942066"
+      },
+      {
+        "n_unique_tasks": 85,
+        "one_sided_95_percent_upper_bound": "0.034630074970687046"
+      },
+      {
+        "n_unique_tasks": 86,
+        "one_sided_95_percent_upper_bound": "0.034234372849120210"
+      },
+      {
+        "n_unique_tasks": 87,
+        "one_sided_95_percent_upper_bound": "0.033847610681619588"
+      },
+      {
+        "n_unique_tasks": 88,
+        "one_sided_95_percent_upper_bound": "0.033469488916637441"
+      },
+      {
+        "n_unique_tasks": 89,
+        "one_sided_95_percent_upper_bound": "0.033099721236274148"
+      },
+      {
+        "n_unique_tasks": 90,
+        "one_sided_95_percent_upper_bound": "0.032738033833534581"
+      },
+      {
+        "n_unique_tasks": 91,
+        "one_sided_95_percent_upper_bound": "0.032384164736434446"
+      },
+      {
+        "n_unique_tasks": 92,
+        "one_sided_95_percent_upper_bound": "0.032037863175451732"
+      },
+      {
+        "n_unique_tasks": 93,
+        "one_sided_95_percent_upper_bound": "0.031698888991114857"
+      },
+      {
+        "n_unique_tasks": 94,
+        "one_sided_95_percent_upper_bound": "0.031367012078787657"
+      },
+      {
+        "n_unique_tasks": 95,
+        "one_sided_95_percent_upper_bound": "0.031042011867954867"
+      },
+      {
+        "n_unique_tasks": 96,
+        "one_sided_95_percent_upper_bound": "0.030723676833532840"
+      },
+      {
+        "n_unique_tasks": 97,
+        "one_sided_95_percent_upper_bound": "0.030411804036931107"
+      },
+      {
+        "n_unique_tasks": 98,
+        "one_sided_95_percent_upper_bound": "0.030106198694773119"
+      },
+      {
+        "n_unique_tasks": 99,
+        "one_sided_95_percent_upper_bound": "0.029806673773350895"
+      },
+      {
+        "n_unique_tasks": 100,
+        "one_sided_95_percent_upper_bound": "0.029513049607039935"
+      },
+      {
+        "n_unique_tasks": 101,
+        "one_sided_95_percent_upper_bound": "0.029225153539039072"
+      },
+      {
+        "n_unique_tasks": 102,
+        "one_sided_95_percent_upper_bound": "0.028942819582926300"
+      },
+      {
+        "n_unique_tasks": 103,
+        "one_sided_95_percent_upper_bound": "0.028665888103636990"
+      },
+      {
+        "n_unique_tasks": 104,
+        "one_sided_95_percent_upper_bound": "0.028394205516576573"
+      },
+      {
+        "n_unique_tasks": 105,
+        "one_sided_95_percent_upper_bound": "0.028127624003676407"
+      },
+      {
+        "n_unique_tasks": 106,
+        "one_sided_95_percent_upper_bound": "0.027866001245290177"
+      },
+      {
+        "n_unique_tasks": 107,
+        "one_sided_95_percent_upper_bound": "0.027609200166909394"
+      },
+      {
+        "n_unique_tasks": 108,
+        "one_sided_95_percent_upper_bound": "0.027357088699751167"
+      },
+      {
+        "n_unique_tasks": 109,
+        "one_sided_95_percent_upper_bound": "0.027109539554339926"
+      },
+      {
+        "n_unique_tasks": 110,
+        "one_sided_95_percent_upper_bound": "0.026866430006267727"
+      },
+      {
+        "n_unique_tasks": 111,
+        "one_sided_95_percent_upper_bound": "0.026627641693375763"
+      },
+      {
+        "n_unique_tasks": 112,
+        "one_sided_95_percent_upper_bound": "0.026393060423653021"
+      },
+      {
+        "n_unique_tasks": 113,
+        "one_sided_95_percent_upper_bound": "0.026162575993197217"
+      },
+      {
+        "n_unique_tasks": 114,
+        "one_sided_95_percent_upper_bound": "0.025936082013628448"
+      },
+      {
+        "n_unique_tasks": 115,
+        "one_sided_95_percent_upper_bound": "0.025713475748387864"
+      },
+      {
+        "n_unique_tasks": 116,
+        "one_sided_95_percent_upper_bound": "0.025494657957392274"
+      },
+      {
+        "n_unique_tasks": 117,
+        "one_sided_95_percent_upper_bound": "0.025279532749551307"
+      },
+      {
+        "n_unique_tasks": 118,
+        "one_sided_95_percent_upper_bound": "0.025068007442686773"
+      },
+      {
+        "n_unique_tasks": 119,
+        "one_sided_95_percent_upper_bound": "0.024859992430424396"
+      },
+      {
+        "n_unique_tasks": 120,
+        "one_sided_95_percent_upper_bound": "0.024655401055656384"
+      },
+      {
+        "n_unique_tasks": 121,
+        "one_sided_95_percent_upper_bound": "0.024454149490199542"
+      },
+      {
+        "n_unique_tasks": 122,
+        "one_sided_95_percent_upper_bound": "0.024256156620297877"
+      },
+      {
+        "n_unique_tasks": 123,
+        "one_sided_95_percent_upper_bound": "0.024061343937641240"
+      },
+      {
+        "n_unique_tasks": 124,
+        "one_sided_95_percent_upper_bound": "0.023869635435592458"
+      },
+      {
+        "n_unique_tasks": 125,
+        "one_sided_95_percent_upper_bound": "0.023680957510334845"
+      },
+      {
+        "n_unique_tasks": 126,
+        "one_sided_95_percent_upper_bound": "0.023495238866670062"
+      },
+      {
+        "n_unique_tasks": 127,
+        "one_sided_95_percent_upper_bound": "0.023312410428213094"
+      },
+      {
+        "n_unique_tasks": 128,
+        "one_sided_95_percent_upper_bound": "0.023132405251746751"
+      },
+      {
+        "n_unique_tasks": 129,
+        "one_sided_95_percent_upper_bound": "0.022955158445512655"
+      },
+      {
+        "n_unique_tasks": 130,
+        "one_sided_95_percent_upper_bound": "0.022780607091229249"
+      },
+      {
+        "n_unique_tasks": 131,
+        "one_sided_95_percent_upper_bound": "0.022608690169639986"
+      },
+      {
+        "n_unique_tasks": 132,
+        "one_sided_95_percent_upper_bound": "0.022439348489406672"
+      },
+      {
+        "n_unique_tasks": 133,
+        "one_sided_95_percent_upper_bound": "0.022272524619173917"
+      },
+      {
+        "n_unique_tasks": 134,
+        "one_sided_95_percent_upper_bound": "0.022108162822640931"
+      },
+      {
+        "n_unique_tasks": 135,
+        "one_sided_95_percent_upper_bound": "0.021946208996486497"
+      },
+      {
+        "n_unique_tasks": 136,
+        "one_sided_95_percent_upper_bound": "0.021786610611001902"
+      },
+      {
+        "n_unique_tasks": 137,
+        "one_sided_95_percent_upper_bound": "0.021629316653295031"
+      },
+      {
+        "n_unique_tasks": 138,
+        "one_sided_95_percent_upper_bound": "0.021474277572936614"
+      },
+      {
+        "n_unique_tasks": 139,
+        "one_sided_95_percent_upper_bound": "0.021321445229927018"
+      },
+      {
+        "n_unique_tasks": 140,
+        "one_sided_95_percent_upper_bound": "0.021170772844868811"
+      },
+      {
+        "n_unique_tasks": 141,
+        "one_sided_95_percent_upper_bound": "0.021022214951236769"
+      },
+      {
+        "n_unique_tasks": 142,
+        "one_sided_95_percent_upper_bound": "0.020875727349643061"
+      },
+      {
+        "n_unique_tasks": 143,
+        "one_sided_95_percent_upper_bound": "0.020731267064000972"
+      },
+      {
+        "n_unique_tasks": 144,
+        "one_sided_95_percent_upper_bound": "0.020588792299495856"
+      },
+      {
+        "n_unique_tasks": 145,
+        "one_sided_95_percent_upper_bound": "0.020448262402276999"
+      },
+      {
+        "n_unique_tasks": 146,
+        "one_sided_95_percent_upper_bound": "0.020309637820788735"
+      },
+      {
+        "n_unique_tasks": 147,
+        "one_sided_95_percent_upper_bound": "0.020172880068663563"
+      },
+      {
+        "n_unique_tasks": 148,
+        "one_sided_95_percent_upper_bound": "0.020037951689104168"
+      },
+      {
+        "n_unique_tasks": 149,
+        "one_sided_95_percent_upper_bound": "0.019904816220685084"
+      },
+      {
+        "n_unique_tasks": 150,
+        "one_sided_95_percent_upper_bound": "0.019773438164508446"
+      },
+      {
+        "n_unique_tasks": 151,
+        "one_sided_95_percent_upper_bound": "0.019643782952651681"
+      },
+      {
+        "n_unique_tasks": 152,
+        "one_sided_95_percent_upper_bound": "0.019515816917848239"
+      },
+      {
+        "n_unique_tasks": 153,
+        "one_sided_95_percent_upper_bound": "0.019389507264345518"
+      },
+      {
+        "n_unique_tasks": 154,
+        "one_sided_95_percent_upper_bound": "0.019264822039886992"
+      },
+      {
+        "n_unique_tasks": 155,
+        "one_sided_95_percent_upper_bound": "0.019141730108768283"
+      },
+      {
+        "n_unique_tasks": 156,
+        "one_sided_95_percent_upper_bound": "0.019020201125919451"
+      },
+      {
+        "n_unique_tasks": 157,
+        "one_sided_95_percent_upper_bound": "0.018900205511968194"
+      },
+      {
+        "n_unique_tasks": 158,
+        "one_sided_95_percent_upper_bound": "0.018781714429240911"
+      },
+      {
+        "n_unique_tasks": 159,
+        "one_sided_95_percent_upper_bound": "0.018664699758660753"
+      },
+      {
+        "n_unique_tasks": 160,
+        "one_sided_95_percent_upper_bound": "0.018549134077503762"
+      },
+      {
+        "n_unique_tasks": 161,
+        "one_sided_95_percent_upper_bound": "0.018434990637976181"
+      },
+      {
+        "n_unique_tasks": 162,
+        "one_sided_95_percent_upper_bound": "0.018322243346577743"
+      },
+      {
+        "n_unique_tasks": 163,
+        "one_sided_95_percent_upper_bound": "0.018210866744217542"
+      },
+      {
+        "n_unique_tasks": 164,
+        "one_sided_95_percent_upper_bound": "0.018100835987050633"
+      },
+      {
+        "n_unique_tasks": 165,
+        "one_sided_95_percent_upper_bound": "0.017992126828005070"
+      },
+      {
+        "n_unique_tasks": 166,
+        "one_sided_95_percent_upper_bound": "0.017884715598970556"
+      },
+      {
+        "n_unique_tasks": 167,
+        "one_sided_95_percent_upper_bound": "0.017778579193621195"
+      },
+      {
+        "n_unique_tasks": 168,
+        "one_sided_95_percent_upper_bound": "0.017673695050846185"
+      },
+      {
+        "n_unique_tasks": 169,
+        "one_sided_95_percent_upper_bound": "0.017570041138763495"
+      },
+      {
+        "n_unique_tasks": 170,
+        "one_sided_95_percent_upper_bound": "0.017467595939292721"
+      },
+      {
+        "n_unique_tasks": 171,
+        "one_sided_95_percent_upper_bound": "0.017366338433264457"
+      },
+      {
+        "n_unique_tasks": 172,
+        "one_sided_95_percent_upper_bound": "0.017266248086044523"
+      },
+      {
+        "n_unique_tasks": 173,
+        "one_sided_95_percent_upper_bound": "0.017167304833652404"
+      },
+      {
+        "n_unique_tasks": 174,
+        "one_sided_95_percent_upper_bound": "0.017069489069354195"
+      },
+      {
+        "n_unique_tasks": 175,
+        "one_sided_95_percent_upper_bound": "0.016972781630711234"
+      },
+      {
+        "n_unique_tasks": 176,
+        "one_sided_95_percent_upper_bound": "0.016877163787066454"
+      },
+      {
+        "n_unique_tasks": 177,
+        "one_sided_95_percent_upper_bound": "0.016782617227451301"
+      },
+      {
+        "n_unique_tasks": 178,
+        "one_sided_95_percent_upper_bound": "0.016689124048896807"
+      },
+      {
+        "n_unique_tasks": 179,
+        "one_sided_95_percent_upper_bound": "0.016596666745133151"
+      },
+      {
+        "n_unique_tasks": 180,
+        "one_sided_95_percent_upper_bound": "0.016505228195662741"
+      },
+      {
+        "n_unique_tasks": 181,
+        "one_sided_95_percent_upper_bound": "0.016414791655192470"
+      },
+      {
+        "n_unique_tasks": 182,
+        "one_sided_95_percent_upper_bound": "0.016325340743411468"
+      },
+      {
+        "n_unique_tasks": 183,
+        "one_sided_95_percent_upper_bound": "0.016236859435101228"
+      },
+      {
+        "n_unique_tasks": 184,
+        "one_sided_95_percent_upper_bound": "0.016149332050565578"
+      },
+      {
+        "n_unique_tasks": 185,
+        "one_sided_95_percent_upper_bound": "0.016062743246368486"
+      },
+      {
+        "n_unique_tasks": 186,
+        "one_sided_95_percent_upper_bound": "0.015977078006368216"
+      },
+      {
+        "n_unique_tasks": 187,
+        "one_sided_95_percent_upper_bound": "0.015892321633036829"
+      },
+      {
+        "n_unique_tasks": 188,
+        "one_sided_95_percent_upper_bound": "0.015808459739054482"
+      },
+      {
+        "n_unique_tasks": 189,
+        "one_sided_95_percent_upper_bound": "0.015725478239168446"
+      },
+      {
+        "n_unique_tasks": 190,
+        "one_sided_95_percent_upper_bound": "0.015643363342307153"
+      },
+      {
+        "n_unique_tasks": 191,
+        "one_sided_95_percent_upper_bound": "0.015562101543940004"
+      },
+      {
+        "n_unique_tasks": 192,
+        "one_sided_95_percent_upper_bound": "0.015481679618674054"
+      },
+      {
+        "n_unique_tasks": 193,
+        "one_sided_95_percent_upper_bound": "0.015402084613079045"
+      },
+      {
+        "n_unique_tasks": 194,
+        "one_sided_95_percent_upper_bound": "0.015323303838732612"
+      },
+      {
+        "n_unique_tasks": 195,
+        "one_sided_95_percent_upper_bound": "0.015245324865477823"
+      },
+      {
+        "n_unique_tasks": 196,
+        "one_sided_95_percent_upper_bound": "0.015168135514885525"
+      },
+      {
+        "n_unique_tasks": 197,
+        "one_sided_95_percent_upper_bound": "0.015091723853914277"
+      },
+      {
+        "n_unique_tasks": 198,
+        "one_sided_95_percent_upper_bound": "0.015016078188760939"
+      },
+      {
+        "n_unique_tasks": 199,
+        "one_sided_95_percent_upper_bound": "0.014941187058895256"
+      },
+      {
+        "n_unique_tasks": 200,
+        "one_sided_95_percent_upper_bound": "0.014867039231272058"
+      },
+      {
+        "n_unique_tasks": 201,
+        "one_sided_95_percent_upper_bound": "0.014793623694714919"
+      },
+      {
+        "n_unique_tasks": 202,
+        "one_sided_95_percent_upper_bound": "0.014720929654465395"
+      },
+      {
+        "n_unique_tasks": 203,
+        "one_sided_95_percent_upper_bound": "0.014648946526892168"
+      },
+      {
+        "n_unique_tasks": 204,
+        "one_sided_95_percent_upper_bound": "0.014577663934354642"
+      },
+      {
+        "n_unique_tasks": 205,
+        "one_sided_95_percent_upper_bound": "0.014507071700215774"
+      },
+      {
+        "n_unique_tasks": 206,
+        "one_sided_95_percent_upper_bound": "0.014437159843999085"
+      },
+      {
+        "n_unique_tasks": 207,
+        "one_sided_95_percent_upper_bound": "0.014367918576685027"
+      },
+      {
+        "n_unique_tasks": 208,
+        "one_sided_95_percent_upper_bound": "0.014299338296142044"
+      },
+      {
+        "n_unique_tasks": 209,
+        "one_sided_95_percent_upper_bound": "0.014231409582687849"
+      },
+      {
+        "n_unique_tasks": 210,
+        "one_sided_95_percent_upper_bound": "0.014164123194776608"
+      },
+      {
+        "n_unique_tasks": 211,
+        "one_sided_95_percent_upper_bound": "0.014097470064807885"
+      },
+      {
+        "n_unique_tasks": 212,
+        "one_sided_95_percent_upper_bound": "0.014031441295053353"
+      },
+      {
+        "n_unique_tasks": 213,
+        "one_sided_95_percent_upper_bound": "0.013966028153697434"
+      },
+      {
+        "n_unique_tasks": 214,
+        "one_sided_95_percent_upper_bound": "0.013901222070988161"
+      },
+      {
+        "n_unique_tasks": 215,
+        "one_sided_95_percent_upper_bound": "0.013837014635494708"
+      },
+      {
+        "n_unique_tasks": 216,
+        "one_sided_95_percent_upper_bound": "0.013773397590468140"
+      },
+      {
+        "n_unique_tasks": 217,
+        "one_sided_95_percent_upper_bound": "0.013710362830302099"
+      },
+      {
+        "n_unique_tasks": 218,
+        "one_sided_95_percent_upper_bound": "0.013647902397090214"
+      },
+      {
+        "n_unique_tasks": 219,
+        "one_sided_95_percent_upper_bound": "0.013586008477277183"
+      },
+      {
+        "n_unique_tasks": 220,
+        "one_sided_95_percent_upper_bound": "0.013524673398400566"
+      },
+      {
+        "n_unique_tasks": 221,
+        "one_sided_95_percent_upper_bound": "0.013463889625920421"
+      },
+      {
+        "n_unique_tasks": 222,
+        "one_sided_95_percent_upper_bound": "0.013403649760134052"
+      },
+      {
+        "n_unique_tasks": 223,
+        "one_sided_95_percent_upper_bound": "0.013343946533173196"
+      },
+      {
+        "n_unique_tasks": 224,
+        "one_sided_95_percent_upper_bound": "0.013284772806081106"
+      },
+      {
+        "n_unique_tasks": 225,
+        "one_sided_95_percent_upper_bound": "0.013226121565967056"
+      },
+      {
+        "n_unique_tasks": 226,
+        "one_sided_95_percent_upper_bound": "0.013167985923235878"
+      },
+      {
+        "n_unique_tasks": 227,
+        "one_sided_95_percent_upper_bound": "0.013110359108890243"
+      },
+      {
+        "n_unique_tasks": 228,
+        "one_sided_95_percent_upper_bound": "0.013053234471903469"
+      },
+      {
+        "n_unique_tasks": 229,
+        "one_sided_95_percent_upper_bound": "0.012996605476660700"
+      },
+      {
+        "n_unique_tasks": 230,
+        "one_sided_95_percent_upper_bound": "0.012940465700466406"
+      },
+      {
+        "n_unique_tasks": 231,
+        "one_sided_95_percent_upper_bound": "0.012884808831116195"
+      },
+      {
+        "n_unique_tasks": 232,
+        "one_sided_95_percent_upper_bound": "0.012829628664531015"
+      },
+      {
+        "n_unique_tasks": 233,
+        "one_sided_95_percent_upper_bound": "0.012774919102451885"
+      },
+      {
+        "n_unique_tasks": 234,
+        "one_sided_95_percent_upper_bound": "0.012720674150193352"
+      },
+      {
+        "n_unique_tasks": 235,
+        "one_sided_95_percent_upper_bound": "0.012666887914453935"
+      },
+      {
+        "n_unique_tasks": 236,
+        "one_sided_95_percent_upper_bound": "0.012613554601181885"
+      },
+      {
+        "n_unique_tasks": 237,
+        "one_sided_95_percent_upper_bound": "0.012560668513494627"
+      },
+      {
+        "n_unique_tasks": 238,
+        "one_sided_95_percent_upper_bound": "0.012508224049650323"
+      },
+      {
+        "n_unique_tasks": 239,
+        "one_sided_95_percent_upper_bound": "0.012456215701070034"
+      },
+      {
+        "n_unique_tasks": 240,
+        "one_sided_95_percent_upper_bound": "0.012404638050409020"
+      },
+      {
+        "n_unique_tasks": 241,
+        "one_sided_95_percent_upper_bound": "0.012353485769675749"
+      },
+      {
+        "n_unique_tasks": 242,
+        "one_sided_95_percent_upper_bound": "0.012302753618397264"
+      },
+      {
+        "n_unique_tasks": 243,
+        "one_sided_95_percent_upper_bound": "0.012252436441829555"
+      },
+      {
+        "n_unique_tasks": 244,
+        "one_sided_95_percent_upper_bound": "0.012202529169211669"
+      },
+      {
+        "n_unique_tasks": 245,
+        "one_sided_95_percent_upper_bound": "0.012153026812062322"
+      },
+      {
+        "n_unique_tasks": 246,
+        "one_sided_95_percent_upper_bound": "0.012103924462517788"
+      },
+      {
+        "n_unique_tasks": 247,
+        "one_sided_95_percent_upper_bound": "0.012055217291709927"
+      },
+      {
+        "n_unique_tasks": 248,
+        "one_sided_95_percent_upper_bound": "0.012006900548183210"
+      },
+      {
+        "n_unique_tasks": 249,
+        "one_sided_95_percent_upper_bound": "0.011958969556349658"
+      },
+      {
+        "n_unique_tasks": 250,
+        "one_sided_95_percent_upper_bound": "0.011911419714980637"
+      },
+      {
+        "n_unique_tasks": 251,
+        "one_sided_95_percent_upper_bound": "0.011864246495734495"
+      },
+      {
+        "n_unique_tasks": 252,
+        "one_sided_95_percent_upper_bound": "0.011817445441719034"
+      },
+      {
+        "n_unique_tasks": 253,
+        "one_sided_95_percent_upper_bound": "0.011771012166087881"
+      },
+      {
+        "n_unique_tasks": 254,
+        "one_sided_95_percent_upper_bound": "0.011724942350669812"
+      },
+      {
+        "n_unique_tasks": 255,
+        "one_sided_95_percent_upper_bound": "0.011679231744630139"
+      },
+      {
+        "n_unique_tasks": 256,
+        "one_sided_95_percent_upper_bound": "0.011633876163163285"
+      },
+      {
+        "n_unique_tasks": 257,
+        "one_sided_95_percent_upper_bound": "0.011588871486215700"
+      },
+      {
+        "n_unique_tasks": 258,
+        "one_sided_95_percent_upper_bound": "0.011544213657238311"
+      },
+      {
+        "n_unique_tasks": 259,
+        "one_sided_95_percent_upper_bound": "0.011499898681967696"
+      },
+      {
+        "n_unique_tasks": 260,
+        "one_sided_95_percent_upper_bound": "0.011455922627235225"
+      },
+      {
+        "n_unique_tasks": 261,
+        "one_sided_95_percent_upper_bound": "0.011412281619803417"
+      },
+      {
+        "n_unique_tasks": 262,
+        "one_sided_95_percent_upper_bound": "0.011368971845228796"
+      },
+      {
+        "n_unique_tasks": 263,
+        "one_sided_95_percent_upper_bound": "0.011325989546750536"
+      },
+      {
+        "n_unique_tasks": 264,
+        "one_sided_95_percent_upper_bound": "0.011283331024204221"
+      },
+      {
+        "n_unique_tasks": 265,
+        "one_sided_95_percent_upper_bound": "0.011240992632960060"
+      },
+      {
+        "n_unique_tasks": 266,
+        "one_sided_95_percent_upper_bound": "0.011198970782884913"
+      },
+      {
+        "n_unique_tasks": 267,
+        "one_sided_95_percent_upper_bound": "0.011157261937327519"
+      },
+      {
+        "n_unique_tasks": 268,
+        "one_sided_95_percent_upper_bound": "0.011115862612126299"
+      },
+      {
+        "n_unique_tasks": 269,
+        "one_sided_95_percent_upper_bound": "0.011074769374639185"
+      },
+      {
+        "n_unique_tasks": 270,
+        "one_sided_95_percent_upper_bound": "0.011033978842794871"
+      },
+      {
+        "n_unique_tasks": 271,
+        "one_sided_95_percent_upper_bound": "0.010993487684164962"
+      },
+      {
+        "n_unique_tasks": 272,
+        "one_sided_95_percent_upper_bound": "0.010953292615056477"
+      },
+      {
+        "n_unique_tasks": 273,
+        "one_sided_95_percent_upper_bound": "0.010913390399624178"
+      },
+      {
+        "n_unique_tasks": 274,
+        "one_sided_95_percent_upper_bound": "0.010873777849002241"
+      },
+      {
+        "n_unique_tasks": 275,
+        "one_sided_95_percent_upper_bound": "0.010834451820454764"
+      },
+      {
+        "n_unique_tasks": 276,
+        "one_sided_95_percent_upper_bound": "0.010795409216544635"
+      },
+      {
+        "n_unique_tasks": 277,
+        "one_sided_95_percent_upper_bound": "0.010756646984320317"
+      },
+      {
+        "n_unique_tasks": 278,
+        "one_sided_95_percent_upper_bound": "0.010718162114520076"
+      },
+      {
+        "n_unique_tasks": 279,
+        "one_sided_95_percent_upper_bound": "0.010679951640793244"
+      },
+      {
+        "n_unique_tasks": 280,
+        "one_sided_95_percent_upper_bound": "0.010642012638938064"
+      },
+      {
+        "n_unique_tasks": 281,
+        "one_sided_95_percent_upper_bound": "0.010604342226155736"
+      },
+      {
+        "n_unique_tasks": 282,
+        "one_sided_95_percent_upper_bound": "0.010566937560320238"
+      },
+      {
+        "n_unique_tasks": 283,
+        "one_sided_95_percent_upper_bound": "0.010529795839263549"
+      },
+      {
+        "n_unique_tasks": 284,
+        "one_sided_95_percent_upper_bound": "0.010492914300075899"
+      },
+      {
+        "n_unique_tasks": 285,
+        "one_sided_95_percent_upper_bound": "0.010456290218420662"
+      },
+      {
+        "n_unique_tasks": 286,
+        "one_sided_95_percent_upper_bound": "0.010419920907863552"
+      },
+      {
+        "n_unique_tasks": 287,
+        "one_sided_95_percent_upper_bound": "0.010383803719215771"
+      },
+      {
+        "n_unique_tasks": 288,
+        "one_sided_95_percent_upper_bound": "0.010347936039890763"
+      },
+      {
+        "n_unique_tasks": 289,
+        "one_sided_95_percent_upper_bound": "0.010312315293274261"
+      },
+      {
+        "n_unique_tasks": 290,
+        "one_sided_95_percent_upper_bound": "0.010276938938107293"
+      },
+      {
+        "n_unique_tasks": 291,
+        "one_sided_95_percent_upper_bound": "0.010241804467881844"
+      },
+      {
+        "n_unique_tasks": 292,
+        "one_sided_95_percent_upper_bound": "0.010206909410248881"
+      },
+      {
+        "n_unique_tasks": 293,
+        "one_sided_95_percent_upper_bound": "0.010172251326438422"
+      },
+      {
+        "n_unique_tasks": 294,
+        "one_sided_95_percent_upper_bound": "0.010137827810691395"
+      },
+      {
+        "n_unique_tasks": 295,
+        "one_sided_95_percent_upper_bound": "0.010103636489702985"
+      },
+      {
+        "n_unique_tasks": 296,
+        "one_sided_95_percent_upper_bound": "0.010069675022077207"
+      },
+      {
+        "n_unique_tasks": 297,
+        "one_sided_95_percent_upper_bound": "0.010035941097792444"
+      },
+      {
+        "n_unique_tasks": 298,
+        "one_sided_95_percent_upper_bound": "0.010002432437677695"
+      },
+      {
+        "n_unique_tasks": 299,
+        "one_sided_95_percent_upper_bound": "0.009969146792899271"
+      },
+      {
+        "n_unique_tasks": 300,
+        "one_sided_95_percent_upper_bound": "0.009936081944457712"
+      },
+      {
+        "n_unique_tasks": 301,
+        "one_sided_95_percent_upper_bound": "0.009903235702694683"
+      },
+      {
+        "n_unique_tasks": 302,
+        "one_sided_95_percent_upper_bound": "0.009870605906809613"
+      },
+      {
+        "n_unique_tasks": 303,
+        "one_sided_95_percent_upper_bound": "0.009838190424385860"
+      },
+      {
+        "n_unique_tasks": 304,
+        "one_sided_95_percent_upper_bound": "0.009805987150926184"
+      },
+      {
+        "n_unique_tasks": 305,
+        "one_sided_95_percent_upper_bound": "0.009773994009397311"
+      },
+      {
+        "n_unique_tasks": 306,
+        "one_sided_95_percent_upper_bound": "0.009742208949783379"
+      },
+      {
+        "n_unique_tasks": 307,
+        "one_sided_95_percent_upper_bound": "0.009710629948648078"
+      },
+      {
+        "n_unique_tasks": 308,
+        "one_sided_95_percent_upper_bound": "0.009679255008705269"
+      },
+      {
+        "n_unique_tasks": 309,
+        "one_sided_95_percent_upper_bound": "0.009648082158397906"
+      },
+      {
+        "n_unique_tasks": 310,
+        "one_sided_95_percent_upper_bound": "0.009617109451485063"
+      },
+      {
+        "n_unique_tasks": 311,
+        "one_sided_95_percent_upper_bound": "0.009586334966636895"
+      },
+      {
+        "n_unique_tasks": 312,
+        "one_sided_95_percent_upper_bound": "0.009555756807037346"
+      },
+      {
+        "n_unique_tasks": 313,
+        "one_sided_95_percent_upper_bound": "0.009525373099994439"
+      },
+      {
+        "n_unique_tasks": 314,
+        "one_sided_95_percent_upper_bound": "0.009495181996557976"
+      },
+      {
+        "n_unique_tasks": 315,
+        "one_sided_95_percent_upper_bound": "0.009465181671144486"
+      },
+      {
+        "n_unique_tasks": 316,
+        "one_sided_95_percent_upper_bound": "0.009435370321169257"
+      },
+      {
+        "n_unique_tasks": 317,
+        "one_sided_95_percent_upper_bound": "0.009405746166685303"
+      },
+      {
+        "n_unique_tasks": 318,
+        "one_sided_95_percent_upper_bound": "0.009376307450029112"
+      },
+      {
+        "n_unique_tasks": 319,
+        "one_sided_95_percent_upper_bound": "0.009347052435473020"
+      },
+      {
+        "n_unique_tasks": 320,
+        "one_sided_95_percent_upper_bound": "0.009317979408884075"
+      },
+      {
+        "n_unique_tasks": 321,
+        "one_sided_95_percent_upper_bound": "0.009289086677389252"
+      },
+      {
+        "n_unique_tasks": 322,
+        "one_sided_95_percent_upper_bound": "0.009260372569046868"
+      },
+      {
+        "n_unique_tasks": 323,
+        "one_sided_95_percent_upper_bound": "0.009231835432524081"
+      },
+      {
+        "n_unique_tasks": 324,
+        "one_sided_95_percent_upper_bound": "0.009203473636780327"
+      },
+      {
+        "n_unique_tasks": 325,
+        "one_sided_95_percent_upper_bound": "0.009175285570756577"
+      },
+      {
+        "n_unique_tasks": 326,
+        "one_sided_95_percent_upper_bound": "0.009147269643070289"
+      },
+      {
+        "n_unique_tasks": 327,
+        "one_sided_95_percent_upper_bound": "0.009119424281715926"
+      },
+      {
+        "n_unique_tasks": 328,
+        "one_sided_95_percent_upper_bound": "0.009091747933770930"
+      },
+      {
+        "n_unique_tasks": 329,
+        "one_sided_95_percent_upper_bound": "0.009064239065107038"
+      },
+      {
+        "n_unique_tasks": 330,
+        "one_sided_95_percent_upper_bound": "0.009036896160106811"
+      },
+      {
+        "n_unique_tasks": 331,
+        "one_sided_95_percent_upper_bound": "0.009009717721385294"
+      },
+      {
+        "n_unique_tasks": 332,
+        "one_sided_95_percent_upper_bound": "0.008982702269516668"
+      },
+      {
+        "n_unique_tasks": 333,
+        "one_sided_95_percent_upper_bound": "0.008955848342765814"
+      },
+      {
+        "n_unique_tasks": 334,
+        "one_sided_95_percent_upper_bound": "0.008929154496824679"
+      },
+      {
+        "n_unique_tasks": 335,
+        "one_sided_95_percent_upper_bound": "0.008902619304553334"
+      },
+      {
+        "n_unique_tasks": 336,
+        "one_sided_95_percent_upper_bound": "0.008876241355725640"
+      },
+      {
+        "n_unique_tasks": 337,
+        "one_sided_95_percent_upper_bound": "0.008850019256779426"
+      },
+      {
+        "n_unique_tasks": 338,
+        "one_sided_95_percent_upper_bound": "0.008823951630571076"
+      },
+      {
+        "n_unique_tasks": 339,
+        "one_sided_95_percent_upper_bound": "0.008798037116134442"
+      },
+      {
+        "n_unique_tasks": 340,
+        "one_sided_95_percent_upper_bound": "0.008772274368443990"
+      },
+      {
+        "n_unique_tasks": 341,
+        "one_sided_95_percent_upper_bound": "0.008746662058182105"
+      },
+      {
+        "n_unique_tasks": 342,
+        "one_sided_95_percent_upper_bound": "0.008721198871510446"
+      },
+      {
+        "n_unique_tasks": 343,
+        "one_sided_95_percent_upper_bound": "0.008695883509845296"
+      },
+      {
+        "n_unique_tasks": 344,
+        "one_sided_95_percent_upper_bound": "0.008670714689636803"
+      },
+      {
+        "n_unique_tasks": 345,
+        "one_sided_95_percent_upper_bound": "0.008645691142152053"
+      },
+      {
+        "n_unique_tasks": 346,
+        "one_sided_95_percent_upper_bound": "0.008620811613261878"
+      },
+      {
+        "n_unique_tasks": 347,
+        "one_sided_95_percent_upper_bound": "0.008596074863231343"
+      },
+      {
+        "n_unique_tasks": 348,
+        "one_sided_95_percent_upper_bound": "0.008571479666513828"
+      },
+      {
+        "n_unique_tasks": 349,
+        "one_sided_95_percent_upper_bound": "0.008547024811548628"
+      },
+      {
+        "n_unique_tasks": 350,
+        "one_sided_95_percent_upper_bound": "0.008522709100562018"
+      },
+      {
+        "n_unique_tasks": 351,
+        "one_sided_95_percent_upper_bound": "0.008498531349371697"
+      },
+      {
+        "n_unique_tasks": 352,
+        "one_sided_95_percent_upper_bound": "0.008474490387194553"
+      },
+      {
+        "n_unique_tasks": 353,
+        "one_sided_95_percent_upper_bound": "0.008450585056457682"
+      },
+      {
+        "n_unique_tasks": 354,
+        "one_sided_95_percent_upper_bound": "0.008426814212612596"
+      },
+      {
+        "n_unique_tasks": 355,
+        "one_sided_95_percent_upper_bound": "0.008403176723952556"
+      },
+      {
+        "n_unique_tasks": 356,
+        "one_sided_95_percent_upper_bound": "0.008379671471432977"
+      },
+      {
+        "n_unique_tasks": 357,
+        "one_sided_95_percent_upper_bound": "0.008356297348494831"
+      },
+      {
+        "n_unique_tasks": 358,
+        "one_sided_95_percent_upper_bound": "0.008333053260890998"
+      },
+      {
+        "n_unique_tasks": 359,
+        "one_sided_95_percent_upper_bound": "0.008309938126515517"
+      },
+      {
+        "n_unique_tasks": 360,
+        "one_sided_95_percent_upper_bound": "0.008286950875235655"
+      },
+      {
+        "n_unique_tasks": 361,
+        "one_sided_95_percent_upper_bound": "0.008264090448726768"
+      },
+      {
+        "n_unique_tasks": 362,
+        "one_sided_95_percent_upper_bound": "0.008241355800309886"
+      },
+      {
+        "n_unique_tasks": 363,
+        "one_sided_95_percent_upper_bound": "0.008218745894791962"
+      },
+      {
+        "n_unique_tasks": 364,
+        "one_sided_95_percent_upper_bound": "0.008196259708308757"
+      },
+      {
+        "n_unique_tasks": 365,
+        "one_sided_95_percent_upper_bound": "0.008173896228170287"
+      },
+      {
+        "n_unique_tasks": 366,
+        "one_sided_95_percent_upper_bound": "0.008151654452708798"
+      },
+      {
+        "n_unique_tasks": 367,
+        "one_sided_95_percent_upper_bound": "0.008129533391129213"
+      },
+      {
+        "n_unique_tasks": 368,
+        "one_sided_95_percent_upper_bound": "0.008107532063362011"
+      },
+      {
+        "n_unique_tasks": 369,
+        "one_sided_95_percent_upper_bound": "0.008085649499918486"
+      },
+      {
+        "n_unique_tasks": 370,
+        "one_sided_95_percent_upper_bound": "0.008063884741748344"
+      },
+      {
+        "n_unique_tasks": 371,
+        "one_sided_95_percent_upper_bound": "0.008042236840099595"
+      },
+      {
+        "n_unique_tasks": 372,
+        "one_sided_95_percent_upper_bound": "0.008020704856380692"
+      },
+      {
+        "n_unique_tasks": 373,
+        "one_sided_95_percent_upper_bound": "0.007999287862024886"
+      },
+      {
+        "n_unique_tasks": 374,
+        "one_sided_95_percent_upper_bound": "0.007977984938356738"
+      },
+      {
+        "n_unique_tasks": 375,
+        "one_sided_95_percent_upper_bound": "0.007956795176460766"
+      },
+      {
+        "n_unique_tasks": 376,
+        "one_sided_95_percent_upper_bound": "0.007935717677052180"
+      },
+      {
+        "n_unique_tasks": 377,
+        "one_sided_95_percent_upper_bound": "0.007914751550349660"
+      },
+      {
+        "n_unique_tasks": 378,
+        "one_sided_95_percent_upper_bound": "0.007893895915950150"
+      },
+      {
+        "n_unique_tasks": 379,
+        "one_sided_95_percent_upper_bound": "0.007873149902705627"
+      },
+      {
+        "n_unique_tasks": 380,
+        "one_sided_95_percent_upper_bound": "0.007852512648601802"
+      },
+      {
+        "n_unique_tasks": 381,
+        "one_sided_95_percent_upper_bound": "0.007831983300638733"
+      },
+      {
+        "n_unique_tasks": 382,
+        "one_sided_95_percent_upper_bound": "0.007811561014713296"
+      },
+      {
+        "n_unique_tasks": 383,
+        "one_sided_95_percent_upper_bound": "0.007791244955503499"
+      },
+      {
+        "n_unique_tasks": 384,
+        "one_sided_95_percent_upper_bound": "0.007771034296354587"
+      },
+      {
+        "n_unique_tasks": 385,
+        "one_sided_95_percent_upper_bound": "0.007750928219166925"
+      },
+      {
+        "n_unique_tasks": 386,
+        "one_sided_95_percent_upper_bound": "0.007730925914285609"
+      },
+      {
+        "n_unique_tasks": 387,
+        "one_sided_95_percent_upper_bound": "0.007711026580391787"
+      },
+      {
+        "n_unique_tasks": 388,
+        "one_sided_95_percent_upper_bound": "0.007691229424395651"
+      },
+      {
+        "n_unique_tasks": 389,
+        "one_sided_95_percent_upper_bound": "0.007671533661331072"
+      },
+      {
+        "n_unique_tasks": 390,
+        "one_sided_95_percent_upper_bound": "0.007651938514251857"
+      },
+      {
+        "n_unique_tasks": 391,
+        "one_sided_95_percent_upper_bound": "0.007632443214129581"
+      },
+      {
+        "n_unique_tasks": 392,
+        "one_sided_95_percent_upper_bound": "0.007613046999752987"
+      },
+      {
+        "n_unique_tasks": 393,
+        "one_sided_95_percent_upper_bound": "0.007593749117628907"
+      },
+      {
+        "n_unique_tasks": 394,
+        "one_sided_95_percent_upper_bound": "0.007574548821884696"
+      },
+      {
+        "n_unique_tasks": 395,
+        "one_sided_95_percent_upper_bound": "0.007555445374172132"
+      },
+      {
+        "n_unique_tasks": 396,
+        "one_sided_95_percent_upper_bound": "0.007536438043572775"
+      },
+      {
+        "n_unique_tasks": 397,
+        "one_sided_95_percent_upper_bound": "0.007517526106504743"
+      },
+      {
+        "n_unique_tasks": 398,
+        "one_sided_95_percent_upper_bound": "0.007498708846630898"
+      },
+      {
+        "n_unique_tasks": 399,
+        "one_sided_95_percent_upper_bound": "0.007479985554768398"
+      },
+      {
+        "n_unique_tasks": 400,
+        "one_sided_95_percent_upper_bound": "0.007461355528799603"
+      },
+      {
+        "n_unique_tasks": 401,
+        "one_sided_95_percent_upper_bound": "0.007442818073584317"
+      },
+      {
+        "n_unique_tasks": 402,
+        "one_sided_95_percent_upper_bound": "0.007424372500873322"
+      },
+      {
+        "n_unique_tasks": 403,
+        "one_sided_95_percent_upper_bound": "0.007406018129223202"
+      },
+      {
+        "n_unique_tasks": 404,
+        "one_sided_95_percent_upper_bound": "0.007387754283912431"
+      },
+      {
+        "n_unique_tasks": 405,
+        "one_sided_95_percent_upper_bound": "0.007369580296858689"
+      },
+      {
+        "n_unique_tasks": 406,
+        "one_sided_95_percent_upper_bound": "0.007351495506537404"
+      },
+      {
+        "n_unique_tasks": 407,
+        "one_sided_95_percent_upper_bound": "0.007333499257901487"
+      },
+      {
+        "n_unique_tasks": 408,
+        "one_sided_95_percent_upper_bound": "0.007315590902302245"
+      },
+      {
+        "n_unique_tasks": 409,
+        "one_sided_95_percent_upper_bound": "0.007297769797411445"
+      },
+      {
+        "n_unique_tasks": 410,
+        "one_sided_95_percent_upper_bound": "0.007280035307144522"
+      },
+      {
+        "n_unique_tasks": 411,
+        "one_sided_95_percent_upper_bound": "0.007262386801584898"
+      },
+      {
+        "n_unique_tasks": 412,
+        "one_sided_95_percent_upper_bound": "0.007244823656909400"
+      },
+      {
+        "n_unique_tasks": 413,
+        "one_sided_95_percent_upper_bound": "0.007227345255314758"
+      },
+      {
+        "n_unique_tasks": 414,
+        "one_sided_95_percent_upper_bound": "0.007209950984945169"
+      },
+      {
+        "n_unique_tasks": 415,
+        "one_sided_95_percent_upper_bound": "0.007192640239820897"
+      },
+      {
+        "n_unique_tasks": 416,
+        "one_sided_95_percent_upper_bound": "0.007175412419767902"
+      },
+      {
+        "n_unique_tasks": 417,
+        "one_sided_95_percent_upper_bound": "0.007158266930348479"
+      },
+      {
+        "n_unique_tasks": 418,
+        "one_sided_95_percent_upper_bound": "0.007141203182792890"
+      },
+      {
+        "n_unique_tasks": 419,
+        "one_sided_95_percent_upper_bound": "0.007124220593931968"
+      },
+      {
+        "n_unique_tasks": 420,
+        "one_sided_95_percent_upper_bound": "0.007107318586130683"
+      },
+      {
+        "n_unique_tasks": 421,
+        "one_sided_95_percent_upper_bound": "0.007090496587222650"
+      },
+      {
+        "n_unique_tasks": 422,
+        "one_sided_95_percent_upper_bound": "0.007073754030445565"
+      },
+      {
+        "n_unique_tasks": 423,
+        "one_sided_95_percent_upper_bound": "0.007057090354377556"
+      },
+      {
+        "n_unique_tasks": 424,
+        "one_sided_95_percent_upper_bound": "0.007040505002874426"
+      },
+      {
+        "n_unique_tasks": 425,
+        "one_sided_95_percent_upper_bound": "0.007023997425007789"
+      },
+      {
+        "n_unique_tasks": 426,
+        "one_sided_95_percent_upper_bound": "0.007007567075004057"
+      },
+      {
+        "n_unique_tasks": 427,
+        "one_sided_95_percent_upper_bound": "0.006991213412184304"
+      },
+      {
+        "n_unique_tasks": 428,
+        "one_sided_95_percent_upper_bound": "0.006974935900904947"
+      },
+      {
+        "n_unique_tasks": 429,
+        "one_sided_95_percent_upper_bound": "0.006958734010499273"
+      },
+      {
+        "n_unique_tasks": 430,
+        "one_sided_95_percent_upper_bound": "0.006942607215219765"
+      },
+      {
+        "n_unique_tasks": 431,
+        "one_sided_95_percent_upper_bound": "0.006926554994181237"
+      },
+      {
+        "n_unique_tasks": 432,
+        "one_sided_95_percent_upper_bound": "0.006910576831304753"
+      },
+      {
+        "n_unique_tasks": 433,
+        "one_sided_95_percent_upper_bound": "0.006894672215262318"
+      },
+      {
+        "n_unique_tasks": 434,
+        "one_sided_95_percent_upper_bound": "0.006878840639422334"
+      },
+      {
+        "n_unique_tasks": 435,
+        "one_sided_95_percent_upper_bound": "0.006863081601795806"
+      },
+      {
+        "n_unique_tasks": 436,
+        "one_sided_95_percent_upper_bound": "0.006847394604983284"
+      },
+      {
+        "n_unique_tasks": 437,
+        "one_sided_95_percent_upper_bound": "0.006831779156122532"
+      },
+      {
+        "n_unique_tasks": 438,
+        "one_sided_95_percent_upper_bound": "0.006816234766836909"
+      },
+      {
+        "n_unique_tasks": 439,
+        "one_sided_95_percent_upper_bound": "0.006800760953184461"
+      },
+      {
+        "n_unique_tasks": 440,
+        "one_sided_95_percent_upper_bound": "0.006785357235607690"
+      },
+      {
+        "n_unique_tasks": 441,
+        "one_sided_95_percent_upper_bound": "0.006770023138884020"
+      },
+      {
+        "n_unique_tasks": 442,
+        "one_sided_95_percent_upper_bound": "0.006754758192076926"
+      },
+      {
+        "n_unique_tasks": 443,
+        "one_sided_95_percent_upper_bound": "0.006739561928487717"
+      },
+      {
+        "n_unique_tasks": 444,
+        "one_sided_95_percent_upper_bound": "0.006724433885607983"
+      },
+      {
+        "n_unique_tasks": 445,
+        "one_sided_95_percent_upper_bound": "0.006709373605072662"
+      },
+      {
+        "n_unique_tasks": 446,
+        "one_sided_95_percent_upper_bound": "0.006694380632613755"
+      },
+      {
+        "n_unique_tasks": 447,
+        "one_sided_95_percent_upper_bound": "0.006679454518014649"
+      },
+      {
+        "n_unique_tasks": 448,
+        "one_sided_95_percent_upper_bound": "0.006664594815065049"
+      },
+      {
+        "n_unique_tasks": 449,
+        "one_sided_95_percent_upper_bound": "0.006649801081516519"
+      },
+      {
+        "n_unique_tasks": 450,
+        "one_sided_95_percent_upper_bound": "0.006635072879038605"
+      },
+      {
+        "n_unique_tasks": 451,
+        "one_sided_95_percent_upper_bound": "0.006620409773175542"
+      },
+      {
+        "n_unique_tasks": 452,
+        "one_sided_95_percent_upper_bound": "0.006605811333303540"
+      },
+      {
+        "n_unique_tasks": 453,
+        "one_sided_95_percent_upper_bound": "0.006591277132588621"
+      },
+      {
+        "n_unique_tasks": 454,
+        "one_sided_95_percent_upper_bound": "0.006576806747945029"
+      },
+      {
+        "n_unique_tasks": 455,
+        "one_sided_95_percent_upper_bound": "0.006562399759994167"
+      },
+      {
+        "n_unique_tasks": 456,
+        "one_sided_95_percent_upper_bound": "0.006548055753024090"
+      },
+      {
+        "n_unique_tasks": 457,
+        "one_sided_95_percent_upper_bound": "0.006533774314949515"
+      },
+      {
+        "n_unique_tasks": 458,
+        "one_sided_95_percent_upper_bound": "0.006519555037272362"
+      },
+      {
+        "n_unique_tasks": 459,
+        "one_sided_95_percent_upper_bound": "0.006505397515042803"
+      },
+      {
+        "n_unique_tasks": 460,
+        "one_sided_95_percent_upper_bound": "0.006491301346820822"
+      },
+      {
+        "n_unique_tasks": 461,
+        "one_sided_95_percent_upper_bound": "0.006477266134638272"
+      },
+      {
+        "n_unique_tasks": 462,
+        "one_sided_95_percent_upper_bound": "0.006463291483961421"
+      },
+      {
+        "n_unique_tasks": 463,
+        "one_sided_95_percent_upper_bound": "0.006449377003653986"
+      },
+      {
+        "n_unique_tasks": 464,
+        "one_sided_95_percent_upper_bound": "0.006435522305940637"
+      },
+      {
+        "n_unique_tasks": 465,
+        "one_sided_95_percent_upper_bound": "0.006421727006370980"
+      },
+      {
+        "n_unique_tasks": 466,
+        "one_sided_95_percent_upper_bound": "0.006407990723783993"
+      },
+      {
+        "n_unique_tasks": 467,
+        "one_sided_95_percent_upper_bound": "0.006394313080272923"
+      },
+      {
+        "n_unique_tasks": 468,
+        "one_sided_95_percent_upper_bound": "0.006380693701150628"
+      },
+      {
+        "n_unique_tasks": 469,
+        "one_sided_95_percent_upper_bound": "0.006367132214915364"
+      },
+      {
+        "n_unique_tasks": 470,
+        "one_sided_95_percent_upper_bound": "0.006353628253217006"
+      },
+      {
+        "n_unique_tasks": 471,
+        "one_sided_95_percent_upper_bound": "0.006340181450823700"
+      },
+      {
+        "n_unique_tasks": 472,
+        "one_sided_95_percent_upper_bound": "0.006326791445588931"
+      },
+      {
+        "n_unique_tasks": 473,
+        "one_sided_95_percent_upper_bound": "0.006313457878419016"
+      },
+      {
+        "n_unique_tasks": 474,
+        "one_sided_95_percent_upper_bound": "0.006300180393241003"
+      },
+      {
+        "n_unique_tasks": 475,
+        "one_sided_95_percent_upper_bound": "0.006286958636970970"
+      },
+      {
+        "n_unique_tasks": 476,
+        "one_sided_95_percent_upper_bound": "0.006273792259482734"
+      },
+      {
+        "n_unique_tasks": 477,
+        "one_sided_95_percent_upper_bound": "0.006260680913576939"
+      },
+      {
+        "n_unique_tasks": 478,
+        "one_sided_95_percent_upper_bound": "0.006247624254950540"
+      },
+      {
+        "n_unique_tasks": 479,
+        "one_sided_95_percent_upper_bound": "0.006234621942166664"
+      },
+      {
+        "n_unique_tasks": 480,
+        "one_sided_95_percent_upper_bound": "0.006221673636624846"
+      },
+      {
+        "n_unique_tasks": 481,
+        "one_sided_95_percent_upper_bound": "0.006208779002531641"
+      },
+      {
+        "n_unique_tasks": 482,
+        "one_sided_95_percent_upper_bound": "0.006195937706871591"
+      },
+      {
+        "n_unique_tasks": 483,
+        "one_sided_95_percent_upper_bound": "0.006183149419378561"
+      },
+      {
+        "n_unique_tasks": 484,
+        "one_sided_95_percent_upper_bound": "0.006170413812507423"
+      },
+      {
+        "n_unique_tasks": 485,
+        "one_sided_95_percent_upper_bound": "0.006157730561406092"
+      },
+      {
+        "n_unique_tasks": 486,
+        "one_sided_95_percent_upper_bound": "0.006145099343887903"
+      },
+      {
+        "n_unique_tasks": 487,
+        "one_sided_95_percent_upper_bound": "0.006132519840404335"
+      },
+      {
+        "n_unique_tasks": 488,
+        "one_sided_95_percent_upper_bound": "0.006119991734018059"
+      },
+      {
+        "n_unique_tasks": 489,
+        "one_sided_95_percent_upper_bound": "0.006107514710376324"
+      },
+      {
+        "n_unique_tasks": 490,
+        "one_sided_95_percent_upper_bound": "0.006095088457684661"
+      },
+      {
+        "n_unique_tasks": 491,
+        "one_sided_95_percent_upper_bound": "0.006082712666680917"
+      },
+      {
+        "n_unique_tasks": 492,
+        "one_sided_95_percent_upper_bound": "0.006070387030609591"
+      },
+      {
+        "n_unique_tasks": 493,
+        "one_sided_95_percent_upper_bound": "0.006058111245196495"
+      },
+      {
+        "n_unique_tasks": 494,
+        "one_sided_95_percent_upper_bound": "0.006045885008623714"
+      },
+      {
+        "n_unique_tasks": 495,
+        "one_sided_95_percent_upper_bound": "0.006033708021504870"
+      },
+      {
+        "n_unique_tasks": 496,
+        "one_sided_95_percent_upper_bound": "0.006021579986860686"
+      },
+      {
+        "n_unique_tasks": 497,
+        "one_sided_95_percent_upper_bound": "0.006009500610094839"
+      },
+      {
+        "n_unique_tasks": 498,
+        "one_sided_95_percent_upper_bound": "0.005997469598970114"
+      },
+      {
+        "n_unique_tasks": 499,
+        "one_sided_95_percent_upper_bound": "0.005985486663584830"
+      },
+      {
+        "n_unique_tasks": 500,
+        "one_sided_95_percent_upper_bound": "0.005973551516349560"
+      }
+    ],
+    "interpretation": "Binomial-model sensitivity only; current operational convenience cohorts do not satisfy or establish the population-sampling assumptions.",
+    "numeric_contract": "Decimal natural-log/exponential at precision 80; canonical 18-place half-even display; validators compare by tolerance or exact rational threshold inequality, never binary-float identity",
+    "threshold_crossings": [
+      {
+        "first_n_at_or_below": 29,
+        "threshold": "0.10",
+        "upper_bound_at_n": "0.098144627677295739",
+        "upper_bound_at_n_minus_one": "0.101465735572724711"
+      },
+      {
+        "first_n_at_or_below": 59,
+        "threshold": "0.05",
+        "upper_bound_at_n": "0.049507609888226947",
+        "upper_bound_at_n_minus_one": "0.050339338330420122"
+      },
+      {
+        "first_n_at_or_below": 149,
+        "threshold": "0.02",
+        "upper_bound_at_n": "0.019904816220685084",
+        "upper_bound_at_n_minus_one": "0.020037951689104168"
+      },
+      {
+        "first_n_at_or_below": 299,
+        "threshold": "0.01",
+        "upper_bound_at_n": "0.009969146792899271",
+        "upper_bound_at_n_minus_one": "0.010002432437677695"
+      }
+    ]
+  },
+  "claim_boundary": "Complete missingness and arithmetic sensitivity grids for design only. Rate comparisons are exact operational fractions, binomial values require iid task endpoints with one common probability, and expected-count thresholds are not guarantees, power, estimates, independent-label counts, or spend authority.",
+  "diagnostic_builder_boundary": {
+    "legacy_build_all_invoked": false,
+    "legacy_build_all_tripwire_installed": true,
+    "legacy_preflight_invoked": false,
+    "legacy_preflight_tripwire_installed": true,
+    "mutable_seal_registry_read": false,
+    "selected_rows_loaded_from_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+    "source_boundary_derivation": "raw_pinned_commit_headers"
+  },
+  "immutable_source_boundary": {
+    "commits": {
+      "activation": {
+        "commit": "63f5786b9b5c60d2bea90f2077208cfb745c31a2",
+        "parents": [
+          "cf809ac0e06f37127553e99a2ab9b0705f8e2fae"
+        ],
+        "tree": "351bf81beaf18686fb1dd89770b8f428d61962c4"
+      },
+      "authorization": {
+        "commit": "cf809ac0e06f37127553e99a2ab9b0705f8e2fae",
+        "parents": [
+          "b597b763f2eb52b2f4f2d36e7daaa31654be076b"
+        ],
+        "tree": "4e9b510907aef19219ba9ea217ca3cd6f618836b"
+      },
+      "predecessor": {
+        "commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+        "parents": [
+          "fb87af7eb15b5235a722a7bb3fd3a48962019188",
+          "56fb78f5f8afcd8709fde1170e8422072626f367"
+        ],
+        "tree": "776f60e7c75616767ce6bb1e45a3eb7279f37a97"
+      },
+      "selection": {
+        "commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "parents": [
+          "63f5786b9b5c60d2bea90f2077208cfb745c31a2"
+        ],
+        "tree": "957876c597b687babe4e9e21c1567d420e0f0fa5"
+      }
+    },
+    "derivation": "raw_git_commit_headers",
+    "history_overlay_policy": "replacement refs disabled and rejected; nonempty graft and shallow history files rejected; inherited Git configuration disabled",
+    "source_artifact_policy": "named regular nonsymlink Git blobs; HEAD and worktree bytes must equal the exact merged predecessor blob",
+    "source_blob_count": 163
+  },
+  "missingness_branches": [
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.013288123167155425",
+        "denominator": 10912,
+        "numerator": 145,
+        "table": [
+          [
+            0,
+            37
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 0,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 0
+      },
+      "fresh_rate_strictly_below_reused_rate": true,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.053588168838036633",
+        "denominator": 332816,
+        "numerator": 17835,
+        "table": [
+          [
+            1,
+            36
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 1,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 1
+      },
+      "fresh_rate_strictly_below_reused_rate": true,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.126128251045622807",
+        "denominator": 665632,
+        "numerator": 83955,
+        "table": [
+          [
+            2,
+            35
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 2,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 2
+      },
+      "fresh_rate_strictly_below_reused_rate": true,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.226536839412055646",
+        "denominator": 9818072,
+        "numerator": 2224155,
+        "table": [
+          [
+            3,
+            34
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 3,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 3
+      },
+      "fresh_rate_strictly_below_reused_rate": true,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.344257253358907940",
+        "denominator": 1785104,
+        "numerator": 614535,
+        "table": [
+          [
+            4,
+            33
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 4,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 4
+      },
+      "fresh_rate_strictly_below_reused_rate": true,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.466934316314048752",
+        "denominator": 4239622,
+        "numerator": 1979625,
+        "table": [
+          [
+            5,
+            32
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 5,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 5
+      },
+      "fresh_rate_strictly_below_reused_rate": true,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.583769614366563812",
+        "denominator": 273524,
+        "numerator": 159675,
+        "table": [
+          [
+            6,
+            31
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 6,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 6
+      },
+      "fresh_rate_strictly_below_reused_rate": true,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.687252306927362864",
+        "denominator": 68381,
+        "numerator": 46995,
+        "table": [
+          [
+            7,
+            30
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 7,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 7
+      },
+      "fresh_rate_strictly_below_reused_rate": false,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.773487884061362074",
+        "denominator": 547048,
+        "numerator": 423135,
+        "table": [
+          [
+            8,
+            29
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 8,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 8
+      },
+      "fresh_rate_strictly_below_reused_rate": false,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.841644723850707362",
+        "denominator": 43490316,
+        "numerator": 36603395,
+        "table": [
+          [
+            9,
+            28
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 9,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 9
+      },
+      "fresh_rate_strictly_below_reused_rate": false,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.893024495384213810",
+        "denominator": 28993544,
+        "numerator": 25891945,
+        "table": [
+          [
+            10,
+            27
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 10,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 10
+      },
+      "fresh_rate_strictly_below_reused_rate": false,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.930116843817493866",
+        "denominator": 79732246,
+        "numerator": 74160305,
+        "table": [
+          [
+            11,
+            26
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 11,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 11
+      },
+      "fresh_rate_strictly_below_reused_rate": false,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.955834205397901371",
+        "denominator": 39866123,
+        "numerator": 38105404,
+        "table": [
+          [
+            12,
+            25
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 12,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 12
+      },
+      "fresh_rate_strictly_below_reused_rate": false,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    },
+    {
+      "exploratory_fisher": {
+        "alternative": "fresh_less_than_reused",
+        "decimal_display": "0.972992570659554730",
+        "denominator": 79732246,
+        "numerator": 77578883,
+        "table": [
+          [
+            13,
+            24
+          ],
+          [
+            5,
+            24
+          ]
+        ]
+      },
+      "fresh_operational_positive_count": 13,
+      "fresh_rate": {
+        "denominator": 37,
+        "numerator": 13
+      },
+      "fresh_rate_strictly_below_reused_rate": false,
+      "reused_reference_rate": {
+        "denominator": 29,
+        "numerator": 5
+      }
+    }
+  ],
+  "missingness_rate_comparison_contract": {
+    "exact_integer_condition": "29 * x < 185",
+    "interpretation": "Whether x/37 is strictly below 5/29 for each complete missingness assignment; this is not a concentration or population claim.",
+    "registered_x_domain": {
+      "maximum": 13,
+      "minimum": 0
+    }
+  },
+  "numeric_contract": {
+    "binomial_display_absolute_tolerance": "0.0000000000000000005",
+    "binomial_model_sensitivity_authority": "Decimal natural-log/exponential at precision 80 plus exact threshold crossing inequality",
+    "fisher_authority": "exact_integer_numerator_and_denominator",
+    "fisher_decimal_display": "18-place half-even Decimal at precision 80",
+    "libm_bit_exact_comparison_forbidden": true
+  },
+  "schema_version": "telos.iter240.decision_curves.v2",
+  "selection_authority": {
+    "frozen_artifacts": {
+      "selection_census": {
+        "byte_count": 6087,
+        "git_blob_oid": "d4dfb76e9c0855b672daa796d9d4ca99c275ec7c",
+        "git_mode": "100644",
+        "path": "experiments/iter240_ground_truth_admission_design/proof/selection_census.json",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "2a781111199da79a5132469d4ffe36ccba94ceae4adc762675bac578873fb187"
+      },
+      "selection_receipt": {
+        "byte_count": 1696,
+        "git_blob_oid": "43fbdb100b697709e58a489051dabc8423ca552f",
+        "git_mode": "100644",
+        "path": "experiments/iter240_ground_truth_admission_design/proof/selection_freeze_receipt.json",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "7b797eed51e15a6d5a355e18c9cd0d08176b7508f11082f6c3c65cd65c29eec9"
+      },
+      "selector_builder": {
+        "byte_count": 74333,
+        "git_blob_oid": "55dfe290bb23c3beaeb5cbe1d32024af0d6ec13e",
+        "git_mode": "100644",
+        "path": "scripts/build_iter240_ground_truth_admission.py",
+        "reference_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+        "sha256_file_bytes": "dfe28416fb8080b56567a76dc91d399d2a4ffa23294b66180958009d35e8cbc7"
+      }
+    },
+    "predecessor_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+    "selection_commit": "46468639088509c65ab06af5d839b7d3a52722b5",
+    "selection_parent": "63f5786b9b5c60d2bea90f2077208cfb745c31a2",
+    "selection_tree": "957876c597b687babe4e9e21c1567d420e0f0fa5"
+  },
+  "supersedes": {
+    "authority": "post_freeze_v2_only",
+    "reason": "The unversioned v1 diagnostic layer did not pin the temporal selection commit, encoded unmeasured arms as false, and lacked independent field reconstruction. Only these post-freeze v2 artifacts are diagnostic authority.",
+    "superseded_paths": [
+      "experiments/iter240_ground_truth_admission_design/proof/availability_taxonomy.json",
+      "experiments/iter240_ground_truth_admission_design/proof/decision_curves.json",
+      "experiments/iter240_ground_truth_admission_design/proof/ground_truth_frame.json",
+      "experiments/iter240_ground_truth_admission_design/proof/materialization_receipt.json",
+      "experiments/iter240_ground_truth_admission_design/proof/missingness_manifest.json"
+    ]
+  }
+}

@@ -399,6 +399,44 @@
         "This record closes only the iter239 additive authorization; exact sealed-head CI, a two-parent merge, merged-master CI, and a final read-only effective-rule observation remain separate acceptance evidence.",
         "The sealed repository evidence does not prevent the repository owner from later changing the mutable GitHub ruleset through a separate settings operation."
       ]
+    },
+    {
+      "seal_id": "iter240-ground-truth-admission-design-authorization",
+      "record_type": "prospective_successor_authorization",
+      "predecessor_seal_id": "iter239-completed-evidence-seal",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "authorized_path": "experiments/iter240_ground_truth_admission_design",
+      "must_be_absent_at_reference": true,
+      "policy": "additions_only_until_successor_seal",
+      "closure_requirement": "exact_tree_successor_path_snapshot",
+      "limitations": [
+        "This authorizes additions only within the absent iter240 design path and synchronized control-plane validation; it does not authorize generation, target execution, judging, reviewer recruitment, provider or model calls, containers, GPUs, spending, publication, release, or a scientific claim.",
+        "Authorization is not completion: a later exact-tree successor snapshot, exact-head CI, two-parent merge, and merged-master verification remain separate requirements.",
+        "Retrospective operational-label recovery and protocol design do not establish independent semantic ground truth, prevalence, detector efficacy, transfer, or a frontier benchmark result."
+      ]
+    },
+    {
+      "seal_id": "iter240-completed-evidence-seal",
+      "record_type": "successor_path_snapshot",
+      "predecessor_seal_id": "iter240-ground-truth-admission-design-authorization",
+      "reference_commit": "a61a005cc7cdc92d72d79c017a650237c3e57faa",
+      "protected_sets": [
+        {
+          "set_id": "iter240-completed-evidence-tree",
+          "selector": {
+            "kind": "tree",
+            "path": "experiments/iter240_ground_truth_admission_design"
+          },
+          "policy": "exact_tree",
+          "blob_count": 27,
+          "manifest_sha256": "ca47b9c839ba33221ba31e4a8cb89f27ac6feeb6843eaf0887db9110524abd4c"
+        }
+      ],
+      "limitations": [
+        "This snapshot freezes the exact twenty-seven regular Git blobs in the iter240 component at the named reference commit; byte identity does not establish authorship, chronology, semantic truth, scientific correctness, independence, or external timestamp authority.",
+        "This record closes only the iter240 additive authorization; exact sealed-head CI, a two-parent merge, merged-master CI, and a final read-only effective-rule observation remain separate acceptance evidence.",
+        "The retained design-preflight and missingness evidence do not establish independent semantic ground truth, prevalence, detector efficacy, transfer, or a scientific claim; the k=0, N=37, u=13 quantities are unchanged."
+      ]
     }
   ]
 }

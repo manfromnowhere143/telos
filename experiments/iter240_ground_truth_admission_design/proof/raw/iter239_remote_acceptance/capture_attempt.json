@@ -1,0 +1,84 @@
+{
+  "api_version": "2026-03-10",
+  "armed_at": "2026-07-19T21:06:15Z",
+  "instruments": [
+    {
+      "byte_count": 35753,
+      "path": "scripts/capture_iter239_remote_acceptance.py",
+      "sha256": "4035c9a3a2424831430ef2c3cb5efc26e6205531ec466d3bb850b3eb13c46e51"
+    },
+    {
+      "byte_count": 48946,
+      "path": "scripts/validate_iter239_remote_acceptance.py",
+      "sha256": "0ec798e5e71a2c1974579187615f711d8e8a31253ad7a13c98ef1db63b50ef43"
+    },
+    {
+      "byte_count": 105356,
+      "path": "scripts/validate_iter239_repository_governance.py",
+      "sha256": "4d6a613a2d406c784f2c35175f707498f9cbcc773cc500ecf5cfd273c315c5b9"
+    },
+    {
+      "byte_count": 64173,
+      "path": "scripts/validate_seal_registry.py",
+      "sha256": "c8b393f1adbb1960cead14a9da198baae02d62c7ec65413b58fd0dec8cc5ed4d"
+    }
+  ],
+  "planned_request_counts": {
+    "DELETE": 0,
+    "GET": 9,
+    "PATCH": 0,
+    "POST": 0,
+    "PUT": 0
+  },
+  "repository": "manfromnowhere143/telos",
+  "request_plan": [
+    {
+      "method": "GET",
+      "name": "pull_request_87",
+      "request_path": "/repos/manfromnowhere143/telos/pulls/87"
+    },
+    {
+      "method": "GET",
+      "name": "sealed_push_run",
+      "request_path": "/repos/manfromnowhere143/telos/actions/runs/29701167247"
+    },
+    {
+      "method": "GET",
+      "name": "sealed_pr_run",
+      "request_path": "/repos/manfromnowhere143/telos/actions/runs/29701168051"
+    },
+    {
+      "method": "GET",
+      "name": "sealed_tip_check_runs",
+      "request_path": "/repos/manfromnowhere143/telos/commits/56fb78f5f8afcd8709fde1170e8422072626f367/check-runs?filter=all&per_page=100&page=1"
+    },
+    {
+      "method": "GET",
+      "name": "merged_master_run",
+      "request_path": "/repos/manfromnowhere143/telos/actions/runs/29701305166"
+    },
+    {
+      "method": "GET",
+      "name": "merged_master_check_runs",
+      "request_path": "/repos/manfromnowhere143/telos/commits/b597b763f2eb52b2f4f2d36e7daaa31654be076b/check-runs?filter=all&per_page=100&page=1"
+    },
+    {
+      "method": "GET",
+      "name": "master_branch",
+      "request_path": "/repos/manfromnowhere143/telos/branches/master"
+    },
+    {
+      "method": "GET",
+      "name": "ruleset",
+      "request_path": "/repos/manfromnowhere143/telos/rulesets/19177100"
+    },
+    {
+      "method": "GET",
+      "name": "effective_rules",
+      "request_path": "/repos/manfromnowhere143/telos/rules/branches/master?per_page=100&page=1"
+    }
+  ],
+  "request_plan_sha256": "48031ff009f5eab02980951d0fde6d0f538b4097d721fef22af89703d789bb63",
+  "schema_version": "telos.iter239.remote_acceptance.attempt.v1",
+  "state": "armed_before_first_request"
+}
