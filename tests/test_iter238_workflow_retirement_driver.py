@@ -114,9 +114,11 @@ def registry_document() -> dict:
 def test_registry_must_equal_its_head_blob_and_iter204_is_first() -> None:
     driver = load_driver()
     registry, raw, head = driver.load_committed_registry(ROOT)
-    assert driver.sha256(raw) == (
-        "f9b41f0d0b79a9056982d4e556e6ccf95f0f69e15643eba8af8d39bbfa6e6f55"
+    assert raw == driver.run_git(
+        ROOT,
+        ["show", f"{head}:{driver.REGISTRY_RELATIVE.as_posix()}"],
     )
+    assert registry["repository"] == driver.REPOSITORY
     assert len(head) == 40
     ordered = driver.historical_entries(registry)
     assert len(ordered) == 29

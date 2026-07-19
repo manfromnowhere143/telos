@@ -135,7 +135,7 @@ def test_detector_guard_pins_judge_runners_and_execution_shells() -> None:
     } <= pinned
 
 
-def test_detector_guard_tracks_current_iter207_publication_boundary() -> None:
+def test_detector_guard_demotes_stale_mission_and_results_batons() -> None:
     module = load_script("validate_detector_methodology_correction.py")
     requirements = module.PUBLIC_REQUIREMENTS
 
@@ -143,14 +143,24 @@ def test_detector_guard_tracks_current_iter207_publication_boundary() -> None:
     mission_requirements = requirements[ROOT / "docs/MISSION_LOOP.md"]
     results_requirements = requirements[ROOT / "results/README.md"]
     next_phase_requirements = requirements[ROOT / "docs/NEXT_PHASE.md"]
+    roadmap_requirements = requirements[ROOT / "docs/TELOS-ROADMAP-2026.md"]
+    report_requirements = requirements[ROOT / "docs/REPORT.md"]
+    completion_requirements = requirements[
+        ROOT / "docs/COMPLETION_VERIFICATION_REPORT.md"
+    ]
+    literature_requirements = requirements[ROOT / "docs/LITERATURE_ALIGNMENT_2026.md"]
 
     assert "primary-branch CI run `29451691560`" not in root_requirements
     assert "primary-branch CI run `29451691560`" not in mission_requirements
+    assert "historical compatibility pointer" in " ".join(mission_requirements)
+    assert "mission/current.json" in mission_requirements
+    assert "not a results authority" in " ".join(results_requirements)
+    assert "mission/current.json" in results_requirements
+    assert ROOT / "docs/MISSION_LOOP.md" not in module.CURRENT_SURFACE_SLICES
     assert (
-        "iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
-        in results_requirements
+        "SUPERSEDED HISTORICAL PLAN — NOT CURRENT AUTHORITY"
+        in next_phase_requirements
     )
-    assert "active gate is iter203" not in results_requirements
     assert (
         "iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md"
         in next_phase_requirements
@@ -159,6 +169,16 @@ def test_detector_guard_tracks_current_iter207_publication_boundary() -> None:
         next_phase_requirements
     )
     assert "iter203_iter202_safety_recovery/HYPOTHESIS.md" not in next_phase_requirements
+    assert "HISTORICAL ROADMAP SNAPSHOT — NOT CURRENT AUTHORITY" in (
+        roadmap_requirements
+    )
+    for demoted_requirements in (
+        roadmap_requirements,
+        report_requirements,
+        completion_requirements,
+        literature_requirements,
+    ):
+        assert "mission/current.json" in demoted_requirements
 
 
 def test_detector_guard_rejects_a_pinned_implementation_mutation(

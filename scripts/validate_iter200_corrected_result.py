@@ -279,30 +279,23 @@ REQUIRED_PUBLIC_TEXT = {
     EXP / "RESULT.md": ["`1/24`", "`7/24`", "`1/18`", "historical `1/15`"],
     ROOT / "CONTINUITY.md": ["`1/24`", "`7/24`", "`1/18`"],
     ROOT / "HANDOFF.md": ["`1/24`", "`7/24`", "`1/18`"],
-    ROOT / "docs/MISSION_LOOP.md": ["`1/24`", "`7/24`", "`1/18`"],
     ROOT / "mission/loop.json": ["1/24", "7/24", "1/18"],
     # Iter200's sealed denominator-backfill record remains N=24, k=1, u=6.
     # Mutable current surfaces must carry iter235's additive witness-recovery
     # successor instead of presenting that predecessor as the current count.
     ROOT / "README.md": ["`2/24`", "`3/24`", "`2/23`"],
-    ROOT / "paper/README.md": ["`2/24`", "`3/24`", "`2/23`"],
     ROOT / "paper/telos.tex": ["2/24", "3/24", "2/23"],
 }
 
 STANDING_PUBLIC_SURFACES = {
     ROOT / "README.md": (None, "# Historical record"),
     ROOT / "CONTINUITY.md": (None, "## Standing correction (iter192)"),
-    ROOT / "docs/MISSION_LOOP.md": (
-        None,
-        "- Historical boundary ledger through iter190",
-    ),
     ROOT / "HANDOFF.md": (
         ("## Current Gate\n", "## Current Gates\n"),
         ("## Verification Before Action\n", "## Verification Before Publication\n"),
     ),
     ROOT / "paper/README.md": (None, None),
     ROOT / "paper/telos.tex": (None, None),
-    ROOT / "results/README.md": (None, None),
 }
 STANDING_MISSION_FIELDS = (
     "claim_boundary",

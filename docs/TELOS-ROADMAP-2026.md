@@ -1,5 +1,11 @@
 # TELOS 2026 roadmap
 
+> **HISTORICAL ROADMAP SNAPSHOT — NOT CURRENT AUTHORITY.** This design record
+> retains the TCP-1 sequence as it stood at the iter214 boundary. Recover from
+> [`../mission/current.json`](../mission/current.json) and the dated handoff it
+> names before choosing any action. No “active” or “next” wording below
+> supersedes that pointer.
+
 ## North star
 
 TELOS should answer one question:

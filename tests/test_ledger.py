@@ -144,7 +144,7 @@ def test_active_gate_binding_fails_closed(failure: str) -> None:
         select_active_learning_record(rows, gate)
 
 
-def test_committed_active_learning_record_is_iter207() -> None:
+def test_committed_historical_pending_record_at_freeze_is_iter207() -> None:
     contract = json.loads((ROOT / "mission/loop.json").read_text(encoding="utf-8"))
     records = [
         load_learning_record(path, root=ROOT)
@@ -157,7 +157,7 @@ def test_committed_active_learning_record_is_iter207() -> None:
     assert active.status == "pending"
 
 
-def test_validator_prints_active_iter207_action_not_obsolete_predecessor_dispatch() -> None:
+def test_validator_never_promotes_frozen_iter207_next_action() -> None:
     completed = subprocess.run(
         ["python3", "scripts/validate_learning_ledger.py"],
         cwd=ROOT,
@@ -166,7 +166,20 @@ def test_validator_prints_active_iter207_action_not_obsolete_predecessor_dispatc
         text=True,
     )
 
-    assert "active=iter207_claim_integrity_and_admission_recovery" in completed.stdout
-    assert "active_next=Finish and adversarially validate every iter207 correction" in completed.stdout
+    assert (
+        "historical_pending_at_freeze="
+        "iter207_claim_integrity_and_admission_recovery"
+        in completed.stdout
+    )
+    assert "operational_authority=mission/current.json" in completed.stdout
+    assert (
+        "current_gate="
+        "experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md"
+        in completed.stdout
+    )
+    assert "active_next=" not in completed.stdout
+    assert "Finish and adversarially validate every iter207 correction" not in (
+        completed.stdout
+    )
     assert "dispatch iter205" not in completed.stdout
     assert "dispatch iter206" not in completed.stdout

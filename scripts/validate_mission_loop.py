@@ -13,6 +13,7 @@ from typing import Any
 
 ROOT = Path.cwd()
 CONTRACT = ROOT / "mission" / "loop.json"
+CURRENT = ROOT / "mission" / "current.json"
 DOC = ROOT / "docs" / "MISSION_LOOP.md"
 CONTINUITY = ROOT / "CONTINUITY.md"
 HANDOFF = ROOT / "HANDOFF.md"
@@ -1321,7 +1322,7 @@ def required_command(specification: str) -> str:
 def main() -> int:
     failures: list[str] = []
 
-    for path in [CONTRACT, DOC, CONTINUITY, HANDOFF, CI]:
+    for path in [CONTRACT, CURRENT, DOC, CONTINUITY, HANDOFF, CI]:
         if not path.exists():
             failures.append(f"missing required mission-loop file: {path.relative_to(ROOT)}")
 
@@ -1331,13 +1332,18 @@ def main() -> int:
         return 1
 
     contract = read_json(CONTRACT)
+    current = read_json(CURRENT)
     doc = DOC.read_text(encoding="utf-8")
+    doc_flat = " ".join(doc.split())
     continuity = CONTINUITY.read_text(encoding="utf-8")
     handoff = HANDOFF.read_text(encoding="utf-8")
     ci = CI.read_text(encoding="utf-8")
 
     if contract.get("mission_id") != "telos":
         failures.append("mission_id must be telos")
+    current_gate = current.get("active_gate")
+    if not isinstance(current_gate, str):
+        failures.append("mission/current.json active_gate must be a string")
     if contract.get("standard") != "maestro-compatible-evidence-loop-v1":
         failures.append("unexpected mission loop standard")
     semantics = contract.get("claim_boundary_semantics", {})
@@ -1598,11 +1604,12 @@ def main() -> int:
 
     for required in [
         "../mission/loop.json",
-        "Repository boundary: Telos is a standalone repository",
-        "Claim not allowed now: an uncommitted private runtime is part of the standing evidence chain.",
-        "Refinement is allowed only after evidence identifies a concrete gap.",
+        "../mission/current.json",
+        "This file is a historical compatibility pointer",
+        "It is not the current baton, claim ledger, or execution authority",
+        "No statement in this compatibility page authorizes",
     ]:
-        if required not in doc:
+        if required not in doc_flat:
             failures.append(f"mission loop doc missing required text: {required}")
 
     if failures:
@@ -1614,7 +1621,10 @@ def main() -> int:
     publication_gate = contract.get("active_publication_gate")
     print(
         "mission loop guard: "
-        f"sealed runtime gate={active_gate} active publication gate={publication_gate} "
+        f"historical_runtime_gate_at_freeze={active_gate}; "
+        f"historical_publication_gate_at_freeze={publication_gate}; "
+        "operational_authority=mission/current.json; "
+        f"current_gate={current_gate}; "
         f"phases={len(REQUIRED_PHASES)}"
     )
     return 0

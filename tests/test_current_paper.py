@@ -34,3 +34,32 @@ def test_current_paper_guard_detects_source_or_pdf_drift(monkeypatch) -> None:
         "paper/telos.pdf changed without a deterministic rebuild/binding refresh"
         in failures
     )
+
+
+def test_current_paper_guard_preserves_claim_authority_role_and_report_link(
+    monkeypatch,
+) -> None:
+    validator = load_validator()
+    original = validator.normalized_prose
+    role = (
+        "The claim registry is the canonical reviewed resolution authority; "
+        "the active-gate coverage report is retained evidence that the "
+        "declared surfaces resolve against it"
+    )
+
+    def tampered(path: Path) -> str:
+        text = original(path)
+        if path == validator.ROOT / "paper/README.md":
+            return text.replace(role, "The claim registry is one useful file").replace(
+                "(../experiments/iter238_claim_seal_workflow_controls/proof/"
+                "claim_coverage_report.json)",
+                "",
+            )
+        return text
+
+    monkeypatch.setattr(validator, "normalized_prose", tampered)
+
+    failures = validator.validate()
+
+    assert any(role in failure for failure in failures)
+    assert any("exact active-gate claim coverage report" in failure for failure in failures)

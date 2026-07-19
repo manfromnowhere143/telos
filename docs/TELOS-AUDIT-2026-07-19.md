@@ -1,5 +1,9 @@
 # Telos takeover audit — 2026-07-19
 
+> **DATED ANALYSIS CONTEXT — NOT EXECUTION AUTHORITY.** This audit is the exact
+> `current_audit` named by `mission/current.json`. Current action is authorized
+> only by that pointer and its exact dated handoff.
+
 ## Verdict
 
 Telos is working on a real frontier problem: an agent can satisfy the tests or
@@ -459,10 +463,14 @@ samples would reproduce the current limitation, not solve it.
 
 The next move is not another solver run and not paper submission.
 
-Execute iter237, then iter238. If both pass, run GROUND-TRUTH-1. Only a green,
-independent ground-truth gate authorizes ASSURANCE-DELTA-1. This sequence
-preserves Telos's real strength—evidence disciplined enough to survive
-correction—while moving the programme from a small forensic case series toward
-the question frontier teams can use: how much trustworthy assurance does each
-additional evidence layer buy, at what false-positive rate, cost, latency, and
-residual risk?
+Iter237 passed and merged. Complete iter238, then earn a separately
+preregistered repository-governance gate so required CI and review policy fail
+closed. GROUND-TRUTH-1 remains the next scientific gate and requires separately
+authorized, conflict-screened human adjudication. Only a green, independent
+ground-truth gate authorizes ASSURANCE-DELTA-1.
+
+This sequence preserves Telos's real strength—evidence disciplined enough to
+survive correction—while moving the programme from a small forensic case
+series toward the question frontier teams can use: how much trustworthy
+assurance does each additional evidence layer buy, at what false-positive
+rate, cost, latency, and residual risk?

@@ -72,12 +72,10 @@ def test_iter200_claim_guard_covers_every_standing_public_surface() -> None:
     expected = {
         guard.ROOT / "README.md",
         guard.ROOT / "CONTINUITY.md",
-        guard.ROOT / "docs/MISSION_LOOP.md",
         guard.ROOT / "HANDOFF.md",
         guard.ROOT / "mission/loop.json",
         guard.ROOT / "paper/README.md",
         guard.ROOT / "paper/telos.tex",
-        guard.ROOT / "results/README.md",
     }
 
     assert {*guard.STANDING_PUBLIC_SURFACES, guard.ROOT / "mission/loop.json"} == expected

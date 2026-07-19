@@ -25,10 +25,12 @@ def test_core_research_files_exist() -> None:
 
 def test_readme_names_the_first_gate_and_scopes_historical_results() -> None:
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert "iter00_target_survey" in readme
+    readme_flat = " ".join(readme.split())
+    assert "docs/EXPERIMENT_INDEX.md" in readme
     assert "At the iter165 boundary, a bounded paired single-model judge result existed" in readme
     assert "No leaderboard, public benchmark score, model-comparison result," in readme
     assert "precision result beyond the explicitly bounded denominators" in readme
+    assert "not independent semantic ground truth" in readme_flat
 
 
 def test_ci_fetches_history_before_validating_handoff_lineage() -> None:
@@ -66,7 +68,12 @@ def test_historical_design_and_learning_docs_defer_to_current_authorities() -> N
     assert "**Historical foundational design.**" in architecture
     assert "original design boundary" in architecture
     assert "The first benchmark target will freeze" not in architecture
-    assert "Generated `HANDOFF.md` owns the current operational action" in learning_flat
+    assert "Historical ledger view — not the operational baton" in learning_flat
+    assert (
+        "`mission/current.json` and its dated handoff own operational recovery"
+        in learning_flat
+    )
+    assert "Generated `HANDOFF.md` owns the current operational action" not in learning_flat
     assert "authoritative next-action reader" not in learning
 
 

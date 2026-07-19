@@ -4,8 +4,10 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 from pathlib import Path
+from pathlib import PurePosixPath
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -77,61 +79,58 @@ REQUIRED_TEXT = {
         "independent, blinded human semantic re-adjudication at unique-task level",
     ),
     ROOT / "paper/README.md": (
-        "iter237 truth maintenance is the active gate",
-        "cross-solver recurrence on one fixed fifty-three-target cohort",
-        "`5/29`, `2/25`, `3/17`, `4/14`, and `1/16`",
-        "fresh-cohort concentration and causal repository explanations are `inconclusive`",
-        "transfer is `untested`",
-        "flag rates, not validated false-positive rates",
-        "Iter192's overbroad novelty interpretation is conservatively adjudicated `FAIL`",
-        "literal v1-specific falsifier trigger is indeterminate",
-        "Iter195 is protocol `FAIL`",
-        "design is post-provider and pre-execution",
-        "partial/protocol-blocked Detector A only",
-        "shared-gold-line diagnostic triggers",
-        "Historical image provenance is bounded",
+        "# Telos paper",
+        "Iter238 claim, seal, and workflow controls are the active engineering gate",
+        "Iter237 rebuilt and rebound the July 19 source and 16-page PDF",
+        "The claim registry is the canonical reviewed resolution authority; "
+        "the active-gate coverage report is retained evidence that the "
+        "declared surfaces resolve against it",
+        "This page is a build and release guide, not a second empirical-results ledger",
+        "It is itself a declared public claim surface",
+        "mission/claim_registry.json",
+        "paper/telos.tex",
+        "docs/EXPERIMENT_INDEX.md",
         "SOURCE_DATE_EPOCH=1784419200 tectonic telos.tex",
-        "29451691560",
-        "29452243832",
-        "29460393525",
-        "29465584664",
-        "29465924803",
-        "29468769187",
-        "314141096",
-        "stderr was not retained",
-        "both complete histories are empty",
-        "comparison establishes an effect direction or magnitude",
-        "frozen closure snapshot",
-        "No iter205 dispatch request was issued",
-        "no dispatch API response or rejection exists",
-        "bibliography contains eighteen entries",
+        "Two consecutive Tectonic builds must have identical SHA-256 digests",
+        "The paper is not submission-ready",
+        "independent semantic ground truth",
+        "No submission, release, provider call, scientific rerun, or purchase is authorized",
     ),
     ROOT / "README.md": (
+        "## Current scientific boundary",
+        "`5/29`",
+        "`2/25`",
+        "`3/17`",
+        "`4/14`",
+        "`1/16`",
+        "`k=0`, `N=37`, and `u=13`",
+        "`U=331`",
+        "`p=0.005347`",
+        "transfer is **untested**, not negative",
+        "`29` are normalized-identical",
+        "`25` only showed no divergence",
+        "not independent semantic ground truth",
+        "mission/claim_registry.json",
+        "mission/seal_registry.json",
+        "mission/workflow_registry.json",
+        "docs/EXPERIMENT_INDEX.md",
+        "experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md",
         "22`-row, `8`-repository reference-differential corpus",
         "Iter192 is conservatively adjudicated `FAIL`",
         "literal v1-specific",
         "falsifier remains indeterminate",
-        "$13.128090` for `240` score-producing calls",
         "iter195 gate",
         "not independently adjudicated semantic ground truth",
-        "Iter206 was sealed locally",
-        "iter207_claim_integrity_and_admission_recovery",
         "exact historical container bytes are not reconstructible",
         "provider-complete safety null",
         "Iter222 filled three TCP-1 admission gates",
         "scientific execution remains blocked",
-        "moving TCP-1 admission from `2/11` to `5/11` while keeping execution unauthorized",
         "Artifact-bound receipt v2",
         "post-seal forensic correction",
         "iter209 publication CI recovery",
         "iter211 TCP-1 materialization preflight",
-        "iter213 iter211 post-seal validation recovery",
-        "iter214 TCP-1 cross-platform numeric recovery",
-        # The null's two load-bearing sentences.  A reader who sees only the forward yield
-        # and the cross-repository control would read a 10^-24 effect that is not there.
-        "tests added *before* the task reference them at `0.4336`",
-        "artifact of a control that cannot fail for the right reason",
-        "the underlying harvest idea is untested and remains open",
+        "iter213 post-seal validation recovery",
+        "iter214 cross-platform numeric recovery",
         "iter219 temporal consequence-test yield",
     ),
     ROOT / "benchmarks/certified_resolved_reward_hack_v2/README.md": (
@@ -218,6 +217,37 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def active_claim_report_path() -> str:
+    """Derive the active-gate report path from both current authorities."""
+
+    current = json.loads((ROOT / "mission/current.json").read_text(encoding="utf-8"))
+    registry_path = current.get("claim_registry")
+    active_gate = current.get("active_gate")
+    if (
+        not isinstance(registry_path, str)
+        or registry_path != "mission/claim_registry.json"
+        or not isinstance(active_gate, str)
+    ):
+        raise ValueError("current claim authority pointers are invalid")
+    registry = json.loads((ROOT / registry_path).read_text(encoding="utf-8"))
+    if registry.get("active_gate") != active_gate:
+        raise ValueError("claim registry active gate differs from current pointer")
+    gate = PurePosixPath(active_gate)
+    if (
+        gate.is_absolute()
+        or gate.name != "HYPOTHESIS.md"
+        or len(gate.parts) != 3
+        or gate.parts[0] != "experiments"
+        or not gate.parts[1].startswith("iter")
+        or gate.as_posix() != active_gate
+    ):
+        raise ValueError("active gate is not a canonical experiment hypothesis")
+    expected = (gate.parent / "proof" / "claim_coverage_report.json").as_posix()
+    if registry.get("coverage_report_path") != expected:
+        raise ValueError("claim registry coverage report path differs")
+    return expected
+
+
 def validate() -> list[str]:
     failures: list[str] = []
     for path, snippets in REQUIRED_TEXT.items():
@@ -236,6 +266,17 @@ def validate() -> list[str]:
         failures.append("paper/telos.pdf is not a PDF artifact")
     if sha256(PAPER_PDF) != EXPECTED_PDF_SHA256:
         failures.append("paper/telos.pdf changed without a deterministic rebuild/binding refresh")
+    try:
+        report_path = active_claim_report_path()
+    except (OSError, json.JSONDecodeError, ValueError) as error:
+        failures.append(f"paper claim-report authority is invalid: {error}")
+    else:
+        paper_readme = normalized_prose(ROOT / "paper/README.md")
+        if f"(../{report_path})" not in paper_readme:
+            failures.append(
+                "paper/README.md does not link the exact active-gate claim "
+                f"coverage report: {report_path}"
+            )
     return failures
 
 

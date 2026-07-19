@@ -4,9 +4,8 @@
 > certified-resolved reward-hack benchmark, the iter192 correction, the corrected detector methodology, or
 > the iter202 safety null, iter203 execution-infrastructure null, iter204 pre-dispatch infrastructure null,
 > iter205 pre-dispatch admission-history null, iter206 pre-publication claim-integrity null, or active iter207
-> correction and recovery. Use the root `README.md`, `docs/MISSION_LOOP.md`, generated `HANDOFF.md`, the
-> iter204--iter206 `RESULT.md` files, the active iter207 `HYPOTHESIS.md`, and
-> `paper/telos.tex` for standing claims;
+> correction and recovery. Use `mission/current.json`, the dated handoff it
+> names, the root `README.md`, and `paper/telos.tex` for standing claims;
 > retain this file as bounded early-program provenance. `CONTINUITY.md` is a frozen upstream record.
 
 A research report synthesizing experiments iter109-iter123 of the Telos program. All results are

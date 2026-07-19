@@ -2026,7 +2026,7 @@ def main() -> int:
             for failure in failures:
                 print(f" - {failure}")
             return 1
-        print("handoff guard: clean iter222 admission-evidence seal")
+        print("handoff guard: historical root HANDOFF iter222 seal validated")
         return 0
     if f"handoff_schema: {ITER221_HANDOFF_SCHEMA}" in handoff:
         failures.extend(iter221_handoff_failures(handoff))
