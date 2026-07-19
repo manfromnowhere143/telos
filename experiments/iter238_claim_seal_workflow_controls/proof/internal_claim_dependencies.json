@@ -490,15 +490,20 @@
     },
     {
       "classification": "mutable",
+      "digest_scope": "canonical_json_seal_record",
       "path": "mission/seal_registry.json",
+      "projection": {
+        "equals": "iter237-merged-historical-baseline",
+        "field": "seal_id"
+      },
       "seal_ids": [],
-      "sha256": "a383c7bf89dda1cac91138b3b6be08fbe7e70a00e21fae6bb2db3a675e239eb4"
+      "sha256": "05f9f2662589825b3781682491e514d9686fb4986bd10213e6a69445c2fe6bc5"
     },
     {
       "classification": "mutable",
       "path": "scripts/build_current_claim_registry.py",
       "seal_ids": [],
-      "sha256": "fd73090ca82d156177f11bbbf62122becf28a38de0d986325816cdcc54b4782a"
+      "sha256": "faa8f97534beff2a66864fab65367e68601d90b3f122cec4dcdf77d77cb4fa01"
     },
     {
       "classification": "mutable",
@@ -570,5 +575,5 @@
     "python3",
     "scripts/validate_iter237_truth_maintenance.py"
   ],
-  "schema_version": "telos.internal_claim_dependencies.v1"
+  "schema_version": "telos.internal_claim_dependencies.v2"
 }

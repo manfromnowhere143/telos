@@ -21,7 +21,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "mission/claim_registry.json"
-SEAL_REGISTRY = ROOT / "mission/seal_registry.json"
+SEAL_REGISTRY_RELATIVE = "mission/seal_registry.json"
+SEAL_REGISTRY = ROOT / SEAL_REGISTRY_RELATIVE
 DEPENDENCY_MANIFEST = (
     ROOT
     / "experiments/iter238_claim_seal_workflow_controls/proof/"
@@ -51,7 +52,8 @@ PREDECESSOR_VALIDATOR_ARGV = [
     "python3",
     "scripts/validate_iter237_truth_maintenance.py",
 ]
-DEPENDENCY_MANIFEST_SCHEMA = "telos.internal_claim_dependencies.v1"
+DEPENDENCY_MANIFEST_SCHEMA = "telos.internal_claim_dependencies.v2"
+BASELINE_SEAL_DEPENDENCY_SCOPE = "canonical_json_seal_record"
 
 _STATIC_DEPENDENCY_PATHS = {
     "experiments/iter154_reward_hack_benchmark_expansion_pilot/proof/raw/"
@@ -117,6 +119,56 @@ def _git_blob_exists(reference_commit: str, path: str) -> bool:
     return result.returncode == 0 and result.stdout.strip() == "blob"
 
 
+def _duplicate_rejecting_object(
+    pairs: list[tuple[str, Any]],
+) -> dict[str, Any]:
+    result: dict[str, Any] = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def _reject_json_constant(value: str) -> None:
+    raise ValueError(f"non-finite JSON value: {value}")
+
+
+def baseline_seal_record() -> dict[str, Any]:
+    """Return the one baseline record used by scientific source projection.
+
+    The registry is append-only.  Scientific dependency identity therefore
+    binds this exact record rather than the mutable bytes of its container;
+    later successor-seal appends cannot change baseline membership.
+    """
+    registry = json.loads(
+        SEAL_REGISTRY.read_text(encoding="utf-8"),
+        object_pairs_hook=_duplicate_rejecting_object,
+        parse_constant=_reject_json_constant,
+    )
+    if not isinstance(registry, dict):
+        raise ValueError("seal registry is not an object")
+    raw_records = registry.get("records")
+    if not isinstance(raw_records, list) or any(
+        not isinstance(record, dict) for record in raw_records
+    ):
+        raise ValueError("seal registry records are not an object array")
+    records = [
+        record
+        for record in raw_records
+        if record.get("seal_id") == BASELINE_SEAL_ID
+    ]
+    if len(records) != 1:
+        raise ValueError(f"expected one {BASELINE_SEAL_ID!r} seal record")
+    record = records[0]
+    if (
+        not isinstance(record, dict)
+        or record.get("record_type") != "retrospective_path_snapshot"
+    ):
+        raise ValueError("baseline seal record type differs")
+    return record
+
+
 def baseline_seal_contains(path: str) -> bool:
     """Return whether the exact path is a protected baseline Git blob.
 
@@ -125,15 +177,7 @@ def baseline_seal_contains(path: str) -> bool:
     reference commit, so it is never attributed to the retrospective baseline.
     """
 
-    registry = json.loads(SEAL_REGISTRY.read_text(encoding="utf-8"))
-    records = [
-        record
-        for record in registry.get("records", [])
-        if record.get("seal_id") == BASELINE_SEAL_ID
-    ]
-    if len(records) != 1:
-        raise ValueError(f"expected one {BASELINE_SEAL_ID!r} seal record")
-    record = records[0]
+    record = baseline_seal_record()
     reference = record.get("reference_commit")
     if not isinstance(reference, str):
         raise ValueError("baseline seal lacks reference_commit")
@@ -161,6 +205,32 @@ def source(path: str) -> dict[str, Any]:
         "sha256": sha256(absolute),
         "classification": "sealed" if seal_ids else "mutable",
         "seal_ids": seal_ids,
+    }
+
+
+def dependency_source(path: str) -> dict[str, Any]:
+    """Bind one dependency at the narrowest scope the derivation reads."""
+
+    if path != SEAL_REGISTRY_RELATIVE:
+        return source(path)
+    record = baseline_seal_record()
+    canonical = json.dumps(
+        record,
+        sort_keys=True,
+        separators=(",", ":"),
+        ensure_ascii=False,
+        allow_nan=False,
+    ).encode("utf-8")
+    return {
+        "path": path,
+        "sha256": hashlib.sha256(canonical).hexdigest(),
+        "classification": "mutable",
+        "seal_ids": [],
+        "digest_scope": BASELINE_SEAL_DEPENDENCY_SCOPE,
+        "projection": {
+            "field": "seal_id",
+            "equals": BASELINE_SEAL_ID,
+        },
     }
 
 
@@ -212,7 +282,9 @@ def build_dependency_manifest() -> dict[str, Any]:
         "schema_version": DEPENDENCY_MANIFEST_SCHEMA,
         "derivation_argv": DERIVATION_ARGV,
         "predecessor_validator_argv": PREDECESSOR_VALIDATOR_ARGV,
-        "dependencies": [source(path) for path in internal_dependency_paths()],
+        "dependencies": [
+            dependency_source(path) for path in internal_dependency_paths()
+        ],
     }
 
 

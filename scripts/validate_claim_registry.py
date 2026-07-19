@@ -354,7 +354,7 @@ AUTHORIZED_UNBOUND_RETRACTED_HEADS: frozenset[str] = frozenset()
 # Bootstrap validates it but never refreshes it.
 AUTHORIZED_BINDING_INVENTORY_SHA256 = {
     "experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md": (
-        "9aa47075ac11ecc517527d2ea5ee88e8fe530e28c2951362c39bd00f416006e5"
+        "7e753a14712eca0e0b32787e2b57a32714e895d7de1ed64076961ff951aba3ca"
     ),
 }
 

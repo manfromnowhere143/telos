@@ -57,12 +57,12 @@ The canonical
   superseded assertions; and
 - four preregistered public surfaces plus two supplemental hardening surfaces.
 
-The final reviewed binding authorization is
-`9aa47075ac11ecc517527d2ea5ee88e8fe530e28c2951362c39bd00f416006e5`.
+The corrected reviewed binding authorization is
+`7e753a14712eca0e0b32787e2b57a32714e895d7de1ed64076961ff951aba3ca`.
 The registry SHA-256 is
-`5cf2ae2b11d0c9a4ecc14eaee21dfc8a442196f0138b77a7f5dd15c9eceda120`;
+`65c6716e102ec7612f17a174bce0fb715117c071d312fed75425cda08cdec076`;
 the report SHA-256 is
-`75da455f980257d4f6de4401a7fc271a26b1dd45edf4b07a06a3bb7851066bd8`.
+`51211f9e95651418a95680e61de2b379da647808c99e179b237f43769ad4b7e5`.
 
 Coverage is lexical and provenance-complete for its declared surfaces. It is
 not semantic adjudication. The `473` unresolved records are excluded from
@@ -193,6 +193,14 @@ pre-seal Linux evidence; they do not satisfy acceptance bar 11 for the later
 successor-seal proposed merge head. Neither is independent scientific ground
 truth.
 
+The first completed-evidence commit
+`30727245643af7b1d0f97851cbf8ad576931c6b0` subsequently passed the same
+`292`-command local closure under both required interpreters. Push run
+`29692594995` and pull-request run `29692596412` each passed both Linux jobs on
+attempt `1`, without a manual rerun. The successor-seal preflight then exposed
+failure 12 below, so these green predecessor runs did not license sealing or
+acceptance. Corrected-head and successor-seal-head CI remain pending.
+
 ## Failures and corrections retained during the iteration
 
 The failures below are part of the result rather than being hidden behind the
@@ -239,6 +247,22 @@ final green state:
     the curated projection table still named its predecessor. Exact surface
     replay exposed the stale binding; the curated authority was updated and
     the migration fixture now requires exact live binding coverage.
+12. The first post-result successor-seal preflight made the claim guard fail:
+    the internal-prerequisite manifest hashed the whole append-only seal
+    registry, so the preregistered seal-only child invalidated C1 merely by
+    appending its own seal. No seal commit was created. Dependency schema v2
+    now binds the canonical unique
+    `iter237-merged-historical-baseline` record instead of its mutable
+    container. A known-bad fixture proves an unrelated successor append leaves
+    that projection unchanged, while baseline mutation, duplication, duplicate
+    JSON keys, and non-finite JSON still fail.
+13. The first post-result Python 3.11 closure invocation selected an
+    unprovisioned interpreter and stopped because `pytest` was absent before
+    repository tests ran. A subsequent hash-enforced macOS install correctly
+    rejected the arm64 PyYAML wheel because `requirements-ci.txt` contains the
+    authorized Linux-wheel hashes. Local reruns therefore used isolated
+    environments with the exact pinned versions; only GitHub Linux CI supplies
+    hash-enforced dependency evidence.
 
 Every correction that affected a committed artifact is visible in ordinary
 Git history; the material rejected pre-commit designs observed during this

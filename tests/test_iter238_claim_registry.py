@@ -250,6 +250,68 @@ def test_internal_prerequisites_execute_and_fail_closed(
     assert any("exit=9" in failure for failure in failures)
 
 
+def test_seal_dependency_binds_baseline_record_not_append_only_container(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    registry_path = tmp_path / "seal_registry.json"
+    document = guard.read_json(builder.SEAL_REGISTRY)
+    _write_json(registry_path, document)
+    monkeypatch.setattr(builder, "SEAL_REGISTRY", registry_path)
+
+    before = builder.dependency_source("mission/seal_registry.json")
+    assert before["digest_scope"] == builder.BASELINE_SEAL_DEPENDENCY_SCOPE
+    assert before["projection"] == {
+        "field": "seal_id",
+        "equals": builder.BASELINE_SEAL_ID,
+    }
+
+    document["records"].append(
+        {
+            "seal_id": "fixture-later-successor",
+            "record_type": "successor_path_snapshot",
+        }
+    )
+    _write_json(registry_path, document)
+    after_append = builder.dependency_source("mission/seal_registry.json")
+    assert after_append == before
+    assert builder.build_dependency_manifest() == guard.read_json(
+        builder.DEPENDENCY_MANIFEST
+    )
+
+    document["records"][0]["limitations"].append(
+        "Known-bad mutation of the projected baseline record."
+    )
+    _write_json(registry_path, document)
+    after_baseline_mutation = builder.dependency_source(
+        "mission/seal_registry.json"
+    )
+    assert after_baseline_mutation["sha256"] != before["sha256"]
+
+    document["records"].append(deepcopy(document["records"][0]))
+    _write_json(registry_path, document)
+    with pytest.raises(ValueError, match="expected one"):
+        builder.dependency_source("mission/seal_registry.json")
+
+    registry_path.write_text(
+        '{"records":[],"records":[]}\n',
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="duplicate JSON key"):
+        builder.dependency_source("mission/seal_registry.json")
+
+    registry_path.write_text(
+        (
+            '{"records":[{"seal_id":"iter237-merged-historical-baseline",'
+            '"record_type":"retrospective_path_snapshot",'
+            '"limitations":[NaN]}]}\n'
+        ),
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="non-finite JSON value"):
+        builder.dependency_source("mission/seal_registry.json")
+
+
 def test_offline_environment_is_allowlist_only(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
