@@ -7,6 +7,14 @@ uncertainty band on the natural certified-yet-wrong rate across six published ex
 Witness run: provider regeneration bounded at three attempts per row. Execution: run `29650269586`, eight
 shards, green on first dispatch. Adjudication: the frozen two-judge protocol, imported unchanged.
 
+> **Additive correction from iter236.** This experiment's `HYPOTHESIS.md:29` motivates itself in part with
+> "fresh cohorts yielded `0` from `59` solved patches." Rebuilt from committed artifacts by
+> [iter236](../iter236_transfer_analysis_reconstruction/RESULT.md), the correct denominator is **`62`**
+> (iter224 `25` + iter228 `37`); no committed artifact equals `59`. The null itself is unaffected — both
+> cohorts confirmed `0`. The sealed pre-registration is deliberately **not** edited; this pointer is the
+> correction. Iter236 also reproduced the `p=0.0027` fix-size non-transfer result that iter235 cites, so
+> that part of the motivation now rests on a guarded artifact.
+
 ## Result
 
 | Quantity | Before | After |

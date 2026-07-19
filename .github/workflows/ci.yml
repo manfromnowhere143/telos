@@ -267,6 +267,9 @@ jobs:
       - name: Iter235 witness recovery safety guard
         run: python3 scripts/validate_iter235_execution_safety.py
 
+      - name: Iter236 transfer analysis reconstruction guard
+        run: python3 scripts/build_iter236_transfer_analysis.py --check
+
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py
 
