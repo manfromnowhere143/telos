@@ -339,6 +339,28 @@
         }
       ],
       "receipt_path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter238-completed-evidence-seal",
+      "record_type": "successor_path_snapshot",
+      "predecessor_seal_id": "iter237-merged-historical-baseline",
+      "reference_commit": "be012160d9160291c74376fc548f351ffe611091",
+      "protected_sets": [
+        {
+          "set_id": "iter238-completed-evidence-tree",
+          "selector": {
+            "kind": "tree",
+            "path": "experiments/iter238_claim_seal_workflow_controls"
+          },
+          "policy": "exact_tree",
+          "blob_count": 8,
+          "manifest_sha256": "350e9dee4222b354f4de3fb2c553694baea74aa6e43f546029bcc266a66ec90d"
+        }
+      ],
+      "limitations": [
+        "This snapshot freezes the exact eight regular Git blobs in the iter238 component at the named reference commit; it does not establish authorship, chronology, semantic truth, scientific correctness, independence, or external timestamp authority.",
+        "This record closes only the iter238 additive authorization; exact-head CI, a two-parent merge, and merged-master verification remain separate acceptance evidence."
+      ]
     }
   ]
 }
