@@ -131,6 +131,37 @@ the programme's forward plan, and a misstated denominator that propagated into a
 This builder is registered in `ci.yml`, so the closure now covers it. That closes this instance and not the
 class. Any figure asserted in a handoff or paper without a registered builder remains outside the closure.
 
+## Two defects in this iteration's own instrument, both caught by world-contact
+
+Recorded because the programme's rule is that instrument failures are published, not
+quietly repaired — and both were invisible to a green local run.
+
+**D1 — scipy is not on the CI interpreter.** The builder first imported `scipy.stats`. That works on this
+host (Python 3.14) and fails in CI, which installs from a hash-pinned verification-only requirements file
+carrying no scipy. Caught by running the closure under `python3.11` rather than the host interpreter. The fix
+was a pure-Python Mann-Whitney with tie correction rather than a new binary wheel in a hash-pinned file,
+pinned against scipy by `tests/test_iter236_mannwhitney.py` wherever scipy exists. That equivalence test
+immediately caught a second error: a two-sided p-value that doubled a signed one-sided tail instead of using
+the absolute deviation from the mean. It disagreed with scipy on three of four samples.
+
+**D2 — the guard compared platform-dependent floats bit-exactly.** With D1 fixed, the closure passed locally
+on macOS/arm64 under both 3.11 and 3.14, and remote CI failed on Linux/x86_64 under both 3.11 and 3.12 with
+`committed artifact does not match rebuild`. The artifact was compared as JSON text, so every digit of every
+`erfc`- and `sqrt`-derived p-value had to match bit-exactly across platform `libm` implementations — which
+IEEE 754 does not promise.
+
+This is **the identical bug class iter221 corrected**, at a new site. Iter221's ruling is reused rather than
+re-derived: libm-derived values compare at `rel_tol=1e-9`, integers, booleans, and strings stay exact. One
+ULP is about `1e-16` relative, so the tolerance forgives platform noise by seven orders of magnitude while
+still failing tampering coarse enough to change a reported digit. Positive controls pin both ends, and a
+separate control asserts a boolean is never forgiven as a float.
+
+That iter221 exists and this still happened is the point worth carrying forward: **the correction was
+documented but not structural.** Nothing in the repository prevents the next new guard from comparing a
+libm-derived value bit-exactly — iter221's scan test is scoped to iter219's guard alone. A repository-wide
+version of that scan would convert this from a lesson into an invariant, and is left as a recommendation
+rather than smuggled into this iteration's scope.
+
 ## Correction propagation
 
 | Document | Figure | Action |

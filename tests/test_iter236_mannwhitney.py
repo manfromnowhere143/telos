@@ -75,6 +75,54 @@ def test_exact_matches_scipy_untied() -> None:
     assert mine == pytest.approx(theirs, rel=1e-9)
 
 
+def test_tolerance_forgives_one_ulp_of_platform_drift() -> None:
+    """The Linux CI failure this reproduces: a correct value rejected bit-exactly."""
+
+    import math
+
+    value = 0.0026736527246468
+    drifted = math.nextafter(math.nextafter(value, 1.0), 1.0)
+    assert drifted != value
+    assert builder._matches({"p": drifted}, {"p": value}, "root") == []
+
+
+def test_tolerance_rejects_tampering_coarse_enough_to_change_a_digit() -> None:
+    value = 0.0026736527246468
+    for factor in (1.0 + 1e-8, 1.0 + 1e-4, 1.5):
+        problems = builder._matches({"p": value * factor}, {"p": value}, "root")
+        assert problems, f"tampering at factor {factor} was not caught"
+
+
+def test_integers_and_booleans_stay_exact() -> None:
+    """Counts and eligibility flags are platform-independent and get no tolerance."""
+
+    assert builder._matches({"n": 62}, {"n": 59}, "root")
+    assert builder._matches({"n": 63}, {"n": 62}, "root")
+    assert builder._matches({"ok": False}, {"ok": True}, "root")
+    # bool must not be forgiven as a float: True == 1 must still fail against 1.0000000001
+    assert builder._matches({"ok": True}, {"ok": 1.0000000001}, "root")
+
+
+def test_structural_changes_are_caught() -> None:
+    assert builder._matches({"a": 1}, {"a": 1, "b": 2}, "root")
+    assert builder._matches({"a": 1, "b": 2}, {"a": 1}, "root")
+    assert builder._matches({"a": [1, 2]}, {"a": [1, 2, 3]}, "root")
+
+
+def test_committed_artifact_validates() -> None:
+    """The guard passes against the artifact actually committed to the repository."""
+
+    import json
+
+    committed = json.loads(
+        (
+            ROOT
+            / "experiments/iter236_transfer_analysis_reconstruction/proof/transfer_analysis.json"
+        ).read_text()
+    )
+    assert builder._matches(committed, builder.build(), "root") == []
+
+
 def test_published_figures_are_pinned() -> None:
     """Regression guard on the exact values the iter236 RESULT publishes."""
 
