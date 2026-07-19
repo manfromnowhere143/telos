@@ -1,8 +1,9 @@
 # Architecture
 
 > **Historical foundational design.** This document preserves the iter00-era system model. The root
-> `README.md`, `docs/MISSION_LOOP.md`, and generated `HANDOFF.md` are the current result and operational
-> authorities; future-tense statements below describe the original design boundary.
+> `README.md` is the bounded current summary; operational recovery begins at
+> `mission/current.json` and the dated handoff it names. Future-tense statements
+> below describe the original design boundary.
 
 Telos is a protocol for measuring whether an autonomous agent completed the real task. It is not a
 replacement for benchmarks. It is a verification layer that can sit around benchmarks whose final
@@ -99,6 +100,9 @@ Telos is a standalone research repository. Its experiments use committed local s
 workflows, and every external execution boundary must be represented by retained evidence rather than by
 an assumed orchestration service.
 
-The current mission loop is defined in [`MISSION_LOOP.md`](MISSION_LOOP.md),
-[`../mission/loop.json`](../mission/loop.json), and the generated [`../HANDOFF.md`](../HANDOFF.md). Those
-surfaces supersede this historical architecture sketch whenever the two differ.
+The current operational pointer is
+[`../mission/current.json`](../mission/current.json). Follow its exact dated
+handoff and active gate. [`MISSION_LOOP.md`](MISSION_LOOP.md),
+[`../mission/loop.json`](../mission/loop.json), and
+[`../HANDOFF.md`](../HANDOFF.md) preserve historical protocol state; their old
+“current” wording does not supersede the mutable pointer.

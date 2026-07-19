@@ -105,7 +105,7 @@ def discover_learning_record_paths(root: str | Path) -> list[Path]:
 def select_active_learning_record(
     records: list[LearningRecord], active_gate: str
 ) -> LearningRecord:
-    """Bind the current action to the mission contract's exact active gate."""
+    """Bind the historical mission-loop freeze; never operational authority."""
 
     if not isinstance(active_gate, str) or not active_gate.strip():
         raise LedgerValidationError("mission active_gate must be a non-empty string")
@@ -137,7 +137,7 @@ def _experiment_sort_key(record: LearningRecord) -> tuple[int, int | str, str]:
 
 
 def latest_next_action(records: list[LearningRecord]) -> str:
-    """Return the newest non-pending next action by experiment id."""
+    """Return historical chronology only; never an operational next action."""
 
     completed = [record for record in records if record.status != "pending"]
     if not completed:

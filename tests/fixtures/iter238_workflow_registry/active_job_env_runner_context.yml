@@ -1,0 +1,12 @@
+name: iter238-known-bad-runner-context
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  execute:
+    runs-on: ubuntu-24.04
+    env:
+      BAD_RECEIPT_PATH: ${{ runner.temp }}/receipt.json
+    steps:
+      - run: "true"

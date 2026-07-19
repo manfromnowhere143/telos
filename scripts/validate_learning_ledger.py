@@ -28,20 +28,37 @@ def main() -> int:
     try:
         records = [load_learning_record(path, root=root) for path in paths]
         latest_next_action(records)
-        contract = json.loads(
+        historical_contract = json.loads(
             (root / "mission/loop.json").read_text(encoding="utf-8")
         )
-        if not isinstance(contract, dict):
-            raise LedgerValidationError("mission loop root must be an object")
-        active = select_active_learning_record(records, contract.get("active_gate"))
+        if not isinstance(historical_contract, dict):
+            raise LedgerValidationError(
+                "historical mission loop root must be an object"
+            )
+        historical_pending = select_active_learning_record(
+            records,
+            historical_contract.get("active_gate"),
+        )
+        current = json.loads(
+            (root / "mission/current.json").read_text(encoding="utf-8")
+        )
+        if not isinstance(current, dict) or not isinstance(
+            current.get("active_gate"),
+            str,
+        ):
+            raise LedgerValidationError(
+                "mission/current.json must identify a string active_gate"
+            )
     except (OSError, json.JSONDecodeError, LedgerValidationError) as exc:
         print(f"learning ledger invalid: {exc}")
         return 1
 
     print(
         f"learning ledger: {len(records)} records valid; "
-        f"active={active.experiment_id}; status={active.status}; "
-        f"active_next={active.next_action}"
+        f"historical_pending_at_freeze={historical_pending.experiment_id}; "
+        f"historical_status={historical_pending.status}; "
+        "operational_authority=mission/current.json; "
+        f"current_gate={current['active_gate']}"
     )
     return 0
 

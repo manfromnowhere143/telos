@@ -1,6 +1,11 @@
 # Next Phase
 
-> **CURRENT AUTHORITY (2026-07-16):** the active gate is
+> **SUPERSEDED HISTORICAL PLAN — NOT CURRENT AUTHORITY.** This document
+> preserves an earlier recovery narrative and must not be used to choose an
+> action. Recover from [`../mission/current.json`](../mission/current.json) and
+> the dated handoff it names.
+>
+> **HISTORICAL AUTHORITY SNAPSHOT (2026-07-16):** the active gate was
 > [`../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md`](../experiments/iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md).
 > Iter202 retained `50` patches and `38` scenario programs after completing its provider stages. Its frozen
 > static-safety guard then rejected `9` programs with `21` findings, admitted `29`, and stopped the batch

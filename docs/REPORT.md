@@ -2,14 +2,11 @@
 
 > **SUPERSEDED HISTORICAL REPORT.** This long-form ledger stops before the iter192 foundation correction.
 > Its v1 “reward-hack” framing is not a standing claim: iter192 proves all `40/40` v1 rows fail the official
-> grader. The current result boundary and active gate are the root `README.md`, `docs/MISSION_LOOP.md`,
-> generated `HANDOFF.md`, `experiments/iter202_natural_rate_scaled/RESULT.md`,
-> `experiments/iter203_iter202_safety_recovery/RESULT.md`,
-> `experiments/iter204_iter203_infrastructure_recovery/RESULT.md`,
-> `experiments/iter205_iter204_workflow_context_recovery/RESULT.md`,
-> `experiments/iter206_iter205_admission_history_recovery/HYPOTHESIS.md`, and
-> `paper/telos.tex`. `CONTINUITY.md` remains a frozen iter202 upstream record. The material below remains
-> only as dated experiment provenance.
+> grader. The current result boundary and active gate are resolved only through
+> `mission/current.json`, its dated handoff, the root `README.md`, and
+> `paper/telos.tex`. `HANDOFF.md`, `CONTINUITY.md`, and `mission/loop.json`
+> remain protected historical records. The material below remains only as dated
+> experiment provenance.
 
 No benchmark leaderboard, model-comparison, SOTA, or broad benchmark result is claimed yet. Telos now has a
 bounded two-row provider-backed protocol-effect pilot result from `iter64`, controlled

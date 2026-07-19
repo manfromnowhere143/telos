@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 import math
 import subprocess
@@ -230,4 +231,96 @@ def test_sealed_verification_detects_a_tampered_artifact(tmp_path) -> None:
     subprocess.run(["git", "commit", "-qm", "seal"], cwd=repo, check=True)
 
     with pytest.raises(receipt_sealing.ReceiptSealingError, match="digest differs"):
+        receipt_sealing.verify_against_source(repo, receipt)
+
+
+def _valid_v2_receipt(root: Path, *, receipt_id: str) -> dict:
+    from telos.proof import (  # noqa: PLC0415
+        RECEIPT_V2_SCHEMA,
+        evidence_closure_digest,
+        receipt_v2_digest,
+    )
+
+    payload = (root / "bound.txt").read_bytes()
+    evidence = [
+        {
+            "kind": "artifact",
+            "status": "pass",
+            "artifact": {
+                "path": "bound.txt",
+                "bytes": len(payload),
+                "sha256": hashlib.sha256(payload).hexdigest(),
+                "media_type": "text/plain",
+                "producer": "receipt-equality-test",
+            },
+        }
+    ]
+    document = {
+        "schema_version": RECEIPT_V2_SCHEMA,
+        "receipt_id": receipt_id,
+        "task_id": "receipt-equality-test",
+        "agent_id": "local-test",
+        "benchmark_id": "receipt-equality-test",
+        "status": "pass",
+        "stated_goal": "Prove that current sealed receipt bytes equal their source blob.",
+        "acceptance_criteria": ["Current and introducing receipt bytes are equal."],
+        "evidence": evidence,
+        "falsifiers": ["A different internally valid current receipt is accepted."],
+        "evidence_closure_sha256": evidence_closure_digest(evidence),
+        "receipt_sha256": "",
+    }
+    document["receipt_sha256"] = receipt_v2_digest(document)
+    return document
+
+
+def _receipt_equality_repo(tmp_path: Path) -> tuple[Path, Path, dict]:
+    repo = tmp_path / "receipt-repo"
+    repo.mkdir()
+    subprocess.run(["git", "init", "-q"], cwd=repo, check=True)
+    subprocess.run(["git", "config", "user.email", "t@t"], cwd=repo, check=True)
+    subprocess.run(["git", "config", "user.name", "t"], cwd=repo, check=True)
+    (repo / "bound.txt").write_text("bound bytes\n", encoding="utf-8")
+    receipt = repo / "receipt_v2.json"
+    document = _valid_v2_receipt(repo, receipt_id="sealed-original")
+    receipt.write_text(json.dumps(document, indent=2) + "\n", encoding="utf-8")
+    subprocess.run(["git", "add", "-A"], cwd=repo, check=True)
+    subprocess.run(["git", "commit", "-qm", "seal receipt"], cwd=repo, check=True)
+    return repo, receipt, document
+
+
+def test_sealed_verification_rejects_an_internally_valid_receipt_replacement(
+    tmp_path: Path,
+) -> None:
+    from telos.proof import validate_receipt_v2  # noqa: PLC0415
+
+    repo, receipt, _ = _receipt_equality_repo(tmp_path)
+    replacement = _valid_v2_receipt(repo, receipt_id="different-but-valid")
+    validate_receipt_v2(replacement)
+    receipt.write_text(json.dumps(replacement, indent=2) + "\n", encoding="utf-8")
+
+    with pytest.raises(
+        receipt_sealing.ReceiptSealingError,
+        match="differs from its introducing Git blob",
+    ):
+        receipt_sealing.verify_against_source(repo, receipt)
+
+
+def test_sealed_verification_rejects_current_receipt_mode_change(tmp_path: Path) -> None:
+    repo, receipt, _ = _receipt_equality_repo(tmp_path)
+    receipt.chmod(receipt.stat().st_mode | 0o111)
+
+    with pytest.raises(receipt_sealing.ReceiptSealingError, match="mode differs"):
+        receipt_sealing.verify_against_source(repo, receipt)
+
+
+def test_sealed_verification_rejects_a_different_staged_receipt_blob(
+    tmp_path: Path,
+) -> None:
+    repo, receipt, original = _receipt_equality_repo(tmp_path)
+    replacement = _valid_v2_receipt(repo, receipt_id="different-staged-receipt")
+    receipt.write_text(json.dumps(replacement, indent=2) + "\n", encoding="utf-8")
+    subprocess.run(["git", "add", receipt.name], cwd=repo, check=True)
+    receipt.write_text(json.dumps(original, indent=2) + "\n", encoding="utf-8")
+
+    with pytest.raises(receipt_sealing.ReceiptSealingError, match="index entry differs"):
         receipt_sealing.verify_against_source(repo, receipt)

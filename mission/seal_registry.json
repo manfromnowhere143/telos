@@ -1,0 +1,366 @@
+{
+  "schema_version": "telos.seal-registry.v1",
+  "claim_boundary": "This registry establishes repository-byte identity and retained Git ancestry only. Digests and commit identities do not establish authorship, chronology, semantic truth, scientific correctness, independence, or external timestamp authority.",
+  "records": [
+    {
+      "seal_id": "iter237-merged-historical-baseline",
+      "record_type": "retrospective_path_snapshot",
+      "reference_commit": "7307e0c1c4083443698cfde8f0ab20a27518717c",
+      "protected_sets": [
+        {
+          "set_id": "pre-iter238-experiments",
+          "selector": {
+            "kind": "tree",
+            "path": "experiments"
+          },
+          "policy": "existing_tree_immutable_registered_additions",
+          "blob_count": 9089,
+          "manifest_sha256": "2582145c64c6e9994281deb39112cf4be1297d4f9dc28861d0efe5ec8cbb3149"
+        },
+        {
+          "set_id": "released-benchmarks",
+          "selector": {
+            "kind": "tree",
+            "path": "benchmarks"
+          },
+          "policy": "exact_tree",
+          "blob_count": 23,
+          "manifest_sha256": "17bcf1c6c72262d565da4984cd1963ab8b07cf914395236cbb85b1968cfa0189"
+        },
+        {
+          "set_id": "sealed-historical-roots-and-runner",
+          "selector": {
+            "kind": "path_list",
+            "paths": [
+              "CONTINUITY.md",
+              "HANDOFF.md",
+              "mission/loop.json",
+              "scripts/ci_iter200_execute.sh"
+            ]
+          },
+          "policy": "exact_paths",
+          "blob_count": 4,
+          "manifest_sha256": "2c337ed1a3130a8fb87ce8176fab900620780e4c142b31cf927d81a6053a3d45"
+        },
+        {
+          "set_id": "historical-workflow-files",
+          "selector": {
+            "kind": "path_list",
+            "paths": [
+              ".github/workflows/codeclash-agent-behavior.yml",
+              ".github/workflows/codeclash-deterministic-edit.yml",
+              ".github/workflows/codeclash-smoke.yml",
+              ".github/workflows/docker-batch.yml",
+              ".github/workflows/iter193-certified-resolved.yml",
+              ".github/workflows/iter194-certified-resolved.yml",
+              ".github/workflows/iter195-differential.yml",
+              ".github/workflows/iter197-property.yml",
+              ".github/workflows/iter199-execute.yml",
+              ".github/workflows/iter200-denominator-backfill.yml",
+              ".github/workflows/iter200-execute.yml",
+              ".github/workflows/iter201-oracle.yml",
+              ".github/workflows/iter202-execute.yml",
+              ".github/workflows/iter203-execute.yml",
+              ".github/workflows/iter204-execute.yml",
+              ".github/workflows/iter205-execute.yml",
+              ".github/workflows/iter206-execute.yml",
+              ".github/workflows/iter207-execute.yml",
+              ".github/workflows/iter223-execute.yml",
+              ".github/workflows/iter224-execute.yml",
+              ".github/workflows/iter225-execute.yml",
+              ".github/workflows/iter226-execute.yml",
+              ".github/workflows/iter227-execute.yml",
+              ".github/workflows/iter228-execute.yml",
+              ".github/workflows/iter229-execute.yml",
+              ".github/workflows/iter231-execute.yml",
+              ".github/workflows/iter232-execute.yml",
+              ".github/workflows/iter234-execute.yml",
+              ".github/workflows/iter235-execute.yml"
+            ]
+          },
+          "policy": "exact_paths",
+          "blob_count": 29,
+          "manifest_sha256": "e6cec9eac6632f25641290706c38d8cc176bde0279de9282505c81990f43631b"
+        }
+      ],
+      "allowed_additive_successors": [
+        {
+          "path": "experiments/iter238_claim_seal_workflow_controls",
+          "must_be_absent_at_reference": true,
+          "policy": "additions_only_until_successor_seal"
+        }
+      ],
+      "limitations": [
+        "This is a retrospective integrity capture at merged iter237 master, not a claim that every legacy byte was originally sealed on 2026-07-19.",
+        "Git object identity and independent SHA-256 manifests prove only the registered byte and ancestry properties.",
+        "Mutable README, paper, current pointer, dated handoff, active CI, and validator surfaces are deliberately outside this snapshot."
+      ]
+    },
+    {
+      "seal_id": "iter206-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "e7c2ec28daa746dbcfb5812d3771ab981ff984c0",
+      "source_parents": [
+        "4f7dd39bb171fd89c1bb7da3f265aa00aa6df63f"
+      ],
+      "seal_commit": "a2a05ef2ed05a0c457076f2bd5f1475507190685",
+      "seal_parents": [
+        "e7c2ec28daa746dbcfb5812d3771ab981ff984c0"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        },
+        {
+          "status": "A",
+          "path": "experiments/iter206_iter205_admission_history_recovery/proof/pre_execution_publication_safety.json"
+        },
+        {
+          "status": "A",
+          "path": "experiments/iter206_iter205_admission_history_recovery/proof/raw/runtime_manifest.json"
+        }
+      ],
+      "receipt_path": null
+    },
+    {
+      "seal_id": "iter207-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "6f0297f3662e757f452ad4d2ffc65ac1ee948e05",
+      "source_parents": [
+        "a2a05ef2ed05a0c457076f2bd5f1475507190685"
+      ],
+      "seal_commit": "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28",
+      "seal_parents": [
+        "6f0297f3662e757f452ad4d2ffc65ac1ee948e05"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        },
+        {
+          "status": "A",
+          "path": "experiments/iter207_claim_integrity_and_admission_recovery/proof/pre_execution_publication_safety.json"
+        },
+        {
+          "status": "A",
+          "path": "experiments/iter207_claim_integrity_and_admission_recovery/proof/raw/runtime_manifest.json"
+        }
+      ],
+      "receipt_path": null
+    },
+    {
+      "seal_id": "iter208-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "184883088336cbae834e812a8d1dce0b7b031821",
+      "source_parents": [
+        "f4ee0d5bcb3b4abee7ebf1683be5b9edda263c28"
+      ],
+      "seal_commit": "a2c2863cf993cb6dd39d2fada8d58e4796929120",
+      "seal_parents": [
+        "184883088336cbae834e812a8d1dce0b7b031821"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter208_post_seal_forensic_correction/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter209-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "1659670c6c13758cc9b1840e87633a627444ca39",
+      "source_parents": [
+        "a2c2863cf993cb6dd39d2fada8d58e4796929120"
+      ],
+      "seal_commit": "91f9258730bf5520d86c9235d7ed2f03724ea103",
+      "seal_parents": [
+        "1659670c6c13758cc9b1840e87633a627444ca39"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter209_publication_ci_recovery/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter210-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "323130bd96b20c062005f097294d8fab235bea93",
+      "source_parents": [
+        "91f9258730bf5520d86c9235d7ed2f03724ea103"
+      ],
+      "seal_commit": "c109312d5ee525599abfbac178c3fb245117ab49",
+      "seal_parents": [
+        "323130bd96b20c062005f097294d8fab235bea93"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter210_pr_synthetic_merge_recovery/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter211-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021",
+      "source_parents": [
+        "fb348eb1f67c0605679cd56a1cfa210cf192db03"
+      ],
+      "seal_commit": "dc19e6f27f5a001632b5183ff798a6eacae6de33",
+      "seal_parents": [
+        "1c99c9bf798fc2aadd1718a3ce77e2b55e9b0021"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter211_tcp1_materialization_preflight/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter213-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "f5cbb9df76f5fc2464e84f4d911313122d76545f",
+      "source_parents": [
+        "dc19e6f27f5a001632b5183ff798a6eacae6de33"
+      ],
+      "seal_commit": "dbe008211022e0abdff5bc9e47e871b02b6d5501",
+      "seal_parents": [
+        "f5cbb9df76f5fc2464e84f4d911313122d76545f"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter213_iter211_post_seal_validation_recovery/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter214-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "48910a55d3f46bd11f360fa4f0501a1d8e9312a1",
+      "source_parents": [
+        "dbe008211022e0abdff5bc9e47e871b02b6d5501"
+      ],
+      "seal_commit": "0205079c924de3aec01d3330bdfc45dbb1692592",
+      "seal_parents": [
+        "48910a55d3f46bd11f360fa4f0501a1d8e9312a1"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter214_tcp1_cross_platform_numeric_recovery/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter219-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "78348446598bb4bb87ee5cda115f29d64db5237e",
+      "source_parents": [
+        "eb9f38b58c2a509dee3d87c31e88eddcf954b192"
+      ],
+      "seal_commit": "11e335e82100319a4f5f47d86eaea0c8e81edbbc",
+      "seal_parents": [
+        "78348446598bb4bb87ee5cda115f29d64db5237e"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter219_temporal_consequence_test_yield/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter220-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "5b7717715169a007574d51204dfe7636de748629",
+      "source_parents": [
+        "11e335e82100319a4f5f47d86eaea0c8e81edbbc"
+      ],
+      "seal_commit": "3cee092420c2d13227005c8d78e584ec69da832f",
+      "seal_parents": [
+        "5b7717715169a007574d51204dfe7636de748629"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter220_iter219_publication_ci_recovery/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter221-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "ef5bbdaa2d678543a6f75396161c0fbcd39bef57",
+      "source_parents": [
+        "3cee092420c2d13227005c8d78e584ec69da832f"
+      ],
+      "seal_commit": "cbd136b819e8c42a7d77d9fee30cad4e1bb04c14",
+      "seal_parents": [
+        "ef5bbdaa2d678543a6f75396161c0fbcd39bef57"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter221_cross_platform_guard_tolerance/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter222-source-seal",
+      "record_type": "historical_source_seal",
+      "source_commit": "d1495a8758541685bad778e684e675580d969edb",
+      "source_parents": [
+        "c14af7c761c105dff0eed71359123bfaaf8d451b"
+      ],
+      "seal_commit": "42b02fd1970729ea4f94baebe903920df9455a57",
+      "seal_parents": [
+        "d1495a8758541685bad778e684e675580d969edb"
+      ],
+      "seal_delta": [
+        {
+          "status": "M",
+          "path": "HANDOFF.md"
+        }
+      ],
+      "receipt_path": "experiments/iter222_tcp1_agent_solvable_admission_evidence/proof/receipt_v2.json"
+    },
+    {
+      "seal_id": "iter238-completed-evidence-seal",
+      "record_type": "successor_path_snapshot",
+      "predecessor_seal_id": "iter237-merged-historical-baseline",
+      "reference_commit": "be012160d9160291c74376fc548f351ffe611091",
+      "protected_sets": [
+        {
+          "set_id": "iter238-completed-evidence-tree",
+          "selector": {
+            "kind": "tree",
+            "path": "experiments/iter238_claim_seal_workflow_controls"
+          },
+          "policy": "exact_tree",
+          "blob_count": 8,
+          "manifest_sha256": "350e9dee4222b354f4de3fb2c553694baea74aa6e43f546029bcc266a66ec90d"
+        }
+      ],
+      "limitations": [
+        "This snapshot freezes the exact eight regular Git blobs in the iter238 component at the named reference commit; it does not establish authorship, chronology, semantic truth, scientific correctness, independence, or external timestamp authority.",
+        "This record closes only the iter238 additive authorization; exact-head CI, a two-parent merge, and merged-master verification remain separate acceptance evidence."
+      ]
+    }
+  ]
+}

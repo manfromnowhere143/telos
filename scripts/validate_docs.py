@@ -8,12 +8,20 @@ and self-praise does not substitute for evidence.
 
 from __future__ import annotations
 
-import glob
 import os
 import re
 import subprocess
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from scripts.experiment_index import (
+    ExperimentIndexError,
+    INDEX,
+    build_index,
+    read_index,
+)
 
 
 FAILS: list[str] = []
@@ -75,15 +83,18 @@ def check_banned_language(path: str, src: str) -> None:
 
 
 def check_experiment_surface() -> None:
+    index = INDEX.relative_to(INDEX.parents[1])
+    try:
+        actual = read_index(INDEX.parents[1])
+        expected = build_index(INDEX.parents[1])
+    except ExperimentIndexError as error:
+        FAILS.append(f"{index}: deterministic experiment inventory is unsafe: {error}")
+        return
+    if actual != expected:
+        FAILS.append(f"{index}: deterministic experiment index differs")
     readme = Path("README.md").read_text(encoding="utf-8")
-    for result in sorted(glob.glob("experiments/*/RESULT.md")):
-        directory = os.path.dirname(result)
-        if directory not in readme:
-            FAILS.append(f"README.md: experiment with RESULT.md is not referenced -> {directory}")
-    for hypothesis in sorted(glob.glob("experiments/*/HYPOTHESIS.md")):
-        directory = os.path.dirname(hypothesis)
-        if directory not in readme:
-            FAILS.append(f"README.md: experiment with HYPOTHESIS.md is not referenced -> {directory}")
+    if "docs/EXPERIMENT_INDEX.md" not in readme:
+        FAILS.append("README.md: deterministic experiment index is not linked")
 
 
 def main() -> int:

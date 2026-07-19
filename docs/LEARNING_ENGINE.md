@@ -1,5 +1,10 @@
 # Learning Engine
 
+> **Historical ledger view — not the operational baton.** Current recovery
+> begins at [`../mission/current.json`](../mission/current.json) and the dated
+> handoff it names. Pending actions retained below record what an earlier gate
+> intended; they do not authorize present work.
+
 Telos learns by turning each experiment into a small durable record:
 
 1. what was tried,
@@ -54,14 +59,16 @@ The validator is:
 python3 scripts/validate_learning_ledger.py
 ```
 
-## Current Learning State
+## Historical learning state
 
 The machine source of truth for each completed learning record is the set of canonical and additive
 `experiments/*/proof/learning_record*.json` files plus `python3 scripts/validate_learning_ledger.py`.
-This hand-written table is historical context and may lag the newest records. The validator checks the
-historical completed-record chain, then binds its displayed `active_next` to the unique pending record whose
-`result_path` equals `mission/loop.json.active_gate`. Generated `HANDOFF.md` owns the current operational
-action and remains the resume authority.
+This hand-written table is historical context and may lag the newest records.
+The validator checks the historical completed-record chain and verifies the
+unique pending record selected by the sealed `mission/loop.json` freeze. It
+labels that record `historical_pending_at_freeze` and never emits its
+`next_action` as current authority. `mission/current.json` and its dated handoff
+own operational recovery.
 
 Selected historical records:
 
@@ -184,13 +191,16 @@ Selected historical records:
 | `iter106_external_benchmark_pilot_materialization_after_design` | pass | the frozen external benchmark pilot now has 20 static packets, 160 public artifacts, 20 private labels, and 5 identical public-only strategy-input manifests | execute the bounded pilot under the registered 30-call and $10 ceilings, preserving null/adverse results and making no benchmark/model/SOTA claim |
 | `iter107_external_benchmark_pilot_execution_after_materialization` | pass | the bounded 20-packet pilot executed with 20 provider calls and $0.38674600 estimated spend; complete Telos accepted 0/10 false packets and preserved 10/10 legitimate controls, external verifier accepted 2/10 false packets, and the LLM judge rejected 10/10 legitimate controls | adjudicate the bounded pilot claim boundary with zero provider calls before any replication, redesign, or benchmark/model/SOTA claim |
 
-To validate the contemporaneous next action stored with the newest completed learning record, run:
+To validate the historical learning chain and its pending-at-freeze record,
+run:
 
 ```bash
 python3 scripts/validate_learning_ledger.py
 ```
 
-The validator still reads the newest non-pending learning record by experiment id as historical evidence,
-but it displays the current next action only from the unique pending record bound to
-`mission/loop.json.active_gate`. It rejects missing evidence, duplicate active records, non-pending active
-records, and experiment-ID mismatches. Generated `HANDOFF.md` remains the current resume authority.
+The validator reads completed learning records as historical evidence and
+requires the unique pending record bound to the sealed
+`mission/loop.json.active_gate`. It rejects missing evidence, duplicate pending
+records, non-pending matches, and experiment-ID mismatches. It reports that
+selection only as historical chronology and points to `mission/current.json`
+for present authority.

@@ -115,11 +115,10 @@ PUBLIC_REQUIREMENTS = {
     ),
     ROOT / "README.md": (
         "locator-assisted, gold-validated",
-        "`8/88`",
-        "`3/19`",
         "protocol",
-        "mutable `:latest`",
         "exact historical container bytes",
+        "not independently adjudicated semantic ground truth",
+        "paper/telos.tex",
     ),
     ROOT / "CONTINUITY.md": (
         "locator-assisted, gold-validated",
@@ -128,11 +127,10 @@ PUBLIC_REQUIREMENTS = {
         "protocol",
     ),
     ROOT / "docs/MISSION_LOOP.md": (
-        "locator-assisted, gold-validated",
-        "`8/88`",
-        "`3/19`",
-        "protocol",
-        "mutable `:latest`",
+        "This file is a historical compatibility pointer",
+        "It is not the current baton, claim ledger, or execution authority",
+        "mission/current.json",
+        "docs/EXPERIMENT_INDEX.md",
     ),
     ROOT / "mission/loop.json": (
         "locator-assisted, gold-validated",
@@ -149,13 +147,12 @@ PUBLIC_REQUIREMENTS = {
         "protocol",
     ),
     ROOT / "paper/README.md": (
-        "locator-assisted, gold-validated",
-        "`8/88`",
-        "`3/19`",
-        "protocol",
-        "Historical image provenance is bounded",
-        "mutable `:latest`",
-        "comparison establishes an effect direction or magnitude",
+        "released detector labels are operational reference differentials "
+        "rather than independent semantic ground truth",
+        "This page is a build and release guide, not a second "
+        "empirical-results ledger",
+        "None establishes independent semantic ground truth",
+        "detector efficacy",
     ),
     ROOT / "paper/telos.tex": (
         "locator-assisted, gold-validated",
@@ -215,17 +212,16 @@ PUBLIC_REQUIREMENTS = {
         "not the original submitted `iter21` logic",
     ),
     ROOT / "results/README.md": (
-        "The active gate is",
-        "iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
-        "scenario-safety protocol/execution null",
-        "execution-infrastructure null",
-        "pre-dispatch infrastructure null",
-        "complete all-event and dispatch histories are empty",
-        "pre-dispatch admission-history null",
-        "Do not publish",
+        "This directory is not a results authority",
+        "mission/current.json",
+        "docs/EXPERIMENT_INDEX.md",
+        "Do not add a new finding, rate, score, cost, run status, "
+        "active gate, or next action here",
     ),
     ROOT / "docs/NEXT_PHASE.md": (
-        "CURRENT AUTHORITY (2026-07-16)",
+        "SUPERSEDED HISTORICAL PLAN — NOT CURRENT AUTHORITY",
+        "mission/current.json",
+        "HISTORICAL AUTHORITY SNAPSHOT (2026-07-16)",
         "iter207_claim_integrity_and_admission_recovery/HYPOTHESIS.md",
         "before any scenario or certification execution",
         "historical provenance",
@@ -233,8 +229,13 @@ PUBLIC_REQUIREMENTS = {
         "Iter206 was sealed locally but stopped",
         "Any extra or malformed row or any predecessor run closes iter207 without dispatch",
     ),
+    ROOT / "docs/TELOS-ROADMAP-2026.md": (
+        "HISTORICAL ROADMAP SNAPSHOT — NOT CURRENT AUTHORITY",
+        "mission/current.json",
+    ),
     ROOT / "docs/REPORT.md": (
         "SUPERSEDED HISTORICAL REPORT",
+        "mission/current.json",
         "iter192",
         "40/40",
         "paper/telos.tex",
@@ -247,12 +248,14 @@ PUBLIC_REQUIREMENTS = {
     ),
     ROOT / "docs/COMPLETION_VERIFICATION_REPORT.md": (
         "HISTORICAL SCOPE",
+        "mission/current.json",
         "iter109--iter123",
         "iter192 correction",
         "paper/telos.tex",
     ),
     ROOT / "docs/LITERATURE_ALIGNMENT_2026.md": (
         "DATED HISTORICAL MEMO",
+        "mission/current.json",
         "iter192 foundation correction",
         "iter197/iter201",
         "paper/telos.tex",
@@ -295,10 +298,6 @@ FORBIDDEN_STANDING_PHRASES = {
 CURRENT_SURFACE_SLICES = {
     ROOT / "README.md": (None, "# Historical record"),
     ROOT / "CONTINUITY.md": (None, "## Standing correction (iter192)"),
-    ROOT / "docs/MISSION_LOOP.md": (
-        None,
-        "- Historical boundary ledger through iter190",
-    ),
     ROOT / "HANDOFF.md": (
         ("## Current Gate\n", "## Current Gates\n"),
         ("## Verification Before Action\n", "## Verification Before Publication\n"),

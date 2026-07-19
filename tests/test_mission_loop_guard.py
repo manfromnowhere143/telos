@@ -4,6 +4,7 @@ import importlib.util
 import json
 from pathlib import Path
 import shlex
+import subprocess
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +47,26 @@ def test_recovery_gate_binding_preserves_distinct_frozen_upstream(tmp_path: Path
     assert "active gate must be distinct from the frozen upstream gate" in (
         guard.validate_gate_bindings(same_gate, continuity, handoff, root=tmp_path)
     )
+
+
+def test_validator_labels_sealed_gates_historical_not_active() -> None:
+    completed = subprocess.run(
+        ["python3", "scripts/validate_mission_loop.py"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+
+    assert "historical_runtime_gate_at_freeze=" in completed.stdout
+    assert "historical_publication_gate_at_freeze=" in completed.stdout
+    assert "operational_authority=mission/current.json" in completed.stdout
+    assert (
+        "current_gate="
+        "experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md"
+        in completed.stdout
+    )
+    assert "active publication gate=" not in completed.stdout
 
 
 def test_committed_iter207_recovery_state_is_evidence_bounded() -> None:
