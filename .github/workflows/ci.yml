@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   verify:
-    name: verify py${{ matrix.python-version }}
+    name: verify ${{ github.event_name }} py${{ matrix.python-version }}
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: false

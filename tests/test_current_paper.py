@@ -50,10 +50,11 @@ def test_current_paper_guard_preserves_claim_authority_role_and_report_link(
     def tampered(path: Path) -> str:
         text = original(path)
         if path == validator.ROOT / "paper/README.md":
-            return text.replace(role, "The claim registry is one useful file").replace(
-                "(../experiments/iter238_claim_seal_workflow_controls/proof/"
-                "claim_coverage_report.json)",
-                "",
+            active_gate, report_path = validator.active_claim_authority_paths()
+            return (
+                text.replace(role, "The claim registry is one useful file")
+                .replace(f"(../{active_gate})", "")
+                .replace(f"(../{report_path})", "")
             )
         return text
 
@@ -62,4 +63,5 @@ def test_current_paper_guard_preserves_claim_authority_role_and_report_link(
     failures = validator.validate()
 
     assert any(role in failure for failure in failures)
+    assert any("exact active engineering gate" in failure for failure in failures)
     assert any("exact active-gate claim coverage report" in failure for failure in failures)

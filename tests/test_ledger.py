@@ -172,11 +172,8 @@ def test_validator_never_promotes_frozen_iter207_next_action() -> None:
         in completed.stdout
     )
     assert "operational_authority=mission/current.json" in completed.stdout
-    assert (
-        "current_gate="
-        "experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md"
-        in completed.stdout
-    )
+    current = json.loads((ROOT / "mission/current.json").read_text(encoding="utf-8"))
+    assert f"current_gate={current['active_gate']}" in completed.stdout
     assert "active_next=" not in completed.stdout
     assert "Finish and adversarially validate every iter207 correction" not in (
         completed.stdout

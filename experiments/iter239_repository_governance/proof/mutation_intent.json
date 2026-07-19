@@ -1,0 +1,70 @@
+{
+  "api_version": "2026-03-10",
+  "before_state_sha256": "2e73da23dbb294e6354fbca39063eddedf53219ca9d574179f9af1aa9bf5b8f5",
+  "endpoint": "https://api.github.com/repos/manfromnowhere143/telos/rulesets",
+  "method": "POST",
+  "persisted_at": "2026-07-19T19:05:51Z",
+  "policy_sha256": "c0cd140f004f760c568c02c3857c80d252c098fa1590453f3930480904b4531c",
+  "repository": "manfromnowhere143/telos",
+  "request_body": {
+    "bypass_actors": [],
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~DEFAULT_BRANCH",
+          "refs/heads/master"
+        ]
+      }
+    },
+    "enforcement": "active",
+    "name": "telos-default-branch-technical-floor-v1",
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "parameters": {
+          "allowed_merge_methods": [
+            "merge"
+          ],
+          "dismiss_stale_reviews_on_push": false,
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_approving_review_count": 0,
+          "required_review_thread_resolution": true
+        },
+        "type": "pull_request"
+      },
+      {
+        "parameters": {
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "verify pull_request py3.11",
+              "integration_id": 15368
+            },
+            {
+              "context": "verify pull_request py3.12",
+              "integration_id": 15368
+            }
+          ],
+          "strict_required_status_checks_policy": true
+        },
+        "type": "required_status_checks"
+      }
+    ],
+    "target": "branch"
+  },
+  "request_body_sha256": "7c8db8fe1104ccd86f6cb35701d83dda35786786641cbc3f3bfa3c2211da4038",
+  "schema_version": "telos.iter239.mutation_intent.v1",
+  "source_commit": "6f06e0254ee47e70fdb632f902e5d7b450d5791a",
+  "write_guards": {
+    "directory_fsync_completed": true,
+    "exclusive_create": true,
+    "file_fsync_completed": true
+  }
+}

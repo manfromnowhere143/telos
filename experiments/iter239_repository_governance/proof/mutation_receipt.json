@@ -1,0 +1,192 @@
+{
+  "after_state_sha256": "b8db7c38768c665d6d69488ecee780986baefde86cd56563813fd921ffcab530",
+  "ambiguous_reconciliation": "not_required",
+  "before_state_sha256": "2e73da23dbb294e6354fbca39063eddedf53219ca9d574179f9af1aa9bf5b8f5",
+  "dispatch_attempt": {
+    "consumed_at": "2026-07-19T19:05:51Z",
+    "endpoint": "https://api.github.com/repos/manfromnowhere143/telos/rulesets",
+    "method": "POST",
+    "mutation_intent_sha256": "d9b8f940782dc4a331bc3608da0d95433561a2baae23b54b182bcf8612aab2c6",
+    "schema_version": "telos.iter239.dispatch_attempt.v1",
+    "source_commit": "6f06e0254ee47e70fdb632f902e5d7b450d5791a",
+    "write_guards": {
+      "directory_fsync_completed": true,
+      "exclusive_create": true,
+      "file_fsync_completed": true
+    }
+  },
+  "finished_at": "2026-07-19T19:06:05Z",
+  "mutation_intent_sha256": "d9b8f940782dc4a331bc3608da0d95433561a2baae23b54b182bcf8612aab2c6",
+  "outcome": "applied",
+  "policy_sha256": "c0cd140f004f760c568c02c3857c80d252c098fa1590453f3930480904b4531c",
+  "post_response": {
+    "classification": "accepted_created",
+    "http_status": 201,
+    "projection": {
+      "id": 19177100,
+      "normalization": {
+        "entries": [
+          {
+            "classification": "inserted_inert_default",
+            "path": "$.rules[type=pull_request].parameters.required_reviewers"
+          }
+        ],
+        "request_policy_sha256": "7c8db8fe1104ccd86f6cb35701d83dda35786786641cbc3f3bfa3c2211da4038",
+        "semantic_differences": [],
+        "server_policy_sha256": "6baed4ffb5f80b7057a9f1bd68de38aa7ede041871ac9f5130f6d1dfe2c078d9"
+      },
+      "request_policy": {
+        "bypass_actors": [],
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/master"
+            ]
+          }
+        },
+        "enforcement": "active",
+        "name": "telos-default-branch-technical-floor-v1",
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "parameters": {
+              "allowed_merge_methods": [
+                "merge"
+              ],
+              "dismiss_stale_reviews_on_push": false,
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_approving_review_count": 0,
+              "required_review_thread_resolution": true
+            },
+            "type": "pull_request"
+          },
+          {
+            "parameters": {
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "verify pull_request py3.11",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "verify pull_request py3.12",
+                  "integration_id": 15368
+                }
+              ],
+              "strict_required_status_checks_policy": true
+            },
+            "type": "required_status_checks"
+          }
+        ],
+        "target": "branch"
+      },
+      "server_metadata": {
+        "created_at": "2026-07-19T22:06:56.721+03:00",
+        "current_user_can_bypass": "never",
+        "current_user_can_bypass_present": true,
+        "links": {
+          "html": {
+            "href": "https://github.com/manfromnowhere143/telos/rules/19177100"
+          },
+          "self": {
+            "href": "https://api.github.com/repos/manfromnowhere143/telos/rulesets/19177100"
+          }
+        },
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5NF7pKzgEknow",
+        "updated_at": "2026-07-19T22:06:56.772+03:00"
+      },
+      "server_policy": {
+        "bypass_actors": [],
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/master"
+            ]
+          }
+        },
+        "enforcement": "active",
+        "name": "telos-default-branch-technical-floor-v1",
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "parameters": {
+              "allowed_merge_methods": [
+                "merge"
+              ],
+              "dismiss_stale_reviews_on_push": false,
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_approving_review_count": 0,
+              "required_review_thread_resolution": true,
+              "required_reviewers": []
+            },
+            "type": "pull_request"
+          },
+          {
+            "parameters": {
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "verify pull_request py3.11",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "verify pull_request py3.12",
+                  "integration_id": 15368
+                }
+              ],
+              "strict_required_status_checks_policy": true
+            },
+            "type": "required_status_checks"
+          }
+        ],
+        "target": "branch"
+      },
+      "source": "manfromnowhere143/telos",
+      "source_type": "Repository"
+    },
+    "projection_sha256": "d7d1cefacabcddf16e908d25c1a04842fc88ee5c905c3d0aa0c2958ff17485a9"
+  },
+  "repository": "manfromnowhere143/telos",
+  "request_body_sha256": "7c8db8fe1104ccd86f6cb35701d83dda35786786641cbc3f3bfa3c2211da4038",
+  "request_counts": {
+    "DELETE": 0,
+    "GET": 28,
+    "PATCH": 0,
+    "POST": 1,
+    "PUT": 0,
+    "branch_delete": 0,
+    "branch_update": 0,
+    "collaborator_invite": 0,
+    "collaborator_role_change": 0,
+    "force_push": 0,
+    "publication": 0,
+    "release": 0,
+    "run_delete": 0,
+    "visibility_change": 0,
+    "workflow_delete": 0,
+    "workflow_disable": 0,
+    "workflow_dispatch": 0,
+    "workflow_enable": 0,
+    "workflow_rerun": 0
+  },
+  "ruleset_id": 19177100,
+  "schema_version": "telos.iter239.mutation_receipt.v1",
+  "source_commit": "6f06e0254ee47e70fdb632f902e5d7b450d5791a",
+  "started_at": "2026-07-19T19:05:35Z"
+}

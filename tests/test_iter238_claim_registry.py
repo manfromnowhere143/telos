@@ -20,6 +20,16 @@ from telos.json_compare import compare_json
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.fixture(autouse=True)
+def restore_binding_authorization_inventory() -> None:
+    """Keep candidate authorization digests local to each test."""
+
+    original = dict(guard.AUTHORIZED_BINDING_INVENTORY_SHA256)
+    yield
+    guard.AUTHORIZED_BINDING_INVENTORY_SHA256.clear()
+    guard.AUTHORIZED_BINDING_INVENTORY_SHA256.update(original)
+
+
 def _write_json(path: Path, value: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
@@ -515,11 +525,11 @@ def test_sidedness_and_reviewed_configuration_atoms_are_protocol() -> None:
         "paper/telos.tex:d5aad3b6426f1432ab9b:0:6"
         in guard.CURATED_INTERNAL_PROJECTIONS
     )
-    engineering_id = (
-        "docs/HANDOFF-2026-07-19-iter238.md:e145d87cd851d1ff6d4e:0:0"
+    assert guard.CURATED_ENGINEERING_BINDINGS <= set(live)
+    assert all(
+        guard._retained_kind(live[binding_id]) == "engineering_verification"
+        for binding_id in guard.CURATED_ENGINEERING_BINDINGS
     )
-    assert engineering_id in guard.CURATED_ENGINEERING_BINDINGS
-    assert guard._retained_kind(live[engineering_id]) == "engineering_verification"
 
 
 def test_arbitrary_citation_adjacency_does_not_mint_external_claim(

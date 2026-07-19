@@ -78,6 +78,7 @@ def _retained_fixture(
     registry = json.loads(
         (ROOT / lifecycle.REGISTRY_RELATIVE).read_text(encoding="utf-8")
     )
+    registry["active_gate"] = lifecycle.ITER238_GATE
     registry["retirement_receipt"] = receipt_relative
     registry_path = root / lifecycle.REGISTRY_RELATIVE
     _write_canonical(registry_path, registry)
