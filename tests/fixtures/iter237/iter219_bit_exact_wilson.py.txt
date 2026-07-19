@@ -1,0 +1,14 @@
+from telos.tcp1 import wilson_interval
+
+
+def check_report_recomputes(block, real_hits, control_hits, n):
+    expected_real_ci = list(wilson_interval(real_hits, n))
+    require(
+        block["real_wilson_95"] == expected_real_ci,
+        "real Wilson interval does not recompute",
+    )
+    expected_control_ci = list(wilson_interval(control_hits, n))
+    require(
+        block["control_wilson_95"] == expected_control_ci,
+        "control Wilson interval does not recompute",
+    )

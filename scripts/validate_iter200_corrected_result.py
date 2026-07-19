@@ -277,13 +277,16 @@ FORBIDDEN_POSITIVE_PATTERNS = {
 }
 REQUIRED_PUBLIC_TEXT = {
     EXP / "RESULT.md": ["`1/24`", "`7/24`", "`1/18`", "historical `1/15`"],
-    ROOT / "README.md": ["`1/24`", "`7/24`", "`1/18`"],
     ROOT / "CONTINUITY.md": ["`1/24`", "`7/24`", "`1/18`"],
     ROOT / "HANDOFF.md": ["`1/24`", "`7/24`", "`1/18`"],
     ROOT / "docs/MISSION_LOOP.md": ["`1/24`", "`7/24`", "`1/18`"],
     ROOT / "mission/loop.json": ["1/24", "7/24", "1/18"],
-    ROOT / "paper/README.md": ["`1/24`", "`7/24`", "`1/18`"],
-    ROOT / "paper/telos.tex": ["1/24", "7/24", "1/18"],
+    # Iter200's sealed denominator-backfill record remains N=24, k=1, u=6.
+    # Mutable current surfaces must carry iter235's additive witness-recovery
+    # successor instead of presenting that predecessor as the current count.
+    ROOT / "README.md": ["`2/24`", "`3/24`", "`2/23`"],
+    ROOT / "paper/README.md": ["`2/24`", "`3/24`", "`2/23`"],
+    ROOT / "paper/telos.tex": ["2/24", "3/24", "2/23"],
 }
 
 STANDING_PUBLIC_SURFACES = {
@@ -876,7 +879,10 @@ def main() -> int:
         for failure in failures:
             print(f" - {failure}")
         return 1
-    print("iter200 corrected-result guard: pass (N=24, k=1, u=6)")
+    print(
+        "iter200 corrected-result guard: pass "
+        "(sealed base N=24,k=1,u=6; current iter235 recovery N=24,k=2,u=1)"
+    )
     return 0
 
 

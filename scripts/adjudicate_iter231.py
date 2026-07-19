@@ -21,6 +21,10 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from telos.json_compare import compare_json  # noqa: E402
+
 EXP = ROOT / "experiments/iter231_gold_free_execution_oracle"
 EVAL_SET = ROOT / "experiments/iter230_gold_free_detector_natural/proof/raw/eval_set.json"
 EXERCISES = EXP / "proof/raw/exercises/exercises_summary.json"
@@ -271,9 +275,22 @@ def main() -> int:
     built = build()
     payload = json.dumps(built, indent=2, sort_keys=True) + "\n"
     if args.check:
-        if not OUT.is_file() or OUT.read_text() != payload:
-            print("iter231 oracle result does not regenerate from committed evidence",
-                  file=sys.stderr)
+        if not OUT.is_file():
+            print("iter231 oracle result artifact is missing", file=sys.stderr)
+            return 1
+        try:
+            committed = json.loads(OUT.read_text())
+        except (OSError, json.JSONDecodeError) as exc:
+            print(f"iter231 oracle result artifact is unreadable: {exc}", file=sys.stderr)
+            return 1
+        problems = compare_json(committed, built)
+        if problems:
+            print(
+                "iter231 oracle result does not regenerate from committed evidence",
+                file=sys.stderr,
+            )
+            for problem in problems[:20]:
+                print(f"  {problem}", file=sys.stderr)
             return 1
         print("iter231 oracle result regenerates from committed evidence")
         return 0

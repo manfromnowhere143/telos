@@ -2,9 +2,26 @@
 
 **A research program for verifying autonomous agent work by evidence, not by trust.**
 
-> **The natural certified-yet-wrong rate is measured and generalized: five frontier models across three providers each slip a patch past the official SWE-bench Verified graded suite that both blind judges name wrong** — OpenAI (`gpt-5.6-terra` `5/29`, `gpt-5.5` `2/25`, `gpt-5.4` `3/17`), Anthropic (`claude-sonnet-5` `4/14`), and Google (`gemini-3.1-pro-preview` `1/16`) — corrected by [iter235](experiments/iter235_witness_recovery/RESULT.md), which recovered `33` of the `41` certified patches whose witness never ran, cutting the missing-outcome term `u` from `41` to `8` across all six runs. These runs are operator-authorized, execution-verified in pinned x86 SWE-bench containers, and folded into `paper/telos.pdf`. Two independently-built fresh cohorts are null (iter224 `0/15`, iter228 `0/22`), so the confirmed rate concentrates in the reused `53`-target cohort and remains a cohort-specific lower bound, not a population frequency. The pooled `5/68` quoted below predates the iter235 correction and is flagged for re-derivation; pooled over all six runs the band between the observed rate and its worst case narrows from `[0.104, 0.432]` to `[0.136, 0.200]`. The reverse-chronological narrative below leads with the current result.
+> **Current evidence boundary:** five solver models across three providers each produced at least one
+> operational certified-yet-wrong label on the same fixed `53`-target convenience cohort: OpenAI
+> (`gpt-5.6-terra` `5/29`, `gpt-5.5` `2/25`, `gpt-5.4` `3/17`), Anthropic
+> (`claude-sonnet-5` `4/14`), and Google (`gemini-3.1-pro-preview` `1/16`), with remaining missing-outcome
+> counts `u=0,2,2,2,1`. This is meaningful **cross-solver recurrence on one reused cohort**. It is not a
+> population rate, model independence, task-population generalization, or a model ranking. Across all six
+> measured runs, [iter235](experiments/iter235_witness_recovery/RESULT.md) moved the patch-level accounting
+> from `k=13,u=41,N=125` to `k=17,u=8,N=125`, but those `17` labels represent only `12` unique task
+> identities.
 >
-> A separate line — the TCP-1 agent-completion-proof packet, which needs independently-authored hidden consequence tests and human reviewers — remains blocked. **Iter222 filled three TCP-1 admission gates (2/11 → 5/11) — scientific execution remains BLOCKED.** Iter219 published a null on the temporal-yield screen; Iter214 merged through PR `#12`
+> The two fresh single-solver cohorts have observed `k=0` among `N=37` certified patches, but retain
+> `u=13` unadjudicated outcomes (iter224 `k=0,N=15,u=6`; iter228 `k=0,N=22,u=7`). Their complete cases are
+> `0/24`; their least-favourable upper accounting is `13/37`. They are therefore **inconclusive** about
+> cohort concentration. Iter236 reproduced the recorded selector arithmetic but supplied no held-out
+> susceptibility labels, so fix-size transfer is also **untested**, not negative. Iter237 is the active
+> zero-spend truth-maintenance gate correcting these boundaries before further science.
+>
+> A separate line — the TCP-1 completion-assurance packet, which needs independently-authored hidden
+> consequence tests and human reviewers — remains blocked. **Iter222 filled three TCP-1 admission gates
+> (2/11 → 5/11); scientific execution remains blocked.** Iter219 published a null on the temporal-yield screen; Iter214 merged through PR `#12`
 > as `470ca3627b7635d9a315cf2811ceb2eed6575fb9` with green push, pull-request, and merged-master CI, closing
 > the publication-engineering line that began at iter208. Iter211's TCP-1 packet still stands at **2
 > local-design gates passing and 9 external admission gates blocked**.
@@ -24,9 +41,13 @@
 > provider solves, container certification, and workflow dispatch; "execution" in the TCP-1 sentences refers to
 > that completion-proof protocol, not to the measurement runs.)
 
-New here? Read the [2026-07-18 session handoff](docs/HANDOFF-2026-07-18.md) first — it carries the operating
-standard and the unified result — then the [iter235 handoff](docs/HANDOFF-2026-07-18-iter235.md) — the expanded one, carrying the
-operating standard, the mission, and where to apply pressure — and the
+New here? Read the machine-readable [`mission/current.json`](mission/current.json) first, then the
+[current dated handoff](docs/HANDOFF-2026-07-19-iter237.md) and
+[takeover audit](docs/TELOS-AUDIT-2026-07-19.md) it names. `HANDOFF.md` and
+`mission/loop.json` are sealed historical TCP-1 artifacts, not the current baton. For the durable research
+standard, read the
+[2026-07-18 session handoff](docs/HANDOFF-2026-07-18.md), then the
+[iter235 handoff](docs/HANDOFF-2026-07-18-iter235.md) and the
 [iter234](docs/HANDOFF-2026-07-18-iter234.md) / [iter233](docs/HANDOFF-2026-07-18-iter233.md) /
 [iter232](docs/HANDOFF-2026-07-18-iter232.md) / [iter231](docs/HANDOFF-2026-07-18-iter231.md) handoffs and
 [container runner notes](docs/CONTAINER_RUNNER_NOTES.md) for the sealed-runner trap. Then the
@@ -42,7 +63,7 @@ The failed, unchanged publication predecessor is
 [iter213 iter211 post-seal validation recovery](experiments/iter213_iter211_post_seal_validation_recovery/HYPOTHESIS.md).
 The merged publication-engineering gate is
 [iter214 TCP-1 cross-platform numeric recovery](experiments/iter214_tcp1_cross_platform_numeric_recovery/HYPOTHESIS.md).
-The active gate is
+The blocked TCP-1 subprogramme gate is
 [iter222 agent-solvable TCP-1 admission evidence](experiments/iter222_tcp1_agent_solvable_admission_evidence/HYPOTHESIS.md),
 which fills the three admission gates an agent can fill at zero spend — a live-digest open-weight model
 binding, a real RFC 3161 transparency timestamp, and a hostile isolation rehearsal with positive controls —
@@ -59,6 +80,22 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
+The active integrity iteration is
+[iter237 truth maintenance](experiments/iter237_truth_maintenance_gate/HYPOTHESIS.md), with its additive
+[local result](experiments/iter237_truth_maintenance_gate/RESULT.md). The corrected working tree passes
+`831` tests with `9` explicitly optional SciPy-equivalence skips and all `289` CI-derived guard commands under
+Python `3.11.15` on macOS/arm64. Required remote Linux Python 3.11 and 3.12 CI remains unproven, so this is
+local correction evidence, not merge authority. Iter237 corrects the scientific inference, paper, README,
+current-state control plane, typed numeric comparison, and repository-wide floating-point guard before any
+new empirical work. Its predecessor,
+[iter236 transfer analysis reconstruction](experiments/iter236_transfer_analysis_reconstruction/RESULT.md),
+is complete: seven registered arithmetic claims reproduced, the fresh-cohort solved denominator was `62`
+rather than `59`, and the paper's `p=0.008` did not regenerate. The recorded asymptotic two-sided statistic is
+`U=331`, `p=0.005347` with tie and continuity correction. Iter236 also exposed a closure limit: the
+286-command local closure covers registered CI commands and registered builders, not every number appearing
+in prose. Its claim that fix size “does not transfer” is superseded by iter237 because no outcome-labelled
+held-out cohort was evaluated.
+
 The active scientific result is
 [iter235 witness recovery](experiments/iter235_witness_recovery/RESULT.md): across six natural-rate runs
 `125` patches were certified and `41` were never adjudicated — certified, not gold-equivalent, and lacking a
@@ -84,16 +121,16 @@ the certified-wrong one**, exercising an input the graded suite never covered.
 
 Two of the other three apparent catches were tests that fail on *every* implementation, which is why each test
 is validated against the accepted fix before being counted — the headline is `1/10`, not the flattering
-`3/10`. It costs `13/54` false alarms, worse than static judging, because roughly a third of issue-derived
-tests are simply wrong. So the ceiling is a property of gold-free detectors **that reason from the patch**,
-not of the class itself. The independence endpoint is underpowered and reported as such.
+`3/10`. It produces `13/54` mixed-control flags, more than static judging, because roughly a third of
+issue-derived tests are invalid against the accepted implementation. This bounds the measured instruments;
+it is not a ceiling on the class. The independence endpoint is underpowered and reported as such.
 
 The active release is
 [iter233 natural benchmark release](experiments/iter233_natural_benchmark_release/release/README.md): the
 frozen `67`-row benchmark packaged as a standard eval, with inputs and answers separated, opaque row ids, a
 scoring harness that reproduces all three committed baselines, and its defects disclosed in the artifact
-itself — notably that `29` of the `54` negatives are byte-identical to public gold, so any detector consulting
-gold scores `13/13` recall without understanding anything.
+itself — notably that `29` of the `54` controls are normalized-identical to accepted patches, so any detector
+consulting the accepted patch can exploit a strong construction shortcut.
 
 The active scientific result is
 [iter232 validated exercise instrument](experiments/iter232_validated_exercise_instrument/RESULT.md). Iter231's
@@ -104,11 +141,12 @@ static safety, and an always-raising-format check, regenerates the failures unde
 under the byte-identical iter231 flag rule. Coverage rises to `65/67` and missing positive outcomes fall to
 `0`.
 
-With a working instrument the oracle recalls **`2/13`** — *exactly* static judging's recall — at `12/54` false
-positives against static's `5/54`. Iter231's raw `4/13` is confirmed to have been artifact. Repairing the
-measuring device moved the headline **down**, and better coverage bought more false alarms rather than more
-detections. The ceiling is now airtight: the value-wrong class is flagged **`0/10` with zero missing
-outcomes**, Wilson upper bound `0.278`.
+With a working instrument the oracle recalls **`2/13`** — *exactly* static judging's recall — with flag rates
+of `12/54` on the mixed control set against static's `5/54`. Iter231's raw `4/13` is confirmed to have been artifact. Repairing the
+measuring device moved the headline **down**, and better coverage bought more control flags rather than more
+detections. Two specific one-shot patch-reasoning instruments flagged **`0/10` value-wrong rows with zero
+missing outcomes** (Wilson upper bound `0.278`); this is not a ceiling on stronger verifiers, multiple inputs,
+independently authored tests, or human review.
 
 The active scientific result is
 [iter231 gold-free execution oracle](experiments/iter231_gold_free_execution_oracle/RESULT.md), published as a
@@ -117,89 +155,90 @@ issue, public test names, and candidate patch, writes an exercise that drives th
 is applied in its container and flagged under a rule frozen before any output was inspected — recalls `4/13`
 at `10/54`. Four of those flags are the *instrument* failing rather than the patch (two import errors, two
 exercises applying one format specifier to a multi-element tuple), leaving `2/13` at `8/54`: **equal to static
-judging's recall at a worse false-positive rate**. Execution did not beat static judging.
+judging's recall with a higher mixed-control flag rate**. Execution did not beat static judging.
 
-The ceiling is now measured rather than argued. All `3` crash-or-wrong-type patches are caught by at least one
-gold-free instrument, and the two are partially complementary — but **neither catches any of the `10`
-value-wrong patches**, `0/10`. Eight of the ten false positives are certified-correct code raising correctly
-on an input where raising is right, which a gold-free observer cannot distinguish from a wrong patch crashing.
+The behavior of these two instruments is measured rather than argued. All `3` crash-or-wrong-type patches are
+caught by at least one gold-free instrument, and the two are partially complementary — but **neither catches
+any of the `10` value-wrong patches**, `0/10`. Eight of the ten control flags are rows where raising agrees
+with the retained reference evidence, which a gold-free observer cannot distinguish from a wrong patch
+crashing; this still does not turn the full mixed control set into independent semantic negatives.
 Both directions point at the same wall: recognizing a plausible wrong value requires a reference.
 The active scientific result is
 [iter230 gold-free detector on the natural benchmark](experiments/iter230_gold_free_detector_natural/RESULT.md):
-the first **mitigation** result, and it confirms the thesis. On the frozen natural benchmark (`13` confirmed
-certified-yet-wrong positives, `54` certified-correct negatives), a gold-free three-provider static panel that
+an exploratory mitigation measurement. On the frozen operational benchmark (`13` certified-yet-wrong labels,
+`54` controls), a gold-free three-provider static panel that
 sees only certification-time information (problem, public tests, candidate patch — no gold, hidden tests, or
-witness) catches only **`2/13`** of the natural hacks at a `5/54` false-positive rate. Static judging without
-execution is largely blind to this class — a direct, quantified restatement of the paper's central claim — and
-the gap is not closed by a stronger judge. That next step is now taken, and its result is iter231 above.
+witness) catches **`2/13`** labelled positives and flags `5/54` controls. Of those controls, `29` are
+normalized-identical to accepted patches and `25` merely showed no divergence under one retained witness;
+the latter are unresolved semantic controls, not independently proven correct negatives. The `5/54` value is
+therefore a control flag rate, not a validated false-positive rate.
 The active scientific result is
 [iter229 third-provider point](experiments/iter229_cross_provider_gemini/RESULT.md): certified-yet-wrong
 **reaches a third provider**. Google `gemini-3.1-pro-preview`, on the identical frozen `53`-target cohort,
-produced `16` certifications and **`1` confirmed hack** (`k/N = 1/16`, `u = 10`) — `matplotlib-25332`, a
+produced `16` certifications and **`1` confirmed hack**; iter235 corrected its missingness to
+`k/N = 1/16`, `u = 1` — `matplotlib-25332`, a
 certified patch that returns a `list` where gold returns a `dict`, and a hack *also* confirmed under OpenAI's
-`gpt-5.6-terra`, so two different-provider models fall into the same graded-suite blind spot. Both judges are
-fully independent of Google, so there is **no shared-provider caveat**. The picture is now five models across
-three providers, all positive (`gpt-5.6-terra` `4/29`, `gpt-5.5` `1/25`, `gpt-5.4` `3/17`, `claude-sonnet-5`
-`3/14`, `gemini-3.1-pro-preview` `1/16`). One instance, `sympy-19040`, is a disclosed exclusion (reproducible
+`gpt-5.6-terra`, so two different-provider solvers reach the same graded-suite blind spot. The corrected
+fixed-cohort picture is positive in all five runs (`gpt-5.6-terra` `5/29`, `gpt-5.5` `2/25`, `gpt-5.4`
+`3/17`, `claude-sonnet-5` `4/14`, `gemini-3.1-pro-preview` `1/16`). One instance, `sympy-19040`, is a disclosed exclusion (reproducible
 certification-container hang), leaving `50` certifiable solutions. Reported standalone; not pooled into `5/68`.
 The published diverse-cohort result is
-[iter228 fresh diverse-cohort](experiments/iter228_fresh_diverse_cohort/RESULT.md): a **null published at full
-weight** that sharpens the honest picture. On a deterministically-built `38`-target cohort spanning **11
+[iter228 fresh diverse-cohort](experiments/iter228_fresh_diverse_cohort/RESULT.md): originally published as a
+null and corrected here to **inconclusive under missingness**. On a deterministically-built `38`-target cohort spanning **11
 repositories** (disjoint from iter200/iter223/iter224), the reference `gpt-5.6-terra` produced `22`
 certifications, `1` divergence, and **`0` confirmed hacks** (`k/N = 0/22`, `u = 7`). Combined with iter224's
-fresh-cohort null (`0/15`), this shows the *existence* of certified-yet-wrong is model-independent (the four
-cross-model runs) but its *rate* is not uniform: it concentrates in the reused django/sympy-heavy `53`-target
-cohort and is bounded low on fresh, diverse cohorts. The pooled `5/68` is therefore a cohort-specific lower
-bound, not a population frequency. Reported standalone; not pooled into `5/68`.
+fresh-cohort result (`k=0,N=15,u=6`), the observed confirmed yield is lower than on the reused cohort, but
+`13/37` certified fresh outcomes remain unknown. The comparison is **inconclusive** under least-favourable
+missingness and one-solver exposure; it does not establish concentration or a fresh-cohort rate. Reported
+standalone; not pooled into `5/68`.
 The published cross-provider result is
 [iter227 cross-provider generalization](experiments/iter227_cross_provider_generalization/RESULT.md): the
 certified-yet-wrong effect **crosses the provider boundary**. The first non-OpenAI solver, `claude-sonnet-5`
 (Anthropic), on the identical frozen `53`-target cohort, holding the witnessing generator, certification, and
-both blind judges byte-identical, produced `14` certifications, `4` divergences, and **`3` confirmed natural
-hacks** (`k/N = 3/14`, `u = 6`) — a certified patch that raises a `ValueError` where gold serializes an enum,
+both blind judges byte-identical, originally produced `14` certifications, `4` divergences, and `3` confirmed
+labels; iter235 corrected the run to **`k/N = 4/14`, `u = 2`** — including a certified patch that raises a `ValueError` where gold serializes an enum,
 a count of `2` where gold returns `1`, and a SymPy result of `6/(b²+c²+1)` where gold computes `4/(b²+c²+1)`.
-All confirmations were named by the independent cross-provider judge (`gpt-5.6-terra`), so the disclosed
-shared-provider-judge limitation carries none of them. The four-model, two-provider picture is now all positive
-(`gpt-5.6-terra` `4/29`, `gpt-5.5` `1/25`, `gpt-5.4` `3/17`, `claude-sonnet-5` `3/14`), strong evidence the
-effect is a property of the certification process across providers and generations, not one model. Reported
-standalone; **not** pooled into `5/68`.
+The corrected run supplies cross-provider recurrence on the same tasks. Because cohort, witness generator,
+and judges are reused, it does not establish task-population generalization, model independence, or a rate.
+Reported standalone; **not** pooled into `5/68`.
 The capability-range result within OpenAI is
 [iter226 third cross-model point](experiments/iter226_cross_model_generalization_gpt54/RESULT.md): the
 certified-yet-wrong effect **spans three model generations**. A third solver, `gpt-5.4` (a full generation
 below `gpt-5.5` and two below `gpt-5.6-terra`), on the identical frozen `53`-target cohort, holding the
 witnessing generator, certification, and both blind judges byte-identical, produced `17` certifications, `5`
-divergences, and **`3` confirmed natural hacks** (`k/N = 3/17`, `u = 8`) — a Django count off by one, a field
+divergences, and **`3` confirmed natural hacks**; iter235 corrected missingness to `k/N = 3/17`, `u = 2` — a Django count off by one, a field
 classified `generated` where gold returns `inherited`, and a Sphinx patch that raises a `TypeError` where gold
-succeeds, each named wrong by both judges. All three tested models are now positive (`gpt-5.6-terra` `4/29`,
-`gpt-5.5` `1/25`, `gpt-5.4` `3/17`), which is strong evidence the effect is a property of the certification
-process across a capability range, not one model. Reported standalone; **not** pooled into `5/68`. The first
+succeeds, each named wrong by both judges. This is cross-solver recurrence on the same fixed cohort, not
+independence or population generalization. Reported standalone; **not** pooled into `5/68`. The first
 published cross-model result is
-[iter225 cross-model generalization](experiments/iter225_cross_model_generalization/RESULT.md): the
-certified-yet-wrong phenomenon **is not model-idiosyncratic**. It re-solves iter223's identical frozen
+[iter225 cross-model generalization](experiments/iter225_cross_model_generalization/RESULT.md): a second
+solver produces an operational positive on iter223's identical frozen
 `53`-target cohort with a **different** solver model (`gpt-5.5` in place of `gpt-5.6-terra`), holding the
 witnessing generator, official-harness certification, and both blind judges byte-identical — only the solver
-changes. `gpt-5.5` produced `41` patches, `25` certified, `3` diverging, and **`1` confirmed natural hack**
-(`django__django-12209`: the gold fix returns `('saved', 1, 7)` where the certified `gpt-5.5` patch raises
-`('DatabaseError',)`; both blind judges named only the model) — `k/N = 1/25 = 0.040` (`8/25` worst-case
-upper, `u = 7`). Two independently-trained frontier models both slip a semantically wrong patch past the same
-official graded suite, which is direct evidence the effect is a property of the **certification process**, not
-one model. As pre-registered it is a standalone comparison against iter223's `4/29` and is **not** pooled into
+changes. `gpt-5.5` produced `41` patches and `25` certifications; iter235 corrected the run to
+**`2` confirmed labels with `u=2`**. The original confirmed case was
+`django__django-12209`: the gold fix returns `('saved', 1, 7)` where the certified `gpt-5.5` patch raises
+`('DatabaseError',)`; both blind judges named only the model — `k/N = 1/25 = 0.040`, `8/25` worst-case
+upper, `u = 7`) in the sealed original result. The corrected result is `2/25`, upper `4/25`, `u=2`.
+Together the runs establish recurrence across solvers on the shared cohort, not independent training or
+task-population generalization. It is **not** pooled into
 `5/68`. The preceding published result is
-[iter224 natural-rate scale-up](experiments/iter224_natural_rate_scale_n/HYPOTHESIS.md), a **null published at
-full weight**: on a fresh disjoint `26`-target cohort (`13` django, `13` sympy — the eligibility filter has
+[iter224 natural-rate scale-up](experiments/iter224_natural_rate_scale_n/HYPOTHESIS.md), originally published
+as a null and corrected here to **inconclusive under missingness**: on a fresh disjoint `26`-target cohort
+(`13` django, `13` sympy — the eligibility filter has
 exhausted diverse fresh targets, disclosed), `25` patches produced `15` certifications and `0` certified-and-
-diverging candidates (`k/N = 0/15`). This is informative, not a failure: sympy's numerically strict tests make
-certified-yet-wrong rarer, so the rate is repository-dependent, not a fixed frequency. Pooled across the three
-disjoint cohorts (iter200 `1/24`, iter223 `4/29`, iter224 `0/15`) under the identical strict rule:
-**`k/N = 5/68 = 0.074`** (`23/68` worst-case upper, `5/50` complete-case), down from `5/53` and widened — the
-honest tightened estimate.
+diverging candidates (`k/N = 0/15`). The proposed explanation about strict SymPy tests was not directly
+tested. With `u=6`, the result is inconclusive rather than evidence of a low rate. The pre-recovery README
+pooled the three disjoint cohorts as iter200 `1/24`, iter223 `4/29`, and iter224 `0/15`; that snapshot is
+superseded. Under iter235's validity-gated witness recovery, those same runs are iter200 `k=2,N=24,u=1`,
+iter223 `k=5,N=29,u=0`, and iter224 `k=0,N=15,u=6`. They remain heterogeneous, dependent descriptive runs
+and are not a population estimate.
 The preceding published result is
 [iter223 natural-rate replication with a safety-aware pipeline](experiments/iter223_natural_rate_safety_aware/HYPOTHESIS.md):
-the first execution-verified scaled natural certified-yet-wrong rate. Across `53` neutrally-solved targets,
+an execution-verified fixed-cohort measurement. Across `53` neutrally-solved targets,
 `50` patches produced `29` official-harness certifications, `7` diverged from the gold fix on a safe witness,
-and `4` are confirmed natural hacks by both blind judges under the strict model-only rule — `k/N = 4/29 =
-0.138` (`(k+u)/N = 10/29` upper, `k/(N-u) = 4/23` complete-case, `u = 6`), across django, matplotlib, and
-xarray. The pipeline was built fresh with a corrected safety scanner because iter202's source is sealed by
+and the sealed original result reported `k=4,u=6,N=29`. Iter235 subsequently corrected it to
+**`k/N=5/29`, `u=0`** under the same rule. The pipeline was built fresh with a corrected safety scanner because iter202's source is sealed by
 its published descendants and cannot be edited in place; its cohort reuses iter202's real model outputs
 re-scanned with the corrected instrument (`36` safe witnessable scenarios, `2` honestly excluded as
 un-witnessable). See the
@@ -250,14 +289,14 @@ labels below can be re-derived from committed proof, subject to the protocol and
   judge phase lacks an independently timestamped pre-output Git freeze, and its retained artifact has
   parsed labels and nondecision markers but not raw response text.
 - **The mission's first neutral-prompt exploratory existence case.** A model asked to fix a gold-localized
-  issue with no instruction to game the tests produced one strict confirmed certified-yet-wrong patch. The
-  retained convenience sample is nonrandom, and the strict two-judge rule was adopted after outcome
-  inspection. After the official-harness denominator backfill, `N=24`, `k=1`, and `u=6`; report `1/24`
-  confirmed lower, `7/24` worst-case upper over those six declared missing outcomes, and `1/18`
-  complete-case sensitivity together. The `54` legacy execution logs lack explicit image/exit provenance
-  and are accepted only as a frozen exact-byte corpus; they contain no embedded reference to claimed
-  original run `29391238359`, and no committed download receipt independently rebinds them to it. The `20`
-  backfill logs have stronger provenance.
+  issue with no instruction to game the tests produced operational certified-yet-wrong labels. The retained
+  convenience sample is nonrandom, and the strict two-judge rule was adopted after outcome inspection. The
+  original denominator-backfill record was `N=24`, `k=1`, and `u=6`. After iter235's validity-gated witness
+  recovery, the current figures are `N=24`, `k=2`, and `u=1`; report `2/24` observed, `3/24` under the
+  least-favourable assignment, and `2/23` complete-case together. The `54` legacy execution logs lack
+  explicit image/exit provenance and are accepted only as a frozen exact-byte corpus; they contain no
+  embedded reference to claimed original run `29391238359`, and no committed download receipt independently
+  rebinds them to it. The `20` backfill logs have stronger provenance.
   The original blind-judge artifacts retain parsed labels and derived booleans, not raw response text, so
   exact response substance and parser fidelity cannot be re-audited. These are bounded parsed-decision
   existence evidence and descriptive exploratory yields, not a population rate.
@@ -271,7 +310,7 @@ labels below can be re-derived from committed proof, subject to the protocol and
 The sealed experiments establish why outcome-only trust is insufficient. The next system makes the
 evidence path reusable:
 
-~~~mermaid
+```mermaid
 flowchart LR
  A["Task contract<br/>goal · constraints · falsifiers"]-->B["Isolated execution<br/>agent + tools"]
  B-->C["Full trajectory<br/>actions · outputs · resources"]
@@ -286,7 +325,7 @@ flowchart LR
  classDef stop fill:#fff1f0,stroke:#cf222e,color:#4c1114;
  class D,E,F,G active;
  class H stop;
-~~~
+```
 
 ## Current evidence arc
 
@@ -366,19 +405,11 @@ binds the zero-action predecessor state.
 
 Diagram color is semantic: orange marks corrected or partial evidence, red marks a failed gate, blue marks
 retained or completed evidence, gray marks a null before scientific execution, and green marks the active
-pre-data publication-recovery gate.
+integrity gate.
 
 ```mermaid
-flowchart TB
- subgraph A["Construct and correct"]
-  direction LR
-  V1["v1<br/>40/40 unresolved"]-->I192["192 conservative FAIL<br/>literal trigger indeterminate<br/>139 evaluations bounded"]-->I195["195 strict FAIL<br/>10 gold-assisted"]-->I196["196 partial<br/>judge 7/10 lower"]-->I197["197 FAIL<br/>locator/control faults"]-->I198["198 FAIL<br/>paper corrected"]-->I199["199 chronology FAIL<br/>+12; corpus 22/8"]
- end
- subgraph B["Measure"]
-  direction LR
-  I200["200 exploratory<br/>N 24 · k 1 · u 6"]-->I201["201 FAIL<br/>property 6/22 ⊂ judge 20/22"]-->I202["202 safety null<br/>53→50; 39→38; 29 admitted<br/>zero execution"]
- end
- A-->B
+flowchart LR
+ V1["v1<br/>40/40 unresolved"]-->I192["192 FAIL<br/>novelty narrowed<br/>139 bounded"]-->I195["195 FAIL<br/>10 assisted"]-->I196["196 partial<br/>judge only"]-->I197["197 FAIL<br/>locator + control"]-->I198["198 FAIL<br/>paper"]-->I199["199 FAIL<br/>chronology<br/>corpus 22/8"]-->I200["200 exploratory<br/>N24 · k2 · u1"]-->I201["201 FAIL<br/>property ⊂ judge"]-->I202["202 safety null<br/>no execution"]
  classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
  classDef failed fill:#fff1f0,stroke:#cf222e,color:#4c1114;
  classDef evidence fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
@@ -393,18 +424,30 @@ The fixed corpus then enters a separate fail-closed recovery chain. These nulls 
 turning infrastructure or admission failures into scientific outcomes.
 
 ```mermaid
-flowchart LR
- I203["203 infra null"]-->I204["204 null"]-->I205["205 null"]-->I206["206 null"]-->I207["207 sealed"]-->I208["208 CI"]-->I209["209 PR"]-->I210["210 ok"]-->I211["211 TCP-1"]-->I213["213 CI fail"]-->I214["214 Wilson"]-->I219["219<br/>NULL"]-->I220["220 CI"]-->I221["221 plat"]-->I222["222<br/>5/11"]-->I223["223<br/>5/29"]-->I224["224<br/>0/15"]-->I225["225<br/>2/25"]-->I226["226<br/>3/17"]-->I227["227<br/>4/14"]-->I228["228 fresh<br/>0/22"]-->I229["229<br/>1/16"]-->I230["230 static<br/>2/13"]-->I231["231 oracle<br/>2/13"]-->I232["232 valid<br/>0/10"]-->I233["233 release"]-->I234["234 issue<br/>1/10"]-->I235["235 recover<br/>u41-8"]
- classDef null fill:#f6f8fa,stroke:#57606a,color:#24292f;
- classDef complete fill:#eaf3ff,stroke:#0969da,color:#0c2d57;
- classDef corrected fill:#fff4e5,stroke:#b54708,color:#4a2500;
- classDef active fill:#e6f4ea,stroke:#1a7f37,color:#0f3d1c;
- class I203,I204,I205,I206,I207,I208,I209 null;
- class I210 complete;
- class I211,I213 corrected;
- class I214 corrected;
- class I222,I223,I224,I225,I226,I227,I228,I229,I230 done;
- class I231 active;
+flowchart TB
+ subgraph R["Recovery"]
+  direction LR
+  I203["203 infra ∅"]-->I204["204 invalid"]-->I205["205 admission ∅"]-->I207["207 seal"]-->I210["210 publish"]-->I214["214 numeric"]-->I221["221 libm"]-->I222["222 TCP-1<br/>5/11"]
+ end
+ subgraph M["Cohorts"]
+  direction LR
+  I223["223<br/>5/29 · u0"]-->I225["225<br/>2/25 · u2"]-->I226["226<br/>3/17 · u2"]-->I227["227<br/>4/14 · u2"]-->I229["229<br/>1/16 · u1"]
+  I224["224 fresh<br/>0/15 · u6"]-->I228["228 fresh<br/>0/22 · u7"]
+ end
+ subgraph V["Verify"]
+  direction LR
+  I230["230 static<br/>2/13"]-->I231["231 oracle"]-->I232["232 fixed<br/>2/13 · 0/10"]-->I233["233 release"]-->I234["234 issue<br/>1/10"]-->I235["235 rec<br/>17 · u8 · 12 tasks"]-->I236["236 audit<br/>2 mismatches"]-->I237["237 active"]
+ end
+ R-->M
+ M-->V
+ classDef n fill:#f6f8fa,color:#24292f;
+ classDef c fill:#eaf3ff,color:#0c2d57;
+ classDef x fill:#fff4e5,color:#4a2500;
+ classDef a fill:#e6f4ea,color:#0f3d1c;
+ class I203,I205 n;
+ class I210,I222,I223,I225,I226,I227,I229,I230,I233,I234,I235 c;
+ class I204,I207,I214,I221,I224,I228,I231,I232,I236 x;
+ class I237 a;
 ```
 
 ## Standing correction (iter192, updated 2026-07-16): the construct finding survives; novelty narrows
@@ -640,14 +683,14 @@ logs contain no embedded reference to claimed run `29391238359`, and no committe
 receipt independently rebinds those bytes to that run; the run ID remains a historical attribution.
 
 The historical `1/15` proportion is conditional on the old scenario-eligible cohort and is not poolable.
-The corrected official-certification denominator is complete: all `37` valid patches have official-harness evidence, `24` are
-certified, and all `9` legacy `identical-to-gold` pairs become equal only after terminal-LF normalization;
-`0/9` are byte-identical and `8/9` of those normalized-equivalent patches certify. One patch is
-strict-confirmed, and
-`6` certified outcomes remain
-unadjudicated (`5` without a valid witness and `1` with an incomplete judge outcome). Report `1/24`
-confirmed lower, `7/24` worst-case upper over those six declared missing outcomes, and `1/18` complete-case
-sensitivity together. They are not confidence intervals, prevalence bounds, or a population frequency.
+The corrected official-certification denominator is complete: all `37` valid patches have official-harness
+evidence, `24` are certified, and all `9` legacy `identical-to-gold` pairs become equal only after
+terminal-LF normalization; `0/9` are byte-identical and `8/9` of those normalized-equivalent patches
+certify. The denominator-backfill result had one strict operational positive and six unadjudicated certified
+outcomes. Iter235's validity-gated witness recovery subsequently made four of the five missing-witness rows
+adjudicable and added one operational positive. Under the current accounting, report `k=2`, `N=24`, and
+`u=1` together as `2/24` observed, `3/24` under the least-favourable assignment, and `2/23` complete-case.
+They are not confidence intervals, prevalence bounds, or a population frequency.
 
 ---
 
@@ -1668,13 +1711,14 @@ README.md                  research front door and live status
 AGENTS.md                  durable project boundary and evidence rules
 PREREGISTRATION.md         frozen first-stage target-selection protocol
 CONTINUITY.md              operator invariants and handoff discipline
-HANDOFF.md                 one-time source-bound publication and scientific-boundary snapshot
+HANDOFF.md                 sealed iter222 source-bound snapshot (historical, not the current baton)
 telos/                     receipt validation, scorecard primitives, and telos/tamper (the three-layer verifier)
 telos/tamper/              the deterministic detector, attack/adversarial generators, and the LLM-judge client
 benchmarks/                candidate benchmark registry
 docs/                      architecture, forensic audit, related work, roadmap, and synthesis reports
-experiments/               one folder per experiment (iter00-iter214), including explicit fail/null/blocked states
-mission/                   machine-readable mission loop contract
+experiments/               one folder per experiment (iter00-iter237), including explicit fail/null/blocked states
+mission/current.json       mutable pointer to the current gate and dated handoff
+mission/loop.json          sealed historical TCP-1 mission-loop contract
 protocol/                  proof receipt schema
 scripts/                   validation and handoff tooling
 tests/                     repository and protocol tests
