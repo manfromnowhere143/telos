@@ -11,11 +11,15 @@ historical provenance, not as the current project boundary.
 
 ## Start of session
 
-Read `HANDOFF.md`, then run:
+Read `mission/current.json` first, then read the dated handoff named by its
+`current_handoff` field. `HANDOFF.md` and `mission/loop.json` are sealed
+historical TCP-1 artifacts; they remain required evidence inputs but are not the
+current operational baton. Then run:
 
 ```bash
 git status --short
 python3 scripts/validate_current_paper.py
+python3 scripts/validate_current_state.py
 python3 scripts/validate_mission_loop.py
 pytest -q
 ```

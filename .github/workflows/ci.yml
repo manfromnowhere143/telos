@@ -56,6 +56,9 @@ jobs:
       - name: Current paper guard
         run: python3 scripts/validate_current_paper.py
 
+      - name: Current mission-state guard
+        run: python3 scripts/validate_current_state.py
+
       - name: Mission loop guard
         run: python3 scripts/validate_mission_loop.py
 
@@ -269,6 +272,12 @@ jobs:
 
       - name: Iter236 transfer analysis reconstruction guard
         run: python3 scripts/build_iter236_transfer_analysis.py --check
+
+      - name: Iter237 repository-wide libm artifact comparison guard
+        run: python3 scripts/validate_libm_artifact_comparisons.py
+
+      - name: Iter237 truth-maintenance correction guard
+        run: python3 scripts/validate_iter237_truth_maintenance.py
 
       - name: Target survey guard
         run: python3 scripts/validate_target_survey.py

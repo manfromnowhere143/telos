@@ -72,6 +72,27 @@ def run(commands: list[tuple[str, str]], *, stop_early: bool = False) -> list[tu
     return failures
 
 
+def interpreter_version(command: str) -> str:
+    """Return the version of the interpreter that closure will actually invoke."""
+
+    result = subprocess.run(
+        [command, "--version"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    version = (result.stdout or result.stderr).strip()
+    return version if result.returncode == 0 and version else "version unavailable"
+
+
+def apply_python_override(command: str, interpreter: str) -> str:
+    """Route Python commands, including bare pytest, through one interpreter."""
+
+    if command == "pytest" or command.startswith("pytest "):
+        return f"{interpreter} -m {command}"
+    return command.replace("python3 ", f"{interpreter} ")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -90,7 +111,7 @@ def main() -> int:
     commands = declared_commands()
     if args.python:
         commands = [
-            (name, command.replace("python3 ", f"{args.python} "))
+            (name, apply_python_override(command, args.python))
             for name, command in commands
         ]
     if args.list:
@@ -102,10 +123,11 @@ def main() -> int:
     # A clean local run certifies this interpreter on this platform and nothing else.  CI
     # runs Linux under 3.11 and 3.12; a macOS run cannot certify a Linux libm, which is how
     # a bit-exact Wilson comparison passed here and failed there.
+    interpreter = args.python or "python3"
     print(
         f"running {len(commands)} guard commands declared by CI\n"
-        f"  interpreter: {args.python or 'python3'} "
-        f"({platform.python_version()} here)\n"
+        f"  interpreter: {interpreter} ({interpreter_version(interpreter)})\n"
+        f"  runner      : Python {platform.python_version()}\n"
         f"  platform   : {platform.system()} {platform.machine()}\n"
         f"  note       : a clean run here does not certify CI's Linux runners",
         flush=True,

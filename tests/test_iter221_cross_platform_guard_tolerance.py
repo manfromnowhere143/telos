@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import math
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -121,11 +122,18 @@ def test_closure_runner_accepts_a_python_override() -> None:
     assert result.returncode == 0
     assert "python3.11 -m compileall" in result.stdout
     assert "python3 -m compileall" not in result.stdout
+    assert "python3.11 -m pytest -q" in result.stdout
+    assert "\tpytest -q" not in result.stdout
 
 
 def test_closure_runner_still_derives_every_command_under_an_override() -> None:
     plain = run_ci_closure.declared_commands()
     assert len(plain) > 200
+
+
+def test_closure_reports_the_selected_interpreter_version() -> None:
+    expected = f"Python {sys.version_info.major}.{sys.version_info.minor}."
+    assert run_ci_closure.interpreter_version(sys.executable).startswith(expected)
 
 
 # --------------------------------------------------------------------------- #

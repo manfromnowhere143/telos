@@ -29,8 +29,13 @@ import importlib.util
 import json
 import statistics
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from telos.json_compare import compare_json  # noqa: E402
+
 PROOF = ROOT / "experiments/iter236_transfer_analysis_reconstruction/proof"
 OUT = PROOF / "transfer_analysis.json"
 
@@ -78,7 +83,11 @@ def added_source_lines(patch: str) -> int:
     current_included = False
     for line in patch.splitlines():
         if line.startswith("+++ b/"):
-            current_included = "/test" not in line and "test_" not in line.split("/")[-1]
+            # Execute the imported predicate on this file header. A one-header mini-patch
+            # lets one_src make the exact inclusion decision while preserving per-file
+            # counting for multi-source patches, which one_src correctly rejects as a
+            # whole. Do not restate its path/string conditions here.
+            current_included = adv.one_src(line) == line[6:]
             continue
         if line.startswith("diff --git") or line.startswith("--- a/"):
             current_included = False
@@ -376,51 +385,10 @@ def build() -> dict:
     }
 
 
-# Iter221's correction, reused rather than restated: p-values and selected fractions are
-# derived through erfc and sqrt, whose last-place result depends on the platform libm. The
-# artifact is written on one machine and CI recomputes it on another, so comparing them
-# bit-exactly asserts something IEEE 754 does not promise and fails on a correct value.
-# One ULP is about 1e-16 relative; 1e-9 forgives that by seven orders of magnitude while
-# still failing any tampering coarse enough to change a reported digit. Integers, strings,
-# and booleans stay exact -- every one of them is exactly reproducible on any platform.
-FLOAT_REL_TOL = 1e-9
-FLOAT_ABS_TOL = 1e-12
-
-
 def _matches(actual: object, expected: object, path: str) -> list[str]:
-    """Structural comparison: floats within tolerance, everything else exact."""
+    """Compare through the shared strict-typed JSON evidence contract."""
 
-    import math
-
-    if isinstance(expected, dict):
-        if not isinstance(actual, dict):
-            return [f"{path}: type changed"]
-        problems = []
-        for key in sorted(set(expected) | set(actual)):
-            if key not in actual:
-                problems.append(f"{path}.{key}: missing from committed artifact")
-            elif key not in expected:
-                problems.append(f"{path}.{key}: unexpected in committed artifact")
-            else:
-                problems.extend(_matches(actual[key], expected[key], f"{path}.{key}"))
-        return problems
-    if isinstance(expected, list):
-        if not isinstance(actual, list) or len(actual) != len(expected):
-            return [f"{path}: list shape changed"]
-        problems = []
-        for index, (a, e) in enumerate(zip(actual, expected)):
-            problems.extend(_matches(a, e, f"{path}[{index}]"))
-        return problems
-    # bool before float: bool is a subclass of int and must compare exactly.
-    if isinstance(expected, bool) or isinstance(actual, bool):
-        return [] if actual == expected else [f"{path}: {actual!r} != {expected!r}"]
-    if isinstance(expected, float) or isinstance(actual, float):
-        if math.isclose(
-            float(actual), float(expected), rel_tol=FLOAT_REL_TOL, abs_tol=FLOAT_ABS_TOL
-        ):
-            return []
-        return [f"{path}: {actual!r} != {expected!r} beyond tolerance"]
-    return [] if actual == expected else [f"{path}: {actual!r} != {expected!r}"]
+    return compare_json(actual, expected, path=path)
 
 
 def main() -> int:

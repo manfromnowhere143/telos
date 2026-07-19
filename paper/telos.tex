@@ -22,11 +22,11 @@
 
 \title{Certified-Resolved SWE-bench Patches\\
 with Retained Gold Differentials:\\
-Construction, Cross-Model Measurement, and Exploratory Detection}
+Construction, Cross-Solver Recurrence, and Exploratory Detection}
 
 \author{Daniel Wahnich\\ \small Telos research program}
 
-\date{July 16, 2026}
+\date{July 19, 2026}
 
 \begin{document}
 \maketitle
@@ -54,18 +54,17 @@ gold-validated property pipeline catches $6/22$, all within the judge set, and s
 false-positive estimate. Its full-cohort run failed the registered diff-independent locator contract; an
 earlier ten-row run additionally replaced its visible-test soundness anchor and omitted registered
 controls. That earlier run's apparent property-only row had two unparseable judge responses, so neither
-run confirms complementarity. Fourth, an exploratory, nonrandom, gold-localized solve with no gaming instruction yields
-one strict case under a post-inspection blind rule. Of thirty-seven valid patches, twenty-four certify and
-six certified outcomes remain unadjudicated; the required descriptive sensitivities are $1/24$, $7/24$
-over those six missing pipeline outcomes, and $1/18$ complete-case. Fifth, scaling that neutral-prompt
-measurement, five independently-trained frontier models spanning three providers (OpenAI, Anthropic, and
-Google) each produce patches the official harness certifies resolved yet that diverge from the accepted fix on
-a safe witnessing input two blind judges name wrong, on a fixed fifty-three-target cohort ($4/29$, $1/25$,
-$3/17$, $3/14$, and $1/16$; all positive), with the same graded-suite blind spots recurring across different
-providers' models. Stated with equal weight, the confirmed rate is not a population constant: two
-independently constructed fresh cohorts return zero, so the phenomenon concentrates in particular repositories
-and the single-model pooled estimate $5/68$ is a cohort-specific lower bound. These cross-model comparisons are
-bounded and standalone on a convenience cohort, reported directionally and not as a model or provider ranking.
+run confirms complementarity. Fourth, an exploratory, nonrandom, gold-localized solve with no gaming instruction
+originally yielded one strict case under a post-inspection blind rule. Validity-gated witness recovery changes
+the current operational count to $k=2$, $N=24$, and $u=1$; it remains a convenience sample, not a frequency
+estimate. Fifth, on one fixed fifty-three-target cohort, operational certified-yet-wrong labels recur across
+five solver configurations from three providers. Current counts are $5/29$, $2/25$, $3/17$, $4/14$, and
+$1/16$, with $u=0,2,2,2,1$. This is cross-solver recurrence on a reused cohort, not evidence of independent
+training, population generalization, or model independence. Two fresh cohorts have $k=0$, $N=37$, and $u=13$
+in total; their least-favourable missingness bound is therefore $13/37$, so the contrast with $5/29$ on the
+reused reference-solver run is inconclusive. The associated detector benchmark's fifty-four controls comprise
+twenty-nine patches normalized-identical to accepted patches and twenty-five with no divergence on one witness;
+the latter are not independently adjudicated correct, so control flags are not validated false positives.
 
 These are bounded pilots, not population-frequency estimates. The iter196 gate delivered Detector A only
 and did not clear its registered both-detector bar. The judge runs retained parsed labels but
@@ -112,14 +111,13 @@ We make five contributions.
   judge catch and missingness measurements, distinguish two property-protocol failures, and withdraw the
   independent false-positive, confirmed-complementarity, and deployable-ensemble interpretations.
   \item \textbf{A neutral-prompt localized existence case (Section~\ref{sec:construct}).} An exploratory,
-  gold-localized solver run produces one strict certified-yet-wrong patch under a post-inspection rule. We
-  correct the certification denominator and report post-result missing-outcome sensitivities without
-  imputing missing outcomes as negatives.
-  \item \textbf{A cross-model, cross-provider measurement (Section~\ref{sec:construct}).} Scaling the
-  neutral-prompt run, five independently-trained frontier models across three providers each produce
-  certified-yet-wrong patches on a fixed cohort, the same blind spots recur across providers, and two fresh
-  cohorts return zero. We report the standalone comparisons directionally, not as a ranking, and the
-  single-model pooled estimate as a cohort-specific lower bound.
+  gold-localized solver run originally produced one strict certified-yet-wrong patch under a post-inspection
+  rule; validity-gated witness recovery changes the current operational count to $2/24$ with $u=1$. We report
+  missing outcomes without imputing them as negatives.
+  \item \textbf{Cross-solver recurrence on a fixed cohort (Section~\ref{sec:construct}).} Five solver
+  configurations across three providers each produce at least one operational certified-yet-wrong label on
+  the same fifty-three-target cohort. We do not treat recurrence as independent training, population
+  generalization, model independence, or a ranking; two fresh cohorts remain inconclusive under missingness.
 \end{enumerate}
 
 \section{Background}
@@ -333,14 +331,15 @@ so the repository does not independently timestamp a pre-output freeze. The reta
 parsed labels and derived booleans, not raw response text. Exact response substance and parser fidelity
 therefore cannot be re-audited; the strict case is bounded parsed-decision evidence.
 
-The strict case is a Sphinx fix that passes all thirty-three graded tests yet renders a compound-key
-keyboard input as a malformed empty element. Five certified rows lack a valid witness and one divergence
-lacks two complete judge outcomes, so $u=6$ remains unadjudicated. With $N=24$ and $k=1$, we report $1/24$
-(4.1667\%) confirmed lower, $7/24$ (29.1667\%) as the worst case over those six declared missing pipeline
-outcomes, and $1/18$ (5.5556\%) complete-case sensitivity. The formulas were adopted after the original
-result but before the denominator backfill; they are not preregistered iter200 estimates, confidence
-intervals, prevalence bounds, or population frequencies. The historical $1/15$ was conditional on a
-scenario-eligible cohort and is not pooled.
+The original strict case is a Sphinx fix that passes all thirty-three graded tests yet renders a compound-key
+keyboard input as a malformed empty element. At the original result, five certified rows lacked a valid witness
+and one divergence lacked two complete judge outcomes, giving $N=24$, $k=1$, and $u=6$ under that accounting.
+Iter235 defines $u$ more narrowly as a certified row without an adjudicable witness; it recovered four of the
+five such iter200 rows and added one operational positive. Under that current accounting the figures are
+$k=2$, $N=24$, and $u=1$: $2/24$ observed, $3/24$ under the least-favourable assignment of the remaining
+unknown, and $2/23$ complete-case. These formulas were adopted after the original result and are not
+preregistered iter200 estimates, confidence intervals, prevalence bounds, or population frequencies. The
+historical $1/15$ was conditional on a scenario-eligible cohort and is not pooled.
 
 \paragraph{A safety-aware scaled replication.} We then scaled the neutral-solve measurement to a frozen
 fifty-three-target cohort. The scenario stage of the earlier scaled pipeline generated witnesses that its
@@ -357,73 +356,67 @@ disclosed, not forced or dropped.
 
 Executing the thirty-six safe witnesses in pinned SWE-bench containers, fifty patches yielded twenty-nine
 official-harness certifications, seven gold-differential divergences, and, under the same strict rule that
-both blind judges name only the model output, four confirmed certified-yet-wrong patches: $N=24$ becomes
-$N=29$ and $k=1$ becomes $k=4$ ($4/29$, with $10/29$ worst-case upper and $4/23$ complete-case over $u=6$).
-The four span three repositories: an enum migration that serializes a mangled literal instead of a
+both blind judges name only the model output, four initially confirmed certified-yet-wrong patches. The
+original result was $k=4$, $N=29$, and $u=6$; validity-gated witness recovery changes the current record to
+$k=5$, $N=29$, and $u=0$, or $5/29$ with no missing outcomes. The original four span three repositories: an
+enum migration that serializes a mangled literal instead of a
 re-importable name reference, a choices-membership result inverted from \texttt{True} to \texttt{False}, an
 inverted boolean state check, and a grouping count that returns two where the gold fix returns one. Each
-passes every graded test yet is wrong on behavior the graded suite does not cover.
+passes every graded test yet produces a retained differential that both fixed judges assign only to the model
+output.
 
 This cohort is disjoint from the iter200 solve (the committed overlap audit reports zero) and uses the
-identical strict rule, so the two pool to $k=5$, $N=53$, $u=12$: $5/53$ (9.43\%) confirmed, $17/53$ worst-case
-upper, and $5/41$ complete-case. This remains a bounded, elicited-then-neutral pilot over a fixed convenience
-sample; $5/53$ is not a population frequency, model ranking, product-efficacy result, or state-of-the-art
+identical strict rule. Under the current recovered outcomes, the two runs total $k=7$, $N=53$, and $u=1$.
+This remains a bounded, elicited-then-neutral pilot over fixed convenience samples; $7/53$ is not a population
+frequency, model ranking, product-efficacy result, or state-of-the-art
 claim, the static scan is defense in depth rather than a sandbox, and the blind-judge stage is a single run
 with every unadjudicated outcome reported.
 
-\paragraph{A scale-up null and repository dependence.} Extending the same neutral-solve pipeline to a fresh
-disjoint twenty-six-target cohort---thirteen Django and thirteen SymPy, the only repositories with eligible
-non-overlapping targets after excluding every prior cohort---produced fifteen certifications and zero
-gold-differential divergences ($k=0$, $N=15$, $u=6$). This null is informative rather than a failure: SymPy's
-numerically strict tests make a wrong patch more likely to break a graded test outright than to
-certify-yet-diverge, so the confirmed rate is repository-dependent, not a fixed frequency. Pooling all three
-disjoint same-rule cohorts---the iter200 solve, the safety-aware replication, and this scale-up---gives $k=5$,
-$N=68$, $u=18$: $5/68$ (7.35\%) confirmed, $23/68$ worst-case upper, and $5/50$ complete-case. A second,
-deliberately repository-diverse fresh cohort of thirty-eight targets spanning eleven repositories, built to ask
-whether the effect is an artifact of the original cohort, likewise produced no confirmed hacks under the
-reference solver ($k=0$, $N=22$, reported standalone, not pooled). Two independently constructed fresh cohorts
-are thus both null while the reused cohort yields hacks, which sharpens the reading of $5/68$ as a
-cohort-specific lower bound rather than a population frequency: the existence of certified-yet-wrong is
-model-independent, but its rate concentrates in particular cohorts and repositories.
+\paragraph{Fresh-cohort observations are inconclusive under missingness.} A fresh disjoint twenty-six-target
+cohort produced fifteen certifications, no confirmed operational positives, and six unadjudicated outcomes
+($k=0$, $N=15$, $u=6$). A second fresh cohort of thirty-eight targets spanning eleven repositories produced
+twenty-two certifications, no confirmed operational positives, and seven unadjudicated outcomes
+($k=0$, $N=22$, $u=7$). Together the fresh cohorts have $k=0$, $N=37$, and $u=13$: the observed lower endpoint
+is zero, but the least-favourable endpoint is $13/37$. The comparable recovered reference-solver run on the
+reused cohort has $5/29$ with $u=0$; because $13/37$ is not below $5/29$, the data do not establish
+fresh-cohort concentration. They also identify no causal repository explanation.
 
-All figures in this section carry a missing-outcome term $u$: certified patches whose gold-differential
-witness never produced a usable observable, and whose status is therefore unknown rather than negative. We
-have since recovered most of them. Across the six solver runs, $41$ of $125$ certified patches were
-unadjudicated; regenerating their witnesses under a validity gate and a paired preflight requiring an
-observable under \emph{both} implementations made $33$ adjudicable, of which four confirmed under the same
-unmodified two-judge rule. Pooled over all six runs this moves $k$ from $13$ to $17$ and $u$ from $41$ to
-$8$, narrowing the band between the observed rate and its worst case from $[0.104, 0.432]$ to
-$[0.136, 0.200]$. The point estimate barely moves; what shrinks is the share of uncertainty that was lost
-measurement rather than sampling. The per-cohort figures quoted above are the originals and each is
-individually corrected in the iter235 record. Three of the four new confirmations are the same instance under
-different solvers, so the count of distinct susceptible instances rises only from eleven to twelve, and the
-cohort-specific reading above is unchanged.
+Across all six measured solver runs, validity-gated witness recovery reduced unadjudicated patch outcomes from
+$41$ to $8$ and moved operational positives from $13$ to $17$ among $125$ certifications. These are
+patch-level counts over repeated tasks, not independent observations: the seventeen positives correspond to
+twelve unique tasks, and three of the four newly recovered positives are the same task under different
+solvers. The resulting $17/125$ is therefore descriptive pipeline yield, not a natural rate, prevalence
+estimate, or sampling interval.
 
 An exploratory, post-hoc comparison offers a first clue to what makes a target susceptible. Pooling the
-confirmed hacks across all five solver models, the ten hacked targets in the fifty-three-target cohort carry
+operational positives across all five solver models, the ten labelled targets in the fifty-three-target cohort carry
 larger gold fixes than the other forty-three---a median of four added source lines against one
-(Mann-Whitney $p=0.008$, uncorrected and chosen after inspection)---while the count of graded fail-to-pass
-tests does not separate the two groups (median one for both). This is hypothesis-generating, not a confirmed
-predictor: a larger correct fix touches more behavior for a graded suite of the same sparse size to leave
-uncovered, but the comparison is a small post-hoc sample. A pre-registered test of whether fix complexity or
-directly measured buggy-region test coverage predicts susceptibility, and a gold-free execution oracle that
-catches these patches before certification, are the natural next steps.
+(Mann--Whitney $U=331$, asymptotic two-sided $p=0.005347$ with tie and continuity correction)---while the
+count of graded fail-to-pass tests does not separate the two groups (median one for both). The comparison was
+chosen after inspection, is uncorrected for multiple comparisons, and is hypothesis-generating rather than a
+confirmed predictor. The registered held-out reconstruction measures only selector prevalence on rows without
+susceptibility outcomes, so transfer remains untested. A prospective outcome-labelled test would be required
+to assess whether fix complexity predicts susceptibility.
 
-A first step toward that oracle measures how far static detection reaches. On a frozen benchmark of the
-thirteen confirmed hacks and fifty-four certified-and-correct patches, a gold-free three-model panel that sees
-only the issue, the public test names, and the candidate patch---no gold, hidden test, or witness---has a
-majority flag a patch as wrong on only two of the thirteen, at a five-in-fifty-four false-positive rate. Static
-judging is thus largely blind to this class, as the definition of certification implies.
+A first step toward that oracle measures how far static detection reaches. The frozen operational benchmark
+contains thirteen confirmed reference-differential positives and fifty-four controls. Of the controls,
+twenty-nine are normalized-identical to accepted patches and twenty-five merely showed no divergence on one
+retained witness; the latter are not independently adjudicated semantically correct. A gold-free three-model
+panel that sees only the issue, public test names, and candidate patch---no gold, hidden test, or witness---flags
+two of the thirteen operational positives and five of the fifty-four controls. The latter figure is a control
+flag rate, not a validated false-positive rate.
 
-We then ran a gold-free \emph{execution} oracle over the same benchmark, to replace an analytical ceiling with
-a measured one. A generator seeing only certification-time information writes a short exercise that drives each
+We then ran a gold-free \emph{execution} oracle over the same benchmark, to test an analytical reachability
+claim with a measured instrument. A generator seeing only certification-time information writes a short exercise that drives each
 patch's changed behavior and prints what it observes; the patch is applied in its pinned container and the
 exercise is run under isolation. A pre-registered rule, frozen before any output was inspected, flags a row
-whose exercise raises, reports an error, or returns nothing. Of the thirteen confirmed hacks, three either
-raise an exception or return a wrong-typed result that announces itself; the remaining ten return a plausible
-but wrong value (a count off by one, a boolean inverted, a symbolic coefficient changed).
+whose exercise raises, reports an error, or returns nothing. Of the thirteen operational positives, three have
+a retained differential that raises an exception or returns a differently typed result; the remaining ten
+return a plausible value that differs from the accepted reference (a count off by one, a boolean inverted, a
+symbolic coefficient changed).
 
-The oracle recalls four of thirteen at a ten-in-fifty-four false-positive rate, but four of those flags are
+The oracle flags four of thirteen operational positives and ten of fifty-four controls, but four of those
+positive-row flags are
 the instrument failing rather than the patch: two exercises fail to import against their pinned image, and two
 apply a single format specifier to a multi-element tuple, which raises unconditionally. We therefore repaired
 the instrument and re-ran the identical rule. Every exercise was gated on parsing, static safety, and an
@@ -431,90 +424,73 @@ always-raising-format check, and the defective and previously-unrepresented rows
 hardened prompt, raising coverage from fifty-one of sixty-seven to sixty-five and reducing missing positive
 outcomes from four to zero.
 
-With a working instrument the oracle recalls two of thirteen---exactly static judging's recall---at
-twelve in fifty-four against static's five, and the raw four-of-thirteen is confirmed to have been artifact.
-Repairing the measuring device moved the headline down, and improved coverage bought additional false alarms
-rather than additional detections. Execution did not beat static judging on recall, contrary to our own
+With a working instrument the oracle flags two of thirteen operational positives---exactly the static panel's
+positive-row flag count---and twelve of fifty-four controls against the static panel's five; the raw
+four-of-thirteen is confirmed to have been artifact.
+Repairing the measuring device moved the headline down, and improved coverage bought additional control flags
+rather than additional detections. Execution did not beat static judging on positive-row flags, contrary to our own
 pre-registered expectation, and the second run removed the explanation that the instrument had simply been
 broken.
 
-The false-positive comparison, however, is an artifact of how the benchmark is composed, and we report the
-correction rather than the flattering aggregate. Twenty-nine of the fifty-four correct patches are
-byte-identical to the accepted fix, because they certified by being gold-equivalent. The static panel never
-flags one of those---a judge shown canonical code approves it---so its aggregate five-in-fifty-four rests on
-half a benchmark it cannot fail, and on the twenty-five patches that genuinely differ from the accepted fix it
-false-alarms at five in twenty-five. The execution oracle is nearly indifferent to the distinction, since it
-observes whether code raises rather than whether it looks canonical, and on those same twenty-five patches it
-false-alarms at four in twenty-three. On the harder half the ordering reverses. The honest statement is that
-the two instruments have indistinguishable recall and indistinguishable false-alarm rates once the
-trivially-separable patches are excluded.
+The control comparison is strongly shaped by construction. The static panel never flags any of the
+twenty-nine accepted-patch-identical controls, so its aggregate five-in-fifty-four rests on a stratum it cannot
+fail. It flags five of the twenty-five non-identical controls. The execution oracle flags four of the
+twenty-three non-identical controls for which it produced outcomes. Because ``no divergence on one witness''
+does not establish semantic correctness, neither stratum supplies an independently valid false-positive rate;
+these are descriptive control flag rates.
 
-The ceiling itself is sharper than either instrument. Across both, \emph{not one of the ten value-wrong
-patches is flagged}: zero of ten with no missing outcomes, a Wilson upper bound of $0.278$. The false
-positives sharpen the same point from the other side---the great majority are certified-correct code raising
-correctly on an input where raising is the right behavior, which a gold-free observer cannot distinguish from
-a wrong patch crashing.
+Across the static panel and validated execution oracle, \emph{not one of the ten operational positives whose
+retained differential is a plausible value different from the accepted reference is flagged}: zero of ten with no missing detector outcomes,
+with a row-level Wilson upper bound of $0.278$. This is a result for two measured instruments on ten selected
+patch rows, not an impossibility result or a ceiling on other prompts, models, tools, inputs, or independently
+authored consequence tests.
 
 Even the crash-reachable class is smaller than its label suggests. One patch classified crash-or-wrong-type by
 its gold-differential witness returned a well-formed value under an independently generated exercise, because
 the classification describes how the \emph{witness} diverged rather than a property of the patch. A patch that
-crashes on one issue-plausible input can return a plausible wrong value on another, so without a reference even
-the class execution was expected to own is only partially reachable.
+crashes on one issue-plausible input can return a plausible value on another, so without a reference even the
+class execution was expected to own is only partially reachable.
 
-Both instruments reason \emph{from the patch}, and for such an instrument the argument is airtight: a solver
-able to predict the correct value would not have produced the wrong patch. Zero of ten, measured twice, rather
-than argued.
+Both measured instruments reason \emph{from the patch}; each observed zero flags on these ten rows. The shared
+result narrows what these two implementations reached, but it does not establish that every patch-reasoning
+verifier must fail.
 
-The bound is narrower than it first appears, and we tested it directly. An author reading only the issue---not
+We tested the scope directly. An author reading only the issue---not
 the patch---is asked a different question: not \emph{is this wrong?} but \emph{what should this code do?} The
 reference then need not be predicted, because the bug report frequently states it; ten of our thirteen issues
 name the expected behaviour explicitly. We had three model authors across three providers, each blind to the
 patch, write consequence tests from the issue alone, and ran them against the certified patches.
 
-One of the ten value-wrong patches was caught, by a test that passes on the accepted fix and fails on the
-certified-wrong one, exercising an input the graded suite never covered. Two of the other three apparent
+One of the ten plausible-value operational positives was caught, by a test that passes on the accepted fix and
+fails on the candidate, exercising an input the graded suite never covered. Two of the other three apparent
 catches were tests that fail on \emph{every} implementation, which is why we validate each test against the
-accepted fix before counting it. So the ceiling is a property of gold-free detectors that reason from the
-patch, not of the value-wrong class itself.
+accepted fix before counting it. This one case shows that issue-only consequence tests can reach behavior the
+two measured patch-reasoning instruments missed; it further rules out treating their zero-of-ten as a universal
+ceiling.
 
-It is a single case, with a Wilson interval from $0.02$ to $0.40$, bought at a false-alarm rate of thirteen in
-fifty-four---worse than static judging---because roughly a third of issue-derived tests are simply wrong. The
+It is a single case, with a Wilson interval from $0.02$ to $0.40$, accompanied by a control flag rate of
+thirteen in fifty-four because roughly a third of issue-derived tests are invalid. The
 mitigation argument is therefore sharpened rather than overturned: automated gold-free verification remains
 impractical here, but the class is not unreachable in principle. That a patch-blind author can separate a
-certified-wrong patch from a correct one, even once, is the first direct evidence for the mechanism, and it is
+confirmed operational positive from its accepted reference, even once, is direct evidence for the mechanism, and it is
 the
 empirical case for independently-authored held-out consequence tests.
 
-\paragraph{Cross-model generalization.} To ask whether a certified-yet-wrong patch is a property of one model
-or of the certification process, we re-solved the fifty-three-target cohort with four further solver models,
-holding the witnessing generator, the official-harness certification, and both blind judges byte-identical, and
-changing only the solver. A model one minor generation earlier produced forty-one patches, twenty-five
-certifications, three gold-differential divergences, and one patch confirmed wrong by both judges naming only
-the model ($1/25$, with $8/25$ worst-case upper over $u=7$): a Django fix that the harness certifies yet that
-raises a database error where the gold fix saves successfully. A model two generations earlier produced
-fifty-three patches, seventeen certifications, five divergences, and three confirmed certified-yet-wrong
-patches ($3/17$, with $11/17$ worst-case upper over $u=8$)---a count off by one, a field classified
-\texttt{generated} where the gold fix returns \texttt{inherited}, and a Sphinx patch that raises a
-\texttt{TypeError} where the gold fix returns a valid result. Finally, a frontier model from a \emph{different
-provider} produced forty-eight patches, fourteen certifications, four divergences, and three confirmed
-certified-yet-wrong patches ($3/14$, with $9/14$ worst-case upper over $u=6$)---a certified patch that raises a
-\texttt{ValueError} where the gold fix serializes an enum member, a count of two where the gold fix returns one,
-and a symbolic result of $6/(b^2+c^2+1)$ where the gold fix computes $4/(b^2+c^2+1)$; all three were named wrong
-by the independent cross-provider judge as well, so the single judge that shares the solver's provider carries
-none of them. A frontier model from a \emph{third provider}, whose provider is shared by neither judge, produced
-sixteen certifications among fifty certifiable patches, four divergences, and one confirmed certified-yet-wrong
-patch ($1/16$, with $11/16$ worst-case upper over $u=10$): a Matplotlib fix that the harness certifies yet that
-returns a \texttt{list} where the gold fix returns a \texttt{dict}. That confirmation, like a Django
-enum-serialization fix confirmed under two different-provider models, recurs from an earlier run---the same
-graded-suite blind spot reached by distinct labs' models. One further target of this run hung its certification
-container reproducibly and is disclosed as an infrastructure exclusion, not counted as certified or wrong. All
-five independently trained frontier models, across three generations and three providers, thus pass a
-semantically wrong patch through the same graded suite, which is evidence that the effect is a property of the
-benchmark's test coverage rather than of a single model, generation, or provider. Because these replications
-reuse the same cohort with different models, they are neither disjoint from the earlier replication nor drawn
-from the same model as the pooled estimate; we therefore report them as standalone cross-model comparisons and
-do not pool them into $5/68$. The five single-run point estimates ($4/29$, $1/25$, $3/17$, $3/14$, and $1/16$),
-with wide missing-outcome intervals, are a directional finding, not a model ranking.
+\paragraph{Cross-solver recurrence on a fixed cohort.} We re-solved the same fifty-three-target cohort with
+four additional solver configurations while holding the witness generator, official-harness certification,
+and two blind judges fixed. Validity-gated witness recovery gives the following current operational counts:
+the reference solver $5/29$ with $u=0$; the other OpenAI solver runs $2/25$ with $u=2$ and $3/17$ with $u=2$;
+the Anthropic solver run $4/14$ with $u=2$; and the Google solver run $1/16$ with $u=1$. Each solver run
+therefore contains at least one patch that certifies, differs from the accepted patch on a retained witness,
+and is assigned only to the model output by both fixed judges.
+
+The fixed-cohort runs contain fifteen patch-level operational positives. Together with the separate iter200
+run, all six measured runs contain seventeen patch-level positives but only twelve unique tasks. Targets,
+witness generator, judges, and several susceptible task identities are reused; the solver configurations also
+have no repository-backed proof of independent training. The result is therefore cross-solver recurrence on
+one convenience cohort, not population generalization, model independence, a provider comparison, or a model
+ranking. One Google-run target that hung its certification container remains an infrastructure exclusion, not
+a certified or wrong outcome.
 
 \begin{table}[t]
 \centering
@@ -680,8 +656,8 @@ We state the bounds plainly.
   synthesized-input, no-gold, or independently semantic labels.
   \item \textbf{Exploratory neutral-solve rules.} The strict blind rule was adopted after outcome
   inspection, and the missingness summaries were added after the original result but before the backfill.
-  Six of twenty-four certified outcomes remain unadjudicated. The
-  three sensitivities are descriptive and must stay together. Fifty-four historical execution logs lack
+  After validity-gated witness recovery, the current iter200 figures are $k=2$, $N=24$, and $u=1$.
+  These quantities are descriptive and must stay together. Fifty-four historical execution logs lack
   explicit image/exit provenance and are trusted only as a frozen exact-byte corpus; twenty backfill logs
   carry the stronger provenance markers.
   \item \textbf{Cohort-specific wrongness labels.} In the constructed cohort, ``wrong'' means the variant
@@ -704,8 +680,19 @@ We state the bounds plainly.
   \item \textbf{Historical container provenance.} Iter193--iter199 construction and witness execution and
   iter197/iter201 property execution retained mutable \texttt{:latest} tags but no resolved image digests.
   Their exact historical container bytes are not reconstructible from the repository.
-  \item \textbf{Role reuse.} \texttt{gpt-5.6-terra} produced adversarial variants, scenarios, neutral
-  patches, and properties and also occupied one judge slot; cross-model generalization is unmeasured.
+  \item \textbf{Operational benchmark controls.} The natural detector benchmark's fifty-four controls are
+  twenty-nine accepted-patch-identical rows and twenty-five rows with no divergence on one witness. The latter
+  are not independently adjudicated correct; reported control flags are not validated false positives.
+  \item \textbf{Fresh-cohort missingness.} The two fresh cohorts have $k=0$, $N=37$, and $u=13$. Their
+  least-favourable endpoint $13/37$ exceeds the reused reference-solver point $5/29$, so concentration and
+  causal repository explanations remain unsupported.
+  \item \textbf{Role and cohort reuse.} \texttt{gpt-5.6-terra} produced adversarial variants, scenarios,
+  neutral patches, and properties and also occupied one judge slot. Five fixed-cohort solver runs show
+  recurrence, while training independence, population generalization, and model independence are unmeasured.
+  \item \textbf{Post-hoc selector.} The fix-size comparison has $U=331$ and asymptotic two-sided
+  $p=0.005347$ with tie and continuity correction, but was chosen after inspection and is uncorrected for
+  multiple comparisons. Held-out selector prevalence without held-out susceptibility labels leaves transfer
+  untested.
   \item \textbf{Correction-gate status.} Iter192's $40/40$ construct correction and bounded count of 139
   harness-resolved hack-tagged evaluations regenerate from fixed evidence, but not all 139 are disposition-bound,
   and its overbroad novelty interpretation is conservatively adjudicated \texttt{FAIL}; the literal
@@ -729,27 +716,44 @@ $3/19$. The locator-assisted, gold-validated property pipeline catches six of tw
 judge set. Its protocol failed the diff-independent locator contract and supplies no independent
 false-positive estimate. Neither run establishes detector complementarity or deployment readiness.
 
-The neutral-prompt, gold-localized solve provides the narrower existence result: one strict
-certified-yet-wrong case under a rule adopted after inspection. Its corrected cohort has twenty-four
-certified patches and six declared missing outcomes, so the three descriptive quantities are $1/24$,
-$7/24$, and $1/18$. They are not confidence intervals or population-frequency bounds.
+The neutral-prompt, gold-localized solve provides a narrower operational existence result under a rule adopted
+after inspection. After validity-gated witness recovery its current figures are $k=2$, $N=24$, and $u=1$:
+$2/24$ observed, $3/24$ under the least-favourable assignment of the remaining unknown, and $2/23$
+complete-case. They are not confidence intervals or population-frequency bounds.
 
-The 2026 literature now establishes larger and cleaner routes to studying the same frontier problem. The
-next useful step is therefore not to inflate this corpus. It is a prospectively frozen replication with
-fresh tasks, pre-authored consequence tests, raw full-trajectory custody, repeated runs, independent human
-semantic labels, artifact-bound receipts, and an external timestamp. That design can test whether
-trajectory and consequence evidence add reliable detection beyond the official grader while measuring
-false positives, tail severity, and verification cost.
+On the reused fifty-three-target cohort, operational labels recur across five solver configurations at
+$5/29$, $2/25$, $3/17$, $4/14$, and $1/16$, with $u=0,2,2,2,1$. Across all six measured runs, seventeen
+patch-level positives correspond to twelve unique tasks. This is cross-solver recurrence on one convenience
+cohort, not population generalization or model independence. The fresh cohorts have $k=0$, $N=37$, and
+$u=13$; their least-favourable endpoint makes the concentration contrast inconclusive and supplies no causal
+repository explanation.
+
+The natural detector benchmark's fifty-four controls are mixed: twenty-nine are normalized-identical to
+accepted patches and twenty-five merely show no divergence on one witness. Without independent semantic
+adjudication, detector results against them are control flag rates rather than validated false-positive rates.
+The static panel and validated execution oracle each flagged zero of ten selected plausible-value operational
+positives, which bounds those two measured instruments but establishes no universal detector ceiling. The
+post-hoc fix-size comparison regenerates as $U=331$ and asymptotic two-sided $p=0.005347$ with tie and
+continuity correction; no outcome-labelled held-out test exists, so transfer is untested.
+
+The immediate scientific gate is independent, blinded human semantic re-adjudication at unique-task level,
+including the frozen detector benchmark and the thirteen missing fresh-cohort outcomes. Issue-only consequence
+tests must be frozen before candidate inspection; two independent engineers label each task, with a third
+adjudicator for disagreement. Only after that ground-truth and missingness repair should a prospective
+replication use fresh tasks, pre-authored consequence tests, raw full-trajectory custody, repeated runs,
+artifact-bound receipts, and an external timestamp to measure detection, false rejection, tail severity, and
+verification cost.
 
 \paragraph{Reproducibility.} Telos empirical summaries in this paper trace to committed scripts, manifests,
-or receipts, subject to the protocol deviations, chronology gaps, missing raw responses, and mutable-image
-limits disclosed above. External-source quantities regenerate only from their cited sources, not from this
-repository. The experiments are named in the text (for example, the
-construction is iter193 through protocol-failed iter195 and the expansion is iter199). Iter196 is the
-partial Detector-A-only judge pilot; iter197
-and iter201 are protocol-failed property runs with retained exploratory diagnostics. Iter200 is the
-localized-solve denominator correction. Iter202 through iter207 produced only safety, infrastructure,
-admission, or pre-publication correction nulls; none contributes a scientific numerator or denominator.
+or receipts, subject to the protocol deviations, chronology gaps, missing raw responses, mutable-image limits,
+repeated-task dependence, and operational rather than independently semantic labels disclosed above.
+External-source quantities regenerate only from their cited sources, not from this repository. Iter193 through
+protocol-failed iter195 and iter199 supply the constructed reference differentials; iter196, iter197, and
+iter201 supply the corrected exploratory detector record; iter200 and iter223--iter229 supply the natural-run
+artifacts; iter230--iter234 supply the operational detector measurements; iter235 supplies validity-gated
+witness recovery; and iter236 reconstructs the post-hoc statistic while leaving selector transfer untested.
+A green command closure covers registered commands and registered claims only; it is not evidence that every
+published number or scientific inference has been registered or validated.
 
 \begin{thebibliography}{18}
 \scriptsize

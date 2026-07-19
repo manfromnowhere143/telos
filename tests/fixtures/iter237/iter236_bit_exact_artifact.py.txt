@@ -1,0 +1,19 @@
+import json
+import math
+from pathlib import Path
+
+OUT = Path("proof/transfer_analysis.json")
+
+
+def two_sided_p(z):
+    return math.erfc(abs(z) / math.sqrt(2.0))
+
+
+def build():
+    return {"p_two_sided": two_sided_p(2.5)}
+
+
+def check():
+    result = build()
+    payload = json.dumps(result, indent=2, sort_keys=True) + "\n"
+    return OUT.read_text() != payload

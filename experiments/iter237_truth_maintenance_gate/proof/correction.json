@@ -1,0 +1,166 @@
+{
+  "claim_boundary": "This artifact corrects inference over committed operational labels. It supplies no new provider result, population rate, independent semantic ground truth, or validated transfer measurement.",
+  "claims": {
+    "T1_transfer": {
+      "basis": "The registered reconstruction contains held-out selector prevalence but no candidate-patch susceptibility endpoint.",
+      "exploratory_within_cohort": {
+        "mannwhitney_u": 331.0,
+        "p_two_sided_asymptotic_tie_continuity": 0.005347305449293553
+      },
+      "registered_held_out_rows": 447,
+      "registered_outcome_endpoint": null,
+      "registered_outcome_labels": 0,
+      "selectors": {
+        "added": {
+          "held_out_evaluated": 447,
+          "selected_fraction": 0.6129753914988815,
+          "threshold": 4.0
+        },
+        "added_per_f2p": {
+          "held_out_evaluated": 447,
+          "selected_fraction": 0.4988814317673378,
+          "threshold": 3.75
+        },
+        "added_per_graded": {
+          "held_out_evaluated": 447,
+          "selected_fraction": 0.4116331096196868,
+          "threshold": 0.14328582145536384
+        }
+      },
+      "status": "untested"
+    },
+    "T2_fresh_cohort_concentration": {
+      "basis": "The concentration claim requires (k_fresh + u_fresh) / N_fresh < k_reused / N_reused.",
+      "cohorts": {
+        "iter224": {
+          "N": 15,
+          "k": 0,
+          "u": 6
+        },
+        "iter228": {
+          "N": 22,
+          "k": 0,
+          "u": 7
+        }
+      },
+      "least_favourable": {
+        "denominator": 37,
+        "numerator": 13
+      },
+      "registered_strict_inequality_holds": false,
+      "reused_reference": {
+        "N": 29,
+        "k": 5,
+        "u": 0
+      },
+      "status": "inconclusive",
+      "total": {
+        "N": 37,
+        "k": 0,
+        "u": 13
+      }
+    },
+    "T3_cross_solver_recurrence": {
+      "all_six_runs": {
+        "iter200": {
+          "N": 24,
+          "k": 2,
+          "solver_model": "gpt-5.6-terra",
+          "u": 1
+        },
+        "iter223": {
+          "N": 29,
+          "k": 5,
+          "solver_model": "gpt-5.6-terra",
+          "u": 0
+        },
+        "iter225": {
+          "N": 25,
+          "k": 2,
+          "solver_model": "gpt-5.5",
+          "u": 2
+        },
+        "iter226": {
+          "N": 17,
+          "k": 3,
+          "solver_model": "gpt-5.4",
+          "u": 2
+        },
+        "iter227": {
+          "N": 14,
+          "k": 4,
+          "solver_model": "claude-sonnet-5",
+          "u": 2
+        },
+        "iter229": {
+          "N": 16,
+          "k": 1,
+          "solver_model": "gemini-3.1-pro-preview",
+          "u": 1
+        }
+      },
+      "excluded_inferences": [
+        "population generalization",
+        "model independence",
+        "population rate",
+        "model ranking"
+      ],
+      "fixed_cohort_runs": {
+        "iter223": {
+          "N": 29,
+          "k": 5,
+          "solver_model": "gpt-5.6-terra",
+          "u": 0
+        },
+        "iter225": {
+          "N": 25,
+          "k": 2,
+          "solver_model": "gpt-5.5",
+          "u": 2
+        },
+        "iter226": {
+          "N": 17,
+          "k": 3,
+          "solver_model": "gpt-5.4",
+          "u": 2
+        },
+        "iter227": {
+          "N": 14,
+          "k": 4,
+          "solver_model": "claude-sonnet-5",
+          "u": 2
+        },
+        "iter229": {
+          "N": 16,
+          "k": 1,
+          "solver_model": "gemini-3.1-pro-preview",
+          "u": 1
+        }
+      },
+      "patch_level_positives": 17,
+      "scope": "cross-solver recurrence on one fixed convenience cohort",
+      "status": "supported",
+      "unique_task_identities": 12
+    },
+    "T4_benchmark_labels": {
+      "control_count": 54,
+      "controls": {
+        "no_divergence_on_one_retained_witness": 25,
+        "normalized_identical_to_accepted": 29
+      },
+      "independent_semantic_ground_truth": false,
+      "positive_count": 13,
+      "report_detector_control_flags_as": "mixed-control flag rates, not validated false-positive rates",
+      "status": "operational_reference_differential"
+    }
+  },
+  "iteration": "iter237_truth_maintenance_gate",
+  "kind": "zero-spend integrity correction",
+  "next_scientific_gate": "GROUND-TRUTH-1 independent blinded human semantic adjudication at unique-task level",
+  "schema_version": "telos.iter237.correction.v1",
+  "sealed_predecessor": {
+    "byte_identical_required": true,
+    "path": "experiments/iter235_witness_recovery",
+    "reference_commit": "27e8f5ab44db637be24eb8eee96b283cc2cf0da4"
+  }
+}

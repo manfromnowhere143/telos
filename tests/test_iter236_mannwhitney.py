@@ -99,8 +99,10 @@ def test_integers_and_booleans_stay_exact() -> None:
     assert builder._matches({"n": 62}, {"n": 59}, "root")
     assert builder._matches({"n": 63}, {"n": 62}, "root")
     assert builder._matches({"ok": False}, {"ok": True}, "root")
-    # bool must not be forgiven as a float: True == 1 must still fail against 1.0000000001
-    assert builder._matches({"ok": True}, {"ok": 1.0000000001}, "root")
+    # Python considers True == 1, but the JSON evidence contract must reject type drift.
+    assert builder._matches({"ok": True}, {"ok": 1}, "root")
+    assert builder._matches({"n": 62}, {"n": 62.0}, "root")
+    assert builder._matches({"p": "0.5"}, {"p": 0.5}, "root")
 
 
 def test_structural_changes_are_caught() -> None:
