@@ -361,6 +361,21 @@
         "This snapshot freezes the exact eight regular Git blobs in the iter238 component at the named reference commit; it does not establish authorship, chronology, semantic truth, scientific correctness, independence, or external timestamp authority.",
         "This record closes only the iter238 additive authorization; exact-head CI, a two-parent merge, and merged-master verification remain separate acceptance evidence."
       ]
+    },
+    {
+      "seal_id": "iter239-repository-governance-authorization",
+      "record_type": "prospective_successor_authorization",
+      "predecessor_seal_id": "iter238-completed-evidence-seal",
+      "reference_commit": "fb87af7eb15b5235a722a7bb3fd3a48962019188",
+      "authorized_path": "experiments/iter239_repository_governance",
+      "must_be_absent_at_reference": true,
+      "policy": "additions_only_until_successor_seal",
+      "closure_requirement": "exact_tree_successor_path_snapshot",
+      "limitations": [
+        "This authorizes additions only within one absent iter239 experiment path; it does not authorize a GitHub mutation, provider call, spend, publication, release, or scientific claim.",
+        "Authorization is not completion: a later exact-tree successor snapshot, exact-head CI, two-parent merge, and merged-master verification remain separate requirements.",
+        "Repository settings can reduce accidental or unilateral mutation risk but cannot establish scientific truth, reviewer independence, authorship, or external timestamp authority."
+      ]
     }
   ]
 }
