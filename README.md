@@ -59,6 +59,15 @@ Its preserved predecessor is
 which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a required-phrase scanner that a
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
+The active record-integrity iteration is
+[iter236 transfer analysis reconstruction](experiments/iter236_transfer_analysis_reconstruction/HYPOTHESIS.md),
+pre-registered and not yet executed. The `$0` analysis that redirected the programme away from cohort
+selection by fix size exists only as prose in the handoff chain; no committed artifact regenerates it, and the
+285-command CI closure cannot detect the gap because it derives its commands from `ci.yml` and the analysis
+was never registered there. Iter236 rebuilds it as a guarded, offline builder. It establishes no model
+behavior, detector efficacy, rate, or cohort — a reproduced number shows the record is internally sound, not
+that the science is stronger.
+
 The active scientific result is
 [iter235 witness recovery](experiments/iter235_witness_recovery/RESULT.md): across six natural-rate runs
 `125` patches were certified and `41` were never adjudicated — certified, not gold-equivalent, and lacking a
