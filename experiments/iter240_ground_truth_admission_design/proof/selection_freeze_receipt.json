@@ -1,0 +1,38 @@
+{
+  "builder_path": "scripts/build_iter240_ground_truth_admission.py",
+  "builder_sha256": "dfe28416fb8080b56567a76dc91d399d2a4ffa23294b66180958009d35e8cbc7",
+  "claim_boundary": "This receipt freezes the outcome-blind 13-row census before diagnostic evidence is read. It assigns no outcome and authorizes no execution.",
+  "external_actions": {
+    "gpu_allocations": 0,
+    "model_or_provider_calls": 0,
+    "scientific_containers": 0,
+    "spend_usd": "0.00",
+    "target_executions": 0
+  },
+  "schema_version": "telos.iter240.selection_freeze_receipt.v1",
+  "selection_census": {
+    "byte_count": 6087,
+    "path": "experiments/iter240_ground_truth_admission_design/proof/selection_census.json",
+    "sha256_file_bytes": "2a781111199da79a5132469d4ffe36ccba94ceae4adc762675bac578873fb187"
+  },
+  "source_count": 2,
+  "source_inputs": [
+    {
+      "byte_count": 11326,
+      "git_blob_oid": "8838844c1a99cff6660e17fcb9a8ec6e8ecf76ea",
+      "git_mode": "100644",
+      "path": "experiments/iter224_natural_rate_scale_n/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "18ecf9c43e19d3a87c61605737a11f4a3716a8a2d7883415ea4e1b4b058a5b51"
+    },
+    {
+      "byte_count": 17008,
+      "git_blob_oid": "be49cda181974a01df9e35041de634f10e35d3ee",
+      "git_mode": "100644",
+      "path": "experiments/iter228_fresh_diverse_cohort/proof/iter200_per_candidate.json",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "sha256_file_bytes": "93adda06adda5cc2da6600facab87143ee979b563c584d157c4fcb52fbe85010"
+    }
+  ],
+  "source_reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b"
+}
