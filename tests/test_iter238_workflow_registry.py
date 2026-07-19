@@ -43,6 +43,14 @@ def load_registry() -> dict:
     return json.loads((ROOT / "mission/workflow_registry.json").read_text(encoding="utf-8"))
 
 
+def retirement_source_registry() -> dict:
+    registry = load_registry()
+    registry["active_gate"] = (
+        "experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md"
+    )
+    return registry
+
+
 def pre_retirement_inventory(registry: dict) -> dict:
     rows = []
     for entry in registry["entries"]:
@@ -128,7 +136,7 @@ def test_retirement_source_commit_must_be_an_ancestor() -> None:
 
 def test_only_active_ci_digest_may_evolve_after_retirement() -> None:
     guard = load_script("validate_workflow_registry")
-    source = load_registry()
+    source = retirement_source_registry()
     current = deepcopy(source)
     active = next(
         row
@@ -142,7 +150,7 @@ def test_only_active_ci_digest_may_evolve_after_retirement() -> None:
 
 def test_historical_entry_drift_fails_retirement_provenance() -> None:
     guard = load_script("validate_workflow_registry")
-    source = load_registry()
+    source = retirement_source_registry()
     current = deepcopy(source)
     historical = next(
         row
@@ -161,7 +169,7 @@ def test_historical_entry_drift_fails_retirement_provenance() -> None:
 
 def test_platform_entry_drift_fails_retirement_provenance() -> None:
     guard = load_script("validate_workflow_registry")
-    source = load_registry()
+    source = retirement_source_registry()
     current = deepcopy(source)
     platform = next(
         row
@@ -180,7 +188,7 @@ def test_platform_entry_drift_fails_retirement_provenance() -> None:
 
 def test_active_ci_non_digest_evolution_fails_retirement_provenance() -> None:
     guard = load_script("validate_workflow_registry")
-    source = load_registry()
+    source = retirement_source_registry()
     current = deepcopy(source)
     active = next(
         row
@@ -200,7 +208,7 @@ def test_active_ci_non_digest_evolution_fails_retirement_provenance() -> None:
 
 def test_authority_top_level_evolution_fails_retirement_provenance() -> None:
     guard = load_script("validate_workflow_registry")
-    source = load_registry()
+    source = retirement_source_registry()
     current = deepcopy(source)
     current["repository"] = "different/repository"
 
@@ -221,6 +229,7 @@ def test_synthetic_iter239_current_pointer_transition_is_permitted(
     current_path = root / "mission/current.json"
     registry = json.loads(registry_path.read_text(encoding="utf-8"))
     source = deepcopy(registry)
+    source["active_gate"] = guard.ITER238_GATE
     current = json.loads(current_path.read_text(encoding="utf-8"))
     next_gate = "experiments/iter239_repository_governance_gate/HYPOTHESIS.md"
     registry["active_gate"] = next_gate

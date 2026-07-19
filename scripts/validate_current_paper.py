@@ -80,7 +80,6 @@ REQUIRED_TEXT = {
     ),
     ROOT / "paper/README.md": (
         "# Telos paper",
-        "Iter238 claim, seal, and workflow controls are the active engineering gate",
         "Iter237 rebuilt and rebound the July 19 source and 16-page PDF",
         "The claim registry is the canonical reviewed resolution authority; "
         "the active-gate coverage report is retained evidence that the "
@@ -114,7 +113,6 @@ REQUIRED_TEXT = {
         "mission/seal_registry.json",
         "mission/workflow_registry.json",
         "docs/EXPERIMENT_INDEX.md",
-        "experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md",
         "22`-row, `8`-repository reference-differential corpus",
         "Iter192 is conservatively adjudicated `FAIL`",
         "literal v1-specific",
@@ -217,8 +215,8 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def active_claim_report_path() -> str:
-    """Derive the active-gate report path from both current authorities."""
+def active_claim_authority_paths() -> tuple[str, str]:
+    """Derive the active gate and report path from both current authorities."""
 
     current = json.loads((ROOT / "mission/current.json").read_text(encoding="utf-8"))
     registry_path = current.get("claim_registry")
@@ -245,7 +243,13 @@ def active_claim_report_path() -> str:
     expected = (gate.parent / "proof" / "claim_coverage_report.json").as_posix()
     if registry.get("coverage_report_path") != expected:
         raise ValueError("claim registry coverage report path differs")
-    return expected
+    return active_gate, expected
+
+
+def active_claim_report_path() -> str:
+    """Return the active-gate report path for compatibility with callers."""
+
+    return active_claim_authority_paths()[1]
 
 
 def validate() -> list[str]:
@@ -267,11 +271,16 @@ def validate() -> list[str]:
     if sha256(PAPER_PDF) != EXPECTED_PDF_SHA256:
         failures.append("paper/telos.pdf changed without a deterministic rebuild/binding refresh")
     try:
-        report_path = active_claim_report_path()
+        active_gate, report_path = active_claim_authority_paths()
     except (OSError, json.JSONDecodeError, ValueError) as error:
         failures.append(f"paper claim-report authority is invalid: {error}")
     else:
         paper_readme = normalized_prose(ROOT / "paper/README.md")
+        if f"(../{active_gate})" not in paper_readme:
+            failures.append(
+                "paper/README.md does not link the exact active engineering "
+                f"gate: {active_gate}"
+            )
         if f"(../{report_path})" not in paper_readme:
             failures.append(
                 "paper/README.md does not link the exact active-gate claim "

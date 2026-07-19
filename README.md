@@ -55,52 +55,57 @@ the current [paper](paper/telos.tex).
 ## Current engineering gate
 
 The active gate is
-[`experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md`](experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md).
-It is a zero-provider-spend engineering-integrity iteration, not a scientific
-result.
+[`experiments/iter239_repository_governance/HYPOTHESIS.md`](experiments/iter239_repository_governance/HYPOTHESIS.md).
+It is a no-provider-spend repository-governance iteration, not a scientific
+result or independent review.
 
 <!-- telos-current-state:start -->
 ```text
 status: running
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: complete iter238 exact local, live, and remote acceptance
+next_authorized_action: complete iter239 if open; otherwise retain its controls and preregister the next authorized gate
 ```
 <!-- telos-current-state:end -->
 
 This synchronized block is a mutable repository control. Its agreement proves
-neither scientific acceptance nor remote acceptance.
+neither scientific, remote, nor governance acceptance.
+
+Iter239 completion authority is
+`experiments/iter239_repository_governance/RESULT.md` when that file exists.
+Its absence means the gate remains unaccepted.
 
 At the current working boundary:
 
-- the retrospective protected-byte inventory is registered in
-  [`mission/seal_registry.json`](mission/seal_registry.json);
-- repository workflow authority is default-deny in
+- iter238's exact completed evidence is protected by the
+  [`iter238-completed-evidence-seal`](mission/seal_registry.json), and its
+  merge-commit acceptance and merged-master CI are complete;
+- public quantitative claims remain governed by
+  [`mission/claim_registry.json`](mission/claim_registry.json), protected-byte
+  transitions by [`mission/seal_registry.json`](mission/seal_registry.json),
+  and workflow execution authority by the default-deny
   [`mission/workflow_registry.json`](mission/workflow_registry.json);
-- the retirement observation at `2026-07-19T09:30:43Z` recorded the
-  twenty-nine historical one-shot workflows as `disabled_manually`, with a
-  [retained pre/post receipt](experiments/iter238_claim_seal_workflow_controls/proof/workflow_retirement_receipt.json)
-  binding that observation;
-- the registry grants continuous execution authority only to `ci.yml` and
-  classifies GitHub's Dependency Graph as an explicit platform service; the
-  same `2026-07-19T09:30:43Z` observation recorded both as active;
-- sealed receipt verification now requires the current receipt to equal its
-  introducing Git blob;
-- the replacement claim-registry implementation uses reviewed stable IDs,
-  exact segment provenance, explicit correction lineage, and separate
-  accounting for the four preregistered public surfaces and two supplemental
-  hardening surfaces;
-- retained historical and external records whose unit, cohort, and
-  independence metadata were not reconstructed remain explicitly unresolved
-  and excluded from scientific reuse; quantitative-token coverage is not
-  semantic adjudication;
-- final surface-bound registry/report authorization, exact local and remote
-  closure, the post-retirement live observation and result, the
-  completed-evidence successor seal, and merge acceptance remain open.
+- the predecessor GitHub state had no effective default-branch protection,
+  and push and pull-request runs exposed identical check names;
+- iter239's registered sequence makes those contexts event-specific and then
+  conditionally installs an active no-bypass ruleset requiring PR association,
+  merge-commit mode, resolved conversations, strict app-bound CI, and deletion
+  and non-fast-forward blocking;
+- the registered technical floor intentionally does not require approvals
+  because no independent write-capable reviewer exists. It must never be
+  described as review assurance.
 
-Do not infer completion from implemented components. The mutable authority is
+The completed iter238 claim inventory separately accounted for four
+preregistered public surfaces and two supplemental hardening surfaces. Its
+workflow protocol classified twenty-nine historical one-shot workflows. The
+retained live observation recorded both continuous CI and Dependency Graph as
+active. Iter238 used zero provider spend.
+
+The registered GitHub mutation is authorized only after the committed
+iter239 preconditions and exact remote checks pass, and its acceptance is
+reported only through the result path above. The mutable authority is
 [`mission/current.json`](mission/current.json), which points to
-[`docs/HANDOFF-2026-07-19-iter238.md`](docs/HANDOFF-2026-07-19-iter238.md) and
+[`docs/HANDOFF-2026-07-19-iter239.md`](docs/HANDOFF-2026-07-19-iter239.md) and
 [`docs/TELOS-AUDIT-2026-07-19.md`](docs/TELOS-AUDIT-2026-07-19.md).
 Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,
@@ -211,11 +216,13 @@ but scientific execution remains blocked.
 
 ## Next mission gates
 
-If iter238 earns acceptance, Telos first preregisters a repository-governance
-gate. The current merge discipline is documented and repeatedly exercised,
-but the default branch does not yet have an enforced protection rule or
-ruleset. That engineering gap must be closed with retained before/after
-evidence before the programme relies on the repository as a durable authority.
+Iter239 defines a no-bypass technical-floor gate for PR association,
+event-specific required CI, merge-commit mode, conversation resolution, and
+deletion and force-push resistance. Its result must report independent review
+as `blocked` until a real conflict-screened human is separately authorized and
+the review rule is upgraded in a new preregistered gate.
+
+After iter238 acceptance, Telos first preregistered repository governance.
 
 GROUND-TRUTH-1 remains the next scientific gate. It may not execute until
 independently conflict-screened humans and a separate budget authorization

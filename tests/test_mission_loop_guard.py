@@ -61,11 +61,8 @@ def test_validator_labels_sealed_gates_historical_not_active() -> None:
     assert "historical_runtime_gate_at_freeze=" in completed.stdout
     assert "historical_publication_gate_at_freeze=" in completed.stdout
     assert "operational_authority=mission/current.json" in completed.stdout
-    assert (
-        "current_gate="
-        "experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md"
-        in completed.stdout
-    )
+    current = json.loads((ROOT / "mission/current.json").read_text(encoding="utf-8"))
+    assert f"current_gate={current['active_gate']}" in completed.stdout
     assert "active publication gate=" not in completed.stdout
 
 
