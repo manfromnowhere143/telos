@@ -1,0 +1,831 @@
+{
+  "cases": [
+    {
+      "expected_error_contains": "execution_authorized",
+      "id": "policy_execution_authorized",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "execution_authorized"
+        ],
+        "value": true
+      }
+    },
+    {
+      "expected_error_contains": "identity_assignments",
+      "id": "policy_identity_assignment_smuggled_into_design",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "identity_assignments"
+        ],
+        "value": [
+          {
+            "principal": "semantic_adjudicator_1",
+            "subject_id": "person-before-authorization"
+          }
+        ]
+      }
+    },
+    {
+      "expected_error_contains": "field_catalog",
+      "id": "policy_uncatalogued_field_added",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "field_catalog",
+          "/unreviewed_field"
+        ],
+        "value": "string:unknown"
+      }
+    },
+    {
+      "expected_error_contains": "allowed view fields drift",
+      "id": "policy_author_allowed_candidate_patch",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "append",
+        "path": [
+          "roles",
+          "consequence_author",
+          "allowed_view_fields"
+        ],
+        "value": "/candidate_patch"
+      }
+    },
+    {
+      "expected_error_contains": "duplicate forbidden field",
+      "id": "policy_duplicate_forbidden_pointer",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "append",
+        "path": [
+          "roles",
+          "consequence_author",
+          "forbidden_view_fields"
+        ],
+        "value": "/candidate_patch"
+      }
+    },
+    {
+      "expected_error_contains": "required fields must equal allowed fields",
+      "id": "policy_required_fields_relaxed",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "roles",
+          "consequence_author",
+          "required_view_fields"
+        ],
+        "value": []
+      }
+    },
+    {
+      "expected_error_contains": "separation_constraints",
+      "id": "policy_separation_graph_removed",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "separation_constraints"
+        ],
+        "value": []
+      }
+    },
+    {
+      "expected_error_contains": "stage_order",
+      "id": "policy_stage_order_shortened",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "stage_order"
+        ],
+        "value": [
+          "masked_execution",
+          "deidentified_analysis"
+        ]
+      }
+    },
+    {
+      "expected_error_contains": "broker_constraints",
+      "id": "policy_four_attempts_allowed",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "broker_constraints",
+          "maximum_attempts_per_row"
+        ],
+        "value": 4
+      }
+    },
+    {
+      "expected_error_contains": "broker_constraints",
+      "id": "policy_mutable_image_tag_sufficient",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "broker_constraints",
+          "mutable_tag_sufficient"
+        ],
+        "value": true
+      }
+    },
+    {
+      "expected_error_contains": "broker_constraints",
+      "id": "policy_safety_allowlist_relaxed",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "broker_constraints",
+          "safety_allowlist_relaxation_allowed"
+        ],
+        "value": true
+      }
+    },
+    {
+      "expected_error_contains": "broker_constraints",
+      "id": "policy_outcome_selected_attempt_rule",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "broker_constraints",
+          "selection_rule"
+        ],
+        "value": "first_attempt_with_different_result"
+      }
+    },
+    {
+      "expected_error_contains": "claim_boundary",
+      "id": "policy_missing_review_becomes_approval",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "claim_boundary",
+          "missing_or_timeout_disposition"
+        ],
+        "value": "approved"
+      }
+    },
+    {
+      "expected_error_contains": "claim_boundary",
+      "id": "policy_model_consensus_becomes_authority",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "claim_boundary",
+          "model_consensus_is_independent_authority"
+        ],
+        "value": true
+      }
+    },
+    {
+      "expected_error_contains": "claim_boundary",
+      "id": "policy_design_authorizes_spend",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "claim_boundary",
+          "spend_authorized_usd"
+        ],
+        "value": 1
+      }
+    },
+    {
+      "expected_error_contains": "consequence_control_constraints",
+      "id": "policy_consequence_accepted_alone_sufficient",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "consequence_control_constraints",
+          "accepted_implementation_alone_is_sufficient"
+        ],
+        "value": true
+      }
+    },
+    {
+      "expected_error_contains": "future_ground_truth_admission_bars",
+      "id": "policy_validity_bar_lowered",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "future_ground_truth_admission_bars",
+          "consequence_validity_minimum"
+        ],
+        "value": {
+          "denominator": 100,
+          "numerator": 94
+        }
+      }
+    },
+    {
+      "expected_error_contains": "future_ground_truth_admission_bars",
+      "id": "policy_critical_leakage_allowed",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "future_ground_truth_admission_bars",
+          "critical_leakage_maximum"
+        ],
+        "value": 1
+      }
+    },
+    {
+      "expected_error_contains": "future_ground_truth_admission_bars",
+      "id": "policy_ground_truth_task_floor_lowered",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "future_ground_truth_admission_bars",
+          "supported_positive_unique_task_minimum"
+        ],
+        "value": 9
+      }
+    },
+    {
+      "expected_error_contains": "leakage_scan",
+      "id": "policy_normalization_weakened",
+      "kind": "policy_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "leakage_scan",
+          "normalization"
+        ],
+        "value": "case_sensitive_bytes"
+      }
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /candidate_patch",
+      "id": "author_receives_candidate_patch",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "candidate_patch"
+        ],
+        "value": "secret candidate implementation"
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /accepted_patch",
+      "id": "author_receives_accepted_patch",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "accepted_patch"
+        ],
+        "value": "secret accepted implementation"
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /candidate_operational_label",
+      "id": "author_receives_operational_label",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "candidate_operational_label"
+        ],
+        "value": "prior-classification"
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden key token",
+      "id": "author_nested_camel_case_alias",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "public_context"
+        ],
+        "value": {
+          "candidatePatch": "concealed implementation"
+        }
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden key token",
+      "id": "author_nested_punctuation_alias",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "public_context"
+        ],
+        "value": {
+          "candidate.patch": "concealed implementation"
+        }
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden key token",
+      "id": "author_nested_unicode_width_alias",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "public_context"
+        ],
+        "value": {
+          "\uff23\uff21\uff2e\uff24\uff29\uff24\uff21\uff34\uff25\uff0d\uff30\uff21\uff34\uff23\uff28": "concealed implementation"
+        }
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [
+        "FEATURE_FLAG_XYZ"
+      ],
+      "expected_error_contains": "dynamic forbidden literal leaked",
+      "id": "author_dynamic_diff_line_leak",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "public_context"
+        ],
+        "value": "The change sets feature-flag-xyz before returning."
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [
+        "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      ],
+      "expected_error_contains": "dynamic forbidden literal leaked",
+      "id": "author_artifact_digest_under_benign_key",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "public_context"
+        ],
+        "value": "Context receipt 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "URL scheme contaminates",
+      "id": "author_source_lookup_url",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "public_context"
+        ],
+        "value": "Retrieve https://example.invalid/private before writing."
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "source-like filename contaminates",
+      "id": "author_source_artifact_filename",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "public_context"
+        ],
+        "value": "Read retained/source.json before writing."
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "fixed forbidden substring leaked",
+      "id": "author_historical_result_sentinel",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "public_context"
+        ],
+        "value": "RESULT=accepted-only-value"
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "fixed forbidden substring leaked",
+      "id": "author_opaque_id_embeds_stratum",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "task_id_opaque"
+        ],
+        "value": "opaque-operational_positive-task"
+      },
+      "role": "consequence_author"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /frozen_consequence",
+      "id": "valid_producer_receives_consequence",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "frozen_consequence"
+        ],
+        "value": "targeted consequence"
+      },
+      "role": "valid_implementation_producer"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /issue_text",
+      "id": "registrar_receives_scientific_content",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "issue_text"
+        ],
+        "value": "scientific task content"
+      },
+      "role": "independence_registrar"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /prior_judge_output",
+      "id": "broker_receives_prior_judge_output",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "prior_judge_output"
+        ],
+        "value": "prior review"
+      },
+      "role": "outcome_masking_broker"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /operational_stratum",
+      "id": "broker_receives_operational_stratum",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "operational_stratum"
+        ],
+        "value": "operational_positive"
+      },
+      "role": "outcome_masking_broker"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "exact JSON type boolean",
+      "id": "broker_integer_one_as_boolean",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "attempt_plan_frozen_before_outcomes"
+        ],
+        "value": 1
+      },
+      "role": "outcome_masking_broker"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "attempt count must be between one and three",
+      "id": "broker_four_attempts",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "attempt_order"
+        ],
+        "value": [
+          "attempt-1",
+          "attempt-2",
+          "attempt-3",
+          "attempt-4"
+        ]
+      },
+      "role": "outcome_masking_broker"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "outcome-selected attempt rule is forbidden",
+      "id": "broker_favourable_attempt_selection",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "attempt_selection_rule"
+        ],
+        "value": "first_attempt_with_different_result"
+      },
+      "role": "outcome_masking_broker"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "unsafe execution must remain forbidden",
+      "id": "broker_relaxes_unsafe_execution",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "unsafe_execution_allowed"
+        ],
+        "value": true
+      },
+      "role": "outcome_masking_broker"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "immutable image provenance",
+      "id": "broker_uses_mutable_image_tag",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "image_digest"
+        ],
+        "value": {
+          "image_id": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "image_repository_digest": "example/repository:latest"
+        }
+      },
+      "role": "outcome_masking_broker"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "unsafe row contains execution records",
+      "id": "broker_executes_excluded_unsafe_row",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "safety_disposition"
+        ],
+        "value": "excluded_unsafe"
+      },
+      "role": "outcome_masking_broker"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /candidate_patch",
+      "id": "primary_adjudicator_receives_candidate_patch",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "candidate_patch"
+        ],
+        "value": "identified candidate implementation"
+      },
+      "role": "semantic_adjudicator_1"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /private_slot_mapping",
+      "id": "primary_adjudicator_receives_slot_map",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "private_slot_mapping"
+        ],
+        "value": {
+          "slot-a": "candidate"
+        }
+      },
+      "role": "semantic_adjudicator_1"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden key token",
+      "id": "primary_adjudicator_nested_peer_verdict",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "blinded_execution_records",
+          0,
+          "reviewer-verdict"
+        ],
+        "value": "supported"
+      },
+      "role": "semantic_adjudicator_2"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "private slot identity leaked",
+      "id": "primary_adjudicator_nested_slot_identity_value",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "blinded_execution_records",
+          0,
+          "origin"
+        ],
+        "value": "candidate"
+      },
+      "role": "semantic_adjudicator_1"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /prior_rationales_shuffled",
+      "id": "primary_adjudicator_receives_peer_rationales",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "prior_rationales_shuffled"
+        ],
+        "value": [
+          {
+            "rationale": "peer view"
+          }
+        ]
+      },
+      "role": "semantic_adjudicator_2"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "missing required fields",
+      "id": "disagreement_rationales_without_own_lock",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "remove",
+        "path": [
+          "reviewer_lock_receipt"
+        ]
+      },
+      "role": "disagreement_adjudicator"
+    },
+    {
+      "dynamic_forbidden_literals": [],
+      "expected_error_contains": "forbidden field /candidate_patch",
+      "id": "analyst_receives_candidate_patch",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "add",
+        "path": [
+          "candidate_patch"
+        ],
+        "value": "identified candidate implementation"
+      },
+      "role": "deidentified_analyst"
+    },
+    {
+      "dynamic_forbidden_literals": [
+        "source-instance-12345"
+      ],
+      "expected_error_contains": "dynamic forbidden literal leaked",
+      "id": "analyst_opaque_cluster_embeds_instance",
+      "kind": "view_mutation",
+      "mutation": {
+        "operation": "replace",
+        "path": [
+          "task_cluster"
+        ],
+        "value": "cluster-source-instance-12345"
+      },
+      "role": "deidentified_analyst"
+    },
+    {
+      "assignments": [
+        {
+          "authority_kind": "artifact_producer",
+          "conflicts_screened": true,
+          "is_current_agent": false,
+          "is_repository_owner": false,
+          "principal": "candidate_patch_producer",
+          "subject_id": "same-person"
+        },
+        {
+          "authority_kind": "independent_human",
+          "conflicts_screened": true,
+          "is_current_agent": false,
+          "is_repository_owner": false,
+          "principal": "semantic_adjudicator_1",
+          "subject_id": "same-person"
+        }
+      ],
+      "expected_error_contains": "incompatible principals share subject",
+      "id": "assignment_candidate_producer_is_reviewer",
+      "kind": "assignment"
+    },
+    {
+      "assignments": [
+        {
+          "authority_kind": "artifact_producer",
+          "conflicts_screened": true,
+          "is_current_agent": false,
+          "is_repository_owner": false,
+          "principal": "candidate_patch_producer",
+          "subject_id": "same-person"
+        },
+        {
+          "authority_kind": "conflict_screening_authority",
+          "conflicts_screened": true,
+          "is_current_agent": false,
+          "is_repository_owner": false,
+          "principal": "independence_registrar",
+          "subject_id": "same-person"
+        }
+      ],
+      "expected_error_contains": "incompatible principals share subject",
+      "id": "assignment_candidate_producer_is_registrar",
+      "kind": "assignment"
+    },
+    {
+      "assignments": [
+        {
+          "authority_kind": "model_sample",
+          "conflicts_screened": true,
+          "is_current_agent": false,
+          "is_repository_owner": false,
+          "principal": "semantic_adjudicator_1",
+          "subject_id": "model-sample-1"
+        }
+      ],
+      "expected_error_contains": "independent human authority required",
+      "id": "assignment_model_sample_as_reviewer",
+      "kind": "assignment"
+    },
+    {
+      "assignments": [
+        {
+          "authority_kind": "independent_human",
+          "conflicts_screened": true,
+          "is_current_agent": false,
+          "is_repository_owner": true,
+          "principal": "disagreement_adjudicator",
+          "subject_id": "repository-owner"
+        }
+      ],
+      "expected_error_contains": "repository owner cannot supply independent authority",
+      "id": "assignment_repository_owner_as_reviewer",
+      "kind": "assignment"
+    },
+    {
+      "assignments": [
+        {
+          "authority_kind": "independent_human",
+          "conflicts_screened": true,
+          "is_current_agent": true,
+          "is_repository_owner": false,
+          "principal": "consequence_author",
+          "subject_id": "current-agent"
+        }
+      ],
+      "expected_error_contains": "current agent cannot supply human authority",
+      "id": "assignment_current_agent_as_author",
+      "kind": "assignment"
+    },
+    {
+      "assignments": [
+        {
+          "authority_kind": "independent_human",
+          "conflicts_screened": false,
+          "is_current_agent": false,
+          "is_repository_owner": false,
+          "principal": "semantic_adjudicator_2",
+          "subject_id": "unscreened-person"
+        }
+      ],
+      "expected_error_contains": "conflicts must be explicitly screened",
+      "id": "assignment_unscreened_conflict",
+      "kind": "assignment"
+    }
+  ],
+  "schema_version": "telos.iter240.role_view_known_bad.v1",
+  "status": "known_bad_only"
+}
