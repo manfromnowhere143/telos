@@ -327,9 +327,9 @@ def validate_retirement_receipt(
     expected_operations = {
         "delete_run": 0,
         "delete_workflow": 0,
-        "disable_workflow": 29,
+        "disable_puts": 29,
         "dispatch": 0,
-        "enable_workflow": 0,
+        "enable": 0,
         "rerun": 0,
     }
     if receipt.get("operation_counts") != expected_operations:
@@ -340,6 +340,27 @@ def validate_retirement_receipt(
     if not isinstance(rows, list) or len(rows) != 29:
         failures.append("workflow retirement receipt: expected exactly 29 entries")
     else:
+        expected_order = [
+            ITER204_ID,
+            *[
+                row["workflow_id"]
+                for row in sorted(
+                    (
+                        item
+                        for item in historical
+                        if item.get("workflow_id") != ITER204_ID
+                    ),
+                    key=lambda item: item["path"],
+                )
+            ],
+        ]
+        observed_order = [
+            row.get("workflow_id") for row in rows if isinstance(row, dict)
+        ]
+        if observed_order != expected_order:
+            failures.append(
+                "workflow retirement receipt: iter204-first disable order differs"
+            )
         by_id = {
             row.get("workflow_id"): row
             for row in rows
