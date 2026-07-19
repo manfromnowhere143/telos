@@ -63,6 +63,14 @@ def _clone_current_evidence_context(target: Path) -> None:
         destination = target / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(ROOT / relative, destination)
+    current = guard.read_json(target / "mission/current.json")
+    active_gate = current["active_gate"]
+    assert isinstance(active_gate, str)
+    for relative in (
+        guard.REGISTRY_PATH,
+        Path(guard.report_path_for_gate(active_gate)),
+    ):
+        (target / relative).unlink(missing_ok=True)
 
 
 def _candidate(tmp_path: Path) -> dict[str, object]:
@@ -2468,3 +2476,14 @@ def test_duplicate_and_nonfinite_json_are_rejected(tmp_path: Path) -> None:
     nonfinite.write_text('{"revision": NaN}\n', encoding="utf-8")
     with pytest.raises(ValueError, match="non-finite"):
         guard.read_json(nonfinite)
+
+
+def test_bootstrap_staging_uses_repository_regular_file_mode(
+    tmp_path: Path,
+) -> None:
+    staged = guard._stage_bytes(tmp_path, ".claim-fixture-", b"evidence\n")
+    try:
+        assert staged.read_bytes() == b"evidence\n"
+        assert staged.stat().st_mode & 0o777 == 0o644
+    finally:
+        staged.unlink()

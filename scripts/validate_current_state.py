@@ -45,7 +45,7 @@ CURRENT_FIELDS = {
     "historical_surfaces",
 }
 REGISTRY_SCHEMAS = {
-    "claim_registry": "telos.claim_registry.v2",
+    "claim_registry": "telos.claim_registry.v3",
     "seal_registry": "telos.seal-registry.v1",
     "workflow_registry": "telos.workflow_registry.v1",
 }

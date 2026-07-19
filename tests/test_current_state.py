@@ -118,7 +118,7 @@ def _fixture(tmp_path: Path) -> dict:
     _write_json(
         tmp_path / "mission/claim_registry.json",
         {
-            "schema_version": "telos.claim_registry.v2",
+            "schema_version": "telos.claim_registry.v3",
             "active_gate": current["active_gate"],
         },
     )

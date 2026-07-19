@@ -6264,6 +6264,7 @@ def _stage_bytes(directory: Path, prefix: str, content: bytes) -> Path:
     )
     try:
         with os.fdopen(descriptor, "wb") as handle:
+            os.fchmod(handle.fileno(), 0o644)
             handle.write(content)
             handle.flush()
             os.fsync(handle.fileno())
