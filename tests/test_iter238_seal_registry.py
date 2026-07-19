@@ -501,11 +501,56 @@ def test_prospective_authorization_does_not_weaken_baseline_bytes(
     assert any("protected bytes changed" in failure for failure in failures)
 
 
-@pytest.mark.parametrize(
-    "operation",
-    ["modify", "delete", "rename", "chmod", "symlink"],
-)
-def test_known_bad_open_authorization_history_is_additions_only(
+def test_open_authorization_allows_same_mode_preseal_revision(
+    tmp_path: Path,
+) -> None:
+    repo, registry, document = _temporary_registry(tmp_path)
+    _commit_prospective_authorization(repo, registry, document)
+    successor = repo / "experiments/iter239_ground_truth_1"
+    successor.mkdir(parents=True)
+    hypothesis = successor / "HYPOTHESIS.md"
+    result = successor / "RESULT.md"
+    hypothesis.write_text("prospective protocol\n", encoding="utf-8")
+    result.write_text("first retained result\n", encoding="utf-8")
+    _git(repo, "add", successor.relative_to(repo).as_posix())
+    _git(repo, "commit", "-qm", "add authorized future evidence")
+
+    result.write_text("reviewed replacement result\n", encoding="utf-8")
+    _git(repo, "add", result.relative_to(repo).as_posix())
+    assert _validate_fixture(repo, registry) == []
+
+    _git(repo, "commit", "-qm", "correct authorized evidence before seal")
+    assert _validate_fixture(repo, registry) == []
+
+    source = _git(repo, "rev-parse", "HEAD")
+    _append_successor_snapshot(
+        repo,
+        registry,
+        document,
+        source,
+        path="experiments/iter239_ground_truth_1",
+        seal_id="fixture-ground-truth-seal",
+        predecessor_seal_id="fixture-ground-truth-authorization",
+    )
+    assert _validate_fixture(repo, registry) == []
+    _git(repo, "commit", "-qm", "seal corrected authorized evidence")
+    assert _validate_fixture(repo, registry) == []
+
+    result.write_text("forbidden post-seal result\n", encoding="utf-8")
+    _git(repo, "add", result.relative_to(repo).as_posix())
+    failures = _validate_fixture(repo, registry)
+    assert any(
+        fragment in failure
+        for failure in failures
+        for fragment in (
+            "protected index bytes changed",
+            "protected bytes changed",
+        )
+    ), failures
+
+
+@pytest.mark.parametrize("operation", ["delete", "rename", "chmod", "symlink"])
+def test_known_bad_open_authorization_rejects_non_additive_transition(
     tmp_path: Path,
     operation: str,
 ) -> None:
@@ -518,9 +563,7 @@ def test_known_bad_open_authorization_history_is_additions_only(
     _git(repo, "commit", "-qm", "add authorized future evidence")
     renamed = future.with_name("renamed.txt")
 
-    if operation == "modify":
-        future.write_text("replacement bytes\n", encoding="utf-8")
-    elif operation == "delete":
+    if operation == "delete":
         future.unlink()
     elif operation == "rename":
         future.rename(renamed)
@@ -545,8 +588,87 @@ def test_known_bad_open_authorization_history_is_additions_only(
 
     failures = _validate_fixture(repo, registry)
     assert any(
-        "is additions-only; history contains" in failure for failure in failures
+        "permits only regular-file additions and same-mode pre-seal revisions" in failure
+        for failure in failures
     )
+
+
+def test_known_bad_open_authorization_preregistration_rewrite_is_retained(
+    tmp_path: Path,
+) -> None:
+    repo, registry, document = _temporary_registry(tmp_path)
+    _commit_prospective_authorization(repo, registry, document)
+    hypothesis = repo / "experiments/iter239_ground_truth_1/HYPOTHESIS.md"
+    hypothesis.parent.mkdir(parents=True)
+    hypothesis.write_text("original prospective protocol\n", encoding="utf-8")
+    _git(repo, "add", hypothesis.relative_to(repo).as_posix())
+    _git(repo, "commit", "-qm", "preregister future experiment")
+
+    hypothesis.write_text("transient rewritten protocol\n", encoding="utf-8")
+    _git(repo, "add", hypothesis.relative_to(repo).as_posix())
+    _git(repo, "commit", "-qm", "rewrite preregistration")
+    hypothesis.write_text("original prospective protocol\n", encoding="utf-8")
+    _git(repo, "add", hypothesis.relative_to(repo).as_posix())
+    _git(repo, "commit", "-qm", "restore preregistration endpoint")
+
+    failures = _validate_fixture(repo, registry)
+    assert any("preregistration is immutable after introduction" in failure for failure in failures)
+
+
+def test_known_bad_open_authorization_staged_preregistration_rewrite_fails(
+    tmp_path: Path,
+) -> None:
+    repo, registry, document = _temporary_registry(tmp_path)
+    _commit_prospective_authorization(repo, registry, document)
+    hypothesis = repo / "experiments/iter239_ground_truth_1/HYPOTHESIS.md"
+    hypothesis.parent.mkdir(parents=True)
+    hypothesis.write_text("original prospective protocol\n", encoding="utf-8")
+    _git(repo, "add", hypothesis.relative_to(repo).as_posix())
+    _git(repo, "commit", "-qm", "preregister future experiment")
+
+    hypothesis.write_text("staged rewritten protocol\n", encoding="utf-8")
+    _git(repo, "add", hypothesis.relative_to(repo).as_posix())
+
+    failures = _validate_fixture(repo, registry)
+    assert any("preregistration changed in the index" in failure for failure in failures)
+
+
+@pytest.mark.parametrize("operation", ["delete", "rename", "chmod", "symlink"])
+def test_known_bad_open_authorization_staged_non_additive_change_fails(
+    tmp_path: Path,
+    operation: str,
+) -> None:
+    repo, registry, document = _temporary_registry(tmp_path)
+    _commit_prospective_authorization(repo, registry, document)
+    future = repo / "experiments/iter239_ground_truth_1/evidence.txt"
+    future.parent.mkdir(parents=True)
+    future.write_text("first retained bytes\n", encoding="utf-8")
+    _git(repo, "add", future.relative_to(repo).as_posix())
+    _git(repo, "commit", "-qm", "add authorized future evidence")
+
+    if operation == "delete":
+        future.unlink()
+    elif operation == "rename":
+        future.rename(future.with_name("renamed.txt"))
+    elif operation == "chmod":
+        future.chmod(future.stat().st_mode | 0o111)
+    else:
+        future.unlink()
+        future.symlink_to(repo / "README.md")
+    _git(repo, "add", "-A")
+
+    failures = _validate_fixture(repo, registry)
+    assert any(
+        fragment in failure
+        for failure in failures
+        for fragment in (
+            "committed additive path was deleted",
+            "committed additive path mode changed in the index",
+            "additive successor is not a regular file",
+            "prospective path is not a regular file",
+            "index contains a symlink, submodule, or non-regular entry",
+        )
+    ), failures
 
 
 def test_known_bad_open_authorization_worktree_rewrite_fails(

@@ -67,7 +67,7 @@ class GitChange:
 
 @dataclass(frozen=True)
 class AdditiveWindow:
-    """The committed interval in which one absent tree may receive new blobs."""
+    """The committed interval in which one absent tree may be constructed."""
 
     path: str
     authorization_id: str
@@ -631,6 +631,30 @@ def _window_is_active_for_commit(
     )
 
 
+def _is_preregistration_path(path: str, window: AdditiveWindow) -> bool:
+    return path == f"{window.path}/HYPOTHESIS.md"
+
+
+def _is_authorized_window_transition(
+    change: GitChange,
+    window: AdditiveWindow,
+) -> bool:
+    """Keep the tree net-additive while permitting transparent pre-seal repair."""
+
+    if (
+        change.status == "A"
+        and change.old_mode == "000000"
+        and change.new_mode in REGULAR_GIT_MODES
+    ):
+        return True
+    return (
+        change.status == "M"
+        and not _is_preregistration_path(change.path, window)
+        and change.old_mode == change.new_mode
+        and change.new_mode in REGULAR_GIT_MODES
+    )
+
+
 def _verify_transition_history(
     root: Path,
     reference: str,
@@ -687,11 +711,17 @@ def _verify_transition_history(
             )
             window = matching[0]
             _require(
-                change.status == "A"
-                and change.old_mode == "000000"
-                and change.new_mode in REGULAR_GIT_MODES,
-                f"{set_id} authorization {window.authorization_id} is additions-only; "
-                f"history contains {change.status} {change.path} at "
+                not (_is_preregistration_path(change.path, window) and change.status != "A"),
+                f"{set_id} authorization {window.authorization_id} preregistration "
+                f"is immutable after introduction; history contains "
+                f"{change.status} {change.path} at "
+                f"{parent[:12]}..{child[:12]}",
+            )
+            _require(
+                _is_authorized_window_transition(change, window),
+                f"{set_id} authorization {window.authorization_id} permits only "
+                f"regular-file additions and same-mode pre-seal revisions; history "
+                f"contains {change.status} {change.path} at "
                 f"{parent[:12]}..{child[:12]}",
             )
 
@@ -700,7 +730,7 @@ def _verify_open_window_worktree(
     root: Path,
     window: AdditiveWindow,
 ) -> None:
-    """Keep every committed blob immutable while admitting only brand-new files."""
+    """Require the worktree to equal a regular-file-only prospective index."""
 
     if window.start_commit is None or window.end_commit is not None:
         return
@@ -729,31 +759,35 @@ def _verify_open_window_worktree(
         )
         mode, object_id = index[path]
         _require(
-            mode == blob.mode and object_id == blob.object_id,
-            f"{window.authorization_id} committed additive path changed in the index: "
-            f"{path}",
+            mode == blob.mode,
+            f"{window.authorization_id} committed additive path mode changed in "
+            f"the index: {path}",
         )
+        _require(
+            not _is_preregistration_path(path, window) or object_id == blob.object_id,
+            f"{window.authorization_id} preregistration changed in the index: {path}",
+        )
+
+    prospective_entries = [
+        (path, mode, object_id) for path, (mode, object_id) in sorted(index.items())
+    ]
+    for path, mode, _ in prospective_entries:
+        _require(
+            mode in REGULAR_GIT_MODES,
+            f"{window.authorization_id} prospective path is not a regular file: {path}",
+        )
+    identities = _batch_blob_identities(root, prospective_entries)
+    for path, mode, object_id in prospective_entries:
+        byte_count, digest = identities[object_id]
         _verify_worktree_file(
             root,
-            blob,
-            label=f"{window.authorization_id} committed addition",
+            GitBlob(path, mode, object_id, byte_count, digest),
+            label=(
+                f"{window.authorization_id} committed addition"
+                if path in head_blobs
+                else f"{window.authorization_id} staged addition"
+            ),
         )
-
-    staged_additions = sorted(set(index) - set(head_blobs))
-    if staged_additions:
-        entries = [
-            (path, index[path][0], index[path][1])
-            for path in staged_additions
-        ]
-        identities = _batch_blob_identities(root, entries)
-        for path, mode, object_id in entries:
-            byte_count, digest = identities[object_id]
-            _verify_worktree_file(
-                root,
-                GitBlob(path, mode, object_id, byte_count, digest),
-                label=f"{window.authorization_id} staged addition",
-            )
-
 
 def _verify_worktree_file(root: Path, blob: GitBlob, *, label: str) -> None:
     path = root / blob.path
