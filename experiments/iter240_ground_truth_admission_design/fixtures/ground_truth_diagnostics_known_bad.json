@@ -1,0 +1,371 @@
+{
+  "cases": [
+    {
+      "expected_fragment": "selected row",
+      "id": "selected_count_12",
+      "mutation": "drop_selected_row"
+    },
+    {
+      "expected_fragment": "selected row",
+      "id": "selected_count_14",
+      "mutation": "append_selected_row"
+    },
+    {
+      "expected_fragment": "duplicate",
+      "id": "duplicate_selected_task",
+      "mutation": "duplicate_selected_task"
+    },
+    {
+      "expected_fragment": "selected row",
+      "id": "silent_selected_row_removal",
+      "mutation": "remove_row_and_rewrite_count"
+    },
+    {
+      "expected_fragment": "exact boolean",
+      "id": "integer_boolean",
+      "mutation": "replace_true_with_integer_one"
+    },
+    {
+      "expected_fragment": "forbidden field",
+      "id": "selector_reads_status",
+      "mutation": "selector_status_subscript"
+    },
+    {
+      "expected_fragment": "forbidden field",
+      "id": "selector_reads_scenario",
+      "mutation": "selector_scenario_subscript"
+    },
+    {
+      "expected_fragment": "delegates",
+      "id": "selector_delegates_outcome_read",
+      "mutation": "selector_helper_call"
+    },
+    {
+      "expected_fragment": "expected exactly one Git entry",
+      "id": "missing_source",
+      "mutation": "source_path_absent"
+    },
+    {
+      "expected_fragment": "artifact",
+      "id": "missing_patch",
+      "mutation": "drop_candidate_patch"
+    },
+    {
+      "expected_fragment": "artifact",
+      "id": "missing_specification",
+      "mutation": "drop_specification"
+    },
+    {
+      "expected_fragment": "artifact",
+      "id": "missing_log",
+      "mutation": "drop_candidate_log"
+    },
+    {
+      "expected_fragment": "image",
+      "id": "missing_image",
+      "mutation": "remove_image_id"
+    },
+    {
+      "expected_fragment": "pointer",
+      "id": "missing_pointer",
+      "mutation": "drop_candidate_pointer"
+    },
+    {
+      "expected_fragment": "artifact receipt",
+      "id": "missing_digest",
+      "mutation": "drop_artifact_sha256"
+    },
+    {
+      "expected_fragment": "forged",
+      "id": "forged_artifact_digest",
+      "mutation": "replace_artifact_sha256"
+    },
+    {
+      "expected_fragment": "worktree source",
+      "id": "changed_source_bytes",
+      "mutation": "modify_tracked_source_worktree_bytes_after_predecessor"
+    },
+    {
+      "expected_fragment": "unregistered",
+      "id": "unregistered_source_path",
+      "mutation": "append_source_ledger_path"
+    },
+    {
+      "expected_fragment": "endpoint",
+      "id": "old_scenario_recovered_endpoint",
+      "mutation": "set_future_primary_endpoint_rows_one"
+    },
+    {
+      "expected_fragment": "arm",
+      "id": "candidate_exception_as_valid",
+      "mutation": "admit_candidate_exception_log_opposite_valid_accepted_arm"
+    },
+    {
+      "expected_fragment": "arm",
+      "id": "single_arm_result_as_valid",
+      "mutation": "admit_pair_when_only_accepted_arm_has_result"
+    },
+    {
+      "expected_fragment": "arm",
+      "id": "timeout_as_valid",
+      "mutation": "admit_candidate_log_with_scenario_timeout_sentinel"
+    },
+    {
+      "expected_fragment": "arm",
+      "id": "error_sentinel_as_valid",
+      "mutation": "admit_candidate_log_with_traceback_and_runtime_error"
+    },
+    {
+      "expected_fragment": "arm",
+      "id": "nonzero_exit_as_valid",
+      "mutation": "admit_candidate_result_with_nonzero_scenario_exit"
+    },
+    {
+      "expected_fragment": "arm",
+      "id": "duplicate_result_as_valid",
+      "mutation": "admit_candidate_log_with_two_result_lines"
+    },
+    {
+      "expected_fragment": "arm",
+      "id": "truncated_output_as_valid",
+      "mutation": "admit_candidate_log_with_global_log_truncated_sentinel"
+    },
+    {
+      "expected_fragment": "arm validity/result",
+      "id": "absence_converted_to_negative",
+      "mutation": "not_evaluated_valid_false"
+    },
+    {
+      "expected_fragment": "arm",
+      "id": "excluded_row_changed_to_valid",
+      "mutation": "excluded_arm_valid_true"
+    },
+    {
+      "expected_fragment": "absent scenario",
+      "id": "unsafe_execution",
+      "mutation": "excluded_unsafe_has_scenario"
+    },
+    {
+      "expected_fragment": "registered contract",
+      "id": "relaxed_allowlist",
+      "mutation": "safety_allowlist_relaxed"
+    },
+    {
+      "expected_fragment": "latest",
+      "id": "mutable_latest_execution",
+      "mutation": "image_repository_digest_latest"
+    },
+    {
+      "expected_fragment": "arm validity/result",
+      "id": "stale_image",
+      "mutation": "taxonomy_image_differs_from_log"
+    },
+    {
+      "expected_fragment": "tasks",
+      "id": "repeated_patches_independent",
+      "mutation": "unique_task_count_55"
+    },
+    {
+      "expected_fragment": "frame row",
+      "id": "pooled_strata",
+      "mutation": "replace_operational_stratum_with_pooled"
+    },
+    {
+      "expected_fragment": "37/64",
+      "id": "solved_denominator",
+      "mutation": "historical_denominator_62"
+    },
+    {
+      "expected_fragment": "branch",
+      "id": "favourable_branch_selected",
+      "mutation": "drop_missingness_branch"
+    },
+    {
+      "expected_fragment": "libm",
+      "id": "libm_bit_exact",
+      "mutation": "compare_math_result_with_equal"
+    },
+    {
+      "expected_fragment": "visibility",
+      "id": "author_view_candidate_leak",
+      "mutation": "allow_consequence_author_candidate_patch_digest"
+    },
+    {
+      "expected_fragment": "authority",
+      "id": "model_as_human_ground_truth",
+      "mutation": "independent_authority_model"
+    },
+    {
+      "expected_fragment": "zero external actions",
+      "id": "design_as_spending_authority",
+      "mutation": "cohort_acquisition_authorized"
+    },
+    {
+      "expected_fragment": "HEAD source",
+      "id": "sealed_predecessor_mutation",
+      "mutation": "commit_changed_source_blob_after_sealed_predecessor"
+    },
+    {
+      "expected_fragment": "selection authority",
+      "id": "selection_commit_replaced",
+      "mutation": "authority_commit_head"
+    },
+    {
+      "expected_fragment": "provenance",
+      "id": "invented_label_provenance",
+      "mutation": "replace_frame_label_provenance"
+    },
+    {
+      "expected_fragment": "frame row",
+      "id": "invented_frame_row_id",
+      "mutation": "replace_frame_row_id"
+    },
+    {
+      "expected_fragment": "decimal",
+      "id": "invalid_decimal_display",
+      "mutation": "decimal_not_a_number"
+    },
+    {
+      "expected_fragment": "V1",
+      "id": "legacy_v1_output_present",
+      "mutation": "materialize_unversioned_v1_output"
+    },
+    {
+      "expected_fragment": "immutable source boundary",
+      "id": "immutable_boundary_uses_seal",
+      "mutation": "add_mutable_seal_id_to_raw_git_source_boundary"
+    },
+    {
+      "expected_fragment": "diagnostic builder boundary",
+      "id": "diagnostic_boundary_flag_forged",
+      "mutation": "claim_legacy_preflight_was_invoked"
+    },
+    {
+      "expected_fragment": "legacy preflight authority",
+      "id": "legacy_preflight_reintroduced",
+      "mutation": "call_legacy_preflight_from_v2_build_all"
+    },
+    {
+      "expected_fragment": "duplicate task+patch",
+      "id": "missing_duplicate_group",
+      "mutation": "drop_one_duplicate_task_patch_group_control"
+    },
+    {
+      "expected_fragment": "duplicate task+patch",
+      "id": "forged_duplicate_member_count",
+      "mutation": "change_duplicate_group_member_count_from_two_to_three"
+    },
+    {
+      "expected_fragment": "cross-stratum",
+      "id": "forged_cross_stratum_unit",
+      "mutation": "replace_exact_cross_stratum_future_candidate_unit_id"
+    },
+    {
+      "expected_fragment": "frame row",
+      "id": "forged_candidate_unit_id",
+      "mutation": "replace_row_future_candidate_unit_id"
+    },
+    {
+      "expected_fragment": "future semantic",
+      "id": "semantic_rows_retained_for_extra",
+      "mutation": "add_independent_vote_as_operational_row_retention_purpose"
+    },
+    {
+      "expected_fragment": "future semantic",
+      "id": "task_endpoint_promoted",
+      "mutation": "change_unresolved_task_endpoint_aggregation_to_supported"
+    },
+    {
+      "expected_fragment": "rate/inequality",
+      "id": "concentration_field_reintroduced",
+      "mutation": "reintroduce_registered_strict_concentration_field"
+    },
+    {
+      "expected_fragment": "iid/common-probability/one-endpoint",
+      "id": "iid_assumption_removed",
+      "mutation": "set_independent_bernoulli_task_endpoints_false"
+    },
+    {
+      "expected_fragment": "iid/common-probability/one-endpoint",
+      "id": "common_probability_removed",
+      "mutation": "set_common_event_probability_across_tasks_false"
+    },
+    {
+      "expected_fragment": "iid/common-probability/one-endpoint",
+      "id": "one_endpoint_inflated",
+      "mutation": "set_completed_adjudicated_endpoints_per_task_to_two"
+    },
+    {
+      "expected_fragment": "iid/common-probability/one-endpoint",
+      "id": "current_population_model_promoted",
+      "mutation": "set_current_convenience_cohort_population_inference_true"
+    },
+    {
+      "expected_fragment": "linked to acquisition",
+      "id": "premature_acquisition_link",
+      "mutation": "change_binomial_acquisition_connection_to_supported"
+    },
+    {
+      "expected_fragment": "required_solve_attempts",
+      "id": "required_solve_attempts_reintroduced",
+      "mutation": "add_required_solve_attempts_to_illustrative_target"
+    },
+    {
+      "expected_fragment": "symbolic expected-count",
+      "id": "zero_yield_attainable",
+      "mutation": "change_zero_yield_positive_target_from_unattainable_to_finite"
+    },
+    {
+      "expected_fragment": "retrospective 37/64",
+      "id": "retrospective_attempt_duplicate",
+      "mutation": "replace_one_attempted_task_id_with_a_duplicate"
+    },
+    {
+      "expected_fragment": "retrospective 37/64",
+      "id": "retrospective_certified_unattempted",
+      "mutation": "replace_one_certified_task_id_with_an_unattempted_identity"
+    },
+    {
+      "expected_fragment": "future acquisition",
+      "id": "future_replacement_sampling_allowed",
+      "mutation": "change_future_task_sampling_to_with_replacement"
+    },
+    {
+      "expected_fragment": "retrospective 37/64",
+      "id": "retrospective_stable_estimate",
+      "mutation": "promote_retrospective_point_observation_to_stable_estimate"
+    },
+    {
+      "expected_fragment": "illustrative grid",
+      "id": "illustrative_grid_claimed_complete",
+      "mutation": "set_post_hypothesis_grid_completeness_claim_true"
+    },
+    {
+      "expected_fragment": "would require",
+      "id": "result_would_require",
+      "mutation": "replace_expected_count_threshold_language_with_would_require"
+    },
+    {
+      "expected_fragment": "guarantees",
+      "id": "result_counts_guaranteed",
+      "mutation": "replace_not_probability_guarantees_with_positive_guarantee_claim"
+    },
+    {
+      "expected_fragment": "mislabeled as patches",
+      "id": "result_candidate_rows_called_patches",
+      "mutation": "rename_candidate_rows_table_column_to_patches"
+    },
+    {
+      "expected_fragment": "population inference",
+      "id": "result_current_population_inference",
+      "mutation": "replace_current_cohort_noninference_with_population_support"
+    },
+    {
+      "expected_fragment": "V1",
+      "id": "result_v1_authority",
+      "mutation": "replace_v1_absent_rejected_boundary_with_v1_authority"
+    }
+  ],
+  "claim_boundary": "Each registered mutation must be rejected by an executable guard. Catalogue membership alone is not evidence that a guard fires.",
+  "schema_version": "telos.iter240.ground_truth_diagnostics_known_bad.v1"
+}
