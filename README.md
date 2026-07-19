@@ -106,9 +106,13 @@ Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,
 not the current baton.
 
-The historical claim-boundary release manifest remains available at
-[`experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json`](experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json).
-It is retained evidence, not current scientific or execution authority.
+The historical claim-boundary release-manifest chain remains available through
+the
+[`claim-boundary manifest`](experiments/iter31_claim_boundary_release_manifest/proof/claim_boundary_release_manifest.json),
+[`self-coverage report`](experiments/iter35_release_manifest_self_coverage_guard/proof/self_coverage_report.json),
+and
+[`negative-guard report`](experiments/iter36_release_manifest_self_coverage_negative_guard/proof/negative_guard_report.json).
+These are retained evidence, not current scientific or execution authority.
 
 ## What Telos studies
 
