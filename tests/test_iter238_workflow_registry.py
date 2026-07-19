@@ -194,3 +194,17 @@ def test_live_observation_rejects_nonzero_iter204_dispatch_history() -> None:
         )
     )
     assert "iter204 dispatch history is not exact zero" in failures
+
+
+def test_current_pointer_parser_does_not_require_registry_key_order(
+    tmp_path: Path,
+) -> None:
+    guard = load_script("validate_workflow_registry")
+    current = tmp_path / "current.json"
+    current.write_text(
+        '{"schema_version":"telos.current.v1","active_gate":'
+        '"experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md"}\n',
+        encoding="utf-8",
+    )
+
+    assert guard.load_unique_json_object(current)["schema_version"] == "telos.current.v1"

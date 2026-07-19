@@ -110,6 +110,35 @@ def load_canonical_json(path: Path) -> tuple[dict[str, Any], bytes]:
     return document, raw
 
 
+def load_unique_json_object(path: Path) -> dict[str, Any]:
+    """Load another guard's JSON without imposing this registry's key order."""
+
+    raw = path.read_bytes()
+    duplicates: list[str] = []
+
+    def unique(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        value: dict[str, Any] = {}
+        for key, item in pairs:
+            if key in value:
+                duplicates.append(key)
+            value[key] = item
+        return value
+
+    try:
+        document = json.loads(
+            raw,
+            object_pairs_hook=unique,
+            parse_constant=lambda value: (_ for _ in ()).throw(ValueError(value)),
+        )
+    except (UnicodeError, json.JSONDecodeError, ValueError) as exc:
+        raise RegistryError(f"cannot parse strict JSON {path}: {exc}") from exc
+    if duplicates:
+        raise RegistryError(f"duplicate JSON keys in {path}: {sorted(set(duplicates))}")
+    if not isinstance(document, dict):
+        raise RegistryError(f"JSON root is not an object: {path}")
+    return document
+
+
 class GitHubWorkflowLoader(yaml.SafeLoader):
     """YAML 1.2-like loader for GitHub Actions, where ``on`` is a string."""
 
@@ -240,6 +269,10 @@ def _find_seal_record(value: Any, identifier: str) -> dict[str, Any] | None:
 def _path_lists(value: Any) -> list[list[str]]:
     lists: list[list[str]] = []
     if isinstance(value, dict):
+        if value.get("kind") == "path_list" and isinstance(value.get("paths"), list):
+            paths = value["paths"]
+            if all(isinstance(item, str) for item in paths):
+                lists.append(paths)
         for key, child in value.items():
             if key == "path_list" and isinstance(child, list) and all(
                 isinstance(item, str) for item in child
@@ -263,7 +296,7 @@ def validate_seal_links(
     if not seal_path.is_file() or seal_path.is_symlink():
         return [f"workflow registry: seal registry is absent: {seal_relative}"]
     try:
-        seals, _ = load_canonical_json(seal_path)
+        seals = load_unique_json_object(seal_path)
     except (OSError, RegistryError) as exc:
         return [f"workflow registry: cannot validate seal registry: {exc}"]
     record = _find_seal_record(seals, HISTORICAL_SEAL)
@@ -636,7 +669,7 @@ def collect_failures(
     if not pre_retirement:
         current_path = root / CURRENT_RELATIVE
         try:
-            current, _ = load_canonical_json(current_path)
+            current = load_unique_json_object(current_path)
         except (OSError, RegistryError) as exc:
             failures.append(f"workflow registry: cannot validate current state: {exc}")
         else:
