@@ -399,6 +399,21 @@
         "This record closes only the iter239 additive authorization; exact sealed-head CI, a two-parent merge, merged-master CI, and a final read-only effective-rule observation remain separate acceptance evidence.",
         "The sealed repository evidence does not prevent the repository owner from later changing the mutable GitHub ruleset through a separate settings operation."
       ]
+    },
+    {
+      "seal_id": "iter240-ground-truth-admission-design-authorization",
+      "record_type": "prospective_successor_authorization",
+      "predecessor_seal_id": "iter239-completed-evidence-seal",
+      "reference_commit": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "authorized_path": "experiments/iter240_ground_truth_admission_design",
+      "must_be_absent_at_reference": true,
+      "policy": "additions_only_until_successor_seal",
+      "closure_requirement": "exact_tree_successor_path_snapshot",
+      "limitations": [
+        "This authorizes additions only within the absent iter240 design path and synchronized control-plane validation; it does not authorize generation, target execution, judging, reviewer recruitment, provider or model calls, containers, GPUs, spending, publication, release, or a scientific claim.",
+        "Authorization is not completion: a later exact-tree successor snapshot, exact-head CI, two-parent merge, and merged-master verification remain separate requirements.",
+        "Retrospective operational-label recovery and protocol design do not establish independent semantic ground truth, prevalence, detector efficacy, transfer, or a frontier benchmark result."
+      ]
     }
   ]
 }
