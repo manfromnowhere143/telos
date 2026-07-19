@@ -1,0 +1,153 @@
+{
+  "abort_outcomes": {
+    "failed": [
+      "ambiguous_unresolved",
+      "mismatched_created_ruleset"
+    ],
+    "inconclusive": [
+      "dispatch_not_attempted",
+      "precondition_drift",
+      "postcondition_drift",
+      "postcondition_unobserved"
+    ]
+  },
+  "api": {
+    "create_endpoint": "https://api.github.com/repos/manfromnowhere143/telos/rulesets",
+    "origin": "https://api.github.com",
+    "version": "2026-03-10"
+  },
+  "artifact_paths": {
+    "abort_record": "experiments/iter239_repository_governance/proof/abort_record.json",
+    "after_state": "experiments/iter239_repository_governance/proof/after_state.json",
+    "before_state": "experiments/iter239_repository_governance/proof/before_state.json",
+    "mutation_intent": "experiments/iter239_repository_governance/proof/mutation_intent.json",
+    "mutation_receipt": "experiments/iter239_repository_governance/proof/mutation_receipt.json",
+    "operational_check": "experiments/iter239_repository_governance/proof/operational_check.json"
+  },
+  "ci": {
+    "after_job_name": "verify ${{ github.event_name }} py${{ matrix.python-version }}",
+    "anchor_commit": "fb87af7eb15b5235a722a7bb3fd3a48962019188",
+    "before_job_name": "verify py${{ matrix.python-version }}",
+    "integration_id": 15368,
+    "pull_request_contexts": [
+      "verify pull_request py3.11",
+      "verify pull_request py3.12"
+    ],
+    "push_contexts": [
+      "verify push py3.11",
+      "verify push py3.12"
+    ],
+    "workflow_id": 309260095,
+    "workflow_path": ".github/workflows/ci.yml"
+  },
+  "expected_before": {
+    "actions": {
+      "allowed_actions": "all",
+      "enabled": true,
+      "sha_pinning_required": false
+    },
+    "branch": {
+      "name": "master",
+      "protected": false,
+      "sha": "fb87af7eb15b5235a722a7bb3fd3a48962019188"
+    },
+    "classic_protection": {
+      "classification": "absent",
+      "http_status": 404
+    },
+    "collaborators": [
+      {
+        "login": "manfromnowhere143",
+        "role_name": "admin"
+      }
+    ],
+    "default_workflow_permissions": {
+      "can_approve_pull_request_reviews": false,
+      "default_workflow_permissions": "read"
+    },
+    "effective_rules": [],
+    "fork_pull_request_policy": {
+      "approval_policy": "first_time_contributors"
+    },
+    "invitations": [],
+    "merge_settings": {
+      "allow_merge_commit": true,
+      "allow_rebase_merge": true,
+      "allow_squash_merge": true
+    },
+    "repository": {
+      "default_branch": "master",
+      "full_name": "manfromnowhere143/telos",
+      "visibility": "public"
+    },
+    "rulesets": []
+  },
+  "mutation_budget": {
+    "DELETE": 0,
+    "GET": 96,
+    "PATCH": 0,
+    "POST": 1,
+    "PUT": 0
+  },
+  "repository": {
+    "default_branch": "master",
+    "full_name": "manfromnowhere143/telos",
+    "merged_master_anchor": "fb87af7eb15b5235a722a7bb3fd3a48962019188",
+    "visibility": "public"
+  },
+  "request_body": {
+    "bypass_actors": [],
+    "conditions": {
+      "ref_name": {
+        "exclude": [],
+        "include": [
+          "~DEFAULT_BRANCH",
+          "refs/heads/master"
+        ]
+      }
+    },
+    "enforcement": "active",
+    "name": "telos-default-branch-technical-floor-v1",
+    "rules": [
+      {
+        "type": "deletion"
+      },
+      {
+        "type": "non_fast_forward"
+      },
+      {
+        "parameters": {
+          "allowed_merge_methods": [
+            "merge"
+          ],
+          "dismiss_stale_reviews_on_push": false,
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_approving_review_count": 0,
+          "required_review_thread_resolution": true
+        },
+        "type": "pull_request"
+      },
+      {
+        "parameters": {
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "verify pull_request py3.11",
+              "integration_id": 15368
+            },
+            {
+              "context": "verify pull_request py3.12",
+              "integration_id": 15368
+            }
+          ],
+          "strict_required_status_checks_policy": true
+        },
+        "type": "required_status_checks"
+      }
+    ],
+    "target": "branch"
+  },
+  "request_body_sha256": "7c8db8fe1104ccd86f6cb35701d83dda35786786641cbc3f3bfa3c2211da4038",
+  "schema_version": "telos.iter239.repository_governance_policy.v1"
+}
