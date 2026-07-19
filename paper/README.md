@@ -1,8 +1,8 @@
 # Telos paper
 
-The findings paper is a research draft. Iter239 repository-governance
-enforcement is the active engineering gate. Iter237 rebuilt and rebound the
-July 19 source and 16-page PDF; neither artifact has been submitted.
+The findings paper is a research draft. Iter240 ground-truth admission design
+is the active offline engineering gate. Iter237 rebuilt and rebound the July
+19 source and 16-page PDF; neither artifact has been submitted.
 
 The manuscript's current scientific boundary is deliberately narrow:
 cross-solver recurrence was observed on one reused convenience cohort;
@@ -14,8 +14,8 @@ active-gate coverage report is retained evidence that the declared surfaces
 resolve against it:
 
 - [`mission/claim_registry.json`](../mission/claim_registry.json)
-- [`active gate`](../experiments/iter239_repository_governance/HYPOTHESIS.md)
-- [`claim_coverage_report.json`](../experiments/iter239_repository_governance/proof/claim_coverage_report.json)
+- [`active gate`](../experiments/iter240_ground_truth_admission_design/HYPOTHESIS.md)
+- [`claim_coverage_report.json`](../experiments/iter240_ground_truth_admission_design/proof/claim_coverage_report.json)
 
 The manuscript and root README are current claim projections, while the
 experiment index is the correction-preserving discovery surface:

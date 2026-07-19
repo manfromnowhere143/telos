@@ -55,45 +55,48 @@ the current [paper](paper/telos.tex).
 ## Current engineering gate
 
 The active gate is
-[`experiments/iter239_repository_governance/HYPOTHESIS.md`](experiments/iter239_repository_governance/HYPOTHESIS.md).
-It is a no-provider-spend repository-governance iteration, not a scientific
-result or independent review.
+[`experiments/iter240_ground_truth_admission_design/HYPOTHESIS.md`](experiments/iter240_ground_truth_admission_design/HYPOTHESIS.md).
+It is an offline, provider-free and spend-free ground-truth admission and
+missingness-design iteration, not a scientific result or independent review.
 
 <!-- telos-current-state:start -->
 ```text
 status: running
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: complete iter239 if open; otherwise retain its controls and preregister the next authorized gate
+next_authorized_action: derive and freeze the fresh-cohort recoverability and independent-ground-truth admission design offline; no generation, target execution, judging, reviewer recruitment, provider call, container run, GPU, or spend is authorized
 ```
 <!-- telos-current-state:end -->
 
 This synchronized block is a mutable repository control. Its agreement proves
-neither scientific, remote, nor governance acceptance.
+neither scientific, remote, governance, nor design acceptance.
 
-Iter239 completion authority is
-`experiments/iter239_repository_governance/RESULT.md` when that file exists.
+Iter240 completion authority is
+`experiments/iter240_ground_truth_admission_design/RESULT.md` when that file
+exists.
 Its absence means the gate remains unaccepted.
 
 At the current working boundary:
 
-- iter238's exact completed evidence is protected by the
-  [`iter238-completed-evidence-seal`](mission/seal_registry.json), and its
-  merge-commit acceptance and merged-master CI are complete;
+- iter238's exact completed evidence and iter239's exact completed evidence are
+  protected by their registered successor seals;
 - public quantitative claims remain governed by
   [`mission/claim_registry.json`](mission/claim_registry.json), protected-byte
   transitions by [`mission/seal_registry.json`](mission/seal_registry.json),
   and workflow execution authority by the default-deny
   [`mission/workflow_registry.json`](mission/workflow_registry.json);
-- the predecessor GitHub state had no effective default-branch protection,
-  and push and pull-request runs exposed identical check names;
-- iter239's registered sequence makes those contexts event-specific and then
-  conditionally installs an active no-bypass ruleset requiring PR association,
+- iter239 installed an active no-bypass ruleset requiring PR association,
   merge-commit mode, resolved conversations, strict app-bound CI, and deletion
   and non-fast-forward blocking;
-- the registered technical floor intentionally does not require approvals
+- that technical floor intentionally does not require approvals
   because no independent write-capable reviewer exists. It must never be
-  described as review assurance.
+  described as review assurance;
+- retained evidence cannot resolve the fresh-cohort missing outcomes under the
+  frozen protocol, so iter240 must preserve missingness, task-level dependence,
+  and outcome leakage while freezing the next independent-adjudication design;
+  and
+- no provider, model judge, human, container, GPU, new cohort, or spending
+  action is authorized by iter240.
 
 The completed iter238 claim inventory separately accounted for four
 preregistered public surfaces and two supplemental hardening surfaces. Its
@@ -101,11 +104,9 @@ workflow protocol classified twenty-nine historical one-shot workflows. The
 retained live observation recorded both continuous CI and Dependency Graph as
 active. Iter238 used zero provider spend.
 
-The registered GitHub mutation is authorized only after the committed
-iter239 preconditions and exact remote checks pass, and its acceptance is
-reported only through the result path above. The mutable authority is
+The mutable authority is
 [`mission/current.json`](mission/current.json), which points to
-[`docs/HANDOFF-2026-07-19-iter239.md`](docs/HANDOFF-2026-07-19-iter239.md) and
+[`docs/HANDOFF-2026-07-19-iter240.md`](docs/HANDOFF-2026-07-19-iter240.md) and
 [`docs/TELOS-AUDIT-2026-07-19.md`](docs/TELOS-AUDIT-2026-07-19.md).
 Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,
@@ -216,15 +217,15 @@ but scientific execution remains blocked.
 
 ## Next mission gates
 
-Iter239 defines a no-bypass technical-floor gate for PR association,
-event-specific required CI, merge-commit mode, conversation resolution, and
-deletion and force-push resistance. Its result must report independent review
-as `blocked` until a real conflict-screened human is separately authorized and
-the review rule is upgraded in a new preregistered gate.
+Iter240 reconstructs the fresh-cohort missingness boundary from retained bytes
+and freezes a task-clustered, role-separated independent-adjudication design.
+Its design may pass while retained-evidence recovery, independent ground truth,
+and cohort acquisition remain blocked.
 
 After iter238 acceptance, Telos first preregistered repository governance.
 
-GROUND-TRUTH-1 remains the next scientific gate. It may not execute until
+GROUND-TRUTH-1 remains the next scientific gate.
+Independent semantic adjudication remains the next scientific gate. It may not execute until
 independently conflict-screened humans and a separate budget authorization
 exist.
 
