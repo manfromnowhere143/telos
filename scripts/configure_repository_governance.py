@@ -166,6 +166,34 @@ RequestFunction = Callable[
 ]
 
 
+def _project_response_headers(
+    rows: Iterable[tuple[str, str]],
+) -> dict[str, str]:
+    """Retain headers used by the client while rejecting ambiguous duplicates."""
+
+    projected: dict[str, str] = {}
+    for key, value in rows:
+        lowered = key.lower()
+        if lowered not in projected:
+            projected[lowered] = value
+            continue
+        if lowered == "link":
+            projected[lowered] += f", {value}"
+            continue
+        if (
+            lowered == "x-oauth-client-id"
+            and projected[lowered] == value
+        ):
+            # GitHub can emit this informational field twice with the exact
+            # same value. It is not consumed as authority by this client.
+            continue
+        raise GovernanceMutationError(
+            "GitHub response contains a duplicate "
+            f"{lowered!r} header"
+        )
+    return projected
+
+
 def _direct_https_request(
     method: str,
     target: str,
@@ -190,18 +218,7 @@ def _direct_https_request(
             raise GovernanceMutationError(
                 f"GitHub {method} response exceeds {MAX_RESPONSE_BYTES} bytes"
             )
-        response_headers: dict[str, str] = {}
-        for key, value in response.getheaders():
-            lowered = key.lower()
-            if lowered in response_headers:
-                if lowered != "link":
-                    raise GovernanceMutationError(
-                        "GitHub response contains a duplicate "
-                        f"{lowered!r} header"
-                    )
-                response_headers[lowered] += f", {value}"
-            else:
-                response_headers[lowered] = value
+        response_headers = _project_response_headers(response.getheaders())
         return RawResponse(response.status, response_headers, payload)
     finally:
         connection.close()

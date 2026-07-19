@@ -46,6 +46,47 @@ def response(driver, status: int, value) -> object:
     return driver.RawResponse(status, {}, raw)
 
 
+def test_response_header_projection_accepts_only_safe_duplicate_forms() -> None:
+    driver = load_driver()
+    projected = driver._project_response_headers(
+        [
+            ("X-OAuth-Client-Id", "client-1"),
+            ("x-oauth-client-id", "client-1"),
+            ("Link", '<https://api.github.com/a?page=2>; rel="next"'),
+            ("link", '<https://api.github.com/a?page=3>; rel="last"'),
+        ]
+    )
+    assert projected == {
+        "x-oauth-client-id": "client-1",
+        "link": (
+            '<https://api.github.com/a?page=2>; rel="next", '
+            '<https://api.github.com/a?page=3>; rel="last"'
+        ),
+    }
+
+    with pytest.raises(
+        driver.GovernanceMutationError,
+        match="duplicate 'x-oauth-client-id'",
+    ):
+        driver._project_response_headers(
+            [
+                ("X-OAuth-Client-Id", "client-1"),
+                ("x-oauth-client-id", "client-2"),
+            ]
+        )
+
+    with pytest.raises(
+        driver.GovernanceMutationError,
+        match="duplicate 'content-length'",
+    ):
+        driver._project_response_headers(
+            [
+                ("Content-Length", "1"),
+                ("content-length", "1"),
+            ]
+        )
+
+
 def test_strict_server_json_rejects_duplicates_and_nonfinite() -> None:
     driver = load_driver()
     with pytest.raises(driver.GovernanceMutationError, match="duplicate JSON"):
