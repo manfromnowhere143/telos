@@ -44,6 +44,42 @@ REPOSITORY = "manfromnowhere143/telos"
 DEFAULT_BRANCH = "master"
 MERGED_MASTER_ANCHOR = "fb87af7eb15b5235a722a7bb3fd3a48962019188"
 ACTIVATION_COMMIT = "746f225f6c3718a1c2190dc00496386600fb2c5c"
+TRANSACTION_SOURCE_COMMIT = "6f06e0254ee47e70fdb632f902e5d7b450d5791a"
+OPERATIONAL_SOURCE_COMMIT = "f593b5048585052671276c03940ef4df9154724c"
+TRANSACTION_INSTRUMENT_SHA256 = {
+    POLICY_RELATIVE: (
+        "c0cd140f004f760c568c02c3857c80d252c098fa1590453f3930480904b4531c"
+    ),
+    Path(".github/workflows/ci.yml"): (
+        "befe8d6e9ca5228d5d8d694ee343ca9f93cb2b912470f358f4aca1ee1b8f1267"
+    ),
+    Path("scripts/configure_repository_governance.py"): (
+        "1b077763df27f2a7a533523dacb90400671c8097a3e8f50de2552270d6f56590"
+    ),
+    Path("scripts/validate_iter239_ci_workflow_delta.py"): (
+        "44422e671b3a2dc096556821a10ec9497877a7b563459fedae51ca3486336157"
+    ),
+    Path("scripts/validate_iter239_repository_governance.py"): (
+        "bc65107b7fc568c3bf68aac12af6108493a594069be056be24d8d49368075bfe"
+    ),
+}
+OPERATIONAL_INSTRUMENT_SHA256 = {
+    POLICY_RELATIVE: (
+        "c0cd140f004f760c568c02c3857c80d252c098fa1590453f3930480904b4531c"
+    ),
+    Path(".github/workflows/ci.yml"): (
+        "befe8d6e9ca5228d5d8d694ee343ca9f93cb2b912470f358f4aca1ee1b8f1267"
+    ),
+    Path("scripts/configure_repository_governance.py"): (
+        "58d90362fa076cfce76e0a1a232a6fc35e4d1fcf5299909e4d11d4e8c468ec1a"
+    ),
+    Path("scripts/validate_iter239_ci_workflow_delta.py"): (
+        "44422e671b3a2dc096556821a10ec9497877a7b563459fedae51ca3486336157"
+    ),
+    Path("scripts/validate_iter239_repository_governance.py"): (
+        "bc65107b7fc568c3bf68aac12af6108493a594069be056be24d8d49368075bfe"
+    ),
+}
 API_ORIGIN = "https://api.github.com"
 API_VERSION = "2026-03-10"
 CREATE_ENDPOINT = f"{API_ORIGIN}/repos/{REPOSITORY}/rulesets"
@@ -58,6 +94,24 @@ SOURCE_BOUND_RELATIVES = (
     Path("scripts/validate_iter239_ci_workflow_delta.py"),
     Path("scripts/validate_iter239_repository_governance.py"),
 )
+GOVERNANCE_DRIVER_RELATIVE = Path(
+    "scripts/configure_repository_governance.py"
+)
+GOVERNANCE_VALIDATOR_RELATIVE = Path(
+    "scripts/validate_iter239_repository_governance.py"
+)
+DRIVER_TEST_RELATIVE = Path(
+    "tests/test_iter239_repository_governance_driver.py"
+)
+INSTRUMENT_TRANSITION_RELATIVES = (
+    GOVERNANCE_DRIVER_RELATIVE,
+    DRIVER_TEST_RELATIVE,
+)
+OPERATIONAL_STABLE_RELATIVES = tuple(
+    relative
+    for relative in SOURCE_BOUND_RELATIVES
+    if relative != GOVERNANCE_VALIDATOR_RELATIVE
+) + (DRIVER_TEST_RELATIVE,)
 BEFORE_JOB_NAME = b"verify py${{ matrix.python-version }}"
 AFTER_JOB_NAME = b"verify ${{ github.event_name }} py${{ matrix.python-version }}"
 HEX40 = re.compile(r"^[0-9a-f]{40}$")
@@ -2397,6 +2451,11 @@ def source_commit_failures(
     probe = _git(root, "cat-file", "-e", f"{source_commit}^{{commit}}")
     if probe.returncode != 0:
         return ["evidence source_commit is not a local Git commit"]
+    if source_commit != TRANSACTION_SOURCE_COMMIT:
+        failures.append(
+            "evidence source_commit is not the exact retained transaction "
+            f"instrument commit {TRANSACTION_SOURCE_COMMIT}"
+        )
     if source_commit in {MERGED_MASTER_ANCHOR, ACTIVATION_COMMIT}:
         failures.append(
             "evidence source_commit must be a post-activation implementation commit"
@@ -2416,16 +2475,16 @@ def source_commit_failures(
     if head_ancestry.returncode != 0:
         failures.append("evidence source_commit is not an ancestor of current HEAD")
     for relative in SOURCE_BOUND_RELATIVES:
-        try:
-            current = (root / relative).read_bytes()
-        except OSError as exc:
+        if _git_blob(root, source_commit, relative) is None:
             failures.append(
-                f"source-bound artifact {relative.as_posix()} cannot be read: {exc}"
+                "evidence source_commit does not contain transaction instrument: "
+                f"{relative.as_posix()}"
             )
-            continue
-        if _git_blob(root, source_commit, relative) != current:
+    for relative, expected_sha256 in TRANSACTION_INSTRUMENT_SHA256.items():
+        historical = _git_blob(root, source_commit, relative)
+        if historical is not None and sha256_bytes(historical) != expected_sha256:
             failures.append(
-                "evidence source_commit does not contain exact current bytes: "
+                "transaction instrument digest differs: "
                 f"{relative.as_posix()}"
             )
     return failures
@@ -2448,6 +2507,23 @@ def operational_source_failures(
     probe = _git(root, "cat-file", "-e", f"{operational_source}^{{commit}}")
     if probe.returncode != 0:
         return ["operational source_commit is not a local Git commit"]
+    if ruleset_source != TRANSACTION_SOURCE_COMMIT:
+        failures.append(
+            "operational ruleset_source_commit is not the exact retained "
+            f"transaction instrument commit {TRANSACTION_SOURCE_COMMIT}"
+        )
+    if operational_source != OPERATIONAL_SOURCE_COMMIT:
+        failures.append(
+            "operational source_commit is not the exact retained operational "
+            f"instrument commit {OPERATIONAL_SOURCE_COMMIT}"
+        )
+    for relative, expected_sha256 in OPERATIONAL_INSTRUMENT_SHA256.items():
+        historical = _git_blob(root, operational_source, relative)
+        if historical is None or sha256_bytes(historical) != expected_sha256:
+            failures.append(
+                "operational instrument digest differs: "
+                f"{relative.as_posix()}"
+            )
     ancestry = _git(
         root,
         "merge-base",
@@ -2468,7 +2544,37 @@ def operational_source_failures(
     )
     if head_ancestry.returncode != 0:
         failures.append("operational source_commit is not an ancestor of current HEAD")
-    for relative in SOURCE_BOUND_RELATIVES:
+
+    transition = _git(
+        root,
+        "diff",
+        "--name-only",
+        "--no-renames",
+        ruleset_source,
+        operational_source,
+    )
+    if transition.returncode != 0:
+        failures.append(
+            "transaction-to-operational instrument transition cannot be read"
+        )
+    else:
+        try:
+            changed = {
+                Path(line.decode("utf-8"))
+                for line in transition.stdout.splitlines()
+                if line
+            }
+        except UnicodeDecodeError:
+            failures.append(
+                "transaction-to-operational instrument paths are not UTF-8"
+            )
+        else:
+            if changed != set(INSTRUMENT_TRANSITION_RELATIVES):
+                failures.append(
+                    "transaction-to-operational instrument transition paths differ"
+                )
+
+    for relative in OPERATIONAL_STABLE_RELATIVES:
         try:
             current = (root / relative).read_bytes()
         except OSError as exc:
@@ -2478,8 +2584,21 @@ def operational_source_failures(
             continue
         if _git_blob(root, operational_source, relative) != current:
             failures.append(
-                "operational source_commit does not contain exact current bytes: "
+                "operational source_commit does not contain exact current stable "
+                "bytes: "
                 f"{relative.as_posix()}"
+            )
+    try:
+        current_validator = (root / GOVERNANCE_VALIDATOR_RELATIVE).read_bytes()
+    except OSError as exc:
+        failures.append(f"current governance validator cannot be read: {exc}")
+    else:
+        if (
+            _git_blob(root, "HEAD", GOVERNANCE_VALIDATOR_RELATIVE)
+            != current_validator
+        ):
+            failures.append(
+                "current governance validator differs from committed HEAD bytes"
             )
     return failures
 

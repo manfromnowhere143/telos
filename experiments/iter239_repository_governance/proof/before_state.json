@@ -1,0 +1,272 @@
+{
+  "api_version": "2026-03-10",
+  "observed_at": "2026-07-19T19:05:51Z",
+  "pagination": {
+    "actions": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "164de5a1d757b7f17617b92cd65425dab94238055f2d9908098ba92135f72b50",
+      "request_count": 1
+    },
+    "branch": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "2a3696dc8fc799c5f64b6f8afe16eed2d207cbab69bfdd42a382c801dc68e8bf",
+      "request_count": 1
+    },
+    "checks": {
+      "complete": true,
+      "http_statuses": [
+        200,
+        200
+      ],
+      "item_count": 4,
+      "page_count": 2,
+      "projection_sha256": "7ff0f4e3bef009c28974ea6a2fba7e973c233ee1c2c5aa5878b9601c6e788a69",
+      "request_count": 2
+    },
+    "classic_protection": {
+      "complete": true,
+      "http_statuses": [
+        404
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "fbb19a0b055ebd9432c2d16bd1e069eacf4a41d536d15394c4a7c7b592c3e029",
+      "request_count": 1
+    },
+    "collaborators": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "fbcac600930cef8aeb1c9808ff91695bbc2f277fe42cc9dcc2f83c93ca972ec6",
+      "request_count": 1
+    },
+    "default_workflow_permissions": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "b1f916bf26e46f19dc55f824c5137fdb9073199dd3ee9c703a210d06f4a56aa7",
+      "request_count": 1
+    },
+    "effective_rules": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 0,
+      "page_count": 1,
+      "projection_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "request_count": 1
+    },
+    "fork_pull_request_policy": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "5a93433b386286bd517a481b7c150545747d92c9ed496b860ee056404d6d7e30",
+      "request_count": 1
+    },
+    "invitations": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 0,
+      "page_count": 1,
+      "projection_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "request_count": 1
+    },
+    "named_rulesets": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 0,
+      "page_count": 1,
+      "projection_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "request_count": 1
+    },
+    "open_pull_request": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "31121749c1f1ba0df7c32c60a074841da6e617a6c7120f6003577071a6f8f43e",
+      "request_count": 1
+    },
+    "repository": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "f62905f9b0a2742d64a405026132c25ddd083389feef274ca36ce91fd8b590ce",
+      "request_count": 1
+    },
+    "rulesets": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 0,
+      "page_count": 1,
+      "projection_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "request_count": 1
+    },
+    "source_ref": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "1adbeb98512dfb6fa20dfa46c57777dfbb399a5f1388e6d9d0b3d9246241a4e3",
+      "request_count": 1
+    }
+  },
+  "policy_sha256": "c0cd140f004f760c568c02c3857c80d252c098fa1590453f3930480904b4531c",
+  "projections": {
+    "actions": {
+      "allowed_actions": "all",
+      "enabled": true,
+      "sha_pinning_required": false
+    },
+    "branch": {
+      "name": "master",
+      "protected": false,
+      "sha": "fb87af7eb15b5235a722a7bb3fd3a48962019188"
+    },
+    "checks": [
+      {
+        "attempt": 1,
+        "check_run_id": 88226932588,
+        "check_suite_id": 80422484447,
+        "conclusion": "success",
+        "event": "pull_request",
+        "head_sha": "6f06e0254ee47e70fdb632f902e5d7b450d5791a",
+        "integration_id": 15368,
+        "name": "verify pull_request py3.11",
+        "status": "completed",
+        "workflow_id": 309260095,
+        "workflow_path": ".github/workflows/ci.yml",
+        "workflow_run_id": 29699848550
+      },
+      {
+        "attempt": 1,
+        "check_run_id": 88226932583,
+        "check_suite_id": 80422484447,
+        "conclusion": "success",
+        "event": "pull_request",
+        "head_sha": "6f06e0254ee47e70fdb632f902e5d7b450d5791a",
+        "integration_id": 15368,
+        "name": "verify pull_request py3.12",
+        "status": "completed",
+        "workflow_id": 309260095,
+        "workflow_path": ".github/workflows/ci.yml",
+        "workflow_run_id": 29699848550
+      },
+      {
+        "attempt": 1,
+        "check_run_id": 88226889865,
+        "check_suite_id": 80422442273,
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "6f06e0254ee47e70fdb632f902e5d7b450d5791a",
+        "integration_id": 15368,
+        "name": "verify push py3.11",
+        "status": "completed",
+        "workflow_id": 309260095,
+        "workflow_path": ".github/workflows/ci.yml",
+        "workflow_run_id": 29699832948
+      },
+      {
+        "attempt": 1,
+        "check_run_id": 88226889861,
+        "check_suite_id": 80422442273,
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "6f06e0254ee47e70fdb632f902e5d7b450d5791a",
+        "integration_id": 15368,
+        "name": "verify push py3.12",
+        "status": "completed",
+        "workflow_id": 309260095,
+        "workflow_path": ".github/workflows/ci.yml",
+        "workflow_run_id": 29699832948
+      }
+    ],
+    "classic_protection": {
+      "classification": "absent",
+      "http_status": 404
+    },
+    "collaborators": [
+      {
+        "login": "manfromnowhere143",
+        "role_name": "admin"
+      }
+    ],
+    "default_workflow_permissions": {
+      "can_approve_pull_request_reviews": false,
+      "default_workflow_permissions": "read"
+    },
+    "effective_rules": [],
+    "fork_pull_request_policy": {
+      "approval_policy": "first_time_contributors"
+    },
+    "invitations": [],
+    "named_rulesets": [],
+    "open_pull_request": {
+      "base_ref": "master",
+      "base_repository": "manfromnowhere143/telos",
+      "head_ref": "agent/iter239-repository-governance",
+      "head_repository": "manfromnowhere143/telos",
+      "head_sha": "6f06e0254ee47e70fdb632f902e5d7b450d5791a",
+      "number": 87,
+      "state": "open"
+    },
+    "repository": {
+      "default_branch": "master",
+      "full_name": "manfromnowhere143/telos",
+      "merge_settings": {
+        "allow_merge_commit": true,
+        "allow_rebase_merge": true,
+        "allow_squash_merge": true
+      },
+      "visibility": "public"
+    },
+    "rulesets": [],
+    "source_ref": {
+      "ref": "refs/heads/agent/iter239-repository-governance",
+      "sha": "6f06e0254ee47e70fdb632f902e5d7b450d5791a"
+    }
+  },
+  "repository": "manfromnowhere143/telos",
+  "request_counts": {
+    "DELETE": 0,
+    "GET": 15,
+    "PATCH": 0,
+    "POST": 0,
+    "PUT": 0
+  },
+  "schema_version": "telos.iter239.before_state.v1",
+  "source_commit": "6f06e0254ee47e70fdb632f902e5d7b450d5791a"
+}

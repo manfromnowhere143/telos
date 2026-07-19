@@ -1,0 +1,639 @@
+{
+  "api_version": "2026-03-10",
+  "before_comparison": {
+    "drift": [],
+    "unchanged": [
+      "actions",
+      "collaborators",
+      "default_workflow_permissions",
+      "fork_pull_request_policy",
+      "invitations",
+      "repository"
+    ]
+  },
+  "created_ruleset_id": 19177100,
+  "observed_at": "2026-07-19T19:06:05Z",
+  "pagination": {
+    "actions": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "164de5a1d757b7f17617b92cd65425dab94238055f2d9908098ba92135f72b50",
+      "request_count": 1
+    },
+    "branch": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "ded015e73e085a0f0a648b438b6aae206ca88638151ee36b64e94c42c2227ad3",
+      "request_count": 1
+    },
+    "collaborators": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "fbcac600930cef8aeb1c9808ff91695bbc2f277fe42cc9dcc2f83c93ca972ec6",
+      "request_count": 1
+    },
+    "default_workflow_permissions": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "b1f916bf26e46f19dc55f824c5137fdb9073199dd3ee9c703a210d06f4a56aa7",
+      "request_count": 1
+    },
+    "effective_rules": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 4,
+      "page_count": 1,
+      "projection_sha256": "1c28e4a105d215452cfe1f718a8598fcf4036fbde642b6906b00019630ea9e68",
+      "request_count": 1
+    },
+    "fork_pull_request_policy": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "5a93433b386286bd517a481b7c150545747d92c9ed496b860ee056404d6d7e30",
+      "request_count": 1
+    },
+    "invitations": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 0,
+      "page_count": 1,
+      "projection_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "request_count": 1
+    },
+    "named_ruleset": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "d7d1cefacabcddf16e908d25c1a04842fc88ee5c905c3d0aa0c2958ff17485a9",
+      "request_count": 1
+    },
+    "repository": {
+      "complete": true,
+      "http_statuses": [
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "f62905f9b0a2742d64a405026132c25ddd083389feef274ca36ce91fd8b590ce",
+      "request_count": 1
+    },
+    "ruleset_history": {
+      "complete": true,
+      "http_statuses": [
+        200,
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "05f0492d5a59584ab8b1eab3fa4fadbee89c55b1a2f46a13ff4f9bb5c12b622b",
+      "request_count": 2
+    },
+    "rulesets": {
+      "complete": true,
+      "http_statuses": [
+        200,
+        200
+      ],
+      "item_count": 1,
+      "page_count": 1,
+      "projection_sha256": "9e38cb56a09b00126748d05afc45836d320cb763822cbc361345f5d9325072c2",
+      "request_count": 2
+    }
+  },
+  "policy_sha256": "c0cd140f004f760c568c02c3857c80d252c098fa1590453f3930480904b4531c",
+  "projections": {
+    "actions": {
+      "allowed_actions": "all",
+      "enabled": true,
+      "sha_pinning_required": false
+    },
+    "branch": {
+      "name": "master",
+      "protected": true,
+      "sha": "fb87af7eb15b5235a722a7bb3fd3a48962019188"
+    },
+    "collaborators": [
+      {
+        "login": "manfromnowhere143",
+        "role_name": "admin"
+      }
+    ],
+    "default_workflow_permissions": {
+      "can_approve_pull_request_reviews": false,
+      "default_workflow_permissions": "read"
+    },
+    "effective_rules": [
+      {
+        "ruleset_id": 19177100,
+        "ruleset_source": "manfromnowhere143/telos",
+        "ruleset_source_type": "Repository",
+        "type": "deletion"
+      },
+      {
+        "ruleset_id": 19177100,
+        "ruleset_source": "manfromnowhere143/telos",
+        "ruleset_source_type": "Repository",
+        "type": "non_fast_forward"
+      },
+      {
+        "parameters": {
+          "allowed_merge_methods": [
+            "merge"
+          ],
+          "dismiss_stale_reviews_on_push": false,
+          "require_code_owner_review": false,
+          "require_last_push_approval": false,
+          "required_approving_review_count": 0,
+          "required_review_thread_resolution": true,
+          "required_reviewers": []
+        },
+        "ruleset_id": 19177100,
+        "ruleset_source": "manfromnowhere143/telos",
+        "ruleset_source_type": "Repository",
+        "type": "pull_request"
+      },
+      {
+        "parameters": {
+          "do_not_enforce_on_create": false,
+          "required_status_checks": [
+            {
+              "context": "verify pull_request py3.11",
+              "integration_id": 15368
+            },
+            {
+              "context": "verify pull_request py3.12",
+              "integration_id": 15368
+            }
+          ],
+          "strict_required_status_checks_policy": true
+        },
+        "ruleset_id": 19177100,
+        "ruleset_source": "manfromnowhere143/telos",
+        "ruleset_source_type": "Repository",
+        "type": "required_status_checks"
+      }
+    ],
+    "fork_pull_request_policy": {
+      "approval_policy": "first_time_contributors"
+    },
+    "invitations": [],
+    "named_ruleset": {
+      "id": 19177100,
+      "normalization": {
+        "entries": [
+          {
+            "classification": "inserted_inert_default",
+            "path": "$.rules[type=pull_request].parameters.required_reviewers"
+          }
+        ],
+        "request_policy_sha256": "7c8db8fe1104ccd86f6cb35701d83dda35786786641cbc3f3bfa3c2211da4038",
+        "semantic_differences": [],
+        "server_policy_sha256": "6baed4ffb5f80b7057a9f1bd68de38aa7ede041871ac9f5130f6d1dfe2c078d9"
+      },
+      "request_policy": {
+        "bypass_actors": [],
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/master"
+            ]
+          }
+        },
+        "enforcement": "active",
+        "name": "telos-default-branch-technical-floor-v1",
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "parameters": {
+              "allowed_merge_methods": [
+                "merge"
+              ],
+              "dismiss_stale_reviews_on_push": false,
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_approving_review_count": 0,
+              "required_review_thread_resolution": true
+            },
+            "type": "pull_request"
+          },
+          {
+            "parameters": {
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "verify pull_request py3.11",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "verify pull_request py3.12",
+                  "integration_id": 15368
+                }
+              ],
+              "strict_required_status_checks_policy": true
+            },
+            "type": "required_status_checks"
+          }
+        ],
+        "target": "branch"
+      },
+      "server_metadata": {
+        "created_at": "2026-07-19T22:06:56.721+03:00",
+        "current_user_can_bypass": "never",
+        "current_user_can_bypass_present": true,
+        "links": {
+          "html": {
+            "href": "https://github.com/manfromnowhere143/telos/rules/19177100"
+          },
+          "self": {
+            "href": "https://api.github.com/repos/manfromnowhere143/telos/rulesets/19177100"
+          }
+        },
+        "node_id": "RRS_lACqUmVwb3NpdG9yec5NF7pKzgEknow",
+        "updated_at": "2026-07-19T22:06:56.772+03:00"
+      },
+      "server_policy": {
+        "bypass_actors": [],
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH",
+              "refs/heads/master"
+            ]
+          }
+        },
+        "enforcement": "active",
+        "name": "telos-default-branch-technical-floor-v1",
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "parameters": {
+              "allowed_merge_methods": [
+                "merge"
+              ],
+              "dismiss_stale_reviews_on_push": false,
+              "require_code_owner_review": false,
+              "require_last_push_approval": false,
+              "required_approving_review_count": 0,
+              "required_review_thread_resolution": true,
+              "required_reviewers": []
+            },
+            "type": "pull_request"
+          },
+          {
+            "parameters": {
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "verify pull_request py3.11",
+                  "integration_id": 15368
+                },
+                {
+                  "context": "verify pull_request py3.12",
+                  "integration_id": 15368
+                }
+              ],
+              "strict_required_status_checks_policy": true
+            },
+            "type": "required_status_checks"
+          }
+        ],
+        "target": "branch"
+      },
+      "source": "manfromnowhere143/telos",
+      "source_type": "Repository"
+    },
+    "repository": {
+      "default_branch": "master",
+      "full_name": "manfromnowhere143/telos",
+      "merge_settings": {
+        "allow_merge_commit": true,
+        "allow_rebase_merge": true,
+        "allow_squash_merge": true
+      },
+      "visibility": "public"
+    },
+    "ruleset_history": {
+      "entries": [
+        {
+          "actor": {
+            "id": 193130714,
+            "type": "User"
+          },
+          "updated_at": "2026-07-19T22:06:56.862+03:00",
+          "version_id": 43593668
+        }
+      ],
+      "latest_version": {
+        "actor": {
+          "id": 193130714,
+          "type": "User"
+        },
+        "state": {
+          "id": 19177100,
+          "request_policy": {
+            "bypass_actors": [],
+            "conditions": {
+              "ref_name": {
+                "exclude": [],
+                "include": [
+                  "~DEFAULT_BRANCH",
+                  "refs/heads/master"
+                ]
+              }
+            },
+            "enforcement": "active",
+            "name": "telos-default-branch-technical-floor-v1",
+            "rules": [
+              {
+                "type": "deletion"
+              },
+              {
+                "type": "non_fast_forward"
+              },
+              {
+                "parameters": {
+                  "allowed_merge_methods": [
+                    "merge"
+                  ],
+                  "dismiss_stale_reviews_on_push": false,
+                  "require_code_owner_review": false,
+                  "require_last_push_approval": false,
+                  "required_approving_review_count": 0,
+                  "required_review_thread_resolution": true
+                },
+                "type": "pull_request"
+              },
+              {
+                "parameters": {
+                  "do_not_enforce_on_create": false,
+                  "required_status_checks": [
+                    {
+                      "context": "verify pull_request py3.11",
+                      "integration_id": 15368
+                    },
+                    {
+                      "context": "verify pull_request py3.12",
+                      "integration_id": 15368
+                    }
+                  ],
+                  "strict_required_status_checks_policy": true
+                },
+                "type": "required_status_checks"
+              }
+            ],
+            "target": "branch"
+          },
+          "server_policy": {
+            "bypass_actors": [],
+            "conditions": {
+              "ref_name": {
+                "exclude": [],
+                "include": [
+                  "~DEFAULT_BRANCH",
+                  "refs/heads/master"
+                ]
+              }
+            },
+            "enforcement": "active",
+            "name": "telos-default-branch-technical-floor-v1",
+            "rules": [
+              {
+                "type": "deletion"
+              },
+              {
+                "type": "non_fast_forward"
+              },
+              {
+                "parameters": {
+                  "allowed_merge_methods": [
+                    "merge"
+                  ],
+                  "dismiss_stale_reviews_on_push": false,
+                  "require_code_owner_review": false,
+                  "require_last_push_approval": false,
+                  "required_approving_review_count": 0,
+                  "required_review_thread_resolution": true,
+                  "required_reviewers": []
+                },
+                "type": "pull_request"
+              },
+              {
+                "parameters": {
+                  "do_not_enforce_on_create": false,
+                  "required_status_checks": [
+                    {
+                      "context": "verify pull_request py3.11",
+                      "integration_id": 15368
+                    },
+                    {
+                      "context": "verify pull_request py3.12",
+                      "integration_id": 15368
+                    }
+                  ],
+                  "strict_required_status_checks_policy": true
+                },
+                "type": "required_status_checks"
+              }
+            ],
+            "target": "branch"
+          },
+          "source": "manfromnowhere143/telos",
+          "source_type": "Repository"
+        },
+        "updated_at": "2026-07-19T22:06:56.862+03:00",
+        "version_id": 43593668
+      },
+      "ruleset_id": 19177100
+    },
+    "rulesets": [
+      {
+        "id": 19177100,
+        "normalization": {
+          "entries": [
+            {
+              "classification": "inserted_inert_default",
+              "path": "$.rules[type=pull_request].parameters.required_reviewers"
+            }
+          ],
+          "request_policy_sha256": "7c8db8fe1104ccd86f6cb35701d83dda35786786641cbc3f3bfa3c2211da4038",
+          "semantic_differences": [],
+          "server_policy_sha256": "6baed4ffb5f80b7057a9f1bd68de38aa7ede041871ac9f5130f6d1dfe2c078d9"
+        },
+        "request_policy": {
+          "bypass_actors": [],
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "~DEFAULT_BRANCH",
+                "refs/heads/master"
+              ]
+            }
+          },
+          "enforcement": "active",
+          "name": "telos-default-branch-technical-floor-v1",
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "non_fast_forward"
+            },
+            {
+              "parameters": {
+                "allowed_merge_methods": [
+                  "merge"
+                ],
+                "dismiss_stale_reviews_on_push": false,
+                "require_code_owner_review": false,
+                "require_last_push_approval": false,
+                "required_approving_review_count": 0,
+                "required_review_thread_resolution": true
+              },
+              "type": "pull_request"
+            },
+            {
+              "parameters": {
+                "do_not_enforce_on_create": false,
+                "required_status_checks": [
+                  {
+                    "context": "verify pull_request py3.11",
+                    "integration_id": 15368
+                  },
+                  {
+                    "context": "verify pull_request py3.12",
+                    "integration_id": 15368
+                  }
+                ],
+                "strict_required_status_checks_policy": true
+              },
+              "type": "required_status_checks"
+            }
+          ],
+          "target": "branch"
+        },
+        "server_metadata": {
+          "created_at": "2026-07-19T22:06:56.721+03:00",
+          "current_user_can_bypass": "never",
+          "current_user_can_bypass_present": true,
+          "links": {
+            "html": {
+              "href": "https://github.com/manfromnowhere143/telos/rules/19177100"
+            },
+            "self": {
+              "href": "https://api.github.com/repos/manfromnowhere143/telos/rulesets/19177100"
+            }
+          },
+          "node_id": "RRS_lACqUmVwb3NpdG9yec5NF7pKzgEknow",
+          "updated_at": "2026-07-19T22:06:56.772+03:00"
+        },
+        "server_policy": {
+          "bypass_actors": [],
+          "conditions": {
+            "ref_name": {
+              "exclude": [],
+              "include": [
+                "~DEFAULT_BRANCH",
+                "refs/heads/master"
+              ]
+            }
+          },
+          "enforcement": "active",
+          "name": "telos-default-branch-technical-floor-v1",
+          "rules": [
+            {
+              "type": "deletion"
+            },
+            {
+              "type": "non_fast_forward"
+            },
+            {
+              "parameters": {
+                "allowed_merge_methods": [
+                  "merge"
+                ],
+                "dismiss_stale_reviews_on_push": false,
+                "require_code_owner_review": false,
+                "require_last_push_approval": false,
+                "required_approving_review_count": 0,
+                "required_review_thread_resolution": true,
+                "required_reviewers": []
+              },
+              "type": "pull_request"
+            },
+            {
+              "parameters": {
+                "do_not_enforce_on_create": false,
+                "required_status_checks": [
+                  {
+                    "context": "verify pull_request py3.11",
+                    "integration_id": 15368
+                  },
+                  {
+                    "context": "verify pull_request py3.12",
+                    "integration_id": 15368
+                  }
+                ],
+                "strict_required_status_checks_policy": true
+              },
+              "type": "required_status_checks"
+            }
+          ],
+          "target": "branch"
+        },
+        "source": "manfromnowhere143/telos",
+        "source_type": "Repository"
+      }
+    ]
+  },
+  "repository": "manfromnowhere143/telos",
+  "request_counts": {
+    "DELETE": 0,
+    "GET": 13,
+    "PATCH": 0,
+    "POST": 0,
+    "PUT": 0
+  },
+  "schema_version": "telos.iter239.after_state.v1",
+  "source_commit": "6f06e0254ee47e70fdb632f902e5d7b450d5791a"
+}

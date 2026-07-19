@@ -1604,7 +1604,7 @@ def test_abort_record_retains_unattempted_dispatch_without_post(
     )
 
 
-def test_source_commit_binds_activation_ancestry_and_all_executing_bytes(
+def test_source_commits_bind_transaction_operational_and_current_instruments(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
@@ -1620,7 +1620,11 @@ def test_source_commit_binds_activation_ancestry_and_all_executing_bytes(
         cwd=tmp_path,
         check=True,
     )
-    for relative in guard.SOURCE_BOUND_RELATIVES:
+    fixture_relatives = {
+        *guard.SOURCE_BOUND_RELATIVES,
+        guard.DRIVER_TEST_RELATIVE,
+    }
+    for relative in fixture_relatives:
         path = tmp_path / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(f"activation {relative.as_posix()}\n", encoding="utf-8")
@@ -1639,33 +1643,123 @@ def test_source_commit_binds_activation_ancestry_and_all_executing_bytes(
     ).stdout.strip()
     monkeypatch.setattr(guard, "ACTIVATION_COMMIT", activation)
     driver = tmp_path / "scripts/configure_repository_governance.py"
-    driver.write_text("implementation\n", encoding="utf-8")
+    driver.write_text("transaction implementation\n", encoding="utf-8")
     subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
     subprocess.run(
-        ["git", "commit", "-qm", "implementation"],
+        ["git", "commit", "-qm", "transaction implementation"],
         cwd=tmp_path,
         check=True,
     )
-    source = subprocess.run(
+    transaction_source = subprocess.run(
         ["git", "rev-parse", "HEAD"],
         cwd=tmp_path,
         check=True,
         capture_output=True,
         text=True,
     ).stdout.strip()
+    monkeypatch.setattr(
+        guard,
+        "TRANSACTION_SOURCE_COMMIT",
+        transaction_source,
+    )
+    monkeypatch.setattr(
+        guard,
+        "TRANSACTION_INSTRUMENT_SHA256",
+        {
+            relative: guard.sha256_bytes(
+                guard._git_blob(tmp_path, transaction_source, relative)
+            )
+            for relative in guard.SOURCE_BOUND_RELATIVES
+        },
+    )
+
+    driver.write_text("operational implementation\n", encoding="utf-8")
+    driver_test = tmp_path / guard.DRIVER_TEST_RELATIVE
+    driver_test.write_text("operational regression\n", encoding="utf-8")
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(
+        ["git", "commit", "-qm", "operational correction"],
+        cwd=tmp_path,
+        check=True,
+    )
+    operational_source = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=tmp_path,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    monkeypatch.setattr(
+        guard,
+        "OPERATIONAL_SOURCE_COMMIT",
+        operational_source,
+    )
+    monkeypatch.setattr(
+        guard,
+        "OPERATIONAL_INSTRUMENT_SHA256",
+        {
+            relative: guard.sha256_bytes(
+                guard._git_blob(tmp_path, operational_source, relative)
+            )
+            for relative in guard.SOURCE_BOUND_RELATIVES
+        },
+    )
+
     assert guard.source_commit_failures(
         tmp_path,
-        source_commit=source,
+        source_commit=transaction_source,
     ) == []
-    validator = tmp_path / "scripts/validate_iter239_repository_governance.py"
-    validator.write_text("drift\n", encoding="utf-8")
+    assert guard.operational_source_failures(
+        tmp_path,
+        ruleset_source=transaction_source,
+        operational_source=operational_source,
+    ) == []
+
     assert any(
-        "does not contain exact current bytes" in failure
+        "exact retained transaction" in failure
         for failure in guard.source_commit_failures(
             tmp_path,
-            source_commit=source,
+            source_commit=operational_source,
         )
     )
+
+    policy = tmp_path / guard.POLICY_RELATIVE
+    stable_policy = policy.read_bytes()
+    policy.write_text("stable drift\n", encoding="utf-8")
+    assert any(
+        "exact current stable bytes" in failure
+        for failure in guard.operational_source_failures(
+            tmp_path,
+            ruleset_source=transaction_source,
+            operational_source=operational_source,
+        )
+    )
+    policy.write_bytes(stable_policy)
+
+    validator = tmp_path / "scripts/validate_iter239_repository_governance.py"
+    validator_at_operational = validator.read_bytes()
+    validator.write_text("uncommitted correction\n", encoding="utf-8")
+    assert any(
+        "differs from committed HEAD bytes" in failure
+        for failure in guard.operational_source_failures(
+            tmp_path,
+            ruleset_source=transaction_source,
+            operational_source=operational_source,
+        )
+    )
+    validator.write_bytes(validator_at_operational)
+    validator.write_text("committed provenance correction\n", encoding="utf-8")
+    subprocess.run(["git", "add", "."], cwd=tmp_path, check=True)
+    subprocess.run(
+        ["git", "commit", "-qm", "validator provenance correction"],
+        cwd=tmp_path,
+        check=True,
+    )
+    assert guard.operational_source_failures(
+        tmp_path,
+        ruleset_source=transaction_source,
+        operational_source=operational_source,
+    ) == []
 
 
 def test_known_bad_manifest_is_canonical_and_fully_exercised() -> None:
