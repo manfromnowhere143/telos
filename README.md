@@ -16,8 +16,10 @@
 > `u=13` unadjudicated outcomes (iter224 `k=0,N=15,u=6`; iter228 `k=0,N=22,u=7`). Their complete cases are
 > `0/24`; their least-favourable upper accounting is `13/37`. They are therefore **inconclusive** about
 > cohort concentration. Iter236 reproduced the recorded selector arithmetic but supplied no held-out
-> susceptibility labels, so fix-size transfer is also **untested**, not negative. Iter237 is the active
-> zero-spend truth-maintenance gate correcting these boundaries before further science.
+> susceptibility labels, so fix-size transfer is also **untested**, not negative. Iter237 completed the
+> zero-spend truth-maintenance correction. The active gate is
+> [iter238](experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md), which makes public-claim,
+> sealed-byte, and workflow-lifecycle coverage structural before further science.
 >
 > A separate line — the TCP-1 completion-assurance packet, which needs independently-authored hidden
 > consequence tests and human reviewers — remains blocked. **Iter222 filled three TCP-1 admission gates
@@ -42,7 +44,7 @@
 > that completion-proof protocol, not to the measurement runs.)
 
 New here? Read the machine-readable [`mission/current.json`](mission/current.json) first, then the
-[current dated handoff](docs/HANDOFF-2026-07-19-iter237.md) and
+[current dated handoff](docs/HANDOFF-2026-07-19-iter238.md) and
 [takeover audit](docs/TELOS-AUDIT-2026-07-19.md) it names. `HANDOFF.md` and
 `mission/loop.json` are sealed historical TCP-1 artifacts, not the current baton. For the durable research
 standard, read the
@@ -81,13 +83,13 @@ which keeps the failed iter219 branch and PR `#13` unchanged, root-causes a requ
 Markdown line wrap could defeat, and replaces hand-listed local verification with a closure runner derived
 from the CI workflow itself.
 The active integrity iteration is
-[iter237 truth maintenance](experiments/iter237_truth_maintenance_gate/HYPOTHESIS.md), with its additive
-[local result](experiments/iter237_truth_maintenance_gate/RESULT.md). The corrected working tree passes
-`831` tests with `9` explicitly optional SciPy-equivalence skips and all `289` CI-derived guard commands under
-Python `3.11.15` on macOS/arm64. Required remote Linux Python 3.11 and 3.12 CI remains unproven, so this is
-local correction evidence, not merge authority. Iter237 corrects the scientific inference, paper, README,
-current-state control plane, typed numeric comparison, and repository-wide floating-point guard before any
-new empirical work. Its predecessor,
+[iter238 claim, seal, and workflow controls](experiments/iter238_claim_seal_workflow_controls/HYPOTHESIS.md).
+It is preregistered and not yet implemented. Iter237
+[truth maintenance](experiments/iter237_truth_maintenance_gate/HYPOTHESIS.md), with its additive
+[result](experiments/iter237_truth_maintenance_gate/RESULT.md), passed required Linux Python 3.11 and 3.12
+CI on exact tip `b7fc930`, merged through PR `#85` as two-parent commit `7307e0c`, and passed merged-master
+CI. It corrected the scientific inference, paper, README, current-state control plane, typed numeric
+comparison, and repository-wide floating-point guard before any new empirical work. Its predecessor,
 [iter236 transfer analysis reconstruction](experiments/iter236_transfer_analysis_reconstruction/RESULT.md),
 is complete: seven registered arithmetic claims reproduced, the fresh-cohort solved denominator was `62`
 rather than `59`, and the paper's `p=0.008` did not regenerate. The recorded asymptotic two-sided statistic is
