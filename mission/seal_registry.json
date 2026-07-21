@@ -437,6 +437,22 @@
         "This record closes only the iter240 additive authorization; exact sealed-head CI, a two-parent merge, merged-master CI, and a final read-only effective-rule observation remain separate acceptance evidence.",
         "The retained design-preflight and missingness evidence do not establish independent semantic ground truth, prevalence, detector efficacy, transfer, or a scientific claim; the k=0, N=37, u=13 quantities are unchanged."
       ]
+    },
+    {
+      "seal_id": "iter241-iter240-repository-closure-authorization",
+      "record_type": "prospective_successor_authorization",
+      "predecessor_seal_id": "iter240-completed-evidence-seal",
+      "reference_commit": "39e2484cba450fe5346349921572720b0e456fb7",
+      "authorized_path": "experiments/iter241_iter240_repository_closure",
+      "must_be_absent_at_reference": true,
+      "policy": "additions_only_until_successor_seal",
+      "closure_requirement": "exact_tree_successor_path_snapshot",
+      "limitations": [
+        "This authorizes additions only within one absent iter241 path for retained, read-only repository-closure evidence about iter240 PR #88; it authorizes no GitHub write, repository-setting mutation, workflow dispatch or rerun, provider or model call, human contact, scientific execution, spending, publication, or release.",
+        "Authorization is not completion: a prospectively frozen GET-only capture contract, armed-before-first-request attempt marker, retained raw responses and metadata, independent validator, known-bad fixtures, and a later exact-tree successor seal remain separate requirements.",
+        "Required GitHub Actions success must remain distinct from an all-checks-green claim: the observed non-required GitGuardian failure is unresolved and may not be omitted, rewritten as success, or treated as security approval.",
+        "Remote GitHub state is mutable and time-bounded; repository-closure evidence establishes no reviewer independence, semantic truth, scientific correctness, independent ground truth, detector efficacy, transfer, or population claim."
+      ]
     }
   ]
 }
