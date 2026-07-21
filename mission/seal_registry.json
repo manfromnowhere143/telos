@@ -493,6 +493,30 @@
         "A green authenticated repository suite may support only local engineering closure; iter241 capture completeness, raw-header-byte fidelity, and repository closure remain failed, independent review and ground truth remain blocked, and scientific and retry authority remain none.",
         "Authorization is not completion: exact local result evidence, synchronized current surfaces and registries, a clean committed head, and a later exact-tree successor seal remain separate requirements."
       ]
+    },
+    {
+      "seal_id": "iter242-completed-evidence-seal",
+      "record_type": "successor_path_snapshot",
+      "predecessor_seal_id": "iter242-iter241-successor-closure-authorization",
+      "reference_commit": "b129725bfb2fd76562bdf4dd35ff9e003a6c3452",
+      "protected_sets": [
+        {
+          "set_id": "iter242-completed-evidence-tree",
+          "selector": {
+            "kind": "tree",
+            "path": "experiments/iter242_iter241_successor_closure"
+          },
+          "policy": "exact_tree",
+          "blob_count": 4,
+          "manifest_sha256": "06f77d38f78752556e432ad87a9ef5eb7ef6328b109b2c2a853f15274a920dfb"
+        }
+      ],
+      "limitations": [
+        "This snapshot freezes the exact four regular Git blobs in the iter242 component at the named reference commit; byte identity does not establish authorship, chronology, semantic truth, scientific correctness, independence, external timestamp authority, Linux CI success, or remote acceptance.",
+        "This record closes only the iter242 local successor-baton authorization; it does not repair iter241 capture completeness, raw-header-byte fidelity, or repository closure and authorizes no iter241 retry.",
+        "The supported result is limited to clean local authenticated repository-control closure on the retained Darwin and Python evidence; independent review, independent ground truth, security approval, scientific authority, and every external-action authority remain absent.",
+        "No push, pull request, merge, repository-setting write, workflow dispatch or rerun, provider or model call, scientific execution, human contact, spending, publication, release, deployment, or visibility change is authorized."
+      ]
     }
   ]
 }
