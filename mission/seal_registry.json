@@ -453,6 +453,30 @@
         "Required GitHub Actions success must remain distinct from an all-checks-green claim: the observed non-required GitGuardian failure is unresolved and may not be omitted, rewritten as success, or treated as security approval.",
         "Remote GitHub state is mutable and time-bounded; repository-closure evidence establishes no reviewer independence, semantic truth, scientific correctness, independent ground truth, detector efficacy, transfer, or population claim."
       ]
+    },
+    {
+      "seal_id": "iter241-completed-evidence-seal",
+      "record_type": "successor_path_snapshot",
+      "predecessor_seal_id": "iter241-iter240-repository-closure-authorization",
+      "reference_commit": "09da0b64331d0f39980843ef48d6b7fd536cab0e",
+      "protected_sets": [
+        {
+          "set_id": "iter241-completed-evidence-tree",
+          "selector": {
+            "kind": "tree",
+            "path": "experiments/iter241_iter240_repository_closure"
+          },
+          "policy": "exact_tree",
+          "blob_count": 39,
+          "manifest_sha256": "099a6d553fe2288d1ac2e6a95595c4c930e4a13a431c79d7c33ce78ed2fad8dd"
+        }
+      ],
+      "limitations": [
+        "This snapshot freezes the exact thirty-nine regular Git blobs in the iter241 component at the named reference commit; byte identity does not establish authorship, chronology, semantic truth, scientific correctness, independence, or external timestamp authority.",
+        "This record closes only the iter241 additive authorization; it does not repair capture completeness, raw-header-byte fidelity, or repository closure, and it does not authorize an iter241 retry.",
+        "The retained attempt remains failed: capture_completeness failed because merge_commit_sha was omitted, raw_header_byte_fidelity failed because exact response header-section bytes were not retained, required CI is supported, all-checks-green is contradicted, and the non-required GitGuardian check failed.",
+        "Independent review and independent ground truth remain blocked; scientific authority and retry authority remain none, and no security approval, publication, release, provider call, repository mutation, or scientific execution is authorized."
+      ]
     }
   ]
 }
