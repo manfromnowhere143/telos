@@ -1,8 +1,13 @@
 # Telos paper
 
-The findings paper is a research draft. Iter240 ground-truth admission design
-is the active offline engineering gate. Iter237 rebuilt and rebound the July
-19 source and 16-page PDF; neither artifact has been submitted.
+The findings paper is a research draft. Iter241's nonrepeatable read-only
+iter240 repository-closure attempt failed its completeness contract because a
+required response member was omitted and raw header-section bytes were never
+retained. The retained canonicalized header-pair documents do not restore byte
+fidelity: `capture_completeness: failed` and
+`raw_header_byte_fidelity: failed`. The additive evidence correction is the
+active engineering record and authorizes no retry. Iter237 rebuilt and rebound
+the July 19 source and 16-page PDF; neither artifact has been submitted.
 
 The manuscript's current scientific boundary is deliberately narrow:
 cross-solver recurrence was observed on one reused convenience cohort;
@@ -14,8 +19,8 @@ active-gate coverage report is retained evidence that the declared surfaces
 resolve against it:
 
 - [`mission/claim_registry.json`](../mission/claim_registry.json)
-- [`active gate`](../experiments/iter240_ground_truth_admission_design/HYPOTHESIS.md)
-- [`claim_coverage_report.json`](../experiments/iter240_ground_truth_admission_design/proof/claim_coverage_report.json)
+- [`active gate`](../experiments/iter241_iter240_repository_closure/HYPOTHESIS.md)
+- [`claim_coverage_report.json`](../experiments/iter241_iter240_repository_closure/proof/claim_coverage_report.json)
 
 The manuscript and root README are current claim projections, while the
 experiment index is the correction-preserving discovery surface:

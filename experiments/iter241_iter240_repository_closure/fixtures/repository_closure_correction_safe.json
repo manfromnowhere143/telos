@@ -1,0 +1,38 @@
+{
+  "cases": [
+    {
+      "case_id": "explicit_null_member",
+      "document": {
+        "merge_commit_sha": null
+      },
+      "expected_classification": "explicit_null",
+      "expected_contract_acceptance": true
+    },
+    {
+      "case_id": "exact_sha_member",
+      "document": {
+        "merge_commit_sha": "39e2484cba450fe5346349921572720b0e456fb7"
+      },
+      "expected_classification": "exact_sha",
+      "expected_contract_acceptance": true
+    }
+  ],
+  "contract": "merge_commit_sha must be a present object member whose value is either explicit null or the exact registered merge SHA",
+  "header_fidelity_cases": [
+    {
+      "case_id": "raw_header_section_bytes_retained",
+      "document": {
+        "raw_header_section_bytes_retained": true,
+        "serialization": "identity_bytes",
+        "source_api": "raw_header_section_bytes"
+      },
+      "expected_classification": "raw_header_section_bytes_retained",
+      "expected_contract_acceptance": true,
+      "expected_status": {
+        "raw_header_byte_fidelity": "supported"
+      }
+    }
+  ],
+  "raw_header_byte_contract": "the exact response header-section bytes must be retained without a parsed or reserialized substitute",
+  "schema_version": "telos.iter241.repository_closure_correction.safe.v1"
+}

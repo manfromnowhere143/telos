@@ -55,31 +55,36 @@ the current [paper](paper/telos.tex).
 ## Current engineering gate
 
 The active gate is
-[`experiments/iter240_ground_truth_admission_design/HYPOTHESIS.md`](experiments/iter240_ground_truth_admission_design/HYPOTHESIS.md).
-It is an offline, provider-free and spend-free ground-truth admission and
-missingness-design iteration, not a scientific result or independent review.
+[`experiments/iter241_iter240_repository_closure/HYPOTHESIS.md`](experiments/iter241_iter240_repository_closure/HYPOTHESIS.md).
+Its nonrepeatable read-only capture attempt failed the registered completeness
+contract for independent reasons: the PR #88 response omitted a required
+member, and the capture retained canonicalized returned header pairs instead
+of the required raw header-section bytes. `capture_completeness: failed` and
+`raw_header_byte_fidelity: failed`. The additive correction preserves every
+original byte and grants no retry. It is not a scientific result, independent
+review, all-checks-green claim, or security approval.
 
 <!-- telos-current-state:start -->
 ```text
-status: running
+status: failed
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: derive and freeze the fresh-cohort recoverability and independent-ground-truth admission design offline; no generation, target execution, judging, reviewer recruitment, provider call, container run, GPU, or spend is authorized
+next_authorized_action: review the retained iter241 correction with capture_completeness failed for an omitted required member and raw_header_byte_fidelity failed for unretained raw header-section bytes, then prepare a separately authorized successor seal that preserves the failed closure; no iter241 retry, repository or settings mutation, workflow dispatch or rerun, provider call, scientific execution, human contact, or spend is authorized
 ```
 <!-- telos-current-state:end -->
 
 This synchronized block is a mutable repository control. Its agreement proves
 neither scientific, remote, governance, nor design acceptance.
 
-Iter240 completion authority is
-`experiments/iter240_ground_truth_admission_design/RESULT.md` when that file
+Iter241 outcome authority is
+`experiments/iter241_iter240_repository_closure/RESULT.md` when that file
 exists.
 Its absence means the gate remains unaccepted.
 
 At the current working boundary:
 
-- iter238's exact completed evidence and iter239's exact completed evidence are
-  protected by their registered successor seals;
+- iter238, iter239, and iter240 exact completed evidence are protected by their
+  registered successor seals;
 - public quantitative claims remain governed by
   [`mission/claim_registry.json`](mission/claim_registry.json), protected-byte
   transitions by [`mission/seal_registry.json`](mission/seal_registry.json),
@@ -91,12 +96,22 @@ At the current working boundary:
 - that technical floor intentionally does not require approvals
   because no independent write-capable reviewer exists. It must never be
   described as review assurance;
-- retained evidence cannot resolve the fresh-cohort missing outcomes under the
-  frozen protocol, so iter240 must preserve missingness, task-level dependence,
-  and outcome leakage while freezing the next independent-adjudication design;
-  and
-- no provider, model judge, human, container, GPU, new cohort, or spending
-  action is authorized by iter240.
+- iter240 preserved all selected fresh-cohort missing outcomes and froze the
+  next independent-adjudication design without executing it;
+- iter241 failed because the retained PR response omitted a registered member;
+  its frozen validator conflated omission with explicit null through shared
+  producer/validator projection logic;
+- iter241 independently failed the raw-header-byte gate because `http.client`
+  returned parsed header pairs that were reserialized as canonical JSON; exact
+  header-section bytes
+  were never retained and cannot be reconstructed from those documents;
+- required Actions success remains supported separately from the unresolved
+  non-required GitGuardian failure and the absence-of-reviews record;
+- the retained header artifacts are canonicalized returned header-pair
+  documents, not raw HTTP wire bytes; and
+- no repository write, workflow dispatch or rerun, provider, model judge,
+  human, target, container, GPU, new cohort, or spending action is authorized
+  by iter241.
 
 The completed iter238 claim inventory separately accounted for four
 preregistered public surfaces and two supplemental hardening surfaces. Its
@@ -106,7 +121,7 @@ active. Iter238 used zero provider spend.
 
 The mutable authority is
 [`mission/current.json`](mission/current.json), which points to
-[`docs/HANDOFF-2026-07-19-iter240.md`](docs/HANDOFF-2026-07-19-iter240.md) and
+[`docs/HANDOFF-2026-07-19-iter241.md`](docs/HANDOFF-2026-07-19-iter241.md) and
 [`docs/TELOS-AUDIT-2026-07-19.md`](docs/TELOS-AUDIT-2026-07-19.md).
 Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,

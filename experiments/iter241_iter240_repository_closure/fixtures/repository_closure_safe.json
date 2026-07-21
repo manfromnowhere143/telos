@@ -1,0 +1,159 @@
+{
+  "authorization": {
+    "head": "6a9a4f66ec331011c9dfbe14b3a22259a5b585d5",
+    "parents": [
+      "39e2484cba450fe5346349921572720b0e456fb7",
+      "ceb8dfbb2ba451e76c71528a8ca5fcc75f5edc31"
+    ],
+    "tree": "76c6791ec2a051804a50f65b5297b709dea4f49c"
+  },
+  "capture_integrity": {
+    "raw_body_hashes_match": true,
+    "raw_header_hashes_match": true,
+    "unique_request_ids": true
+  },
+  "ci": {
+    "merged_master": {
+      "checks": [
+        {
+          "app_id": 15368,
+          "conclusion": "success",
+          "head_sha": "39e2484cba450fe5346349921572720b0e456fb7",
+          "id": 88248101958,
+          "name": "verify push py3.11"
+        },
+        {
+          "app_id": 15368,
+          "conclusion": "success",
+          "head_sha": "39e2484cba450fe5346349921572720b0e456fb7",
+          "id": 88248101954,
+          "name": "verify push py3.12"
+        }
+      ],
+      "run": {
+        "attempt": 1,
+        "check_suite_id": 80442674659,
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "39e2484cba450fe5346349921572720b0e456fb7",
+        "id": 29708028160,
+        "status": "completed",
+        "workflow_id": 309260095
+      }
+    },
+    "sealed_head": {
+      "gitguardian": {
+        "annotations_count": 0,
+        "app_id": 46505,
+        "app_slug": "gitguardian",
+        "conclusion": "failure",
+        "head_sha": "f954696c935ad0b733dcd613b553e1799a7b3810",
+        "id": 88247740246,
+        "output_title": "9 secrets uncovered!",
+        "status": "completed"
+      },
+      "required_checks": [
+        {
+          "app_id": 15368,
+          "conclusion": "success",
+          "head_sha": "f954696c935ad0b733dcd613b553e1799a7b3810",
+          "id": 88247471509,
+          "name": "verify push py3.11"
+        },
+        {
+          "app_id": 15368,
+          "conclusion": "success",
+          "head_sha": "f954696c935ad0b733dcd613b553e1799a7b3810",
+          "id": 88247471499,
+          "name": "verify push py3.12"
+        },
+        {
+          "app_id": 15368,
+          "conclusion": "success",
+          "head_sha": "f954696c935ad0b733dcd613b553e1799a7b3810",
+          "id": 88247740624,
+          "name": "verify pull_request py3.11"
+        },
+        {
+          "app_id": 15368,
+          "conclusion": "success",
+          "head_sha": "f954696c935ad0b733dcd613b553e1799a7b3810",
+          "id": 88247740616,
+          "name": "verify pull_request py3.12"
+        }
+      ],
+      "runs": [
+        {
+          "attempt": 1,
+          "check_suite_id": 80442019864,
+          "conclusion": "success",
+          "event": "push",
+          "head_sha": "f954696c935ad0b733dcd613b553e1799a7b3810",
+          "id": 29707762374,
+          "status": "completed",
+          "workflow_id": 309260095
+        },
+        {
+          "attempt": 1,
+          "check_suite_id": 80442290702,
+          "conclusion": "success",
+          "event": "pull_request",
+          "head_sha": "f954696c935ad0b733dcd613b553e1799a7b3810",
+          "id": 29707871077,
+          "status": "completed",
+          "workflow_id": 309260095
+        }
+      ]
+    }
+  },
+  "conclusion": {
+    "all_checks_green": "contradicted",
+    "independent_ground_truth": "blocked",
+    "independent_review": "blocked",
+    "non_required_security_check": "failed",
+    "repository_closure": "supported",
+    "required_ci": "supported",
+    "scientific_authority": "none"
+  },
+  "governance": {
+    "branch": "master",
+    "branch_sha": "6a9a4f66ec331011c9dfbe14b3a22259a5b585d5",
+    "current_user_can_bypass": "never",
+    "effective_rules_sha256": "1c28e4a105d215452cfe1f718a8598fcf4036fbde642b6906b00019630ea9e68",
+    "enforcement": "active",
+    "protected": true,
+    "request_policy_sha256": "7c8db8fe1104ccd86f6cb35701d83dda35786786641cbc3f3bfa3c2211da4038",
+    "ruleset_id": 19177100,
+    "ruleset_name": "telos-default-branch-technical-floor-v1",
+    "bypass_actors": []
+  },
+  "merge": {
+    "parents": [
+      "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+      "f954696c935ad0b733dcd613b553e1799a7b3810"
+    ],
+    "sha": "39e2484cba450fe5346349921572720b0e456fb7",
+    "tree": "1a6384324dd3e2a15121d981938a0bcee397c904"
+  },
+  "pull_request": {
+    "base_sha": "b597b763f2eb52b2f4f2d36e7daaa31654be076b",
+    "draft": false,
+    "head_sha": "f954696c935ad0b733dcd613b553e1799a7b3810",
+    "merged": true,
+    "merged_at": "2026-07-19T23:30:24Z",
+    "number": 88,
+    "rest_merge_commit_sha": null,
+    "state": "closed",
+    "timeline_merge_commit_sha": "39e2484cba450fe5346349921572720b0e456fb7",
+    "review_count": 0
+  },
+  "request_counts": {
+    "DELETE": 0,
+    "GET": 13,
+    "PATCH": 0,
+    "POST": 0,
+    "PUT": 0
+  },
+  "repository": "manfromnowhere143/telos",
+  "schema_version": "telos.iter241.iter240_repository_closure.safe.v1"
+}

@@ -1,0 +1,30 @@
+{
+  "authorization_head": "6a9a4f66ec331011c9dfbe14b3a22259a5b585d5",
+  "corrected_hypothesis": {
+    "path": "experiments/iter241_iter240_repository_closure/HYPOTHESIS.md",
+    "sha256": "4c2e8096e1be16a1fb25c6772b99d2ee5a849b6e552969f43e73ae1b87cc0699"
+  },
+  "limitations": [
+    "This is a retained operator chronology reconstructed from the observed local command result; it is not an independent external timestamp or a GitHub response.",
+    "The durable attempt marker and its instrument hashes, not this retrospective record, bind the corrected bytes used before the first request."
+  ],
+  "prearm_stop": {
+    "capture_invoked": false,
+    "failed_check": "git diff --check",
+    "failure": "experiments/iter241_iter240_repository_closure/HYPOTHESIS.md:202: new blank line at EOF.",
+    "pipeline_short_circuit": "the shell && chain stopped before python3 scripts/capture_iter240_repository_closure.py --capture",
+    "request_count": 0,
+    "attempt_marker_absent_after_stop": true
+  },
+  "revalidated_boundary": {
+    "attempt_marker_sha256": "99e3c9e3952c75e7a11e081dcb1d6c1fdd80ca7d6fa15f945500081315518987",
+    "capture_preflight_revalidated_repository_and_fixtures": true,
+    "capture_preflight_rehashed_every_marker_instrument": true,
+    "corrective_change": "removed only the prospective trailing blank line before arming",
+    "git_diff_cached_check_passed": true,
+    "git_diff_check_passed": true,
+    "marker_armed_at": "2026-07-21T10:20:50Z",
+    "state": "armed_before_first_request"
+  },
+  "schema_version": "telos.iter241.prearm_stop_record.v1"
+}

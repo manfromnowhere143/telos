@@ -1,0 +1,302 @@
+{
+  "adjudication": {
+    "all_checks_green": "contradicted",
+    "attempt": "failed",
+    "capture_completeness": "failed",
+    "frozen_validator_acceptance": "invalid",
+    "independent_ground_truth": "blocked",
+    "independent_review": "blocked",
+    "non_required_security_check": "failed",
+    "raw_header_byte_fidelity": "failed",
+    "repository_closure": "failed",
+    "required_ci": "supported",
+    "retry_authority": "none",
+    "scientific_authority": "none"
+  },
+  "correction_instruments": [
+    {
+      "byte_count": 1314,
+      "path": "experiments/iter241_iter240_repository_closure/fixtures/repository_closure_correction_known_bad.json",
+      "sha256": "94d6696cfeb63daba756934f02dc0287c05b15f903d773241ae133d823ae3e0f"
+    },
+    {
+      "byte_count": 1282,
+      "path": "experiments/iter241_iter240_repository_closure/fixtures/repository_closure_correction_safe.json",
+      "sha256": "627ce394f19ab7ca7d7d8ca519990e266c81fe5c184a88eb9d3306b9bb8b6e2f"
+    },
+    {
+      "byte_count": 841,
+      "path": "pyproject.toml",
+      "sha256": "5f010f66125f117671ba19ad5d3cbecdcfa2ade4ef2daf3b87b49b6bc108654c"
+    },
+    {
+      "byte_count": 38984,
+      "path": "scripts/adjudicate_iter241_repository_closure_correction.py",
+      "sha256": "7028522587ea53b306f056321ee579c6938610f8c87cb261bb8d5913471ab0ae"
+    },
+    {
+      "byte_count": 5838,
+      "path": "tests/test_iter241_repository_closure_correction.py",
+      "sha256": "d79a32ca7bdc603de409c82e22e03eebace3d9ae43d100b62483abe48e4edf2e"
+    }
+  ],
+  "correction_scope": "architecture_and_retained_evidence_only",
+  "defect": {
+    "capture_validator_common_mode": {
+      "capture_calls_frozen_document_projection": true,
+      "independent_projection_wording": "retracted",
+      "validator_seeds_projection_from_safe_fixture": true
+    },
+    "frozen_validator": {
+      "acceptance_as_closure_authority": "invalid",
+      "defect": "dict.get conflates an omitted merge_commit_sha member with an explicit null member",
+      "path": "scripts/validate_iter240_repository_closure.py",
+      "sha256": "9f54fdacca4ce334d97c60593c585873f07ec968fcffded7d82c19e649cd36ec"
+    },
+    "retained_pull_request": {
+      "contract_acceptance": false,
+      "merge_commit_sha_classification": "omitted",
+      "merge_commit_sha_member_present": false,
+      "original_projection_value": null
+    },
+    "retained_response_headers": {
+      "capture_completeness": "failed",
+      "contract_acceptance": false,
+      "exact_header_section_bytes_reconstructible": false,
+      "raw_header_byte_fidelity": "failed",
+      "raw_header_section_bytes_retained": false,
+      "retained_representation": "canonicalized_returned_header_pair_documents",
+      "source_api": "http.client.HTTPResponse.getheaders"
+    }
+  },
+  "limitations": [
+    "This additive receipt corrects retained architecture and evidence interpretation; it performs no GitHub, provider, scientific, publication, or other external action.",
+    "The conversational defect report that triggered reinspection is not retained as independent review or attestation.",
+    "Byte digests establish retained identity only; they do not establish authorship, external chronology, semantic truth, security approval, or scientific correctness.",
+    "Positive component observations do not satisfy the registered repository-closure conjunction after a required response member was omitted and the required raw header-section bytes were not retained.",
+    "The armed one-shot attempt has no retry authority under iter241."
+  ],
+  "original_attempt": {
+    "armed_at": "2026-07-21T10:20:50Z",
+    "attempt_marker_path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/capture_attempt.json",
+    "attempt_marker_sha256": "99e3c9e3952c75e7a11e081dcb1d6c1fdd80ca7d6fa15f945500081315518987",
+    "original_receipt_path": "experiments/iter241_iter240_repository_closure/proof/iter240_repository_closure.json",
+    "original_receipt_sha256": "b37b19a288445311ae4a7ba04313b87646c79240adf156e345ddc75cbefab874",
+    "request_counts": {
+      "DELETE": 0,
+      "GET": 13,
+      "PATCH": 0,
+      "POST": 0,
+      "PUT": 0
+    },
+    "retry_authority": "none"
+  },
+  "protected_artifacts": [
+    {
+      "byte_count": 10139,
+      "path": "experiments/iter241_iter240_repository_closure/HYPOTHESIS.md",
+      "sha256": "4c2e8096e1be16a1fb25c6772b99d2ee5a849b6e552969f43e73ae1b87cc0699"
+    },
+    {
+      "byte_count": 4168,
+      "path": "experiments/iter241_iter240_repository_closure/fixtures/repository_closure_known_bad.json",
+      "sha256": "4b019f2f124191de816fb98f5d97be530be5a6396b0c9f075e781657341d7453"
+    },
+    {
+      "byte_count": 4798,
+      "path": "experiments/iter241_iter240_repository_closure/fixtures/repository_closure_safe.json",
+      "sha256": "b6cfa94634221faec002ccf487ecb4e29b580389cb312aaf878d3307c76d81e6"
+    },
+    {
+      "byte_count": 20098,
+      "path": "experiments/iter241_iter240_repository_closure/proof/iter240_repository_closure.json",
+      "sha256": "b37b19a288445311ae4a7ba04313b87646c79240adf156e345ddc75cbefab874"
+    },
+    {
+      "byte_count": 1576,
+      "path": "experiments/iter241_iter240_repository_closure/proof/prearm_stop_record.json",
+      "sha256": "240161b3c845882ee58171223e911b2e2808d6a03a99262439ba5edd2171b8e0"
+    },
+    {
+      "byte_count": 4062,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/capture_attempt.json",
+      "sha256": "99e3c9e3952c75e7a11e081dcb1d6c1fdd80ca7d6fa15f945500081315518987"
+    },
+    {
+      "byte_count": 2631,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/effective_rules.headers.json",
+      "sha256": "3bde903aedf4cf052f4d075893dcb42a351176afda31f90220879b67ea87e610"
+    },
+    {
+      "byte_count": 1011,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/effective_rules.json",
+      "sha256": "22bce5b426225f26b021a9121ac63421de8bda16a9b05d611ad791889e1b6d6d"
+    },
+    {
+      "byte_count": 2628,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/gitguardian_check_run.headers.json",
+      "sha256": "acc789260a0301698e070f7e76b325c6c1a09f8e71222e53770b187150a99619"
+    },
+    {
+      "byte_count": 11628,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/gitguardian_check_run.json",
+      "sha256": "1fcdb888b1f404369575dffe9840b563f47ad82f5d5db295bb30802edd8da9b6"
+    },
+    {
+      "byte_count": 2627,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/master_branch.headers.json",
+      "sha256": "7d198ceecd76604e3b850bc99d507a13e3411f01b1440514935eb67a404d49aa"
+    },
+    {
+      "byte_count": 5412,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/master_branch.json",
+      "sha256": "81274d7ae40d65563c95937c9aceb8cc4e79f90a8fdf218636f19591d12b6e1e"
+    },
+    {
+      "byte_count": 2718,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/merge_commit.headers.json",
+      "sha256": "78400979488bef6d275da75f92dcac37a41756fa65131142d90396154a5a2834"
+    },
+    {
+      "byte_count": 2786,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/merge_commit.json",
+      "sha256": "c3f59918bb6126474ba6106fd8700c365d91894ebd89cbba062c9153337c9aca"
+    },
+    {
+      "byte_count": 2627,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/merged_master_check_runs.headers.json",
+      "sha256": "b26c67a2a7bf424834d00e450e51660bbddbc80cf0a9d749faeaf8bcc81a90c7"
+    },
+    {
+      "byte_count": 6182,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/merged_master_check_runs.json",
+      "sha256": "aba67eef62a8771aa9024ca56e91ad0d93fd791dd0017a696f74b1692e1f8812"
+    },
+    {
+      "byte_count": 2628,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/merged_master_run.headers.json",
+      "sha256": "c50e547f0ab4edabdb29f313589e6ab3cc0e2bf146900ec2a45c609575f12fbe"
+    },
+    {
+      "byte_count": 13030,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/merged_master_run.json",
+      "sha256": "5f5b1fda43d7b82220fe45e8827f89659806a9a3b4df524d2bb59bf22e19cd53"
+    },
+    {
+      "byte_count": 2809,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/pull_request_88.headers.json",
+      "sha256": "d847990a955701709f054ea49d56662cadb66a1cd7fddd3cc25df0d5dfd12189"
+    },
+    {
+      "byte_count": 19588,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/pull_request_88.json",
+      "sha256": "19b573cacb2a1bd92a791dbefac97313623151e6f8578c8403af1eb4ea6e9a7a"
+    },
+    {
+      "byte_count": 2624,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/pull_request_88_reviews.headers.json",
+      "sha256": "4a9cf3e4919985cf764fea4107063fdba4c235fa67b5f54c041321b31708a6fa"
+    },
+    {
+      "byte_count": 2,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/pull_request_88_reviews.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "byte_count": 2632,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/pull_request_88_timeline.headers.json",
+      "sha256": "fc82afcfc04046ed8215f50bd322397e24d6c0c912655b9c90b219873968bed6"
+    },
+    {
+      "byte_count": 23921,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/pull_request_88_timeline.json",
+      "sha256": "6190ce0235d9a3e2895b81202377b6144d62a9e9f1f40ce1cfc071ec4633fa01"
+    },
+    {
+      "byte_count": 2631,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/ruleset.headers.json",
+      "sha256": "a024a182a42092dc45d4323db32d67e430e63ca4d214736bbaf26dc4f6c2a4e3"
+    },
+    {
+      "byte_count": 1245,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/ruleset.json",
+      "sha256": "6c0297b978bcc0c6374dc5954d88d00e6c5dc89e8369d4e90f6807d933e136cc"
+    },
+    {
+      "byte_count": 2628,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/sealed_pr_run.headers.json",
+      "sha256": "f414576ca1684c073f75b1c25dd22f782e3994ab0aee72e4cb2ecb2d0a2eb4a0"
+    },
+    {
+      "byte_count": 12958,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/sealed_pr_run.json",
+      "sha256": "4ff90944877cd7d6b73610d1ea6e64172c2b65023588eae13d1f22447b5a406d"
+    },
+    {
+      "byte_count": 2628,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/sealed_push_run.headers.json",
+      "sha256": "517db1bea02f9be2fb0492bb1a7bd15fd21da3f9a8ada2fa161e2afb673078f0"
+    },
+    {
+      "byte_count": 12921,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/sealed_push_run.json",
+      "sha256": "e51b90b055ed647171817b31f0dce0abbfd188ed1c50756ac0927a5543e74fba"
+    },
+    {
+      "byte_count": 2628,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/sealed_tip_check_runs.headers.json",
+      "sha256": "c1444ff222274da5104ee64981b5fa11a2cd36093df332ae5dd7d75dbf9a0873"
+    },
+    {
+      "byte_count": 23977,
+      "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/sealed_tip_check_runs.json",
+      "sha256": "8e1aa4088666613cf6b2a2a84af32a0bdafdcefc1af126d5a5c8aff4f34192b9"
+    },
+    {
+      "byte_count": 17837,
+      "path": "scripts/capture_iter240_repository_closure.py",
+      "sha256": "a09336866ebdf43c1f214da5b215e4a59c386c3b2745e2a9aaf742964ab293fd"
+    },
+    {
+      "byte_count": 40296,
+      "path": "scripts/validate_iter240_repository_closure.py",
+      "sha256": "9f54fdacca4ce334d97c60593c585873f07ec968fcffded7d82c19e649cd36ec"
+    },
+    {
+      "byte_count": 64173,
+      "path": "scripts/validate_seal_registry.py",
+      "sha256": "c8b393f1adbb1960cead14a9da198baae02d62c7ec65413b58fd0dec8cc5ed4d"
+    },
+    {
+      "byte_count": 5638,
+      "path": "tests/test_iter240_repository_closure.py",
+      "sha256": "1b2804edaa05eb049ca6eeca776f6477766b6f86c61e6ad37946c319ea1341a7"
+    }
+  ],
+  "repository": "manfromnowhere143/telos",
+  "retained_observations": {
+    "all_checks_green": "contradicted",
+    "canonicalized_header_pair_document_bytes": 34439,
+    "canonicalized_header_pair_document_count": 13,
+    "gitguardian": {
+      "annotations_count": 0,
+      "conclusion": "failure",
+      "output_title": "9 secrets uncovered!",
+      "status": "completed"
+    },
+    "header_representation": "canonicalized_returned_header_pair_documents_not_raw_wire_bytes",
+    "independent_review": "blocked",
+    "merge_topology": "supported",
+    "raw_header_section_bytes_reconstructible": false,
+    "raw_header_section_bytes_retained": false,
+    "raw_json_body_bytes": 134661,
+    "raw_json_body_count": 13,
+    "request_ids_unique": true,
+    "required_ci": "supported",
+    "response_dates_nondecreasing": true,
+    "review_count": 0,
+    "ruleset_observation": "supported"
+  },
+  "schema_version": "telos.iter241.repository_closure_correction.v1",
+  "source_review_role": "conversational_defect_report_not_independent_attestation"
+}
