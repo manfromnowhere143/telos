@@ -55,36 +55,38 @@ the current [paper](paper/telos.tex).
 ## Current engineering gate
 
 The active gate is
-[`experiments/iter241_iter240_repository_closure/HYPOTHESIS.md`](experiments/iter241_iter240_repository_closure/HYPOTHESIS.md).
-Its nonrepeatable read-only capture attempt failed the registered completeness
-contract for independent reasons: the PR #88 response omitted a required
-member, and the capture retained canonicalized returned header pairs instead
-of the required raw header-section bytes. `capture_completeness: failed` and
-`raw_header_byte_fidelity: failed`. The additive correction preserves every
-original byte and grants no retry. It is not a scientific result, independent
-review, all-checks-green claim, or security approval.
+[`experiments/iter242_iter241_successor_closure/HYPOTHESIS.md`](experiments/iter242_iter241_successor_closure/HYPOTHESIS.md).
+Iter242 is the supported local engineering successor for closing the
+interrupted repository baton. Iter241's nonrepeatable read-only capture remains
+failed: the PR #88 response omitted a required member, and the capture retained
+canonicalized returned header pairs instead of raw header-section bytes. The
+exact failed evidence is sealed and cannot be retried by this gate. A local
+Iter242 pass would establish only authenticated repository-control closure,
+not a scientific result, remote acceptance, independent review,
+all-checks-green claim, security approval, publication, or release readiness.
 
 <!-- telos-current-state:start -->
 ```text
-status: failed
+status: supported
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: review the retained iter241 correction with capture_completeness failed for an omitted required member and raw_header_byte_fidelity failed for unretained raw header-section bytes, then prepare a separately authorized successor seal that preserves the failed closure; no iter241 retry, repository or settings mutation, workflow dispatch or rerun, provider call, scientific execution, human contact, or spend is authorized
+next_authorized_action: ensure the exact iter242 successor seal exists and validates, then await separate operator authorization for any later gate; no push, pull request, merge, repository-setting write, workflow dispatch or rerun, iter241 retry, provider call, scientific execution, human contact, spend, publication, release, or visibility change is authorized
 ```
 <!-- telos-current-state:end -->
 
 This synchronized block is a mutable repository control. Its agreement proves
 neither scientific, remote, governance, nor design acceptance.
 
-Iter241 outcome authority is
-`experiments/iter241_iter240_repository_closure/RESULT.md` when that file
-exists.
-Its absence means the gate remains unaccepted.
+The failed Iter241 outcome remains authoritative in
+[`experiments/iter241_iter240_repository_closure/RESULT.md`](experiments/iter241_iter240_repository_closure/RESULT.md).
+The supported local Iter242 outcome is retained in
+[`experiments/iter242_iter241_successor_closure/RESULT.md`](experiments/iter242_iter241_successor_closure/RESULT.md).
 
 At the current working boundary:
 
-- iter238, iter239, and iter240 exact completed evidence are protected by their
-  registered successor seals;
+- iter238 through iter241 exact completed evidence are protected by their
+  registered successor seals, and Iter242 has a supported local result under
+  its additions-only successor authorization;
 - public quantitative claims remain governed by
   [`mission/claim_registry.json`](mission/claim_registry.json), protected-byte
   transitions by [`mission/seal_registry.json`](mission/seal_registry.json),
@@ -121,8 +123,8 @@ active. Iter238 used zero provider spend.
 
 The mutable authority is
 [`mission/current.json`](mission/current.json), which points to
-[`docs/HANDOFF-2026-07-19-iter241.md`](docs/HANDOFF-2026-07-19-iter241.md) and
-[`docs/TELOS-AUDIT-2026-07-19.md`](docs/TELOS-AUDIT-2026-07-19.md).
+[`docs/HANDOFF-2026-07-21-iter242.md`](docs/HANDOFF-2026-07-21-iter242.md) and
+[`docs/TELOS-AUDIT-2026-07-21.md`](docs/TELOS-AUDIT-2026-07-21.md).
 Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,
 not the current baton.
@@ -166,7 +168,7 @@ own consequential scientific claim.
 
 The current evidence is best read in this order:
 
-1. [Takeover audit](docs/TELOS-AUDIT-2026-07-19.md) — independent verdict,
+1. [Takeover audit](docs/TELOS-AUDIT-2026-07-21.md) — dated verdict,
    frontier comparison, and mission sequence.
 2. [Current paper source](paper/telos.tex) and [PDF](paper/telos.pdf) —
    forensic case-series synthesis; not submission-ready or a benchmark claim.

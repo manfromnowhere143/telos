@@ -37,6 +37,10 @@ PRIOR_EVIDENCE = {
 EXPECTED_AUTHORIZATION = (
     "50c6cd259ceb2ca1acf36ec8eb3819954b8eefc4ba0b628641e500f756e94965"
 )
+MIGRATION_LABEL = "iter241"
+REPLACEABLE_REGISTRY_DESCRIPTION = (
+    "the sealed iter240 authority nor an exact reviewed iter241 transition"
+)
 REPLACEABLE_REGISTRY_SHA256 = {
     "bd4dc790936518edbca6acf0b035e9f9e9d702c3a6c252b99e7224afc41f7933",
     "ee3c536bd89c0ede943f62291a50eac61af2b5f60d45127ba516f1aae55804bc",
@@ -348,8 +352,8 @@ def main() -> int:
             not in REPLACEABLE_REGISTRY_SHA256
         ):
             raise RuntimeError(
-                "refusing migration write: worktree registry is neither the sealed "
-                "iter240 authority nor an exact reviewed iter241 transition"
+                "refusing migration write: worktree registry is neither "
+                f"{REPLACEABLE_REGISTRY_DESCRIPTION}"
             )
         if validator.AUTHORIZED_BINDING_INVENTORY_SHA256.get(TO_GATE) != authorization:
             raise RuntimeError("reviewed validator binding authorization is absent or differs")
@@ -373,7 +377,7 @@ def main() -> int:
     if failures:
         raise RuntimeError("claim registry validation failed: " + "; ".join(failures))
     print(
-        "iter241 claim migration regenerates: "
+        f"{MIGRATION_LABEL} claim migration regenerates: "
         f"{len(plan['rebindings'])} material rebindings, "
         f"{len(plan['removed_binding_ids'])} retired typed bindings, "
         f"{len(plan['new_binding_resolutions'])} new typed bindings"

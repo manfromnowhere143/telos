@@ -7,10 +7,10 @@ reviewed predecessor workflow.  This guard therefore derives the sole allowed
 candidate from the exact workflow bytes in the iter239 activation commit and
 rejects every other byte or parsed-structure change.
 
-The current workflow is intentionally not modified to invoke this script:
-adding a step would violate the exact-delta contract.  The already-required
-``pytest -q`` step executes the focused tests that apply this guard to the
-committed workflow and to known-bad variants.
+The accepted iter239 workflow is retained at an exact historical commit. Later
+additive gates may evolve current CI without rewriting that historical claim;
+this validator reads and checks the retained blob, never the mutable current
+workflow.
 """
 
 from __future__ import annotations
@@ -31,6 +31,7 @@ WORKFLOW_PATH = Path(".github/workflows/ci.yml")
 PREDECESSOR_COMMIT = "746f225f6c3718a1c2190dc00496386600fb2c5c"
 PREDECESSOR_SHA256 = "c7a39ffa4c41df14fe91b968d1560bdbdf4792f0ad529eb441fd5610e0dac9a9"
 EXPECTED_SHA256 = "befe8d6e9ca5228d5d8d694ee343ca9f93cb2b912470f358f4aca1ee1b8f1267"
+ACCEPTED_COMMIT = "f593b5048585052671276c03940ef4df9154724c"
 
 OLD_JOB_NAME = "verify py${{ matrix.python-version }}"
 NEW_JOB_NAME = "verify ${{ github.event_name }} py${{ matrix.python-version }}"
@@ -89,6 +90,21 @@ def load_predecessor_workflow(root: Path = ROOT) -> bytes:
     if result.returncode != 0:
         detail = result.stderr.decode("utf-8", "replace").strip()
         raise RuntimeError(f"cannot read pinned predecessor workflow: {detail}")
+    return result.stdout
+
+
+def load_accepted_workflow(root: Path = ROOT) -> bytes:
+    """Read the exact iter239-accepted workflow from retained Git history."""
+
+    result = subprocess.run(
+        ["git", "show", f"{ACCEPTED_COMMIT}:{WORKFLOW_PATH.as_posix()}"],
+        cwd=root,
+        check=False,
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        detail = result.stderr.decode("utf-8", "replace").strip()
+        raise RuntimeError(f"cannot read accepted iter239 workflow: {detail}")
     return result.stdout
 
 
@@ -246,15 +262,19 @@ def validation_errors(predecessor: bytes, candidate: bytes) -> list[str]:
     return errors
 
 
-def validate_current(root: Path = ROOT) -> list[str]:
+def validate_retained(root: Path = ROOT) -> list[str]:
     try:
         predecessor = load_predecessor_workflow(root)
-        candidate = (root / WORKFLOW_PATH).read_bytes()
-    except OSError as exc:
-        return [f"cannot read iter239 CI workflow input: {exc}"]
+        candidate = load_accepted_workflow(root)
     except RuntimeError as exc:
         return [str(exc)]
     return validation_errors(predecessor, candidate)
+
+
+def validate_current(root: Path = ROOT) -> list[str]:
+    """Compatibility alias for the retained iter239 acceptance check."""
+
+    return validate_retained(root)
 
 
 def main() -> int:

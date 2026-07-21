@@ -30,9 +30,9 @@ def assert_rejected(candidate: bytes, reason: str) -> None:
     assert any(reason in error for error in errors), errors
 
 
-def test_committed_workflow_is_the_exact_preregistered_delta() -> None:
-    assert (ROOT / guard.WORKFLOW_PATH).read_bytes() == expected()
-    assert guard.validate_current(ROOT) == []
+def test_retained_workflow_is_the_exact_preregistered_delta() -> None:
+    assert guard.load_accepted_workflow(ROOT) == expected()
+    assert guard.validate_retained(ROOT) == []
 
 
 def test_exact_event_specific_name_is_accepted() -> None:

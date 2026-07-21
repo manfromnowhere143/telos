@@ -35,6 +35,7 @@ UTC_SECOND = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 
 COMPLETED_EVIDENCE = "35a97b228afb7bd8eb44e71749986ee59020b25b"
 COMPLETED_EVIDENCE_TREE = "16df636427548ffc3b0ed0a4afd9fc15d7c6f255"
+CAPTURE_EVIDENCE_COMMIT = "2c71af94318cb9513d5ee9eb5b32b5075bc46991"
 ITER239_EXPERIMENT_TREE = "bb4cac9b92c32d89d32d6d64509288022751142d"
 SEALED_TIP = "56fb78f5f8afcd8709fde1170e8422072626f367"
 SEALED_TIP_TREE = "776f60e7c75616767ce6bb1e45a3eb7279f37a97"
@@ -198,6 +199,12 @@ RETAINED_INPUTS = (
         "scripts/validate_iter239_repository_governance.py",
         "4d6a613a2d406c784f2c35175f707498f9cbcc773cc500ecf5cfd273c315c5b9",
     ),
+)
+POST_CAPTURE_EVOLVABLE_PATHS = frozenset(
+    {
+        "scripts/validate_iter239_remote_acceptance.py",
+        "scripts/validate_iter239_repository_governance.py",
+    }
 )
 
 TOP_KEYS = {
@@ -363,6 +370,16 @@ def safe_directory(path: Path, *, label: str) -> None:
         )
 
 
+def retained_capture_instrument_bytes(root: Path, relative: str) -> bytes:
+    """Read the captured instrument, not an authorized later successor."""
+
+    path = root / relative
+    regular_0644(path, label=f"capture instrument {relative}")
+    if relative in POST_CAPTURE_EVOLVABLE_PATHS:
+        return _git(root, "show", f"{CAPTURE_EVIDENCE_COMMIT}:{relative}")
+    return path.read_bytes()
+
+
 def load_module(path: Path, name: str) -> Any:
     regular_0644(path, label=f"offline prerequisite {path.name}")
     try:
@@ -491,11 +508,26 @@ def repository_failures(root: Path, receipt: dict[str, Any]) -> list[str]:
         path = root / relative
         try:
             regular_0644(path, label=f"retained input {relative}")
-            if sha256(path.read_bytes()) != digest:
+            if (
+                relative not in POST_CAPTURE_EVOLVABLE_PATHS
+                and sha256(path.read_bytes()) != digest
+            ):
                 failures.append(f"retained worktree input digest differs: {relative}")
             historical = _git(root, "show", f"{COMPLETED_EVIDENCE}:{relative}")
             if sha256(historical) != digest:
                 failures.append(f"retained Git input digest differs: {relative}")
+        except (OSError, ValidationError) as exc:
+            failures.append(str(exc))
+
+    for relative in sorted(POST_CAPTURE_EVOLVABLE_PATHS):
+        path = root / relative
+        try:
+            regular_0644(path, label=f"current successor validator {relative}")
+            committed = _git(root, "show", f"HEAD:{relative}")
+            if path.read_bytes() != committed:
+                failures.append(
+                    f"current successor validator differs from HEAD: {relative}"
+                )
         except (OSError, ValidationError) as exc:
             failures.append(str(exc))
 
@@ -660,9 +692,7 @@ def attempt_failures(
                 {"byte_count", "path", "sha256"},
                 label=f"capture instrument {index}",
             )
-            path = root / relative
-            regular_0644(path, label=f"capture instrument {relative}")
-            raw = path.read_bytes()
+            raw = retained_capture_instrument_bytes(root, relative)
             if (
                 row.get("path") != relative
                 or not is_int(row.get("byte_count"), minimum=1)

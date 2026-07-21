@@ -882,6 +882,52 @@ def test_ci_guard_accepts_only_the_one_exact_name_substitution() -> None:
         ), fixture_id
 
 
+def test_current_ci_guard_reads_the_retained_iter239_transition() -> None:
+    guard = load_guard()
+    assert guard.current_ci_failures(ROOT) == []
+
+
+def test_successor_evolvable_files_remain_bound_in_retained_history() -> None:
+    guard = load_guard()
+    assert guard.POST_ITER239_EVOLVABLE_RELATIVES == {
+        guard.WORKFLOW_RELATIVE,
+        guard.CI_DELTA_VALIDATOR_RELATIVE,
+    }
+    assert guard.POST_ITER239_EVOLVABLE_RELATIVES.isdisjoint(
+        guard.OPERATIONAL_STABLE_RELATIVES
+    )
+
+
+@pytest.mark.parametrize(
+    "relative_name",
+    (
+        ".github/workflows/ci.yml",
+        "scripts/validate_iter239_ci_workflow_delta.py",
+    ),
+)
+def test_retained_iter239_evolvable_blob_drift_fails_closed(
+    relative_name: str,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    guard = load_guard()
+    relative = Path(relative_name)
+    original = guard._git_blob
+
+    def corrupted(root: Path, commit: str, path: Path) -> bytes | None:
+        payload = original(root, commit, path)
+        if commit == guard.OPERATIONAL_SOURCE_COMMIT and path == relative:
+            return None if payload is None else payload + b"retained drift\n"
+        return payload
+
+    monkeypatch.setattr(guard, "_git_blob", corrupted)
+    failures = guard.operational_source_failures(
+        ROOT,
+        ruleset_source=guard.TRANSACTION_SOURCE_COMMIT,
+        operational_source=guard.OPERATIONAL_SOURCE_COMMIT,
+    )
+    assert f"operational instrument digest differs: {relative_name}" in failures
+
+
 def test_before_state_rejects_stale_heads_and_incomplete_pagination() -> None:
     guard = load_guard()
     _policy, policy_raw = load_policy(guard)
