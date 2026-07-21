@@ -1,7 +1,9 @@
 # Additive postcommit verification design
 
-Status: `proposed`; no commit, push, seal publication, or external action is
-authorized by this document.
+Status: `reviewed for local engineering closure` on 2026-07-21. The operator
+directed recovery of the interrupted local successor work. This document is
+not self-authorizing and grants no push, pull request, merge, workflow,
+settings, provider, scientific, publication, spending, or release action.
 
 This design routes future verification through a validated successor seal,
 not through ancestry alone. It preserves the failed one-shot attempt and its
@@ -48,6 +50,12 @@ retry_authority: none
 A future router must default deny. `git merge-base --is-ancestor` is necessary
 topology evidence but is never sufficient routing authority.
 
+The runner and every authority-bearing source must be regular committed bytes
+that agree exactly across the worktree, Git index, and `HEAD` before the router
+is executed. A worktree-only hash is insufficient because a locally replaced
+runner and router could otherwise agree with each other while differing from
+the candidate commit being qualified.
+
 Routing may change only on a head that contains a seal-registry record which:
 
 1. has record type `successor_path_snapshot` and names
@@ -88,6 +96,11 @@ Every correction test and the remaining frozen tests must still run. The
 frozen validator may be exercised to demonstrate its historical behavior, but
 its pass must never be routed into current closure acceptance.
 
+Pytest plugin autoload, environment-selected plugins, every repository
+`conftest.py`, and any tracked test module declaring `pytest_plugins` must be
+denied before collection. A known-bad tracked plugin fixture must demonstrate
+that the guard fires; ignoring only untracked plugin files is insufficient.
+
 ## Exact lint treatment
 
 The frozen validator contains one unused `os` import. Editing it would change a
@@ -101,16 +114,14 @@ suppression is forbidden.
 ## Experiment-index finalization
 
 The experiment-index generator intentionally recognizes retained artifacts
-from committed Git bytes. At the current uncommitted boundary it must continue
-to describe iter241 as a visible directory without retained top-level records.
-The current Git index predates the additive correction and still stages the
-old supported interpretation. It is therefore unsafe to commit as-is. Before
-any first commit, a separately authorized operator must refresh the complete
-staged candidate from the reviewed failed worktree interpretation; an old
-`RESULT.md`, correction receipt, claim artifact, or generated registry must
-not survive in the candidate. After an authorized commit, regenerate the index
-mechanically. It may then list the hypothesis and corrected result only if
-committed HEAD, index, and worktree bytes agree.
+from committed Git bytes. At correction checkpoint `aef4892`, `HEAD` and the
+Git index retain the complete failed interpretation while the mechanically
+regenerated worktree index is the sole expected index delta. The reviewed
+control checkpoint must commit that exact generated index together with the
+final runner, router, tests, and this design. Afterward, the index may list the
+hypothesis and corrected result only while committed `HEAD`, index, and
+worktree bytes agree. An old supported `RESULT.md`, receipt, claim artifact,
+or registry is never an acceptable staging source.
 
 The workflow-registry tests likewise compare committed bytes. Precommit
 staged-versus-HEAD failures are not authority for a broad test exclusion.
@@ -119,9 +130,10 @@ staged-versus-HEAD failures are not authority for a broad test exclusion.
 
 Postcommit verification is acceptable only when the correction adjudicator,
 seal registry, claim registry, workflow registry, current-state guard,
-experiment index, exact lint meta-test, focused tests, and full offline suite
-all pass from the candidate bytes. A green postcommit run would support only
-the integrity of the retained failed-attempt correction. It would not repair
-capture completeness, raw-header-byte fidelity, or repository closure; provide
-security approval or independent review; authorize a retry; or create
-scientific authority.
+experiment index, exact lint meta-test, focused tests, and authenticated full
+offline suite all pass from clean candidate bytes. Every current mandatory
+test entrypoint must invoke the authenticated runner rather than bare pytest.
+A green postcommit run supports only the integrity of the retained failed-
+attempt correction. It does not repair capture completeness, raw-header-byte
+fidelity, or repository closure; provide security approval or independent
+review; authorize a retry; or create scientific authority.
