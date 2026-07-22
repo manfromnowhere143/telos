@@ -55,22 +55,24 @@ the current [paper](paper/telos.tex).
 ## Current engineering gate
 
 The active gate is
-[`experiments/iter242_iter241_successor_closure/HYPOTHESIS.md`](experiments/iter242_iter241_successor_closure/HYPOTHESIS.md).
-Iter242 is the supported local engineering successor for closing the
-interrupted repository baton. Iter241's nonrepeatable read-only capture remains
-failed: the PR #88 response omitted a required member, and the capture retained
-canonicalized returned header pairs instead of raw header-section bytes. The
-exact failed evidence is sealed and cannot be retried by this gate. A local
-Iter242 pass would establish only authenticated repository-control closure,
-not a scientific result, remote acceptance, independent review,
-all-checks-green claim, security approval, publication, or release readiness.
+[`experiments/iter243_iter242_remote_ci_recovery/HYPOTHESIS.md`](experiments/iter243_iter242_remote_ci_recovery/HYPOTHESIS.md).
+Iter242 remains a supported local engineering closure, but its remote
+publication exposed a Linux hosted-runner incompatibility before pytest
+collection across the Python 3.11 and Python 3.12 matrix. Iter243 preregisters a narrow
+owner-aware Python executable policy, preserves every `-I` isolation control,
+and keeps Git and timeout executables under the stricter mode rule. The prior
+red runs remain negative evidence. Iter241's failed capture is still sealed and
+cannot be retried by this gate. A later remote pass would establish only
+bounded repository integration for the exact observed bytes, not a scientific
+result, independent review, general security approval, publication, or release
+readiness.
 
 <!-- telos-current-state:start -->
 ```text
-status: supported
+status: running
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: ensure the exact iter242 successor seal exists and validates, then await separate operator authorization for any later gate; no push, pull request, merge, repository-setting write, workflow dispatch or rerun, iter241 retry, provider call, scientific execution, human contact, spend, publication, release, or visibility change is authorized
+next_authorized_action: finish Iter243 local validation, publish the preregistered correction to PR #90, require green push and pull-request CI on Python 3.11 and Python 3.12, classify the reported GitGuardian findings from exact bytes, retain and seal the result, then ready and merge the exact green head with ordered parents and verify merged master; no workflow dispatch or rerun, repository-setting change, iter241 retry, provider call, scientific execution, human contact, spend, paper submission, release, deployment, or visibility change is authorized
 ```
 <!-- telos-current-state:end -->
 
@@ -81,12 +83,14 @@ The failed Iter241 outcome remains authoritative in
 [`experiments/iter241_iter240_repository_closure/RESULT.md`](experiments/iter241_iter240_repository_closure/RESULT.md).
 The supported local Iter242 outcome is retained in
 [`experiments/iter242_iter241_successor_closure/RESULT.md`](experiments/iter242_iter241_successor_closure/RESULT.md).
+The active remote-CI recovery contract is retained in the
+[Iter243 hypothesis](experiments/iter243_iter242_remote_ci_recovery/HYPOTHESIS.md).
 
 At the current working boundary:
 
-- iter238 through iter241 exact completed evidence are protected by their
-  registered successor seals, and Iter242 has a supported local result under
-  its additions-only successor authorization;
+- iter238 through iter242 exact completed evidence are protected by registered
+  successor seals, and Iter243 is open under the current additions-only prospective
+  authorization;
 - public quantitative claims remain governed by
   [`mission/claim_registry.json`](mission/claim_registry.json), protected-byte
   transitions by [`mission/seal_registry.json`](mission/seal_registry.json),
@@ -107,8 +111,9 @@ At the current working boundary:
   returned parsed header pairs that were reserialized as canonical JSON; exact
   header-section bytes
   were never retained and cannot be reconstructed from those documents;
-- required Actions success remains supported separately from the unresolved
-  non-required GitGuardian failure and the absence-of-reviews record;
+- required Actions success for the published Iter242 branch is currently
+  contradicted by the retained Python 3.11 and Python 3.12 runner failures; the reported
+  non-required GitGuardian findings remain separately unresolved;
 - the retained header artifacts are canonicalized returned header-pair
   documents, not raw HTTP wire bytes; and
 - no repository write, workflow dispatch or rerun, provider, model judge,
@@ -123,8 +128,8 @@ active. Iter238 used zero provider spend.
 
 The mutable authority is
 [`mission/current.json`](mission/current.json), which points to
-[`docs/HANDOFF-2026-07-21-iter242.md`](docs/HANDOFF-2026-07-21-iter242.md) and
-[`docs/TELOS-AUDIT-2026-07-21.md`](docs/TELOS-AUDIT-2026-07-21.md).
+[`docs/HANDOFF-2026-07-22-iter243.md`](docs/HANDOFF-2026-07-22-iter243.md) and
+[`docs/TELOS-AUDIT-2026-07-22.md`](docs/TELOS-AUDIT-2026-07-22.md).
 Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,
 not the current baton.
@@ -168,7 +173,7 @@ own consequential scientific claim.
 
 The current evidence is best read in this order:
 
-1. [Takeover audit](docs/TELOS-AUDIT-2026-07-21.md) — dated verdict,
+1. [Takeover audit](docs/TELOS-AUDIT-2026-07-22.md) — dated verdict,
    frontier comparison, and mission sequence.
 2. [Current paper source](paper/telos.tex) and [PDF](paper/telos.pdf) —
    forensic case-series synthesis; not submission-ready or a benchmark claim.

@@ -46,6 +46,7 @@ REPLACEABLE_REGISTRY_SHA256 = {
     "ee3c536bd89c0ede943f62291a50eac61af2b5f60d45127ba516f1aae55804bc",
     "aaf2b6a8bdd061a648e706a37f8cf274ce99966ee9c1ee4c388921cfd9342f4c",
 }
+REPLACEABLE_PLAN_SHA256: set[str] = set()
 
 
 def _load_validator() -> ModuleType:
@@ -326,7 +327,9 @@ def main() -> int:
         return 0
     if args.write_plan:
         if PLAN.exists() and PLAN.read_bytes() != _payload(plan):
-            raise RuntimeError("refusing to replace a different migration plan")
+            current_plan_sha256 = hashlib.sha256(PLAN.read_bytes()).hexdigest()
+            if current_plan_sha256 not in REPLACEABLE_PLAN_SHA256:
+                raise RuntimeError("refusing to replace a different migration plan")
         _atomic_write(PLAN, _payload(plan))
         print(f"wrote {PLAN.relative_to(ROOT)}")
         return 0
