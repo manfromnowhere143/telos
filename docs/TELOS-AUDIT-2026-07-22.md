@@ -27,13 +27,27 @@ fail-closed member and link validation, permission normalization, and explicit
 native-loader containment before any downloaded-interpreter command. The
 workflow preserves immutable action references, read-only repository
 permission, hash-locked verification dependencies, the authenticated test
-route, and normal push and pull-request triggers. No Iter245 hosted observation
-exists, and local guards cannot substitute for that missing evidence.
+route, and normal push and pull-request triggers.
 
-PR #90 remains draft and unmerged. Any required failure must be retained as the
-Iter245 result without a workflow rerun, waiver, or relabeling. Only an exact
-green final head may proceed to the ordered-parent merge and merged-master
-verification authorized by the operator.
+The initial bounded repository-integration outcome is supported for exact
+candidate `de22688f800e0fb46c15ecd851d2bf76e26b0a82` and tree
+`416c864123bd7451d250bcd6384c41d1670343a5`. Normal push run
+`29920504274` and pull-request run `29920506702` each passed Python 3.11 and
+Python 3.12 without a rerun. Synthetic merge
+`29b5b29981c684032151ef8d6d78a88d5bb77389` had ordered parents base
+`6a9a4f66ec331011c9dfbe14b3a22259a5b585d5` then candidate and reproduced
+the candidate tree. The exact [result](../experiments/iter245_offline_verified_python_bootstrap/RESULT.md)
+and [remote observation](../experiments/iter245_offline_verified_python_bootstrap/proof/remote_ci_observation.json)
+retain the observation. Their capture contract is retrospective and
+same-operator: it supports internal consistency for the retained identities,
+not independent attestation or proof.
+
+PR #90 remains draft and unmerged. The exact successor seal, fresh sealed-head
+push and pull-request checks, PR metadata update, ready and merge action,
+ordered-parent verification, and merged-master CI remain pending. Any required
+failure must be retained without a workflow rerun, waiver, or relabeling. Only
+an exact green final head may proceed to the ordered-parent merge and merged-
+master verification authorized by the operator.
 
 The scientific state is unchanged. Iter241 remains failed, independent semantic
 ground truth remains blocked, and local or remote engineering checks cannot

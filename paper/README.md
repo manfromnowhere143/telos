@@ -9,8 +9,13 @@ fidelity: `capture_completeness: failed` and
 successor-baton closure. Iter243 failed remote integration and its
 preregistration integrity is invalid. Iter244 retained a valid preregistration
 but failed local design acceptance; its candidate was discarded and no hosted
-outcome exists. Iter245 is a running bounded engineering recovery. It preserves
-those failed outcomes, authorizes no retry, and establishes no scientific or
+outcome exists. Iter245 now supports bounded repository integration for exact
+candidate `de22688f800e0fb46c15ecd851d2bf76e26b0a82`: its initial normal push and
+pull-request runs each passed Python 3.11 and Python 3.12 without a rerun. This is
+a retrospective same-operator consistency record, not independent attestation
+or proof. The exact successor seal, fresh sealed-head checks, ordered-parent
+merge, and merged-master CI verification remain pending. Iter245 preserves the
+failed outcomes, authorizes no retry, and establishes no scientific or
 publication authority. Iter237 rebuilt and rebound the July 19 source and
 16-page PDF; neither artifact has been submitted.
 

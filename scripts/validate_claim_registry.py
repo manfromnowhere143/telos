@@ -372,7 +372,7 @@ AUTHORIZED_BINDING_INVENTORY_SHA256 = {
         "eedc04493e512b22e5341c4b2036e4060bfb724f743e13c507d74b716c46feec"
     ),
     "experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md": (
-        "333eebc2ae21ea15b2cf8b884431176ba65f07767e39762b82a353a50987c876"
+        "c97fe9256390a50778f491b1c7a9821fc7591d6322a8e815b317331edf5e2b84"
     ),
 }
 

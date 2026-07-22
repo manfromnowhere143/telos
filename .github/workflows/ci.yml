@@ -82,6 +82,9 @@ jobs:
       - name: Iter245 offline verified Python bootstrap guard
         run: python3 scripts/validate_iter245_python_bootstrap.py
 
+      - name: Iter245 retrospective remote-CI result consistency guard
+        run: python3 scripts/validate_iter245_remote_ci_result.py
+
       - name: Regenerate corrected detector artifacts without providers
         run: |
           env -u OPENAI_API_KEY -u ANTHROPIC_API_KEY -u GOOGLE_API_KEY \

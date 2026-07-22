@@ -34,7 +34,7 @@ PRIOR_EVIDENCE = {
     "report_seal_id": "iter243-completed-evidence-seal",
 }
 EXPECTED_AUTHORIZATION = (
-    "333eebc2ae21ea15b2cf8b884431176ba65f07767e39762b82a353a50987c876"
+    "c97fe9256390a50778f491b1c7a9821fc7591d6322a8e815b317331edf5e2b84"
 )
 
 
@@ -54,8 +54,13 @@ def configure() -> None:
     base.REPLACEABLE_REGISTRY_DESCRIPTION = (
         "the sealed Iter243 authority nor an exact reviewed Iter245 transition"
     )
-    base.REPLACEABLE_REGISTRY_SHA256 = set()
-    base.REPLACEABLE_PLAN_SHA256 = set()
+    base.REPLACEABLE_REGISTRY_SHA256 = {
+        "cdda0723ee47e507890583f63c5946799aa487da837196d2f12740b165d67ce4",
+        "e47ff907bb5f33e26e940feb324d3c45ee34417a867506a1177f92c165af5406",
+    }
+    base.REPLACEABLE_PLAN_SHA256 = {
+        "840bfc6a0dcaf05189e90b9bc3dde9e55ff3163b4278653fc79c7e05a5bd03cf",
+    }
 
 
 def main() -> int:

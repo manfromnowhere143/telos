@@ -12,7 +12,7 @@ from yaml.constructor import ConstructorError
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github/workflows/ci.yml"
-EXPECTED_WORKFLOW_SHA256 = "7bab87602a7d3aea6b01458cce5c94fa0a49cc11d32188dbfcf0cd29148616d4"
+EXPECTED_WORKFLOW_SHA256 = "5bb4d7eb20b802faed360e21b6fc496bb48a0488f9fe4254836685f9155c8e9f"
 EXPECTED_TEST_COMMAND = "python3 -I scripts/run_iter241_pytest.py --run"
 CHECKOUT = "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0"
 BOOTSTRAP_RUN = (

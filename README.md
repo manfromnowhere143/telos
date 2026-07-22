@@ -59,23 +59,25 @@ The active gate is
 Iter243 is sealed failed remote-integration evidence and its preregistration
 integrity is invalid. Iter244 retained a valid preregistration but failed local
 design acceptance: its implementation candidate was discarded, nothing was
-pushed, and no hosted outcome exists. Iter245 is a preregistered engineering
-recovery that binds each registered Python archive before extraction, rejects
-unsafe archive and link structures, validates permission and native-loader
-containment before any downloaded-interpreter command, and preserves the
-authenticated runner's world-write denial. No Iter245 hosted outcome exists.
-Iter241's failed capture remains sealed and cannot be retried by this gate. A
-later remote pass could establish only bounded repository integration for the
-exact observed bytes, frozen archives, and runner image—not a scientific
-result, independent review, general security approval, publication, or release
-readiness.
+pushed, and no hosted outcome exists. Iter245 now supports bounded repository
+integration for exact candidate `de22688f800e0fb46c15ecd851d2bf76e26b0a82`.
+Normal push and pull-request runs each passed Python 3.11 and Python 3.12
+without a rerun after exact-archive verification, permission and native-loader
+containment, and the authenticated runner's world-write denial. The exact
+[Iter245 result](experiments/iter245_offline_verified_python_bootstrap/RESULT.md)
+retains that bounded outcome and its capture-contract limitation. Its exact
+successor seal, fresh final-head checks, ordered-parent merge, and merged-master
+verification remain the required closure sequence. Iter241's failed capture
+remains sealed and cannot be retried by this gate. This engineering result is
+not a scientific result, independent review, general security approval,
+publication, or release readiness.
 
 <!-- telos-current-state:start -->
 ```text
-status: running
+status: supported
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: finish Iter245 local validation from clean committed bytes, publish the exact preregistered candidate to PR #90 by normal push, require push and pull-request CI to pass on Python 3.11 and Python 3.12, retain and seal the exact result without rerunning failed jobs, and only if the exact final head is green ready and merge it with ordered parents and verify merged master; no force push, workflow dispatch or rerun, repository-setting change, iter241 retry, provider or model call, scientific execution, human contact, spending, paper submission, release, deployment, or visibility change is authorized
+next_authorized_action: validate and append the exact Iter245 successor seal if it is absent, then publish only the resulting clean sealed head to PR #90 by normal fast-forward, require fresh push and pull-request CI to pass on Python 3.11 and Python 3.12, update the PR metadata, ready and merge only the exact green head with ordered parents, verify merged master and its CI, and stop when all conditions already hold; no force push, workflow dispatch or rerun, repository-setting change, iter241 retry, provider or model call, scientific execution, human contact, spending, paper submission, release, deployment, or visibility change is authorized
 ```
 <!-- telos-current-state:end -->
 
@@ -96,7 +98,8 @@ supplemented by its
 [native-loader](experiments/iter245_offline_verified_python_bootstrap/AMENDMENT-2026-07-22-native-loader-boundary.md)
 and
 [fail-closed archive](experiments/iter245_offline_verified_python_bootstrap/AMENDMENT-2026-07-22-fail-closed-archive-boundary.md)
-amendments.
+amendments, with the supported bounded outcome retained in its
+[result](experiments/iter245_offline_verified_python_bootstrap/RESULT.md).
 
 At the current working boundary:
 
@@ -125,7 +128,9 @@ At the current working boundary:
   were never retained and cannot be reconstructed from those documents;
 - Iter243 failed required Actions before pytest collection on Python 3.11 and
   Python 3.12; Iter244 stopped at failed local design acceptance without a
-  push or hosted observation; Iter245 has no hosted observation yet;
+  push or hosted observation; Iter245 passed its initial normal push and
+  pull-request checks across the registered Python-version matrix, while final sealed-
+  head and merged-master checks remain unobserved;
 - exact repository bytes classify the reported GitGuardian occurrences as
   occurrence-specific false positives rather than credentials, while the
   external check remains red and supplies no general security approval;
