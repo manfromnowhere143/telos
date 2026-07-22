@@ -1,0 +1,120 @@
+{
+  "api_version": "2026-03-10",
+  "armed_at": "2026-07-21T10:20:50Z",
+  "authorization_head": "6a9a4f66ec331011c9dfbe14b3a22259a5b585d5",
+  "instruments": [
+    {
+      "byte_count": 10139,
+      "path": "experiments/iter241_iter240_repository_closure/HYPOTHESIS.md",
+      "sha256": "4c2e8096e1be16a1fb25c6772b99d2ee5a849b6e552969f43e73ae1b87cc0699"
+    },
+    {
+      "byte_count": 4798,
+      "path": "experiments/iter241_iter240_repository_closure/fixtures/repository_closure_safe.json",
+      "sha256": "b6cfa94634221faec002ccf487ecb4e29b580389cb312aaf878d3307c76d81e6"
+    },
+    {
+      "byte_count": 4168,
+      "path": "experiments/iter241_iter240_repository_closure/fixtures/repository_closure_known_bad.json",
+      "sha256": "4b019f2f124191de816fb98f5d97be530be5a6396b0c9f075e781657341d7453"
+    },
+    {
+      "byte_count": 17837,
+      "path": "scripts/capture_iter240_repository_closure.py",
+      "sha256": "a09336866ebdf43c1f214da5b215e4a59c386c3b2745e2a9aaf742964ab293fd"
+    },
+    {
+      "byte_count": 40296,
+      "path": "scripts/validate_iter240_repository_closure.py",
+      "sha256": "9f54fdacca4ce334d97c60593c585873f07ec968fcffded7d82c19e649cd36ec"
+    },
+    {
+      "byte_count": 64173,
+      "path": "scripts/validate_seal_registry.py",
+      "sha256": "c8b393f1adbb1960cead14a9da198baae02d62c7ec65413b58fd0dec8cc5ed4d"
+    },
+    {
+      "byte_count": 5638,
+      "path": "tests/test_iter240_repository_closure.py",
+      "sha256": "1b2804edaa05eb049ca6eeca776f6477766b6f86c61e6ad37946c319ea1341a7"
+    }
+  ],
+  "planned_request_counts": {
+    "DELETE": 0,
+    "GET": 13,
+    "PATCH": 0,
+    "POST": 0,
+    "PUT": 0
+  },
+  "repository": "manfromnowhere143/telos",
+  "request_plan": [
+    {
+      "method": "GET",
+      "name": "pull_request_88",
+      "request_path": "/repos/manfromnowhere143/telos/pulls/88"
+    },
+    {
+      "method": "GET",
+      "name": "pull_request_88_timeline",
+      "request_path": "/repos/manfromnowhere143/telos/issues/88/timeline?per_page=100&page=1"
+    },
+    {
+      "method": "GET",
+      "name": "pull_request_88_reviews",
+      "request_path": "/repos/manfromnowhere143/telos/pulls/88/reviews?per_page=100&page=1"
+    },
+    {
+      "method": "GET",
+      "name": "sealed_push_run",
+      "request_path": "/repos/manfromnowhere143/telos/actions/runs/29707762374"
+    },
+    {
+      "method": "GET",
+      "name": "sealed_pr_run",
+      "request_path": "/repos/manfromnowhere143/telos/actions/runs/29707871077"
+    },
+    {
+      "method": "GET",
+      "name": "sealed_tip_check_runs",
+      "request_path": "/repos/manfromnowhere143/telos/commits/f954696c935ad0b733dcd613b553e1799a7b3810/check-runs?filter=all&per_page=100&page=1"
+    },
+    {
+      "method": "GET",
+      "name": "gitguardian_check_run",
+      "request_path": "/repos/manfromnowhere143/telos/check-runs/88247740246"
+    },
+    {
+      "method": "GET",
+      "name": "merge_commit",
+      "request_path": "/repos/manfromnowhere143/telos/git/commits/39e2484cba450fe5346349921572720b0e456fb7"
+    },
+    {
+      "method": "GET",
+      "name": "merged_master_run",
+      "request_path": "/repos/manfromnowhere143/telos/actions/runs/29708028160"
+    },
+    {
+      "method": "GET",
+      "name": "merged_master_check_runs",
+      "request_path": "/repos/manfromnowhere143/telos/commits/39e2484cba450fe5346349921572720b0e456fb7/check-runs?filter=all&per_page=100&page=1"
+    },
+    {
+      "method": "GET",
+      "name": "master_branch",
+      "request_path": "/repos/manfromnowhere143/telos/branches/master"
+    },
+    {
+      "method": "GET",
+      "name": "ruleset",
+      "request_path": "/repos/manfromnowhere143/telos/rulesets/19177100"
+    },
+    {
+      "method": "GET",
+      "name": "effective_rules",
+      "request_path": "/repos/manfromnowhere143/telos/rules/branches/master?per_page=100&page=1"
+    }
+  ],
+  "request_plan_sha256": "b8d7020c7c023bd790a6acc7fb164ceb97e4658c96d94edd60a21345864f6499",
+  "schema_version": "telos.iter241.iter240_repository_closure.attempt.v1",
+  "state": "armed_before_first_request"
+}

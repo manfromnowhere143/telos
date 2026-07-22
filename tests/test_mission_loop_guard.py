@@ -303,6 +303,43 @@ def test_current_validation_requires_exact_structured_membership() -> None:
     ]
 
 
+def test_historical_pytest_requires_exact_authenticated_successor() -> None:
+    guard = load_guard_module()
+    historical = "pytest -q"
+    successor = "python3 -I scripts/run_iter241_pytest.py --run"
+    contract = {"current_validation": [historical]}
+    good = f"""jobs:
+  verify:
+    steps:
+      - run: {successor}
+"""
+
+    assert guard.CURRENT_VALIDATION_SUCCESSORS == {historical: successor}
+    assert guard.validate_current_validation(
+        contract,
+        good,
+        required_commands=(historical,),
+    ) == []
+
+    for rejected in (
+        "pytest -q",
+        "python3 scripts/run_iter241_pytest.py --run",
+    ):
+        bad = f"""jobs:
+  verify:
+    steps:
+      - run: {rejected}
+"""
+        assert guard.validate_current_validation(
+            contract,
+            bad,
+            required_commands=(historical,),
+        ) == [
+            "mission validation command lacks its exact executable CI successor: "
+            f"{historical} -> {successor}"
+        ]
+
+
 def test_disabled_or_commented_ci_text_cannot_satisfy_contract() -> None:
     guard = load_guard_module()
     required = "python3 scripts/required.py"

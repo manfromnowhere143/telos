@@ -1,0 +1,37 @@
+{
+  "cases": [
+    {
+      "case_id": "omitted_member",
+      "document": {},
+      "expected_classification": "omitted",
+      "expected_contract_acceptance": false
+    },
+    {
+      "case_id": "conflicting_sha_member",
+      "document": {
+        "merge_commit_sha": "0000000000000000000000000000000000000000"
+      },
+      "expected_classification": "conflicting_sha",
+      "expected_contract_acceptance": false
+    }
+  ],
+  "contract": "merge_commit_sha must be a present object member whose value is either explicit null or the exact registered merge SHA",
+  "header_fidelity_cases": [
+    {
+      "case_id": "canonicalized_returned_pairs_only",
+      "document": {
+        "raw_header_section_bytes_retained": false,
+        "serialization": "canonical_json_header_pairs",
+        "source_api": "http.client.HTTPResponse.getheaders"
+      },
+      "expected_classification": "canonicalized_returned_pairs_only",
+      "expected_contract_acceptance": false,
+      "expected_status": {
+        "capture_completeness": "failed",
+        "raw_header_byte_fidelity": "failed"
+      }
+    }
+  ],
+  "raw_header_byte_contract": "the exact response header-section bytes must be retained without a parsed or reserialized substitute",
+  "schema_version": "telos.iter241.repository_closure_correction.known_bad.v1"
+}

@@ -1,0 +1,376 @@
+{
+  "candidate": {
+    "commit": "de22688f800e0fb46c15ecd851d2bf76e26b0a82",
+    "pull_request": {
+      "base_branch": "master",
+      "base_commit": "6a9a4f66ec331011c9dfbe14b3a22259a5b585d5",
+      "head_branch": "agent/iter241-iter240-repository-closure",
+      "head_commit": "de22688f800e0fb46c15ecd851d2bf76e26b0a82",
+      "number": 90,
+      "synthetic_merge_commit": "29b5b29981c684032151ef8d6d78a88d5bb77389",
+      "synthetic_merge_parents": [
+        "6a9a4f66ec331011c9dfbe14b3a22259a5b585d5",
+        "de22688f800e0fb46c15ecd851d2bf76e26b0a82"
+      ],
+      "synthetic_merge_tree": "416c864123bd7451d250bcd6384c41d1670343a5",
+      "synthetic_tree_matches_candidate": true
+    },
+    "tree": "416c864123bd7451d250bcd6384c41d1670343a5"
+  },
+  "collection_boundary": "GitHub run, job, check, and synthetic-merge metadata plus the bounded observations emitted by the Iter245 bootstrap and authenticated runner; unrestricted logs, environment values, temporary paths, and credentials are not retained",
+  "conclusion": {
+    "final_sealed_head_checks": "not_run",
+    "hosted_bootstrap_observation_count": 4,
+    "hosted_bootstrap_observation_passes": 4,
+    "iter241_retry": "not_authorized",
+    "merged_master_verification": "not_run",
+    "preregistration_integrity": "valid",
+    "pull_request_required_job_count": 2,
+    "pull_request_required_job_passes": 2,
+    "push_required_job_count": 2,
+    "push_required_job_passes": 2,
+    "remote_repository_integration": "supported",
+    "scientific_authority": "absent"
+  },
+  "external_security_check": {
+    "conclusion": "failure",
+    "disposition": "occurrence_specific_git_object_false_positive",
+    "general_security_approval": false,
+    "name": "GitGuardian Security Checks",
+    "required_by_default_branch_ruleset": false,
+    "retained_classification_path": "experiments/iter243_iter242_remote_ci_recovery/proof/gitguardian_occurrence_classification.json"
+  },
+  "matrix_observations": [
+    {
+      "archive_extraction": {
+        "archive_member_count": 10544,
+        "archive_sha256": "a972aa7e44f1596aa63274a9ac58dbc2349c321f3f78b1c0fc5a60d5d69a6402",
+        "archive_size": 92521776,
+        "direct_needed_count": 2,
+        "directory_count": 565,
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "regular_file_count": 9970,
+        "rpath_present": false,
+        "runpath": "/opt/hostedtoolcache/Python/3.11.15/x64/lib",
+        "symlink_count": 9,
+        "uncompressed_regular_bytes": 305000600
+      },
+      "bootstrap_summary": {
+        "byte_count": 92521776,
+        "final_host": "release-assets.githubusercontent.com",
+        "matrix": "3.11",
+        "python": "3.11.15",
+        "redirect_count": 1,
+        "registered_asset_id": 449621339,
+        "sha256": "a972aa7e44f1596aa63274a9ac58dbc2349c321f3f78b1c0fc5a60d5d69a6402",
+        "tree_group_or_world_writable": false,
+        "upstream_setup_executed": false
+      },
+      "first_python": {
+        "flags": {
+          "ignore_environment": 1,
+          "isolated": 1,
+          "no_user_site": 1,
+          "safe_path": true
+        },
+        "libpython_contained": true,
+        "pip_contained": true,
+        "prefixes_contained": true,
+        "version": "3.11.15"
+      },
+      "identical_across_registered_events": true,
+      "matrix": "3.11",
+      "observation_id": "python-3.11.15",
+      "observed_in_job_ids": [
+        88924514501,
+        88924522741
+      ],
+      "retained_tree_validation": {
+        "direct_needed_count": 2,
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "rpath_present": false,
+        "runpath": "/opt/hostedtoolcache/Python/3.11.15/x64/lib"
+      }
+    },
+    {
+      "archive_extraction": {
+        "archive_member_count": 9339,
+        "archive_sha256": "ce7d511228f095b5ea1ad5568543388870f5964688303f9ddc24ba06c336bfba",
+        "archive_size": 94990593,
+        "direct_needed_count": 2,
+        "directory_count": 447,
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "regular_file_count": 8883,
+        "rpath_present": false,
+        "runpath": "/opt/hostedtoolcache/Python/3.12.13/x64/lib",
+        "symlink_count": 9,
+        "uncompressed_regular_bytes": 306929490
+      },
+      "bootstrap_summary": {
+        "byte_count": 94990593,
+        "final_host": "release-assets.githubusercontent.com",
+        "matrix": "3.12",
+        "python": "3.12.13",
+        "redirect_count": 1,
+        "registered_asset_id": 449635535,
+        "sha256": "ce7d511228f095b5ea1ad5568543388870f5964688303f9ddc24ba06c336bfba",
+        "tree_group_or_world_writable": false,
+        "upstream_setup_executed": false
+      },
+      "first_python": {
+        "flags": {
+          "ignore_environment": 1,
+          "isolated": 1,
+          "no_user_site": 1,
+          "safe_path": true
+        },
+        "libpython_contained": true,
+        "pip_contained": true,
+        "prefixes_contained": true,
+        "version": "3.12.13"
+      },
+      "identical_across_registered_events": true,
+      "matrix": "3.12",
+      "observation_id": "python-3.12.13",
+      "observed_in_job_ids": [
+        88924514424,
+        88924522834
+      ],
+      "retained_tree_validation": {
+        "direct_needed_count": 2,
+        "program_interpreter": "/lib64/ld-linux-x86-64.so.2",
+        "rpath_present": false,
+        "runpath": "/opt/hostedtoolcache/Python/3.12.13/x64/lib"
+      }
+    }
+  ],
+  "python_trust_observation": {
+    "bounded_observation": {
+      "decision": "accept",
+      "egid": 1001,
+      "euid": 1001,
+      "executable_absolute": true,
+      "file_gid": 1001,
+      "file_mode": "0700",
+      "file_regular": true,
+      "file_uid": 1001,
+      "ignore_environment": 1,
+      "isolated": 1,
+      "no_user_site": 1,
+      "owner_executable": true,
+      "reason": null,
+      "safe_path": true
+    },
+    "identical_across_registered_jobs": true,
+    "observed_in_job_ids": [
+      88924514424,
+      88924514501,
+      88924522741,
+      88924522834
+    ]
+  },
+  "result_capture_contract": {
+    "exact_schema_preregistered_before_observation": false,
+    "frozen_category_requirements_path": "experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md",
+    "semantic_validator_role": "retrospective_same_operator_consistency_check",
+    "semantic_validator_supplies_independent_attestation": false
+  },
+  "runner_image": {
+    "image": "ubuntu-24.04",
+    "image_version": "20260714.240.1",
+    "observed_in_job_ids": [
+      88924514424,
+      88924514501,
+      88924522741,
+      88924522834
+    ],
+    "provisioner_version": "20260707.563",
+    "runner_version": "2.336.0"
+  },
+  "runs": [
+    {
+      "attempt": 1,
+      "conclusion": "success",
+      "created_at": "2026-07-22T12:39:17Z",
+      "event": "push",
+      "head_branch": "agent/iter241-iter240-repository-closure",
+      "head_sha": "de22688f800e0fb46c15ecd851d2bf76e26b0a82",
+      "jobs": [
+        {
+          "completed_at": "2026-07-22T12:44:39Z",
+          "conclusion": "success",
+          "job_id": 88924514424,
+          "matrix": "3.12",
+          "name": "verify push py3.12",
+          "observation_ref": "python-3.12.13",
+          "runner": {
+            "group_id": 0,
+            "group_name": "GitHub Actions",
+            "id": 1000014799,
+            "labels": [
+              "ubuntu-24.04"
+            ],
+            "name": "GitHub Actions 1000014799"
+          },
+          "selected_steps": {
+            "bootstrap": {
+              "completed_at": "2026-07-22T12:39:32Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:39:24Z"
+            },
+            "full_clean_tree": {
+              "completed_at": "2026-07-22T12:43:59Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:43:59Z"
+            },
+            "tests": {
+              "completed_at": "2026-07-22T12:42:59Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:39:39Z"
+            }
+          },
+          "started_at": "2026-07-22T12:39:19Z",
+          "status": "completed",
+          "url": "https://github.com/manfromnowhere143/telos/actions/runs/29920504274/job/88924514424"
+        },
+        {
+          "completed_at": "2026-07-22T12:44:26Z",
+          "conclusion": "success",
+          "job_id": 88924514501,
+          "matrix": "3.11",
+          "name": "verify push py3.11",
+          "observation_ref": "python-3.11.15",
+          "runner": {
+            "group_id": 0,
+            "group_name": "GitHub Actions",
+            "id": 1000014800,
+            "labels": [
+              "ubuntu-24.04"
+            ],
+            "name": "GitHub Actions 1000014800"
+          },
+          "selected_steps": {
+            "bootstrap": {
+              "completed_at": "2026-07-22T12:39:36Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:39:25Z"
+            },
+            "full_clean_tree": {
+              "completed_at": "2026-07-22T12:43:38Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:43:37Z"
+            },
+            "tests": {
+              "completed_at": "2026-07-22T12:42:44Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:39:42Z"
+            }
+          },
+          "started_at": "2026-07-22T12:39:20Z",
+          "status": "completed",
+          "url": "https://github.com/manfromnowhere143/telos/actions/runs/29920504274/job/88924514501"
+        }
+      ],
+      "run_id": 29920504274,
+      "started_at": "2026-07-22T12:39:17Z",
+      "status": "completed",
+      "updated_at": "2026-07-22T12:44:40Z",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29920504274"
+    },
+    {
+      "attempt": 1,
+      "conclusion": "success",
+      "created_at": "2026-07-22T12:39:19Z",
+      "event": "pull_request",
+      "head_branch": "agent/iter241-iter240-repository-closure",
+      "head_sha": "de22688f800e0fb46c15ecd851d2bf76e26b0a82",
+      "jobs": [
+        {
+          "completed_at": "2026-07-22T12:44:29Z",
+          "conclusion": "success",
+          "job_id": 88924522741,
+          "matrix": "3.11",
+          "name": "verify pull_request py3.11",
+          "observation_ref": "python-3.11.15",
+          "runner": {
+            "group_id": 0,
+            "group_name": "GitHub Actions",
+            "id": 1000014801,
+            "labels": [
+              "ubuntu-24.04"
+            ],
+            "name": "GitHub Actions 1000014801"
+          },
+          "selected_steps": {
+            "bootstrap": {
+              "completed_at": "2026-07-22T12:39:37Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:39:27Z"
+            },
+            "full_clean_tree": {
+              "completed_at": "2026-07-22T12:43:39Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:43:39Z"
+            },
+            "tests": {
+              "completed_at": "2026-07-22T12:42:46Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:39:44Z"
+            }
+          },
+          "started_at": "2026-07-22T12:39:22Z",
+          "status": "completed",
+          "url": "https://github.com/manfromnowhere143/telos/actions/runs/29920506702/job/88924522741"
+        },
+        {
+          "completed_at": "2026-07-22T12:45:12Z",
+          "conclusion": "success",
+          "job_id": 88924522834,
+          "matrix": "3.12",
+          "name": "verify pull_request py3.12",
+          "observation_ref": "python-3.12.13",
+          "runner": {
+            "group_id": 0,
+            "group_name": "GitHub Actions",
+            "id": 1000014802,
+            "labels": [
+              "ubuntu-24.04"
+            ],
+            "name": "GitHub Actions 1000014802"
+          },
+          "selected_steps": {
+            "bootstrap": {
+              "completed_at": "2026-07-22T12:39:36Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:39:27Z"
+            },
+            "full_clean_tree": {
+              "completed_at": "2026-07-22T12:43:58Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:43:58Z"
+            },
+            "tests": {
+              "completed_at": "2026-07-22T12:43:00Z",
+              "conclusion": "success",
+              "started_at": "2026-07-22T12:39:42Z"
+            }
+          },
+          "started_at": "2026-07-22T12:39:22Z",
+          "status": "completed",
+          "url": "https://github.com/manfromnowhere143/telos/actions/runs/29920506702/job/88924522834"
+        }
+      ],
+      "run_id": 29920506702,
+      "started_at": "2026-07-22T12:39:19Z",
+      "status": "completed",
+      "updated_at": "2026-07-22T12:45:13Z",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29920506702"
+    }
+  ],
+  "schema_version": "telos.iter245.remote_ci_observation.v1",
+  "workflow": {
+    "database_id": 309260095,
+    "path": ".github/workflows/ci.yml",
+    "sha256": "7bab87602a7d3aea6b01458cce5c94fa0a49cc11d32188dbfcf0cd29148616d4"
+  }
+}

@@ -28,7 +28,7 @@ git status --short
 python3 scripts/validate_current_paper.py
 python3 scripts/validate_current_state.py
 python3 scripts/validate_mission_loop.py
-pytest -q
+python3 -I scripts/run_iter241_pytest.py --run
 ```
 
 ## Evidence rules

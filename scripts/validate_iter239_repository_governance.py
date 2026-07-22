@@ -87,11 +87,14 @@ RULESET_NAME = "telos-default-branch-technical-floor-v1"
 INTEGRATION_ID = 15368
 WORKFLOW_ID = 309260095
 WORKFLOW_RELATIVE = Path(".github/workflows/ci.yml")
+CI_DELTA_VALIDATOR_RELATIVE = Path(
+    "scripts/validate_iter239_ci_workflow_delta.py"
+)
 SOURCE_BOUND_RELATIVES = (
     POLICY_RELATIVE,
     WORKFLOW_RELATIVE,
     Path("scripts/configure_repository_governance.py"),
-    Path("scripts/validate_iter239_ci_workflow_delta.py"),
+    CI_DELTA_VALIDATOR_RELATIVE,
     Path("scripts/validate_iter239_repository_governance.py"),
 )
 GOVERNANCE_DRIVER_RELATIVE = Path(
@@ -107,10 +110,14 @@ INSTRUMENT_TRANSITION_RELATIVES = (
     GOVERNANCE_DRIVER_RELATIVE,
     DRIVER_TEST_RELATIVE,
 )
+POST_ITER239_EVOLVABLE_RELATIVES = frozenset(
+    {WORKFLOW_RELATIVE, CI_DELTA_VALIDATOR_RELATIVE}
+)
 OPERATIONAL_STABLE_RELATIVES = tuple(
     relative
     for relative in SOURCE_BOUND_RELATIVES
     if relative != GOVERNANCE_VALIDATOR_RELATIVE
+    and relative not in POST_ITER239_EVOLVABLE_RELATIVES
 ) + (DRIVER_TEST_RELATIVE,)
 BEFORE_JOB_NAME = b"verify py${{ matrix.python-version }}"
 AFTER_JOB_NAME = b"verify ${{ github.event_name }} py${{ matrix.python-version }}"
@@ -661,10 +668,9 @@ def current_ci_failures(root: Path) -> list[str]:
     before = _git_blob(root, MERGED_MASTER_ANCHOR, WORKFLOW_RELATIVE)
     if before is None:
         return ["CI workflow: cannot load frozen merged-master anchor blob"]
-    try:
-        after = (root / WORKFLOW_RELATIVE).read_bytes()
-    except OSError as exc:
-        return [f"CI workflow: cannot read current bytes: {exc}"]
+    after = _git_blob(root, OPERATIONAL_SOURCE_COMMIT, WORKFLOW_RELATIVE)
+    if after is None:
+        return ["CI workflow: cannot load retained Iter239 operational blob"]
     return ci_evolution_failures(before, after)
 
 

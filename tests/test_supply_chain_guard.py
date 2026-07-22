@@ -288,6 +288,151 @@ def test_workflow_guard_rejects_enabled_pip_version_check(tmp_path: Path) -> Non
     assert "must disable the pip version check" in failures
 
 
+@pytest.mark.parametrize(
+    "prelude",
+    (
+        "# export PIP_DISABLE_PIP_VERSION_CHECK=1",
+        "true\nexport PIP_DISABLE_PIP_VERSION_CHECK=1",
+    ),
+)
+def test_workflow_guard_rejects_commented_or_late_pip_version_control(
+    tmp_path: Path,
+    prelude: str,
+) -> None:
+    guard = load_guard()
+    path = tmp_path / "version-control-order.yml"
+    command = (
+        'wheelhouse="$(mktemp -d /tmp/test.XXXXXX)"\n'
+        "python -m pip download --no-cache-dir --require-hashes "
+        '--only-binary=:all: --dest "$wheelhouse" -r requirements-ci.txt\n'
+        f"{prelude}"
+    )
+    path.write_text(guarded_workflow(command))
+
+    failures = "\n".join(guard.validate_workflow(path))
+    assert "must disable the pip version check" in failures
+
+
+@pytest.mark.parametrize(
+    "arguments",
+    (
+        (
+            "attacker -- --no-cache-dir --require-hashes --only-binary=:all: "
+            '--dest "$wheelhouse" -r requirements-ci.txt'
+        ),
+        (
+            "--proxy --require-hashes --no-cache-dir --only-binary=:all: "
+            '--dest "$wheelhouse" -r requirements-ci.txt'
+        ),
+    ),
+)
+def test_workflow_guard_rejects_argument_parser_spoofs(
+    tmp_path: Path,
+    arguments: str,
+) -> None:
+    guard = load_guard()
+    path = tmp_path / "argument-spoof.yml"
+    path.write_text(
+        guarded_workflow(
+            'wheelhouse="$(mktemp -d /tmp/test.XXXXXX)"\n'
+            "export PIP_DISABLE_PIP_VERSION_CHECK=1\n"
+            f"python3 -m pip download {arguments}"
+        )
+    )
+
+    failures = "\n".join(guard.validate_workflow(path))
+    assert "every pip invocation must use one canonical literal" in failures
+
+
+@pytest.mark.parametrize(
+    "command",
+    (
+        "python3 -I -P -m pip --isolated --disable-pip-version-check download",
+        "python3 -I -P -m pip --proxy https://proxy.invalid download",
+        "python3 -I -P -m pip --proxy 'https://proxy.invalid;a' download",
+        "python3 -I -P -m pip --proxy 'https://proxy.invalid&a' download",
+        "env PIP_NO_INPUT=1 python3 -m pip download",
+    ),
+)
+def test_workflow_guard_detects_pip_behind_interpreter_and_global_flags(
+    tmp_path: Path,
+    command: str,
+) -> None:
+    guard = load_guard()
+    path = tmp_path / "flagged-pip.yml"
+    path.write_text(
+        guarded_workflow(
+            'wheelhouse="$(mktemp -d /tmp/test.XXXXXX)"\n'
+            "export PIP_DISABLE_PIP_VERSION_CHECK=1\n"
+            f"{command} "
+            '--no-cache-dir --only-binary=:all: --dest "$wheelhouse" '
+            "-r requirements-ci.txt"
+        )
+    )
+
+    failures = "\n".join(guard.validate_workflow(path))
+    assert "pip download must use --require-hashes" in failures
+
+
+@pytest.mark.parametrize(
+    "command",
+    (
+        "python3 -m pip 'download' package",
+        'python3 -m pip "download" package',
+        'python3 -m pip down""load package',
+        "python3 -m 'pip' download package",
+        "python3 -m pip.__main__ download package",
+        (
+            "python3 -m pip download attacker # --no-cache-dir --require-hashes "
+            '--only-binary=:all: --dest "$wheelhouse" -r requirements-ci.txt'
+        ),
+        (
+            "python3 -m pip download attacker > --no-cache-dir --require-hashes "
+            '--only-binary=:all: --dest "$wheelhouse" -r requirements-ci.txt'
+        ),
+        (
+            "python3 -m pip uninstall download --no-cache-dir --require-hashes "
+            '--only-binary=:all: --dest "$wheelhouse" -r requirements-ci.txt'
+        ),
+    ),
+)
+def test_workflow_guard_rejects_unparsed_shell_valid_pip_invocations(
+    tmp_path: Path,
+    command: str,
+) -> None:
+    guard = load_guard()
+    path = tmp_path / "unparsed-pip.yml"
+    path.write_text(
+        guarded_workflow(
+            'wheelhouse="$(mktemp -d /tmp/test.XXXXXX)"\n'
+            "export PIP_DISABLE_PIP_VERSION_CHECK=1\n"
+            f"{command}"
+        )
+    )
+
+    failures = "\n".join(guard.validate_workflow(path))
+    assert "every pip invocation must use one canonical literal" in failures
+
+
+def test_one_valid_pip_operation_cannot_mask_one_unparsed_invocation(
+    tmp_path: Path,
+) -> None:
+    guard = load_guard()
+    path = tmp_path / "mixed-pip.yml"
+    path.write_text(
+        guarded_workflow(
+            'wheelhouse="$(mktemp -d /tmp/test.XXXXXX)"\n'
+            "export PIP_DISABLE_PIP_VERSION_CHECK=1\n"
+            "python3 -m pip download --no-cache-dir --require-hashes "
+            '--only-binary=:all: --dest "$wheelhouse" -r requirements-ci.txt\n'
+            "python3 -m pip 'install' package"
+        )
+    )
+
+    failures = "\n".join(guard.validate_workflow(path))
+    assert "every pip invocation must use one canonical literal" in failures
+
+
 def test_lock_guard_rejects_unhashed_dependency(tmp_path: Path) -> None:
     guard = load_guard()
     path = tmp_path / "requirements-ci.txt"

@@ -11,6 +11,7 @@ jobs:
   verify:
     name: verify ${{ github.event_name }} py${{ matrix.python-version }}
     runs-on: ubuntu-24.04
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
@@ -19,22 +20,26 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
           fetch-depth: 0
+          persist-credentials: false
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: ${{ matrix.python-version }}
-          cache: pip
-          cache-dependency-path: requirements-ci.txt
+      - name: Bootstrap offline verified Python
+        run: |
+          /usr/bin/printf '%s  %s\n' '324b4cef3c85e3377566d119b108ef92e823be185c5daf6e2480bedc90482805' 'scripts/bootstrap_iter245_python.sh' | /usr/bin/sha256sum --check --strict -
+          /usr/bin/printf '%s  %s\n' '26d1314e29bbdf3647271189f7e4780cfcbb154f93c0f62ec2d851c2c53ffcef' 'scripts/extract_iter245_python.py' | /usr/bin/sha256sum --check --strict -
+          /usr/bin/printf '%s  %s\n' '1714b8cff91ccf3a58758f6b58f44dbf51acf33152c2b88e6333c823c28970f3' 'scripts/validate_iter245_python_bootstrap.py' | /usr/bin/sha256sum --check --strict -
+          /usr/bin/bash scripts/bootstrap_iter245_python.sh --bootstrap "${{ matrix.python-version }}"
 
       - name: Install verification tools
         run: |
           wheelhouse="$(mktemp -d /tmp/telos-ci-wheelhouse.XXXXXX)"
           export PIP_DISABLE_PIP_VERSION_CHECK=1
-          python -m pip download \
+          python3 -I -P -m pip --isolated --disable-pip-version-check download \
+            --index-url https://pypi.org/simple --no-deps \
             --no-cache-dir --require-hashes --only-binary=:all: \
             --dest "$wheelhouse" -r requirements-ci.txt
-          python -m pip install \
+          python3 -I -P -m pip --isolated --disable-pip-version-check install \
             --no-index --find-links "$wheelhouse" \
+            --no-deps \
             --no-cache-dir --require-hashes --only-binary=:all: \
             -r requirements-ci.txt
 
@@ -45,7 +50,7 @@ jobs:
         run: ruff check .
 
       - name: Tests
-        run: pytest -q
+        run: python3 -I scripts/run_iter241_pytest.py --run
 
       - name: JSON guard
         run: python3 scripts/validate_json.py
@@ -73,6 +78,12 @@ jobs:
 
       - name: Supply-chain guard
         run: python3 scripts/validate_supply_chain.py
+
+      - name: Iter245 offline verified Python bootstrap guard
+        run: python3 scripts/validate_iter245_python_bootstrap.py
+
+      - name: Iter245 retrospective remote-CI result consistency guard
+        run: python3 scripts/validate_iter245_remote_ci_result.py
 
       - name: Regenerate corrected detector artifacts without providers
         run: |

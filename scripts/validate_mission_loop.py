@@ -76,6 +76,14 @@ CORE_VALIDATION_COMMANDS = (
     "python3 scripts/validate_handoff.py",
 )
 
+# ``mission/loop.json`` is sealed historical evidence. Its original bare
+# pytest entry remains exact, while current CI must execute the reviewed,
+# pre-collection authenticated successor instead of treating old command text
+# as permanent implementation authority.
+CURRENT_VALIDATION_SUCCESSORS = {
+    "pytest -q": "python3 -I scripts/run_iter241_pytest.py --run",
+}
+
 SHELL_CONTROL_TOKENS = {
     "&",
     "&&",
@@ -1305,9 +1313,26 @@ def validate_current_validation(
             failures.append(f"core mission validation command missing from contract: {required}")
 
     ci_commands = executable_ci_commands(ci)
-    for command, parsed in parsed_commands.items():
-        if parsed not in ci_commands:
-            failures.append(f"mission validation command is not an executable CI step: {command}")
+    for command in parsed_commands:
+        current_command = CURRENT_VALIDATION_SUCCESSORS.get(command, command)
+        current_parsed = standalone_shell_command(current_command)
+        if current_parsed is None or shlex.join(current_parsed) != current_command:
+            failures.append(
+                "mission validation successor is not canonical: "
+                f"{command!r} -> {current_command!r}"
+            )
+            continue
+        if current_parsed not in ci_commands:
+            if current_command == command:
+                failures.append(
+                    "mission validation command is not an executable CI step: "
+                    f"{command}"
+                )
+            else:
+                failures.append(
+                    "mission validation command lacks its exact executable CI "
+                    f"successor: {command} -> {current_command}"
+                )
     return failures
 
 

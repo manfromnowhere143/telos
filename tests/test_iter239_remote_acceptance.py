@@ -326,9 +326,15 @@ def write_synthetic_receipt(tmp_path: Path) -> tuple[dict[str, Any], Path, Path]
     raw_root.mkdir(mode=0o755)
     started_at = "2026-07-19T20:01:00Z"
     completed_at = started_at
-    marker_raw = capture_guard.canonical_json(
-        capture_guard.build_attempt_marker(started_at=started_at)
-    )
+    marker = capture_guard.build_attempt_marker(started_at=started_at)
+    for instrument in marker["instruments"]:
+        relative = instrument["path"]
+        if relative not in guard.POST_CAPTURE_EVOLVABLE_PATHS:
+            continue
+        retained = guard.retained_capture_instrument_bytes(ROOT, relative)
+        instrument["byte_count"] = len(retained)
+        instrument["sha256"] = guard.sha256(retained)
+    marker_raw = capture_guard.canonical_json(marker)
     marker_path = raw_root / capture_guard.ATTEMPT_FILENAME
     marker_path.write_bytes(marker_raw)
     marker_path.chmod(0o644)
@@ -618,6 +624,39 @@ def apply_known_bad(
 
 def test_retained_remote_acceptance_passes_offline() -> None:
     assert guard.validate() == []
+
+
+def test_evolved_governance_validator_keeps_exact_capture_provenance(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    relative = "scripts/validate_iter239_repository_governance.py"
+    assert guard.POST_CAPTURE_EVOLVABLE_PATHS == {
+        "scripts/validate_iter239_remote_acceptance.py",
+        relative,
+    }
+    historical = guard._git(
+        ROOT,
+        "show",
+        f"{guard.CAPTURE_EVIDENCE_COMMIT}:{relative}",
+    )
+    assert (ROOT / relative).read_bytes() != historical
+    assert guard.retained_capture_instrument_bytes(ROOT, relative) == historical
+
+    original = guard._git
+
+    def corrupted(root: Path, *arguments: str) -> bytes:
+        payload = original(root, *arguments)
+        if arguments == (
+            "show",
+            f"{guard.CAPTURE_EVIDENCE_COMMIT}:{relative}",
+        ):
+            return payload + b"retained drift\n"
+        return payload
+
+    monkeypatch.setattr(guard, "_git", corrupted)
+    receipt = load_json(RECEIPT)
+    failures = guard.attempt_failures(receipt, root=ROOT, raw_root=RAW_ROOT)
+    assert f"capture instrument byte binding differs: {relative}" in failures
 
 
 def test_synthetic_known_good_receipt_passes_before_live_capture(

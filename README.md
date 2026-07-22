@@ -55,31 +55,57 @@ the current [paper](paper/telos.tex).
 ## Current engineering gate
 
 The active gate is
-[`experiments/iter240_ground_truth_admission_design/HYPOTHESIS.md`](experiments/iter240_ground_truth_admission_design/HYPOTHESIS.md).
-It is an offline, provider-free and spend-free ground-truth admission and
-missingness-design iteration, not a scientific result or independent review.
+[`experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md`](experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md).
+Iter243 is sealed failed remote-integration evidence and its preregistration
+integrity is invalid. Iter244 retained a valid preregistration but failed local
+design acceptance: its implementation candidate was discarded, nothing was
+pushed, and no hosted outcome exists. Iter245 now supports bounded repository
+integration for exact candidate `de22688f800e0fb46c15ecd851d2bf76e26b0a82`.
+Normal push and pull-request runs each passed Python 3.11 and Python 3.12
+without a rerun after exact-archive verification, permission and native-loader
+containment, and the authenticated runner's world-write denial. The exact
+[Iter245 result](experiments/iter245_offline_verified_python_bootstrap/RESULT.md)
+retains that bounded outcome and its capture-contract limitation. Its exact
+successor seal, fresh final-head checks, ordered-parent merge, and merged-master
+verification remain the required closure sequence. Iter241's failed capture
+remains sealed and cannot be retried by this gate. This engineering result is
+not a scientific result, independent review, general security approval,
+publication, or release readiness.
 
 <!-- telos-current-state:start -->
 ```text
-status: running
+status: supported
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: derive and freeze the fresh-cohort recoverability and independent-ground-truth admission design offline; no generation, target execution, judging, reviewer recruitment, provider call, container run, GPU, or spend is authorized
+next_authorized_action: validate and append the exact Iter245 successor seal if it is absent, then publish only the resulting clean sealed head to PR #90 by normal fast-forward, require fresh push and pull-request CI to pass on Python 3.11 and Python 3.12, update the PR metadata, ready and merge only the exact green head with ordered parents, verify merged master and its CI, and stop when all conditions already hold; no force push, workflow dispatch or rerun, repository-setting change, iter241 retry, provider or model call, scientific execution, human contact, spending, paper submission, release, deployment, or visibility change is authorized
 ```
 <!-- telos-current-state:end -->
 
 This synchronized block is a mutable repository control. Its agreement proves
 neither scientific, remote, governance, nor design acceptance.
 
-Iter240 completion authority is
-`experiments/iter240_ground_truth_admission_design/RESULT.md` when that file
-exists.
-Its absence means the gate remains unaccepted.
+The failed Iter241 outcome remains authoritative in
+[`experiments/iter241_iter240_repository_closure/RESULT.md`](experiments/iter241_iter240_repository_closure/RESULT.md).
+The supported local Iter242 outcome is retained in
+[`experiments/iter242_iter241_successor_closure/RESULT.md`](experiments/iter242_iter241_successor_closure/RESULT.md).
+The failed Iter243 remote-integration outcome is retained in
+[`experiments/iter243_iter242_remote_ci_recovery/RESULT.md`](experiments/iter243_iter242_remote_ci_recovery/RESULT.md),
+and the failed Iter244 design review is retained in
+[`experiments/iter244_verified_python_bootstrap/RESULT.md`](experiments/iter244_verified_python_bootstrap/RESULT.md).
+The active engineering-recovery contract is the
+[Iter245 hypothesis](experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md),
+supplemented by its
+[native-loader](experiments/iter245_offline_verified_python_bootstrap/AMENDMENT-2026-07-22-native-loader-boundary.md)
+and
+[fail-closed archive](experiments/iter245_offline_verified_python_bootstrap/AMENDMENT-2026-07-22-fail-closed-archive-boundary.md)
+amendments, with the supported bounded outcome retained in its
+[result](experiments/iter245_offline_verified_python_bootstrap/RESULT.md).
 
 At the current working boundary:
 
-- iter238's exact completed evidence and iter239's exact completed evidence are
-  protected by their registered successor seals;
+- iter238 through iter244 exact completed evidence are protected by registered
+  successor seals, and Iter245 is open under the current additions-only
+  prospective authorization;
 - public quantitative claims remain governed by
   [`mission/claim_registry.json`](mission/claim_registry.json), protected-byte
   transitions by [`mission/seal_registry.json`](mission/seal_registry.json),
@@ -91,12 +117,28 @@ At the current working boundary:
 - that technical floor intentionally does not require approvals
   because no independent write-capable reviewer exists. It must never be
   described as review assurance;
-- retained evidence cannot resolve the fresh-cohort missing outcomes under the
-  frozen protocol, so iter240 must preserve missingness, task-level dependence,
-  and outcome leakage while freezing the next independent-adjudication design;
-  and
-- no provider, model judge, human, container, GPU, new cohort, or spending
-  action is authorized by iter240.
+- iter240 preserved all selected fresh-cohort missing outcomes and froze the
+  next independent-adjudication design without executing it;
+- iter241 failed because the retained PR response omitted a registered member;
+  its frozen validator conflated omission with explicit null through shared
+  producer/validator projection logic;
+- iter241 independently failed the raw-header-byte gate because `http.client`
+  returned parsed header pairs that were reserialized as canonical JSON; exact
+  header-section bytes
+  were never retained and cannot be reconstructed from those documents;
+- Iter243 failed required Actions before pytest collection on Python 3.11 and
+  Python 3.12; Iter244 stopped at failed local design acceptance without a
+  push or hosted observation; Iter245 passed its initial normal push and
+  pull-request checks across the registered Python-version matrix, while final sealed-
+  head and merged-master checks remain unobserved;
+- exact repository bytes classify the reported GitGuardian occurrences as
+  occurrence-specific false positives rather than credentials, while the
+  external check remains red and supplies no general security approval;
+- the retained header artifacts are canonicalized returned header-pair
+  documents, not raw HTTP wire bytes; and
+- no repository write, workflow dispatch or rerun, provider, model judge,
+  human, target, container, GPU, new cohort, or spending action is authorized
+  by iter241.
 
 The completed iter238 claim inventory separately accounted for four
 preregistered public surfaces and two supplemental hardening surfaces. Its
@@ -106,8 +148,8 @@ active. Iter238 used zero provider spend.
 
 The mutable authority is
 [`mission/current.json`](mission/current.json), which points to
-[`docs/HANDOFF-2026-07-19-iter240.md`](docs/HANDOFF-2026-07-19-iter240.md) and
-[`docs/TELOS-AUDIT-2026-07-19.md`](docs/TELOS-AUDIT-2026-07-19.md).
+[`docs/HANDOFF-2026-07-22-iter245.md`](docs/HANDOFF-2026-07-22-iter245.md) and
+[`docs/TELOS-AUDIT-2026-07-22.md`](docs/TELOS-AUDIT-2026-07-22.md).
 Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,
 not the current baton.
@@ -151,7 +193,7 @@ own consequential scientific claim.
 
 The current evidence is best read in this order:
 
-1. [Takeover audit](docs/TELOS-AUDIT-2026-07-19.md) — independent verdict,
+1. [Takeover audit](docs/TELOS-AUDIT-2026-07-22.md) — dated verdict,
    frontier comparison, and mission sequence.
 2. [Current paper source](paper/telos.tex) and [PDF](paper/telos.pdf) —
    forensic case-series synthesis; not submission-ready or a benchmark claim.
@@ -272,10 +314,14 @@ Telos scientific authority.
 
 ## Reproduce the current state
 
-The active GitHub workflow uses `ubuntu-24.04`, pins external actions by full
-commit digest, grants read-only repository contents permission, and installs
-hash-locked verification dependencies. The local closure is derived from that
-workflow rather than maintained as a second command list.
+The active GitHub workflow uses `ubuntu-24.04`, pins external actions and the
+Iter245 bootstrap sources by full digest, grants read-only repository contents
+permission, and installs hash-locked verification dependencies through the
+contained interpreter. The hosted bootstrap verifies each registered archive
+before extraction and does not execute the upstream setup path. The local
+closure is derived from that workflow rather than maintained as a second
+command list. It skips hosted provisioning and therefore does not certify the
+download or extraction path.
 
 ```bash
 python3 scripts/validate_current_paper.py
@@ -284,6 +330,7 @@ python3 scripts/validate_mission_loop.py
 python3 scripts/validate_claim_registry.py
 python3 scripts/validate_seal_registry.py
 python3 scripts/validate_workflow_registry.py
+python3 scripts/validate_iter245_python_bootstrap.py
 python3 scripts/audit_workflow_server_state.py
 python3 scripts/experiment_index.py --check
 python3 scripts/run_ci_closure.py

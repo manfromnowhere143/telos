@@ -57,10 +57,68 @@ WORKFLOW_PERMISSION_EXCEPTIONS = {
         "contents": "read",
     },
 }
-PIP_OPERATION = re.compile(
-    r"(?i)(?P<command>(?:[^\s;|&]*/)?python(?:3(?:\.\d+)*)?\s+-m\s+pip|"
-    r"(?:[^\s;|&]*/)?pip(?:3(?:\.\d+)*)?)\s+"
-    r"(?P<operation>download|install)\b(?P<arguments>[^\n;|&]*)"
+PYTHON_EXECUTABLE = re.compile(r"(?i)(?:^|.*/)python(?:3(?:\.\d+)*)?$")
+PIP_EXECUTABLE = re.compile(r"(?i)(?:^|.*/)pip(?:3(?:\.\d+)*)?$")
+PIP_MODULES = {"pip", "pip.__main__"}
+PIP_TEXT_MARKER = re.compile(r"(?i)\bpip(?:3(?:\.\d+)*)?(?:\.__main__)?\b")
+LITERAL_PIP_INVOCATION = re.compile(
+    r"(?i)(?:[^\s;|&<>]*/)?python(?:3(?:\.\d+)*)?[ \t]+"
+    r"(?:-[^\s;|&<>]+[ \t]+)*-m[ \t]+pip(?![\w.'\"])|"
+    r"(?<![\w'\"])(?:[^\s;|&<>]*/)?pip(?:3(?:\.\d+)*)?(?![\w.'\"])"
+)
+LITERAL_PIP_OPERATIONS = {
+    "download": re.compile(r"(?<![\w'\"\\])download(?![\w'\"\\])", re.IGNORECASE),
+    "install": re.compile(r"(?<![\w'\"\\])install(?![\w'\"\\])", re.IGNORECASE),
+}
+SHELL_CONTROL_TOKEN = re.compile(r"^[;&|<>]+$")
+PIP_GLOBAL_FLAG_OPTIONS = {
+    "--disable-pip-version-check",
+    "--isolated",
+    "--no-color",
+    "--no-input",
+    "--no-python-version-warning",
+    "--require-virtualenv",
+}
+PIP_GLOBAL_VALUE_OPTIONS = {
+    "--cache-dir",
+    "--cert",
+    "--client-cert",
+    "--exists-action",
+    "--keyring-provider",
+    "--log",
+    "--proxy",
+    "--python",
+    "--retries",
+    "--timeout",
+    "--trusted-host",
+    "--use-deprecated",
+    "--use-feature",
+}
+PIP_ARGUMENT_FLAGS = {
+    "download": {
+        "--no-cache-dir",
+        "--no-deps",
+        "--only-binary=:all:",
+        "--require-hashes",
+        "--upgrade",
+        "-U",
+    },
+    "install": {
+        "--no-cache-dir",
+        "--no-deps",
+        "--no-index",
+        "--only-binary=:all:",
+        "--require-hashes",
+        "--upgrade",
+        "-U",
+    },
+}
+PIP_ARGUMENT_VALUE_OPTIONS = {
+    "download": {"--dest", "-d", "--index-url", "--requirement", "-r"},
+    "install": {"--find-links", "-f", "--requirement", "-r"},
+}
+PIP_DISABLE_EXPORT = re.compile(
+    r"^\s*export[ \t]+PIP_DISABLE_PIP_VERSION_CHECK=1\s*$"
 )
 SHELL_CONTINUATION = re.compile(r"\\\r?\n[ \t]*")
 WHEELHOUSE_CREATION = re.compile(
@@ -137,26 +195,182 @@ def _option_value(tokens: list[str], names: tuple[str, ...]) -> str | None:
     return None
 
 
+def _shell_tokens(line: str) -> list[str]:
+    lexer = shlex.shlex(line, posix=True, punctuation_chars=";&|<>")
+    lexer.whitespace_split = True
+    lexer.commenters = ""
+    return list(lexer)
+
+
+def _pip_invocations(tokens: list[str]) -> list[tuple[int, int]]:
+    """Return (command index, first pip-argument index) for literal argv forms."""
+    invocations: list[tuple[int, int]] = []
+    for index, token in enumerate(tokens):
+        if PIP_EXECUTABLE.fullmatch(token) and not (
+            index > 0 and tokens[index - 1] == "-m"
+        ):
+            invocations.append((index, index + 1))
+            continue
+        if not PYTHON_EXECUTABLE.fullmatch(token):
+            continue
+        for module_flag in range(index + 1, len(tokens) - 1):
+            if SHELL_CONTROL_TOKEN.fullmatch(tokens[module_flag]):
+                break
+            if tokens[module_flag] != "-m":
+                continue
+            if tokens[module_flag + 1].lower() in PIP_MODULES:
+                invocations.append((index, module_flag + 2))
+            break
+    return invocations
+
+
+def _pip_operation(
+    tokens: list[str], arguments_start: int
+) -> tuple[str | None, list[str]]:
+    cursor = arguments_start
+    while cursor < len(tokens):
+        token = tokens[cursor]
+        if SHELL_CONTROL_TOKEN.fullmatch(token) or token.startswith("#"):
+            return None, []
+        option, separator, _value = token.partition("=")
+        if option in PIP_GLOBAL_FLAG_OPTIONS and not separator:
+            cursor += 1
+            continue
+        if option in PIP_GLOBAL_VALUE_OPTIONS:
+            if separator:
+                if not _value:
+                    return None, []
+                cursor += 1
+                continue
+            if cursor + 1 >= len(tokens):
+                return None, []
+            if tokens[cursor + 1].startswith("-"):
+                return None, []
+            cursor += 2
+            continue
+        if token.startswith("-"):
+            return None, []
+        return token.lower(), tokens[cursor + 1 :]
+    return None, []
+
+
+def _canonical_pip_arguments(operation: str, tokens: list[str]) -> bool:
+    flags = PIP_ARGUMENT_FLAGS[operation]
+    value_options = PIP_ARGUMENT_VALUE_OPTIONS[operation]
+    seen: set[str] = set()
+    cursor = 0
+    while cursor < len(tokens):
+        token = tokens[cursor]
+        if token == "--" or SHELL_CONTROL_TOKEN.fullmatch(token) or token.startswith("#"):
+            return False
+        if token in flags:
+            if token in seen:
+                return False
+            seen.add(token)
+            cursor += 1
+            continue
+        option, separator, value = token.partition("=")
+        if option in value_options and option.startswith("--") and separator:
+            if not value or option in seen:
+                return False
+            seen.add(option)
+            cursor += 1
+            continue
+        compact = next(
+            (
+                name
+                for name in ("-r", "-d", "-f")
+                if name in value_options and token.startswith(name) and token != name
+            ),
+            None,
+        )
+        if compact is not None:
+            if compact in seen:
+                return False
+            seen.add(compact)
+            cursor += 1
+            continue
+        if token in value_options:
+            if token in seen or cursor + 1 >= len(tokens):
+                return False
+            value = tokens[cursor + 1]
+            if not value or value.startswith("-"):
+                return False
+            seen.add(token)
+            cursor += 2
+            continue
+        return False
+    return True
+
+
 def validate_pip_operations(run: str, label: object, location: str) -> list[str]:
     failures: list[str] = []
     logical_run = SHELL_CONTINUATION.sub("", run)
-    operations = list(PIP_OPERATION.finditer(logical_run))
-    if not operations:
+    logical_lines = logical_run.splitlines()
+    parsed: list[tuple[str, list[str]]] = []
+    pip_lines: list[int] = []
+    saw_pip = False
+    canonical = True
+    for line_number, line in enumerate(logical_lines):
+        try:
+            tokens = _shell_tokens(line)
+        except ValueError:
+            if PIP_TEXT_MARKER.search(line):
+                saw_pip = True
+                canonical = False
+            continue
+        invocations = _pip_invocations(tokens)
+        if not invocations:
+            if PIP_TEXT_MARKER.search(line):
+                saw_pip = True
+                canonical = False
+            continue
+        saw_pip = True
+        pip_lines.append(line_number)
+        if len(invocations) != 1 or LITERAL_PIP_INVOCATION.search(line) is None:
+            canonical = False
+        if any(
+            SHELL_CONTROL_TOKEN.fullmatch(token) or token.startswith("#")
+            for token in tokens
+        ):
+            canonical = False
+        _command_index, arguments_start = invocations[0]
+        operation, arguments = _pip_operation(tokens, arguments_start)
+        if operation not in LITERAL_PIP_OPERATIONS:
+            canonical = False
+            continue
+        if LITERAL_PIP_OPERATIONS[operation].search(line) is None:
+            canonical = False
+        if not _canonical_pip_arguments(operation, arguments):
+            canonical = False
+        parsed.append((operation, arguments))
+    if not saw_pip:
         return failures
-    if run.count("export PIP_DISABLE_PIP_VERSION_CHECK=1") != 1:
+    if not canonical or not parsed:
+        failures.append(
+            f"{label}: {location} every pip invocation must use one canonical "
+            "literal download or install operation"
+        )
+    export_lines = [
+        index
+        for index, line in enumerate(logical_lines)
+        if PIP_DISABLE_EXPORT.fullmatch(line)
+    ]
+    if len(export_lines) != 1 or not pip_lines or export_lines[0] >= min(pip_lines):
         failures.append(
             f"{label}: {location} pip operations must disable the pip version check"
         )
-    fresh_wheelhouse = WHEELHOUSE_CREATION.search(run) is not None
-    for match in operations:
-        operation = match.group("operation").lower()
-        try:
-            tokens = shlex.split(match.group("arguments"), posix=True)
-        except ValueError as exc:
-            failures.append(
-                f"{label}: {location} pip {operation} arguments are not parseable: {exc}"
-            )
-            continue
+    wheelhouse_lines = [
+        index
+        for index, line in enumerate(logical_lines)
+        if WHEELHOUSE_CREATION.fullmatch(line)
+    ]
+    fresh_wheelhouse = (
+        len(wheelhouse_lines) == 1
+        and bool(pip_lines)
+        and wheelhouse_lines[0] < min(pip_lines)
+    )
+    for operation, tokens in parsed:
         if any(
             token in {"--upgrade", "-U"} or token.startswith("--upgrade=")
             for token in tokens

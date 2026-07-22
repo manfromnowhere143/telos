@@ -1,0 +1,130 @@
+{
+  "cases": [
+    {
+      "case_id": "wrong_pr_head",
+      "expected_failure": "pull request",
+      "patch": {"/pull_request/head_sha": "0000000000000000000000000000000000000000"}
+    },
+    {
+      "case_id": "wrong_pr_base",
+      "expected_failure": "pull request",
+      "patch": {"/pull_request/base_sha": "0000000000000000000000000000000000000000"}
+    },
+    {
+      "case_id": "conflicting_rest_merge_sha",
+      "expected_failure": "REST merge",
+      "patch": {"/pull_request/rest_merge_commit_sha": "1111111111111111111111111111111111111111"}
+    },
+    {
+      "case_id": "missing_merge_event",
+      "expected_failure": "timeline merge",
+      "patch": {"/pull_request/timeline_merge_commit_sha": null}
+    },
+    {
+      "case_id": "nonempty_reviews",
+      "expected_failure": "review",
+      "patch": {"/pull_request/review_count": 1}
+    },
+    {
+      "case_id": "required_check_failed",
+      "expected_failure": "required CI",
+      "patch": {"/ci/sealed_head/required_checks/0/conclusion": "failure"}
+    },
+    {
+      "case_id": "required_check_missing",
+      "expected_failure": "required CI",
+      "patch": {"/ci/sealed_head/required_checks": []}
+    },
+    {
+      "case_id": "gitguardian_hidden",
+      "expected_failure": "GitGuardian",
+      "patch": {"/ci/sealed_head/gitguardian": null}
+    },
+    {
+      "case_id": "gitguardian_green",
+      "expected_failure": "GitGuardian",
+      "patch": {"/ci/sealed_head/gitguardian/conclusion": "success"}
+    },
+    {
+      "case_id": "merge_parent_drift",
+      "expected_failure": "merge topology",
+      "patch": {"/merge/parents/1": "2222222222222222222222222222222222222222"}
+    },
+    {
+      "case_id": "merge_tree_drift",
+      "expected_failure": "merge topology",
+      "patch": {"/merge/tree": "3333333333333333333333333333333333333333"}
+    },
+    {
+      "case_id": "merged_ci_failed",
+      "expected_failure": "merged-master CI",
+      "patch": {"/ci/merged_master/run/conclusion": "failure"}
+    },
+    {
+      "case_id": "master_drift",
+      "expected_failure": "master branch",
+      "patch": {"/governance/branch_sha": "4444444444444444444444444444444444444444"}
+    },
+    {
+      "case_id": "master_unprotected",
+      "expected_failure": "master branch",
+      "patch": {"/governance/protected": false}
+    },
+    {
+      "case_id": "ruleset_inactive",
+      "expected_failure": "ruleset",
+      "patch": {"/governance/enforcement": "disabled"}
+    },
+    {
+      "case_id": "ruleset_bypass",
+      "expected_failure": "ruleset",
+      "patch": {"/governance/bypass_actors": [{"actor_id": 1}]}
+    },
+    {
+      "case_id": "policy_drift",
+      "expected_failure": "ruleset",
+      "patch": {"/governance/request_policy_sha256": "5555555555555555555555555555555555555555555555555555555555555555"}
+    },
+    {
+      "case_id": "fabricated_all_green",
+      "expected_failure": "all-checks",
+      "patch": {"/conclusion/all_checks_green": "supported"}
+    },
+    {
+      "case_id": "fabricated_review",
+      "expected_failure": "independent review",
+      "patch": {"/conclusion/independent_review": "supported"}
+    },
+    {
+      "case_id": "fabricated_ground_truth",
+      "expected_failure": "ground truth",
+      "patch": {"/conclusion/independent_ground_truth": "supported"}
+    },
+    {
+      "case_id": "fabricated_science_authority",
+      "expected_failure": "scientific authority",
+      "patch": {"/conclusion/scientific_authority": "granted"}
+    },
+    {
+      "case_id": "write_verb",
+      "expected_failure": "write count",
+      "patch": {"/request_counts/POST": 1}
+    },
+    {
+      "case_id": "raw_body_hash_drift",
+      "expected_failure": "raw body hash",
+      "patch": {"/capture_integrity/raw_body_hashes_match": false}
+    },
+    {
+      "case_id": "raw_header_hash_drift",
+      "expected_failure": "raw header hash",
+      "patch": {"/capture_integrity/raw_header_hashes_match": false}
+    },
+    {
+      "case_id": "duplicate_request_id",
+      "expected_failure": "request ID",
+      "patch": {"/capture_integrity/unique_request_ids": false}
+    }
+  ],
+  "schema_version": "telos.iter241.iter240_repository_closure.known_bad.v1"
+}

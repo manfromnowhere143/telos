@@ -1,0 +1,170 @@
+"""Known-good and known-bad controls for the Iter242 CI successor."""
+
+from __future__ import annotations
+
+import hashlib
+from pathlib import Path
+
+import pytest
+import yaml
+from yaml.constructor import ConstructorError
+
+
+ROOT = Path(__file__).resolve().parents[1]
+WORKFLOW = ROOT / ".github/workflows/ci.yml"
+EXPECTED_WORKFLOW_SHA256 = "5bb4d7eb20b802faed360e21b6fc496bb48a0488f9fe4254836685f9155c8e9f"
+EXPECTED_TEST_COMMAND = "python3 -I scripts/run_iter241_pytest.py --run"
+CHECKOUT = "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0"
+BOOTSTRAP_RUN = (
+    "/usr/bin/printf '%s  %s\\n' "
+    "'324b4cef3c85e3377566d119b108ef92e823be185c5daf6e2480bedc90482805' "
+    "'scripts/bootstrap_iter245_python.sh' | /usr/bin/sha256sum --check --strict -\n"
+    "/usr/bin/printf '%s  %s\\n' "
+    "'26d1314e29bbdf3647271189f7e4780cfcbb154f93c0f62ec2d851c2c53ffcef' "
+    "'scripts/extract_iter245_python.py' | /usr/bin/sha256sum --check --strict -\n"
+    "/usr/bin/printf '%s  %s\\n' "
+    "'1714b8cff91ccf3a58758f6b58f44dbf51acf33152c2b88e6333c823c28970f3' "
+    "'scripts/validate_iter245_python_bootstrap.py' | "
+    "/usr/bin/sha256sum --check --strict -\n"
+    '/usr/bin/bash scripts/bootstrap_iter245_python.sh --bootstrap "${{ matrix.python-version }}"\n'
+)
+
+
+class StrictLoader(yaml.BaseLoader):
+    """Preserve GitHub's scalar keys and reject duplicate YAML mappings."""
+
+    def construct_mapping(self, node: yaml.MappingNode, deep: bool = False) -> dict:
+        if not isinstance(node, yaml.MappingNode):
+            raise ConstructorError(None, None, "expected a mapping", node.start_mark)
+        result: dict = {}
+        for key_node, value_node in node.value:
+            key = self.construct_object(key_node, deep=deep)
+            if key in result:
+                raise ConstructorError(
+                    "while constructing a mapping",
+                    node.start_mark,
+                    f"duplicate key {key!r}",
+                    key_node.start_mark,
+                )
+            result[key] = self.construct_object(value_node, deep=deep)
+        return result
+
+
+def validation_errors(raw: bytes) -> list[str]:
+    errors: list[str] = []
+    if hashlib.sha256(raw).hexdigest() != EXPECTED_WORKFLOW_SHA256:
+        errors.append("workflow digest differs")
+    try:
+        document = yaml.load(raw.decode("utf-8"), Loader=StrictLoader)
+    except (UnicodeDecodeError, yaml.YAMLError) as exc:
+        return [*errors, f"workflow parse failed: {exc}"]
+    if not isinstance(document, dict):
+        return [*errors, "workflow root differs"]
+    if document.get("on") != {"push": "", "pull_request": ""}:
+        errors.append("workflow triggers differ")
+    if document.get("permissions") != {"contents": "read"}:
+        errors.append("workflow permissions differ")
+    jobs = document.get("jobs")
+    verify = jobs.get("verify") if isinstance(jobs, dict) else None
+    if not isinstance(verify, dict):
+        return [*errors, "verify job is absent"]
+    if verify.get("runs-on") != "ubuntu-24.04":
+        errors.append("runner differs")
+    if verify.get("timeout-minutes") != "60":
+        errors.append("job timeout differs")
+    if verify.get("continue-on-error") is not None or verify.get("if") is not None:
+        errors.append("job failure semantics differ")
+    strategy = verify.get("strategy")
+    if strategy != {
+        "fail-fast": "false",
+        "matrix": {"python-version": ["3.11", "3.12"]},
+    }:
+        errors.append("matrix differs")
+    steps = verify.get("steps")
+    if not isinstance(steps, list):
+        return [*errors, "steps are absent"]
+    checkout = next(
+        (step for step in steps if isinstance(step, dict) and step.get("uses") == CHECKOUT),
+        None,
+    )
+    if not isinstance(checkout, dict) or checkout.get("with") != {
+        "fetch-depth": "0",
+        "persist-credentials": "false",
+    }:
+        errors.append("checkout boundary differs")
+    setup = next(
+        (
+            step
+            for step in steps
+            if isinstance(step, dict)
+            and isinstance(step.get("uses"), str)
+            and step["uses"].startswith("actions/setup-python@")
+        ),
+        None,
+    )
+    if setup is not None:
+        errors.append("setup-python was reintroduced")
+    bootstrap = next(
+        (
+            step
+            for step in steps
+            if isinstance(step, dict)
+            and step.get("name") == "Bootstrap offline verified Python"
+        ),
+        None,
+    )
+    if not isinstance(bootstrap, dict) or bootstrap.get("run") != BOOTSTRAP_RUN:
+        errors.append("offline verified Python bootstrap differs")
+    tests = next(
+        (
+            step
+            for step in steps
+            if isinstance(step, dict) and step.get("name") == "Tests"
+        ),
+        None,
+    )
+    if (
+        not isinstance(tests, dict)
+        or tests.get("run") != EXPECTED_TEST_COMMAND
+        or tests.get("continue-on-error") is not None
+        or tests.get("if") is not None
+    ):
+        errors.append("authenticated test command differs")
+    return errors
+
+
+def mutate(old: bytes, new: bytes) -> bytes:
+    raw = WORKFLOW.read_bytes()
+    assert raw.count(old) == 1
+    return raw.replace(old, new, 1)
+
+
+def test_current_ci_is_the_exact_iter245_successor() -> None:
+    assert validation_errors(WORKFLOW.read_bytes()) == []
+
+
+@pytest.mark.parametrize(
+    "candidate",
+    (
+        lambda: mutate(b"    timeout-minutes: 60\n", b"    timeout-minutes: 600\n"),
+        lambda: mutate(b"          persist-credentials: false\n", b"          persist-credentials: true\n"),
+        lambda: mutate(
+            f"        run: {EXPECTED_TEST_COMMAND}\n".encode(),
+            b"        run: pytest -q\n",
+        ),
+        lambda: mutate(b"permissions:\n  contents: read\n", b"permissions:\n  contents: write\n"),
+    ),
+)
+def test_ci_known_bad_mutations_fail_closed(candidate) -> None:
+    assert validation_errors(candidate())
+
+
+def test_every_current_recovery_entrypoint_uses_authenticated_pytest() -> None:
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    handoff = (ROOT / "docs/HANDOFF-2026-07-21-iter242.md").read_text(encoding="utf-8")
+    workflow = WORKFLOW.read_text(encoding="utf-8")
+    for surface in (agents, handoff, workflow):
+        assert EXPECTED_TEST_COMMAND in surface
+    assert "\npytest -q\n" not in agents
+    assert "\npytest -q\n" not in handoff
+    assert "        run: pytest -q\n" not in workflow

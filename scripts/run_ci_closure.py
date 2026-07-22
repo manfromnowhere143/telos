@@ -25,10 +25,12 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github/workflows/ci.yml"
 
-# Steps whose work is not a repository guard: dependency installation and the clean-tree
-# assertion, which is meaningful only after a commit.
+# Steps whose work is not a repository guard: dependency/interpreter provisioning and the
+# clean-tree assertion, which is meaningful only after a commit.  The Iter245 archive and
+# ELF validators remain ordinary repository guards; only the hosted bootstrap is skipped.
 SKIP_STEP_NAMES = {
     "Install verification tools",
+    "Bootstrap offline verified Python",
     "Full clean-tree guard",
 }
 

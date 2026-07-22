@@ -123,7 +123,12 @@ def test_closure_runner_accepts_a_python_override() -> None:
     assert result.returncode == 0
     assert "python3.11 -m compileall" in result.stdout
     assert "python3 -m compileall" not in result.stdout
-    assert "python3.11 -m pytest -q" in result.stdout
+    assert (
+        "Tests\tpython3.11 -I scripts/run_iter241_pytest.py --run"
+        in result.stdout
+    )
+    assert "python3.11 scripts/run_iter241_pytest.py --run" not in result.stdout
+    assert "python3.11 -m pytest -q" not in result.stdout
     assert "\tpytest -q" not in result.stdout
 
 
