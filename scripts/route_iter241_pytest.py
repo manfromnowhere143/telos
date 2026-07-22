@@ -305,6 +305,40 @@ def _trusted_executable(path: Path, *, reason: str) -> None:
     )
 
 
+def _python_executable_reason(
+    executable: Path,
+    metadata: os.stat_result,
+    *,
+    euid: int,
+) -> str | None:
+    """Classify Python separately; Git and timeout retain stricter mode policy."""
+
+    if not executable.is_absolute():
+        return "executable_not_absolute"
+    if not stat.S_ISREG(metadata.st_mode):
+        return "executable_not_regular"
+    if not metadata.st_mode & stat.S_IXUSR:
+        return "owner_execute_missing"
+    if metadata.st_uid not in {0, euid}:
+        return "executable_owner_untrusted"
+    if metadata.st_mode & stat.S_IWOTH:
+        return "executable_world_writable"
+    if metadata.st_mode & stat.S_IWGRP and metadata.st_uid != euid:
+        return "foreign_owned_executable_group_writable"
+    return None
+
+
+def _trusted_python_executable(path: Path, *, reason: str) -> None:
+    try:
+        metadata = path.lstat()
+    except OSError as exc:
+        raise RoutingDenied(reason) from exc
+    _deny_if(
+        _python_executable_reason(path, metadata, euid=os.geteuid()) is not None,
+        reason,
+    )
+
+
 def _control_path(raw: bytes, base: Path, *, prefix: bytes | None, reason: str) -> Path:
     _deny_if(len(raw) > 4096 or not raw.endswith(b"\n"), reason)
     lines = raw.splitlines()
@@ -457,7 +491,7 @@ def _pytest_tool_path(python_executable: str) -> str:
         python = Path(python_executable).resolve(strict=True)
     except OSError as exc:
         raise RoutingDenied("trusted_python_unavailable") from exc
-    _trusted_executable(python, reason="trusted_python_unavailable")
+    _trusted_python_executable(python, reason="trusted_python_unavailable")
     directories = [python.parent]
     for candidate in TIMEOUT_CANDIDATES:
         try:
@@ -1164,7 +1198,7 @@ def _run_delegate(
         python = Path(sys.executable).resolve(strict=True)
     except OSError as exc:
         raise RoutingDenied("trusted_python_unavailable") from exc
-    _trusted_executable(python, reason="trusted_python_unavailable")
+    _trusted_python_executable(python, reason="trusted_python_unavailable")
     environment = _isolated_environment()
     environment.update(
         {

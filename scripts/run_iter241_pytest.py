@@ -40,7 +40,7 @@ TIMEOUT_CANDIDATES = (
     Path("/opt/homebrew/bin/timeout"),
     Path("/usr/local/bin/timeout"),
 )
-ROUTER_SHA256 = "231a35a79572db39fd3bcbf00ac7d36373e519f23f853a5f88a411d20f7a1fc5"
+ROUTER_SHA256 = "ccf3918c81e50cf05aee7c1ab849443e09d7bb27eb889f21cb6c84939dcabb63"
 AUTHENTICATED_SOURCES = {
     "scripts/validate_seal_registry.py": (
         "c8b393f1adbb1960cead14a9da198baae02d62c7ec65413b58fd0dec8cc5ed4d"
@@ -155,38 +155,113 @@ def _load_authenticated_router(raw: bytes, path: Path) -> types.ModuleType:
     return module
 
 
-def _require_isolated_python() -> None:
+def _python_executable_reason(
+    executable: Path,
+    metadata: os.stat_result,
+    *,
+    euid: int,
+) -> str | None:
+    """Classify one resolved Python executable without trusting CI environment labels."""
+
+    if not executable.is_absolute():
+        return "executable_not_absolute"
+    if not stat.S_ISREG(metadata.st_mode):
+        return "executable_not_regular"
+    if not metadata.st_mode & stat.S_IXUSR:
+        return "owner_execute_missing"
+    if metadata.st_uid not in {0, euid}:
+        return "executable_owner_untrusted"
+    if metadata.st_mode & stat.S_IWOTH:
+        return "executable_world_writable"
+    if metadata.st_mode & stat.S_IWGRP and metadata.st_uid != euid:
+        return "foreign_owned_executable_group_writable"
+    return None
+
+
+def _isolated_python_reason(
+    executable: Path,
+    metadata: os.stat_result,
+    *,
+    euid: int,
+    isolated: int,
+    ignore_environment: int,
+    no_user_site: int,
+    safe_path: bool,
+) -> str | None:
+    """Require all CPython ``-I`` controls before executable provenance checks."""
+
+    if not isolated:
+        return "isolated_flag_missing"
+    if not ignore_environment:
+        return "ignore_environment_flag_missing"
+    if not no_user_site:
+        return "no_user_site_flag_missing"
+    if not safe_path:
+        return "safe_path_flag_missing"
+    return _python_executable_reason(executable, metadata, euid=euid)
+
+
+def _python_trust_observation(
+    executable: Path,
+    metadata: os.stat_result,
+    *,
+    euid: int,
+    egid: int,
+    reason: str | None,
+) -> dict[str, bool | int | str | None]:
+    """Return the bounded non-secret facts allowed in remote CI logs."""
+
+    return {
+        "decision": "accept" if reason is None else "deny",
+        "egid": egid,
+        "euid": euid,
+        "executable_absolute": executable.is_absolute(),
+        "file_gid": metadata.st_gid,
+        "file_mode": f"{stat.S_IMODE(metadata.st_mode):04o}",
+        "file_regular": stat.S_ISREG(metadata.st_mode),
+        "file_uid": metadata.st_uid,
+        "ignore_environment": sys.flags.ignore_environment,
+        "isolated": sys.flags.isolated,
+        "no_user_site": sys.flags.no_user_site,
+        "owner_executable": bool(metadata.st_mode & stat.S_IXUSR),
+        "reason": reason,
+        "safe_path": bool(getattr(sys.flags, "safe_path", False)),
+    }
+
+
+def _require_isolated_python(*, emit_observation: bool = True) -> None:
     try:
         executable = Path(sys.executable).resolve(strict=True)
         metadata = executable.lstat()
     except OSError as exc:
         raise RunnerError("isolated Python executable is unavailable") from exc
-    trusted = (
-        sys.flags.isolated
-        and sys.flags.ignore_environment
-        and sys.flags.no_user_site
-        and executable.is_absolute()
-        and stat.S_ISREG(metadata.st_mode)
-        and metadata.st_mode & stat.S_IXUSR
-        and not metadata.st_mode & (stat.S_IWGRP | stat.S_IWOTH)
+    euid = os.geteuid()
+    reason = _isolated_python_reason(
+        executable,
+        metadata,
+        euid=euid,
+        isolated=sys.flags.isolated,
+        ignore_environment=sys.flags.ignore_environment,
+        no_user_site=sys.flags.no_user_site,
+        safe_path=bool(getattr(sys.flags, "safe_path", False)),
     )
-    if not trusted:
-        observation = {
-            "egid": os.getegid(),
-            "euid": os.geteuid(),
-            "executable_absolute": executable.is_absolute(),
-            "file_gid": metadata.st_gid,
-            "file_mode": f"{stat.S_IMODE(metadata.st_mode):04o}",
-            "file_regular": stat.S_ISREG(metadata.st_mode),
-            "file_uid": metadata.st_uid,
-            "ignore_environment": sys.flags.ignore_environment,
-            "isolated": sys.flags.isolated,
-            "no_user_site": sys.flags.no_user_site,
-            "owner_executable": bool(metadata.st_mode & stat.S_IXUSR),
-        }
+    if emit_observation:
+        observation = _python_trust_observation(
+            executable,
+            metadata,
+            euid=euid,
+            egid=os.getegid(),
+            reason=reason,
+        )
+        print(
+            "iter241 python trust bounded_observation="
+            f"{json.dumps(observation, sort_keys=True)}",
+            file=sys.stderr,
+        )
+    if reason is not None:
         raise RunnerError(
             "runner requires an isolated Python invocation with -I; "
-            f"bounded_observation={json.dumps(observation, sort_keys=True)}"
+            f"reason={reason}"
         )
 
 
@@ -954,6 +1029,7 @@ def _verify_authenticated_sources(root: Path, expected: dict[str, bytes]) -> Non
 
 
 def _verify_prepared_run(prepared: PreparedPytest) -> None:
+    _require_isolated_python(emit_observation=False)
     plan = prepared.plan
     materialized = prepared.materialized
     if (
@@ -1063,6 +1139,7 @@ def main() -> int:
             if args.plan:
                 print(_render_plan(prepared.plan), end="")
                 return 0
+            _require_isolated_python(emit_observation=False)
             completed = subprocess.run(
                 prepared.plan.argv,
                 cwd=prepared.plan.snapshot_root,
