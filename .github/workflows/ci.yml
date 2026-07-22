@@ -22,21 +22,24 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: ${{ matrix.python-version }}
-          cache: pip
-          cache-dependency-path: requirements-ci.txt
+      - name: Bootstrap offline verified Python
+        run: |
+          /usr/bin/printf '%s  %s\n' 'e4c7320047bf66e75709649ceaa29239e206ca5a7fe85b63456ed46788af1638' 'scripts/bootstrap_iter245_python.sh' | /usr/bin/sha256sum --check --strict -
+          /usr/bin/printf '%s  %s\n' '2cf5ffa33ea82367f62d5e96d34a42f6aacac522520f918d51c735409f0be374' 'scripts/extract_iter245_python.py' | /usr/bin/sha256sum --check --strict -
+          /usr/bin/printf '%s  %s\n' '4c3bf499a03e0f251ddaa75e46eb0c6eb0ce0673fbbe17cfa66aa600affcf159' 'scripts/validate_iter245_python_bootstrap.py' | /usr/bin/sha256sum --check --strict -
+          /usr/bin/bash scripts/bootstrap_iter245_python.sh --bootstrap "${{ matrix.python-version }}"
 
       - name: Install verification tools
         run: |
           wheelhouse="$(mktemp -d /tmp/telos-ci-wheelhouse.XXXXXX)"
           export PIP_DISABLE_PIP_VERSION_CHECK=1
-          python -m pip download \
+          python3 -I -P -m pip --isolated --disable-pip-version-check download \
+            --index-url https://pypi.org/simple --no-deps \
             --no-cache-dir --require-hashes --only-binary=:all: \
             --dest "$wheelhouse" -r requirements-ci.txt
-          python -m pip install \
+          python3 -I -P -m pip --isolated --disable-pip-version-check install \
             --no-index --find-links "$wheelhouse" \
+            --no-deps \
             --no-cache-dir --require-hashes --only-binary=:all: \
             -r requirements-ci.txt
 
@@ -75,6 +78,9 @@ jobs:
 
       - name: Supply-chain guard
         run: python3 scripts/validate_supply_chain.py
+
+      - name: Iter245 offline verified Python bootstrap guard
+        run: python3 scripts/validate_iter245_python_bootstrap.py
 
       - name: Regenerate corrected detector artifacts without providers
         run: |

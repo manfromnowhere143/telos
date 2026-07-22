@@ -288,6 +288,34 @@ def test_workflow_guard_rejects_enabled_pip_version_check(tmp_path: Path) -> Non
     assert "must disable the pip version check" in failures
 
 
+@pytest.mark.parametrize(
+    "command",
+    (
+        "python3 -I -P -m pip --isolated --disable-pip-version-check download",
+        "python3 -I -P -m pip --proxy https://proxy.invalid download",
+        "env PIP_NO_INPUT=1 python3 -m pip download",
+    ),
+)
+def test_workflow_guard_detects_pip_behind_interpreter_and_global_flags(
+    tmp_path: Path,
+    command: str,
+) -> None:
+    guard = load_guard()
+    path = tmp_path / "flagged-pip.yml"
+    path.write_text(
+        guarded_workflow(
+            'wheelhouse="$(mktemp -d /tmp/test.XXXXXX)"\n'
+            "export PIP_DISABLE_PIP_VERSION_CHECK=1\n"
+            f"{command} "
+            '--no-cache-dir --only-binary=:all: --dest "$wheelhouse" '
+            "-r requirements-ci.txt"
+        )
+    )
+
+    failures = "\n".join(guard.validate_workflow(path))
+    assert "pip download must use --require-hashes" in failures
+
+
 def test_lock_guard_rejects_unhashed_dependency(tmp_path: Path) -> None:
     guard = load_guard()
     path = tmp_path / "requirements-ci.txt"

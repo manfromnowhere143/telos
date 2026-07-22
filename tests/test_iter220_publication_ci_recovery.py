@@ -104,6 +104,7 @@ def test_closure_preserves_environment_overrides_from_the_workflow() -> None:
 def test_closure_skips_only_non_guard_steps() -> None:
     assert run_ci_closure.SKIP_STEP_NAMES == {
         "Install verification tools",
+        "Bootstrap offline verified Python",
         "Full clean-tree guard",
     }
 

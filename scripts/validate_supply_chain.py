@@ -58,8 +58,11 @@ WORKFLOW_PERMISSION_EXCEPTIONS = {
     },
 }
 PIP_OPERATION = re.compile(
-    r"(?i)(?P<command>(?:[^\s;|&]*/)?python(?:3(?:\.\d+)*)?\s+-m\s+pip|"
-    r"(?:[^\s;|&]*/)?pip(?:3(?:\.\d+)*)?)\s+"
+    r"(?i)(?P<command>"
+    r"(?:[^\s;|&]*/)?python(?:3(?:\.\d+)*)?[ \t]+"
+    r"(?:-[^\s;|&]+[ \t]+)*-m[ \t]+pip|"
+    r"(?:[^\s;|&]*/)?pip(?:3(?:\.\d+)*)?)"
+    r"(?P<global_arguments>[^\n;|&]*?)[ \t]+"
     r"(?P<operation>download|install)\b(?P<arguments>[^\n;|&]*)"
 )
 SHELL_CONTINUATION = re.compile(r"\\\r?\n[ \t]*")

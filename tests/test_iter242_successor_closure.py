@@ -12,10 +12,22 @@ from yaml.constructor import ConstructorError
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github/workflows/ci.yml"
-EXPECTED_WORKFLOW_SHA256 = "d4da3782d4b4f806399446db2d7b13537aad59380641e8f2c9d04ff798cd76bb"
+EXPECTED_WORKFLOW_SHA256 = "aaa6fb8de99d4774976fbed923eafc5985ce5e0cbdcbea1fc06fb47ea3084971"
 EXPECTED_TEST_COMMAND = "python3 -I scripts/run_iter241_pytest.py --run"
 CHECKOUT = "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0"
-SETUP_PYTHON = "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1"
+BOOTSTRAP_RUN = (
+    "/usr/bin/printf '%s  %s\\n' "
+    "'e4c7320047bf66e75709649ceaa29239e206ca5a7fe85b63456ed46788af1638' "
+    "'scripts/bootstrap_iter245_python.sh' | /usr/bin/sha256sum --check --strict -\n"
+    "/usr/bin/printf '%s  %s\\n' "
+    "'2cf5ffa33ea82367f62d5e96d34a42f6aacac522520f918d51c735409f0be374' "
+    "'scripts/extract_iter245_python.py' | /usr/bin/sha256sum --check --strict -\n"
+    "/usr/bin/printf '%s  %s\\n' "
+    "'4c3bf499a03e0f251ddaa75e46eb0c6eb0ce0673fbbe17cfa66aa600affcf159' "
+    "'scripts/validate_iter245_python_bootstrap.py' | "
+    "/usr/bin/sha256sum --check --strict -\n"
+    '/usr/bin/bash scripts/bootstrap_iter245_python.sh --bootstrap "${{ matrix.python-version }}"\n'
+)
 
 
 class StrictLoader(yaml.BaseLoader):
@@ -84,12 +96,25 @@ def validation_errors(raw: bytes) -> list[str]:
         (
             step
             for step in steps
-            if isinstance(step, dict) and step.get("uses") == SETUP_PYTHON
+            if isinstance(step, dict)
+            and isinstance(step.get("uses"), str)
+            and step["uses"].startswith("actions/setup-python@")
         ),
         None,
     )
-    if not isinstance(setup, dict):
-        errors.append("setup-python pin differs")
+    if setup is not None:
+        errors.append("setup-python was reintroduced")
+    bootstrap = next(
+        (
+            step
+            for step in steps
+            if isinstance(step, dict)
+            and step.get("name") == "Bootstrap offline verified Python"
+        ),
+        None,
+    )
+    if not isinstance(bootstrap, dict) or bootstrap.get("run") != BOOTSTRAP_RUN:
+        errors.append("offline verified Python bootstrap differs")
     tests = next(
         (
             step
@@ -114,7 +139,7 @@ def mutate(old: bytes, new: bytes) -> bytes:
     return raw.replace(old, new, 1)
 
 
-def test_current_ci_is_the_exact_iter242_successor() -> None:
+def test_current_ci_is_the_exact_iter245_successor() -> None:
     assert validation_errors(WORKFLOW.read_bytes()) == []
 
 
