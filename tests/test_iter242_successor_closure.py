@@ -12,18 +12,18 @@ from yaml.constructor import ConstructorError
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github/workflows/ci.yml"
-EXPECTED_WORKFLOW_SHA256 = "aaa6fb8de99d4774976fbed923eafc5985ce5e0cbdcbea1fc06fb47ea3084971"
+EXPECTED_WORKFLOW_SHA256 = "7bab87602a7d3aea6b01458cce5c94fa0a49cc11d32188dbfcf0cd29148616d4"
 EXPECTED_TEST_COMMAND = "python3 -I scripts/run_iter241_pytest.py --run"
 CHECKOUT = "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0"
 BOOTSTRAP_RUN = (
     "/usr/bin/printf '%s  %s\\n' "
-    "'e4c7320047bf66e75709649ceaa29239e206ca5a7fe85b63456ed46788af1638' "
+    "'324b4cef3c85e3377566d119b108ef92e823be185c5daf6e2480bedc90482805' "
     "'scripts/bootstrap_iter245_python.sh' | /usr/bin/sha256sum --check --strict -\n"
     "/usr/bin/printf '%s  %s\\n' "
-    "'2cf5ffa33ea82367f62d5e96d34a42f6aacac522520f918d51c735409f0be374' "
+    "'26d1314e29bbdf3647271189f7e4780cfcbb154f93c0f62ec2d851c2c53ffcef' "
     "'scripts/extract_iter245_python.py' | /usr/bin/sha256sum --check --strict -\n"
     "/usr/bin/printf '%s  %s\\n' "
-    "'4c3bf499a03e0f251ddaa75e46eb0c6eb0ce0673fbbe17cfa66aa600affcf159' "
+    "'1714b8cff91ccf3a58758f6b58f44dbf51acf33152c2b88e6333c823c28970f3' "
     "'scripts/validate_iter245_python_bootstrap.py' | "
     "/usr/bin/sha256sum --check --strict -\n"
     '/usr/bin/bash scripts/bootstrap_iter245_python.sh --bootstrap "${{ matrix.python-version }}"\n'

@@ -56,7 +56,11 @@ def write_archive(
 
 
 def inspect(path: Path) -> dict[tuple[str, ...], extractor.Entry]:
-    with tarfile.open(path, "r:gz") as archive:
+    with tarfile.open(
+        path,
+        "r:gz",
+        tarinfo=extractor.RegisteredTarInfo,
+    ) as archive:
         return extractor.inspect_archive(archive)
 
 
@@ -203,6 +207,24 @@ def test_pax_metadata_denies(tmp_path: Path) -> None:
         archive_format=tarfile.PAX_FORMAT,
     )
     with pytest.raises(extractor.ArchiveViolation, match="pax_"):
+        inspect(archive)
+
+
+@pytest.mark.parametrize(
+    "kind",
+    (tarfile.XHDTYPE, tarfile.XGLTYPE, tarfile.SOLARIS_XHDTYPE),
+)
+def test_empty_pax_transport_header_denies(tmp_path: Path, kind: bytes) -> None:
+    archive = tmp_path / "empty-pax.tar.gz"
+    write_archive(
+        archive,
+        [
+            tar_member("./empty-pax-header", kind=kind),
+            tar_member("./retained", data=b"fixture"),
+        ],
+    )
+
+    with pytest.raises(extractor.ArchiveViolation, match="pax_transport_header"):
         inspect(archive)
 
 

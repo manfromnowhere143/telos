@@ -7,7 +7,7 @@ fi
 IFS=$'\n\t'
 umask 077
 
-EXTRACTOR_SHA256=2cf5ffa33ea82367f62d5e96d34a42f6aacac522520f918d51c735409f0be374
+EXTRACTOR_SHA256=26d1314e29bbdf3647271189f7e4780cfcbb154f93c0f62ec2d851c2c53ffcef
 
 deny() {
   printf 'iter245 offline verified Python bootstrap denied: %s\n' "$1" >&2

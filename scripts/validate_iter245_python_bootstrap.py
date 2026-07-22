@@ -18,8 +18,8 @@ BOOTSTRAP = ROOT / "scripts/bootstrap_iter245_python.sh"
 EXTRACTOR = ROOT / "scripts/extract_iter245_python.py"
 VALIDATOR = Path(__file__).resolve()
 WORKFLOW = ROOT / ".github/workflows/ci.yml"
-BOOTSTRAP_SHA256 = "e4c7320047bf66e75709649ceaa29239e206ca5a7fe85b63456ed46788af1638"
-EXTRACTOR_SHA256 = "2cf5ffa33ea82367f62d5e96d34a42f6aacac522520f918d51c735409f0be374"
+BOOTSTRAP_SHA256 = "324b4cef3c85e3377566d119b108ef92e823be185c5daf6e2480bedc90482805"
+EXTRACTOR_SHA256 = "26d1314e29bbdf3647271189f7e4780cfcbb154f93c0f62ec2d851c2c53ffcef"
 CHECKOUT = "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0"
 INSTALL_RUN = (
     'wheelhouse="$(mktemp -d /tmp/telos-ci-wheelhouse.XXXXXX)"\n'
@@ -260,6 +260,7 @@ def extractor_errors(raw: bytes, *, mode: int = 0o100755) -> list[str]:
         "member_parent_not_directory",
         "pax_global_metadata",
         "pax_metadata_member",
+        "pax_transport_header",
         "sparse_member",
         "archive_root_record_count",
         "archive_descriptor_identity",
@@ -268,7 +269,8 @@ def extractor_errors(raw: bytes, *, mode: int = 0o100755) -> list[str]:
         'with os.fdopen(descriptor, "rb", buffering=0) as raw_archive:',
         "_hash_open_file(raw_archive)",
         "os.O_EXCL | nofollow",
-        'tarfile.open(fileobj=raw_archive, mode="r|gz")',
+        'mode="r|gz",',
+        "tarinfo=RegisteredTarInfo",
         "archive_changed_during_extraction",
         "_clear_destination(root)",
         "validate_extracted_tree(root, python_version=python_version)",
@@ -285,8 +287,10 @@ def extractor_errors(raw: bytes, *, mode: int = 0o100755) -> list[str]:
     for fragment in required:
         if fragment not in text:
             errors.append(f"extractor control absent: {fragment}")
-    if text.count("tarfile.open(fileobj=raw_archive") != 2:
+    if text.count("fileobj=raw_archive,") != 2:
         errors.append("extractor authenticated descriptor parse count differs")
+    if text.count("tarinfo=RegisteredTarInfo,") != 2:
+        errors.append("extractor registered tar parser count differs")
     for forbidden in (
         ".extract(",
         ".extractall(",

@@ -42,6 +42,15 @@ def _deny(message: str) -> None:
     raise ArchiveViolation(message)
 
 
+class RegisteredTarInfo(tarfile.TarInfo):
+    """Reject PAX transport before ``tarfile`` can normalize it away."""
+
+    def _proc_pax(self, archive: tarfile.TarFile) -> tarfile.TarInfo:
+        del archive
+        _deny("pax_transport_header")
+        raise AssertionError("unreachable")
+
+
 def _printable_component(component: str, *, field: str) -> None:
     if not component:
         _deny(f"{field}_empty_component")
@@ -583,10 +592,18 @@ def validate_and_extract(
             if observed_size != expected_size or observed_sha256 != expected_sha256:
                 _deny("archive_descriptor_digest")
             raw_archive.seek(0)
-            with tarfile.open(fileobj=raw_archive, mode="r:gz") as archive:
+            with tarfile.open(
+                fileobj=raw_archive,
+                mode="r:gz",
+                tarinfo=RegisteredTarInfo,
+            ) as archive:
                 inventory = inspect_archive(archive)
             raw_archive.seek(0)
-            with tarfile.open(fileobj=raw_archive, mode="r|gz") as archive:
+            with tarfile.open(
+                fileobj=raw_archive,
+                mode="r|gz",
+                tarinfo=RegisteredTarInfo,
+            ) as archive:
                 observation = extract_archive(
                     archive,
                     inventory,
