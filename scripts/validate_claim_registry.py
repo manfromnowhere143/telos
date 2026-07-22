@@ -371,6 +371,9 @@ AUTHORIZED_BINDING_INVENTORY_SHA256 = {
     "experiments/iter243_iter242_remote_ci_recovery/HYPOTHESIS.md": (
         "eedc04493e512b22e5341c4b2036e4060bfb724f743e13c507d74b716c46feec"
     ),
+    "experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md": (
+        "333eebc2ae21ea15b2cf8b884431176ba65f07767e39762b82a353a50987c876"
+    ),
 }
 
 
@@ -2051,10 +2054,10 @@ CURATED_INTERNAL_PROJECTIONS: dict[str, dict[str, Any]] = {
     "docs/TELOS-AUDIT-2026-07-22.md:f89079f9897bcc7613e9:0:3": _equals(
         _ALL_RUNS, "/value/unique_task_identities"
     ),
-    "docs/HANDOFF-2026-07-22-iter243.md:20d7d5620c558fccf015:0:0": _equals(
+    "docs/HANDOFF-2026-07-22-iter245.md:a6c3e8bb7fa52ff11f9e:0:0": _equals(
         _FIXED, "/value/cohort_count"
     ),
-    "docs/HANDOFF-2026-07-22-iter243.md:20d7d5620c558fccf015:0:1": _equals(
+    "docs/HANDOFF-2026-07-22-iter245.md:a6c3e8bb7fa52ff11f9e:0:1": _equals(
         _FIXED, "/value/target_count"
     ),
     "mission/current.json:4e07630718bf116b4318:0:0": _equals(
@@ -2085,23 +2088,23 @@ CURATED_EXTERNAL_BODY_BINDINGS = frozenset(
 
 CURATED_ENGINEERING_BINDINGS = frozenset(
     {
-        "docs/HANDOFF-2026-07-22-iter243.md:cec1c9b44bbabb109842:0:0",
-        "docs/HANDOFF-2026-07-22-iter243.md:cec1c9b44bbabb109842:0:2",
-        "docs/HANDOFF-2026-07-22-iter243.md:aab1a764b920f12ff7de:0:0",
-        "docs/HANDOFF-2026-07-22-iter243.md:aab1a764b920f12ff7de:0:1",
-        "docs/HANDOFF-2026-07-22-iter243.md:fd52b0ded5a6e1e67ff8:0:0",
+        "docs/HANDOFF-2026-07-22-iter245.md:839ac64d138e10b62629:0:0",
+        "docs/HANDOFF-2026-07-22-iter245.md:839ac64d138e10b62629:0:2",
+        "docs/HANDOFF-2026-07-22-iter245.md:76355f73ab77d0d90d1c:0:0",
+        "docs/HANDOFF-2026-07-22-iter245.md:76355f73ab77d0d90d1c:0:1",
+        "docs/HANDOFF-2026-07-22-iter245.md:32a8fbf62c724673937f:0:0",
         "paper/README.md:652cbf7d9b2f6f4990a2:0:2",
     }
 )
 
 CURATED_PROTOCOL_BINDINGS = frozenset(
     {
-        "docs/HANDOFF-2026-07-22-iter243.md:4550cb923d756d6848ef:0:1",
-        "docs/HANDOFF-2026-07-22-iter243.md:36632386c437cf389e54:0:0",
-        "docs/HANDOFF-2026-07-22-iter243.md:36632386c437cf389e54:0:1",
-        "docs/HANDOFF-2026-07-22-iter243.md:6a683742da334eb54de2:0:0",
-        "docs/HANDOFF-2026-07-22-iter243.md:6a683742da334eb54de2:0:1",
-        "docs/HANDOFF-2026-07-22-iter243.md:aa98d34879a7d085e576:0:1",
+        "docs/HANDOFF-2026-07-22-iter245.md:f1416642c5c4c245a35a:0:1",
+        "docs/HANDOFF-2026-07-22-iter245.md:3c51fff001b11529c74c:0:0",
+        "docs/HANDOFF-2026-07-22-iter245.md:3c51fff001b11529c74c:0:1",
+        "docs/HANDOFF-2026-07-22-iter245.md:01c78fb34309581b6161:0:0",
+        "docs/HANDOFF-2026-07-22-iter245.md:01c78fb34309581b6161:0:1",
+        "docs/HANDOFF-2026-07-22-iter245.md:8ae5f69e73530a59bac0:0:1",
         "paper/README.md:54482c748641120713a1:0:0",
         "paper/telos.tex:18bf49eddab78c6bd12b:0:1",
         # Statistical procedure parameters are claims, never typography.

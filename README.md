@@ -55,15 +55,18 @@ the current [paper](paper/telos.tex).
 ## Current engineering gate
 
 The active gate is
-[`experiments/iter243_iter242_remote_ci_recovery/HYPOTHESIS.md`](experiments/iter243_iter242_remote_ci_recovery/HYPOTHESIS.md).
-Iter242 remains a supported local engineering closure, but its remote
-publication exposed a Linux hosted-runner incompatibility before pytest
-collection across the Python 3.11 and Python 3.12 matrix. Iter243 preregisters a narrow
-owner-aware Python executable policy, preserves every `-I` isolation control,
-and keeps Git and timeout executables under the stricter mode rule. The prior
-red runs remain negative evidence. Iter241's failed capture is still sealed and
-cannot be retried by this gate. A later remote pass would establish only
-bounded repository integration for the exact observed bytes, not a scientific
+[`experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md`](experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md).
+Iter243 is sealed failed remote-integration evidence and its preregistration
+integrity is invalid. Iter244 retained a valid preregistration but failed local
+design acceptance: its implementation candidate was discarded, nothing was
+pushed, and no hosted outcome exists. Iter245 is a preregistered engineering
+recovery that binds each registered Python archive before extraction, rejects
+unsafe archive and link structures, validates permission and native-loader
+containment before any downloaded-interpreter command, and preserves the
+authenticated runner's world-write denial. No Iter245 hosted outcome exists.
+Iter241's failed capture remains sealed and cannot be retried by this gate. A
+later remote pass could establish only bounded repository integration for the
+exact observed bytes, frozen archives, and runner image—not a scientific
 result, independent review, general security approval, publication, or release
 readiness.
 
@@ -72,7 +75,7 @@ readiness.
 status: running
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: finish Iter243 local validation, publish the preregistered correction to PR #90, require green push and pull-request CI on Python 3.11 and Python 3.12, classify the reported GitGuardian findings from exact bytes, retain and seal the result, then ready and merge the exact green head with ordered parents and verify merged master; no workflow dispatch or rerun, repository-setting change, iter241 retry, provider call, scientific execution, human contact, spend, paper submission, release, deployment, or visibility change is authorized
+next_authorized_action: finish Iter245 local validation from clean committed bytes, publish the exact preregistered candidate to PR #90 by normal push, require push and pull-request CI to pass on Python 3.11 and Python 3.12, retain and seal the exact result without rerunning failed jobs, and only if the exact final head is green ready and merge it with ordered parents and verify merged master; no force push, workflow dispatch or rerun, repository-setting change, iter241 retry, provider or model call, scientific execution, human contact, spending, paper submission, release, deployment, or visibility change is authorized
 ```
 <!-- telos-current-state:end -->
 
@@ -83,14 +86,23 @@ The failed Iter241 outcome remains authoritative in
 [`experiments/iter241_iter240_repository_closure/RESULT.md`](experiments/iter241_iter240_repository_closure/RESULT.md).
 The supported local Iter242 outcome is retained in
 [`experiments/iter242_iter241_successor_closure/RESULT.md`](experiments/iter242_iter241_successor_closure/RESULT.md).
-The active remote-CI recovery contract is retained in the
-[Iter243 hypothesis](experiments/iter243_iter242_remote_ci_recovery/HYPOTHESIS.md).
+The failed Iter243 remote-integration outcome is retained in
+[`experiments/iter243_iter242_remote_ci_recovery/RESULT.md`](experiments/iter243_iter242_remote_ci_recovery/RESULT.md),
+and the failed Iter244 design review is retained in
+[`experiments/iter244_verified_python_bootstrap/RESULT.md`](experiments/iter244_verified_python_bootstrap/RESULT.md).
+The active engineering-recovery contract is the
+[Iter245 hypothesis](experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md),
+supplemented by its
+[native-loader](experiments/iter245_offline_verified_python_bootstrap/AMENDMENT-2026-07-22-native-loader-boundary.md)
+and
+[fail-closed archive](experiments/iter245_offline_verified_python_bootstrap/AMENDMENT-2026-07-22-fail-closed-archive-boundary.md)
+amendments.
 
 At the current working boundary:
 
-- iter238 through iter242 exact completed evidence are protected by registered
-  successor seals, and Iter243 is open under the current additions-only prospective
-  authorization;
+- iter238 through iter244 exact completed evidence are protected by registered
+  successor seals, and Iter245 is open under the current additions-only
+  prospective authorization;
 - public quantitative claims remain governed by
   [`mission/claim_registry.json`](mission/claim_registry.json), protected-byte
   transitions by [`mission/seal_registry.json`](mission/seal_registry.json),
@@ -111,9 +123,12 @@ At the current working boundary:
   returned parsed header pairs that were reserialized as canonical JSON; exact
   header-section bytes
   were never retained and cannot be reconstructed from those documents;
-- required Actions success for the published Iter242 branch is currently
-  contradicted by the retained Python 3.11 and Python 3.12 runner failures; the reported
-  non-required GitGuardian findings remain separately unresolved;
+- Iter243 failed required Actions before pytest collection on Python 3.11 and
+  Python 3.12; Iter244 stopped at failed local design acceptance without a
+  push or hosted observation; Iter245 has no hosted observation yet;
+- exact repository bytes classify the reported GitGuardian occurrences as
+  occurrence-specific false positives rather than credentials, while the
+  external check remains red and supplies no general security approval;
 - the retained header artifacts are canonicalized returned header-pair
   documents, not raw HTTP wire bytes; and
 - no repository write, workflow dispatch or rerun, provider, model judge,
@@ -128,7 +143,7 @@ active. Iter238 used zero provider spend.
 
 The mutable authority is
 [`mission/current.json`](mission/current.json), which points to
-[`docs/HANDOFF-2026-07-22-iter243.md`](docs/HANDOFF-2026-07-22-iter243.md) and
+[`docs/HANDOFF-2026-07-22-iter245.md`](docs/HANDOFF-2026-07-22-iter245.md) and
 [`docs/TELOS-AUDIT-2026-07-22.md`](docs/TELOS-AUDIT-2026-07-22.md).
 Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,
@@ -294,10 +309,14 @@ Telos scientific authority.
 
 ## Reproduce the current state
 
-The active GitHub workflow uses `ubuntu-24.04`, pins external actions by full
-commit digest, grants read-only repository contents permission, and installs
-hash-locked verification dependencies. The local closure is derived from that
-workflow rather than maintained as a second command list.
+The active GitHub workflow uses `ubuntu-24.04`, pins external actions and the
+Iter245 bootstrap sources by full digest, grants read-only repository contents
+permission, and installs hash-locked verification dependencies through the
+contained interpreter. The hosted bootstrap verifies each registered archive
+before extraction and does not execute the upstream setup path. The local
+closure is derived from that workflow rather than maintained as a second
+command list. It skips hosted provisioning and therefore does not certify the
+download or extraction path.
 
 ```bash
 python3 scripts/validate_current_paper.py
@@ -306,6 +325,7 @@ python3 scripts/validate_mission_loop.py
 python3 scripts/validate_claim_registry.py
 python3 scripts/validate_seal_registry.py
 python3 scripts/validate_workflow_registry.py
+python3 scripts/validate_iter245_python_bootstrap.py
 python3 scripts/audit_workflow_server_state.py
 python3 scripts/experiment_index.py --check
 python3 scripts/run_ci_closure.py

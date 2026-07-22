@@ -1,51 +1,46 @@
-# Telos remote-CI recovery audit — 2026-07-22
+# Telos offline verified Python bootstrap audit — 2026-07-22
 
 > **DATED ANALYSIS CONTEXT — NOT EXECUTION AUTHORITY.** This audit is the exact
 > `current_audit` named by `mission/current.json`. Current action is authorized
-> only by that pointer, the current handoff, the registered Iter243 gate, and
-> the operator's separate bounded repository-integration instruction.
+> only by that pointer, the current Iter245 handoff, the registered Iter245
+> gate, and the operator's separate bounded repository-integration instruction.
 
-## Iter243 remote-CI verdict
+## Iter245 current engineering verdict
 
-Iter242 reached its registered local engineering closure, but remote
-publication correctly stopped before pytest collection. Push run
-`29893324882` and pull-request run `29893361504` failed across the Python 3.11
-and Python 3.12 matrix after checkout, setup-python, hash-locked dependency
-installation, compilation, and Ruff passed. The exact workflow invoked the
-documented `python3 -I` command. These runs remain negative evidence.
+Iter243 is sealed failed remote-integration evidence. Its hosted executable was
+world-writable and correctly denied before pytest collection, and its
+preregistration integrity is invalid. The retained GitGuardian classification
+proves that the reported occurrences name Git objects rather than credentials;
+the external check remains red because its dashboard disposition was blocked.
+That occurrence-specific classification is not a general security approval.
 
-The failing predicate rejected every group-writable Python executable even when
-the effective user owned the file. That restriction adds no protection against
-the owner, who already has write and chmod authority, and the same blanket rule
-inside the authenticated router would have denied a correction confined to the
-outer runner.
+Iter244 retained a valid preregistration but failed local design acceptance.
+The proposed upstream setup path would have executed downloaded Python and an
+unpinned online pip upgrade before final tree normalization and validation. Its
+implementation candidate was discarded, nothing was pushed, and no hosted
+Iter244 outcome exists. The sealed result is negative engineering evidence,
+not a successful correction.
 
-The preregistered correction is Python-specific. It preserves `isolated`,
-`ignore_environment`, `no_user_site`, and `safe_path`; requires an absolute
-resolved regular owner-executable file owned by root or the effective user;
-rejects world write; and permits group write only for effective-user ownership.
-Git and timeout executables retain the stricter no-group-write rule. Spoofable
-CI environment labels have no decision authority. The runner and router recheck
-the applicable facts immediately before process creation, reducing but not
-eliminating same-user time-of-check/time-of-use risk.
+Iter245 is a preregistered engineering recovery. It replaces the rejected setup
+path with exact-archive verification, isolated system-Python extraction,
+fail-closed member and link validation, permission normalization, and explicit
+native-loader containment before any downloaded-interpreter command. The
+workflow preserves immutable action references, read-only repository
+permission, hash-locked verification dependencies, the authenticated test
+route, and normal push and pull-request triggers. No Iter245 hosted observation
+exists, and local guards cannot substitute for that missing evidence.
 
-PR #90 remains draft and unmerged. GitGuardian separately reported generic
-high-entropy findings on Git object-identity and evidence-digest fields. Each
-occurrence must be regenerated or matched from exact repository bytes before a
-narrow false-positive disposition; such a disposition is not a general
-security approval.
-
-The active workflow remains byte-identical. Required acceptance is a clean
-authenticated local closure followed by normal push and pull-request triggers
-passing across the registered matrix, retained exact run evidence, an Iter243
-result and successor seal, a final exact-head check cycle, an ordered-parent
-merge, and merged-master verification. Workflow dispatches and reruns cannot
-substitute for those observations.
+PR #90 remains draft and unmerged. Any required failure must be retained as the
+Iter245 result without a workflow rerun, waiver, or relabeling. Only an exact
+green final head may proceed to the ordered-parent merge and merged-master
+verification authorized by the operator.
 
 The scientific state is unchanged. Iter241 remains failed, independent semantic
 ground truth remains blocked, and local or remote engineering checks cannot
 establish prevalence, detector efficacy, independent review, publication
-readiness, release readiness, or a state-of-the-art result.
+readiness, release readiness, or a state-of-the-art result. Everything from the
+retained Iter242 section onward is preserved historical audit text; any embedded
+current or present-tense wording there is non-operative.
 
 ## Retained Iter242 and scientific audit basis
 
