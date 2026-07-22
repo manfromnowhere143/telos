@@ -161,7 +161,7 @@ def _require_isolated_python() -> None:
         metadata = executable.lstat()
     except OSError as exc:
         raise RunnerError("isolated Python executable is unavailable") from exc
-    if not (
+    trusted = (
         sys.flags.isolated
         and sys.flags.ignore_environment
         and sys.flags.no_user_site
@@ -169,8 +169,25 @@ def _require_isolated_python() -> None:
         and stat.S_ISREG(metadata.st_mode)
         and metadata.st_mode & stat.S_IXUSR
         and not metadata.st_mode & (stat.S_IWGRP | stat.S_IWOTH)
-    ):
-        raise RunnerError("runner requires an isolated Python invocation with -I")
+    )
+    if not trusted:
+        observation = {
+            "egid": os.getegid(),
+            "euid": os.geteuid(),
+            "executable_absolute": executable.is_absolute(),
+            "file_gid": metadata.st_gid,
+            "file_mode": f"{stat.S_IMODE(metadata.st_mode):04o}",
+            "file_regular": stat.S_ISREG(metadata.st_mode),
+            "file_uid": metadata.st_uid,
+            "ignore_environment": sys.flags.ignore_environment,
+            "isolated": sys.flags.isolated,
+            "no_user_site": sys.flags.no_user_site,
+            "owner_executable": bool(metadata.st_mode & stat.S_IXUSR),
+        }
+        raise RunnerError(
+            "runner requires an isolated Python invocation with -I; "
+            f"bounded_observation={json.dumps(observation, sort_keys=True)}"
+        )
 
 
 def _python_executable() -> str:
