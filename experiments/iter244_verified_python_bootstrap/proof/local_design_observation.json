@@ -1,0 +1,72 @@
+{
+  "candidate_draft": {
+    "bootstrap_sha256": "701ead198a4142c440beda3186a6efbec5901fee29ae911b3f62f263ac0662bf",
+    "committed": false,
+    "discarded_after_review": true,
+    "workflow_sha256": "d126b42352fd700f45f706c608809ca76cbed3ad923010274fa31a3dae8616a3"
+  },
+  "conclusion": {
+    "implementation_candidate": "invalid",
+    "local_design_acceptance": "failed",
+    "preregistration_integrity": "valid",
+    "remote_repository_integration": "not_run"
+  },
+  "findings": [
+    {
+      "falsified_gate": "installed-tree normalization before the first Python command",
+      "finding": "the candidate executed the archive setup script before its post-install normalization; the tagged template executes Python on line 54 and may execute ensurepip on line 55"
+    },
+    {
+      "falsified_gate": "hash-locked dependency installation",
+      "finding": "the tagged template line 57 performs an unpinned pip upgrade with force-reinstall and no registered artifact digest"
+    },
+    {
+      "falsified_gate": "archive extraction boundary",
+      "finding": "the candidate validated member path strings but did not reject symlink targets, hardlink targets, or special member types before extraction"
+    },
+    {
+      "falsified_gate": "exact redirect boundary",
+      "finding": "the candidate constrained the initial and final URL but did not observe and validate every intermediate redirect hop"
+    },
+    {
+      "falsified_gate": "real bootstrap test coverage",
+      "finding": "the local CI-derived closure excluded interpreter provisioning, so its static tests could not establish hosted bootstrap behavior"
+    }
+  ],
+  "partial_download_cleanup": {
+    "bytes_removed": 63119360,
+    "retained_archive_bytes": 0
+  },
+  "release_assets": [
+    {
+      "asset_id": 449621339,
+      "asset_name": "python-3.11.15-linux-24.04-x64.tar.gz",
+      "byte_count": 92521776,
+      "matrix": "3.11",
+      "release_tag": "3.11.15-27649667267",
+      "sha256": "a972aa7e44f1596aa63274a9ac58dbc2349c321f3f78b1c0fc5a60d5d69a6402",
+      "tag_commit": "c2033aa6c313f068f4bde238bfaa5987ad4f2e79"
+    },
+    {
+      "asset_id": 449635535,
+      "asset_name": "python-3.12.13-linux-24.04-x64.tar.gz",
+      "byte_count": 94990593,
+      "matrix": "3.12",
+      "release_tag": "3.12.13-27650778726",
+      "sha256": "ce7d511228f095b5ea1ad5568543388870f5964688303f9ddc24ba06c336bfba",
+      "tag_commit": "c2033aa6c313f068f4bde238bfaa5987ad4f2e79"
+    }
+  ],
+  "remote_actions": {
+    "dispatches": 0,
+    "pushes": 0,
+    "reruns": 0
+  },
+  "schema_version": "telos.iter244.local_design_observation.v1",
+  "source_template": {
+    "path": "installers/nix-setup-template.sh",
+    "repository": "actions/python-versions",
+    "sha256": "901217d894a222bf53b1b576bb35037df703141bb368e0ab7acf52c7d659a305",
+    "tag_commit": "c2033aa6c313f068f4bde238bfaa5987ad4f2e79"
+  }
+}
