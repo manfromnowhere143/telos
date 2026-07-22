@@ -1,0 +1,63 @@
+{
+  "check_run": {
+    "conclusion": "failure",
+    "id": 88850380205,
+    "name": "GitGuardian Security Checks"
+  },
+  "classification": "four occurrence-specific false positives; no credential was identified",
+  "dashboard_disposition": {
+    "attempted": false,
+    "reason": "the in-app browser surface was unavailable",
+    "status": "blocked"
+  },
+  "general_security_approval": false,
+  "incidents": [
+    {
+      "gitguardian_id": 35035983,
+      "object": {
+        "object_id": "76c6791ec2a051804a50f65b5297b709dea4f49c",
+        "object_type": "tree",
+        "proof": "git cat-file identifies a tree and git rev-parse 6a9a4f66ec331011c9dfbe14b3a22259a5b585d5^{tree} returns this exact object ID"
+      },
+      "occurrences": [
+        {
+          "commit": "aef48926738c4843fc61db73562729e50ca516a5",
+          "line": 35,
+          "occurrence_id": 282279243,
+          "path": "scripts/validate_iter240_repository_closure.py"
+        },
+        {
+          "commit": "09da0b64331d0f39980843ef48d6b7fd536cab0e",
+          "line": 169,
+          "occurrence_id": 282279237,
+          "path": "scripts/route_iter241_pytest.py"
+        }
+      ]
+    },
+    {
+      "gitguardian_id": 35035985,
+      "object": {
+        "object_id": "6a9a4f66ec331011c9dfbe14b3a22259a5b585d5",
+        "object_type": "commit",
+        "proof": "git cat-file identifies a commit whose exact tree is 76c6791ec2a051804a50f65b5297b709dea4f49c"
+      },
+      "occurrences": [
+        {
+          "commit": "aef48926738c4843fc61db73562729e50ca516a5",
+          "line": 4,
+          "occurrence_id": 282279235,
+          "path": "experiments/iter241_iter240_repository_closure/proof/raw/iter240_repository_closure/capture_attempt.json"
+        },
+        {
+          "commit": "09da0b64331d0f39980843ef48d6b7fd536cab0e",
+          "line": 168,
+          "occurrence_id": 282279240,
+          "path": "scripts/route_iter241_pytest.py"
+        }
+      ]
+    }
+  ],
+  "occurrence_count": 4,
+  "schema_version": "telos.iter243.gitguardian_classification.v1",
+  "unique_value_count": 2
+}

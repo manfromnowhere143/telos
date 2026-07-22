@@ -1,0 +1,137 @@
+{
+  "candidate": {
+    "commit": "b0682a4b02eb65929c05ba45e57917b9a1ecf67e",
+    "tree": "b84b474f06eaaf79d4fc9f045fae6418e11071fe"
+  },
+  "collection_boundary": "GitHub run metadata and the bounded trust observation emitted by the authenticated runner; unrestricted logs are not retained",
+  "conclusion": {
+    "collection_reached": false,
+    "iter243_falsifier_triggered": "executable_world_writable",
+    "remote_repository_integration": "failed",
+    "required_job_count": 4,
+    "required_job_failures": 4
+  },
+  "runner_image": {
+    "image": "ubuntu-24.04",
+    "image_version": "20260714.240.1",
+    "provisioner_version": "20260707.563",
+    "runner_version": "2.335.1"
+  },
+  "runs": [
+    {
+      "conclusion": "failure",
+      "created_at": "2026-07-22T06:38:22Z",
+      "event": "push",
+      "jobs": [
+        {
+          "bounded_observation": {
+            "decision": "deny",
+            "egid": 1001,
+            "euid": 1001,
+            "executable_absolute": true,
+            "file_gid": 1000,
+            "file_mode": "0777",
+            "file_regular": true,
+            "file_uid": 1001,
+            "ignore_environment": 1,
+            "isolated": 1,
+            "no_user_site": 1,
+            "owner_executable": true,
+            "reason": "executable_world_writable",
+            "safe_path": true
+          },
+          "conclusion": "failure",
+          "job_id": 88850375617,
+          "name": "verify push py3.11",
+          "python": "3.11.15"
+        },
+        {
+          "bounded_observation": {
+            "decision": "deny",
+            "egid": 1001,
+            "euid": 1001,
+            "executable_absolute": true,
+            "file_gid": 1000,
+            "file_mode": "0777",
+            "file_regular": true,
+            "file_uid": 1001,
+            "ignore_environment": 1,
+            "isolated": 1,
+            "no_user_site": 1,
+            "owner_executable": true,
+            "reason": "executable_world_writable",
+            "safe_path": true
+          },
+          "conclusion": "failure",
+          "job_id": 88850375733,
+          "name": "verify push py3.12",
+          "python": "3.12.13"
+        }
+      ],
+      "run_attempt": 1,
+      "run_id": 29897398782,
+      "updated_at": "2026-07-22T06:38:46Z",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29897398782"
+    },
+    {
+      "conclusion": "failure",
+      "created_at": "2026-07-22T06:38:24Z",
+      "event": "pull_request",
+      "jobs": [
+        {
+          "bounded_observation": {
+            "decision": "deny",
+            "egid": 1001,
+            "euid": 1001,
+            "executable_absolute": true,
+            "file_gid": 1000,
+            "file_mode": "0777",
+            "file_regular": true,
+            "file_uid": 1001,
+            "ignore_environment": 1,
+            "isolated": 1,
+            "no_user_site": 1,
+            "owner_executable": true,
+            "reason": "executable_world_writable",
+            "safe_path": true
+          },
+          "conclusion": "failure",
+          "job_id": 88850383254,
+          "name": "verify pull_request py3.11",
+          "python": "3.11.15"
+        },
+        {
+          "bounded_observation": {
+            "decision": "deny",
+            "egid": 1001,
+            "euid": 1001,
+            "executable_absolute": true,
+            "file_gid": 1000,
+            "file_mode": "0777",
+            "file_regular": true,
+            "file_uid": 1001,
+            "ignore_environment": 1,
+            "isolated": 1,
+            "no_user_site": 1,
+            "owner_executable": true,
+            "reason": "executable_world_writable",
+            "safe_path": true
+          },
+          "conclusion": "failure",
+          "job_id": 88850383239,
+          "name": "verify pull_request py3.12",
+          "python": "3.12.13"
+        }
+      ],
+      "run_attempt": 1,
+      "run_id": 29897401117,
+      "updated_at": "2026-07-22T06:38:46Z",
+      "url": "https://github.com/manfromnowhere143/telos/actions/runs/29897401117"
+    }
+  ],
+  "schema_version": "telos.iter243.remote_ci_observation.v1",
+  "workflow": {
+    "path": ".github/workflows/ci.yml",
+    "sha256": "d4da3782d4b4f806399446db2d7b13537aad59380641e8f2c9d04ff798cd76bb"
+  }
+}
