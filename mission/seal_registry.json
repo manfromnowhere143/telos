@@ -533,6 +533,30 @@
         "The four GitGuardian findings reported on pull request 90 may be classified only from the exact flagged bytes; a false-positive disposition is permitted only if each value is demonstrated to be a Git object identifier or evidence digest rather than a credential, and that disposition does not constitute a general security approval.",
         "Remote green checks can support only repository integration for these bytes; Iter241 remains failed, independent review and independent semantic ground truth remain blocked, and no provider or model call, scientific execution, human contact, spending, paper submission, publication, release, deployment, or scientific claim is authorized."
       ]
+    },
+    {
+      "seal_id": "iter243-completed-evidence-seal",
+      "record_type": "successor_path_snapshot",
+      "predecessor_seal_id": "iter243-iter242-remote-ci-recovery-authorization",
+      "reference_commit": "02f89c21a7c2e89a287f4946f44414a98210ea03",
+      "protected_sets": [
+        {
+          "set_id": "iter243-completed-evidence-tree",
+          "selector": {
+            "kind": "tree",
+            "path": "experiments/iter243_iter242_remote_ci_recovery"
+          },
+          "policy": "exact_tree",
+          "blob_count": 8,
+          "manifest_sha256": "c107a140ecec6a9dcd5d7cc1d62544005f982999b812b2bb1069345fd3c58cfe"
+        }
+      ],
+      "limitations": [
+        "This snapshot freezes the exact eight regular Git blobs in the Iter243 component at the named reference commit; byte identity does not establish authorship, wall-clock chronology, semantic truth, scientific correctness, independence, external timestamp authority, security approval, or remote acceptance.",
+        "Iter243 failed all four required hosted jobs before pytest collection because both setup-python executables were mode 0777 and correctly denied as world-writable; no required failure was waived or relabeled.",
+        "The retained correction makes preregistration integrity invalid and does not retroactively validate the defective amendment; the GitGuardian classification is occurrence-specific and is not general security approval.",
+        "Iter241 remains failed, Iter242 remains only a supported local engineering closure, and no retry, provider or model call, scientific execution, human contact, spending, paper submission, publication, release, deployment, visibility change, or scientific authority is granted."
+      ]
     }
   ]
 }
