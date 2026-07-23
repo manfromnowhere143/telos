@@ -29,8 +29,8 @@ active-gate coverage report is retained evidence that the declared surfaces
 resolve against it:
 
 - [`mission/claim_registry.json`](../mission/claim_registry.json)
-- [`active gate`](../experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md)
-- [`claim_coverage_report.json`](../experiments/iter245_offline_verified_python_bootstrap/proof/claim_coverage_report.json)
+- [`active gate`](../experiments/iter246_iter245_baton_refresh/HYPOTHESIS.md)
+- [`claim_coverage_report.json`](../experiments/iter246_iter245_baton_refresh/proof/claim_coverage_report.json)
 
 The manuscript and root README are current claim projections, while the
 experiment index is the correction-preserving discovery surface:

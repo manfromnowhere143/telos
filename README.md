@@ -55,7 +55,8 @@ the current [paper](paper/telos.tex).
 ## Current engineering gate
 
 The active gate is
-[`experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md`](experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md).
+[`experiments/iter246_iter245_baton_refresh/HYPOTHESIS.md`](experiments/iter246_iter245_baton_refresh/HYPOTHESIS.md),
+the registered operational baton refresh for the merged Iter245 closure.
 Iter243 is sealed failed remote-integration evidence and its preregistration
 integrity is invalid. Iter244 retained a valid preregistration but failed local
 design acceptance: its implementation candidate was discarded, nothing was
@@ -66,18 +67,18 @@ without a rerun after exact-archive verification, permission and native-loader
 containment, and the authenticated runner's world-write denial. The exact
 [Iter245 result](experiments/iter245_offline_verified_python_bootstrap/RESULT.md)
 retains that bounded outcome and its capture-contract limitation. Its exact
-successor seal, fresh final-head checks, ordered-parent merge, and merged-master
-verification remain the required closure sequence. Iter241's failed capture
-remains sealed and cannot be retried by this gate. This engineering result is
-not a scientific result, independent review, general security approval,
-publication, or release readiness.
+successor seal, fresh final-head checks, ordered-parent merge, and
+merged-master verification are complete and receipted in the current dated
+audit. Iter241's failed capture remains sealed and cannot be retried by this
+gate. This engineering result is not a scientific result, independent review,
+general security approval, publication, or release readiness.
 
 <!-- telos-current-state:start -->
 ```text
 status: supported
 scientific_status: blocked pending independent ground truth
 claim_boundary: cross-solver recurrence on one fixed 53-target convenience cohort; fresh-cohort concentration is inconclusive, fix-size transfer is untested, and independent semantic ground truth is absent
-next_authorized_action: validate and append the exact Iter245 successor seal if it is absent, then publish only the resulting clean sealed head to PR #90 by normal fast-forward, require fresh push and pull-request CI to pass on Python 3.11 and Python 3.12, update the PR metadata, ready and merge only the exact green head with ordered parents, verify merged master and its CI, and stop when all conditions already hold; no force push, workflow dispatch or rerun, repository-setting change, iter241 retry, provider or model call, scientific execution, human contact, spending, paper submission, release, deployment, or visibility change is authorized
+next_authorized_action: no autonomous action: the Iter245 closure is complete — the exact successor seal `0e14f512ed935cdcdecb56aed04f515546bb57f8` passed fresh push and pull-request CI on Python 3.11 and Python 3.12, PR #90 merged as `9b61abf1f7afb305656544c5823da9b16a4eb69b` with ordered parents and a byte-identical tree, and merged-master CI passed — so stop; the next gates, independent semantic ground truth under the registered admission design or the frozen iter202 natural-rate replication, each require separate operator direction, an approved budget, and operator-supplied provider credentials; no force push, workflow dispatch or rerun, repository-setting change, iter241 retry, provider or model call, scientific execution, human contact, spending, paper submission, release, deployment, or visibility change is authorized
 ```
 <!-- telos-current-state:end -->
 
@@ -92,7 +93,7 @@ The failed Iter243 remote-integration outcome is retained in
 [`experiments/iter243_iter242_remote_ci_recovery/RESULT.md`](experiments/iter243_iter242_remote_ci_recovery/RESULT.md),
 and the failed Iter244 design review is retained in
 [`experiments/iter244_verified_python_bootstrap/RESULT.md`](experiments/iter244_verified_python_bootstrap/RESULT.md).
-The active engineering-recovery contract is the
+The completed engineering-recovery contract is the
 [Iter245 hypothesis](experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md),
 supplemented by its
 [native-loader](experiments/iter245_offline_verified_python_bootstrap/AMENDMENT-2026-07-22-native-loader-boundary.md)
@@ -103,9 +104,9 @@ amendments, with the supported bounded outcome retained in its
 
 At the current working boundary:
 
-- iter238 through iter244 exact completed evidence are protected by registered
-  successor seals, and Iter245 is open under the current additions-only
-  prospective authorization;
+- iter238 through iter245 exact completed evidence are protected by registered
+  successor seals, and the Iter246 baton refresh is open under the current
+  additions-only prospective authorization;
 - public quantitative claims remain governed by
   [`mission/claim_registry.json`](mission/claim_registry.json), protected-byte
   transitions by [`mission/seal_registry.json`](mission/seal_registry.json),
@@ -148,8 +149,8 @@ active. Iter238 used zero provider spend.
 
 The mutable authority is
 [`mission/current.json`](mission/current.json), which points to
-[`docs/HANDOFF-2026-07-22-iter245.md`](docs/HANDOFF-2026-07-22-iter245.md) and
-[`docs/TELOS-AUDIT-2026-07-22.md`](docs/TELOS-AUDIT-2026-07-22.md).
+[`docs/HANDOFF-2026-07-24-iter246.md`](docs/HANDOFF-2026-07-24-iter246.md) and
+[`docs/TELOS-AUDIT-2026-07-24.md`](docs/TELOS-AUDIT-2026-07-24.md).
 Root [`HANDOFF.md`](HANDOFF.md), [`CONTINUITY.md`](CONTINUITY.md), and
 [`mission/loop.json`](mission/loop.json) are protected historical surfaces,
 not the current baton.
@@ -193,8 +194,10 @@ own consequential scientific claim.
 
 The current evidence is best read in this order:
 
-1. [Takeover audit](docs/TELOS-AUDIT-2026-07-22.md) — dated verdict,
-   frontier comparison, and mission sequence.
+1. [Closure verification audit](docs/TELOS-AUDIT-2026-07-24.md) — dated
+   receipts for the merged Iter245 closure — and its predecessor
+   [takeover audit](docs/TELOS-AUDIT-2026-07-22.md) with the frontier
+   comparison and mission sequence.
 2. [Current paper source](paper/telos.tex) and [PDF](paper/telos.pdf) —
    forensic case-series synthesis; not submission-ready or a benchmark claim.
 3. [Iter237 truth maintenance](experiments/iter237_truth_maintenance_gate/RESULT.md)
