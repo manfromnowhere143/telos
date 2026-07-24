@@ -341,10 +341,10 @@ HANDOFF_PATH_RE = re.compile(
 AUDIT_PATH_RE = re.compile(r"^docs/TELOS-AUDIT-\d{4}-\d{2}-\d{2}\.md$")
 CORRECTIVE_HISTORICAL_BINDING_IDS = frozenset(
     {
-        "docs/TELOS-AUDIT-2026-07-22.md:2840c3cc068649f88be3:0:0",
-        "docs/TELOS-AUDIT-2026-07-22.md:32711aaff2886f3cb92c:0:1",
-        "docs/TELOS-AUDIT-2026-07-22.md:0c30a8216c2312a4e2c9:0:0",
-        "docs/TELOS-AUDIT-2026-07-22.md:e0e544ced3374c2fe533:0:1",
+        "docs/TELOS-AUDIT-2026-07-24.md:267616d00f012220d5a6:0:0",
+        "docs/TELOS-AUDIT-2026-07-24.md:297ac40c45affd4bbe0a:0:1",
+        "docs/TELOS-AUDIT-2026-07-24.md:95f6ee0b95f23c473c9a:0:0",
+        "docs/TELOS-AUDIT-2026-07-24.md:8d581aa4f7751a2bf978:0:1",
     }
 )
 AUTHORIZED_UNBOUND_RETRACTED_HEADS: frozenset[str] = frozenset()
@@ -373,6 +373,9 @@ AUTHORIZED_BINDING_INVENTORY_SHA256 = {
     ),
     "experiments/iter245_offline_verified_python_bootstrap/HYPOTHESIS.md": (
         "c97fe9256390a50778f491b1c7a9821fc7591d6322a8e815b317331edf5e2b84"
+    ),
+    "experiments/iter246_iter245_baton_refresh/HYPOTHESIS.md": (
+        "e8744867aa9228157d89805d022473c9bb4808dc37487eed0b45021d5b6cc252"
     ),
 }
 
@@ -1964,100 +1967,100 @@ CURATED_INTERNAL_PROJECTIONS: dict[str, dict[str, Any]] = {
         _FIXED, "/value/cohort_count"
     ),
     # Current audit repeats of the same six regenerated claims.
-    "docs/TELOS-AUDIT-2026-07-22.md:0c30a8216c2312a4e2c9:0:1": _rounded(
+    "docs/TELOS-AUDIT-2026-07-24.md:95f6ee0b95f23c473c9a:0:1": _rounded(
         _SELECTOR,
         "/value/p_two_sided_asymptotic_tie_continuity",
         4,
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:e3732a2a607066ad10ed:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:f528a1b4a1b8e0c9d82e:0:0": _equals(
         _FIXED, "/value/solver_configuration_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:aa04612dcfd47957765e:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:84fb0e5451e2636d292b:0:0": _equals(
         _FIXED, "/value/provider_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:9bcdc435abf35b969a70:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:69b0c231e0584a7f0f6c:0:1": _equals(
         _FIXED, "/value/target_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:bec9bdd2cf530d19cb5d:0:3": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:e7a0acc29a096b84e190:0:3": _equals(
         _ALL_RUNS, "/value/patch_level_positives"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:bec9bdd2cf530d19cb5d:0:5": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:e7a0acc29a096b84e190:0:5": _equals(
         _ALL_RUNS, "/value/unadjudicated"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:8bdf733c7dbc1b47fc09:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:ae63026437b3fe09faa5:0:1": _equals(
         _FIXED, "/value/solver_configuration_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:aa04612dcfd47957765e:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:84fb0e5451e2636d292b:0:1": _equals(
         _FIXED, "/value/target_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:f89079f9897bcc7613e9:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:76e76f163d594755dbbb:0:1": _equals(
         _ALL_RUNS, "/value/patch_level_positives"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:f89079f9897bcc7613e9:0:2": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:76e76f163d594755dbbb:0:2": _equals(
         _ALL_RUNS, "/value/certifications"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:b084e848350a14302d29:0:4": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:f8dd28b73440e1040448:0:4": _equals(
         _ALL_RUNS, "/value/unique_task_identities"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:4a7b6ad21d9ab629d349:0:2": _ratio(
+    "docs/TELOS-AUDIT-2026-07-24.md:5d0c30d980a1e1118206:0:2": _ratio(
         _FRESH,
         "/value/cohorts/iter224/k",
         "/value/cohorts/iter224/N",
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:4a7b6ad21d9ab629d349:0:3": _ratio(
+    "docs/TELOS-AUDIT-2026-07-24.md:5d0c30d980a1e1118206:0:3": _ratio(
         _FRESH,
         "/value/cohorts/iter228/k",
         "/value/cohorts/iter228/N",
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:4a7b6ad21d9ab629d349:0:4": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:5d0c30d980a1e1118206:0:4": _equals(
         _FRESH, "/value/cohorts/iter224/u"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:4a7b6ad21d9ab629d349:0:5": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:5d0c30d980a1e1118206:0:5": _equals(
         _FRESH, "/value/cohorts/iter228/u"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:588bdf7441a09b1be1a4:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:f2a270159b2eea3f0283:0:0": _equals(
         _FRESH, "/value/total/N"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:5afab7e8dd4d34b89a97:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:c6b9d487f571340ceb5d:0:0": _equals(
         _FRESH, "/value/total/k"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:5afab7e8dd4d34b89a97:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:c6b9d487f571340ceb5d:0:1": _equals(
         _FRESH, "/value/total/N"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:de57a92c3ac891f2d9b7:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:0c4699ba6841bed42f0a:0:0": _equals(
         _FRESH, "/value/total/u"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:de57a92c3ac891f2d9b7:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:0c4699ba6841bed42f0a:0:1": _equals(
         _FRESH, "/value/total/N"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:9bcdc435abf35b969a70:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:69b0c231e0584a7f0f6c:0:0": _equals(
         _FIXED, "/value/solver_configuration_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:6db4dfd003b6b9647bec:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:79f48bd2315f65745cbd:0:0": _equals(
         _BENCHMARK, "/value/positive_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:6db4dfd003b6b9647bec:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:79f48bd2315f65745cbd:0:1": _equals(
         _BENCHMARK, "/value/control_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:6b5d4be176f500421db7:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:d2d5b0493d42e2e61ced:0:0": _equals(
         _BENCHMARK, "/value/controls/normalized_identical_to_accepted"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:6469fccfd72be86b1f56:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:461cc58f06333886d9cd:0:0": _equals(
         _FRESH, "/value/cohort_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:6469fccfd72be86b1f56:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:461cc58f06333886d9cd:0:1": _equals(
         _FRESH, "/value/total/k"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:706ed46748be79374292:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:cbbdb71cd9067524bae5:0:1": _equals(
         _FIXED, "/value/cohort_count"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:f89079f9897bcc7613e9:0:3": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:76e76f163d594755dbbb:0:3": _equals(
         _ALL_RUNS, "/value/unique_task_identities"
     ),
-    "docs/HANDOFF-2026-07-22-iter245.md:a6c3e8bb7fa52ff11f9e:0:0": _equals(
+    "docs/HANDOFF-2026-07-24-iter246.md:c63692156f2b97c0df5e:0:0": _equals(
         _FIXED, "/value/cohort_count"
     ),
-    "docs/HANDOFF-2026-07-22-iter245.md:a6c3e8bb7fa52ff11f9e:0:1": _equals(
+    "docs/HANDOFF-2026-07-24-iter246.md:c63692156f2b97c0df5e:0:1": _equals(
         _FIXED, "/value/target_count"
     ),
     "mission/current.json:4e07630718bf116b4318:0:0": _equals(
@@ -2081,30 +2084,30 @@ CURATED_EXTERNAL_BODY_BINDINGS = frozenset(
         "paper/telos.tex:b31a15caa9c806030910:0:1",
         "paper/telos.tex:f3dd7988619340121f3f:0:0",
         "paper/telos.tex:f3dd7988619340121f3f:0:1",
-        "docs/TELOS-AUDIT-2026-07-22.md:b084e848350a14302d29:0:2",
-        "docs/TELOS-AUDIT-2026-07-22.md:b084e848350a14302d29:0:3",
+        "docs/TELOS-AUDIT-2026-07-24.md:f8dd28b73440e1040448:0:2",
+        "docs/TELOS-AUDIT-2026-07-24.md:f8dd28b73440e1040448:0:3",
     }
 )
 
 CURATED_ENGINEERING_BINDINGS = frozenset(
     {
-        "docs/HANDOFF-2026-07-22-iter245.md:839ac64d138e10b62629:0:0",
-        "docs/HANDOFF-2026-07-22-iter245.md:839ac64d138e10b62629:0:2",
-        "docs/HANDOFF-2026-07-22-iter245.md:76355f73ab77d0d90d1c:0:0",
-        "docs/HANDOFF-2026-07-22-iter245.md:76355f73ab77d0d90d1c:0:1",
-        "docs/HANDOFF-2026-07-22-iter245.md:32a8fbf62c724673937f:0:0",
+        "docs/HANDOFF-2026-07-24-iter246.md:9537b69016114ea8b062:0:0",
+        "docs/HANDOFF-2026-07-24-iter246.md:9537b69016114ea8b062:0:2",
+        "docs/HANDOFF-2026-07-24-iter246.md:59f1a4f10d41e8af2004:0:0",
+        "docs/HANDOFF-2026-07-24-iter246.md:59f1a4f10d41e8af2004:0:1",
+        "docs/HANDOFF-2026-07-24-iter246.md:f51578441a110a4b8412:0:0",
         "paper/README.md:652cbf7d9b2f6f4990a2:0:2",
     }
 )
 
 CURATED_PROTOCOL_BINDINGS = frozenset(
     {
-        "docs/HANDOFF-2026-07-22-iter245.md:f1416642c5c4c245a35a:0:1",
-        "docs/HANDOFF-2026-07-22-iter245.md:3c51fff001b11529c74c:0:0",
-        "docs/HANDOFF-2026-07-22-iter245.md:3c51fff001b11529c74c:0:1",
-        "docs/HANDOFF-2026-07-22-iter245.md:01c78fb34309581b6161:0:0",
-        "docs/HANDOFF-2026-07-22-iter245.md:01c78fb34309581b6161:0:1",
-        "docs/HANDOFF-2026-07-22-iter245.md:8ae5f69e73530a59bac0:0:1",
+        "docs/HANDOFF-2026-07-24-iter246.md:972de8446abefeb87796:0:1",
+        "docs/HANDOFF-2026-07-24-iter246.md:e8ca5fdb59a626e44e9d:0:0",
+        "docs/HANDOFF-2026-07-24-iter246.md:e8ca5fdb59a626e44e9d:0:1",
+        "docs/HANDOFF-2026-07-24-iter246.md:1f6e4cd8e371ccf86772:0:0",
+        "docs/HANDOFF-2026-07-24-iter246.md:1f6e4cd8e371ccf86772:0:1",
+        "docs/HANDOFF-2026-07-24-iter246.md:36a57343688ed36135b2:0:1",
         "paper/README.md:54482c748641120713a1:0:0",
         "paper/telos.tex:18bf49eddab78c6bd12b:0:1",
         # Statistical procedure parameters are claims, never typography.
@@ -2112,9 +2115,9 @@ CURATED_PROTOCOL_BINDINGS = frozenset(
         "paper/telos.tex:d5aad3b6426f1432ab9b:0:7",
         "paper/telos.tex:49891e97df008b2fc962:0:1",
         "paper/telos.tex:a4c627b2636fdb5cb3f4:0:1",
-        "docs/TELOS-AUDIT-2026-07-22.md:5afab7e8dd4d34b89a97:0:2",
-        "docs/TELOS-AUDIT-2026-07-22.md:d59c0f3858f1fb7bdf87:0:2",
-        "docs/TELOS-AUDIT-2026-07-22.md:8e650e724d8610b66a80:0:5",
+        "docs/TELOS-AUDIT-2026-07-24.md:c6b9d487f571340ceb5d:0:2",
+        "docs/TELOS-AUDIT-2026-07-24.md:301cf0c9697bf732d796:0:2",
+        "docs/TELOS-AUDIT-2026-07-24.md:a581c563551b53a23f30:0:5",
         # Mixed empirical/method paragraphs need atom-local reviewed typing.
         "paper/telos.tex:40275b3744d336814554:0:2",
         "paper/telos.tex:40275b3744d336814554:0:3",
@@ -2170,16 +2173,16 @@ UNRESOLVED_RETAINED_EXCLUSIONS = [
 
 _SELECTOR_PREDECESSOR = builder.SELECTOR_PREDECESSOR_CLAIM_ID
 CURATED_LINEAGE_PROJECTIONS = {
-    "docs/TELOS-AUDIT-2026-07-22.md:2840c3cc068649f88be3:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:267616d00f012220d5a6:0:0": _equals(
         _SELECTOR_PREDECESSOR, "/value/reported_p"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:32711aaff2886f3cb92c:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:297ac40c45affd4bbe0a:0:1": _equals(
         _SELECTOR_PREDECESSOR, "/value/reported_p"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:0c30a8216c2312a4e2c9:0:0": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:95f6ee0b95f23c473c9a:0:0": _equals(
         _SELECTOR_PREDECESSOR, "/value/reported_p"
     ),
-    "docs/TELOS-AUDIT-2026-07-22.md:e0e544ced3374c2fe533:0:1": _equals(
+    "docs/TELOS-AUDIT-2026-07-24.md:8d581aa4f7751a2bf978:0:1": _equals(
         _SELECTOR_PREDECESSOR, "/value/reported_p"
     ),
 }
